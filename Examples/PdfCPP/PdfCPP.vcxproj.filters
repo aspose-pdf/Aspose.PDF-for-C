@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Text">
+      <UniqueIdentifier>{513290fd-29d1-4728-b011-67fb2191e6f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Annotations">
+      <UniqueIdentifier>{46e77a75-fbdb-45d7-998e-f2e1ac83da55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Document">
+      <UniqueIdentifier>{294124af-1381-41b0-84fa-0665ef87560e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Attachments">
+      <UniqueIdentifier>{295f0a7a-2235-4f06-9a42-0ee1c1d826f5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Document\AddImage.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="Document\CreateDoc.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="Document\EmbedFont.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="Document\GetSetDocWindowProperties.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="Document\GetSetInfo.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="Document\GetSetMetadata.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="Document\SetZoomFactor.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\AddText.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\AlignParagraph.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\CreatePdf.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\ExtractText.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\FindText.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\ReplaceText.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Annotations\AddAnnotation.cpp">
+      <Filter>Annotations</Filter>
+    </ClCompile>
+    <ClCompile Include="Attachments\AddAttachments.cpp">
+      <Filter>Attachments</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PdfExamples.h" />
+  </ItemGroup>
+</Project>
