@@ -1,5 +1,4 @@
 #include "Aspose.Pdf.h"
-
 using namespace System;
 using namespace Aspose::Pdf;
 using namespace Aspose::Pdf::Text;
@@ -8,7 +7,7 @@ void ExtractText()
 {
 	// ExStart:ExtractText	
 	auto extractor = MakeObject<Facades::PdfExtractor>();
-	extractor->BindPdf(L"..\\Data\\input.pdf");
+	extractor->BindPdf(L"..\\Data\\Text\\input.pdf");
 	extractor->ExtractText();
 
 	auto memStream = MakeObject<IO::MemoryStream>();

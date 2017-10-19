@@ -1,5 +1,4 @@
 #include "Aspose.Pdf.h"
-
 using namespace System;
 using namespace Aspose::Pdf;
 using namespace Aspose::Pdf::Text;
@@ -17,7 +16,7 @@ void EmbedFont()
 	segment->set_TextState(ts);
 	fragment->get_Segments()->Add(segment);
 	page->get_Paragraphs()->Add(fragment);
-	doc->Save(L"..\\Data\\EmbedFont.pdf");
+	doc->Save(L"..\\Data\\Document\\EmbedFont.pdf");
 	// ExEnd:EmbedFont	
 	Console::WriteLine(L"Embed font into document finished.");
 }

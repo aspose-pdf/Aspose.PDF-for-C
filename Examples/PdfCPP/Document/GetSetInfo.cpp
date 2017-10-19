@@ -1,5 +1,4 @@
 #include "Aspose.Pdf.h"
-
 using namespace System;
 using namespace Aspose::Pdf;
 using namespace Aspose::Pdf::Text;
@@ -16,11 +15,11 @@ void GetSetInfo()
 	
 	// Save document
 	doc->get_Pages()->Add();
-	doc->Save(L"..\\Data\\DocumentInfo.pdf");
+	doc->Save(L"..\\Data\\Document\\DocumentInfo.pdf");
 
  	info.reset();
 
-	doc = MakeObject<Document>(L"..\\Data\\DocumentInfo.pdf");
+	doc = MakeObject<Document>(L"..\\Data\\Document\\DocumentInfo.pdf");
 	info = doc->get_Info();
 	// Get document information
 	Console::WriteLine(L"Author: {0}", info->get_Author());

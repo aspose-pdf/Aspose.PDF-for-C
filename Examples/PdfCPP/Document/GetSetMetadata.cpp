@@ -1,5 +1,4 @@
 #include "Aspose.Pdf.h"
-
 using namespace System;
 using namespace Aspose::Pdf;
 using namespace Aspose::Pdf::Text;
@@ -14,9 +13,9 @@ void GetSetMetadata()
 	md->idx_set(L"xmp:CustomProperty", MakeObject<Engine::Data::XMP::XmpValue>(L"Custom Value"));
 
 	doc->get_Pages()->Add();
-	doc->Save(L"..\\Data\\Metadata.pdf");
+	doc->Save(L"..\\Data\\Document\\Metadata.pdf");
 
-	doc = MakeObject<Document>(L"..\\Data\\Metadata.pdf");
+	doc = MakeObject<Document>(L"..\\Data\\Document\\Metadata.pdf");
 	md = doc->get_Metadata();
 
 	Console::WriteLine(L"CreateDate: {0}", md->idx_get(L"xmp:CreateDate"));

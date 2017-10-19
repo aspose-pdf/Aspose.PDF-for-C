@@ -13,6 +13,9 @@
     <Filter Include="Attachments">
       <UniqueIdentifier>{295f0a7a-2235-4f06-9a42-0ee1c1d826f5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pages">
+      <UniqueIdentifier>{5854813d-5ecf-41f7-8ae9-d5df6c72ff9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -60,6 +63,36 @@
     </ClCompile>
     <ClCompile Include="Attachments\AddAttachments.cpp">
       <Filter>Attachments</Filter>
+    </ClCompile>
+    <ClCompile Include="Attachments\DeleteAttachments.cpp">
+      <Filter>Attachments</Filter>
+    </ClCompile>
+    <ClCompile Include="Attachments\GetAttachmentInformation.cpp">
+      <Filter>Attachments</Filter>
+    </ClCompile>
+    <ClCompile Include="Pages\ConcatenatePdfFiles.cpp">
+      <Filter>Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="Pages\DeleteParticularPage.cpp">
+      <Filter>Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="Pages\GetPageCount.cpp">
+      <Filter>Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="Pages\GetPageProperties.cpp">
+      <Filter>Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="Pages\InsertEmptyPage.cpp">
+      <Filter>Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="Pages\InsertEmptyPageAtEnd.cpp">
+      <Filter>Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="Pages\SplitToPages.cpp">
+      <Filter>Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="Pages\UpdateDimensions.cpp">
+      <Filter>Pages</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

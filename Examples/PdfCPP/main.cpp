@@ -27,7 +27,7 @@ int main()
 	//// Annotations
 	//// =====================================================
 	
-	//AddAnnotation();
+	//AddAnnotation();	
 
 	//// Document
 	//// =====================================================
@@ -43,7 +43,20 @@ int main()
 	//// Attachments
 	//// =====================================================
 
-	AddAttachments();
+	//AddAttachments();
+	//DeleteAttachments();
+	//GetAttachmentInformation();
+
+	//// Pages
+	//// =====================================================
+	ConcatenatePdfFiles();
+	//GetPageCount();
+	//GetPageProperties();
+	//InsertEmptyPage();
+	//InsertEmptyPageAtEnd();
+	//DeleteParticularPage();
+	//UpdateDimensions();
+	//SplitToPages();
 
 	// Stop before exiting
 	printf("\n\nProgram Finished. Press any key to exit....");

@@ -1,5 +1,4 @@
 #include "Aspose.Pdf.h"
-
 using namespace System;
 using namespace Aspose::Pdf;
 using namespace Aspose::Pdf::Text;
@@ -21,7 +20,7 @@ void AlignParagraph()
 	paragraps->idx_get(2)->set_HorizontalAlignment(HorizontalAlignment::Right);
 	paragraps->idx_get(3)->set_HorizontalAlignment(HorizontalAlignment::Justify);
 
-	doc->Save(L"..\\Data\\Paragraph.pdf");
+	doc->Save(L"..\\Data\\Text\\Paragraph_out.pdf");
 	// ExEnd:AlignParagraph
 	Console::WriteLine(L"Paragraphs aligned successfully.");
 }

@@ -1,5 +1,4 @@
 #include "Aspose.Pdf.h"
-
 using namespace System;
 using namespace Aspose::Pdf;
 using namespace Aspose::Pdf::Text;
@@ -35,9 +34,9 @@ void GetSetDocWindowProperties()
 	doc->get_Pages()->Add();
 	doc->get_Pages()->Add();
 	doc->get_Pages()->Add();
-	doc->Save(L"..\\Data\\DocWindowProperties.pdf");
+	doc->Save(L"..\\Data\\Document\\DocWindowProperties.pdf");
 
-	doc = MakeObject<Document>(L"..\\Data\\DocWindowProperties.pdf");
+	doc = MakeObject<Document>(L"..\\Data\\Document\\DocWindowProperties.pdf");
 
 	Console::WriteLine(L"Updated values:");
 	Console::WriteLine(L"CenterWindow : {0}", Convert::ToString(doc->get_CenterWindow()));

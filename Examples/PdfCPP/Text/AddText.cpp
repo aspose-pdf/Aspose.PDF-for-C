@@ -1,5 +1,4 @@
 #include "Aspose.Pdf.h"
-
 using namespace System;
 using namespace Aspose::Pdf;
 using namespace Aspose::Pdf::Text;
@@ -32,7 +31,7 @@ void AddText()
 	par->AppendLine(L"Line 3");
 
 	tb->AppendParagraph(par);
-	doc->Save(L"..\\Data\\AddText.pdf");
+	doc->Save(L"..\\Data\\Text\\AddText.pdf");
 	// ExEnd:AddText
 	Console::WriteLine(L"Text added successfully to document.");
 }

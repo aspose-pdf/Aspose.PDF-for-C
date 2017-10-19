@@ -1,5 +1,4 @@
 #include "Aspose.Pdf.h"
-
 using namespace System;
 using namespace System::Drawing;
 using namespace Aspose::Pdf;
@@ -25,6 +24,6 @@ void AddImage()
 
 	stream->Seek(0, System::IO::SeekOrigin::Begin);
 	page->AddImage(stream, rect);
-	doc->Save(L"..\\Data\\document.pdf");
+	doc->Save(L"..\\Data\\Document\\Document.pdf");
 	// ExEnd:AddImage	
 }

@@ -1,5 +1,4 @@
 #include "Aspose.Pdf.h"
-
 using namespace System;
 using namespace Aspose::Pdf;
 using namespace Aspose::Pdf::Text;
@@ -23,7 +22,7 @@ void CreatePdf()
 	ts->set_FontStyle(FontStyles::Italic);
 	paragraps->Add(text);
 
-	doc->Save(L"..\\Data\\input.pdf");
+	doc->Save(L"..\\Data\\Text\\input_out.pdf");
 	// ExEnd:CreatePdf
 	Console::WriteLine(L"Pdf file created successfully.");
 }
