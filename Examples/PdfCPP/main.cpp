@@ -39,6 +39,10 @@ int main()
 	//CreateDoc();
 	//SetZoomFactor();
 	//EmbedFont();
+	//GetZoomFactor();
+	//ValidatePDFABStandard();
+	//ValidatePDFAStandard();
+	OptimizeDoc();
 
 	//// Attachments
 	//// =====================================================

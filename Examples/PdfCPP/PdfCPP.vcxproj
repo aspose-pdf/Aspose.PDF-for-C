@@ -272,7 +272,11 @@ copy $(ProjectDir)lib\Release\aspose.pdf_vc140.dll $(OutDir)</Command>
     <ClCompile Include="Document\GetSetDocWindowProperties.cpp" />
     <ClCompile Include="Document\GetSetInfo.cpp" />
     <ClCompile Include="Document\GetSetMetadata.cpp" />
+    <ClCompile Include="Document\GetZoomFactor.cpp" />
+    <ClCompile Include="Document\OptimizeDoc.cpp" />
     <ClCompile Include="Document\SetZoomFactor.cpp" />
+    <ClCompile Include="Document\ValidatePDFABStandard.cpp" />
+    <ClCompile Include="Document\ValidatePDFAStandard.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pages\ConcatenatePdfFiles.cpp" />
     <ClCompile Include="Pages\DeleteParticularPage.cpp" />

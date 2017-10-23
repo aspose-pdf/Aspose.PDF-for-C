@@ -24,6 +24,12 @@ enum class PageLayout
     TwoPageRight,
     Default
 };
+enum class PdfFormat
+{
+	PDF_A_1A,
+	PDF_A_1B
+};
+
 
 class ASPOSE_PDF_SHARED_API PageLayoutConverter : public System::Object
 {

@@ -37,9 +37,6 @@
     <ClCompile Include="Document\GetSetMetadata.cpp">
       <Filter>Document</Filter>
     </ClCompile>
-    <ClCompile Include="Document\SetZoomFactor.cpp">
-      <Filter>Document</Filter>
-    </ClCompile>
     <ClCompile Include="Text\AddText.cpp">
       <Filter>Text</Filter>
     </ClCompile>
@@ -93,6 +90,21 @@
     </ClCompile>
     <ClCompile Include="Pages\UpdateDimensions.cpp">
       <Filter>Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="Document\GetZoomFactor.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="Document\OptimizeDoc.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="Document\ValidatePDFABStandard.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="Document\ValidatePDFAStandard.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="Document\SetZoomFactor.cpp">
+      <Filter>Document</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -33,6 +33,14 @@ void CreateDoc();
 void SetZoomFactor();
 // Embed font into document
 void EmbedFont();
+// Get zoom factor
+void GetZoomFactor();
+// Valid PDF AB standard document
+void ValidatePDFABStandard();
+// Validate PDF A standard document
+void ValidatePDFAStandard();
+// Optimize document
+void OptimizeDoc();
 
 //// Attachments
 // Add attachment to document
