@@ -6,10 +6,10 @@ using namespace Aspose::Pdf::Text;
 void ExtractText()
 {
 	// ExStart:ExtractText	
-	auto extractor = MakeObject<Facades::PdfExtractor>();
+	auto extractor = MakeObject<Facades::PdfExtractor>();	
 	extractor->BindPdf(L"..\\Data\\Text\\input.pdf");
 	extractor->ExtractText();
-
+	
 	auto memStream = MakeObject<IO::MemoryStream>();
 	extractor->GetText(memStream);
 

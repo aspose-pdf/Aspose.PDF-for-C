@@ -23,6 +23,10 @@ int main()
 	//ExtractText();
 	//ReplaceText();
 	//FindText();
+	//AddUnderlineText();
+	//AddTextSegment();	
+	//ReplaceTextOnParticularPage();
+	//ExtractTextFromRangeOfPages();
 
 	//// Annotations
 	//// =====================================================
@@ -42,7 +46,7 @@ int main()
 	//GetZoomFactor();
 	//ValidatePDFABStandard();
 	//ValidatePDFAStandard();
-	OptimizeDoc();
+	//OptimizeDoc();
 
 	//// Attachments
 	//// =====================================================
@@ -53,7 +57,7 @@ int main()
 
 	//// Pages
 	//// =====================================================
-	ConcatenatePdfFiles();
+	//ConcatenatePdfFiles();
 	//GetPageCount();
 	//GetPageProperties();
 	//InsertEmptyPage();
@@ -61,6 +65,15 @@ int main()
 	//DeleteParticularPage();
 	//UpdateDimensions();
 	//SplitToPages();
+
+	//// Images
+	//// =====================================================
+
+	//DeleteImageFromPage();
+	//DeleteAllImages();
+	//ReplacePageImage();
+	//ExtractImage();
+	ExtractImageFromParticularPage();
 
 	// Stop before exiting
 	printf("\n\nProgram Finished. Press any key to exit....");

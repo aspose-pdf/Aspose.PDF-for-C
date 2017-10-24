@@ -13,6 +13,14 @@ void ExtractText();
 void ReplaceText();
 // Find text from a PDF file
 void FindText();
+// Add underline text
+void AddUnderlineText();
+// Add Text segment
+void AddTextSegment();
+// Replace text on particular page
+void ReplaceTextOnParticularPage();
+// Extract text from range of pages
+void ExtractTextFromRangeOfPages();
 
 //// Annotations
 // Add comments(annotation) to a document
@@ -67,3 +75,16 @@ void DeleteParticularPage();
 void UpdateDimensions();
 // Split pdf to pages
 void SplitToPages();
+
+//// Images
+// Delete image from particular page
+void DeleteImageFromPage();
+// Delete all images from PDF file
+void DeleteAllImages();
+// Replace image on particular page
+void ReplacePageImage();
+// Extract all images
+void ExtractImage();
+// Extract image from particular page
+void ExtractImageFromParticularPage();
+

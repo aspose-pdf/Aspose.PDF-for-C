@@ -16,6 +16,9 @@
     <Filter Include="Pages">
       <UniqueIdentifier>{5854813d-5ecf-41f7-8ae9-d5df6c72ff9b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Images">
+      <UniqueIdentifier>{bc7f4ba2-122a-4828-8c23-55d2470fc43b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -105,6 +108,33 @@
     </ClCompile>
     <ClCompile Include="Document\SetZoomFactor.cpp">
       <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\AddTextSegment.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\AddUnderlineText.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\ExtractTextFromRangeOfPages.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\ReplaceTextOnParticularPage.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Images\DeleteAllImages.cpp">
+      <Filter>Images</Filter>
+    </ClCompile>
+    <ClCompile Include="Images\DeleteImageFromPage.cpp">
+      <Filter>Images</Filter>
+    </ClCompile>
+    <ClCompile Include="Images\ExtractImage.cpp">
+      <Filter>Images</Filter>
+    </ClCompile>
+    <ClCompile Include="Images\ExtractImageFromParticularPage.cpp">
+      <Filter>Images</Filter>
+    </ClCompile>
+    <ClCompile Include="Images\ReplacePageImage.cpp">
+      <Filter>Images</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

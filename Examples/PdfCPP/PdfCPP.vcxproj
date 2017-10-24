@@ -277,6 +277,11 @@ copy $(ProjectDir)lib\Release\aspose.pdf_vc140.dll $(OutDir)</Command>
     <ClCompile Include="Document\SetZoomFactor.cpp" />
     <ClCompile Include="Document\ValidatePDFABStandard.cpp" />
     <ClCompile Include="Document\ValidatePDFAStandard.cpp" />
+    <ClCompile Include="Images\DeleteAllImages.cpp" />
+    <ClCompile Include="Images\DeleteImageFromPage.cpp" />
+    <ClCompile Include="Images\ExtractImage.cpp" />
+    <ClCompile Include="Images\ExtractImageFromParticularPage.cpp" />
+    <ClCompile Include="Images\ReplacePageImage.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pages\ConcatenatePdfFiles.cpp" />
     <ClCompile Include="Pages\DeleteParticularPage.cpp" />
@@ -287,11 +292,15 @@ copy $(ProjectDir)lib\Release\aspose.pdf_vc140.dll $(OutDir)</Command>
     <ClCompile Include="Pages\SplitToPages.cpp" />
     <ClCompile Include="Pages\UpdateDimensions.cpp" />
     <ClCompile Include="Text\AddText.cpp" />
+    <ClCompile Include="Text\AddTextSegment.cpp" />
+    <ClCompile Include="Text\AddUnderlineText.cpp" />
     <ClCompile Include="Text\AlignParagraph.cpp" />
     <ClCompile Include="Text\CreatePdf.cpp" />
     <ClCompile Include="Text\ExtractText.cpp" />
+    <ClCompile Include="Text\ExtractTextFromRangeOfPages.cpp" />
     <ClCompile Include="Text\FindText.cpp" />
     <ClCompile Include="Text\ReplaceText.cpp" />
+    <ClCompile Include="Text\ReplaceTextOnParticularPage.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
