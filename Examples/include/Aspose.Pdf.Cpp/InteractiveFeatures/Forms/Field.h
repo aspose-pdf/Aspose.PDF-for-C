@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_Field_h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_Field_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 //using Aspose.Doc.DocumentModel;
 
 // C# preprocessor directive: #if SUPPORT_ASPOSE_JAVASCRIPT 
@@ -70,17 +70,6 @@ class ASPOSE_PDF_SHARED_API NamespaceDoc : public System::Object
     typedef ::System::BaseTypesInfo<BaseType> ThisTypeBaseTypesInfo;
     RTTI_INFO_DECL();
     
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "NamespaceDoc"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
-    
 };
 
 /// <summary>
@@ -119,36 +108,130 @@ class ASPOSE_PDF_SHARED_API Field : public Aspose::Pdf::InteractiveFeatures::Ann
     
 public:
 
+    /// <summary>
+    /// Gets or sets partial name of the field.
+    /// </summary>
     System::String get_PartialName();
+    /// <summary>
+    /// Gets or sets partial name of the field.
+    /// </summary>
     void set_PartialName(System::String value);
+    /// <summary>
+    /// Gets or sets alternate name of the field (An alternate field 
+    /// name that shall be used in place of the actual field name 
+    /// wherever the field shall be identified in the user interface).
+    /// Alternate name is used as field tooltip in Adobe Acrobat.
+    /// </summary>
     System::String get_AlternateName();
+    /// <summary>
+    /// Gets or sets alternate name of the field (An alternate field 
+    /// name that shall be used in place of the actual field name 
+    /// wherever the field shall be identified in the user interface).
+    /// Alternate name is used as field tooltip in Adobe Acrobat.
+    /// </summary>
     void set_AlternateName(System::String value);
+    /// <summary>
+    /// Gets or sets mapping name  of the field that shall be used when exporting interactive form field data from the document.
+    /// </summary>
     System::String get_MappingName();
+    /// <summary>
+    /// Gets or sets mapping name  of the field that shall be used when exporting interactive form field data from the document.
+    /// </summary>
     void set_MappingName(System::String value);
+    /// <summary>
+    /// Gets or sets value of the field.
+    /// </summary>
     virtual System::String get_Value();
+    /// <summary>
+    /// Gets or sets value of the field.
+    /// </summary>
     virtual void set_Value(System::String value);
+    /// <summary>
+    /// Returns true if dictionary is synchronized.
+    /// </summary>
     bool get_IsSynchronized();
+    /// <summary>
+    /// Gets or sets number of subfields in this field. (For example number of items in radio button field).
+    /// </summary>
     int32_t get_Count() const;
+    /// <summary>
+    /// Synchronization object.
+    /// </summary>
     System::SharedPtr<System::Object> get_SyncRoot();
+    /// <summary>
+    /// Gets or sets boolean value which indicates is this field non-terminal field i.e. group of fields.
+    /// </summary>
     bool get_IsGroup();
+    /// <summary>
+    /// Gets or sets index of this anotation on the page.
+    /// </summary>
     int32_t get_AnnotationIndex();
+    /// <summary>
+    /// Gets or sets index of this anotation on the page.
+    /// </summary>
     void set_AnnotationIndex(int32_t value);
+    /// <summary>
+    /// Gets index of page which contains this field.
+    /// </summary>
     virtual int32_t get_PageIndex();
+    /// <summary>
+    /// Gets or sets the field rectangle.
+    /// </summary>
     virtual System::SharedPtr<Rectangle> get_Rect();
+    /// <summary>
+    /// Gets or sets the field rectangle.
+    /// </summary>
     virtual void set_Rect(System::SharedPtr<Rectangle> value);
+    /// <summary>
+    /// Property for Generator support. Used when field is added to header or footer. If true, this field will created once and it's appearance will be visible on all pages of the document. If false, separated field will be created for every document page. 
+    /// </summary>
     bool get_IsSharedField();
+    /// <summary>
+    /// Property for Generator support. Used when field is added to header or footer. If true, this field will created once and it's appearance will be visible on all pages of the document. If false, separated field will be created for every document page. 
+    /// </summary>
     void set_IsSharedField(bool value);
+    /// <summary>
+    /// If true then font size will reduced to fit text to specified rectangle. 
+    /// </summary>
     static bool get_FitIntoRectangle();
+    /// <summary>
+    /// If true then font size will reduced to fit text to specified rectangle. 
+    /// </summary>
     static void set_FitIntoRectangle(bool value);
     
+    /// <summary>
+    /// Recaculates all calculated fields on the form. 
+    /// </summary>
+    /// <returns>true if field value was changed during recalculation.</returns>
     bool Recalculate();
     void CopyTo(System::ArrayPtr<System::SharedPtr<Field>> array, int32_t index);
+    /// <summary>
+    /// Returns enumerator of contained fields.
+    /// </summary>
+    /// <returns>Enumerator.</returns>
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation>>> GetEnumerator();
+    /// <summary>
+    /// Removes this field and place its value directly on the page.
+    /// </summary>
     virtual void Flatten();
     
+    /// <summary>
+    /// Gets subfield contained in this field by name of the subfield.
+    /// </summary>
+    /// <param name="name">Contained subfield name.</param>
+    /// <returns>Field instance.</returns>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation> idx_get(System::String name);
+    /// <summary>
+    /// Gets subfield contained in this field by index.
+    /// </summary>
+    /// <param name="index">Index of the reuqested subfield.</param>
+    /// <returns>Field instance.</returns>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation> idx_get(int32_t index);
     
+    /// <summary>
+    /// Set position of the field.
+    /// </summary>
+    /// <param name="point">Point where field should be positioned.</param>
     virtual void SetPosition(System::SharedPtr<Point> point);
     
 protected:
@@ -173,17 +256,41 @@ protected:
     
     System::SharedPtr<System::Xml::XmlNamespaceManager> get_NamespaceManager();
     
+    /// <summary>
+    /// Operator for comparision field value with given value.
+    /// </summary>
+    /// <param name="value">Value to check the field value on.</param>
+    /// <returns>True if field value and passed value are equals.</returns>
     virtual bool IsEqualTo(System::String value);
+    /// <summary>
+    /// Returns value correctly encoded for placing into XFA dataset.
+    /// </summary>
+    /// <param name="value">Value for placing into XFA form.</param>
+    /// <returns>Encoded value.</returns>
     virtual System::String GetConformXFAValue(System::String value);
     bool isCalculated();
     static System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation> CreateField(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> field, System::SharedPtr<Document> document);
     
     Field(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> annotation, System::SharedPtr<Document> document);
     
+    /// <summary>
+    /// Initialize the field.
+    /// </summary>
+    /// <param name="page">The Aspose.Pdf.Page object where the field should be located.</param>
     virtual void Initialize(System::SharedPtr<Aspose::Pdf::Engine::Data::ITrailerable> trailer);
     
     Field();
     
+    /// <summary>
+    /// Initialize the field.
+    /// </summary>
+    /// <param name="page">The Aspose.Pdf.Page object where the field shuold be located.</param>
+    /// <param name="rect">The rectangle of the field.</param>
+    /*protected internal override void Initialize(Page page, Rectangle rect)
+            {
+                base.Initialize(page, rect);
+                Initialize(page);
+            }*/
     virtual void Initialize(System::SharedPtr<Aspose::Pdf::Engine::Data::ITrailerable> trailer, System::SharedPtr<Rectangle> rect);
     
     Field(System::SharedPtr<Document> doc, System::SharedPtr<Rectangle> rect);
@@ -192,6 +299,10 @@ protected:
     System::SharedPtr<Field> findField(System::String name);
     void addField(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation> field);
     System::SharedPtr<Field> remove(System::String name);
+    /// <summary>
+    /// Set value of the field.
+    /// </summary>
+    /// <param name="value">NEw value of the field.</param>
     void setValue(System::String value);
     virtual void UpdateAppearances();
     System::String GetFieldReferencePath();
@@ -200,17 +311,13 @@ protected:
     System::ArrayPtr<uint8_t> GetFieldImage();
     void AddNext(System::SharedPtr<Field> field);
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> CreateKidAnnotation(System::SharedPtr<Rectangle> rect);
+    /// <summary>
+    /// This method is required for Generator support. This method creates copy of field "template" when generator uses Footer/Header functionality.
+    /// </summary>
+    /// <returns></returns>
     virtual System::SharedPtr<Field> CreateCopy();
     virtual bool AppearanceSupported();
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Field"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -239,6 +346,10 @@ private:
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation> get(int32_t index);
     static bool isWidget(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> field);
     static bool IsGroupField(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> field);
+    /// <summary>
+    /// Returns rectangle of all kids of the field. This is required for fields
+    /// </summary>
+    /// <returns></returns>
     System::SharedPtr<Rectangle> GetKidsRectangle(int32_t pageIndex);
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfPrimitive> Copy(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfPrimitive> src);
     void Add(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation> const &item);

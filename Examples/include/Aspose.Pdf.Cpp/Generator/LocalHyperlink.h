@@ -27,25 +27,36 @@ class ASPOSE_PDF_SHARED_API LocalHyperlink FINAL : public Aspose::Pdf::Hyperlink
     
 public:
 
+    /// <summary>
+    /// Gets or sets the target paragraph.
+    /// </summary>
     System::SharedPtr<BaseParagraph> get_Target();
+    /// <summary>
+    /// Gets or sets the target paragraph.
+    /// </summary>
     void set_Target(System::SharedPtr<BaseParagraph> value);
+    /// <summary>
+    /// Gets or sets the target page number.
+    /// </summary>
     int32_t get_TargetPageNumber();
+    /// <summary>
+    /// Gets or sets the target page number.
+    /// </summary>
     void set_TargetPageNumber(int32_t value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="LocalHyperlink"/> class.
+    /// </summary>
     LocalHyperlink();
+    /// <summary>
+    /// Initializes a new instance of the <see cref="LocalHyperlink"/> class.
+    /// </summary>
+    /// <param name="target">Target paragraph.</param>
     LocalHyperlink(System::SharedPtr<BaseParagraph> target);
     
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "LocalHyperlink"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

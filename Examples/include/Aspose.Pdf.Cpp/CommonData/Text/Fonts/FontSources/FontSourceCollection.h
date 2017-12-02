@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_CommonData_Text_Fonts_FontSources_FontSourceCollection_h_
 #define _Aspose_Pdf_CommonData_Text_Fonts_FontSources_FontSourceCollection_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/eventhandler.h>
@@ -62,14 +62,6 @@ private:
     
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "FontSourcesEnumerator"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     private:
     
         System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<FontSource>>> cursor;
@@ -81,43 +73,85 @@ private:
     
 public:
 
+    ///<summary>
+    /// Gets the number of <see cref="Font"/> object elements actually contained in the collection. 
+    /// </summary>
     int32_t get_Count() const;
+    ///<summary>
+    /// Gets an object that can be used to synchronize access to the collection.
+    /// </summary>
     System::SharedPtr<System::Object> get_SyncRoot();
+    ///<summary>
+    /// Gets a value indicating whether access to the collection is synchronized (thread safe). 
+    ///</summary>
     bool get_IsSynchronized();
     
+    ///<summary>
+    /// Returns an enumerator for the entire collection.
+    ///</summary>
+    /// <returns>Enumerator object.</returns>
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<FontSource>>> GetEnumerator();
+    ///<summary>
+    /// Copies the entire collection to a compatible one-dimensional Array, starting at the specified index of the target array
+    ///</summary> 
+    /// <param name="array">Array of objects which will be copied.</param>
+    /// <param name="index">Starting index from which copying will be started.</param>
+    //<<--REFACTORING: Old code: void CopyTo(Array array, int index)
     void CopyTo(System::ArrayPtr<System::SharedPtr<FontSource>> array, int32_t index);
+    /// <summary>
+    /// Adds new font source object to the collection.
+    /// </summary>
+    /// <param name="fontSource">Font source.</param>
     void Add(System::SharedPtr<FontSource> const &fontSource);
+    /// <summary>
+    /// Clears the font source collection.
+    /// </summary>
     void Clear();
+    /// <summary>
+    /// Deletes the font source element.
+    /// </summary>
+    /// <param name="fontSource">FontSource object that will be deleted.</param>
     void Delete(System::SharedPtr<FontSource> fontSource);
     
+    /// <summary>
+    /// Gets the font element at the specified index.
+    /// </summary>
+    /// <param name="index">Index within the collection.</param>
+    /// <returns>Fout source object.</returns>
     System::SharedPtr<FontSource> idx_get(int32_t index);
     
 protected:
 
     System::EventHandler<System::SharedPtr<System::EventArgs>> CollectionChanged;
     
+    ///<summary>
+    /// Initializes collection object
+    ///</summary>
     FontSourceCollection();
     
+    /// <summary>
+    /// Deletes the font source element at the specified index.
+    /// </summary>
+    /// <param name="index">Index of FontSource object within the collection that will be deleted.</param>
     void Delete(int32_t index);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "FontSourceCollection"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<FontSource>>> fontSources;
     System::SharedPtr<System::Object> syncRoot;
     
+    ///<summary>
+    ///</summary>
     bool get_IsReadOnly();
     
+    /// <summary>
+    /// Deletes the font source element.
+    /// </summary>
+    /// <param name="fontSource">FontSource object that will be deleted.</param>
     bool Remove(System::SharedPtr<FontSource> const &fontSource);
+    /// <summary>
+    /// </summary>
     bool Contains(System::SharedPtr<FontSource> const &item) const;
     void OnCollectionChanged();
     

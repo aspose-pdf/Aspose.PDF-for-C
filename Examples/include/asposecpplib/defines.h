@@ -65,6 +65,8 @@ namespace Detail {
 //Wrappers for types from 3rd party libraries
 #ifdef ASPOSECPP_SHARED_EXPORTS
 
+    // Direct type cast doesn't work in VS2015 debugger for some reason. However, such pointer does.
+    // So consider this a hack to view strings in debugger properly and feel fix if there's a better idea.
     #ifdef _DEBUG
         #define ASPOSECPP_3RD_PARTY_TYPE_POINTER(type) type *const m_value = reinterpret_cast<type*>(&m_data);
     #else

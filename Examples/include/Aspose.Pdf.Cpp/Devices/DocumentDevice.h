@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Devices_DocumentDevice_h_
 #define _Aspose_Pdf_Devices_DocumentDevice_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -30,21 +30,58 @@ class ASPOSE_PDF_SHARED_API ABSTRACT DocumentDevice : public Aspose::Pdf::Device
     
 public:
 
+    /// <summary>
+    /// Each device represents some operation on the document, e.g. we can convert pdf document into another format.
+    /// </summary>
+    /// <param name="document">
+    /// The document to process.
+    /// </param>
+    /// <param name="fromPage">
+    /// Defines the page from which to start processing.
+    /// </param>
+    /// <param name="toPage">
+    /// Defines the last page to process.
+    /// </param>
+    /// <param name="output">
+    /// Defines stream where the results of processing are stored.
+    /// </param>
     virtual void Process(System::SharedPtr<Document> document, int32_t fromPage, int32_t toPage, System::SharedPtr<System::IO::Stream> output) = 0;
+    /// <summary>
+    /// Processes the whole document and saves results into stream.
+    /// </summary>
+    /// <param name="document">
+    /// The document to process.
+    /// </param>
+    /// <param name="output">
+    /// Defines stream where the results of processing are stored.
+    /// </param>
     void Process(System::SharedPtr<Document> document, System::SharedPtr<System::IO::Stream> output);
+    /// <summary>
+    /// Processes the whole document and saves results into file.
+    /// </summary>
+    /// <param name="document">
+    /// The document to process.
+    /// </param>
+    /// <param name="outputFileName">
+    /// Defines file where the results of processing are stored.
+    /// </param>
     void Process(System::SharedPtr<Document> document, System::String outputFileName);
+    /// <summary>
+    /// Processes certain pages of the document and saves results into file.
+    /// </summary>
+    /// <param name="document">
+    /// The document to process.
+    /// </param>
+    /// <param name="fromPage">
+    /// The first page to start processing.
+    /// </param>
+    /// <param name="toPage">
+    /// The last page of processing.
+    /// </param>
+    /// <param name="outputFileName">
+    /// Defines file where the results of processing are stored.
+    /// </param>
     void Process(System::SharedPtr<Document> document, int32_t fromPage, int32_t toPage, System::String outputFileName);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "DocumentDevice"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

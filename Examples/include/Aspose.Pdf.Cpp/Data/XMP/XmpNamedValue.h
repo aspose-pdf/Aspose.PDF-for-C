@@ -38,14 +38,6 @@ protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
     
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "XmpNamedValue"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
-    
 private:
 
     System::String _key;

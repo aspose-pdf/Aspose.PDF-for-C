@@ -32,8 +32,8 @@ class TextureBrush : public Brush
     RTTI_INFO(TextureBrush, ::System::BaseTypesInfo<System::Drawing::Brush>);
 
 public:
-    TextureBrush(SharedPtr<Image> image);
-    TextureBrush(SharedPtr<Image> image, RectangleF dst_rect, SharedPtr<Imaging::ImageAttributes> image_attrs);
+    TextureBrush(SharedPtr<Image> image, Drawing2D::WrapMode wrap_mode = Drawing2D::WrapMode::Tile);
+    TextureBrush(SharedPtr<Image> image, RectangleF dst_rect, SharedPtr<Imaging::ImageAttributes> image_attrs = nullptr);
     TextureBrush(SharedPtr<Image> image, Drawing2D::WrapMode wrap_mode, RectangleF dst_rect);
     TextureBrush(SharedPtr<Image> image, Drawing2D::WrapMode wrap_mode, Rectangle dst_rect);
     virtual ~TextureBrush();

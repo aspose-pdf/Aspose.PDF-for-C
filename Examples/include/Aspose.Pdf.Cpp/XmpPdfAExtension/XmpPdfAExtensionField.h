@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_XmpPdfAExtension_XmpPdfAExtensionField_h_
 #define _Aspose_Pdf_XmpPdfAExtension_XmpPdfAExtensionField_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_element.h>
 #include <xml/xml_document.h>
@@ -31,23 +31,31 @@ class ASPOSE_PDF_SHARED_API XmpPdfAExtensionField : public Aspose::Pdf::XmpPdfAE
     
 public:
 
+    /// <summary>
+    /// Field name. Field names must be valid XML element names.
+    /// </summary>
     System::String get_Name();
+    /// <summary>
+    /// Field value type, drawn from XMP Specification 2004, or an embedded PDF/A value type extension
+    /// schema. Predefined XMP type names or names of custom types.
+    /// </summary>
     System::String get_ValueType();
     
+    /// <summary>
+    /// Initializes object.
+    /// </summary>
+    /// <param name="name">The field name.</param>
+    /// <param name="value">The field value.</param>
+    /// <param name="valueType">The field value type.</param>
+    /// <param name="description">The field description.</param>
     XmpPdfAExtensionField(System::String name, System::String value, System::String valueType, System::String description);
     
+    /// <summary>
+    /// Returns the list of xml elements that represent field in xml tree.
+    /// </summary>
+    /// <param name="xmlDocument">The source xml document.</param>
+    /// <returns>The list of fields.</returns>
     virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<System::Xml::XmlElement>>> GetXml(System::SharedPtr<System::Xml::XmlDocument> xmlDocument);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "XmpPdfAExtensionField"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

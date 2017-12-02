@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Text_FontTypes_h_
 #define _Aspose_Pdf_Text_FontTypes_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/enum.h>
 
@@ -17,7 +17,13 @@ namespace Text {
 /// </summary> 
 enum class FontTypes
 {
+    /// <summary>
+    /// TTF font type
+    /// </summary>
     TTF = 0x0,
+    /// <summary>
+    /// OTF font type
+    /// </summary>
     OTF = 0x1
 };
 

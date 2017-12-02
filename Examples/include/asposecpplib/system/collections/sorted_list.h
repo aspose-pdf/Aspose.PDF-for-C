@@ -96,6 +96,11 @@ namespace Generic {
                 return m_data.size();
             }
 
+            void reserve(size_type cnt)
+            {
+                m_data.reserve(cnt);
+            }
+
             bool operator == (const FlatMap &other) const
             {
                 return size() == other.size() && std::equal(begin(), end(), other.begin());

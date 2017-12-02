@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_AnnotationState_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_AnnotationState_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/object.h>
@@ -20,13 +20,37 @@ namespace Annotations {
 /// </summary>
 enum class AnnotationState
 {
+    /// <summary>
+    /// Not defined state.
+    /// </summary>
     Undefined,
+    /// <summary>
+    /// The annotation has been marked by the user.
+    /// </summary>
     Marked,
+    /// <summary>
+    /// The annotation has not been marked by the user.
+    /// </summary>
     Unmarked,
+    /// <summary>
+    /// The user agrees with the change.
+    /// </summary>
     Accepted,
+    /// <summary>
+    /// The user disagrees with the change.
+    /// </summary>
     Rejected,
+    /// <summary>
+    /// The change has been cancelled.
+    /// </summary>
     Cancelled,
+    /// <summary>
+    /// The change has been completed.
+    /// </summary>
     Completed,
+    /// <summary>
+    /// The user has indicated nothing about the change.
+    /// </summary>
     None
 };
 
@@ -42,17 +66,6 @@ public:
 
     static System::String ToString(AnnotationState value);
     static AnnotationState ToEnum(System::String value);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "AnnotationStateConverter"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

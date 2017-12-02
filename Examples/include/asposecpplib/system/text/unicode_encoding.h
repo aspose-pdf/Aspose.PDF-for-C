@@ -28,7 +28,7 @@ namespace System { namespace Text {
         bool operator==(const UnicodeEncoding&) const;
 
         virtual int get_CodePage()  override { return m_bigEndian ? BIG_UNICODE_CODE_PAGE: UNICODE_CODE_PAGE;  };
-        virtual String get_WebName()  override { return m_bigEndian ? L"utf-16BE" : L"utf-16"; }
+        virtual String get_WebName()  override;
 
     private:
         bool m_isThrowException = false;

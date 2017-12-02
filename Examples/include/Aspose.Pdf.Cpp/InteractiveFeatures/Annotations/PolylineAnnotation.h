@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_PolylineAnnotation_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_PolylineAnnotation_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include "InteractiveFeatures/Annotations/PolyAnnotation.h"
 
@@ -40,29 +40,45 @@ class ASPOSE_PDF_SHARED_API PolylineAnnotation FINAL : public Aspose::Pdf::Inter
     
 public:
 
+    /// <summary>
+    /// Measure units specifed for this annotation.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Measure> get_Measure();
+    /// <summary>
+    /// Measure units specifed for this annotation.
+    /// </summary>
     void set_Measure(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Measure> value);
+    /// <summary>
+    /// Gets type of annotation.
+    /// </summary>
     virtual Aspose::Pdf::InteractiveFeatures::Annotations::AnnotationType get_AnnotationType();
     
+    /// <summary>
+    /// Accepts visitor object to process the annotation.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<AnnotationSelector> visitor);
     
+    /// <summary>
+    /// Creates new Polyline annotation on the specified page.
+    /// </summary>
+    /// <param name="page">The document's page where annotation should be created.</param>
+    /// <param name="rect">The annotation rectangle, defining the location of the annotation on the page.</param>
+    /// <param name="vertices">An array of polygon vertices points.</param>
     PolylineAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect, System::ArrayPtr<System::SharedPtr<Point>> vertices);
     
 protected:
 
     virtual void WriteXfdf(System::SharedPtr<System::Xml::XmlWriter> writer);
     
+    /// <summary>
+    /// Ititializes Polyline annotation with engine annotation object.
+    /// </summary>
+    /// <param name="engineAnnot">Engine object that represents the annotation.</param>
+    /// <param name="document">The Aspose.Pdf.Document object.</param>
     PolylineAnnotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> engineAnnot, System::SharedPtr<Document> document);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PolylineAnnotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

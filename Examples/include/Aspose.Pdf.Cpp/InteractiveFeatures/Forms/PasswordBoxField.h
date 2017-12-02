@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_PasswordBoxField_h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_PasswordBoxField_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include "InteractiveFeatures/Forms/TextBoxField.h"
 
@@ -32,16 +32,12 @@ class ASPOSE_PDF_SHARED_API PasswordBoxField FINAL : public Aspose::Pdf::Interac
     
 protected:
 
+    /// <summary>
+    /// Constructor for PasswordBoxField class.
+    /// </summary>
+    /// <param name="annotation"></param>
+    /// <param name="document"></param>
     PasswordBoxField(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> annotation, System::SharedPtr<Document> document);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PasswordBoxField"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

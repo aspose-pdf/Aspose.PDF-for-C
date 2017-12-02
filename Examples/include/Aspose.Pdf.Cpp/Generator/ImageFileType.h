@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Generator_ImageFileType_h_
 #define _Aspose_Pdf_Generator_ImageFileType_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -11,7 +11,13 @@ namespace Pdf {
 /// </summary>
 enum class ImageFileType
 {
+    /// <summary>
+    /// Unknown type.
+    /// </summary>
     Unknown = 0,
+    /// <summary>
+    /// svg image file type.
+    /// </summary>
     Svg = 1
 };
 

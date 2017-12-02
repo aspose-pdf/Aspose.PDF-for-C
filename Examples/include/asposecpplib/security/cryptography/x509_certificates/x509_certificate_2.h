@@ -12,25 +12,25 @@
 
 namespace System{ namespace Security{ namespace Cryptography{ namespace X509Certificates{
 
-    class X509Certificate2 : public X509Certificate
-    {
-    public:
-        X509Certificate2(System::ArrayPtr<uint8_t> rawData);
+class X509Certificate2 : public X509Certificate
+{
+public:
+    X509Certificate2(System::ArrayPtr<uint8_t> rawData);
+    X509Certificate2(System::ArrayPtr<uint8_t> rawData, System::String password, System::Security::Cryptography::X509Certificates::X509KeyStorageFlags keyStorageFlags);
+    X509Certificate2(const System::String& filename, const System::String& password);
 
-        X509Certificate2(System::ArrayPtr<uint8_t> rawData, System::String password, System::Security::Cryptography::X509Certificates::X509KeyStorageFlags keyStorageFlags);
+    System::String GetNameInfo(X509NameType nameType, bool forIssuer);
 
-        System::String GetNameInfo(X509NameType nameType, bool forIssuer);
+    bool get_HasPrivateKey();
+    SharedPtr<AsymmetricAlgorithm> get_PrivateKey();
+    void set_PrivateKey(SharedPtr<AsymmetricAlgorithm> value);
+    SharedPtr<X509ExtensionCollection> get_Extensions();
+    System::ArrayPtr<uint8_t> get_RawData();
+    SharedPtr<X500DistinguishedName> get_IssuerName();
+    bool Verify();
+    int get_Version();
 
-        bool get_HasPrivateKey();
-        SharedPtr<AsymmetricAlgorithm> get_PrivateKey();
-        void set_PrivateKey(SharedPtr<AsymmetricAlgorithm> value);
-        SharedPtr<X509ExtensionCollection> get_Extensions();
-        System::ArrayPtr<uint8_t> get_RawData();
-        SharedPtr<X500DistinguishedName> get_IssuerName();
-        bool Verify();
-        int get_Version();
-
-    };
+};
 
 }}}} // namespace System{ namespace Security{ namespace Cryptography{ namespace X509Certificates{
 

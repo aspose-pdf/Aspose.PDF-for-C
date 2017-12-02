@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_UnifiedSaveOptions_h_
 #define _Aspose_Pdf_UnifiedSaveOptions_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/object.h>
@@ -42,9 +42,21 @@ public:
 
     enum class ProgressEventType
     {
+        /// <summary>
+        /// means that occured event informs about total progress of conversion
+        /// </summary>
         TotalProgress,
+        /// <summary>
+        /// means that occured event informs about end of analysys of one of pages before conversion
+        /// </summary>
         SourcePageAnalized,
+        /// <summary>
+        /// means that occured event informs about creation of one result page before phisical export
+        /// </summary>
         ResultPageCreated,
+        /// <summary>
+        /// means that occured event informs about finished saving of one result page 
+        /// </summary>
         ResultPageSaved
     };
     
@@ -80,14 +92,6 @@ public:
         
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "ProgressEventHandlerInfo"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     };
     
     
@@ -115,14 +119,6 @@ protected:
     protected:
     
         System::Object::shared_members_type GetSharedMembers() override;
-        
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "ConversionProgressEventsTranslator"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
         
     private:
     
@@ -153,14 +149,6 @@ protected:
     System::SharedPtr<UnifiedSaveOptions::ConversionProgressEventsTranslator> ProgressEventsRetranslator;
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "UnifiedSaveOptions"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

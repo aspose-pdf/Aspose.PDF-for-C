@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Text_FontStyles_h_
 #define _Aspose_Pdf_Text_FontStyles_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/enum_helpers.h>
 #include <system/enum.h>
@@ -21,16 +21,28 @@ namespace Text {
 /// </remarks>
 enum class FontStyles
 {
+    /// <summary>
+    /// Regular text.
+    /// </summary>
     Regular = 0x0,
+    /// <summary>
+    /// Bold text.
+    /// </summary>
     Bold = 0x1,
+    /// <summary>
+    /// Italic text.
+    /// </summary>
     Italic = 0x2
 };
+
+DECLARE_ENUM_OPERATORS(Aspose::Pdf::Text::FontStyles);
+DECLARE_USING_GLOBAL_OPERATORS
 
 } // namespace Text
 } // namespace Pdf
 } // namespace Aspose
 
-DECLARE_ENUM_OPERATORS(Aspose::Pdf::Text::FontStyles);
+DECLARE_USING_ENUM_OPERATORS(Aspose::Pdf::Text);
 template<>
 struct EnumMetaInfo<Aspose::Pdf::Text::FontStyles>
 {

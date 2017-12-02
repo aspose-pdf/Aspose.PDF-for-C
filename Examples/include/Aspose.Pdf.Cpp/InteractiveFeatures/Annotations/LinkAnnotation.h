@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_LinkAnnotation_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_LinkAnnotation_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include "InteractiveFeatures/Annotations/Annotation.h"
 
@@ -38,31 +38,58 @@ class ASPOSE_PDF_SHARED_API LinkAnnotation FINAL : public Aspose::Pdf::Interacti
     
 public:
 
+    /// <summary>
+    /// An action to be performed when the link annotation is activated.
+    /// </summary>
     System::SharedPtr<PdfAction> get_Action();
+    /// <summary>
+    /// An action to be performed when the link annotation is activated.
+    /// </summary>
     void set_Action(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// A destination to be displayed when the annotation is activated.
+    /// </summary>
     System::SharedPtr<IAppointment> get_Destination();
+    /// <summary>
+    /// A destination to be displayed when the annotation is activated.
+    /// </summary>
     void set_Destination(System::SharedPtr<IAppointment> value);
+    /// <summary>
+    /// The visual effect to be used when the mouse button is pressed or held down inside its active area.
+    /// </summary>
     HighlightingMode get_Highlighting();
+    /// <summary>
+    /// The visual effect to be used when the mouse button is pressed or held down inside its active area.
+    /// </summary>
     void set_Highlighting(HighlightingMode value);
+    /// <summary>
+    /// Gets type of annotation.
+    /// </summary>
     virtual Aspose::Pdf::InteractiveFeatures::Annotations::AnnotationType get_AnnotationType();
     
+    /// <summary>
+    /// Accepts visitor object to process the annotation.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<AnnotationSelector> visitor);
     
+    /// <summary>
+    /// Creates new Link annotation on the specified page.
+    /// </summary>
+    /// <param name="page">The document's page where annotation should be created.</param>
+    /// <param name="rect">The annotation rectangle, defining the location of the annotation on the page.</param>
     LinkAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
     
 protected:
 
+    /// <summary>
+    /// Ititializes Link annotation with engine annotation object.
+    /// </summary>
+    /// <param name="engineAnnot">Engine object that represents the annotation.</param>
+    /// <param name="document">Document.</param>
     LinkAnnotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> engineAnnot, System::SharedPtr<Document> document);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "LinkAnnotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

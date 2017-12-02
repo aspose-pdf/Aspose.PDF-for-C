@@ -71,6 +71,12 @@ public:
     virtual void WriteLine(const TypeInfo& value);
 
     template<class... TArgs>
+    void Write(const String& format, const TArgs&... args)
+    {
+        Write(String::Format(format, args...));
+    }
+
+    template<class... TArgs>
     void WriteLine(const String& format, const TArgs&... args)
     {
         WriteLine( String::Format(format, args...));

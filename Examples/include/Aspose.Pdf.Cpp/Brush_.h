@@ -24,17 +24,6 @@ class ASPOSE_PDF_SHARED_API ABSTRACT Brush : public System::Object
     typedef ::System::BaseTypesInfo<BaseType> ThisTypeBaseTypesInfo;
     RTTI_INFO_DECL();
     
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Brush"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
-    
 };
 
 } // namespace Pdf

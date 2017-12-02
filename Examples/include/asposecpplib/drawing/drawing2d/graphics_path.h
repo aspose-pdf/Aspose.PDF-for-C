@@ -45,6 +45,8 @@ namespace Detail {
         Curve     = (0x01 << 7),
         String    = (0x01 << 8)
     };
+
+DECLARE_ENUM_OPERATORS(System::Drawing::Drawing2D::Detail::FigureType);
 }
 
 class PathGradientBrush;
@@ -134,6 +136,7 @@ public:
 
     void Widen(SharedPtr<Pen>);
 
+    bool IsVisible(const PointF& point);
     bool IsVisible(float x, float y);
 
     virtual SharedPtr<GraphicsPath> Clone();
@@ -141,6 +144,8 @@ public:
     void Dispose() { };
 
     Detail::FigureType GetFigureFlags() { return m_figure_flags; }
+
+    void SetMarkers();
 
 protected:
 
@@ -170,7 +175,8 @@ protected:
 }}}
 
 
-DECLARE_ENUM_OPERATORS(System::Drawing::Drawing2D::Detail::FigureType);
+
+DECLARE_USING_ENUM_OPERATORS(System::Drawing::Drawing2D::Detail)
 
 
 #endif // _aspose_drawing_drawing2d_graphics_path_h_

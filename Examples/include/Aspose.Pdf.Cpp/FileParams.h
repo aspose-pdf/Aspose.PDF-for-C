@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_FileParams_h_
 #define _Aspose_Pdf_FileParams_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -35,13 +35,37 @@ class ASPOSE_PDF_SHARED_API FileParams FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// The size of the uncompressed embedded file, in bytes.
+    /// </summary>
     int32_t get_Size();
+    /// <summary>
+    /// The date and time when the embedded file was created.
+    /// </summary>
     System::DateTime get_CreationDate();
+    /// <summary>
+    /// The date and time when the embedded file was created.
+    /// </summary>
     void set_CreationDate(System::DateTime value);
+    /// <summary>
+    /// The date and time when the embedded file was last modified.
+    /// </summary>
     System::DateTime get_ModDate();
+    /// <summary>
+    /// The date and time when the embedded file was last modified.
+    /// </summary>
     void set_ModDate(System::DateTime value);
+    /// <summary>
+    /// A 16-byte string that is the checksum of the bytes of the uncompressed embedded file. 
+    /// The checksum is calculated by applying the standard MD5 message-digest algorithm 
+    /// to the bytes of the embedded file stream.
+    /// </summary>
     System::String get_CheckSum();
     
+    /// <summary>
+    /// Constructor for FileParams class.
+    /// </summary>
+    /// <param name="spec">File specification.</param>
     FileParams(System::SharedPtr<FileSpecification> spec);
     
 protected:
@@ -51,14 +75,6 @@ protected:
     FileParams(System::SharedPtr<Engine::Data::IPdfDictionary> parms);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "FileParams"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

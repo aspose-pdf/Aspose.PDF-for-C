@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_FormType_h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_FormType_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -15,8 +15,17 @@ namespace Forms {
 /// </summary>
 enum class FormType
 {
+    /// <summary>
+    /// Standard AcroForm.
+    /// </summary>
     Standard,
+    /// <summary>
+    /// Static XFA form.
+    /// </summary>
     Static,
+    /// <summary>
+    /// Dynamic XFA form.
+    /// </summary>
     Dynamic
 };
 

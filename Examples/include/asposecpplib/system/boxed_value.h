@@ -8,6 +8,8 @@
 #include <system/decimal.h>
 #include <system/guid.h>
 #include <system/value_type.h>
+#include <system/exception.h>
+#include <system/type_code.h>
 
 #include <typeinfo>
 #include <type_traits>
@@ -16,7 +18,7 @@ namespace System
 {
     template <typename T>
     struct IsBoxable : std::integral_constant<bool,
-        std::is_arithmetic<T>::value || std::is_enum<T>::value> {};
+        std::is_arithmetic<T>::value || std::is_enum<T>::value || IsException<T>::value> {};
 
     class DateTime;
 
@@ -61,11 +63,37 @@ namespace System
         virtual bool IsBoxedEnum() = 0;
         virtual uint64_t GetUnsignedLongLongValue() = 0;
 
+        virtual TypeCode GetTypeCode() const = 0;
+
         // Parsing enums
         static SharedPtr<Object> Parse(const TypeInfo& type, const String& str, bool ignoreCase);
         static SharedPtr<Object> Parse(const TypeInfo& type, const String& str);
     };
 
+    namespace TypeCodeHelper
+    {
+        template<typename T>
+        TypeCode GetTypeCodeFor()
+        {
+            return TypeCode::Object;
+        }
+
+        template<> inline TypeCode GetTypeCodeFor<bool>() { return TypeCode::Boolean; }
+        template<> inline TypeCode GetTypeCodeFor<wchar_t>() { return TypeCode::Char; }
+        template<> inline TypeCode GetTypeCodeFor<int8_t>() { return TypeCode::SByte; }
+        template<> inline TypeCode GetTypeCodeFor<uint8_t>() { return TypeCode::Byte; }
+        template<> inline TypeCode GetTypeCodeFor<int16_t>() { return TypeCode::Int16; }
+        template<> inline TypeCode GetTypeCodeFor<uint16_t>() { return TypeCode::UInt16; }
+        template<> inline TypeCode GetTypeCodeFor<int32_t>() { return TypeCode::Int32; }
+        template<> inline TypeCode GetTypeCodeFor<uint32_t>() { return TypeCode::UInt32; }
+        template<> inline TypeCode GetTypeCodeFor<int64_t>() { return TypeCode::Int64; }
+        template<> inline TypeCode GetTypeCodeFor<uint64_t>() { return TypeCode::UInt64; }
+        template<> inline TypeCode GetTypeCodeFor<float>() { return TypeCode::Single; }
+        template<> inline TypeCode GetTypeCodeFor<double>() { return TypeCode::Double; }
+        template<> inline TypeCode GetTypeCodeFor<Decimal>() { return TypeCode::Decimal; }
+        template<> inline TypeCode GetTypeCodeFor<DateTime>() { return TypeCode::DateTime; }
+        template<> inline TypeCode GetTypeCodeFor<String>() { return TypeCode::String; }
+    }
 
     template<class T>
     class BoxedValue : public BoxedValueBase
@@ -123,6 +151,11 @@ namespace System
         uint64_t GetUnsignedLongLongValue()
         {
             return 0;
+        }
+
+        TypeCode GetTypeCode() const override
+        {
+            return TypeCodeHelper::GetTypeCodeFor<T>();
         }
 
     private:

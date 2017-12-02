@@ -23,6 +23,7 @@ ASPOSECPP_3RD_PARTY_TYPEDEF(SkScalar, float);
 
 namespace System { namespace Drawing { namespace Drawing2D {
 
+class Blend;
 class ColorBlend;
 class GraphicsPath;
 class Matrix;
@@ -34,16 +35,11 @@ public:
     PathGradientBrush(ArrayPtr<Point> points, WrapMode wrapMode = WrapMode::Clamp);
     PathGradientBrush(SharedPtr<GraphicsPath> path);
 
-    void MultiplyTransform(SharedPtr<Matrix> matrix, MatrixOrder order = MatrixOrder::Prepend);
-
     WrapMode get_WrapMode() const;
     void set_WrapMode(WrapMode value);
 
     SharedPtr<ColorBlend> get_InterpolationColors() const;
     void set_InterpolationColors(SharedPtr<ColorBlend> value);
-
-    SharedPtr<Matrix> get_Transform() const;
-    void set_Transform(SharedPtr<Matrix> value);
 
     PointF get_CenterPoint() const;
     void set_CenterPoint(const PointF& value);
@@ -55,18 +51,29 @@ public:
     void ResetTransform();
     void ScaleTransform(float sx, float sy, Drawing2D::MatrixOrder order = Drawing2D::MatrixOrder::Prepend);
     void RotateTransform(float angle, Drawing2D::MatrixOrder order = Drawing2D::MatrixOrder::Prepend);
-    void TranslateTransform(float sx, float sy, Drawing2D::MatrixOrder order = Drawing2D::MatrixOrder::Prepend);
-
+    void TranslateTransform(float dx, float dy, Drawing2D::MatrixOrder order = Drawing2D::MatrixOrder::Prepend);
+    void MultiplyTransform(SharedPtr<Matrix> matrix, MatrixOrder order = MatrixOrder::Prepend);
+    SharedPtr<Matrix> get_Transform() const;
+    void set_Transform(SharedPtr<Matrix> value);
+    
     void set_SurroundColors(ArrayPtr<Color> value);
     void set_CenterColor(Color value);
     void set_FocusScales(const PointF& value);
     void SetSigmaBellShape(float focus, float scale = 1.0f);
+    
+    SharedPtr<Blend> get_Blend() const;
+    void set_Blend(SharedPtr<Blend> value);
 
-protected:
-    virtual void Apply(SkPaint& paint);
+    PointF get_FocusScales() const;
+    RectangleF get_Rectangle();
+        
+    void SetBlendTriangularShape(float focus, float scale = 1.0f);
 
     virtual SharedPtr<Brush> Clone();
 
+protected:
+    virtual void Apply(SkPaint& paint);
+    
 private:
     void ApplyRadialGradient(SkPaint& paint) const;
     void ApplyPathGradient(SkPaint& paint) const;
@@ -87,6 +94,8 @@ private:
 
     RectangleF m_path_bounds;
     std::vector<SkPoint> m_path_points;
+
+    SharedPtr<Matrix> m_transform_matrix;
     
 };
 

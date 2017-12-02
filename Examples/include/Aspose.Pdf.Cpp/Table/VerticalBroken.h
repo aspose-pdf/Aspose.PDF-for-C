@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Table_VerticalBroken_h_
 #define _Aspose_Pdf_Table_VerticalBroken_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -11,8 +11,17 @@ namespace Pdf {
 /// </summary>
 enum class TableBroken
 {
+    /// <summary>
+    /// No broken.
+    /// </summary>
     None = 0,
+    /// <summary>
+    /// Vertical broken.
+    /// </summary>
     Vertical = 1,
+    /// <summary>
+    /// Vertical broken in same page.
+    /// </summary>
     VerticalInSamePage = 2
 };
 

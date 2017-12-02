@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_ImageStamp_h_
 #define _Aspose_Pdf_ImageStamp_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -32,34 +32,71 @@ class ASPOSE_PDF_SHARED_API ImageStamp FINAL : public Aspose::Pdf::Stamp
     
 public:
 
+    /// <summary>
+    /// Gets image stream used for stamping.
+    /// </summary>
     System::SharedPtr<System::IO::Stream> get_Image();
+    /// <summary>
+    /// Gets or sets image width. Setting this property allos to scal image horizontally.
+    /// </summary>
     double get_Width();
+    /// <summary>
+    /// Gets or sets image width. Setting this property allos to scal image horizontally.
+    /// </summary>
     void set_Width(double value);
+    /// <summary>
+    /// Gets or sets image height. Setting this image allows to scale image vertically.
+    /// </summary>
     double get_Height();
+    /// <summary>
+    /// Gets or sets image height. Setting this image allows to scale image vertically.
+    /// </summary>
     void set_Height(double value);
+    /// <summary>
+    /// Gets or sets quality of image stamp in percent. Valid values are 0..100%. 
+    /// </summary>
     int32_t get_Quality();
+    /// <summary>
+    /// Gets or sets quality of image stamp in percent. Valid values are 0..100%. 
+    /// </summary>
     void set_Quality(int32_t value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ImageStamp"/> class.
+    /// </summary>
+    /// <param name="image">
+    /// Stream which contains image data.
+    /// </param>
     ImageStamp(System::SharedPtr<System::IO::Stream> image);
     
+    /// <summary>
+    /// Adds graphic stamp on the page.
+    /// </summary>
+    /// <param name="page">
+    /// Page for stamping.
+    /// </param>
     virtual void Put(System::SharedPtr<Page> page);
     
+    /// <summary>
+    /// Creates image stamp by image in the specified file.
+    /// </summary>
+    /// <param name="fileName">Name of the file which contains image. </param>
     ImageStamp(System::String fileName);
     
 protected:
 
     virtual void ClearCache();
+    /// <summary>
+    /// Returns rectangle where image stamp
+    /// </summary>
+    /// <returns>Rectangle of the image stamp.</returns>
     virtual System::SharedPtr<Rectangle> getRect();
+    /// <summary>
+    /// returns size matrix
+    /// </summary>
+    /// <returns></returns>
     virtual System::SharedPtr<DOM::Matrix> getSizeMatrix();
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ImageStamp"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

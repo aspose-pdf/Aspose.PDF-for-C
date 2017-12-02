@@ -72,7 +72,7 @@ namespace System { namespace Collections { namespace Generic {
             if (m_data.end() == it)
                 return -1;
 
-            return std::distance(m_data.begin(), it);
+            return static_cast<int>(std::distance(m_data.begin(), it));
         }
 
         virtual void Insert(int index, const T& item)
@@ -125,7 +125,7 @@ namespace System { namespace Collections { namespace Generic {
 
         // ICollection interface
 
-        virtual int  get_Count() const { return m_data.size(); }
+        virtual int  get_Count() const { return static_cast<int>(m_data.size()); }
 
         virtual void Add(const T& item)
         {

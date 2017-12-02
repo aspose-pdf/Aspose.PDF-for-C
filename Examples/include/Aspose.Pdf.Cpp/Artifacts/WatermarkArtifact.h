@@ -27,20 +27,14 @@ class ASPOSE_PDF_SHARED_API WatermarkArtifact : public Aspose::Pdf::Artifact
     
 public:
 
+    /// <summary>
+    /// Creates instance of Watermark artifact.
+    /// </summary>
     WatermarkArtifact();
     
 protected:
 
     WatermarkArtifact(System::SharedPtr<ArtifactCollection> owner, System::SharedPtr<Artifact::ArtifactContext> context, System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> _contents, System::SharedPtr<Engine::Data::IPdfDictionary> _properties);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "WatermarkArtifact"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

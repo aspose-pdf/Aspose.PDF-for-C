@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_PageLabel_h_
 #define _Aspose_Pdf_PageLabel_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -34,13 +34,34 @@ class ASPOSE_PDF_SHARED_API PageLabel : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets starting value of the page numbering range.
+    /// </summary>
     int32_t get_StartingValue();
+    /// <summary>
+    /// Gets or sets starting value of the page numbering range.
+    /// </summary>
     void set_StartingValue(int32_t value);
+    /// <summary>
+    /// Gets or sets numbering style. 
+    /// </summary>
     Aspose::Pdf::NumberingStyle get_NumberingStyle();
+    /// <summary>
+    /// Gets or sets numbering style. 
+    /// </summary>
     void set_NumberingStyle(Aspose::Pdf::NumberingStyle value);
+    /// <summary>
+    /// Gets or sets page number prefix.
+    /// </summary>
     System::String get_Prefix();
+    /// <summary>
+    /// Gets or sets page number prefix.
+    /// </summary>
     void set_Prefix(System::String value);
     
+    /// <summary>
+    /// Constructor for page label. 
+    /// </summary>
     PageLabel();
     
 protected:
@@ -50,14 +71,6 @@ protected:
     PageLabel(System::SharedPtr<Engine::Data::IPdfDictionary> engineDict);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PageLabel"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

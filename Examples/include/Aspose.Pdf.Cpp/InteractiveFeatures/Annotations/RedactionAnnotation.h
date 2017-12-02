@@ -45,25 +45,79 @@ class ASPOSE_PDF_SHARED_API RedactionAnnotation FINAL : public Aspose::Pdf::Inte
     
 public:
 
+    /// <summary>
+    /// An array of 8xN numbers specifying the coordinates of content region that is intended to be removed. 
+    /// </summary>
     System::ArrayPtr<System::SharedPtr<Point>> get_QuadPoint();
+    /// <summary>
+    /// An array of 8xN numbers specifying the coordinates of content region that is intended to be removed. 
+    /// </summary>
     void set_QuadPoint(System::ArrayPtr<System::SharedPtr<Point>> value);
+    /// <summary>
+    /// Gets or sets color to fill annotation.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Color> get_FillColor();
+    /// <summary>
+    /// Gets or sets color to fill annotation.
+    /// </summary>
     void set_FillColor(System::SharedPtr<Aspose::Pdf::Color> value);
+    /// <summary>
+    /// Gets or sets color of border which is drawn when redaction is not active.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Color> get_BorderColor();
+    /// <summary>
+    /// Gets or sets color of border which is drawn when redaction is not active.
+    /// </summary>
     void set_BorderColor(System::SharedPtr<Aspose::Pdf::Color> value);
+    /// <summary>
+    /// Text to print on redact annotation.
+    /// </summary>
     System::String get_OverlayText();
+    /// <summary>
+    /// Text to print on redact annotation.
+    /// </summary>
     void set_OverlayText(System::String value);
+    /// <summary>
+    /// If true overlay text will be repated on the annotation. 
+    /// </summary>
     bool get_Repeat();
+    /// <summary>
+    /// If true overlay text will be repated on the annotation. 
+    /// </summary>
     void set_Repeat(bool value);
+    /// <summary>
+    /// Gets or sets. Alignment of Overlay Text.
+    /// </summary>
     Aspose::Pdf::HorizontalAlignment get_TextAlignment();
+    /// <summary>
+    /// Gets or sets. Alignment of Overlay Text.
+    /// </summary>
     void set_TextAlignment(Aspose::Pdf::HorizontalAlignment value);
+    /// <summary>
+    /// Gets type of annotation.
+    /// </summary>
     virtual Aspose::Pdf::InteractiveFeatures::Annotations::AnnotationType get_AnnotationType();
     
+    /// <summary>
+    /// Accepts visitor object to process the annotation.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<AnnotationSelector> visitor);
     
+    /// <summary>
+    /// Constructor for RedactAnnotation.
+    /// </summary>
+    /// <param name="page">Page where annotation will be placed.</param>
+    /// <param name="rect">Annotation position on the page.</param>
     RedactionAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
     
+    /// <summary>
+    /// Flattens annotation i.e. removes annotation and adds its
+    /// </summary>
     virtual void Flatten();
+    /// <summary>
+    /// Flattens annotation and redacts page contents (i.e. removes text and image under redacted annotation)
+    /// </summary>
     void Redact();
     
 protected:
@@ -73,14 +127,6 @@ protected:
     virtual bool AppearanceSupported();
     virtual void UpdateAppearance(System::SharedPtr<Annotation> annotation);
     virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> CreateAppearanceProgram(System::SharedPtr<Annotation::AppearanceParameters> parameters, System::SharedPtr<Annotation> annotation);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "RedactionAnnotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

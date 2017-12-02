@@ -2,6 +2,7 @@
 #define _aspose_system_array_h_
 
 #include <system/details/collections_helper.h>
+#include <system/details/equality_helper.h>
 #include <system/object.h>
 #include <system/collections/icomparer.h>
 #include <system/collections/ienumerable.h>
@@ -10,6 +11,7 @@
 #include <system/collections/algorithms.h>
 #include <system/converter.h>
 #include <system/predicate.h>
+#include <system/action.h>
 #include <system/select_type.h>
 #include <system/cycles_detection.h>
 
@@ -35,7 +37,8 @@ namespace System
     class ArrayPtr : public SharedPtr<Array<T>>
     {
     public:
-        using ValueType = typename System::Details::SelectType<T>::type;
+        using ValueType = T;
+        using UnderlyingType = typename System::Details::SelectType<T>::type;
         using ArrayType = Array<T>;
         using BaseType = SharedPtr<Array<T>>;
 
@@ -50,12 +53,12 @@ namespace System
             std::copy(src->data().begin(), src->data().end(), (*this)->data().begin());
         }
 
-        ValueType& operator[] (size_t idx) const
+        UnderlyingType& operator[] (int idx) const
         {
             return (this->get()->operator[])(idx);
         }
 
-        ValueType& operator[] (size_t idx)
+        UnderlyingType& operator[] (int idx)
         {
             return (this->get()->operator[])(idx);
         }
@@ -112,10 +115,11 @@ namespace System
     {
         RTTI_INFO_TEMPLATE_CLASS(System::Array<T>, System::BaseTypesInfo<System::Object>);
     public:
-        using ValueType = typename System::Details::SelectType<T>::type;
+        using ValueType = T;
+        using UnderlyingType = typename System::Details::SelectType<T>::type;
 
     protected:
-        typedef std::vector<ValueType> vector_t;
+        typedef std::vector<UnderlyingType> vector_t;
         vector_t m_data;
         DEFINE_GET_SHARED_MEMBERS(m_data)
 
@@ -141,7 +145,7 @@ namespace System
             virtual T get_Current() ASPOSE_CONST override
             {
                 return (m_idx < 0 || m_idx >= (int64_t)m_array->m_data.size())
-                    ? ValueType()
+                    ? UnderlyingType()
                     : m_array->m_data[(size_t)m_idx];
             }
 
@@ -192,7 +196,7 @@ namespace System
         Array(std::vector<T>&& value) : m_data(std::move(value)) {}
         Array(const std::vector<T> &assgn) : m_data(assgn) {}
 
-        Array(std::initializer_list<ValueType> init) : m_data(init) {}
+        Array(std::initializer_list<UnderlyingType> init) : m_data(init) {}
         Array(std::initializer_list<bool> init)
         {
             for (auto it = init.begin(); it != init.end(); ++it)
@@ -227,11 +231,12 @@ namespace System
         }
 
 private:
-        // Determine that ValueType has the operator==() by SFINAE
+        // Determine that UnderlyingType has the operator==() by SFINAE
         template <typename Q = T>
-        auto ContainsImpl(const Q* item) const -> decltype(std::declval<ValueType>() == *item, void(0), bool())
+        auto ContainsImpl(const Q* item) const -> decltype(std::declval<UnderlyingType>() == *item, void(0), bool())
         {
-            return std::find(m_data.begin(), m_data.end(), *item) != m_data.end();
+            return std::find_if(m_data.begin(), m_data.end(),
+                                [&item](const T& value) { return Details::AreEqual(value, *item); }) != m_data.end();
         }
 
         bool ContainsImpl(...) const
@@ -265,19 +270,20 @@ public:
 
         // IList<T> interface
 private:
-        // Determine that ValueType has the operator==() by SFINAE
+        // Determine that UnderlyingType has the operator==() by SFINAE
         template <typename Q = T>
-        auto IndexOfImpl(const Q* item) const -> decltype(std::declval<ValueType>() == *item, void(0), int())
+        auto IndexOfImpl(const Q* item) const -> decltype(std::declval<UnderlyingType>() == *item, void(0), int())
         {
-            auto it = std::find(m_data.begin(), m_data.end(), *item);
+            auto it = std::find_if(m_data.begin(), m_data.end(), [&item](const T& value) { return Details::AreEqual(value, *item); });
 
-            return (it != m_data.end()) ? (it - m_data.begin()) : -1;
+            return (it != m_data.end()) ? static_cast<int>(it - m_data.begin()) : -1;
         }
 
         int IndexOfImpl(...) const
         {
             throw NotImplementedException(ASPOSE_CURRENT_FUNCTION);
         }
+
 public:
         virtual int IndexOf(const T& item) const override
         {
@@ -321,7 +327,7 @@ public:
         }
 
 
-        ValueType& operator[](int index)
+        UnderlyingType& operator[](int index)
         {
             using namespace Collections::Generic::Details;
             if (IsOutOfBounds(index, m_data)) {
@@ -330,7 +336,7 @@ public:
             return m_data[index];
         }
 
-        ValueType const& operator[](int index) const
+        UnderlyingType const& operator[](int index) const
         {
             using namespace Collections::Generic::Details;
             if (IsOutOfBounds(index, m_data)) {
@@ -341,7 +347,7 @@ public:
 
         ArrayPtr<T> Clone()
         {
-            System::ArrayPtr<T> clone = System::MakeObject< System::Array<T> >((int)m_data.size());
+            System::ArrayPtr<T> clone = System::MakeObject< System::Array<T> >(static_cast<int>(m_data.size()));
             std::copy(m_data.begin(), m_data.end(), clone->data().begin());
             return clone;
         }
@@ -353,7 +359,7 @@ public:
 
         int GetLength(int dimension)
         {
-            return (int)GetLongLength(dimension);
+            return static_cast<int>(GetLongLength(dimension));
         }
 
         int64_t GetLongLength(int dimension)
@@ -361,7 +367,7 @@ public:
             return upper_bound(m_data, dimension) + 1;
         }
 
-        int GetLowerBound(int dimension)
+        int GetLowerBound(int dimension) const
         {
             return 0;
         }
@@ -390,6 +396,12 @@ public:
                 newArray[i] = converter(input_array[i]);
             }
             return newArray;
+        }
+
+        template <typename InputType, typename OutputType>
+        static ArrayPtr<OutputType> ConvertAll(ArrayPtr<InputType> input_array, std::function<OutputType(InputType)> converter)
+        {
+            return ConvertAll(input_array, Converter<InputType, OutputType>(converter));
         }
 
         static int FindIndex(System::ArrayPtr<T> arr, System::Predicate<T> match)
@@ -468,11 +480,32 @@ public:
             }
 
             // casts are safe because bounds have already checked.
-            std::copy(
-                m_data.begin() + (size_t)srcIndex
-                , m_data.begin() + (size_t)srcIndex + (size_t)count
-                , dstArray->data().begin() + (size_t)dstIndex
-            );
+
+            if ((void*)(dstArray.get()) == (void*)(this) && dstIndex > srcIndex && dstIndex < srcIndex + count)
+            {
+                std::copy_backward(
+                    m_data.begin() + (size_t)srcIndex
+                    , m_data.begin() + (size_t)srcIndex + (size_t)count
+                    , dstArray->data().begin() + (size_t)dstIndex + (size_t)count
+                );
+            }
+            else
+            {
+                std::copy(
+                    m_data.begin() + (size_t)srcIndex
+                    , m_data.begin() + (size_t)srcIndex + (size_t)count
+                    , dstArray->data().begin() + (size_t)dstIndex
+                );
+            }
+        }
+
+        static void ForEach(const ArrayPtr<T>& arr, System::Action<T> action)
+        {
+            if (action.IsNull())
+                throw ArgumentNullException(L"action");
+
+            for (auto val : arr->m_data)
+                action(val);
         }
 
         template<typename ArrayType, typename ValueType>
@@ -500,9 +533,10 @@ public:
 
             typename std::vector<ArrayType>::const_iterator begin = arr->data().begin() + startIndex;
             typename std::vector<ArrayType>::const_iterator end = begin + count;
-            typename std::vector<ArrayType>::const_iterator it = std::find(begin, end, value);
+            typename std::vector<ArrayType>::const_iterator it =
+                std::find_if(begin, end, [&value](const ArrayType& item) { return Details::AreEqual(item, value); });
 
-            return (it != end) ? it - arr->data().begin() : -1;
+            return (it != end) ? static_cast<int>(it - arr->data().begin()) : -1;
         }
 
         template<typename ArrayType, typename ValueType>
@@ -519,7 +553,7 @@ public:
             }
             auto rbegin = arr->data().rbegin() + arr->data().size() - startIndex - 1;
             auto rend = rbegin + count;
-            auto rit = std::find(rbegin, rend, value);
+            auto rit = std::find_if(rbegin, rend, [&value](const ArrayType& item) { return Details::AreEqual(item, value); });
 
             return (rit != rend) ? rit.base() - arr->data().begin() - 1 : -1;
         }
@@ -687,7 +721,7 @@ public:
             return &m_data[0];
         }
 
-        const ValueType * data_ptr() const { return data_ptr(); }
+        const UnderlyingType * data_ptr() const { return data_ptr(); }
 
         // ICollection interface
 
@@ -709,12 +743,12 @@ public:
         // void RemoveAt(int index); - see IList<T> interface
 
         // IEnumerable interface
-        ValueType Min() const
+        UnderlyingType Min() const
         {
             return *std::min_element(m_data.cbegin(), m_data.cend());
         }
 
-        ValueType Max() const
+        UnderlyingType Max() const
         {
             return *std::max_element(m_data.cbegin(), m_data.cend());
         }

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Text_TextOptions_TextReplaceOptions_h_
 #define _Aspose_Pdf_Text_TextOptions_TextReplaceOptions_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/enum_helpers.h>
 
@@ -33,39 +33,66 @@ public:
 
     enum class Scope
     {
+        /// <summary>
+        /// Replace only first occurrence of the text on each of affected pages
+        /// </summary>
         REPLACE_FIRST,
+        /// <summary>
+        /// Replace all text occurrences on all affected pages
+        /// </summary>
         REPLACE_ALL
     };
     
     enum class ReplaceAdjustment
     {
+        /// <summary>
+        /// No action, length of the line may be changed
+        /// </summary>
         None = 0,
+        /// <summary>
+        /// Tries adjust spaces between words to keep line length
+        /// </summary>
         AdjustSpaceWidth = 1,
+        /// <summary>
+        /// Tries distribute words between paragraph lines to keep paragraph's right field
+        /// </summary>
         WholeWordsHyphenation = 2
     };
     
     
 public:
 
+    /// <summary>
+    /// Gets or sets a scope where replace text operation is applied 
+    /// </summary>
     TextReplaceOptions::Scope get_ReplaceScope();
+    /// <summary>
+    /// Gets or sets a scope where replace text operation is applied 
+    /// </summary>
     void set_ReplaceScope(TextReplaceOptions::Scope value);
+    /// <summary>
+    /// Gets or sets an action that will be done after replace of text fragment to more short.
+    /// </summary>
     TextReplaceOptions::ReplaceAdjustment get_ReplaceAdjustmentAction();
+    /// <summary>
+    /// Gets or sets an action that will be done after replace of text fragment to more short.
+    /// </summary>
     void set_ReplaceAdjustmentAction(TextReplaceOptions::ReplaceAdjustment value);
     
+    /// <summary>
+    /// Initializes new instance of the <see cref="TextReplaceOptions"/> object for the specified scope.
+    /// </summary>
+    /// <param name="scope">Scope object.</param>
     TextReplaceOptions(TextReplaceOptions::Scope scope);
+    /// <summary>
+    /// Initializes new instance of the <see cref="TextReplaceOptions"/> object for the specified after replace action.
+    /// </summary>
+    /// <param name="adjustment">ReplaceAdjustment object.</param>
     TextReplaceOptions(TextReplaceOptions::ReplaceAdjustment adjustment);
     
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextReplaceOptions"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -74,12 +101,14 @@ private:
     
 };
 
+DECLARE_ENUM_OPERATORS(Aspose::Pdf::Text::TextOptions::TextReplaceOptions::ReplaceAdjustment);
+DECLARE_USING_GLOBAL_OPERATORS
 } // namespace TextOptions
 } // namespace Text
 } // namespace Pdf
 } // namespace Aspose
 
-DECLARE_ENUM_OPERATORS(Aspose::Pdf::Text::TextOptions::TextReplaceOptions::ReplaceAdjustment);
+DECLARE_USING_ENUM_OPERATORS(Aspose::Pdf::Text::TextOptions);
 
 
 #endif // _Aspose_Pdf_Text_TextOptions_TextReplaceOptions_h_

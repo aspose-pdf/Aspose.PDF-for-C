@@ -2,83 +2,55 @@
 #define _aspose_system_regex_h_
 
 #include <system/text/regularexpressions/match_collection.h>
+#include <system/text/regularexpressions/match.h>
 #include <system/exceptions.h>
 #include <system/multicast_delegate.h>
 
 namespace System { namespace Text { namespace RegularExpressions {
 
+namespace Detail
+{
+    struct RegexHolder;
+}
+
 using MatchEvaluator = System::MulticastDelegate<System::String(MatchPtr)>;
+
+class Regex;
+typedef System::SharedPtr<Regex> RegexPtr;
+class Match;
 
 class Regex: public Object
 {
+    friend class Match;
 public:
-
-    typedef System::SharedPtr<Regex> Ptr;
 
     static TimeSpan ASPOSECPP_SHARED_API InfiniteMatchTimeout;
 
-    Regex() : m_pattern(L""), m_options(RegexOptions::None), m_matchTimeout(InfiniteMatchTimeout) {}
-
-    Regex(String pattern)
-        : m_pattern(pattern), m_options(RegexOptions::None), m_matchTimeout(InfiniteMatchTimeout) {}
-
-    Regex(String pattern, RegexOptions options)
-        : m_pattern(pattern), m_options(options), m_matchTimeout(InfiniteMatchTimeout){}
-
-    Regex(String pattern, RegexOptions options, TimeSpan matchTimeout)
-        : m_pattern(pattern), m_options(options), m_matchTimeout(matchTimeout) {}
+    Regex();
+    Regex(String pattern);
+    Regex(String pattern, RegexOptions options);
+    Regex(String pattern, RegexOptions options, TimeSpan matchTimeout);
 
     TimeSpan get_MatchTimeout() { return m_matchTimeout; }
-
     RegexOptions get_Options() { return m_options; }
-
     bool get_RightToLeft() { return (m_options & RegexOptions::RightToLeft) == RegexOptions::RightToLeft; }
 
-    bool IsMatch(const String& input, int startat = 0)
-    {
-        return IsMatch(input, m_pattern, m_options, m_matchTimeout, startat);
-    }
+    bool IsMatch(const String& input, int startat = 0);
 
-    MatchPtr Match(const String& input) { return Match(input, 0, 0); }
+    MatchPtr Match(const String& input);
+    MatchPtr Match(const String& input, int startat, int length = 0);
 
-    MatchPtr Match(const String& input, int startat, int length = 0)
-    {
-        return Match(input, m_pattern, m_options, m_matchTimeout, startat, length);
-    }
+    MatchCollectionPtr Matches(const String& input, int startat = 0);
 
-    MatchCollectionPtr Matches(const String& input, int startat = 0) const
-    {
-        return Matches(input, m_pattern, RegexOptions::None, InfiniteMatchTimeout, startat);
-    }
+    String Replace(const String& input, const String& replacement);
+    String Replace(const String& input, const wchar_t* replacement);
 
-    String Replace(const String& input, String replacement) const
-    {
-        return Replace(input, m_pattern, replacement);
-    }
+    static String Replace(const String& input, const wchar_t* pattern, const wchar_t* replacement);
+    static String Replace(const String& input, const String& pattern, const wchar_t* replacement);
 
-    String Replace(const String& input, const wchar_t* replacement) const
-    {
-        return Replace(input, m_pattern, String(replacement));
-    }
-
-    static String Replace(const String& input, const wchar_t* pattern, const wchar_t* replacement)
-    {
-        return Replace(input, String(pattern), String(replacement));
-    }
-
-    static String Replace(const String& input, const String& pattern, const wchar_t* replacement)
-    {
-        return Replace(input, pattern, String(replacement));
-    }
-
-    String Replace(const String& input, MatchEvaluator evaluator) const
-    {
-        return Replace(input, m_pattern, evaluator);
-    }
-
-    String Replace(const String& input, MatchEvaluator evaluator, int count) const;
-
-    String Replace(const String& input, MatchEvaluator evaluator, int count, int startat) const;
+    String Replace(const String& input, MatchEvaluator evaluator);
+    String Replace(const String& input, MatchEvaluator evaluator, int count);
+    String Replace(const String& input, MatchEvaluator evaluator, int count, int startat);
 
     static String Replace(const String& input, const String& pattern, const String& replacement, RegexOptions options)
     {
@@ -90,16 +62,8 @@ public:
         throw System::NotImplementedException(ASPOSE_CURRENT_FUNCTION);
     }
 
-
-    ArrayPtr<String> Split(const String& input) const
-    {
-        return Split(input, m_pattern, m_options, m_matchTimeout);
-    }
-
-    ArrayPtr<String> Split(const String& input, int count) const
-    {
-        return Split(input, m_pattern, count, m_options, m_matchTimeout);
-    }
+    ArrayPtr<String> Split(const String& input);
+    ArrayPtr<String> Split(const String& input, int count);
 
     String ToString() ASPOSE_CONST override { return m_pattern; }
 
@@ -133,9 +97,14 @@ public:
                                   TimeSpan matchTimeout = InfiniteMatchTimeout);
 
     static String Escape(String str);
-
+    static String Unescape(String str)
+    {
+        throw System::NotImplementedException(ASPOSE_CURRENT_FUNCTION);
+    }
 
 private:
+
+    MatchPtr Match(WStringPtr source, int index);
 
     static String ProcessHexEscape(const String& pattern);
     static bool IsMetachar(wchar_t ch);
@@ -143,6 +112,7 @@ private:
     String m_pattern;
     RegexOptions m_options;
     TimeSpan m_matchTimeout;
+    std::unique_ptr<Detail::RegexHolder> regex;
 
     static const unsigned char s_category[];
 

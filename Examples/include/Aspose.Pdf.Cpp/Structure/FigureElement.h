@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Structure_FigureElement_h_
 #define _Aspose_Pdf_Structure_FigureElement_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <drawing/image.h>
 
@@ -31,20 +31,14 @@ class ASPOSE_PDF_SHARED_API FigureElement : public Aspose::Pdf::Structure::Eleme
     
 public:
 
+    /// <summary>
+    /// Gets the value of figure structure element.
+    /// </summary>
     System::SharedPtr<System::Drawing::Image> get_Image();
     
 protected:
 
     FigureElement(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> engineDict);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "FigureElement"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

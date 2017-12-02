@@ -3,8 +3,9 @@
 
 #include <array>
 #include <utility>
-#include <system/enum.h>
 #include <system/enum_helpers.h>
+
+template <typename T> struct EnumMetaInfo;
 
 namespace System
 {

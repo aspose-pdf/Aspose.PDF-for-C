@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Watermark_h_
 #define _Aspose_Pdf_Watermark_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/object.h>
@@ -31,26 +31,39 @@ class ASPOSE_PDF_SHARED_API Watermark : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets an image of the watermark.
+    /// </summary>
     System::SharedPtr<System::Drawing::Image> get_Image();
+    /// <summary>
+    /// Gets a position of the watermark's image on a page.
+    /// </summary>
     System::SharedPtr<Rectangle> get_Position();
+    /// <summary>
+    /// Gets a flag the watermark is present.
+    /// </summary>
     bool get_Available();
     
+    /// <summary>
+    /// Initializes a watermark object with an image and it's position on a page.
+    /// </summary>
+    /// <param name="image">Image of the watermark. </param>
+    /// <param name="rect">Position of the watermark on the page.</param>
     Watermark(System::SharedPtr<System::Drawing::Image> image, System::SharedPtr<Rectangle> rect);
+    /// <summary>
+    /// Initializes a watermark object with an image.
+    /// </summary>
+    /// <param name="image">Image of the watermark.</param>
     Watermark(System::SharedPtr<System::Drawing::Image> image);
     
 protected:
 
+    /// <summary>
+    /// Initializes a new watermark object.
+    /// </summary>
     Watermark();
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Watermark"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

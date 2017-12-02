@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Text_FontCollection_h_
 #define _Aspose_Pdf_Text_FontCollection_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/collections/list.h>
@@ -49,17 +49,22 @@ namespace Text {
 /// </remarks> 
 /// <example>
 /// The example demonstrates how to make all font declared on page as embedded.
-/// <code lang="C#"> 
+/// 
+/// <code>
 /// // Open document
-/// Document doc = new Document(@"D:\Tests\input.pdf");
+/// System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
 /// // ensure all fonts declared on page resources are embedded
 /// // note that if fonts are declared on form resources they are not accessible from page resources
-/// foreach(Aspose.Pdf.Txt.Font font in doc.Pages[1].Resources.Fonts)
+/// auto font_enumerator = (doc->get_Pages()->idx_get(1)->get_Resources()->get_Fonts())->GetEnumerator();
+/// decltype(font_enumerator->get_Current()) font;
+/// while (font_enumerator->MoveNext() && (font = font_enumerator->get_Current(), true))
 /// {
-///     if(!font.IsEmbedded)
-///         font.IsEmbedded = true;
+///     if (!font->get_IsEmbedded())
+///     {
+///         font->set_IsEmbedded(true);
+///     }
 /// }
-/// doc.Save(@"D:\Tests\input.pdf");
+/// doc->Save(L"D:\\Tests\\input.pdf");
 /// </code> 
 /// </example>
 //<<--REFACTORING: Old code: public sealed class FontCollection : ICollection
@@ -117,14 +122,6 @@ private:
     
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "FontsEnumerator"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     private:
     
         System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<Font>>> cursor;
@@ -136,17 +133,57 @@ private:
     
 public:
 
+    ///<summary>
+    /// Gets the number of <see cref="Font"/> object elements actually contained in the collection. 
+    /// </summary>
     int32_t get_Count() const;
+    ///<summary>
+    /// Gets an object that can be used to synchronize access to the collection.
+    /// </summary>
     System::SharedPtr<System::Object> get_SyncRoot();
+    ///<summary>
+    /// Gets a value indicating whether access to the collection is synchronized (thread safe). 
+    ///</summary>
     bool get_IsSynchronized();
     
+    ///<summary>
+    /// Returns an enumerator for the entire collection.
+    ///</summary>
+    ///<returns>Enumerator object.</returns>
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<Font>>> GetEnumerator();
+    ///<summary>
+    /// Copies the entire collection to a compatible one-dimensional Array, starting at the specified index of the target array
+    ///</summary> 
+    /// <param name="array">Array of objects which will be copied.</param>
+    /// <param name="index">Starting index from which copying will be started.</param>
+    //<<--REFACTORING: Old code: public void CopyTo(Array array, int index)
     void CopyTo(System::ArrayPtr<System::SharedPtr<Font>> array, int32_t index);
-    void Add(System::SharedPtr<Font> newFont, System::String &resName);
+    /// <summary>
+    /// Adds new font to font resources and returns automatically assigned name of font resource.
+    /// </summary>
+    /// <param name="newFont">Font object.</param>
+    /// <param name="resName">The automatically assigned resource item name.</param>
+    void Add(System::SharedPtr<Font> newFont, System::String& resName);
     
+    /// <summary>
+    /// Gets the font element at the specified index.
+    /// </summary>
+    /// <param name="index">Index within the collection.</param>
+    /// <returns>Font object.</returns>
     System::SharedPtr<Font> idx_get(int32_t index);
+    /// <summary>
+    /// Gets font from the collection by font name.
+    /// Exception is thrown if font was not found.
+    /// </summary>
+    /// <param name="name">Name of the font.</param>
+    /// <returns>Found font.</returns>
     System::SharedPtr<Font> idx_get(System::String name);
     
+    /// <summary>
+    /// Checks if font exists in font collection.
+    /// </summary>
+    /// <param name="name">Font name.</param>
+    /// <returns>True in case collection contains the font with specified name.</returns>
     bool Contains(System::String name);
     
 protected:
@@ -156,21 +193,32 @@ protected:
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> get_FontsDictionary();
     void set_FontsDictionary(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> value);
     
+    ///<summary>
+    /// Initializes empty font collection object
+    ///</summary>
     FontCollection();
+    ///<summary>
+    /// Initializes collection object with resource dictionary object
+    ///</summary>
     FontCollection(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::IResourceDictionary> resourceDictionary);
     
+    /// <summary>
+    /// Deletes the font element at the specified index.
+    /// </summary>
     void Delete(int32_t index);
+    /// <summary>
+    /// Add new font to font collection.
+    /// </summary>
+    /// <param name="resName"></param>
+    /// <param name="newFont"></param>
     void Add(System::String resName, System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> newFont);
+    /// <summary>
+    /// Adds to font resources new font entry with specified base font name. 
+    /// </summary>
+    /// <param name="resName"></param>
+    /// <param name="baseFontName"></param>
     void Add(System::String resName, System::String baseFontName);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "FontCollection"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -184,9 +232,17 @@ private:
     bool get_IsReadOnly();
     
     void BuildHash();
+    /// <summary>
+    /// </summary>
     void Add(System::SharedPtr<Font> const &item);
+    /// <summary>
+    /// </summary>
     bool Remove(System::SharedPtr<Font> const &item);
+    /// <summary>
+    /// </summary>
     bool Contains(System::SharedPtr<Font> const &item) const;
+    /// <summary>
+    /// </summary>
     void Clear();
     
 };

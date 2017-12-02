@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Devices_Margins__h_
 #define _Aspose_Pdf_Devices_Margins__h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/object.h>
 #include <cstdint>
@@ -26,28 +26,59 @@ class ASPOSE_PDF_SHARED_API Margins FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets the left.
+    /// </summary>
+    /// <value>The left.</value>
     int32_t get_Left();
+    /// <summary>
+    /// Gets or sets the left.
+    /// </summary>
+    /// <value>The left.</value>
     void set_Left(int32_t value);
+    /// <summary>
+    /// Gets or sets the right.
+    /// </summary>
+    /// <value>The right.</value>
     int32_t get_Right();
+    /// <summary>
+    /// Gets or sets the right.
+    /// </summary>
+    /// <value>The right.</value>
     void set_Right(int32_t value);
+    /// <summary>
+    /// Gets or sets the top.
+    /// </summary>
+    /// <value>The top.</value>
     int32_t get_Top();
+    /// <summary>
+    /// Gets or sets the top.
+    /// </summary>
+    /// <value>The top.</value>
     void set_Top(int32_t value);
+    /// <summary>
+    /// Gets or sets the bottom.
+    /// </summary>
+    /// <value>The bottom.</value>
     int32_t get_Bottom();
+    /// <summary>
+    /// Gets or sets the bottom.
+    /// </summary>
+    /// <value>The bottom.</value>
     void set_Bottom(int32_t value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Margins"></see> class.
+    /// </summary>
+    /// <param name="left">The left coordinate.</param>
+    /// <param name="right">The right coordinate.</param>
+    /// <param name="top">The top coordinate.</param>
+    /// <param name="bottom">The bottom coordinate.</param>
     Margins(int32_t left, int32_t right, int32_t top, int32_t bottom);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Margins"></see> class.
+    /// </summary>
     Margins();
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Margins"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

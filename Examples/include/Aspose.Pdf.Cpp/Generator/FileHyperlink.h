@@ -24,22 +24,24 @@ class ASPOSE_PDF_SHARED_API FileHyperlink FINAL : public Aspose::Pdf::Hyperlink
     
 public:
 
+    /// <summary>
+    /// Gets or sets the path to file.
+    /// </summary>
     System::String get_Path();
+    /// <summary>
+    /// Gets or sets the path to file.
+    /// </summary>
     void set_Path(System::String value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="FileHyperlink"/> class.
+    /// </summary>
     FileHyperlink();
+    /// <summary>
+    /// Initializes a new instance of the <see cref="FileHyperlink"/> class.
+    /// </summary>
+    /// <param name="path">Path to file.</param>
     FileHyperlink(System::String path);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "FileHyperlink"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

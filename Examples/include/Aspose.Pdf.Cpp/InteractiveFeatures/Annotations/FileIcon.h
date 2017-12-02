@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_FileIcon_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_FileIcon_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/object.h>
@@ -20,9 +20,21 @@ namespace Annotations {
 /// </summary>
 enum class FileIcon
 {
+    /// <summary>
+    /// PushPin icon (default value).
+    /// </summary>
     PushPin,
+    /// <summary>
+    /// Graph icon.
+    /// </summary>
     Graph,
+    /// <summary>
+    /// Paperclip icon.
+    /// </summary>
     Paperclip,
+    /// <summary>
+    ///This is tag icon.
+    /// </summary>
     Tag
 };
 
@@ -38,17 +50,6 @@ public:
 
     static System::String ToString(FileIcon value);
     static FileIcon ToEnum(System::String value);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "FileIconConverter"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

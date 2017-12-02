@@ -7,32 +7,31 @@ namespace System { namespace Text { namespace RegularExpressions {
 
 class GroupCollection;
 
+class Group;
+typedef SharedPtr<Group> GroupPtr;
+
 class Group : public Capture
 {
     friend class GroupCollection;
+    friend class Match;
 
 public:
 
     CaptureCollectionPtr get_Captures() { return captures; }
     bool get_Success() { return captures.get() && captures->get_Count() > 0; }
+    
+    Group(std::shared_ptr<const std::wstring> source, int index, int length);
+    void AddCapture(const CapturePtr item);
 
 protected:
 
-    Group() { }
-    Group(const Group &copy)
-        : Capture(copy)
-    {
-        if (copy.captures)
-        {
-            captures = MakeObject<CaptureCollection>();
-        }
-    }
-
     CaptureCollectionPtr captures;
+
 
     int GetGroupIndexFromName(const String& name);
 
 protected:
+
     virtual Object::shared_members_type GetSharedMembers() override
     {
         Object::shared_members_type result = Capture::GetSharedMembers();

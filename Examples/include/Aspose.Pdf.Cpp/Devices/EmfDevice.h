@@ -26,25 +26,72 @@ class ASPOSE_PDF_SHARED_API EmfDevice FINAL : public Aspose::Pdf::Devices::Image
     
 public:
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EmfDevice"/> class with default resolution of raster image written to emf.
+    /// </summary>
     EmfDevice();
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EmfDevice"/> class.
+    /// <param name="resolution">
+    /// Resolution for the raster image written to emf, see <see cref="Resolution"/> class.
+    /// </param>
+    /// </summary>
     EmfDevice(System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EmfDevice"/> class with provided image dimensions, 
+    /// and default resolution for the raster image written to emf (=150)
+    /// </summary>
+    /// <param name="width">
+    /// Image output width.
+    /// </param>
+    /// <param name="height">
+    /// Image output height.
+    /// </param>
     EmfDevice(int32_t width, int32_t height);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EmfDevice"/> class with provided page size, 
+    /// and default resolution for the raster image written to emf (=150)
+    /// </summary>
+    /// <param name="pageSize">
+    /// Page size of the output image.
+    /// </param>
     EmfDevice(System::SharedPtr<PageSize> pageSize);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="JpegDevice"/> class with provided image dimensions, 
+    /// and resolution for the raster image written to emf.
+    /// </summary>
+    /// <param name="width">
+    /// Image output width.
+    /// </param>
+    /// <param name="height">
+    /// Image output height.
+    /// </param>
+    /// <param name="resolution">
+    /// Resolution for the for the raster image written to emf, see <see cref="Resolution"/> class.
+    /// </param>
     EmfDevice(int32_t width, int32_t height, System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="JpegDevice"/> class with provided page size, 
+    /// and resolution for the raster image written to emf.
+    /// </summary>
+    /// <param name="pageSize">
+    /// Page size of the output image.
+    /// </param>
+    /// <param name="resolution">
+    /// Resolution for the for the raster image written to emf, see <see cref="Resolution"/> class.
+    /// </param>
     EmfDevice(System::SharedPtr<PageSize> pageSize, System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution);
     
+    /// <summary>
+    /// Converts the page into emf and saves it in the output stream.
+    /// </summary>
+    /// <param name="page">
+    /// The page to convert.
+    /// </param>
+    /// <param name="output">
+    /// Output stream with emf image.
+    /// </param>
     virtual void Process(System::SharedPtr<Page> page, System::SharedPtr<System::IO::Stream> output);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "EmfDevice"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

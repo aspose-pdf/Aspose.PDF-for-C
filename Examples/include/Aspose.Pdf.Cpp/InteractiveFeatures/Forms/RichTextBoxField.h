@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_RichTextBoxField_h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_RichTextBoxField_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/collections/list.h>
 
@@ -43,36 +43,67 @@ class ASPOSE_PDF_SHARED_API RichTextBoxField FINAL : public Aspose::Pdf::Interac
     
 public:
 
+    /// <summary>
+    /// Gets or sets default style string of the rich text field.
+    /// </summary>
     System::String get_Style();
+    /// <summary>
+    /// Gets or sets default style string of the rich text field.
+    /// </summary>
     void set_Style(System::String value);
+    /// <summary>
+    /// Gets or sets rich text value.
+    /// </summary>
     System::String get_RichTextValue();
+    /// <summary>
+    /// Gets or sets rich text value.
+    /// </summary>
     void set_RichTextValue(System::String value);
+    /// <summary>
+    /// Gets or sets formatted rich text value with markup.
+    /// </summary>
     System::String get_FormattedValue();
+    /// <summary>
+    /// Gets or sets formatted rich text value with markup.
+    /// </summary>
     void set_FormattedValue(System::String value);
+    /// <summary>
+    /// Value of RichTextField.
+    /// </summary>
     virtual System::String get_Value();
+    /// <summary>
+    /// Value of RichTextField.
+    /// </summary>
     virtual void set_Value(System::String value);
+    /// <summary>
+    /// Gets or sets justification of the rich text box.
+    /// </summary>
     Aspose::Pdf::InteractiveFeatures::Justification get_Justify();
+    /// <summary>
+    /// Gets or sets justification of the rich text box.
+    /// </summary>
     void set_Justify(Aspose::Pdf::InteractiveFeatures::Justification value);
     
+    /// <summary>
+    /// Constructor for Rich Text Box  field. 
+    /// </summary>
+    /// <param name="page">Page where field will be placed.</param>
+    /// <param name="rect">Position of the field on the page.</param>
     RichTextBoxField(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
     
 protected:
 
     virtual bool AppearanceSupported();
     virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> CreateAppearanceProgram(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Annotation::AppearanceParameters> parameters, System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Annotation> annotation);
+    /// <summary>
+    /// Initialize the field.
+    /// </summary>
+    /// <param name="page">The Aspose.Pdf.Page object where the field should be located.</param>
     virtual void Initialize(System::SharedPtr<Aspose::Pdf::Engine::Data::ITrailerable> trailer);
     
     RichTextBoxField(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> annotation, System::SharedPtr<Document> document);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "RichTextBoxField"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

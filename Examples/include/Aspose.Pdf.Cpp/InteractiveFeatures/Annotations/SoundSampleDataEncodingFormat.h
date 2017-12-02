@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_SoundSampleDataEncodingFormat_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_SoundSampleDataEncodingFormat_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/enum.h>
 
@@ -19,9 +19,21 @@ namespace Annotations {
 /// </summary>
 enum class SoundSampleDataEncodingFormat
 {
+    /// <summary>
+    /// Unspecified or unsigned values in the range 0 to 2B − 1.
+    /// </summary>
     Raw,
+    /// <summary>
+    /// Twos-complement values.
+    /// </summary>
     Signed,
+    /// <summary>
+    /// μ-law–encoded samples.
+    /// </summary>
     muLaw,
+    /// <summary>
+    /// A-law–encoded samples.
+    /// </summary>
     ALaw
 };
 

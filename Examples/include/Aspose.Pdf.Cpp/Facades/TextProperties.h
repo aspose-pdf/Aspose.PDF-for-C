@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Facades_TextProperties_h_
 #define _Aspose_Pdf_Facades_TextProperties_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/object.h>
 #include <drawing/color.h>
@@ -26,26 +26,40 @@ class ASPOSE_PDF_SHARED_API TextProperties FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets text color.
+    /// </summary>
     System::Drawing::Color get_Color();
+    /// <summary>
+    /// Gets or sets text color.
+    /// </summary>
     void set_Color(System::Drawing::Color value);
+    /// <summary>
+    /// Gets or sets a value that indicates whether the <see cref="Color"/> property is specified.
+    /// </summary>
     bool get_IsColorSpecified();
+    /// <summary>
+    /// Gets or sets text size.
+    /// </summary>
     double get_TextSize();
+    /// <summary>
+    /// Gets or sets text size.
+    /// </summary>
     void set_TextSize(double value);
+    /// <summary>
+    /// Gets or sets a value that indicates whether the <see cref="TextSize"/> property is specified.
+    /// </summary>
     bool get_IsTextSizeSpecified();
     
+    /// <summary>
+    /// Creates <see cref="TextProperties"/> object for the specified text size
+    /// </summary>
+    /// <param name="textSize">Text size value.</param>
     TextProperties(double textSize);
     
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextProperties"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

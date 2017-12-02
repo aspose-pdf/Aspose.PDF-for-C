@@ -439,7 +439,7 @@ protected:
             ss << std::setw(len);
         }
         ss << value;
-        return String(ss.str().c_str());
+        return String(ss.str());
     }
 
     template <typename Source>
@@ -460,7 +460,7 @@ protected:
             }
         }
 
-        return String(rv.c_str());
+        return String(rv);
     }
 
 }; // class Convert

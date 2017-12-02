@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Text_TextOptions_TextExtractionOptions_h_
 #define _Aspose_Pdf_Text_TextOptions_TextExtractionOptions_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include "Text/TextOptions/TextOptions.h"
 #include "aspose_pdf_api_defs.h"
@@ -28,31 +28,51 @@ public:
 
     enum class TextFormattingMode
     {
+        /// <summary>
+        /// Represent pdf content with a bit of formatting routines.
+        /// </summary>
         Pure,
+        /// <summary>
+        /// Represent pdf content as is, i.e. without formatting.
+        /// </summary>
         Raw
     };
     
     
 public:
 
+    /// <summary>
+    /// Gets formatting mode. 
+    /// </summary>
     TextExtractionOptions::TextFormattingMode get_FormattingMode();
+    /// <summary>
+    /// Gets formatting mode. 
+    /// </summary>
     void set_FormattingMode(TextExtractionOptions::TextFormattingMode value);
+    /// <summary>
+    /// Gets or sets factor that will be applied to scale font size during extraction in pure mode.
+    /// Setting of less value leads to more spaces in the extracted text.
+    /// Default value is 1 - no scaling;
+    /// Setting value to zero allows algorithm choose scaling automatically.
+    /// </summary>
     double get_ScaleFactor();
+    /// <summary>
+    /// Gets or sets factor that will be applied to scale font size during extraction in pure mode.
+    /// Setting of less value leads to more spaces in the extracted text.
+    /// Default value is 1 - no scaling;
+    /// Setting value to zero allows algorithm choose scaling automatically.
+    /// </summary>
     void set_ScaleFactor(double value);
     
+    /// <summary>
+    /// Initializes new instance of the <see cref="TextExtractionOptions"/> object for the specified text formatting mode.
+    /// </summary>
+    /// <param name="formattingMode">Text formatting mode value.</param>
     TextExtractionOptions(TextExtractionOptions::TextFormattingMode formattingMode);
     
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextExtractionOptions"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

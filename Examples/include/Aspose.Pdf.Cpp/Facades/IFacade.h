@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Facades_IFacade_h_
 #define _Aspose_Pdf_Facades_IFacade_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -30,9 +30,24 @@ class ASPOSE_PDF_SHARED_API IFacade : public System::IDisposable
     
 public:
 
+    /// <summary>
+    /// Binds PDF document for editing.
+    /// </summary>
+    /// <param name="srcFile">The path of input PDF document.</param>
     virtual void BindPdf(System::String srcFile) = 0;
+    /// <summary>
+    /// Binds PDF document for editing.
+    /// </summary>
+    /// <param name="srcStream">The stream of input PDF document.</param>
     virtual void BindPdf(System::SharedPtr<System::IO::Stream> srcStream) = 0;
+    /// <summary>
+    /// Binds PDF document for editing.
+    /// </summary>
+    /// <param name="srcDoc">Input PDF document.</param>
     virtual void BindPdf(System::SharedPtr<Document> srcDoc) = 0;
+    /// <summary>
+    /// Releases any resources associates with the current facade.
+    /// </summary>
     virtual void Close() = 0;
     
 };
@@ -50,7 +65,15 @@ class ASPOSE_PDF_SHARED_API ISaveableFacade : public virtual Aspose::Pdf::Facade
     
 public:
 
+    /// <summary>
+    /// Saves the result PDF document to file.
+    /// </summary>
+    /// <param name="destFile">The path of output PDF document.</param>
     virtual void Save(System::String destFile) = 0;
+    /// <summary>
+    /// Saves the result PDF document to stream.
+    /// </summary>
+    /// <param name="destStream">The stream of output PDF document.</param>
     virtual void Save(System::SharedPtr<System::IO::Stream> destStream) = 0;
     
 };

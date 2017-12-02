@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Generator_MarginInfo_h_
 #define _Aspose_Pdf_Generator_MarginInfo_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_text_writer.h>
 #include <xml/xml_reader.h>
@@ -34,18 +34,56 @@ class ASPOSE_PDF_SHARED_API MarginInfo FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets a float value that indicates the left margin.
+    /// </summary>
     double get_Left();
+    /// <summary>
+    /// Gets or sets a float value that indicates the left margin.
+    /// </summary>
     void set_Left(double value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the right margin.
+    /// </summary>
     double get_Right();
+    /// <summary>
+    /// Gets or sets a float value that indicates the right margin.
+    /// </summary>
     void set_Right(double value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the top margin.
+    /// </summary>
     double get_Top();
+    /// <summary>
+    /// Gets or sets a float value that indicates the top margin.
+    /// </summary>
     void set_Top(double value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the bottom margin.
+    /// </summary>
     double get_Bottom();
+    /// <summary>
+    /// Gets or sets a float value that indicates the bottom margin.
+    /// </summary>
     void set_Bottom(double value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MarginInfo"/> class.
+    /// </summary>
     MarginInfo();
+    /// <summary>
+    /// Constructor of Rectangle.
+    /// </summary>
+    /// <param name="left">Left margin.</param>
+    /// <param name="bottom">Bottom margin</param>        
+    /// <param name="right">Right margin.</param>
+    /// <param name="top">Top margin.</param>
     MarginInfo(double left, double bottom, double right, double top);
     
+    /// <summary>
+    /// Clones a new <see cref="MarginInfo"/> object.
+    /// </summary>
+    /// <returns>The new object.</returns>
     System::SharedPtr<MarginInfo> Clone();
     
 protected:
@@ -54,14 +92,6 @@ protected:
     
     void Serialize(System::SharedPtr<System::Xml::XmlTextWriter> writer);
     void Deserialize(System::SharedPtr<System::Xml::XmlReader> reader);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "MarginInfo"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

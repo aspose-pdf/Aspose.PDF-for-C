@@ -57,12 +57,11 @@ struct TestTools
     template <typename T>
     static typename std::enable_if<std::is_arithmetic<T>::value, bool>::type IsNull(T obj)
     {
-        (void)obj;
         return false;
     }
 
     template <typename T>
-    static typename std::enable_if<!std::is_arithmetic<T>::value, bool>::type IsNull(T obj)
+    static typename std::enable_if<!std::is_arithmetic<T>::value, bool>::type IsNull(const T &obj)
     {
         return obj == nullptr;
     }
@@ -93,13 +92,13 @@ struct TestTools
     template <typename T>
     static typename std::enable_if<std::is_same<decltype(std::declval<System::SharedPtr<T>>()->get_Count()), void>::value, bool>::type IsEmpty(SharedPtr<T> collection)
     {
-        return collection->data().size() == 0;
+        return collection->get_Count() == 0;
     }
 
     template <typename T>
     static bool IsNullOrEmpty(SharedPtr<T> collection)
     {
-        return collection.get() == nullptr || collection->data().size() == 0;
+        return collection.get() == nullptr || collection->get_Count() == 0;
     }
 
     static bool IsNullOrEmpty(System::String str)

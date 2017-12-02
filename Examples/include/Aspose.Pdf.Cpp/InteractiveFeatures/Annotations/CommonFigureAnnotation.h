@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_CommonFigureAnnotation_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_CommonFigureAnnotation_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_writer.h>
 
@@ -39,27 +39,46 @@ class ASPOSE_PDF_SHARED_API ABSTRACT CommonFigureAnnotation : public Aspose::Pdf
     
 public:
 
+    /// <summary>
+    /// Interior color with which to fill the annotation�s rectangle or ellipse.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Color> get_InteriorColor();
+    /// <summary>
+    /// Interior color with which to fill the annotation�s rectangle or ellipse.
+    /// </summary>
     void set_InteriorColor(System::SharedPtr<Aspose::Pdf::Color> value);
+    /// <summary>
+    /// The rectangle describing the numerical differences between two rectangles:
+    /// the Rect entry of the annotation and the actual boundaries of the underlying square or circle.
+    /// </summary>
     System::SharedPtr<Rectangle> get_Frame();
+    /// <summary>
+    /// The rectangle describing the numerical differences between two rectangles:
+    /// the Rect entry of the annotation and the actual boundaries of the underlying square or circle.
+    /// </summary>
     void set_Frame(System::SharedPtr<Rectangle> value);
     
 protected:
 
     CommonFigureAnnotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> annotation, System::SharedPtr<Document> document);
+    /// <summary>
+    /// Constructor.
+    /// </summary>
+    /// <param name="page">The page with which the annotation will be associated.</param>
+    /// <param name="rect">The annotation rectangle, defining the location of the annotation on the page.</param>
     CommonFigureAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
     
+    /// <summary>
+    /// When overridden in a derived class, exports annotation attributes into XFDF.
+    /// </summary>
+    /// <param name="writer">Writer of destination file.</param>
     virtual void WriteXfdfAttributes(System::SharedPtr<System::Xml::XmlWriter> writer);
+    /// <summary>
+    /// When overridden in a derived class, import annotation attributes from XFDF.
+    /// </summary>
+    /// <param name="reader">Reader of XFDF file.</param>
     virtual void ReadXfdfAttributes(System::SharedPtr<System::Xml::XmlReader> reader);
     virtual void ReadXfdf(System::SharedPtr<System::Xml::XmlReader> reader);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "CommonFigureAnnotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_SubmitFormAction_h_
 #define _Aspose_Pdf_InteractiveFeatures_SubmitFormAction_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <cstdint>
 
@@ -31,25 +31,40 @@ class ASPOSE_PDF_SHARED_API SubmitFormAction FINAL : public Aspose::Pdf::Interac
     
 public:
 
-    constexpr static const int32_t Exclude = 1;
-    constexpr static const int32_t IncludeNoValueFields = 1 << 1;
-    constexpr static const int32_t ExportFormat = 1 << 2;
-    constexpr static const int32_t GetMethod = 1 << 3;
-    constexpr static const int32_t SubmitCoordinates = 1 << 4;
-    constexpr static const int32_t Xfdf = 1 << 5;
-    constexpr static const int32_t IncludeAppendSaves = 1 << 6;
-    constexpr static const int32_t IncludeAnnotations = 1 << 7;
-    constexpr static const int32_t SubmitPdf = 1 << 8;
-    constexpr static const int32_t CanonicalFormat = 1 << 9;
-    constexpr static const int32_t ExclNonUserAnnots = 1 << 10;
-    constexpr static const int32_t ExclFKey = 1 << 11;
-    constexpr static const int32_t EmbedForm = 1 << 13;
+    static constexpr int32_t Exclude = 1;
+    static constexpr int32_t IncludeNoValueFields = 1 << 1;
+    static constexpr int32_t ExportFormat = 1 << 2;
+    static constexpr int32_t GetMethod = 1 << 3;
+    static constexpr int32_t SubmitCoordinates = 1 << 4;
+    static constexpr int32_t Xfdf = 1 << 5;
+    static constexpr int32_t IncludeAppendSaves = 1 << 6;
+    static constexpr int32_t IncludeAnnotations = 1 << 7;
+    static constexpr int32_t SubmitPdf = 1 << 8;
+    static constexpr int32_t CanonicalFormat = 1 << 9;
+    static constexpr int32_t ExclNonUserAnnots = 1 << 10;
+    static constexpr int32_t ExclFKey = 1 << 11;
+    static constexpr int32_t EmbedForm = 1 << 13;
     
+    /// <summary>
+    /// Gets or sets flagas of submit action
+    /// </summary>
     int32_t get_Flags();
+    /// <summary>
+    /// Gets or sets flagas of submit action
+    /// </summary>
     void set_Flags(int32_t value);
+    /// <summary>
+    /// Destination URL.
+    /// </summary>
     System::SharedPtr<FileSpecification> get_Url();
+    /// <summary>
+    /// Destination URL.
+    /// </summary>
     void set_Url(System::SharedPtr<FileSpecification> value);
     
+    /// <summary>
+    /// Initializes SubmitFormAction object.
+    /// </summary>
     SubmitFormAction();
     
 protected:
@@ -57,14 +72,6 @@ protected:
     SubmitFormAction(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> action);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SubmitFormAction"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Group__h_
 #define _Aspose_Pdf_Group__h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/object.h>
@@ -32,25 +32,37 @@ class ASPOSE_PDF_SHARED_API Group FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// The group color space.
+    /// </summary>
     Aspose::Pdf::ColorSpace get_ColorSpace();
+    /// <summary>
+    /// The group color space.
+    /// </summary>
     void set_ColorSpace(Aspose::Pdf::ColorSpace value);
     
+    /// <summary>
+    /// The constructor.
+    /// </summary>
+    /// <param name="page">Pdf page object.</param>
     Group(System::SharedPtr<Page> page);
     
 protected:
 
+    /// <summary>
+    /// If this flag is false, later objects within the group are composited with earlier ones with which
+    /// they overlap; if true, they are composited with the group’s initial backdrop and overwrite (“knock out”)
+    /// any earlier overlapping objects.
+    /// </summary>
     ExtendedBoolean get_IsKnockout();
+    /// <summary>
+    /// If this flag is false, later objects within the group are composited with earlier ones with which
+    /// they overlap; if true, they are composited with the group’s initial backdrop and overwrite (“knock out”)
+    /// any earlier overlapping objects.
+    /// </summary>
     void set_IsKnockout(ExtendedBoolean value);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Group"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

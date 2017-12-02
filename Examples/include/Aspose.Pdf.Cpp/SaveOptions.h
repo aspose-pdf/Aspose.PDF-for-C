@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_SaveOptions_h_
 #define _Aspose_Pdf_SaveOptions_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -39,20 +39,53 @@ public:
 
     enum class HtmlBorderLineType
     {
+        ///<summary>
+        /// No line will be shown
+        ///</summary> 
         None = 0,
+        ///<summary>
+        /// dotted line will be shown
+        ///</summary> 
         Dotted = 1,
+        ///<summary>
+        /// dashed line will be shown
+        ///</summary> 
         Dashed = 2,
+        ///<summary>
+        /// solid line will be shown
+        ///</summary> 
         Solid = 3,
+        ///<summary>
+        /// double line will be shown
+        ///</summary> 
         Double = 4,
+        ///<summary>
+        /// grove line will be shown
+        ///</summary> 
         Groove = 5,
+        ///<summary>
+        /// ridhe line will be shown
+        ///</summary> 
         Ridge = 6,
+        ///<summary>
+        /// inset line will be shown
+        ///</summary> 
         Inset = 7,
+        ///<summary>
+        /// outset line will be shown
+        ///</summary> 
         Outset = 8
     };
     
     enum class NodeLevelResourceType
     {
+        /// <summary>
+        /// Means that supplied resource is image
+        /// </summary>
         Image = 0,
+        /// <summary>
+        /// Means that supplied resource is font
+        /// </summary>
         Font = 1
     };
     
@@ -75,7 +108,13 @@ public:
         System::Drawing::Color Color;
         SaveOptions::HtmlBorderLineType LineType;
         
+        ///<summary>
+        /// Represents border line's width in points. Must be number greater then zero.
+        ///</summary> 
         int32_t get_WidthInPoints();
+        ///<summary>
+        /// Represents border line's width in points. Must be number greater then zero.
+        ///</summary> 
         void set_WidthInPoints(int32_t value);
         
         BorderPartStyle();
@@ -84,14 +123,6 @@ public:
     
         System::SharedPtr<SaveOptions::BorderPartStyle> Clone();
         System::Object::shared_members_type GetSharedMembers() override;
-        
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "BorderPartStyle"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
         
     private:
     
@@ -114,7 +145,16 @@ public:
         System::SharedPtr<SaveOptions::BorderPartStyle> RightStyleIfAny;
         System::SharedPtr<SaveOptions::BorderPartStyle> BottomStyleIfAny;
         
+        /// <summary>
+        ///   Creates instance of BorderInfo class
+        /// </summary>
         BorderInfo();
+        /// <summary>
+        ///   Creates instance of BorderInfo class and initializes
+        ///   all elements of border(Top, Left, Right, Bottom)
+        ///   with attributes copied from supplied border style
+        /// </summary>
+        /// <param name="commonStyle">style of border parts that will be used for all elements of border(left, right, top, bottom)</param>
         BorderInfo(System::SharedPtr<SaveOptions::BorderPartStyle> commonStyle);
         
     protected:
@@ -122,14 +162,6 @@ public:
         bool get_AtLeastOneBorderSideNeeded();
         
         System::Object::shared_members_type GetSharedMembers() override;
-        
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "BorderInfo"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
         
     };
     
@@ -145,6 +177,11 @@ public:
         
     public:
     
+        /// <summary>
+        ///  Set by converter.
+        ///  Supposed file name that goes from converter to code of custom method
+        ///  Can be use in custom code to decide how to process or where save that file
+        /// </summary>
         SaveOptions::NodeLevelResourceType get_ResourceType();
         
         System::String SupposedFileName;
@@ -157,14 +194,6 @@ public:
         
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "ResourceSavingInfo"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     private:
     
         SaveOptions::NodeLevelResourceType _resourceType;
@@ -176,10 +205,29 @@ public:
     
 public:
 
+    /// <summary>
+    /// Callback to handle any warnings generated. 
+    /// The WarningHandler returns ReturnAction enum item specifying either Continue or Abort. 
+    /// Continue is the default action and the Save operation continues, however the user may also return Abort in which case the Save operation should cease.
+    /// </summary>
     System::SharedPtr<IWarningCallback> get_WarningHandler();
+    /// <summary>
+    /// Callback to handle any warnings generated. 
+    /// The WarningHandler returns ReturnAction enum item specifying either Continue or Abort. 
+    /// Continue is the default action and the Save operation continues, however the user may also return Abort in which case the Save operation should cease.
+    /// </summary>
     void set_WarningHandler(System::SharedPtr<IWarningCallback> value);
+    /// <summary>
+    /// Format of data save.
+    /// </summary>
     Aspose::Pdf::SaveFormat get_SaveFormat();
+    /// <summary>
+    /// Gets or sets boolean value which indicates will Response object be closed after document saved into response.
+    /// </summary>
     bool get_CloseResponse();
+    /// <summary>
+    /// Gets or sets boolean value which indicates will Response object be closed after document saved into response.
+    /// </summary>
     void set_CloseResponse(bool value);
     
     SaveOptions();
@@ -194,14 +242,6 @@ protected:
     System::String PlainApsIntermediateTempFileIfAny;
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SaveOptions"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

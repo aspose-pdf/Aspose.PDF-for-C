@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Resources_h_
 #define _Aspose_Pdf_Resources_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -91,8 +91,17 @@ class ASPOSE_PDF_SHARED_API Resources FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets <see cref="Forms"/> forms collection
+    /// </summary>
     System::SharedPtr<XFormCollection> get_Forms();
+    /// <summary>
+    /// Gets <see cref="Images"/> images collection
+    /// </summary>
     System::SharedPtr<XImageCollection> get_Images();
+    /// <summary>
+    /// Gets <see cref="Fonts"/> resources collection
+    /// </summary>
     System::SharedPtr<Text::FontCollection> get_Fonts();
     
 protected:
@@ -104,12 +113,32 @@ protected:
     System::SharedPtr<Engine::Data::IPdfDictionary> get_EngineDict();
     System::SharedPtr<OperatorCollection> get_Contents();
     void set_Contents(System::SharedPtr<OperatorCollection> value);
+    /// <summary>
+    /// True if this resources are common i.e. are shared for several pages 
+    /// (placed in pages dictionary as inherited resouirces or in every page as object reference)
+    /// Manipulation with common resources must be performed very carefully for example 
+    /// deleting object form common resources in one page may cause errors on other pages if deleted object
+    /// was used for other pages.
+    /// </summary>
     bool get_IsCommonResource();
+    /// <summary>
+    /// True if this resources are common i.e. are shared for several pages 
+    /// (placed in pages dictionary as inherited resouirces or in every page as object reference)
+    /// Manipulation with common resources must be performed very carefully for example 
+    /// deleting object form common resources in one page may cause errors on other pages if deleted object
+    /// was used for other pages.
+    /// </summary>
     void set_IsCommonResource(bool value);
     System::SharedPtr<Engine::Data::IPdfObject> get_Source();
     void set_Source(System::SharedPtr<Engine::Data::IPdfObject> value);
     
+    /// <summary>
+    /// Clears cached forms (this required when fields are flattened)
+    /// </summary>
     void ClearFormsCache();
+    /// <summary>
+    /// Clears cached fonts (this required when fields are flattened)
+    /// </summary>
     void ClearFontsCache();
     static System::SharedPtr<Resources> GetResourcesFor(System::SharedPtr<Page> page);
     static void ReleaseResourcesFor(System::SharedPtr<Page> const &page);
@@ -118,16 +147,13 @@ protected:
     static System::SharedPtr<Resources> GetResourcesFor(System::SharedPtr<XForm> xform);
     static void ReleaseResourcesFor(System::SharedPtr<XForm> xform);
     static System::SharedPtr<System::Drawing::Image> GetImage(System::String name, System::SharedPtr<Engine::Data::IPdfDictionary> resources);
+    /// <summary>
+    /// Determines whether common images are existed in the document.
+    /// </summary>
+    /// <param name="imageObjectId">The image object id to validate.</param>
+    /// <returns>True - the image is common resource; otherwise, false.</returns>
     bool IsXObjectCommon(int32_t imageObjectId);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Resources"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_ImagePlacementAbsorber_h_
 #define _Aspose_Pdf_ImagePlacementAbsorber_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -35,24 +35,7 @@ namespace Pdf {
 /// </remarks>
 /// <example>
 /// The example demonstrates how to find images on the first PDF document page and get the image placement properties.
-/// <code lang="C#"> 
-/// // Open document
-/// Document doc = new Document(@"D:\Tests\input.pdf");
-/// // Create ImagePlacementAbsorber object to perform image placement search
-/// ImagePlacementAbsorber abs = new ImagePlacementAbsorber();
-/// // Accept the absorber for first page
-/// doc.Pages[1].Accept(abs);
-/// // Display image placement properties for all placements
-/// foreach (ImagePlacement imagePlacement in abs.ImagePlacements)
-/// {     
-///     Console.Out.WriteLine("image width:" + imagePlacement.Rectangle.Width);
-///     Console.Out.WriteLine("image height:" + imagePlacement.Rectangle.Height);
-///     Console.Out.WriteLine("image LLX:" + imagePlacement.Rectangle.LLX);
-///     Console.Out.WriteLine("image LLY:" + imagePlacement.Rectangle.LLY);
-///     Console.Out.WriteLine("image horizontal resolution:" + imagePlacement.Resolution.X);
-///     Console.Out.WriteLine("image vertical resolution:" + imagePlacement.Resolution.Y);
-/// }
-/// </code> 
+/// <code></code> 
 /// </example>
 class ASPOSE_PDF_SHARED_API ImagePlacementAbsorber FINAL : public System::Object
 {
@@ -64,24 +47,30 @@ class ASPOSE_PDF_SHARED_API ImagePlacementAbsorber FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets collection of image placement occurrences that are presented with <see cref="ImagePlacement"/> objects.
+    /// </summary>
     System::SharedPtr<ImagePlacementCollection> get_ImagePlacements();
     
+    /// <summary>
+    /// Initializes new instance of the <see cref="ImagePlacementAbsorber"/> object.
+    /// </summary>
     ImagePlacementAbsorber();
     
+    /// <summary>
+    /// Performs search on the specified page.
+    /// </summary>
+    /// <param name="page">Pdf pocument page object.</param>
     void Visit(System::SharedPtr<Page> page);
+    /// <summary>
+    /// Performs search on the specified document.
+    /// </summary>
+    /// <param name="pdf">Pdf pocument object.</param>
     void Visit(System::SharedPtr<Document> pdf);
     
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ImagePlacementAbsorber"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -91,7 +80,7 @@ private:
     
     void Process(System::SharedPtr<Page> page, System::SharedPtr<OperatorCollection> contents, System::SharedPtr<Resources> resources);
     bool ProcessContents(System::SharedPtr<Page> page, System::SharedPtr<OperatorCollection> contents, System::SharedPtr<Resources> resources);
-    void ComputeImageSizeParameters(System::SharedPtr<XImage> image, double &yIndent, double &xIndent, int32_t &resVertical, int32_t &resHorizontal, double &scaledWidth, double &scaledHeight, int32_t &rotationAngle);
+    void ComputeImageSizeParameters(System::SharedPtr<XImage> image, double& yIndent, double& xIndent, int32_t& resVertical, int32_t& resHorizontal, double& scaledWidth, double& scaledHeight, int32_t& rotationAngle);
     void ProcessPatterns(System::SharedPtr<Page> page, System::SharedPtr<Operators::SetAdvancedColor> opScn);
     static bool ContainsImage(System::SharedPtr<Resources> resources, System::String imageName);
     static bool ContainsForm(System::SharedPtr<Resources> resources, System::String formName);

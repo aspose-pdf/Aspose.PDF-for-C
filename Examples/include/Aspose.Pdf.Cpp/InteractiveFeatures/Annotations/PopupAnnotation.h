@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_PopupAnnotation_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_PopupAnnotation_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_writer.h>
 
@@ -41,14 +41,40 @@ class ASPOSE_PDF_SHARED_API PopupAnnotation FINAL : public Aspose::Pdf::Interact
     
 public:
 
+    /// <summary>
+    /// Gets or sets a flag specifying whether the pop-up annotation should initially be displayed open.
+    /// </summary>
     bool get_Open();
+    /// <summary>
+    /// Gets or sets a flag specifying whether the pop-up annotation should initially be displayed open.
+    /// </summary>
     void set_Open(bool value);
+    /// <summary>
+    /// Gets or sets the parent annotation with which this pop-up annotation shall be associated.
+    /// If this entry is present, the parent annotation�s Contents, M, C, and T entries shall override those of the pop-up annotation itself.
+    /// </summary>
     System::SharedPtr<MarkupAnnotation> get_Parent();
+    /// <summary>
+    /// Gets or sets the parent annotation with which this pop-up annotation shall be associated.
+    /// If this entry is present, the parent annotation�s Contents, M, C, and T entries shall override those of the pop-up annotation itself.
+    /// </summary>
     void set_Parent(System::SharedPtr<MarkupAnnotation> value);
+    /// <summary>
+    /// Gets type of annotation.
+    /// </summary>
     virtual Aspose::Pdf::InteractiveFeatures::Annotations::AnnotationType get_AnnotationType();
     
+    /// <summary>
+    /// Accepts visitor object to process the annotation.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<AnnotationSelector> visitor);
     
+    /// <summary>
+    /// Creates new Popup annotation on the specified page.
+    /// </summary>
+    /// <param name="page">The document's page where annotation should be created.</param>
+    /// <param name="rect">The annotation rectangle, defining the location of the annotation on the page.</param>
     PopupAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
     
 protected:
@@ -56,17 +82,14 @@ protected:
     virtual void WriteXfdf(System::SharedPtr<System::Xml::XmlWriter> writer);
     virtual void ReadXfdf(System::SharedPtr<System::Xml::XmlReader> reader);
     
+    /// <summary>
+    /// Ititializes Popup annotation with engine annotation object.
+    /// </summary>
+    /// <param name="engineAnnot">Engine object that represents the annotation.</param>
+    /// <param name="document">Document.</param>
     PopupAnnotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> engineAnnot, System::SharedPtr<Document> document);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PopupAnnotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_ContentDisposition_h_
 #define _Aspose_Pdf_ContentDisposition_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -11,7 +11,13 @@ namespace Pdf {
 /// </summary>
 enum class ContentDisposition
 {
+    /// <summary>
+    /// Result is shown inline.
+    /// </summary>
     Inline = 0,
+    /// <summary>
+    /// Result is saved as attachment.
+    /// </summary>
     Attachment = 1
 };
 

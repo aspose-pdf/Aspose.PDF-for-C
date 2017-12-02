@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_XfdfReader_h_
 #define _Aspose_Pdf_InteractiveFeatures_XfdfReader_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_reader.h>
 #include <xml/xml_node_list.h>
@@ -31,13 +31,7 @@ namespace InteractiveFeatures {
 /// Class which peroformes reading of XFDF format. 
 /// </summary>
 /// <example>
-/// <code lang="C#">
-/// Document doc = new Document("example.pdf");
-/// Stream xfdfStream = File.OpenRead("file.xfdf");
-/// XfdfReader.ReadAnnotations(xfdfStream, doc);
-/// xfdfStream.Close();
-/// doc.Save("example_out.pdf");
-/// </code>
+/// <code></code>
 /// </example>
 class ASPOSE_PDF_SHARED_API XfdfReader FINAL : public System::Object
 {
@@ -51,22 +45,29 @@ class ASPOSE_PDF_SHARED_API XfdfReader FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Import annotations from XFDF file and put them into document.
+    /// </summary>
+    /// <param name="stream">Source stream containing XFDF file.</param>
+    /// <param name="document">Document where annotations will be added.</param>
     static void ReadAnnotations(System::SharedPtr<System::IO::Stream> stream, System::SharedPtr<Document> document);
+    /// <summary>
+    /// Import field values from XFDF file.
+    /// </summary>
+    /// <param name="stream">Stream containing XFDF data.</param>
+    /// <param name="document">Document where fields data will be imported.</param>
     static void ReadFields(System::SharedPtr<System::IO::Stream> stream, System::SharedPtr<Document> document);
+    /// <summary>
+    /// Parses XFDF file and returns information as hashtable.
+    /// </summary>
+    /// <param name="reader">XmlReader for the source file.</param>
+    /// <returns>Hashtable with information parsed from XFDF file.</returns>
     static System::SharedPtr<System::Collections::Generic::Dictionary<System::String, System::String>> GetElements(System::SharedPtr<System::Xml::XmlReader> reader);
     
 protected:
 
     static bool IsAnnotation(System::String annot);
     static void ReadFields(System::SharedPtr<System::IO::Stream> stream, System::SharedPtr<Document> document, System::SharedPtr<System::Collections::Generic::List<System::String>> foundFields, System::SharedPtr<System::Collections::Generic::IList<System::String>> notFoundFields);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "XfdfReader"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

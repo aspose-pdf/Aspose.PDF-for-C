@@ -14,7 +14,13 @@ namespace Annotations {
 /// </summary>
 enum class CapStyle
 {
+    /// <summary>
+    /// End is rectangular.
+    /// </summary>
     Rectangular = 1,
+    /// <summary>
+    /// End is rounded.
+    /// </summary>
     Rounded = 2
 };
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Generator_Drawing_Path_h_
 #define _Aspose_Pdf_Generator_Drawing_Path_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_text_writer.h>
 #include <xml/xml_reader.h>
@@ -32,9 +32,19 @@ class ASPOSE_PDF_SHARED_API Path FINAL : public Aspose::Pdf::Drawing::Shape
     
 public:
 
+    /// <summary>
+    /// Gets or sets shapes collection.
+    /// </summary>
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Shape>>> get_Shapes();
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Path"/> class.
+    /// </summary>
+    /// <param name="shapes">The shape array contains path segments set.</param>
     Path(System::ArrayPtr<System::SharedPtr<Shape>> shapes);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Path"/> class.
+    /// </summary>
     Path();
     
 protected:
@@ -43,14 +53,6 @@ protected:
     virtual void Serialize(System::SharedPtr<System::Xml::XmlTextWriter> writer);
     virtual void Deserialize(System::SharedPtr<System::Xml::XmlReader> reader);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Path"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

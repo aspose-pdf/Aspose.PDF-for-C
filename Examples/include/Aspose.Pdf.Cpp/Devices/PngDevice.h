@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Devices_PngDevice_h_
 #define _Aspose_Pdf_Devices_PngDevice_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include "Devices/ImageDevice_.h"
 
@@ -27,26 +27,73 @@ class ASPOSE_PDF_SHARED_API PngDevice FINAL : public Aspose::Pdf::Devices::Image
     
 public:
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PngDevice"/> class with default resolution.
+    /// </summary>
     PngDevice();
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PngDevice"/> class.
+    /// <param name="resolution">
+    /// Resolution for the result image file, see <see cref="Resolution"/> class.
+    /// </param>
+    /// </summary>
     PngDevice(System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PngDevice"/> class with provided image dimensions and
+    /// resolution.
+    /// </summary>
+    /// <param name="width">
+    /// Image output width.
+    /// </param>
+    /// <param name="height">
+    /// Image output height.
+    /// </param>
+    /// <param name="resolution">
+    /// Resolution for the result image file, see <see cref="Resolution"/> class.
+    /// </param>
     PngDevice(int32_t width, int32_t height, System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PngDevice"/> class with provided page size and
+    /// resolution.
+    /// </summary>
+    /// <param name="pageSize">
+    /// Page size of the output image.
+    /// </param>
+    /// <param name="resolution">
+    /// Resolution for the result image file, see <see cref="Resolution"/> class.
+    /// </param>
     PngDevice(System::SharedPtr<PageSize> pageSize, System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution);
     
+    /// <summary>
+    /// Converts the page into png and saves it in the output stream.
+    /// </summary>
+    /// <param name="page">
+    /// The page to convert.
+    /// </param>
+    /// <param name="output">
+    /// Output stream with png image.
+    /// </param>
     virtual void Process(System::SharedPtr<Page> page, System::SharedPtr<System::IO::Stream> output);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PngDevice"/> class with provided image dimensions, 
+    /// default resolution (=150).
+    /// </summary>
+    /// <param name="width">
+    /// Image output width.
+    /// </param>
+    /// <param name="height">
+    /// Image output height.
+    /// </param>
     PngDevice(int32_t width, int32_t height);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PngDevice"/> class with provided page size, 
+    /// default resolution (=150).
+    /// </summary>
+    /// <param name="pageSize">
+    /// Page size of the output image.
+    /// </param>
     PngDevice(System::SharedPtr<PageSize> pageSize);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PngDevice"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

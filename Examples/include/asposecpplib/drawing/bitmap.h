@@ -47,7 +47,7 @@ class Bitmap : public Image
 
 public:
     Bitmap(SharedPtr<Image> original);
-    Bitmap(SharedPtr<System::IO::Stream> stream);
+    Bitmap(SharedPtr<System::IO::Stream> stream, bool useIcm = false);
     Bitmap(const String & filename);
     Bitmap(const String & filename, bool useIcm);
     Bitmap(int width, int height, Imaging::PixelFormat format = Imaging::PixelFormat::Format32bppArgb, void * extended_data = nullptr);
@@ -89,7 +89,7 @@ public:
     void PremultipleColors();
 
 private:
-    void PutRawBytesBmp(SkWStream *to) const;
+    void PutRawBytesBmp(SkWStream *to);
 
     Imaging::PixelFormat m_original_pixel_format;
 
@@ -103,7 +103,7 @@ protected:
     static bool GetSkBitmapFromArray(ArrayPtr<uint8_t> data, SkBitmap * bitmap, SkEncodedFormat* sk_encoded_format);
 
     virtual SkCanvas * GetDrawingCanvas() const OVERRIDE;
-    virtual sk_sp<SkData> GetRawBytes(SkEncodedFormat encoder_type) const OVERRIDE;
+    virtual sk_sp<SkData> GetRawBytes(SkEncodedFormat encoder_type, int quality) OVERRIDE;
 
     virtual const SkImageInfo* GetSkImageInfo() const OVERRIDE;
     virtual const SkEncodedFormat GetSkEncodedFormat() const OVERRIDE;

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Facades_PdfFileMend_h_
 #define _Aspose_Pdf_Facades_PdfFileMend_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -38,54 +38,273 @@ class ASPOSE_PDF_SHARED_API PdfFileMend FINAL : public Aspose::Pdf::Facades::Sav
     
 public:
 
+    /// <summary>
+    /// Sets the input stream.
+    /// </summary>
     System::SharedPtr<System::IO::Stream> get_InputStream();
+    /// <summary>
+    /// Sets the input stream.
+    /// </summary>
     void set_InputStream(System::SharedPtr<System::IO::Stream> value);
+    /// <summary>
+    /// Sets the output stream.
+    /// </summary>
     System::SharedPtr<System::IO::Stream> get_OutputStream();
+    /// <summary>
+    /// Sets the output stream.
+    /// </summary>
     void set_OutputStream(System::SharedPtr<System::IO::Stream> value);
+    /// <summary>
+    /// Sets the input file.
+    /// </summary>
     System::String get_InputFile();
+    /// <summary>
+    /// Sets the input file.
+    /// </summary>
     void set_InputFile(System::String value);
+    /// <summary>
+    /// Sets the output file.
+    /// </summary>
     System::String get_OutputFile();
+    /// <summary>
+    /// Sets the output file.
+    /// </summary>
     void set_OutputFile(System::String value);
+    /// <summary>
+    /// Sets a bool value that indicates word wrap in AddText methods.
+    /// If the value is true, the text in FormattedText will word wrap.
+    /// By defalt, the value is false.
+    /// </summary>
     void set_IsWordWrap(bool value);
+    /// <summary>
+    /// Sets or gets word wrapping algorithm. See WordWrapMode and IsWordWrap.
+    /// </summary>
     WordWrapMode get_WrapMode();
+    /// <summary>
+    /// Sets or gets word wrapping algorithm. See WordWrapMode and IsWordWrap.
+    /// </summary>
     void set_WrapMode(WordWrapMode value);
+    /// <summary>
+    /// Sets or gets text positioning strategy. <see cref="PositioningMode"/>
+    /// Default mode is Legacy.
+    /// </summary>
     PositioningMode get_TextPositioningMode();
+    /// <summary>
+    /// Sets or gets text positioning strategy. <see cref="PositioningMode"/>
+    /// Default mode is Legacy.
+    /// </summary>
     void set_TextPositioningMode(PositioningMode value);
     
+    /// <summary>
+    /// Adds image to the specified page of PDF document at specified coordinates.
+    /// </summary>
+    /// <param name="imageStream">Input image stream.</param>
+    /// <param name="pageNum">The number of page that will receive the image.</param>
+    /// <param name="lowerLeftX">The lower left x of image rectangle.</param>
+    /// <param name="lowerLeftY">The lower left y of image rectangle.</param>
+    /// <param name="upperRightX">The upper right x of image rectangle.</param>
+    /// <param name="upperRightY">The upper right y of image rectangle.</param>
+    /// <returns>True if success false otherwise.</returns>
+    /// <example>
+    /// <code></code>
+    /// </example>
     bool AddImage(System::SharedPtr<System::IO::Stream> imageStream, int32_t pageNum, float lowerLeftX, float lowerLeftY, float upperRightX, float upperRightY);
+    /// <summary>
+    /// Adds image to the specified page of PDF document at specified coordinates.
+    /// </summary>
+    /// <param name="imageStream">Input image stream.</param>
+    /// <param name="pageNum">The number of page that will receive the image.</param>
+    /// <param name="lowerLeftX">The lower left x of image rectangle.</param>
+    /// <param name="lowerLeftY">The lower left y of image rectangle.</param>
+    /// <param name="upperRightX">The upper right x of image rectangle.</param>
+    /// <param name="upperRightY">The upper right y of image rectangle.</param>
+    /// <param name="compositingParameters">The graphics compositing parameters for the image.</param>
+    /// <returns>True if success false otherwise.</returns>
+    /// <example>
+    /// <code></code>
+    /// </example>
     bool AddImage(System::SharedPtr<System::IO::Stream> imageStream, int32_t pageNum, float lowerLeftX, float lowerLeftY, float upperRightX, float upperRightY, System::SharedPtr<CompositingParameters> compositingParameters);
+    /// <summary>
+    /// Adds image to the specified pages of PDF document at specified coordinates.
+    /// </summary>
+    /// <param name="imageStream">Input image stream.</param>
+    /// <param name="pageNums">The numbers of pages that will receive the image.</param>
+    /// <param name="lowerLeftX">The lower left x of image rectangle.</param>
+    /// <param name="lowerLeftY">The lower left y of image rectangle.</param>
+    /// <param name="upperRightX">The upper right x of image rectangle.</param>
+    /// <param name="upperRightY">The upper right y of image rectangle.</param>
+    /// <returns>True if success false otherwise.</returns>
+    /// <example>
+    /// <code></code>
+    /// </example>
     bool AddImage(System::SharedPtr<System::IO::Stream> imageStream, System::ArrayPtr<int32_t> pageNums, float lowerLeftX, float lowerLeftY, float upperRightX, float upperRightY);
+    /// <summary>
+    /// Adds image to the specified pages of PDF document at specified coordinates.
+    /// </summary>
+    /// <param name="imageStream">Input image stream.</param>
+    /// <param name="pageNums">The numbers of pages that will receive the image.</param>
+    /// <param name="lowerLeftX">The lower left x of image rectangle.</param>
+    /// <param name="lowerLeftY">The lower left y of image rectangle.</param>
+    /// <param name="upperRightX">The upper right x of image rectangle.</param>
+    /// <param name="upperRightY">The upper right y of image rectangle.</param>
+    /// <param name="compositingParameters">The graphics compositing parameters for the images.</param>
+    /// <returns>True if success false otherwise.</returns>
+    /// <example>
+    /// <code></code>
+    /// </example>
     bool AddImage(System::SharedPtr<System::IO::Stream> imageStream, System::ArrayPtr<int32_t> pageNums, float lowerLeftX, float lowerLeftY, float upperRightX, float upperRightY, System::SharedPtr<CompositingParameters> compositingParameters);
+    /// <summary>
+    /// Adds image to the specified page of PDF document at specified coordinates.
+    /// </summary>
+    /// <param name="imageName">The path of input image file.</param>
+    /// <param name="pageNum">The number of page that will receive the image.</param>
+    /// <param name="lowerLeftX">The lower left x of image rectangle.</param>
+    /// <param name="lowerLeftY">The lower left y of image rectangle.</param>
+    /// <param name="upperRightX">The upper right x of image rectangle.</param>
+    /// <param name="upperRightY">The upper right y of image rectangle.</param>
+    /// <returns>True if success false otherwise.</returns>
+    /// <example>
+    /// <code></code>
+    /// </example>
     bool AddImage(System::String imageName, int32_t pageNum, float lowerLeftX, float lowerLeftY, float upperRightX, float upperRightY);
+    /// <summary>
+    /// Adds image to the specified page of PDF document at specified coordinates.
+    /// </summary>
+    /// <param name="imageName">The path of input image file.</param>
+    /// <param name="pageNum">The number of page that will receive the image.</param>
+    /// <param name="lowerLeftX">The lower left x of image rectangle.</param>
+    /// <param name="lowerLeftY">The lower left y of image rectangle.</param>
+    /// <param name="upperRightX">The upper right x of image rectangle.</param>
+    /// <param name="upperRightY">The upper right y of image rectangle.</param>
+    /// <param name="compositingParameters">The graphics compositing parameters for the images.</param>
+    /// <returns>True if success false otherwise.</returns>
+    /// <example>
+    /// <code></code>
+    /// </example>
     bool AddImage(System::String imageName, int32_t pageNum, float lowerLeftX, float lowerLeftY, float upperRightX, float upperRightY, System::SharedPtr<CompositingParameters> compositingParameters);
+    /// <summary>
+    /// Adds image to the specified pages of PDF document at specified coordinates.
+    /// </summary>
+    /// <param name="imageName">The path of input image file.</param>
+    /// <param name="pageNums">The numbers of pages that will receive the image.</param>
+    /// <param name="lowerLeftX">The lower left x of image rectangle.</param>
+    /// <param name="lowerLeftY">The lower left y of image rectangle.</param>
+    /// <param name="upperRightX">The upper right x of image rectangle.</param>
+    /// <param name="upperRightY">The upper right y of image rectangle.</param>
+    /// <returns>True if success false otherwise.</returns>
+    /// <example>
+    /// <code></code>
+    /// </example>
     bool AddImage(System::String imageName, System::ArrayPtr<int32_t> pageNums, float lowerLeftX, float lowerLeftY, float upperRightX, float upperRightY);
+    /// <summary>
+    /// Adds image to the specified pages of PDF document at specified coordinates.
+    /// </summary>
+    /// <param name="imageName">The path of input image file.</param>
+    /// <param name="pageNums">The numbers of pages that will receive the image.</param>
+    /// <param name="lowerLeftX">The lower left x of image rectangle.</param>
+    /// <param name="lowerLeftY">The lower left y of image rectangle.</param>
+    /// <param name="upperRightX">The upper right x of image rectangle.</param>
+    /// <param name="upperRightY">The upper right y of image rectangle.</param>
+    /// <param name="compositingParameters">The graphics compositing parameters for the images.</param>
+    /// <returns>True if success false otherwise.</returns>
+    /// <example>
+    /// <code></code>
+    /// </example>
     bool AddImage(System::String imageName, System::ArrayPtr<int32_t> pageNums, float lowerLeftX, float lowerLeftY, float upperRightX, float upperRightY, System::SharedPtr<CompositingParameters> compositingParameters);
+    /// <summary>
+    /// Not implemented.
+    /// </summary>
+    /// <param name="text">FormattedText object.</param>
+    /// <param name="pageNum">Page number.</param>
+    /// <param name="lowerLeftX">Lower left X coordinate.</param>
+    /// <param name="lowerLeftY">Lower left Y coordinate.</param>
+    /// <returns>True in case text was successfully added.</returns>
     bool AddText(System::SharedPtr<FormattedText> text, int32_t pageNum, float lowerLeftX, float lowerLeftY);
+    /// <summary>
+    /// Not implemented.
+    /// </summary>
+    /// <param name="text">FormattedText object.</param>
+    /// <param name="pageNum">Page number.</param>
+    /// <param name="lowerLeftX">Lower left X coordinate.</param>
+    /// <param name="lowerLeftY">Lower left Y coordinate.</param>
+    /// <param name="upperRightX">Upper right X coordinate.</param>
+    /// <param name="upperRightY">Upper right Y coordinate.</param>
+    /// <returns>True in case text was successfully added.</returns>
     bool AddText(System::SharedPtr<FormattedText> text, int32_t pageNum, float lowerLeftX, float lowerLeftY, float upperRightX, float upperRightY);
+    /// <summary>
+    /// Not implemented.
+    /// </summary>
+    /// <param name="text">FormattedText object.</param>
+    /// <param name="pageNums">Page numbers array.</param>
+    /// <param name="lowerLeftX">Lower left X coordinate.</param>
+    /// <param name="lowerLeftY">Lower left Y coordinate.</param>
+    /// <param name="upperRightX">Upper right X coordinate.</param>
+    /// <param name="upperRightY">Upper right Y coordinate.</param>
+    /// <returns>True in case text was successfully added.</returns>
     bool AddText(System::SharedPtr<FormattedText> text, System::ArrayPtr<int32_t> pageNums, float lowerLeftX, float lowerLeftY, float upperRightX, float upperRightY);
+    /// <summary>
+    /// Closes PdfFileMend object.
+    /// </summary>
     virtual void Close();
     
+    /// <summary>
+    /// Constructor.
+    /// </summary>
     PdfFileMend();
+    /// <summary>
+    /// Constructor.
+    /// </summary>
+    /// <param name="inputFileName">Input PDF file name.</param>
+    /// <param name="outputFileName">Output PDF file name.</param>
     PdfFileMend(System::String inputFileName, System::String outputFileName);
+    /// <summary>
+    /// Constructor.
+    /// </summary>
+    /// <param name="inputStream">Input PDF stream.</param>
+    /// <param name="outputStream">Output PDF stream.</param>
     PdfFileMend(System::SharedPtr<System::IO::Stream> inputStream, System::SharedPtr<System::IO::Stream> outputStream);
+    /// <summary>
+    /// Initializes new <see cref="PdfFileMend"/> object on base of the <paramref name="document"/>.
+    /// </summary>
+    /// <param name="document">
+    /// Pdf document.
+    /// </param>
     PdfFileMend(System::SharedPtr<Aspose::Pdf::Document> document);
+    /// <summary>
+    /// Initializes new <see cref="PdfFileMend"/> object on base of the <paramref name="document"/>.
+    /// </summary>
+    /// <param name="document">
+    /// Pdf document.
+    /// </param>
+    /// <param name="outputFileName">
+    /// Output PDF file name.
+    /// </param>
     PdfFileMend(System::SharedPtr<Aspose::Pdf::Document> document, System::String outputFileName);
+    /// <summary>
+    /// Initializes new <see cref="PdfFileMend"/> object on base of the <paramref name="document"/>.
+    /// </summary>
+    /// <param name="document">
+    /// Pdf document.
+    /// </param>
+    /// <param name="destStream">
+    /// Output PDF stream.
+    /// </param>
     PdfFileMend(System::SharedPtr<Aspose::Pdf::Document> document, System::SharedPtr<System::IO::Stream> destStream);
     
+    /// <summary>
+    /// Saves the PDF document to the specified file.
+    /// </summary>
+    /// <param name="destFile">The destination file.</param>
     virtual void Save(System::String destFile);
+    /// <summary>
+    /// Saves the PDF document to the specified stream.
+    /// </summary>
+    /// <param name="destStream">The destination stream.</param>
     virtual void Save(System::SharedPtr<System::IO::Stream> destStream);
     
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PdfFileMend"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

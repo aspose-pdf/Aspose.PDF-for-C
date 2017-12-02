@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Devices_ShapeType__h_
 #define _Aspose_Pdf_Devices_ShapeType__h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -13,8 +13,17 @@ namespace Devices {
 /// </summary>
 enum class ShapeType
 {
+    /// <summary>
+    /// Original image shape.
+    /// </summary>
     None,
+    /// <summary>
+    /// Landscape Shape.
+    /// </summary>
     Landscape,
+    /// <summary>
+    /// Portrait Shape.
+    /// </summary>
     Portait
 };
 

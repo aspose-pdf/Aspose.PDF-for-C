@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_XmlLoadOptions_h_
 #define _Aspose_Pdf_XmlLoadOptions_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/io/stream.h>
 
@@ -23,10 +23,28 @@ class ASPOSE_PDF_SHARED_API XmlLoadOptions : public Aspose::Pdf::LoadOptions
     
 public:
 
+    /// <summary>
+    /// Gets xsl data for converting xml into pdf document.
+    /// </summary>
     System::SharedPtr<System::IO::Stream> get_XslStream();
     
+    /// <summary>
+    /// Creates <see cref="XmlLoadOptions"/> object without xsl data.
+    /// </summary>
     XmlLoadOptions();
+    /// <summary>
+    /// Creates <see cref="XmlLoadOptions"/> object with xsl data.
+    /// </summary>
+    /// <param name="xslFile">
+    /// Xsl file to convert xml document into pdf document.
+    /// </param>
     XmlLoadOptions(System::String xslFile);
+    /// <summary>
+    /// Creates <see cref="XmlLoadOptions"/> object with xsl data.
+    /// </summary>
+    /// <param name="xslStream">
+    /// Xsl stream to convert xml document into pdf document.
+    /// </param>
     XmlLoadOptions(System::SharedPtr<System::IO::Stream> xslStream);
     
     virtual ~XmlLoadOptions();
@@ -34,14 +52,6 @@ public:
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "XmlLoadOptions"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

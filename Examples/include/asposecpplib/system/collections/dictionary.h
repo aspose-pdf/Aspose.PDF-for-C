@@ -76,6 +76,11 @@ namespace Generic {
         {
         }
 
+        Dictionary(SharedPtr<IDictionary<TKey, TValue> > src, SharedPtr<IEqualityComparer<TKey> > comparer)
+            : BaseType(src.get(), 8, EqualityComparerHashAdapter<TKey>(comparer), EqualityComparerAdapter<TKey>(comparer)) // 8 is a bucket count
+        {
+        }
+
         Dictionary(SharedPtr<IEqualityComparer<TKey> > comparer)
             : BaseType(0, 8, EqualityComparerHashAdapter<TKey>(comparer), EqualityComparerAdapter<TKey>(comparer)) // 0 - use forwarding ctor
         {

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Facades_PdfFileSecurity_h_
 #define _Aspose_Pdf_Facades_PdfFileSecurity_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -38,43 +38,193 @@ class ASPOSE_PDF_SHARED_API PdfFileSecurity FINAL : public Aspose::Pdf::Facades:
     
 public:
 
+    /// <summary>
+    /// Sets the input file.
+    /// </summary>
     void set_InputFile(System::String value);
+    /// <summary>
+    /// Sets the input stream.
+    /// </summary>
     void set_InputStream(System::SharedPtr<System::IO::Stream> value);
+    /// <summary>
+    /// Sets the output file.
+    /// </summary>
     void set_OutputFile(System::String value);
+    /// <summary>
+    /// Sets the output stream.
+    /// </summary>
     void set_OutputStream(System::SharedPtr<System::IO::Stream> value);
     
+    /// <summary>
+    /// Initialize the object of PdfFileSecurity with input and output stream.
+    /// </summary>
+    /// <param name="inputStream"> Input Pdf Stream.</param>
+    /// <param name="outputStream">Output Pdf Stream.</param>
     PdfFileSecurity(System::SharedPtr<System::IO::Stream> inputStream, System::SharedPtr<System::IO::Stream> outputStream);
+    /// <summary>
+    ///  Initializes the object of PdfFileSecurity with input and output file.
+    /// </summary>
+    /// <param name="inputFile">Source input Pdf file.</param>
+    /// <param name="outputFile">Output Pdf file.</param>
     PdfFileSecurity(System::String inputFile, System::String outputFile);
+    /// <summary>
+    /// Initialize the object of PdfFileSecurity.
+    /// </summary>
     PdfFileSecurity();
     
+    /// <summary>
+    /// Encrypts Pdf file with userpassword and ownerpassword and sets the document's privileges to access.
+    /// The user password and the owner password can be null or empty. The owner password will be replaced 
+    /// with a random string if the input owner password is null or empty.
+    /// </summary>
+    /// <param name="userPassword">User password.</param>
+    /// <param name="ownerPassword">Owner password.</param>
+    /// <param name="privilege">Set privilege.</param>
+    /// <param name="keySize">KeySize.x40 for 40 bits encryption, KeySize.x128 for 128 bits encryption and KeySize.x256 for 256 bits encryption.</param>
+    /// <returns>True for success, or false.</returns>
+    /// <example>
+    /// <code></code>
+    /// </example>
     bool MfEncryptFile(System::String userPassword, System::String ownerPassword, System::SharedPtr<DocumentPrivilege> privilege, KeySize keySize);
+    /// <summary>
+    /// Encrypts Pdf file with userpassword and ownerpassword and sets the document's privileges to access.
+    /// The user password and the owner password can be null or empty. The owner password will be replaced 
+    /// with a random string if the input owner password is null or empty.
+    /// There are 6 possible combinations of KeySize and Algorithm values. 
+    /// However (KeySize.x40, Algorithm.AES) and (KeySize.x256, Algorithm.RC4) are invalid and corresponding 
+    /// exception will be raised if kit encounters this combination.
+    /// </summary>
+    /// <param name="userPassword">User password.</param>
+    /// <param name="ownerPassword">Owner password.</param>
+    /// <param name="privilege">Set privilege.</param>
+    /// <param name="keySize">KeySize.x40 for 40 bits encryption, KeySize.x128 for 128 bits encryption and KeySize.x256 for 256 bits encryption.</param>
+    /// <param name="cipher">Algorithm.AES to encrypt using AES algorithm or Algorithm.RC4 for RC4 encryption.</param>
+    /// <returns>True for success, or false.</returns>
+    /// <example>
+    /// <code></code>
+    /// </example>
     bool MfEncryptFile(System::String userPassword, System::String ownerPassword, System::SharedPtr<DocumentPrivilege> privilege, KeySize keySize, Algorithm cipher);
+    /// <summary>
+    /// Decrypts an encrypted Pdf document by owner password. 
+    /// If the document hasn't owner password, it is allow to use user password.
+    /// </summary>
+    /// <param name="ownerPassword">Owner password.</param>
+    /// <returns>True for success,or false.</returns>
+    /// <example>
+    /// <code></code>
+    /// </example>
     bool MfDecryptFile(System::String ownerPassword);
+    /// <summary>
+    /// Sets Pdf file security with empty user/owner passwords.
+    /// The owner password will be added by a random string.
+    /// </summary>
+    /// <param name="privilege">Set privilege.</param>
+    /// <returns>True for success, or false.</returns>
+    /// <example><code></code></example>
     bool SetPrivilege(System::SharedPtr<DocumentPrivilege> privilege);
+    /// <summary>
+    /// Sets Pdf file security with original password.
+    /// </summary>
+    /// <param name="userPassword">Original user password.</param>
+    /// <param name="ownerPassword">Original owner password.</param>
+    /// <param name="privilege">Set privilege.</param>
+    /// <returns>True for success, or false.</returns>
+    /// <example><code></code></example>
     bool SetPrivilege(System::String userPassword, System::String ownerPassword, System::SharedPtr<DocumentPrivilege> privilege);
+    /// <summary>
+    /// Changes the user password and owner password by owner password, keeps the original security settings.
+    /// The new user password and the new owner password can be null or empty. The owner password will be replaced 
+    /// with a random string if the new owner password is null or empty.
+    /// </summary>
+    /// <param name="ownerPassword">Original Owner password.</param>
+    /// <param name="newUserPassword">New User password.</param>
+    /// <param name="newOwnerPassword">New Owner password.</param>
+    /// <returns>True for success,or false.</returns>
+    ///<example>
+    ///<code></code>
+    ///</example>
     bool ChangePassword(System::String ownerPassword, System::String newUserPassword, System::String newOwnerPassword);
+    /// <summary>
+    /// Changes the user password and password by owner password, allows to reset Pdf documnent security.
+    /// The new user password and the new owner password can be null or empty. The owner password will be replaced 
+    /// with a random string if the new owner password is null or empty.
+    /// </summary>
+    /// <param name="ownerPassword">Original owner password.</param>
+    /// <param name="newUserPassword">New User password.</param>
+    /// <param name="newOwnerPassword">New Owner password.</param>
+    /// <param name="privilege">Reset security.</param>
+    /// <param name="keySize">KeySize.x40 for 40 bits encryption, KeySize.x128 for 128 bits encryption and KeySize.x256 for 256 bits encryption.</param>
+    /// <returns>True for success, or false.</returns>
+    /// <example>
+    /// <code></code>
+    /// </example>
     bool ChangePassword(System::String ownerPassword, System::String newUserPassword, System::String newOwnerPassword, System::SharedPtr<DocumentPrivilege> privilege, KeySize keySize);
+    /// <summary>
+    /// Changes the user password and password by owner password, allows to reset Pdf documnent security.
+    /// The new user password and the new owner password can be null or empty. The owner password will be replaced 
+    /// with a random string if the new owner password is null or empty.
+    /// There are 6 possible combinations of KeySize and Algorithm values. 
+    /// However (KeySize.x40, Algorithm.AES) and (KeySize.x256, Algorithm.RC4) are invalid and corresponding 
+    /// exception will be raised if kit encounters this combination.
+    /// </summary>
+    /// <param name="ownerPassword">Original owner password.</param>
+    /// <param name="newUserPassword">New User password.</param>
+    /// <param name="newOwnerPassword">New Owner password.</param>
+    /// <param name="privilege">Reset security.</param>
+    /// <param name="keySize">KeySize.x40 for 40 bits encryption, KeySize.x128 for 128 bits encryption and KeySize.x256 for 256 bits encryption.</param>
+    /// <param name="cipher">Algorithm.AES to encrypt using AES algorithm or Algorithm.RC4 for RC4 encryption.</param>
+    /// <returns>True for success, or false.</returns>
+    /// <example>
+    /// <code></code>
+    /// </example>
     bool ChangePassword(System::String ownerPassword, System::String newUserPassword, System::String newOwnerPassword, System::SharedPtr<DocumentPrivilege> privilege, KeySize keySize, Algorithm cipher);
     
+    /// <summary>
+    /// Initializes new <see cref="PdfFileSecurity"/> object on base of the <paramref name="document"/>.
+    /// </summary>
+    /// <param name="document">
+    /// Pdf document.
+    /// </param>
     PdfFileSecurity(System::SharedPtr<Aspose::Pdf::Document> document);
+    /// <summary>
+    /// Initializes new <see cref="PdfFileSecurity"/> object on base of the <paramref name="document"/>.
+    /// </summary>
+    /// <param name="document">
+    /// Pdf document.
+    /// </param>
+    /// <param name="outputFile">
+    /// Output Pdf file.
+    /// </param>
     PdfFileSecurity(System::SharedPtr<Aspose::Pdf::Document> document, System::String outputFile);
+    /// <summary>
+    /// Initializes new <see cref="PdfFileSecurity"/> object on base of the <paramref name="document"/>.
+    /// </summary>
+    /// <param name="document">
+    /// Pdf document.
+    /// </param>
+    /// <param name="outputStream">
+    /// Output Pdf Stream.
+    /// </param>
     PdfFileSecurity(System::SharedPtr<Aspose::Pdf::Document> document, System::SharedPtr<System::IO::Stream> outputStream);
     
+    /// <summary>
+    /// Initializes the facade.
+    /// </summary>
+    /// <param name="srcFile">The PDF file.</param>
     virtual void BindPdf(System::String srcFile);
+    /// <summary>
+    /// Initializes the facade.
+    /// </summary>
+    /// <param name="srcStream">The stream of PDF file.</param>
     virtual void BindPdf(System::SharedPtr<System::IO::Stream> srcStream);
+    /// <summary>
+    /// Closes the facade.
+    /// </summary>
     virtual void Close();
     
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PdfFileSecurity"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

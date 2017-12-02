@@ -122,6 +122,10 @@ public:
     {
         return s_category_table[c] == (uint8_t)Globalization::UnicodeCategory::LowercaseLetter;
     }
+    static bool IsLower(const String& str, int idx)
+    {
+        return IsLower(str[idx]);
+    }
 
     static bool IsPunctuation(const char_t* str, int idx) { return IsPunctuation(*(str + idx)); }
     static bool IsPunctuation(char_t c)

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_ExplicitDestination_h_
 #define _Aspose_Pdf_InteractiveFeatures_ExplicitDestination_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/object.h>
@@ -65,12 +65,40 @@ class ASPOSE_PDF_SHARED_API ABSTRACT ExplicitDestination : public Aspose::Pdf::I
     
 public:
 
+    /// <summary>
+    /// Gets the destination page object
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Page> get_Page();
+    /// <summary>
+    /// Gets the destination page number
+    /// </summary>
     int32_t get_PageNumber();
     
-    static System::SharedPtr<ExplicitDestination> CreateDestination(System::SharedPtr<Aspose::Pdf::Page> page, ExplicitDestinationType type, System::ArrayPtr<double> const &values);
-    static System::SharedPtr<ExplicitDestination> CreateDestination(System::SharedPtr<Document> doc, int32_t pageNumber, ExplicitDestinationType type, System::ArrayPtr<double> const &values);
-    static System::SharedPtr<ExplicitDestination> CreateDestination(int32_t pageNumber, ExplicitDestinationType type, System::ArrayPtr<double> const &values);
+    /// <summary>
+    /// Creates instances of ExplicitDestination descendant classes.
+    /// </summary>
+    /// <param name="page">The object of destination page.</param>
+    /// <param name="type">The type of explicit destination.</param>
+    /// <param name="values">Array of double values.</param>
+    /// <returns>The explicit destination object.</returns>
+    static System::SharedPtr<ExplicitDestination> CreateDestination(System::SharedPtr<Aspose::Pdf::Page> page, ExplicitDestinationType type, const System::ArrayPtr<double>& values);
+    /// <summary>
+    /// Creates instances of ExplicitDestination descendant classes.
+    /// </summary>
+    /// <param name="doc">Document where destination will be created.</param>
+    /// <param name="pageNumber">Number of the page.</param>
+    /// <param name="type">Destionatyion type.</param>
+    /// <param name="values">Array of destination specific values.</param>
+    /// <returns>The explicit destination object.</returns>
+    static System::SharedPtr<ExplicitDestination> CreateDestination(System::SharedPtr<Document> doc, int32_t pageNumber, ExplicitDestinationType type, const System::ArrayPtr<double>& values);
+    /// <summary>
+    /// Creates instances of ExplicitDestination descendant classes.
+    /// </summary>
+    /// <param name="pageNumber">The destination page number.</param>
+    /// <param name="type">The type of explicit destination.</param>
+    /// <param name="values">Array of double values.</param>
+    /// <returns>The explicit destination object.</returns>
+    static System::SharedPtr<ExplicitDestination> CreateDestination(int32_t pageNumber, ExplicitDestinationType type, const System::ArrayPtr<double>& values);
     
 protected:
 
@@ -78,23 +106,38 @@ protected:
     
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfArray> get_EngineDest();
     
+    /// <summary>
+    /// Creates instance of ExplicitDestination descendant classes.
+    /// </summary>
+    /// <param name="engineDest">Engine destination object.</param>
+    /// <returns>DOM explicit destination object.</returns>
     static System::SharedPtr<ExplicitDestination> CreateDestination(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfArray> engineDest);
     
-    ExplicitDestination(System::SharedPtr<Aspose::Pdf::Page> page, ExplicitDestinationType type, System::ArrayPtr<double> const &values);
+    /// <summary>
+    /// Creates the explicit destination.
+    /// </summary>
+    /// <param name="page">The destination Aspose.Pdf.Page object.</param>
+    /// <param name="type">The type of explicit destination.</param>
+    /// <param name="values">The additional values of explicit destination type.</param>
+    ExplicitDestination(System::SharedPtr<Aspose::Pdf::Page> page, ExplicitDestinationType type, const System::ArrayPtr<double>& values);
+    /// <summary>
+    /// Creates the explicit destination without additional values of explicit destination type.
+    /// </summary>
+    /// <param name="page">The destination Aspose.Pdf.Page object.</param>
+    /// <param name="type">The type of explicit destination.</param>
     ExplicitDestination(System::SharedPtr<Aspose::Pdf::Page> page, ExplicitDestinationType type);
-    ExplicitDestination(int32_t pageNumber, ExplicitDestinationType type, System::ArrayPtr<double> const &values);
+    /// <summary>
+    /// Creates the explicit destination.
+    /// </summary>
+    /// <param name="pageNumber">The destination page number.</param>
+    /// <param name="type">The type of explicit destination.</param>
+    /// <param name="values">The additional values of explicit destination type.</param>
+    ExplicitDestination(int32_t pageNumber, ExplicitDestinationType type, const System::ArrayPtr<double>& values);
     ExplicitDestination(int32_t pageNumber, ExplicitDestinationType type);
     ExplicitDestination(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfArray> engineDest);
     
+    double GetNumber(int32_t index);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ExplicitDestination"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -102,8 +145,8 @@ private:
     int32_t _pageNumber;
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfArray> _engineDest;
     
-    static System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfArray> CreateEngineDestination(System::SharedPtr<Aspose::Pdf::Page> page, ExplicitDestinationType type, System::ArrayPtr<double> const &values);
-    static System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfArray> CreateEngineDestination(int32_t pageNumber, ExplicitDestinationType type, System::ArrayPtr<double> const &values);
+    static System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfArray> CreateEngineDestination(System::SharedPtr<Aspose::Pdf::Page> page, ExplicitDestinationType type, const System::ArrayPtr<double>& values);
+    static System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfArray> CreateEngineDestination(int32_t pageNumber, ExplicitDestinationType type, const System::ArrayPtr<double>& values);
     
 };
 

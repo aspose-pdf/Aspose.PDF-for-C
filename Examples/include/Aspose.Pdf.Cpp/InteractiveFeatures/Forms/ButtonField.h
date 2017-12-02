@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_ButtonField_h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_ButtonField_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/io/stream.h>
 #include <system/collections/list.h>
@@ -46,46 +46,123 @@ class ASPOSE_PDF_SHARED_API ButtonField FINAL : public Aspose::Pdf::InteractiveF
     
 public:
 
+    /// <summary>
+    /// Gets or sets normal caption.
+    /// </summary>
     System::String get_NormalCaption();
+    /// <summary>
+    /// Gets or sets normal caption.
+    /// </summary>
     void set_NormalCaption(System::String value);
+    /// <summary>
+    /// Gets or sets rollover caption of button which shall be displayed when the user rolls the cursor 
+    /// into its active area without pressing the mouse button.
+    /// </summary>
     System::String get_RolloverCaption();
+    /// <summary>
+    /// Gets or sets rollover caption of button which shall be displayed when the user rolls the cursor 
+    /// into its active area without pressing the mouse button.
+    /// </summary>
     void set_RolloverCaption(System::String value);
+    /// <summary>
+    /// Gets or sets alternate caption of the button which shall be displayed 
+    /// when the mouse button is pressed within its active area.
+    /// </summary>
     System::String get_AlternateCaption();
+    /// <summary>
+    /// Gets or sets alternate caption of the button which shall be displayed 
+    /// when the mouse button is pressed within its active area.
+    /// </summary>
     void set_AlternateCaption(System::String value);
+    /// <summary>
+    /// Gets or sets normal icon of the button which shall be displayed when it is not interacting with the user.
+    /// </summary>
     System::SharedPtr<XForm> get_NormalIcon();
+    /// <summary>
+    /// Gets or sets normal icon of the button which shall be displayed when it is not interacting with the user.
+    /// </summary>
     void set_NormalIcon(System::SharedPtr<XForm> value);
+    /// <summary>
+    /// Gets or sets rollover icon of the button which shall be displayed when the user 
+    /// rolls the cursor into its active area without pressing the mouse button.
+    /// </summary>
     System::SharedPtr<XForm> get_RolloverIcon();
+    /// <summary>
+    /// Gets or sets rollover icon of the button which shall be displayed when the user 
+    /// rolls the cursor into its active area without pressing the mouse button.
+    /// </summary>
     void set_RolloverIcon(System::SharedPtr<XForm> value);
+    /// <summary>
+    /// Gets or sets alternate icon which shall be displayed when the mouse button is pressed within its active area.
+    /// </summary>
     System::SharedPtr<XForm> get_AlternateIcon();
+    /// <summary>
+    /// Gets or sets alternate icon which shall be displayed when the mouse button is pressed within its active area.
+    /// </summary>
     void set_AlternateIcon(System::SharedPtr<XForm> value);
+    /// <summary>
+    /// Gets icon fit object specifying how the widget annotation's icon shall be displayed within its annotation rectangle.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Forms::IconFit> get_IconFit();
+    /// <summary>
+    /// Gets or sets icon caption position.
+    /// </summary>
     IconCaptionPosition get_ICPosition();
+    /// <summary>
+    /// Gets or sets icon caption position.
+    /// </summary>
     void set_ICPosition(IconCaptionPosition value);
     
+    /// <summary>
+    /// Button field constructor for Generator. 
+    /// </summary>
     ButtonField();
     
+    /// <summary>
+    /// Adds image into the field resources an draws it.
+    /// </summary>
+    /// <param name="image">
+    /// Image ot add into text field.
+    /// </param>
     void AddImage(System::SharedPtr<System::Drawing::Image> image);
     
+    /// <summary>
+    /// ButtonField constructor.
+    /// </summary>
+    /// <param name="page">Page where button will be placed.</param>
+    /// <param name="rect">Rectangle where button is placed on the page.</param>
     ButtonField(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
+    /// <summary>
+    /// ButtonField constructore. 
+    /// </summary>
+    /// <param name="doc">Docuemtn where new field will be created.</param>
+    /// <param name="rect">Rectangle hwere button is placed on the page. </param>
     ButtonField(System::SharedPtr<Document> doc, System::SharedPtr<Rectangle> rect);
     
 protected:
 
+    /// <summary>
+    /// Constructor for ButtonField class
+    /// </summary>
+    /// <param name="annotation">Annotation object which describes button.</param>
+    /// <param name="document">Document which owns button.</param>
     ButtonField(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> annotation, System::SharedPtr<Document> document);
     
     void AddImage(System::SharedPtr<System::Drawing::Image> image, bool fillArea);
     virtual void UpdateAppearance(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Annotation> annotation);
+    /// <summary>
+    /// Initialize the field.
+    /// </summary>
+    /// <param name="page">Aspose.Pdf.Page object.</param>
     virtual void Initialize(System::SharedPtr<Aspose::Pdf::Engine::Data::ITrailerable> trailer);
     virtual bool AppearanceSupported();
+    /// <summary>
+    /// Creates operators sequence for drawing of appearance of the button.
+    /// </summary>
+    /// <param name="parameters">Parameters of the appearance. </param>
+    /// <param name="annotation">Annotation for which appearance is generated.</param>
+    /// <returns></returns>
     virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> CreateAppearanceProgram(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Annotation::AppearanceParameters> parameters, System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Annotation> annotation);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ButtonField"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -98,7 +175,17 @@ private:
     IconCaptionPosition IntToIconCaptionPosition(int32_t ICPosition);
     System::Drawing::Color shadeColor(System::Drawing::Color src, double k);
     int32_t IconCaptionPositionToInt(IconCaptionPosition ICPosition);
+    /// <summary>
+    /// Returns button caption 
+    /// </summary>
+    /// <returns></returns>
     System::String getCaption();
+    /// <summary>
+    /// Add image to the button appearance
+    /// </summary>
+    /// <param name="appearance">Appearance where images will be added.</param>
+    /// <param name="image">Image stream</param>
+    /// <param name="position">Array with image position [x, y ,width, height]</param>
     void AddImageToAppearance(System::SharedPtr<XForm> appearance, System::SharedPtr<System::IO::Stream> image, System::ArrayPtr<double> position);
     
 };

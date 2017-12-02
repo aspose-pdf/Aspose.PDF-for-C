@@ -25,8 +25,23 @@ class ASPOSE_PDF_SHARED_API IIndexBitmapConverter : public virtual System::Objec
     
 public:
 
+    /// <summary>
+    /// Returns 1Bpp bitmap representation
+    /// </summary>
+    /// <param name="src">Source bitmap.</param>
+    /// <returns>Bitmap in 1 bpp image format.</returns>
     virtual System::SharedPtr<System::Drawing::Bitmap> Get1BppImage(System::SharedPtr<System::Drawing::Bitmap> src) = 0;
+    /// <summary>
+    /// Returns 4Bpp bitmap representation
+    /// </summary>
+    /// <param name="src">Source bitmap.</param>
+    /// <returns>Bitmap in 4 bpp image format.</returns>
     virtual System::SharedPtr<System::Drawing::Bitmap> Get4BppImage(System::SharedPtr<System::Drawing::Bitmap> src) = 0;
+    /// <summary>
+    /// Returns 8Bpp bitmap representation
+    /// </summary>
+    /// <param name="src">Source bitmap.</param>
+    /// <returns>Bitmap in 8 bpp image format.</returns>
     virtual System::SharedPtr<System::Drawing::Bitmap> Get8BppImage(System::SharedPtr<System::Drawing::Bitmap> src) = 0;
     
 };

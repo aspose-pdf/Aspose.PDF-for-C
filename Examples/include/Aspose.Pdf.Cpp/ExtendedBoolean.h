@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_ExtendedBoolean_h_
 #define _Aspose_Pdf_ExtendedBoolean_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/enum.h>
 
@@ -15,8 +15,17 @@ namespace Pdf {
 /// </summary>
 enum class ExtendedBoolean
 {
+    /// <summary>
+    /// Undefined value value of ExtendnedBoolean.
+    /// </summary>
     Undefined,
+    /// <summary>
+    /// False value of ExtendnedBoolean.
+    /// </summary>
     False,
+    /// <summary>
+    /// True value of ExtendnedBoolean.
+    /// </summary>
     True
 };
 

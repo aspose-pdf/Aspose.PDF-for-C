@@ -15,6 +15,7 @@ namespace Aspose { namespace Pdf { namespace Engine { namespace Data { namespace
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { namespace XMP { class XmpField; } } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { namespace XMP { class XmpPacket; } } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { namespace XMP { class XmpStructure; } } } } }
+namespace Aspose { namespace Pdf { namespace Engine { namespace IO { namespace ConvertStrategies { class PdfAConvertStrategy; } } } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Facades { class PdfXmpMetadataTests; } } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Engine { namespace Data { namespace XMP { class XmpArrayTests; } } } } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Engine { namespace Data { namespace XMP { class XmpMetadataTests; } } } } } }
@@ -46,6 +47,7 @@ class ASPOSE_PDF_SHARED_API XmpValue : public System::Object
     friend class Aspose::Pdf::Engine::Data::XMP::XmpField;
     friend class Aspose::Pdf::Engine::Data::XMP::XmpPacket;
     friend class Aspose::Pdf::Engine::Data::XMP::XmpStructure;
+    friend class Aspose::Pdf::Engine::IO::ConvertStrategies::PdfAConvertStrategy;
     friend class Aspose::Pdf::Tests::Facades::PdfXmpMetadataTests;
     friend class Aspose::Pdf::Tests::Engine::Data::XMP::XmpArrayTests;
     friend class Aspose::Pdf::Tests::Engine::Data::XMP::XmpMetadataTests;
@@ -66,9 +68,7 @@ public:
     
     XmpValue(System::String value);
     XmpValue(System::ArrayPtr<System::SharedPtr<XmpValue>> array);
-    XmpValue(System::SharedPtr<XmpField> field);
     XmpValue(int32_t value);
-    XmpValue(System::SharedPtr<XmpNamedValue> dictionaryEntry);
     XmpValue(double value);
     
     double ToDouble();
@@ -77,28 +77,22 @@ public:
     
     System::DateTime ToDateTime();
     System::ArrayPtr<System::SharedPtr<XmpValue>> ToArray();
-    System::SharedPtr<XmpNamedValue> ToNamedValue();
     System::String ToStringValue();
-    System::ArrayPtr<System::SharedPtr<XmpNamedValue>> ToNamedValues();
     int32_t ToInteger();
     virtual System::String ToString();
     
 protected:
 
     XmpValue(System::ArrayPtr<System::SharedPtr<XmpField>> structure);
+    XmpValue(System::SharedPtr<XmpField> field);
+    XmpValue(System::SharedPtr<XmpNamedValue> dictionaryEntry);
     XmpValue(System::ArrayPtr<System::SharedPtr<XmpNamedValue>> dictionaryEntries);
     
     System::ArrayPtr<System::SharedPtr<XmpField>> ToStructure();
     System::SharedPtr<XmpField> ToField();
+    System::SharedPtr<XmpNamedValue> ToNamedValue();
+    System::ArrayPtr<System::SharedPtr<XmpNamedValue>> ToNamedValues();
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "XmpValue"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

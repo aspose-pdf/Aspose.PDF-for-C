@@ -58,6 +58,7 @@ class StreamingContext;
         virtual System::Exception& get_InnerException() const;
         bool IsNull() const;
 
+        virtual Exception GetBaseException() const;
         int32_t get_HResult() ASPOSE_CONST;
 
         virtual String ToString() ASPOSE_CONST override;

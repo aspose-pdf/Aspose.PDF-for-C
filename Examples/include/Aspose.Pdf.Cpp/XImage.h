@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_XImage_h_
 #define _Aspose_Pdf_XImage_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -69,17 +69,59 @@ public:
 
     static int32_t DefaultResolution;
     
+    /// <summary>
+    /// If the image contains transparancy than return true; otherwise, false.
+    /// </summary>
     bool get_ContainsTransparency();
+    /// <summary>
+    /// Gets grayscaled version of image.
+    /// </summary>
     System::SharedPtr<System::Drawing::Image> get_Grayscaled();
+    /// <summary>
+    /// Gets width of the image.
+    /// </summary>
     int32_t get_Width();
+    /// <summary>
+    /// Gets height of the image.
+    /// </summary>
     int32_t get_Height();
+    /// <summary>
+    /// Gets or sets image name.
+    /// </summary>
     System::String get_Name();
+    /// <summary>
+    /// Gets or sets image name.
+    /// </summary>
     void set_Name(System::String value);
     
+    /// <summary>
+    /// Saves image data into stream as JPEG image.
+    /// </summary>
+    /// <param name="stream">Stream where image data will be saved.</param>
     void Save(System::SharedPtr<System::IO::Stream> stream);
+    /// <summary>
+    /// Saves image into stream with requested format. 
+    /// </summary>
+    /// <param name="stream">Stream where image will be saved</param>
+    /// <param name="format">Format which will be used for image enconding. <see cref="ImageFormat"/></param>
     void Save(System::SharedPtr<System::IO::Stream> stream, System::SharedPtr<System::Drawing::Imaging::ImageFormat> format);
+    /// <summary>
+    /// Saves image data into stream as JPEG image with specified resolution.
+    /// </summary>
+    /// <param name="stream">Stream where image data will be saved.</param>
+    /// <param name="resolution">Image resolution</param>
     void Save(System::SharedPtr<System::IO::Stream> stream, int32_t resolution);
+    /// <summary>
+    /// Saves image into stream with requested format with specified resolution. 
+    /// </summary>
+    /// <param name="stream">Stream where image will be saved</param>
+    /// <param name="format">Format which will be used for image enconding. <see cref="ImageFormat"/></param>
+    /// <param name="resolution">Image resolution</param>
     void Save(System::SharedPtr<System::IO::Stream> stream, System::SharedPtr<System::Drawing::Imaging::ImageFormat> format, int32_t resolution);
+    /// <summary>
+    /// Returns color type of image.
+    /// </summary>
+    /// <returns>The color type value.</returns>
     ColorType GetColorType();
     
 protected:
@@ -88,32 +130,49 @@ protected:
     
     System::SharedPtr<Engine::Data::IPdfDataStream> EngineImg;
     
+    /// <summary>
+    /// Gets default image format.
+    /// </summary>
     static System::SharedPtr<System::Drawing::Imaging::ImageFormat> get_DefaultImageFormat();
     
     XImage(System::SharedPtr<Engine::Data::IPdfDataStream> image, System::SharedPtr<XImageCollection> parent);
     
+    /// <summary>
+    /// Deletes image from the parent collection. 
+    /// </summary>
     void Delete();
+    /// <summary>
+    /// Replaces image onto stream specified in <paramref name="image"/>.
+    /// </summary>
+    /// <param name="image">
+    /// Stream with image data.
+    /// </param>
     void Replace(System::SharedPtr<System::IO::Stream> image);
     
     XImage(System::SharedPtr<Engine::Data::IPdfDataStream> image);
     
     System::SharedPtr<System::Drawing::Image> GetImage();
+    /// <summary>
+    /// Returns true if the primitive is an image.
+    /// </summary>
     static bool IsImage(System::SharedPtr<Engine::Data::IPdfPrimitive> primitive);
+    /// <summary>
+    /// Grayscale would have a delta of 0.
+    /// </summary>
+    /// <param name="color">The color for which to calculate the delta.</param>
+    /// <returns>The difference in the RGB values.</returns>
     static int32_t GetRgbDelta(System::Drawing::Color color);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "XImage"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
     System::WeakPtr<XImageCollection> _parent;
     
+    /// <summary>
+    /// Creates grayscaled version of image.
+    /// </summary>
+    /// <param name="original">The original image to convert.</param>
+    /// <returns>Grayscaled version of original image.</returns>
     System::SharedPtr<System::Drawing::Bitmap> MakeGrayscale(System::SharedPtr<System::Drawing::Bitmap> original);
     
 };

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_NamedAction_h_
 #define _Aspose_Pdf_InteractiveFeatures_NamedAction_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 
@@ -31,23 +31,24 @@ class ASPOSE_PDF_SHARED_API NamedAction FINAL : public Aspose::Pdf::InteractiveF
     
 public:
 
+    /// <summary>
+    /// Gets or sets the action to be performed.
+    /// </summary>
     System::String get_Name();
+    /// <summary>
+    /// Gets or sets the action to be performed.
+    /// </summary>
     void set_Name(System::String value);
     
+    /// <summary>
+    /// Constructor for Named Action class.
+    /// </summary>
+    /// <param name="action">Action for which this object is created.</param>
     NamedAction(PredefinedAction action);
     
 protected:
 
     NamedAction(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> action);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "NamedAction"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

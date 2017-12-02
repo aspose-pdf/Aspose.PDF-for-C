@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_Characteristics_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_Characteristics_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -45,11 +45,29 @@ class ASPOSE_PDF_SHARED_API Characteristics FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets color of the background
+    /// </summary>
     System::Drawing::Color get_Background();
+    /// <summary>
+    /// Gets or sets color of the background
+    /// </summary>
     void set_Background(System::Drawing::Color value);
+    /// <summary>
+    /// Gets or sets color of the border.
+    /// </summary>
     System::Drawing::Color get_Border();
+    /// <summary>
+    /// Gets or sets color of the border.
+    /// </summary>
     void set_Border(System::Drawing::Color value);
+    /// <summary>
+    /// Gets or sets rotation of the annotation.
+    /// </summary>
     Rotation get_Rotate();
+    /// <summary>
+    /// Gets or sets rotation of the annotation.
+    /// </summary>
     void set_Rotate(Rotation value);
     
 protected:
@@ -61,14 +79,6 @@ protected:
     Characteristics(System::SharedPtr<Annotation> annotation);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Characteristics"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

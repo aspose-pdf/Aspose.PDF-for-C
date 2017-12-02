@@ -83,10 +83,9 @@ public:
     String LookupPrefix(String ns) override;
 
     // XmlTextWriter interface
-
-    void set_Formatting(Formatting value);
     Formatting get_Formatting() const;
-
+    void set_Formatting(Formatting value);
+    
     void set_Namespaces(bool value);
 
     void set_Indentation(int value);

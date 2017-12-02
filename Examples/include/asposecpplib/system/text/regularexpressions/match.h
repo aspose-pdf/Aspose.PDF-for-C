@@ -8,37 +8,44 @@
 
 namespace System { namespace Text { namespace RegularExpressions {
 
+    namespace Detail
+    {
+        struct RegexHolder;
+        struct MatchResultsHolder;
+    }
+
     class Regex;
+    typedef System::SharedPtr<Regex> RegexPtr;
+
 
     class Match;
     typedef SharedPtr<Match> MatchPtr;
 
     class Match : public Group
     {
+        friend GroupCollection;
+        friend class Regex;
     public:
+
+        Match(WStringPtr source, int index, int length);
 
         static MatchPtr get_Empty();
         GroupCollectionPtr get_Groups();
         MatchPtr NextMatch();
         virtual String Result(const String& replacement);
 
-        Match();
-        Match(const Match &copy);
-        ~Match();
+        void AddGroup(const GroupPtr &item);
+        void AddCapture(const CapturePtr item);
 
     private:
 
-        GroupCollectionPtr groups;
+        int getGroupIndexFromName(const String& name);
 
-        String pattern;
-        std::wstring substring;
-        RegexOptions options;
+        GroupCollectionPtr groups;
+        std::unique_ptr<Detail::MatchResultsHolder> what;
+        RegexPtr regex;
 
         static MatchPtr emptyMatch;
-        static MatchPtr CreateEmptyMatch();
-        static MatchPtr CreateMatch(const String& input, const String& pattern, RegexOptions options = RegexOptions::None, int startat = 0);
-
-        friend class Regex;
 
     protected:
         virtual Object::shared_members_type GetSharedMembers() override;

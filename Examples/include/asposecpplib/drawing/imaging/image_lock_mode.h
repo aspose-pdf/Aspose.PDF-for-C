@@ -14,8 +14,10 @@ namespace System {  namespace Drawing { namespace Imaging {
         ///    buffer, to which the user controls access.
         UserInputBuffer = 0x0004,
     };
-}}}
 
 DECLARE_ENUM_OPERATORS(System::Drawing::Imaging::ImageLockMode);
+
+}}}
+DECLARE_USING_ENUM_OPERATORS(System::Drawing::Imaging);  
 
 #endif

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Facades_PdfJavaScriptStripper_h_
 #define _Aspose_Pdf_Facades_PdfJavaScriptStripper_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -30,19 +30,20 @@ class ASPOSE_PDF_SHARED_API PdfJavaScriptStripper FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Remove Java Script from document. 
+    /// </summary>
+    /// <param name="inputFile">File containig the document.</param>
+    /// <param name="outputFile">File where document will be stored.</param>
+    /// <returns>true if JavaScript was stripped successfully.</returns>
     bool Strip(System::String inputFile, System::String outputFile);
+    /// <summary>
+    /// Remove Java Script from the document.
+    /// </summary>
+    /// <param name="inStream">Stream containing document.</param>
+    /// <param name="outStream">Stream where the document will be stored.</param>
+    /// <returns>true if JavaScript was stripped successfully.</returns>
     bool Strip(System::SharedPtr<System::IO::Stream> inStream, System::SharedPtr<System::IO::Stream> outStream);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PdfJavaScriptStripper"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

@@ -67,14 +67,6 @@ private:
     
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "TextParagraphsEnumerator"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     private:
     
         System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<TextParagraph>>> cursor;
@@ -86,42 +78,72 @@ private:
     
 public:
 
+    ///<summary>
+    /// Gets the number of <see cref="TextParagraph"/> object elements actually contained in the collection. 
+    /// </summary>
     int32_t get_Count() const;
+    ///<summary>
+    /// Gets an object that can be used to synchronize access to the collection.
+    /// </summary>
     System::SharedPtr<System::Object> get_SyncRoot();
+    ///<summary>
+    /// Gets a value indicating whether access to the collection is synchronized (thread safe). 
+    ///</summary>
     bool get_IsSynchronized();
     
+    ///<summary>
+    /// Returns an enumerator for the entire collection.
+    ///</summary>
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<TextParagraph>>> GetEnumerator();
+    ///<summary>
+    /// Copies the entire collection to a compatible one-dimensional Array, starting at the specified index of the target array
+    ///</summary>
+    //<<--REFACTORING: Old code: public void CopyTo(Array array, int index)
     void CopyTo(System::ArrayPtr<System::SharedPtr<TextParagraph>> array, int32_t index);
     
+    /// <summary>
+    /// Gets the text paragraph element at the specified index.
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
     System::SharedPtr<TextParagraph> idx_get(int32_t index);
     
 protected:
 
     System::EventHandler<> OnCollectionChanged;
     
+    /// <summary>
+    /// Initializes a new instance of <see cref="TextParagraphCollection"/> collection class
+    /// </summary>
     TextParagraphCollection();
     
+    /// <summary>
+    /// Adds the text paragraph element at the specified index.
+    /// </summary>
     void Add(System::SharedPtr<TextParagraph> const &paragraph);
+    /// <summary>
+    /// Deletes the text paragraph element at the specified index.
+    /// </summary>
     void Delete(int32_t index);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextParagraphCollection"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<TextParagraph>>> paragraphs;
     System::SharedPtr<System::Object> syncRoot;
     
+    /// <summary>
+    /// </summary>
     bool get_IsReadOnly();
     
+    /// <summary>
+    /// </summary>
     bool Remove(System::SharedPtr<TextParagraph> const &item);
+    /// <summary>
+    /// </summary>
     void Clear();
+    /// <summary>
+    /// </summary>
     bool Contains(System::SharedPtr<TextParagraph> const &item) const;
     
 };

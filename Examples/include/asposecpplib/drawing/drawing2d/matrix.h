@@ -6,6 +6,7 @@
 
 #include "drawing/drawing2d/matrix_order.h"
 #include "drawing/point_f.h"
+#include "drawing/rectangle_f.h"
 
 #include <cstdint>
 
@@ -36,6 +37,7 @@ namespace Detail {
     public:
         Matrix();
         Matrix(float m11, float m12, float m21, float m22, float dx, float dy);
+        Matrix(RectangleF rect, ArrayPtr<PointF> plgpts);
         virtual ~Matrix();
 
         System::ArrayPtr<float> get_Elements() const;
@@ -67,6 +69,8 @@ namespace Detail {
         void VectorTransformPoints(ArrayPtr<Point> pts);
 
         SharedPtr<Matrix> Clone() const;
+
+        void Dispose() {}
 
     private:
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_ImagePlacement_h_
 #define _Aspose_Pdf_ImagePlacement_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/object.h>
@@ -30,27 +30,7 @@ namespace Pdf {
 /// </remarks>
 /// <example>
 /// The example demonstrates how to find images on the first PDF document page and get images as bitmaps with visible dimensions.
-/// <code lang="C#"> 
-/// // Open document
-/// Document doc = new Document(@"D:\Tests\input.pdf");
-/// // Create ImagePlacementAbsorber object to perform image placement search
-/// ImagePlacementAbsorber abs = new ImagePlacementAbsorber();
-/// // Accept the absorber for first page
-/// doc.Pages[1].Accept(abs);
-/// // Retrieve images with visible dimensions
-/// foreach (ImagePlacement imagePlacement in abs.ImagePlacements)
-/// {
-///     Bitmap scaledImage;
-///     using (MemoryStream imageStream = new MemoryStream())
-///     {
-///         // Retrieve image from resources
-///         imagePlacement.Image.Save(imageStream, ImageFormat.Png);
-///         Bitmap resourceImage = (Bitmap) Bitmap.FromStream(imageStream);
-///         // Create new bitmap with actual dimensions
-///         scaledImage = new Bitmap(resourceImage, (int)imagePlacement.Rectangle.Width, (int)imagePlacement.Rectangle.Height);
-///     }
-/// } 
-/// </code> 
+/// <code></code> 
 /// </example>
 class ASPOSE_PDF_SHARED_API ImagePlacement FINAL : public System::Object
 {
@@ -65,29 +45,51 @@ class ASPOSE_PDF_SHARED_API ImagePlacement FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets rectangle of the Image.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_Rectangle();
+    /// <summary>
+    /// Gets rotation angle of the Image.
+    /// </summary>
     int32_t get_Rotation();
+    /// <summary>
+    /// Gets resolution of the Image.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Devices::Resolution> get_Resolution();
+    /// <summary>
+    /// Gets related XImage resource object.
+    /// </summary>
     System::SharedPtr<XImage> get_Image();
+    /// <summary>
+    /// Gets the page containing the image.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Page> get_Page();
+    /// <summary>
+    /// Gets compositing parameters of graphics state active for the image placed to the page.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::CompositingParameters> get_CompositingParameters();
     
+    /// <summary>
+    /// Saves image with corresponding transformations: scaling, rotation and resolution.
+    /// </summary>
+    /// <param name="stream">Stream where image will be saved</param>
     void Save(System::SharedPtr<System::IO::Stream> stream);
+    /// <summary>
+    /// Saves image with corresponding transformations: scaling, rotation and resolution.
+    /// </summary>
+    /// <param name="stream">Stream where image will be saved</param>
+    /// <param name="format">Format which will be used for image enconding. <see cref="ImageFormat"/></param>
     void Save(System::SharedPtr<System::IO::Stream> stream, System::SharedPtr<System::Drawing::Imaging::ImageFormat> format);
     
 protected:
 
+    /// <summary>
+    /// Initializes new instance of the <see cref="ImagePlacement"/> object.
+    /// </summary>
     ImagePlacement(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<XImage> image, double xIndent, double yIndent, double scaledWidth, double scaledHeight, int32_t resHorizontal, int32_t resVertical, System::SharedPtr<Aspose::Pdf::CompositingParameters> compositingParameters, int32_t rotationAngle);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ImagePlacement"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

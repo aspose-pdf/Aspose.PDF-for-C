@@ -10,7 +10,13 @@ namespace Pdf {
 /// </summary>
 enum class FileEncoding
 {
+    /// <summary>
+    ///  File is not compressed.
+    /// </summary>
     None,
+    /// <summary>
+    /// File is compressed with ZIP algorithhm. 
+    /// </summary>
     Zip
 };
 

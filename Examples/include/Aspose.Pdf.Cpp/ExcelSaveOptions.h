@@ -21,25 +21,41 @@ class ASPOSE_PDF_SHARED_API ExcelSaveOptions : public Aspose::Pdf::SaveOptions
     
 public:
 
+    /// <summary>
+    /// Set true if you need to minimize the number of worksheets in resultant workbook.
+    /// Default value is false; it means save of each PDF page as separated worksheet.
+    /// </summary>
     bool get_MinimizeTheNumberOfWorksheets();
+    /// <summary>
+    /// Set true if you need to minimize the number of worksheets in resultant workbook.
+    /// Default value is false; it means save of each PDF page as separated worksheet.
+    /// </summary>
     void set_MinimizeTheNumberOfWorksheets(bool value);
+    /// <summary>
+    /// Set false if you need suppress inserting of blank column as the first column of worksheet.
+    /// Default value is true; it means that blank column will be inserted.
+    /// </summary>
     bool get_InsertBlankColumnAtFirst();
+    /// <summary>
+    /// Set false if you need suppress inserting of blank column as the first column of worksheet.
+    /// Default value is true; it means that blank column will be inserted.
+    /// </summary>
     void set_InsertBlankColumnAtFirst(bool value);
+    /// <summary>
+    /// Set true for using uniform columns division through the document. 
+    /// Default value is false; it means that columns division will independent for each page.
+    /// </summary>
     bool get_UniformWorksheets();
+    /// <summary>
+    /// Set true for using uniform columns division through the document. 
+    /// Default value is false; it means that columns division will independent for each page.
+    /// </summary>
     void set_UniformWorksheets(bool value);
     
+    /// <summary>
+    /// Constructor
+    /// </summary>
     ExcelSaveOptions();
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ExcelSaveOptions"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

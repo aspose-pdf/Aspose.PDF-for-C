@@ -36,7 +36,7 @@ int main()
 	//// Document
 	//// =====================================================
 
-	//AddImage();
+	AddImage();
 	//GetSetInfo();
 	//GetSetMetadata();
 	//GetSetDocWindowProperties();
@@ -73,7 +73,7 @@ int main()
 	//DeleteAllImages();
 	//ReplacePageImage();
 	//ExtractImage();
-	ExtractImageFromParticularPage();
+	//ExtractImageFromParticularPage();
 
 	// Stop before exiting
 	printf("\n\nProgram Finished. Press any key to exit....");

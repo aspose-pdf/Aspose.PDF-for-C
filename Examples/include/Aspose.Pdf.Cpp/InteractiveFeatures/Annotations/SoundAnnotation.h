@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_SoundAnnotation_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_SoundAnnotation_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include "InteractiveFeatures/Annotations/MarkupAnnotation.h"
 
@@ -41,14 +41,43 @@ class ASPOSE_PDF_SHARED_API SoundAnnotation FINAL : public Aspose::Pdf::Interact
     
 public:
 
+    /// <summary>
+    /// Gets or sets an icon to be used in displaying the annotation.
+    /// </summary>
     SoundIcon get_Icon();
+    /// <summary>
+    /// Gets or sets an icon to be used in displaying the annotation.
+    /// </summary>
     void set_Icon(SoundIcon value);
+    /// <summary>
+    /// Gets a sound object defining the sound to be played when the annotation is activated.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::SoundData> get_SoundData();
+    /// <summary>
+    /// Gets type of annotation.
+    /// </summary>
     virtual Aspose::Pdf::InteractiveFeatures::Annotations::AnnotationType get_AnnotationType();
     
+    /// <summary>
+    /// Accepts visitor object to process the annotation.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<AnnotationSelector> visitor);
     
+    /// <summary>
+    /// Creates new Sound annotation on the specified page.
+    /// </summary>
+    /// <param name="page">The document's page where annotation should be created.</param>
+    /// <param name="rect">The annotation rectangle, defining the location of the annotation on the page.</param>
+    /// <param name="soundFile">A sound file defining the sound to be played when the annotation is activated.</param>
     SoundAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect, System::String soundFile);
+    /// <summary>
+    /// Creates new Sound annotation on the specified page.
+    /// </summary>
+    /// <param name="page">The document's page where annotation should be created.</param>
+    /// <param name="rect">The annotation rectangle, defining the location of the annotation on the page.</param>
+    /// <param name="soundFile">A sound file defining the sound to be played when the annotation is activated.</param>
+    /// <param name="soundSampleData">A sound sample data contains extra of sound parameters such as sampling rate, bits per sample and so on.</param>
     SoundAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect, System::String soundFile, System::SharedPtr<SoundSampleData> soundSampleData);
     
 protected:
@@ -56,22 +85,24 @@ protected:
     virtual void WriteXfdf(System::SharedPtr<System::Xml::XmlWriter> writer);
     virtual void ReadXfdf(System::SharedPtr<System::Xml::XmlReader> reader);
     
+    /// <summary>
+    /// Ititializes Sound annotation with engine annotation object.
+    /// </summary>
+    /// <param name="engineAnnot">Engine object that represents the annotation.</param>
+    /// <param name="document">The Aspose.Pdf.Document object.</param>
     SoundAnnotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> engineAnnot, System::SharedPtr<Document> document);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SoundAnnotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::SoundData> _soundData;
     
+    /// <summary>
+    /// Create new Sound annotation on the specified page.
+    /// </summary>
+    /// <param name="page">The document's page where annotation should be created.</param>
+    /// <param name="rect">The annotation rectangle, defining the location of the annotation on the page.</param>
     SoundAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
     
 };

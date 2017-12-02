@@ -1,5 +1,5 @@
-#ifndef __Marshal_h__
-#define __Marshal_h__
+#ifndef __aspose_system_marshal_h__
+#define __aspose_system_marshal_h__
 
 #include <memory.h>
 #include <system/exception.h>
@@ -47,6 +47,16 @@ namespace System { namespace Runtime { namespace InteropServices {
             return  *((uint8_t*)ptr + offset);
         }
 
+        static int16_t ReadInt16(IntPtr ptr, int offset = 0)
+        {
+            return  *((int16_t*)((uint8_t*)ptr + offset));
+        }
+
+        static int32_t ReadInt32(IntPtr ptr, int offset = 0)
+        {
+            return  *((int32_t*)((uint8_t*)ptr + offset));
+        }
+        
         static int32_t GetHRForException(System::Exception exc)
         {
             return exc.get_HResult();

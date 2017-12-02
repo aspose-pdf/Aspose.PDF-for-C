@@ -9,7 +9,7 @@
 namespace System {
 
 template<typename T>
-const typename std::enable_if<IsBoxable<T>::value, T&>::type Default()
+const typename std::enable_if<IsBoxable<T>::value && !IsException<T>::value, T&>::type Default()
 {
     static T value = T();
     return value;

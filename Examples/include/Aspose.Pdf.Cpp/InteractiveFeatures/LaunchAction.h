@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_LaunchAction_h_
 #define _Aspose_Pdf_InteractiveFeatures_LaunchAction_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -36,26 +36,38 @@ class ASPOSE_PDF_SHARED_API LaunchAction FINAL : public Aspose::Pdf::Interactive
     
 public:
 
+    /// <summary>
+    /// Gets or sets the application to be launched or the document to be opened or printed.
+    /// </summary>
     System::String get_File();
+    /// <summary>
+    /// Gets or sets the application to be launched or the document to be opened or printed.
+    /// </summary>
     void set_File(System::String value);
+    /// <summary>
+    /// Gets or sets a flag specifying whether to open the destination document in a new window (affect PDF documents only).
+    /// </summary>
     ExtendedBoolean get_NewWindow();
+    /// <summary>
+    /// Gets or sets a flag specifying whether to open the destination document in a new window (affect PDF documents only).
+    /// </summary>
     void set_NewWindow(ExtendedBoolean value);
     
+    /// <summary>
+    /// Creates a launch action.
+    /// </summary>
+    /// <param name="file">The file to be launched.</param>
     LaunchAction(System::String file);
+    /// <summary>
+    /// Creates a launch action.
+    /// </summary>
+    /// <param name="document">Document where action will be created.</param>
+    /// <param name="file">The file to be launched.</param>
     LaunchAction(System::SharedPtr<Document> document, System::String file);
     
 protected:
 
     LaunchAction(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> action);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "LaunchAction"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_XmpPdfAExtension_XmpPdfAExtensionProperty_h_
 #define _Aspose_Pdf_XmpPdfAExtension_XmpPdfAExtensionProperty_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_node.h>
 
@@ -29,25 +29,43 @@ class ASPOSE_PDF_SHARED_API XmpPdfAExtensionProperty FINAL : public Aspose::Pdf:
     
 public:
 
+    /// <summary>
+    /// Gets the property category.
+    /// </summary>
     XmpPdfAExtensionCategoryType get_Category();
     
+    /// <summary>
+    /// Initializes new object.
+    /// </summary>
+    /// <param name="name">The property name.</param>
+    /// <param name="value">The property value.</param>
+    /// <param name="valueType">The property value type.</param>
+    /// <param name="category">The property category.</param>
+    /// <param name="description">The property description.</param>
     XmpPdfAExtensionProperty(System::String name, System::String value, System::String valueType, XmpPdfAExtensionCategoryType category, System::String description);
     
+    /// <summary>
+    /// Returns the list of xml elements that represent property in xml tree.
+    /// </summary>
+    /// <param name="xmlDocument">The source xml document.</param>
+    /// <returns>The list of xml elements.</returns>
     virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<System::Xml::XmlElement>>> GetXml(System::SharedPtr<System::Xml::XmlDocument> xmlDocument);
     
 protected:
 
+    /// <summary>
+    /// Returns the list of properties found in li element of xml tree. Used during loading of metadata.
+    /// </summary>
+    /// <param name="rootNode">The root node of properties in xml document.</param>
+    /// <returns>Returns the list of properties.</returns>
     static System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<XmpPdfAExtensionProperty>>> CreateElements(System::SharedPtr<System::Xml::XmlNode> rootNode);
+    /// <summary>
+    /// Returns the property found in li element of xml tree. Used during loading of metadata.
+    /// </summary>
+    /// <param name="rootNode">The root node of property in xml document.</param>
+    /// <returns>The new property object.</returns>
     static System::SharedPtr<XmpPdfAExtensionProperty> CreateElement(System::SharedPtr<System::Xml::XmlNode> rootNode);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "XmpPdfAExtensionProperty"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

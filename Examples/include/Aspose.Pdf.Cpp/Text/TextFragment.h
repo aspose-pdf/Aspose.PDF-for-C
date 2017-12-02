@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Text_TextFragment_h_
 #define _Aspose_Pdf_Text_TextFragment_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/eventhandler.h>
@@ -56,42 +56,21 @@ namespace Text {
 /// Text of pdf document in <see cref="Aspose.Pdf"/> is represented by two basic objects: <see cref="TextFragment"/> and <see cref="TextSegment"/>
 /// The differences between them is mostly context-dependent.
 /// Let's consider following scenario. User searches text "hello world" to operate with it, change it's properties, look etc.
-/// <code lang="C#">
-/// Document doc = new Document(docFile);
-/// TextFragmentAbsorber absorber = new TextFragmentAbsorber("hello world");
-/// doc.Pages[1].Accept(absorber);
-/// </code>
-/// Phisycally pdf text's representation is very complex.
-/// The text "hello world" may consist of several phisycally independent text segments.
-/// The Aspose.Pdf text model basically establishes that <see cref="TextFragment"/> object
-/// provides single logic operation set over physical <see cref="TextSegment"/> objects set that represent user's query.
-/// In text search scenario, <see cref="TextFragment"/> is logical "hello world" text representation,
-/// and <see cref="TextSegment"/> object collection represents all physical segments that construct "hello world" text object.
-/// So, <see cref="TextFragment"/> is close to logical text representation.
-/// And <see cref="TextSegment"/> is close to physical text representation.
-/// Obviously each <see cref="TextSegment"/> object may have it's own font, coloring, positioning properties.
-/// <see cref="TextFragment"/> provides simple way to change text with it's properties: set font, set font size, set font color etc.
-/// Meanwhile <see cref="TextSegment"/> objects are accessible and users are able to operate with <see cref="TextSegment"/> objects independently.
-/// Note that changing TextFragment properties may change inner <see cref="Segments"/> collection because TextFragment is an aggregate object 
-/// and it may rearrange internal segments or merge them into single segment.
-/// If your requirement is to leave the <see cref="Segments"/> collection unchanged, please change inner segments individually.
-/// </remarks>
-/// <example>
-/// The example demonstrates how to find text on the first PDF document page and replace the text and it's font.
-/// <code lang="C#"> 
+/// 
+/// <code>
 /// // Open document
-/// Document doc = new Document(@"D:\Tests\input.pdf");
+/// System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
 /// // Find font that will be used to change document text font
-/// Aspose.Pdf.Txt.Font font = FontRepository.FindFont("Arial");
+/// System::SharedPtr<Aspose::Pdf::Text::Font> font = Aspose::Pdf::Text::FontRepository::FindFont(L"Arial");
 /// // Create TextFragmentAbsorber object to find all "hello world" text occurrences
-/// TextFragmentAbsorber absorber = new TextFragmentAbsorber("hello world");
+/// System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
 /// // Accept the absorber for first page
-/// doc.Pages[1].Accept(absorber);
+/// doc->get_Pages()->idx_get(1)->Accept(absorber);
 /// // Change text and font of the first text occurrence
-/// absorber.TextFragments[1].Text = "hi world";
-/// absorber.TextFragments[1].TextState.Font = font;
+/// absorber->get_TextFragments()->idx_get(1)->set_Text(L"hi world");
+/// absorber->get_TextFragments()->idx_get(1)->get_TextState()->set_Font(font);
 /// // Save document
-/// doc.Save(@"D:\Tests\output.pdf");  
+/// doc->Save(L"D:\\Tests\\output.pdf");
 /// </code> 
 /// </example>
 class ASPOSE_PDF_SHARED_API TextFragment : public Aspose::Pdf::BaseParagraph
@@ -118,28 +97,266 @@ class ASPOSE_PDF_SHARED_API TextFragment : public Aspose::Pdf::BaseParagraph
     
 public:
 
+    /// <summary>
+    /// Gets or sets <see cref="string"/> text object that the <see cref="TextFragment"/> object represents.
+    /// </summary>
+    /// <example>
+    /// The example demonstrates how to search a text and replace first occurrence represented with <see cref="TextFragment"/> object .
+    /// 
+    /// <code>
+    /// // Open document
+    /// System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
+    /// // Create TextFragmentAbsorber object to find all "hello world" text occurrences
+    /// System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
+    /// // Accept the absorber for first page
+    /// doc->get_Pages()->idx_get(1)->Accept(absorber);
+    /// // Change font of the first text occurrence
+    /// absorber->get_TextFragments()->idx_get(1)->set_Text(L"hi world");
+    /// // Save document
+    /// doc->Save(L"D:\\Tests\\output.pdf");
+    /// </code>
+    /// </example>
+    /// <seealso cref="TextFragmentAbsorber"/>
+    /// <seealso cref="Document"/>
     System::String get_Text();
+    /// <summary>
+    /// Gets or sets <see cref="string"/> text object that the <see cref="TextFragment"/> object represents.
+    /// </summary>
+    /// <example>
+    /// The example demonstrates how to search a text and replace first occurrence represented with <see cref="TextFragment"/> object .
+    /// 
+    /// <code>
+    /// // Open document
+    /// System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
+    /// // Create TextFragmentAbsorber object to find all "hello world" text occurrences
+    /// System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
+    /// // Accept the absorber for first page
+    /// doc->get_Pages()->idx_get(1)->Accept(absorber);
+    /// // Change font of the first text occurrence
+    /// absorber->get_TextFragments()->idx_get(1)->set_Text(L"hi world");
+    /// // Save document
+    /// doc->Save(L"D:\\Tests\\output.pdf");
+    /// </code>
+    /// </example>
+    /// <seealso cref="TextFragmentAbsorber"/>
+    /// <seealso cref="Document"/>
     void set_Text(System::String value);
+    /// <summary>
+    /// Gets or sets a horizontal alignment of text fragment. 
+    /// </summary>
     virtual Aspose::Pdf::HorizontalAlignment get_HorizontalAlignment();
+    /// <summary>
+    /// Gets or sets a horizontal alignment of text fragment. 
+    /// </summary>
     virtual void set_HorizontalAlignment(Aspose::Pdf::HorizontalAlignment value);
+    /// <summary>
+    /// Gets or sets text state for the text that <see cref="TextFragment"/> object represents.
+    /// </summary>
+    /// <remarks>
+    /// Provides a way to change following properties of the text:
+    ///    Font
+    ///    FontSize
+    ///    FontStyle
+    ///    ForegroundColor
+    ///    BackgroundColor
+    /// </remarks>
+    /// <example>
+    /// The example demonstrates how to change text color and font size of the text with <see cref="TextState"/> object.
+    /// 
+    ///	<code>
+    ///	// Open document
+    /// System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
+    /// // Create TextFragmentAbsorber object to find all "hello world" text occurrences
+    /// System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
+    /// // Accept the absorber for first page
+    /// doc->get_Pages()->idx_get(1)->Accept(absorber);
+    /// // Change foreground color of the first text occurrence
+    /// absorber->get_TextFragments()->idx_get(1)->get_TextState()->set_ForegroundColor(Color::FromRgb(System::Drawing::Color::get_Red()));
+    /// // Change font size of the first text occurrence
+    /// absorber->get_TextFragments()->idx_get(1)->get_TextState()->set_FontSize(15);
+    /// // Save document
+    /// doc->Save(L"D:\\Tests\\output.pdf");
+    ///	</code>
+    /// </example>
+    /// <seealso cref="TextFragmentAbsorber"/>
+    /// <seealso cref="Document"/>
     System::SharedPtr<TextFragmentState> get_TextState();
+    /// <summary>
+    /// Gets text segments for current <see cref="TextFragment"/>.
+    /// </summary>
+    /// <remarks>
+    /// In a few words, <see cref="TextSegment"/> objects are children of <see cref="TextFragment"/> object.
+    /// Advanced users may access segments directly to perform more complex text edit scenarios.
+    /// For details, please look at <see cref="TextFragment"/> object description.
+    /// </remarks>
+    /// <example>
+    /// The example demonstrates how to navigate all <see cref="TextSegment"/> objects inside <see cref="TextFragment"/>.
+    /// 
+    ///	<code>
+    ///	// Open document
+    /// System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
+    /// // Create TextFragmentAbsorber object to find all "hello world" text occurrences
+    /// System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
+    /// // Accept the absorber for first page
+    /// doc->get_Pages()->idx_get(1)->Accept(absorber);
+    /// // Navigate all text segments and out their text and placement info
+    /// auto segment_enumerator = (absorber->get_TextFragments()->idx_get(1)->get_Segments())->GetEnumerator();
+    /// decltype(segment_enumerator->get_Current()) segment;
+    /// while (segment_enumerator->MoveNext() && (segment = segment_enumerator->get_Current(), true))
+    /// {
+    ///     System::Console::get_Out()->WriteLine(System::String::Format(L"segment text: {0}", segment->get_Text()));
+    ///     System::Console::get_Out()->WriteLine(System::String::Format(L"segment X indent: {0}", segment->get_Position()->get_XIndent()));
+    ///     System::Console::get_Out()->WriteLine(System::String::Format(L"segment Y indent: {0}", segment->get_Position()->get_YIndent()));
+    /// }
+    ///	</code>
+    /// </example>
+    /// <seealso cref="TextFragmentAbsorber"/>
+    /// <seealso cref="Document"/>
+    /// <seealso cref="TextSegment"/> 
     System::SharedPtr<TextSegmentCollection> get_Segments();
+    /// <summary>
+    /// Gets text segments for current <see cref="TextFragment"/>.
+    /// </summary>
+    /// <remarks>
+    /// In a few words, <see cref="TextSegment"/> objects are children of <see cref="TextFragment"/> object.
+    /// Advanced users may access segments directly to perform more complex text edit scenarios.
+    /// For details, please look at <see cref="TextFragment"/> object description.
+    /// </remarks>
+    /// <example>
+    /// The example demonstrates how to navigate all <see cref="TextSegment"/> objects inside <see cref="TextFragment"/>.
+    /// 
+    ///	<code>
+    ///	// Open document
+    /// System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
+    /// // Create TextFragmentAbsorber object to find all "hello world" text occurrences
+    /// System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
+    /// // Accept the absorber for first page
+    /// doc->get_Pages()->idx_get(1)->Accept(absorber);
+    /// // Navigate all text segments and out their text and placement info
+    /// auto segment_enumerator = (absorber->get_TextFragments()->idx_get(1)->get_Segments())->GetEnumerator();
+    /// decltype(segment_enumerator->get_Current()) segment;
+    /// while (segment_enumerator->MoveNext() && (segment = segment_enumerator->get_Current(), true))
+    /// {
+    ///     System::Console::get_Out()->WriteLine(System::String::Format(L"segment text: {0}", segment->get_Text()));
+    ///     System::Console::get_Out()->WriteLine(System::String::Format(L"segment X indent: {0}", segment->get_Position()->get_XIndent()));
+    ///     System::Console::get_Out()->WriteLine(System::String::Format(L"segment Y indent: {0}", segment->get_Position()->get_YIndent()));
+    /// }
+    ///	</code>
+    /// </example>
+    /// <seealso cref="TextFragmentAbsorber"/>
+    /// <seealso cref="Document"/>
+    /// <seealso cref="TextSegment"/> 
     void set_Segments(System::SharedPtr<TextSegmentCollection> value);
+    /// <summary>
+    /// Gets or sets text position for text, represented with <see cref="TextFragment"/> object.
+    /// </summary>
+    /// <example>
+    /// The example demonstrates how to view placement of a text, represented by <see cref="TextFragment"/> object.
+    /// 
+    ///	<code>
+    ///	// Open document
+    /// System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
+    /// // Create TextFragmentAbsorber object to find all "hello world" text occurrences
+    /// System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
+    /// // Accept the absorber for first page
+    /// doc->get_Pages()->idx_get(1)->Accept(absorber);
+    /// // View text and placement info of first text occurrence
+    /// System::SharedPtr<Aspose::Pdf::Text::TextFragment> firstOccurrence = absorber->get_TextFragments()->idx_get(1);
+    /// System::Console::get_Out()->WriteLine(System::String::Format(L"fragment text: {0}", firstOccurrence->get_Text()));
+    /// System::Console::get_Out()->WriteLine(System::String::Format(L"fragment X indent: {0}", firstOccurrence->get_Position()->get_XIndent()));
+    /// System::Console::get_Out()->WriteLine(System::String::Format(L"fragment Y indent: {0}", firstOccurrence->get_Position()->get_YIndent()));
+    ///	</code>
+    /// </example>
+    /// <seealso cref="TextFragmentAbsorber"/>
+    /// <seealso cref="Document"/>
+    /// <seealso cref="TextSegment"/> 
     System::SharedPtr<Aspose::Pdf::Text::Position> get_Position();
+    /// <summary>
+    /// Gets or sets text position for text, represented with <see cref="TextFragment"/> object.
+    /// </summary>
+    /// <example>
+    /// The example demonstrates how to view placement of a text, represented by <see cref="TextFragment"/> object.
+    /// 
+    ///	<code>
+    ///	// Open document
+    /// System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
+    /// // Create TextFragmentAbsorber object to find all "hello world" text occurrences
+    /// System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
+    /// // Accept the absorber for first page
+    /// doc->get_Pages()->idx_get(1)->Accept(absorber);
+    /// // View text and placement info of first text occurrence
+    /// System::SharedPtr<Aspose::Pdf::Text::TextFragment> firstOccurrence = absorber->get_TextFragments()->idx_get(1);
+    /// System::Console::get_Out()->WriteLine(System::String::Format(L"fragment text: {0}", firstOccurrence->get_Text()));
+    /// System::Console::get_Out()->WriteLine(System::String::Format(L"fragment X indent: {0}", firstOccurrence->get_Position()->get_XIndent()));
+    /// System::Console::get_Out()->WriteLine(System::String::Format(L"fragment Y indent: {0}", firstOccurrence->get_Position()->get_YIndent()));
+    ///	</code>
+    /// </example>
+    /// <seealso cref="TextFragmentAbsorber"/>
+    /// <seealso cref="Document"/>
+    /// <seealso cref="TextSegment"/> 
     void set_Position(System::SharedPtr<Aspose::Pdf::Text::Position> value);
+    /// <summary>
+    /// Gets text position for text, represented with <see cref="TextFragment"/> object.
+    /// The YIndent of the Position structure represents baseline coordinate of the text fragment.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Text::Position> get_BaselinePosition();
+    /// <summary>
+    /// Gets text position for text, represented with <see cref="TextFragment"/> object.
+    /// The YIndent of the Position structure represents baseline coordinate of the text fragment.
+    /// </summary>
     void set_BaselinePosition(System::SharedPtr<Aspose::Pdf::Text::Position> value);
+    /// <summary>
+    /// Gets rectangle of the TextFragment
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_Rectangle();
+    /// <summary>
+    /// Gets page that contains the TextFragment
+    /// </summary>
+    /// <remarks>
+    /// The value can be null in case the TextFragment object doesn't belong to any page.
+    /// </remarks>
     System::SharedPtr<Aspose::Pdf::Page> get_Page();
+    /// <summary>
+    /// Gets form object that contains the TextFragment
+    /// </summary>
+    /// <remarks>
+    /// The value can be null in case the TextFragment object doesn't belong to a form.
+    /// </remarks>
     System::SharedPtr<XForm> get_Form();
+    /// <summary>
+    /// Gets or sets placement info
+    /// </summary>
     System::SharedPtr<NewParagraphPlacementInfo> get_PlacementInfo();
+    /// <summary>
+    /// Gets or sets placement info
+    /// </summary>
     void set_PlacementInfo(System::SharedPtr<NewParagraphPlacementInfo> value);
+    /// <summary>
+    /// Gets or sets the paragraph end note.(for pdf generation only)
+    /// </summary>
     System::SharedPtr<Note> get_EndNote();
+    /// <summary>
+    /// Gets or sets the paragraph end note.(for pdf generation only)
+    /// </summary>
     void set_EndNote(System::SharedPtr<Note> value);
+    /// <summary>
+    /// Gets or sets the paragraph foot note.(for pdf generation only)
+    /// </summary>
     System::SharedPtr<Note> get_FootNote();
+    /// <summary>
+    /// Gets or sets the paragraph foot note.(for pdf generation only)
+    /// </summary>
     void set_FootNote(System::SharedPtr<Note> value);
     
+    /// <summary>
+    /// Initializes new instance of the <see cref="TextFragment"/> object.
+    /// </summary>
     TextFragment();
+    /// <summary>
+    /// Creates <see cref="TextFragment"/> object with single <see cref="TextSegment"/> object inside. 
+    /// Specifies text string inside the segment.
+    /// </summary>
+    /// <param name="text">Text fragment's text.</param>
     TextFragment(System::String text);
     
 protected:
@@ -150,40 +367,65 @@ protected:
     void set_ReplaceOptions(System::SharedPtr<TextOptions::TextReplaceOptions> value);
     System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Segmenting::PhysicalTextSegment_SegmentsGroupState> get_SegmentsGroupState();
     void set_SegmentsGroupState(System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Segmenting::PhysicalTextSegment_SegmentsGroupState> value);
+    /// <summary>
+    /// Gets or sets a vertical alignment of text fragment. 
+    /// </summary>
     virtual Aspose::Pdf::VerticalAlignment get_VerticalAlignment();
+    /// <summary>
+    /// Gets or sets a vertical alignment of text fragment. 
+    /// </summary>
     virtual void set_VerticalAlignment(Aspose::Pdf::VerticalAlignment value);
+    /// <summary>
+    /// Gets or sets collection that contains current fragment
+    /// </summary>
     System::SharedPtr<TextFragmentCollection> get_Fragments();
+    /// <summary>
+    /// Gets or sets collection that contains current fragment
+    /// </summary>
     void set_Fragments(System::SharedPtr<TextFragmentCollection> value);
     
     System::EventHandler<System::SharedPtr<System::EventArgs>> OnRectChanged;
     
+    /// <summary>
+    /// Sets font and indices inside the font
+    /// </summary>
+    /// <param name="font">Font of the fragment.</param>
+    /// <param name="text">Text value.</param>
+    /// <param name="indices">Glyph indices inside the font.</param>
     void SetEncodedTextProperties(System::SharedPtr<Font> font, System::String text, System::ArrayPtr<int32_t> indices);
+    /// <summary>
+    /// Attaches to the segmenter
+    /// </summary>
+    /// <param name="segmenter"></param>
     void Attach(System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Segmenting::TextSegmenter> segmenter);
+    /// <summary>
+    /// Isolates segments to single segment for simpler editing.
+    /// </summary>
     void IsolateToSingleSegment();
+    /// <summary>
+    /// Isolates segments to segment that represent the text only.
+    /// i.e. we Trim from beginning and end
+    /// </summary>
     void IsolateToText();
     static System::SharedPtr<Aspose::Pdf::Rectangle> GetGroupRectangle(System::SharedPtr<TextSegmentCollection> segments, int32_t firstSegmentBeginIndex, int32_t lastSegmentEndIndex, bool measureLastTechnicalSpacings);
     System::SharedPtr<Aspose::Pdf::Rectangle> ComputeUnderlineRectangle();
-    System::ArrayPtr<System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Segmenting::PhysicalTextSegment>> GetAttachedPhysicalSegmentsArray(int32_t &firstSegmentIndex, int32_t &lastSegmentIndex);
+    System::ArrayPtr<System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Segmenting::PhysicalTextSegment>> GetAttachedPhysicalSegmentsArray(int32_t& firstSegmentIndex, int32_t& lastSegmentIndex);
     
     TextFragment(System::String text, System::SharedPtr<TextSegmentCollection> segments);
     TextFragment(System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Segmenting::TextSegmenter> segmenter, System::String text, System::SharedPtr<TextSegmentCollection> segments);
     
     void SyncVerticalAlignment(Aspose::Pdf::VerticalAlignment verticalAlignment);
     void SyncHorizontalAlignment(Aspose::Pdf::HorizontalAlignment horizontalAlignment1);
+    /// <summary>
+    /// Set text with no adjustment.
+    /// </summary>
+    /// <param name="inText">String representing new text value.</param>
     void LightWeightTextSetter(System::String inText);
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Segmenting::PhysicalTextSegment>>> GetLineSegments(double x_indent, double y_indent);
     double GetHeight();
     virtual void Serialize(System::SharedPtr<System::Xml::XmlTextWriter> writer);
     virtual void Deserialize(System::SharedPtr<System::Xml::XmlReader> reader);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextFragment"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -204,9 +446,20 @@ private:
     System::SharedPtr<TextOptions::TextReplaceOptions> pr_ReplaceOptions;
     System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Segmenting::PhysicalTextSegment_SegmentsGroupState> _segmentsGroupState;
     
+    /// <summary>
+    /// initializes the object
+    /// </summary>
+    /// <param name="text"></param>
     void InitializeDetachedFragment(System::String text);
+    /// <summary>
+    /// initielizes the object
+    /// </summary>
     void InitializeAttachedFragment(System::String text, System::SharedPtr<TextSegmentCollection> segments);
     void OnSegmentAdded(System::SharedPtr<System::Object> sender, System::SharedPtr<TextSegmentCollection::TextSegmentEventArgs> args);
+    /// <summary>
+    /// Registers the text segment within the text fragment
+    /// </summary>
+    /// <param name="textSegment"></param>
     void RegisterSegment(System::SharedPtr<TextSegment> textSegment);
     void OnSegmentRemoved(System::SharedPtr<System::Object> sender, System::SharedPtr<TextSegmentCollection::TextSegmentEventArgs> args);
     void OnSegmentPositionChanged(System::SharedPtr<System::Object> sender, System::SharedPtr<System::EventArgs> args);

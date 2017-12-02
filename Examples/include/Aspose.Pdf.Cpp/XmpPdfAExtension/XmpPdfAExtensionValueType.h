@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_XmpPdfAExtension_XmpPdfAExtensionValueType_h_
 #define _Aspose_Pdf_XmpPdfAExtension_XmpPdfAExtensionValueType_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/collections/ilist.h>
 #include <system/array.h>
@@ -33,30 +33,61 @@ class ASPOSE_PDF_SHARED_API XmpPdfAExtensionValueType FINAL : public Aspose::Pdf
     
 public:
 
+    /// <summary>
+    /// Gets the value type.
+    /// </summary>        
     System::String get_Type();
+    /// <summary>
+    /// Gets the namespace URI.
+    /// </summary>
     System::String get_NamespaceUri();
+    /// <summary>
+    /// Gets the prefix.
+    /// </summary>
     System::String get_Prefix();
+    /// <summary>
+    /// Gets the list of fields.
+    /// </summary>
     System::SharedPtr<System::Collections::Generic::IList<System::SharedPtr<XmpPdfAExtensionField>>> get_Fields();
     
+    /// <summary>
+    /// Initializes new object.
+    /// </summary>
+    /// <param name="type">The value type.</param>
+    /// <param name="namespaceUri">The namespace URI.</param>
+    /// <param name="prefix">The prefix.</param>
+    /// <param name="description">The description.</param>
     XmpPdfAExtensionValueType(System::String type, System::String namespaceUri, System::String prefix, System::String description);
     
+    /// <summary>
+    /// Add new field.
+    /// </summary>
+    /// <param name="field">The field to add.</param>
     void Add(System::SharedPtr<XmpPdfAExtensionField> field);
+    /// <summary>
+    /// Adds the range of fields.
+    /// </summary>
+    /// <param name="fields">The fields to add.</param>
     void AddRange(System::ArrayPtr<System::SharedPtr<XmpPdfAExtensionField>> fields);
+    /// <summary>
+    /// Removes the field from the list of fields.
+    /// </summary>
+    /// <param name="field">The field to remove.</param>
     void Remove(System::SharedPtr<XmpPdfAExtensionField> field);
+    /// <summary>
+    /// Clears all fields.
+    /// </summary>
     void Clear();
+    /// <summary>
+    /// Returns the list of xml elements that represent value type in xml tree.
+    /// </summary>
+    /// <param name="xmlDocument">The source xml document.</param>
+    /// <returns>The list of xml elements.</returns>
     virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<System::Xml::XmlElement>>> GetXml(System::SharedPtr<System::Xml::XmlDocument> xmlDocument);
     
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "XmpPdfAExtensionValueType"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

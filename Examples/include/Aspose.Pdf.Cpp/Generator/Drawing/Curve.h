@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Generator_Drawing_Curve_h_
 #define _Aspose_Pdf_Generator_Drawing_Curve_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_text_writer.h>
 #include <xml/xml_reader.h>
@@ -37,23 +37,76 @@ class ASPOSE_PDF_SHARED_API Curve FINAL : public Aspose::Pdf::Drawing::Shape
     
 public:
 
+    /// <summary>
+    /// Gets or sets a float value that indicates the x-coordinate of the control point 1 of the curve.
+    /// </summary>
     float get_Position1X();
+    /// <summary>
+    /// Gets or sets a float value that indicates the x-coordinate of the control point 1 of the curve.
+    /// </summary>
     void set_Position1X(float value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the y-coordinate of the control point 1 of the curve.
+    /// </summary>
     float get_Position1Y();
+    /// <summary>
+    /// Gets or sets a float value that indicates the y-coordinate of the control point 1 of the curve.
+    /// </summary>
     void set_Position1Y(float value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the x-coordinate of the control point 2 of the curve.
+    /// </summary>
     float get_Position2X();
+    /// <summary>
+    /// Gets or sets a float value that indicates the x-coordinate of the control point 2 of the curve.
+    /// </summary>
     void set_Position2X(float value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the y-coordinate of the control point 2 of the curve.
+    /// </summary>
     float get_Position2Y();
+    /// <summary>
+    /// Gets or sets a float value that indicates the y-coordinate of the control point 2 of the curve.
+    /// </summary>
     void set_Position2Y(float value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the x-coordinate of the control point 3 of the curve.
+    /// </summary>
     float get_Position3X();
+    /// <summary>
+    /// Gets or sets a float value that indicates the x-coordinate of the control point 3 of the curve.
+    /// </summary>
     void set_Position3X(float value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the y-coordinate of the control point 3 of the curve.
+    /// </summary>
     float get_Position3Y();
+    /// <summary>
+    /// Gets or sets a float value that indicates the y-coordinate of the control point 3 of the curve.
+    /// </summary>
     void set_Position3Y(float value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the x-coordinate of the control point 4 of the curve.
+    /// </summary>
     float get_Position4X();
+    /// <summary>
+    /// Gets or sets a float value that indicates the x-coordinate of the control point 4 of the curve.
+    /// </summary>
     void set_Position4X(float value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the y-coordinate of the control point 4 of the curve.
+    /// </summary>
     float get_Position4Y();
+    /// <summary>
+    /// Gets or sets a float value that indicates the y-coordinate of the control point 4 of the curve.
+    /// </summary>
     void set_Position4Y(float value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Curve"/> class.
+    /// </summary>
+    /// <param name="positionArr">The position array of the control points of the curve.There should be four 
+    /// control points,so the length of the array should be eight.</param>
     Curve(System::ArrayPtr<float> positionArr);
     
 protected:
@@ -63,14 +116,6 @@ protected:
     virtual void GetPathOperators(System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> operators);
     virtual void Serialize(System::SharedPtr<System::Xml::XmlTextWriter> writer);
     virtual void Deserialize(System::SharedPtr<System::Xml::XmlReader> reader);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Curve"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

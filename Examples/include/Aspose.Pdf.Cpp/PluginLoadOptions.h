@@ -32,24 +32,33 @@ class ASPOSE_PDF_SHARED_API PluginLoadOptions FINAL : public Aspose::Pdf::LoadOp
     
 public:
 
+    /// <summary>
+    /// Gets or sets name of plugin used.
+    /// </summary>
     System::String get_Name();
+    /// <summary>
+    /// Gets or sets name of plugin used.
+    /// </summary>
     void set_Name(System::String value);
+    /// <summary>
+    /// Gets or sets version of plugin used.
+    /// </summary>
     System::String get_Version();
+    /// <summary>
+    /// Gets or sets version of plugin used.
+    /// </summary>
     void set_Version(System::String value);
     
+    /// <summary>
+    /// Creates default load options for converting with the aid of a plugin. 
+    /// </summary>
     PluginLoadOptions();
+    /// <summary>
+    /// Creates load options for converting with the aid of the plugin specified by name and version. 
+    /// </summary>
+    /// <param name="pluginName">The string representing name of plugin used.</param>
+    /// <param name="pluginVersion">The string representing version of plugin used.</param>
     PluginLoadOptions(System::String pluginName, System::String pluginVersion);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PluginLoadOptions"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

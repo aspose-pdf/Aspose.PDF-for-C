@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Generator_Drawing_Line_h_
 #define _Aspose_Pdf_Generator_Drawing_Line_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_text_writer.h>
 #include <xml/xml_reader.h>
@@ -37,9 +37,23 @@ class ASPOSE_PDF_SHARED_API Line FINAL : public Aspose::Pdf::Drawing::Shape
     
 public:
 
+    /// <summary>
+    /// Gets or sets a <see cref="PositionArray"/> object that indicates the position array.The array is 
+    /// composed by coordinates of each control point of the line. 
+    /// directly.
+    /// </summary>
     System::ArrayPtr<float> get_PositionArray();
+    /// <summary>
+    /// Gets or sets a <see cref="PositionArray"/> object that indicates the position array.The array is 
+    /// composed by coordinates of each control point of the line. 
+    /// directly.
+    /// </summary>
     void set_PositionArray(System::ArrayPtr<float> value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Line"/> class.
+    /// </summary>
+    /// <param name="positionArray">The line position array.</param>
     Line(System::ArrayPtr<float> positionArray);
     
 protected:
@@ -50,14 +64,6 @@ protected:
     virtual void Serialize(System::SharedPtr<System::Xml::XmlTextWriter> writer);
     virtual void Deserialize(System::SharedPtr<System::Xml::XmlReader> reader);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Line"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

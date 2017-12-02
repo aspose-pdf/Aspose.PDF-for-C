@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_ComboBoxField_h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_ComboBoxField_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/collections/list.h>
 
@@ -39,31 +39,61 @@ class ASPOSE_PDF_SHARED_API ComboBoxField FINAL : public Aspose::Pdf::Interactiv
     
 public:
 
+    /// <summary>
+    /// Gets or sets editable status of the field.
+    /// </summary>
     bool get_Editable();
+    /// <summary>
+    /// Gets or sets editable status of the field.
+    /// </summary>
     void set_Editable(bool value);
+    /// <summary>
+    /// Gets or sets spellchaeck activiity status.
+    /// </summary>
     bool get_SpellCheck();
+    /// <summary>
+    /// Gets or sets spellchaeck activiity status.
+    /// </summary>
     void set_SpellCheck(bool value);
+    /// <summary>
+    /// Gets or sets index of currently selected item in combo box list.
+    /// </summary>
     virtual void set_Selected(int32_t value);
     
+    /// <summary>
+    /// Constructor for ComboBoxField to be used in Generator. 
+    /// </summary>
     ComboBoxField();
+    /// <summary>
+    /// Constructor for Combobox Field. 
+    /// </summary>
+    /// <param name="page">Page where field will be placed. </param>
+    /// <param name="rect">Rectangle which defines size and position of the field on the page.</param>
     ComboBoxField(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
+    /// <summary>
+    /// Constructor for Combobox field. 
+    /// </summary>
+    /// <param name="doc">Document where field should be created.</param>
+    /// <param name="rect">Rectangle which defines size and position of the field. </param>
     ComboBoxField(System::SharedPtr<Document> doc, System::SharedPtr<Rectangle> rect);
     
 protected:
 
     ComboBoxField(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> annotation, System::SharedPtr<Document> document);
     
+    /// <summary>
+    /// Initialize the field.
+    /// </summary>
+    /// <param name="page">Aspose.Pdf.Page object.</param>
     virtual void Initialize(System::SharedPtr<Aspose::Pdf::Engine::Data::ITrailerable> trailer);
     virtual bool AppearanceSupported();
+    /// <summary>
+    /// Returns sequence of the operators for draing of the combo box.
+    /// </summary>
+    /// <param name="parameters">Appearance parameters.</param>
+    /// <param name="annotation">Annotation where appearance will be added.</param>
+    /// <returns>Listof appearance operators.</returns>
     virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> CreateAppearanceProgram(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Annotation::AppearanceParameters> parameters, System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Annotation> annotation);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ComboBoxField"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Facades_VerticalAlignmentType_h_
 #define _Aspose_Pdf_Facades_VerticalAlignmentType_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 

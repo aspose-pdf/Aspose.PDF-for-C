@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Text_Position_h_
 #define _Aspose_Pdf_Text_Position_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -27,26 +27,41 @@ class ASPOSE_PDF_SHARED_API Position FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets the X coordinate of the object
+    /// </summary>
     double get_XIndent();
+    /// <summary>
+    /// Gets the X coordinate of the object
+    /// </summary>
     void set_XIndent(double value);
+    /// <summary>
+    /// Gets the X coordinate of the object
+    /// </summary>
     double get_YIndent();
+    /// <summary>
+    /// Gets the X coordinate of the object
+    /// </summary>
     void set_YIndent(double value);
     
+    /// <summary>
+    /// Initializes a new instance of <see cref="Position"/> class
+    /// </summary>
+    /// <param name="xIndent">X coordinate value.</param>
+    /// <param name="yIndent">Y coordinate value.</param>
     Position(double xIndent, double yIndent);
     
+    /// <summary>
+    /// Gets string representation for the current <see cref="Position"/> object. 
+    /// </summary>
+    /// <returns>String representration of the Position object.</returns>
     virtual System::String ToString();
+    /// <summary>
+    /// Determines whether the specified object is equal to the current <see cref="Position"/> object. 
+    /// </summary>
+    /// <param name="obj">Object that is checked for equality.</param>
+    /// <returns>True in case objects are equal.</returns>
     virtual bool Equals(System::SharedPtr<System::Object> obj);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Position"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_VerticalAlignment_h_
 #define _Aspose_Pdf_VerticalAlignment_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/enum.h>
 
@@ -15,9 +15,21 @@ namespace Pdf {
 /// </summary>
 enum class VerticalAlignment
 {
+    /// <summary>
+    /// No alignment (use specified position).
+    /// </summary>
     None,
+    /// <summary>
+    /// Align to top.
+    /// </summary>
     Top,
+    /// <summary>
+    /// Center alignment.
+    /// </summary>
     Center,
+    /// <summary>
+    /// Align to bottom.
+    /// </summary>
     Bottom
 };
 

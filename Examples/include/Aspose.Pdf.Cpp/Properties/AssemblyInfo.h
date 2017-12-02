@@ -8,6 +8,9 @@
 
 // C# preprocessor directive: #if DEBUG 
 
+/* C# INACTIVE CODE:
+[assembly: InternalsVisibleTo("RunTest, PublicKey=00240000048000009400000006020000002400005253413100040000010001000fc3f2dbfdfea1dbfb14ce6babc8350b2ffc93c95c0d847fcd816ef66c667ed53fae07daebc210be6e8c1558a5408b703fbaf460e287e339637d03122719aedc85ed4603b6fff413a9685db8770f3b1f37c0ecf0f89f78904c26647c693f62d61a06713dae3346fc5489ce1cddfe0605720dff1ede7c42e35c2746dacbb610c3")]
+*/
 
 // C# preprocessor directive: #endif 
 
@@ -56,17 +59,6 @@ public:
     static const System::String ReleaseDate;
     static const System::String Producer;
     
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "AssemblyConstants"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
-    
 };
 
 /// <summary>
@@ -85,17 +77,6 @@ public:
     static const System::String AssemblyVersion;
     static const System::String Product;
     static const System::String FileVersion;
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "BuildVersionInfo"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

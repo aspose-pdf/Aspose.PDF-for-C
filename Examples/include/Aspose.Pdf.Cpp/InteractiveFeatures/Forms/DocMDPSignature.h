@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_DocMDPSignature_h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_DocMDPSignature_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/object.h>
@@ -34,29 +34,36 @@ class ASPOSE_PDF_SHARED_API DocMDPSignature FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Returns the access permissions granted for this document.
+    /// </summary>
     DocMDPAccessPermissions get_AccessPermissions();
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="DocMDPSignature"/> class.
+    /// </summary>
+    /// <param name="signature">The signature object that used during signing.</param>
+    /// <param name="accessPermissions">The access permissions granted for this document.</param>
     DocMDPSignature(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Forms::Signature> signature, DocMDPAccessPermissions accessPermissions);
     
 protected:
 
+    /// <summary>
+    /// Returns the signature object that used during signing.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Forms::Signature> get_Signature();
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "DocMDPSignature"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Forms::Signature> _signature;
     DocMDPAccessPermissions _accessPermissions;
     
+    /// <summary>
+    /// Initializes the new signature reference entry.
+    /// </summary>
+    /// <param name="accessPermissions">The access permissions granted for this document.</param>
     void InitializeSignatureReference(DocMDPAccessPermissions accessPermissions);
     
 };

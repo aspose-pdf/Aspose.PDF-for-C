@@ -87,6 +87,8 @@ namespace Generic {
 
 namespace System
 {
+    template<typename TKey, typename TValue> struct IsBoxable<Collections::Generic::KeyValuePair<TKey, TValue>> : std::true_type {};
+
     template<typename TKey, typename TValue>
     class BoxedValue<System::Collections::Generic::KeyValuePair<TKey, TValue>> : public DefaultBoxedValue<System::Collections::Generic::KeyValuePair<TKey, TValue>>
     {

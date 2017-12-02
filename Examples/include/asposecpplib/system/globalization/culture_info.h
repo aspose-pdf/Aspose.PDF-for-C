@@ -55,6 +55,8 @@ namespace System
 
             CultureTypes get_CultureTypes() const;
 
+            virtual ArrayPtr<SharedPtr<CultureInfo>> get_OptionalCalendars() const;
+
             // IFormatProvider interface
             SharedPtr<Object> GetFormat(const TypeInfo &formatType) override;
 

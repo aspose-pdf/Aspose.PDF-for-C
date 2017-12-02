@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Generator_Drawing_Circle_h_
 #define _Aspose_Pdf_Generator_Drawing_Circle_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_text_writer.h>
 #include <xml/xml_reader.h>
@@ -36,13 +36,37 @@ class ASPOSE_PDF_SHARED_API Circle FINAL : public Aspose::Pdf::Drawing::Shape
     
 public:
 
+    /// <summary>
+    /// Gets or sets a float value that indicates the x-coordinate of the center of the circle.
+    /// </summary>
     double get_PosX();
+    /// <summary>
+    /// Gets or sets a float value that indicates the x-coordinate of the center of the circle.
+    /// </summary>
     void set_PosX(double value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the y-coordinate of the center of the circle.
+    /// </summary>
     double get_PosY();
+    /// <summary>
+    /// Gets or sets a float value that indicates the y-coordinate of the center of the circle.
+    /// </summary>
     void set_PosY(double value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the radius of the circle.
+    /// </summary>
     double get_Radius();
+    /// <summary>
+    /// Gets or sets a float value that indicates the radius of the circle.
+    /// </summary>
     void set_Radius(double value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Circle"/> class.
+    /// </summary>
+    /// <param name="posX">The x-coordinate of the center of the circle.</param>
+    /// <param name="posY">The y-coordinate of the center of the circle.</param>
+    /// <param name="radius">The radius of the circle.</param>
     Circle(float posX, float posY, float radius);
     
 protected:
@@ -52,14 +76,6 @@ protected:
     virtual void GetPathOperators(System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> operators);
     virtual void Serialize(System::SharedPtr<System::Xml::XmlTextWriter> writer);
     virtual void Deserialize(System::SharedPtr<System::Xml::XmlReader> reader);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Circle"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

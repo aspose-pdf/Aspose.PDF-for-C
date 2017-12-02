@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_GoToURIAction_h_
 #define _Aspose_Pdf_InteractiveFeatures_GoToURIAction_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -33,23 +33,24 @@ class ASPOSE_PDF_SHARED_API GoToURIAction FINAL : public Aspose::Pdf::Interactiv
     
 public:
 
+    /// <summary>
+    /// Gets or sets the uniform resource identifier to resolve.
+    /// </summary>
     System::String get_URI();
+    /// <summary>
+    /// Gets or sets the uniform resource identifier to resolve.
+    /// </summary>
     void set_URI(System::String value);
     
+    /// <summary>
+    /// Constructor.
+    /// </summary>
+    /// <param name="uri">The uniform resource identifier to resolve.</param>
     GoToURIAction(System::String uri);
     
 protected:
 
     GoToURIAction(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> action);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "GoToURIAction"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

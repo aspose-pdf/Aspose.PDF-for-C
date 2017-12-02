@@ -4,6 +4,7 @@
 #include "fwd.h"
 #include "system/object.h"
 #include "system/io/file.h"
+#include "system/io/file.h"
 #include "system/io/path.h"
 
 namespace System { namespace IO {

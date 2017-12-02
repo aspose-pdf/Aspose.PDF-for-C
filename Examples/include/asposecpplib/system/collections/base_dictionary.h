@@ -31,14 +31,16 @@ namespace Generic {
             : m_map(args...)
         {}
 
+        template<class... Args>
+        BaseDictionary(BaseType* src, const Args&... args)
+            : m_map(args...)
+        {
+            CopyFrom(src);
+        }
+
         BaseDictionary(BaseType* src)
         {
-            if (nullptr == src)
-                throw ArgumentNullException(L"Argument cannot be nullptr");
-
-            SharedPtr<IEnumerator<KeyValuePair<key_t, mapped_t> > > enumerator = src->GetEnumerator();
-            while (enumerator->MoveNext())
-                BaseDictionary<map_t>::Add(enumerator->get_Current());
+            CopyFrom(src);
         }
 
         // IEnumerable
@@ -113,6 +115,9 @@ namespace Generic {
                 return true;
             }
 
+            // There should be the System::Default<mapped_t>() call, but it has a lot of restrictions,
+            // e.g. System::Default doesn't work with C# structures and delegates
+            value = mapped_t();
             return false;
         }
 
@@ -176,6 +181,15 @@ namespace Generic {
         }
 
     private:
+        void CopyFrom(BaseType* src)
+        {
+            if (nullptr == src)
+                throw ArgumentNullException(L"Argument cannot be nullptr");
+
+            SharedPtr<IEnumerator<KeyValuePair<key_t, mapped_t> > > enumerator = src->GetEnumerator();
+            while (enumerator->MoveNext())
+                BaseDictionary<map_t>::Add(enumerator->get_Current());
+        }
 
         void Add(const KeyValuePair<key_t, mapped_t>& item) override
         {

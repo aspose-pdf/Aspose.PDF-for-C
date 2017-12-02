@@ -32,7 +32,7 @@ namespace System
             for (auto val : values)
             {
                 if (static_cast<E>(value) == val.first)
-                    return val.second;
+                    return String(val.second);
             }
 
             return String();

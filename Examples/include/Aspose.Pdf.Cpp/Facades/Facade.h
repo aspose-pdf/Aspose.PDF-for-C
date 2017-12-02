@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Facades_Facade_h_
 #define _Aspose_Pdf_Facades_Facade_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -45,17 +45,6 @@ class ASPOSE_PDF_SHARED_API NamespaceDoc : public System::Object
     typedef ::System::BaseTypesInfo<BaseType> ThisTypeBaseTypesInfo;
     RTTI_INFO_DECL();
     
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "NamespaceDoc"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
-    
 };
 
 /// <summary>
@@ -76,33 +65,66 @@ class ASPOSE_PDF_SHARED_API ABSTRACT Facade : public virtual Aspose::Pdf::Facade
     
 public:
 
+    /// <summary>
+    /// Gets the document facade is working on.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Document> get_Document() const;
     
+    /// <summary>
+    /// Initializes the facade.
+    /// </summary>
+    /// <param name="srcFile">The PDF file.</param>
     virtual void BindPdf(System::String srcFile);
+    /// <summary>
+    /// Initializes the facade.
+    /// </summary>
+    /// <param name="srcStream">The stream of PDF file.</param>
     virtual void BindPdf(System::SharedPtr<System::IO::Stream> srcStream);
+    /// <summary>
+    /// Initializes the facade.
+    /// </summary>
+    /// <param name="srcDoc">The Aspose.Pdf.Document object.</param>
     virtual void BindPdf(System::SharedPtr<Aspose::Pdf::Document> srcDoc);
+    /// <summary>
+    /// Disposes Aspose.Pdf.Document bound with a facade.
+    /// </summary>
     virtual void Close();
+    /// <summary>
+    /// Disposes the facade.
+    /// </summary>
     void Dispose();
     
     virtual ~Facade();
     
 protected:
 
+    /// <summary>
+    /// The constructor.
+    /// </summary>
     Facade();
+    /// <summary>
+    /// The constructor.
+    /// </summary>
+    /// <param name="srcDoc">The Aspose.Pdf.Document object.</param>
     Facade(System::SharedPtr<Aspose::Pdf::Document> srcDoc);
     
+    /// <summary>
+    /// Initializes the facade.
+    /// </summary>
+    /// <param name="srcFile">The PDF file.</param>
+    /// <param name="password">The password of the PDF document.</param>
     virtual void BindPdf(System::String srcFile, System::String password);
+    /// <summary>
+    /// Initializes the facade.
+    /// </summary>
+    /// <param name="srcStream">The stream of PDF file.</param>
+    /// <param name="password">The password of the PDF document.</param>
     virtual void BindPdf(System::SharedPtr<System::IO::Stream> srcStream, System::String password);
+    /// <summary>
+    /// Asserts if the facade is initialized.
+    /// </summary>
     virtual void AssertDocument() const;
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Facade"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -139,22 +161,28 @@ class ASPOSE_PDF_SHARED_API ABSTRACT SaveableFacade : public Aspose::Pdf::Facade
     
 public:
 
+    /// <summary>
+    /// Saves the PDF document to the specified file.
+    /// </summary>
+    /// <param name="destFile">The destination file.</param>
     virtual void Save(System::String destFile);
+    /// <summary>
+    /// Saves the PDF document to the specified stream.
+    /// </summary>
+    /// <param name="destStream">The destination stream.</param>
     virtual void Save(System::SharedPtr<System::IO::Stream> destStream);
     
 protected:
 
+    /// <summary>
+    /// The constructor.
+    /// </summary>
     SaveableFacade();
+    /// <summary>
+    /// The constructor.
+    /// </summary>
+    /// <param name="srcDoc">The Aspose.Pdf.Document object.</param>
     SaveableFacade(System::SharedPtr<Aspose::Pdf::Document> srcDoc);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SaveableFacade"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

@@ -18,66 +18,66 @@ ASPOSECPP_3RD_PARTY_CLASS(SkPaint);
 
 namespace System { namespace Drawing {
 
-    class Graphics;
+class Graphics;
 
-    class Font: public Object
-    {
-        RTTI_INFO(Font, ::System::BaseTypesInfo<System::Object>)
-        public:
+class Font: public Object
+{
 
-            Font(SharedPtr<Font> prototype, FontStyle new_style);
+    RTTI_INFO(Font, ::System::BaseTypesInfo<System::Object>)
 
-            Font(SharedPtr<FontFamily> family, float em_size, FontStyle style, GraphicsUnit unit = GraphicsUnit::Point, uint8_t gdi_charset = 1/*DEFAULT_CHARSET*/, bool gdi_vertical_font = false);
-            Font(SharedPtr<FontFamily> family, float em_size, GraphicsUnit unit = GraphicsUnit::Point);
+public:
+    Font(SharedPtr<Font> prototype, FontStyle new_style);
 
-            Font(String family_name, float em_size, FontStyle style, GraphicsUnit unit = GraphicsUnit::Point, uint8_t gdi_charset = 1/*DEFAULT_CHARSET*/, bool gdi_vertical_font = false);
-            Font(String family_name, float em_size, GraphicsUnit unit = GraphicsUnit::Point);
+    Font(SharedPtr<FontFamily> family, float em_size, FontStyle style, GraphicsUnit unit = GraphicsUnit::Point, uint8_t gdi_charset = 1/*DEFAULT_CHARSET*/, bool gdi_vertical_font = false);
+    Font(SharedPtr<FontFamily> family, float em_size, GraphicsUnit unit = GraphicsUnit::Point);
 
-            float GetHeight(SharedPtr<Graphics> graphics);
-            float GetHeight(float dpi = DEFAULT_FONT_OPERATIONS_DPI);
+    Font(String family_name, float em_size, FontStyle style, GraphicsUnit unit = GraphicsUnit::Point, uint8_t gdi_charset = 1/*DEFAULT_CHARSET*/, bool gdi_vertical_font = false);
+    Font(String family_name, float em_size, GraphicsUnit unit = GraphicsUnit::Point);
 
-            String get_Name();
-            SharedPtr<FontFamily> get_FontFamily();
-            FontStyle get_FontStyle();
-            float get_Size();
-            bool get_Bold();
-            bool get_Italic();
-            bool get_Underline();
-            bool get_Strikeout();
+    float GetHeight(SharedPtr<Graphics> graphics);
+    float GetHeight(float dpi = DEFAULT_FONT_OPERATIONS_DPI);
 
-            int get_Height();
-            float get_SizeInPoints();
+    String get_Name();
+    String get_OriginalFontName();
 
-            uint8_t get_GdiCharSet();
+    SharedPtr<FontFamily> get_FontFamily();
+    FontStyle get_FontStyle();
+    float get_Size();
+    bool get_Bold();
+    bool get_Italic();
+    bool get_Underline();
+    bool get_Strikeout();
 
-            GraphicsUnit get_Unit();
+    int get_Height();
+    float get_SizeInPoints();
 
-            FontStyle get_Style() { return get_FontStyle(); }
+    uint8_t get_GdiCharSet();
 
-            void Dispose() { };
+    GraphicsUnit get_Unit();
 
-    private:
+    FontStyle get_Style() { return get_FontStyle(); }
 
-            friend class Graphics;
+    void Dispose() { };
 
-            void Initialize(String family_name, float em_size, FontStyle style, GraphicsUnit unit, uint8_t gdi_charset, bool gdi_vertical_font);
-            void Initialize(SharedPtr<FontFamily> family, float em_size, FontStyle style, GraphicsUnit unit, uint8_t gdi_charset, bool gdi_vertical_font);
-            void Apply(SkPaint &paint, float dpi);
-            float ConvertToPixelSize(float dpi);
-            static String StripVerticalName(const String &family_name);
-            SkScalar GetDotNetPositionOffset(float dpi);
+private:
+    friend class Graphics;
 
-            SharedPtr<FontFamily> m_font_family;
+    void Initialize(String family_name, float em_size, FontStyle style, GraphicsUnit unit, uint8_t gdi_charset, bool gdi_vertical_font);
+    void Initialize(SharedPtr<FontFamily> family, float em_size, FontStyle style, GraphicsUnit unit, uint8_t gdi_charset, bool gdi_vertical_font);
+    void Apply(SkPaint &paint, float dpi);
+    static String StripVerticalName(const String &family_name);
+    SkScalar GetDotNetPositionOffset(float dpi);
 
-            float m_font_size;
-            FontStyle m_font_style;
-            GraphicsUnit m_size_unit;
-            uint8_t m_gdi_charset;
-            bool m_gdi_vertical_font;
+    SharedPtr<FontFamily> m_font_family;
 
+    float m_font_size;
+    FontStyle m_font_style;
+    GraphicsUnit m_size_unit;
+    uint8_t m_gdi_charset;
+    bool m_gdi_vertical_font;
+    String m_original_font_name;
+};
 
-
-    };
-}}
+}} // System::Drawing
 
 #endif // _aspose_drawing_font_h_

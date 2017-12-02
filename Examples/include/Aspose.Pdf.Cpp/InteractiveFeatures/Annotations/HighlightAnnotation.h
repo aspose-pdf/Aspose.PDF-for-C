@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_HighlightAnnotation_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_HighlightAnnotation_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_writer.h>
 #include <system/string.h>
@@ -60,46 +60,44 @@ private:
     
         int32_t Compare(System::SharedPtr<Point> a, System::SharedPtr<Point> b) const;
         
-    protected:
-    
-        
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "PointComparer"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     };
     
     
 public:
 
+    /// <summary>
+    /// Gets type of annotation.
+    /// </summary>
     virtual Aspose::Pdf::InteractiveFeatures::Annotations::AnnotationType get_AnnotationType();
     
+    /// <summary>
+    /// Accepts visitor object to process the annotation.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<AnnotationSelector> visitor);
     
+    /// <summary>
+    /// Creates new Highlight annotation on the specified page.
+    /// </summary>
+    /// <param name="page">The document's page where annotation should be created.</param>
+    /// <param name="rect">The annotation rectangle, defining the location of the annotation on the page.</param>
     HighlightAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
     
 protected:
 
     virtual void WriteXfdf(System::SharedPtr<System::Xml::XmlWriter> writer);
     
+    /// <summary>
+    /// Ititializes Highlight annotation with engine annotation object.
+    /// </summary>
+    /// <param name="engineAnnot">Engine object that presents the annotation.</param>
+    /// <param name="document">The Aspose.Pdf.Document object.</param>
     HighlightAnnotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> engineAnnot, System::SharedPtr<Document> document);
     
     virtual bool AppearanceSupported();
     virtual System::SharedPtr<XForm> PrepareAppearance(System::String key, System::SharedPtr<Annotation> annotation);
     virtual bool IsBackground();
     virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> CreateAppearanceProgram(System::SharedPtr<Annotation::AppearanceParameters> parameters, System::SharedPtr<Annotation> annotation);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "HighlightAnnotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

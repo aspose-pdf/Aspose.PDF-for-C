@@ -93,17 +93,53 @@ class ASPOSE_PDF_SHARED_API XForm FINAL : public Aspose::Pdf::ISupportsMemoryCle
     
 public:
 
+    /// <summary>
+    /// Gets or sets form bounding box.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_BBox();
+    /// <summary>
+    /// Gets or sets form bounding box.
+    /// </summary>
     void set_BBox(System::SharedPtr<Aspose::Pdf::Rectangle> value);
+    /// <summary>
+    /// Gets or sets form name. Form name is name which used to reference form in XObejct ductionary in page resources.
+    /// </summary>
     System::String get_Name();
+    /// <summary>
+    /// Gets or sets form name. Form name is name which used to reference form in XObejct ductionary in page resources.
+    /// </summary>
     void set_Name(System::String value);
+    /// <summary>
+    /// Gets operators of the form
+    /// </summary>
     System::SharedPtr<OperatorCollection> get_Contents();
+    /// <summary>
+    /// Gets or sets matrix of the form.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::DOM::Matrix> get_Matrix();
+    /// <summary>
+    /// Gets or sets matrix of the form.
+    /// </summary>
     void set_Matrix(System::SharedPtr<Aspose::Pdf::DOM::Matrix> value);
+    /// <summary>
+    /// Gets Form XObject resources.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Resources> get_Resources();
+    /// <summary>
+    /// Gets or sets rectangel of the form.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_Rectangle();
     
+    /// <summary>
+    /// Creates XForm which duplicates contents of the page. 
+    /// </summary>
+    /// <param name="source">Source page</param>
+    /// <param name="document">Document where new XForm will be added.</param>
+    /// <returns>Newly created XForm.</returns>
     static System::SharedPtr<XForm> CreateNewForm(System::SharedPtr<Page> source, System::SharedPtr<Document> document);
+    /// <summary>
+    /// Clears cached data
+    /// </summary>
     void FreeMemory();
     
 protected:
@@ -111,27 +147,39 @@ protected:
     System::SharedPtr<Document> _document;
     System::SharedPtr<Engine::Data::IPdfObject> EngineObj;
     
+    /// <summary>
+    /// Constructor of XForm.Constructs XForm on base of Pdf.Kit.Engine PDf object.
+    /// </summary>
+    /// <param name="xform"></param>
     XForm(System::SharedPtr<Engine::Data::IPdfObject> xform);
     
+    /// <summary>
+    /// Creates new XForm in the document.
+    /// </summary>
+    /// <param name="trailerable">Describes ITrailerable object</param>
+    /// <returns>Newly created XForm</returns>
     static System::SharedPtr<XForm> CreateNewForm(System::SharedPtr<Engine::Data::ITrailerable> trailerable);
     bool ContainsOwnResources();
+    /// <summary>
+    /// Change resources entry for x-form.
+    /// </summary>
+    /// <param name="resources"></param>
     void setResources(System::SharedPtr<Engine::Data::IPdfPrimitive> resources);
     static System::SharedPtr<XForm> CreateNewForm_OLD(System::SharedPtr<Page> source, System::SharedPtr<Engine::Data::ITrailerable> trailerable, System::SharedPtr<Copier> copier);
     static System::SharedPtr<XForm> CreateNewForm(System::SharedPtr<Page> source, System::SharedPtr<Engine::Data::ITrailerable> trailerable, System::SharedPtr<Copier> copier);
     static System::SharedPtr<XForm> CreateNewForm(System::SharedPtr<Page> source, System::SharedPtr<Engine::Data::ITrailerable> trailerable);
     System::ArrayPtr<double> GetRectangle();
+    /// <summary>
+    /// Returns rectangle occupied by text of XForm. 
+    /// </summary>
+    /// <returns>X-Form object rectangle</returns>
     System::SharedPtr<Aspose::Pdf::Rectangle> GetRectangleOfText();
+    /// <summary>
+    /// Frees up memory
+    /// </summary>
     void Dispose();
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<System::Object>>> FindReferecnes(System::String name);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "XForm"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -139,7 +187,20 @@ private:
     System::SharedPtr<OperatorCollection> _contents;
     System::SharedPtr<Aspose::Pdf::Rectangle> _rect;
     
+    /// <summary>
+    /// Encodes stream data using specified encoder.
+    /// (TODO: do we need to have IEncoder.Encode(Stream) method? So we dont need to allocate memory for all stream data...
+    /// </summary>
+    /// <param name="stream"></param>
+    /// <param name="encoder"></param>
+    /// <returns></returns>
     static System::SharedPtr<System::IO::Stream> EncodeStream(System::SharedPtr<System::IO::Stream> stream, System::SharedPtr<Engine::Filters::IEncoder> encoder);
+    /// <summary>
+    /// Compares rectnangle with bounding rectangle and update bounding rectangle
+    /// </summary>
+    /// <param name="rect"></param>
+    /// <param name="r"></param>
+    /// <returns></returns>
     System::ArrayPtr<double> UpdateBoundRectangle(System::ArrayPtr<double> boundRect, System::SharedPtr<Aspose::Pdf::Rectangle> r);
     System::SharedPtr<Aspose::Pdf::Rectangle> GetRectangleOfObject(System::String name, System::SharedPtr<Aspose::Pdf::DOM::Matrix> matrix);
     

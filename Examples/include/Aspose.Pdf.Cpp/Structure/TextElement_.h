@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Structure_TextElement__h_
 #define _Aspose_Pdf_Structure_TextElement__h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include "Structure/Element.h"
 
@@ -30,20 +30,14 @@ class ASPOSE_PDF_SHARED_API TextElement : public Aspose::Pdf::Structure::Element
     
 public:
 
+    /// <summary>
+    /// Gets the value of text structure element.
+    /// </summary>
     System::String get_Text();
     
 protected:
 
     TextElement(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> engineDict);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextElement"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

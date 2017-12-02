@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Generator_ColumnAdjustment_h_
 #define _Aspose_Pdf_Generator_ColumnAdjustment_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/enum.h>
 
@@ -15,7 +15,13 @@ namespace Pdf {
 /// </summary>
 enum class ColumnAdjustment
 {
+    /// <summary>
+    /// Customized.
+    /// </summary>
     Customized = 0,
+    /// <summary>
+    /// Auto fit to content.
+    /// </summary>
     AutoFitToContent = 1
 };
 

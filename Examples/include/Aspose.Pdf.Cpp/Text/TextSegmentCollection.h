@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Text_TextSegmentCollection_h_
 #define _Aspose_Pdf_Text_TextSegmentCollection_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/multicast_delegate.h>
@@ -14,7 +14,6 @@
 #include "aspose_pdf_api_defs.h"
 
 namespace Aspose { namespace Pdf { namespace Text { class TextFragment; } } }
-namespace Aspose { namespace Pdf { namespace Text { class TextParagraphAbsorber; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextParagraph; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragmentAbsorber; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Text { class TextParagraphAbsorberTests; } } } }
@@ -40,7 +39,6 @@ class ASPOSE_PDF_SHARED_API TextSegmentCollection FINAL : public System::Collect
     
     FRIEND_FUNCTION_System_MakeObject;
     friend class Aspose::Pdf::Text::TextFragment;
-    friend class Aspose::Pdf::Text::TextParagraphAbsorber;
     friend class Aspose::Pdf::Text::TextParagraph;
     friend class Aspose::Pdf::Text::TextFragmentAbsorber;
     friend class Aspose::Pdf::Tests::Text::TextParagraphAbsorberTests;
@@ -72,14 +70,6 @@ protected:
     
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "TextSegmentEventArgs"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     };
     
     
@@ -109,14 +99,6 @@ private:
     
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "TextSegmentsEnumerator"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     private:
     
         System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<TextSegment>>> cursor;
@@ -128,14 +110,42 @@ private:
     
 public:
 
+    ///<summary>
+    /// Gets the number of <see cref="TextSegment"/> object elements actually contained in the collection. 
+    /// </summary>
     int32_t get_Count() const;
+    ///<summary>
+    /// Gets an object that can be used to synchronize access to the collection.
+    /// </summary>
     System::SharedPtr<System::Object> get_SyncRoot();
+    ///<summary>
+    /// Gets a value indicating whether access to the collection is synchronized (thread safe). 
+    ///</summary>
     bool get_IsSynchronized();
     
+    /// <summary>
+    /// Adds the text segment element at the specified index.
+    /// </summary>
+    /// <param name="segment">Text segment object</param>
     void Add(System::SharedPtr<TextSegment> const &segment);
+    ///<summary>
+    /// Returns an enumerator for the entire collection.
+    ///</summary>
+    /// <returns>Enumerator object.</returns>
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<TextSegment>>> GetEnumerator();
+    ///<summary>
+    /// Copies the entire collection to a compatible one-dimensional Array, starting at the specified index of the target array
+    ///</summary>
+    /// <param name="array">Array of objects which will be copied.</param>
+    /// <param name="index">Starting index from which copying will be started.</param>
+    //<<--REFACTORING: Old code: public void CopyTo(Array array, int index)
     void CopyTo(System::ArrayPtr<System::SharedPtr<TextSegment>> array, int32_t index);
     
+    /// <summary>
+    /// Gets the text segment element at the specified index.
+    /// </summary>
+    /// <param name="index">Index within the collection.</param>
+    /// <returns>TextSegment object.</returns>
     System::SharedPtr<TextSegment> idx_get(int32_t index);
     
 protected:
@@ -143,29 +153,38 @@ protected:
     System::Event<void(System::SharedPtr<System::Object>, System::SharedPtr<TextSegmentCollection::TextSegmentEventArgs>)> OnItemAdded;
     System::Event<void(System::SharedPtr<System::Object>, System::SharedPtr<TextSegmentCollection::TextSegmentEventArgs>)> OnItemRemoved;
     
+    /// <summary>
+    /// Initializes a new instance of <see cref="TextSegmentCollection"/> collection class
+    /// </summary>
     TextSegmentCollection();
     
+    /// <summary>
+    /// Deletes the text segment element at the specified index.
+    /// </summary>
     void Delete(int32_t index);
+    /// <summary>
+    /// internal unrestricted version of indexer
+    /// </summary>
     System::SharedPtr<TextSegment> GetUnrestricted(int32_t index);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextSegmentCollection"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<TextSegment>>> segments;
     System::SharedPtr<System::Object> syncRoot;
     
+    /// <summary>
+    /// </summary>
     bool get_IsReadOnly();
     
+    /// <summary>
+    /// </summary>
     bool Remove(System::SharedPtr<TextSegment> const &item);
+    /// <summary>
+    /// </summary>
     void Clear();
+    /// <summary>
+    /// </summary>
     bool Contains(System::SharedPtr<TextSegment> const &item) const;
     
 };

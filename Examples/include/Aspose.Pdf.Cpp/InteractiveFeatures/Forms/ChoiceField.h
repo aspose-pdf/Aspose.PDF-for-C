@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_ChoiceField_h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_ChoiceField_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/array.h>
 
@@ -41,23 +41,79 @@ class ASPOSE_PDF_SHARED_API ABSTRACT ChoiceField : public Aspose::Pdf::Interacti
     
 public:
 
+    /// <summary>
+    /// Gets or sets commit on selection change flag.
+    /// </summary>
     bool get_CommitImmediately();
+    /// <summary>
+    /// Gets or sets commit on selection change flag.
+    /// </summary>
     void set_CommitImmediately(bool value);
+    /// <summary>
+    /// Gets or sets multiselection flag.
+    /// </summary>
     bool get_MultiSelect();
+    /// <summary>
+    /// Gets or sets multiselection flag.
+    /// </summary>
     void set_MultiSelect(bool value);
+    /// <summary>
+    /// Gets or sets index of selected option. This property allows to change selection. 
+    /// </summary>
     virtual int32_t get_Selected();
+    /// <summary>
+    /// Gets or sets index of selected option. This property allows to change selection. 
+    /// </summary>
     virtual void set_Selected(int32_t value);
+    /// <summary>
+    /// Gets or sets array of selected items. For multiselect list array contains more then one item. For single selection list it contains single item.
+    /// </summary>
     virtual System::ArrayPtr<int32_t> get_SelectedItems();
+    /// <summary>
+    /// Gets or sets array of selected items. For multiselect list array contains more then one item. For single selection list it contains single item.
+    /// </summary>
     virtual void set_SelectedItems(System::ArrayPtr<int32_t> value);
+    /// <summary>
+    /// Gets collection of choice options.
+    /// </summary>
     virtual System::SharedPtr<OptionCollection> get_Options();
+    /// <summary>
+    /// Gets or sets value of the field.
+    /// </summary>
     virtual System::String get_Value();
+    /// <summary>
+    /// Gets or sets value of the field.
+    /// </summary>
     virtual void set_Value(System::String value);
     
+    /// <summary>
+    /// Constructor for ChoiceField.
+    /// </summary>
+    /// <param name="page">Page where field is situated.</param>
+    /// <param name="rect">Rectangle of the field.</param>
     ChoiceField(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
+    /// <summary>
+    /// Constructor for ChoiceField.
+    /// </summary>
+    /// <param name="doc">Document where field will be created. </param>
+    /// <param name="rect">Rectangle of the field. </param>
     ChoiceField(System::SharedPtr<Document> doc, System::SharedPtr<Rectangle> rect);
     
+    /// <summary>
+    /// Adds new option with specified name. 
+    /// </summary>
+    /// <param name="optionName">Name of the new option.</param>
     virtual void AddOption(System::String optionName);
+    /// <summary>
+    /// Adds new option with specified export value and name.
+    /// </summary>
+    /// <param name="export">Export value.</param>
+    /// <param name="name">Name of the new option.</param>
     virtual void AddOption(System::String export_, System::String name);
+    /// <summary>
+    /// Deletes option by its name.
+    /// </summary>
+    /// <param name="optionName">Name of the option which must be deleted.</param>
     virtual void DeleteOption(System::String optionName);
     
 protected:
@@ -66,14 +122,6 @@ protected:
     ChoiceField();
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ChoiceField"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

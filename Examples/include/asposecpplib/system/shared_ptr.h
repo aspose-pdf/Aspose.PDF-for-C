@@ -3,7 +3,6 @@
 
 #include <system/type_info.h>
 #include <system/refcount.h>
-#include <singletons/refcount_singletons.h>
 
 #include <algorithm>
 #include <utility>

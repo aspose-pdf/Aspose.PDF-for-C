@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Devices_FormPresentationMode_h_
 #define _Aspose_Pdf_Devices_FormPresentationMode_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -13,7 +13,17 @@ namespace Devices {
 /// </summary>
 enum class FormPresentationMode
 {
+    /// <summary>
+    /// Specifies Production form presentation mode (used by default).
+    /// </summary>
     Production,
+    /// <summary>
+    /// Specifies Editor form presentation mode.
+    /// </summary>
+    /// <remarks>
+    /// The Editor mode is used by some products to display forms.
+    /// In Editor mode some form elements are displayed as they are shown in form designer.
+    /// </remarks>
     Editor
 };
 

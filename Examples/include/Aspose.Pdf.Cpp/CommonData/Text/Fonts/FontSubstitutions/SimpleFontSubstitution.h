@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_CommonData_Text_Fonts_FontSubstitutions_SimpleFontSubstitution_h_
 #define _Aspose_Pdf_CommonData_Text_Fonts_FontSubstitutions_SimpleFontSubstitution_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/array.h>
@@ -36,19 +36,13 @@ public:
     wchar_t OriginalCode;
     wchar_t SubstitutionCode;
     
+    /// <summary>
+    /// Creates character code substitution struct.
+    /// </summary>
+    /// <param name="originalCode">Original unicode value.</param>
+    /// <param name="substitutionCode">Substitution unicode value.</param>
     UnicodeSubstitution(wchar_t originalCode, wchar_t substitutionCode);
     UnicodeSubstitution();
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "UnicodeSubstitution"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -70,27 +64,39 @@ class ASPOSE_PDF_SHARED_API SimpleFontSubstitution FINAL : public Aspose::Pdf::T
     
 public:
 
+    /// <summary>
+    /// Gets original font name that should be substituted with <see cref="SubstitutionFontName"/>
+    /// </summary>
     System::String get_OriginalFontName();
+    /// <summary>
+    /// Gets font name that should substitute the <see cref="OriginalFontName"/>
+    /// </summary>
     System::String get_SubstitutionFontName();
     
+    /// <summary> 
+    /// Initializes a new instance of <see cref="SimpleFontSubstitution"/> class.
+    /// </summary>
+    /// <param name="originalFontName">Original font name.</param>
+    /// <param name="substitutionFontName">Substitution font name.</param>
     SimpleFontSubstitution(System::String originalFontName, System::String substitutionFontName);
     
 protected:
 
+    /// <summary>
+    /// Gets unicode substitution objects that define characted code substitutions
+    /// </summary>
     System::ArrayPtr<UnicodeSubstitution> get_UnicodeSubstitutions();
     
+    /// <summary>
+    /// Initializes a new instance of <see cref="SimpleFontSubstitution"/> class.
+    /// </summary>
+    /// <param name="originalFontName">Original font name.</param>
+    /// <param name="substitutionFontName">Substitution font name.</param>
+    /// <param name="unicodeSubstitutions">Unicode substitution object list.</param>
     SimpleFontSubstitution(System::String originalFontName, System::String substitutionFontName, System::ArrayPtr<UnicodeSubstitution> unicodeSubstitutions);
     
     virtual wchar_t GetSubstitutedUnicode(wchar_t unicode);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SimpleFontSubstitution"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_LineAnnotation_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_LineAnnotation_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_writer.h>
 #include <system/string.h>
@@ -50,36 +50,128 @@ class ASPOSE_PDF_SHARED_API LineAnnotation FINAL : public Aspose::Pdf::Interacti
     
 public:
 
+    /// <summary>
+    /// Gets or sets starting point of line.
+    /// </summary>
     System::SharedPtr<Point> get_Starting();
+    /// <summary>
+    /// Gets or sets starting point of line.
+    /// </summary>
     void set_Starting(System::SharedPtr<Point> value);
+    /// <summary>
+    /// Gets or sets line ending style for line starting point.
+    /// </summary>
     LineEnding get_StartingStyle();
+    /// <summary>
+    /// Gets or sets line ending style for line starting point.
+    /// </summary>
     void set_StartingStyle(LineEnding value);
+    /// <summary>
+    /// Gets or sets line ending point.
+    /// </summary>
     System::SharedPtr<Point> get_Ending();
+    /// <summary>
+    /// Gets or sets line ending point.
+    /// </summary>
     void set_Ending(System::SharedPtr<Point> value);
+    /// <summary>
+    /// Gets or sets ending style for end point of line.
+    /// </summary>
     LineEnding get_EndingStyle();
+    /// <summary>
+    /// Gets or sets ending style for end point of line.
+    /// </summary>
     void set_EndingStyle(LineEnding value);
+    /// <summary>
+    /// Gets or sets interior color of the annotation.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Color> get_InteriorColor();
+    /// <summary>
+    /// Gets or sets interior color of the annotation.
+    /// </summary>
     void set_InteriorColor(System::SharedPtr<Aspose::Pdf::Color> value);
+    /// <summary>
+    /// Gets or sets leader line length.
+    /// </summary>
     double get_LeaderLine();
+    /// <summary>
+    /// Gets or sets leader line length.
+    /// </summary>
     void set_LeaderLine(double value);
+    /// <summary>
+    /// Gets or sets length of leader line extension.
+    /// </summary>
     double get_LeaderLineExtension();
+    /// <summary>
+    /// Gets or sets length of leader line extension.
+    /// </summary>
     void set_LeaderLineExtension(double value);
+    /// <summary>
+    /// Gets or sets boolean flag which determinies is contents must be shown as caption.
+    /// </summary>
     bool get_ShowCaption();
+    /// <summary>
+    /// Gets or sets boolean flag which determinies is contents must be shown as caption.
+    /// </summary>
     void set_ShowCaption(bool value);
+    /// <summary>
+    /// Gets or sets leader line offset.
+    /// </summary>
     double get_LeaderLineOffset();
+    /// <summary>
+    /// Gets or sets leader line offset.
+    /// </summary>
     void set_LeaderLineOffset(double value);
+    /// <summary>
+    /// Gets or sets caption text offset from its normal position.
+    /// </summary>
     System::SharedPtr<Point> get_CaptionOffset();
+    /// <summary>
+    /// Gets or sets caption text offset from its normal position.
+    /// </summary>
     void set_CaptionOffset(System::SharedPtr<Point> value);
+    /// <summary>
+    /// Gets or sets annotation caption position.
+    /// </summary>
     Aspose::Pdf::InteractiveFeatures::Annotations::CaptionPosition get_CaptionPosition();
+    /// <summary>
+    /// Gets or sets annotation caption position.
+    /// </summary>
     void set_CaptionPosition(Aspose::Pdf::InteractiveFeatures::Annotations::CaptionPosition value);
+    /// <summary>
+    /// Measure units specifed for this annotation.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Measure> get_Measure();
+    /// <summary>
+    /// Measure units specifed for this annotation.
+    /// </summary>
     void set_Measure(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Measure> value);
+    /// <summary>
+    /// Gets or sets the intent of the line annotation.
+    /// </summary>
     LineIntent get_Intent();
+    /// <summary>
+    /// Gets or sets the intent of the line annotation.
+    /// </summary>
     void set_Intent(LineIntent value);
+    /// <summary>
+    /// Gets type of annotation.
+    /// </summary>
     virtual Aspose::Pdf::InteractiveFeatures::Annotations::AnnotationType get_AnnotationType();
     
+    /// <summary>
+    /// Accepts visitor to annotation processing.
+    /// </summary>
+    /// <param name="visitor">Visitor object</param>
     virtual void Accept(System::SharedPtr<AnnotationSelector> visitor);
     
+    /// <summary>
+    /// Creates new Line annotation on the specified page.
+    /// </summary>
+    /// <param name="page">The document's page where annotation should be created.</param>
+    /// <param name="rect">The annotation rectangle, defining the location of the annotation on the page.</param>
+    /// <param name="start">A point, specifying the starting coordinate of the line.</param>
+    /// <param name="end">A point, specifying the ending coordinate of the line.</param>
     LineAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect, System::SharedPtr<Point> start, System::SharedPtr<Point> end);
     
 protected:
@@ -87,20 +179,17 @@ protected:
     virtual void WriteXfdf(System::SharedPtr<System::Xml::XmlWriter> writer);
     virtual void ReadXfdf(System::SharedPtr<System::Xml::XmlReader> reader);
     
+    /// <summary>
+    /// Ititializes Line annotation with engine annotation object.
+    /// </summary>
+    /// <param name="engineAnnot">Engine object that represents the annotation.</param>
+    /// <param name="document">The Aspose.Pdf.Document object.</param>
     LineAnnotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> engineAnnot, System::SharedPtr<Document> document);
     
     virtual bool AppearanceSupported();
     virtual System::SharedPtr<XForm> PrepareAppearance(System::String key, System::SharedPtr<Annotation> annotation);
     virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> CreateAppearanceProgram(System::SharedPtr<Annotation::AppearanceParameters> parameters, System::SharedPtr<Annotation> annotation);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "LineAnnotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

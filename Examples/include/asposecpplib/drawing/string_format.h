@@ -1,9 +1,13 @@
 #ifndef _string_format_h_
 #define _string_format_h_
 
-#include "string_format_flags.h"
+#include "drawing/string_format_flags.h"
 #include "drawing/string_alignment.h"
 #include "drawing/string_trimming.h"
+#include "drawing/string_digit_substitute.h"
+#include "drawing/text/hotkey_prefix.h"
+#include "drawing/character_range.h"
+
 #include "system/array.h"
 #include "system/exceptions.h"
 
@@ -18,7 +22,7 @@ namespace System { namespace Drawing {
 
         StringFormat();
 
-        StringFormat(StringFormatFlags options);
+        StringFormat(StringFormatFlags options, int32_t language = 0);
 
         StringFormat(SharedPtr<StringFormat> format);
 
@@ -40,6 +44,17 @@ namespace System { namespace Drawing {
 
         ArrayPtr<float> GetTabStops(float &first_tab_offset) const;
         void SetTabStops(float first_tab_offset, ArrayPtr<float> tab_stops);
+
+        int32_t get_DigitSubstitutionLanguage() const;
+        StringDigitSubstitute get_DigitSubstitutionMethod() const;
+
+        Text::HotkeyPrefix get_HotkeyPrefix() const;
+        void set_HotkeyPrefix(Text::HotkeyPrefix value);
+        
+        void SetDigitSubstitution(int32_t language, StringDigitSubstitute substitute);
+        void SetMeasurableCharacterRanges(ArrayPtr<CharacterRange> ranges);
+
+        SharedPtr<StringFormat> Clone();
 
     protected:
         friend class System::Drawing::Graphics;

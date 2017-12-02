@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_Dash_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_Dash_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/object.h>
@@ -37,11 +37,28 @@ class ASPOSE_PDF_SHARED_API Dash FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets length of dash.
+    /// </summary>
     int32_t get_On();
+    /// <summary>
+    /// Gets or sets length of dash.
+    /// </summary>
     void set_On(int32_t value);
+    /// <summary>
+    /// Gets or sets length of gap between dashes.
+    /// </summary>
     int32_t get_Off();
+    /// <summary>
+    /// Gets or sets length of gap between dashes.
+    /// </summary>
     void set_Off(int32_t value);
     
+    /// <summary>
+    /// Constructor for Dash.
+    /// </summary>
+    /// <param name="on">Length of the dash.</param>
+    /// <param name="off">Length of the gap.</param>
     Dash(int32_t on, int32_t off);
     
     bool Equals(System::SharedPtr<Dash> other);
@@ -49,15 +66,12 @@ public:
 protected:
 
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfArray> ToArray(System::SharedPtr<Aspose::Pdf::Engine::Data::ITrailerable> trailer);
+    /// <summary>
+    /// Creates PDF array which describes this dash object.
+    /// </summary>
+    /// <param name="page">Page where this object will be placed.</param>
+    /// <returns>PDF array representing dash style.</returns>
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfArray> createDash(System::SharedPtr<Aspose::Pdf::Engine::Data::ITrailerable> page);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Dash"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

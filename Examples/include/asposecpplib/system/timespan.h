@@ -58,6 +58,11 @@ public:
     static const TimeSpan ASPOSECPP_SHARED_API MaxValue;
     static const TimeSpan ASPOSECPP_SHARED_API MinValue;
 
+    static constexpr int64_t TicksPerDay = 864000000000ULL;
+    static constexpr int64_t TicksPerHour = 36000000000ULL;
+    static constexpr int64_t TicksPerMillisecond = 10000ULL;
+    static constexpr int64_t TicksPerMinute = 600000000ULL;
+    static constexpr int64_t TicksPerSecond = 10000000ULL;
 
     // dotnetTicks - .NET ticks as 100ns since 0001.01.01-00:00:00
     TimeSpan(int64_t dotnetTicks);

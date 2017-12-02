@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_DocMDPAccessPermissions_h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_DocMDPAccessPermissions_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -19,8 +19,17 @@ namespace Forms {
 /// </summary>
 enum class DocMDPAccessPermissions
 {
+    /// <summary>
+    /// 1 - No changes to the document are permitted; any change to the document invalidates the signature.
+    /// </summary>
     NoChanges = 1,
+    /// <summary>
+    /// 2 - Permitted changes are filling in forms, instantiating page templates, and signing; other changes invalidate the signature.
+    /// </summary>
     FillingInForms,
+    /// <summary>
+    /// 3 - Permitted changes are the same as for 2, as well as annotation creation, deletion, and modification; other changes invalidate the signature.
+    /// </summary>
     AnnotationModification
 };
 

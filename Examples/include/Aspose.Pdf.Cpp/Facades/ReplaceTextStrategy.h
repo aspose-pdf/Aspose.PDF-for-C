@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Facades_ReplaceTextStrategy_h_
 #define _Aspose_Pdf_Facades_ReplaceTextStrategy_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/object.h>
@@ -34,25 +34,60 @@ public:
 
     enum class Scope
     {
+        /// <summary>
+        /// Replace only first occurence of the text on each of affected pages
+        /// </summary>
         REPLACE_FIRST,
+        /// <summary>
+        /// Replace all text occurences on all affected pages
+        /// </summary>
         REPLACE_ALL
     };
     
     enum class NoCharacterAction
     {
+        /// <summary>
+        /// Throw exception
+        /// </summary>
         ThrowException,
+        /// <summary>
+        /// Repalce font to standard font which contains required character
+        /// </summary>
         UseStandardFont,
+        /// <summary>
+        /// Replace text anyway without font substitution
+        /// </summary>
         ReplaceAnyway
     };
     
     
 public:
 
+    /// <summary>
+    /// If false, string to find is a simple text. If true, string to find is regular expression.
+    /// </summary>
     bool get_IsRegularExpressionUsed();
+    /// <summary>
+    /// If false, string to find is a simple text. If true, string to find is regular expression.
+    /// </summary>
     void set_IsRegularExpressionUsed(bool value);
+    /// <summary>
+    /// Action which is performed when no approppriate font found for changed text
+    /// (Throw exception / Substitute other font / Replace anyway).
+    /// </summary>
     ReplaceTextStrategy::NoCharacterAction get_NoCharacterBehavior();
+    /// <summary>
+    /// Action which is performed when no approppriate font found for changed text
+    /// (Throw exception / Substitute other font / Replace anyway).
+    /// </summary>
     void set_NoCharacterBehavior(ReplaceTextStrategy::NoCharacterAction value);
+    /// <summary>
+    /// Scope of the replacement operation (replace first occurence or replace all occurences).
+    /// </summary>
     ReplaceTextStrategy::Scope get_ReplaceScope();
+    /// <summary>
+    /// Scope of the replacement operation (replace first occurence or replace all occurences).
+    /// </summary>
     void set_ReplaceScope(ReplaceTextStrategy::Scope value);
     
     ReplaceTextStrategy();
@@ -62,14 +97,6 @@ protected:
     System::EventHandler<System::SharedPtr<System::EventArgs>> OnPropertiesChanged;
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ReplaceTextStrategy"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

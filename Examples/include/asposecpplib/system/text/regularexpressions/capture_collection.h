@@ -5,50 +5,42 @@
 #include <system/exceptions.h>
 #include <vector>
 #include "system/cycles_detection.h"
+#include <system/collections/list.h>
+
 
 namespace System {
 namespace Text {
 namespace RegularExpressions {
 
-    class Match;
 
-    class CaptureCollection: public Object
+    class CaptureCollection: public System::Collections::Generic::List<CapturePtr>
     {
+        friend class Match;
+
     public:
-            int get_Count() const { return m_data.size(); }
-            bool Add(const CapturePtr item) { return false; }
-            void Clear() {}
-            bool Contains(const CapturePtr item) const { return (m_data.size()>0) & (m_data[0] == item); }
-            bool Remove(const CapturePtr item) { return false; }
-            bool get_IsReadOnly() const { return true; }
-            bool get_IsSynchronized() const { return false; }
+        int get_Count() const { return static_cast<int>(m_data.size()); }
+        typedef System::Collections::Generic::List<CapturePtr> Base;
+        using Base::idx_get;
+        using Base::operator[];
 
-            const CapturePtr get_Item(int index) const { return (*this)[index]; }
+        bool Add(const CapturePtr item) { return false; }
+        void Clear() {}
+        bool Remove(const CapturePtr item) { return false; }
+        bool get_IsReadOnly() const { return true; }
+        bool get_IsSynchronized() const { return false; }
 
-            const CapturePtr operator[](int index) const
-            {
-                if(index < 0 || index >= (int) m_data.size())
-                    throw System::ArgumentOutOfRangeException();
-
-                return m_data[index];
-            }
-
-            const CapturePtr idx_get(int index) const
-            {
-                return (*this)[index];
-            }
+        void AddCapture(const CapturePtr item) { Base::Add(item); }
 
     protected:
-            std::vector<CapturePtr> m_data;
 
-            friend class Match;
+        friend class Match;
 
-            virtual Object::shared_members_type GetSharedMembers() override
-            {
-                Object::shared_members_type result = Object::GetSharedMembers();
-                Object::PopulateSharedMembers(result, "System::Text::RegularExpressions::CaptureCollection::m_data[]", m_data);
-                return result;
-            }
+        virtual Object::shared_members_type GetSharedMembers() override
+        {
+            Object::shared_members_type result = Object::GetSharedMembers();
+            Object::PopulateSharedMembers(result, "System::Text::RegularExpressions::CaptureCollection::m_data[]", m_data);
+            return result;
+        }
 
 #ifdef __DBG_FOR_EACH_MEMEBR
     public:

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Generator_GraphInfo_h_
 #define _Aspose_Pdf_Generator_GraphInfo_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_text_writer.h>
 #include <xml/xml_reader.h>
@@ -37,19 +37,59 @@ class ASPOSE_PDF_SHARED_API GraphInfo FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets a float value that indicates the line width of the graph.
+    /// </summary>
     float get_LineWidth();
+    /// <summary>
+    /// Gets or sets a float value that indicates the line width of the graph.
+    /// </summary>
     void set_LineWidth(float value);
+    /// <summary>
+    /// Gets or sets a <see cref="Color"/> object that indicates the color of the graph.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Color> get_Color();
+    /// <summary>
+    /// Gets or sets a <see cref="Color"/> object that indicates the color of the graph.
+    /// </summary>
     void set_Color(System::SharedPtr<Aspose::Pdf::Color> value);
+    /// <summary>
+    /// Gets or sets a dash array.
+    /// </summary>
     System::ArrayPtr<int32_t> get_DashArray();
+    /// <summary>
+    /// Gets or sets a dash array.
+    /// </summary>
     void set_DashArray(System::ArrayPtr<int32_t> value);
+    /// <summary>
+    /// Gets or sets a dash phase.
+    /// </summary>
     int32_t get_DashPhase();
+    /// <summary>
+    /// Gets or sets a dash phase.
+    /// </summary>
     void set_DashPhase(int32_t value);
+    /// <summary>
+    /// Gets or sets a <see cref="Color"/> object that indicates the fill color of the graph.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Color> get_FillColor();
+    /// <summary>
+    /// Gets or sets a <see cref="Color"/> object that indicates the fill color of the graph.
+    /// </summary>
     void set_FillColor(System::SharedPtr<Aspose::Pdf::Color> value);
+    /// <summary>
+    /// Gets or sets is border doubled.
+    /// </summary>
     bool get_IsDoubled();
+    /// <summary>
+    /// Gets or sets is border doubled.
+    /// </summary>
     void set_IsDoubled(bool value);
     
+    /// <summary>
+    /// Clone the graphics info.
+    /// </summary>
+    /// <returns>The cloned object</returns>
     System::SharedPtr<GraphInfo> Clone();
     
     GraphInfo();
@@ -57,19 +97,14 @@ public:
 protected:
 
     bool get_IsDefault();
+    /// <summary>
+    /// Gets border Ratio for doubled and not doubled borders.
+    /// </summary>
     double get_Ratio();
     
     void Serialize(System::SharedPtr<System::Xml::XmlTextWriter> writer);
     void Deserialize(System::SharedPtr<System::Xml::XmlReader> reader);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "GraphInfo"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

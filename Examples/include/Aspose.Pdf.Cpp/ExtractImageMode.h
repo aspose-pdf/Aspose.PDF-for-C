@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_ExtractImageMode_h_
 #define _Aspose_Pdf_ExtractImageMode_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -11,7 +11,13 @@ namespace Pdf {
 /// </summary>
 enum class ExtractImageMode
 {
+    /// <summary>
+    /// Defines image extraction mode in which all images defined in resources for particular page are extracted.
+    /// </summary>
     DefinedInResources = 0,
+    /// <summary> 
+    /// Defines image extraction mode in which only those images are extracted that are actually shown on a page.
+    /// </summary>
     ActuallyUsed = 1
 };
 

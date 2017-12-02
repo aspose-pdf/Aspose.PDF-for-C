@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_CommonData_Text_Fonts_FontSubstitutions_CustomFontSubstitutionBase_h_
 #define _Aspose_Pdf_CommonData_Text_Fonts_FontSubstitutions_CustomFontSubstitutionBase_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -44,22 +44,31 @@ public:
         
     public:
     
+        /// <summary>
+        /// Gets original font name.
+        /// </summary>
         System::String get_OriginalFontName();
+        /// <summary>
+        /// Gets a value that indicates whether the font is embedded.
+        /// </summary>
         bool get_IsEmbedded();
+        /// <summary>
+        /// Gets a value that indicates that the substitution is unavoidable. 
+        /// </summary>
+        /// <remarks>
+        /// Returns true in case substitution was requested because of absence of the original font or in case original font cannot be used in context of some task.
+        /// In case user ignores the flag and doesn't substitute the font - default font substitution procedure is performed.
+        /// But it provides opportunity for the user to alternate standard font substitution procedure and set better font to the system.
+        /// Returns false in case original font is present, valid, but it is allowed for the user to substitute it.  
+        /// </remarks>
         bool get_IsSubstitutionUnavoidable();
         
     protected:
     
+        /// <summary>
+        /// Initializes new OriginalFontSpecification object.
+        /// </summary>
         OriginalFontSpecification(System::String originalFontName, bool isEmbedded, bool isUnavoidable);
-        
-        
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "OriginalFontSpecification"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
         
     private:
     
@@ -72,18 +81,19 @@ public:
     
 public:
 
-    virtual bool TrySubstitute(System::SharedPtr<CustomFontSubstitutionBase::OriginalFontSpecification> originalFontSpecification, System::SharedPtr<Font> &substitutionFont);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "CustomFontSubstitutionBase"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
+    /// <summary>
+    /// Substitutes original font with another font.
+    /// </summary>
+    /// <remarks>
+    /// The class CustomFontSubstitutionBase should be inherited to implement custom font substitution logic.
+    /// TrySubstitute method should be overridden properly:
+    /// Must return true in case substitution is required. substitutionFont must be set to valid Font object.
+    /// Must return false in case no substitution is required. substitutionFont may be set to null. 
+    /// </remarks>
+    /// <param name="originalFontSpecification">Original font specification.</param>
+    /// <param name="substitutionFont">Substitution font.</param>
+    /// <returns>True in case substitution was successfull.</returns>
+    virtual bool TrySubstitute(System::SharedPtr<CustomFontSubstitutionBase::OriginalFontSpecification> originalFontSpecification, System::SharedPtr<Font>& substitutionFont);
     
 };
 

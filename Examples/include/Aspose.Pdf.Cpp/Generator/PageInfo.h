@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Generator_PageInfo_h_
 #define _Aspose_Pdf_Generator_PageInfo_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_text_writer.h>
 #include <xml/xml_reader.h>
@@ -34,38 +34,70 @@ class ASPOSE_PDF_SHARED_API PageInfo FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets default font.
+    /// </summary>
     System::SharedPtr<Text::TextState> get_DefaultTextState();
+    /// <summary>
+    /// Gets or sets default font.
+    /// </summary>
     void set_DefaultTextState(System::SharedPtr<Text::TextState> value);
+    /// <summary>
+    /// Gets or sets page height.
+    /// </summary>
     double get_Height();
+    /// <summary>
+    /// Gets or sets page height.
+    /// </summary>
     void set_Height(double value);
+    /// <summary>
+    /// Gets or sets is page landscaped.
+    /// </summary>
     bool get_IsLandscape();
+    /// <summary>
+    /// Gets or sets is page landscaped.
+    /// </summary>
     void set_IsLandscape(bool value);
+    /// <summary>
+    /// Gets or sets page margin.
+    /// </summary>
     System::SharedPtr<MarginInfo> get_Margin();
+    /// <summary>
+    /// Gets or sets page margin.
+    /// </summary>
     void set_Margin(System::SharedPtr<MarginInfo> value);
+    /// <summary>
+    /// Gets or sets page width.
+    /// </summary>
     double get_Width();
+    /// <summary>
+    /// Gets or sets page width.
+    /// </summary>
     void set_Width(double value);
     
     PageInfo();
     
+    /// <summary>
+    /// Clone page info.
+    /// </summary>
+    /// <returns>The cloned object</returns>
     System::SharedPtr<PageInfo> Clone();
     
 protected:
 
     bool get_IsDefault();
+    /// <summary>
+    /// Gets is width is set.
+    /// </summary>
     bool get_IsWidthSet();
+    /// <summary>
+    /// Gets is height is set.
+    /// </summary>
     bool get_IsHeightSet();
     
     void Serialize(System::SharedPtr<System::Xml::XmlTextWriter> writer);
     void Deserialize(System::SharedPtr<System::Xml::XmlReader> reader);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PageInfo"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

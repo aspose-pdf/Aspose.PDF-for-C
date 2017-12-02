@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_Symbology_h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_Symbology_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/object.h>
@@ -21,8 +21,19 @@ namespace Forms {
 /// </summary>
 enum class Symbology
 {
+    /// <summary>
+    /// A multi-row, variable-length 2D symbology with high data capacity and error-correction capability.
+    /// </summary>
     PDF417,
+    /// <summary>
+    /// QR code (short for Quick Response) is a specific matrix barcode (2D code), 
+    /// readable by dedicated QR barcode readers and camera phones.
+    /// </summary>
     QRCode,
+    /// <summary>
+    /// A 2D matrix symbology consisting of black and white square modules arranged in either a square or 
+    /// rectangular pattern.
+    /// </summary>
     DataMatrix
 };
 
@@ -38,17 +49,6 @@ public:
 
     static System::String ToString(Symbology value);
     static Symbology ToEnum(System::String value);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SymbologyConverter"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

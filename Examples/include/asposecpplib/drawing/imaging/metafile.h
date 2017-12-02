@@ -38,6 +38,7 @@ public:
     Metafile(SharedPtr<System::IO::Stream> stream, IntPtr hdc);
     Metafile(SharedPtr<System::IO::Stream> stream, IntPtr hdc, Rectangle rect, MetafileFrameUnit frameUnit, EmfType type);
     Metafile(SharedPtr<System::IO::Stream> stream, IntPtr hdc, RectangleF rect, MetafileFrameUnit frameUnit, EmfType type);
+    Metafile(IntPtr, EmfType);
     virtual ~Metafile();
     SharedPtr<MetafileHeader> GetMetafileHeader();
     IntPtr GetHenhmetafile();
@@ -54,7 +55,7 @@ protected:
     FRIEND_FUNCTION_System_MakeObject;
 
     virtual SkCanvas * GetDrawingCanvas() const OVERRIDE;
-    virtual sk_sp<SkData> GetRawBytes(SkEncodedFormat encoder_type) const OVERRIDE;
+    virtual sk_sp<SkData> GetRawBytes(SkEncodedFormat encoder_type, int quality) OVERRIDE;
     virtual const SkBitmap* GetSkBitmap() const OVERRIDE;
     virtual const SkImageInfo* GetSkImageInfo() const OVERRIDE;
     virtual const SkEncodedFormat GetSkEncodedFormat() const OVERRIDE;

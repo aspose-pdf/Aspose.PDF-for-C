@@ -35,26 +35,77 @@ class ASPOSE_PDF_SHARED_API ComHelper : public System::Object
     
 public:
 
+    /// <summary>
+    /// Initialize and return new Document instance from the <paramref name="input" /> stream.
+    /// </summary>
+    /// <param name="input">Stream with pdf document. </param>
+    /// <returns>Document object</returns>
     System::SharedPtr<Document> OpenStream(System::SharedPtr<System::IO::Stream> input);
+    /// <summary>
+    /// Initialize and return new Document instance from the <paramref name="input" /> stream.
+    /// </summary>
+    /// <param name="input">Input stream object, corresponding pdf is password protected.</param>
+    /// <param name="password">User or owner password.</param>
+    /// <returns>Document object</returns>
     System::SharedPtr<Document> OpenStream(System::SharedPtr<System::IO::Stream> input, System::String password);
+    /// <summary>
+    /// Initialize and return new Document instance from the <paramref name="input" /> stream.
+    /// </summary>
+    /// <param name="input">Stream with pdf document. </param>
+    /// <param name="isManagedStream">if set to <c>true</c> inner stream is closed before exit; otherwise, is not.</param>
+    /// <returns>Document object</returns>
     System::SharedPtr<Document> OpenStream(System::SharedPtr<System::IO::Stream> input, bool isManagedStream);
+    /// <summary>
+    /// Initialize and return new Document instance from the <paramref name="input" /> stream.
+    /// </summary>
+    /// <param name="input">Stream with pdf document. </param>
+    /// <param name="password">User or owner password.</param>
+    /// <param name="isManagedStream">if set to <c>true</c> inner stream is closed before exit; otherwise, is not.</param>
+    /// <returns>Document object</returns>
     System::SharedPtr<Document> OpenStream(System::SharedPtr<System::IO::Stream> input, System::String password, bool isManagedStream);
+    /// <summary>
+    /// Open and return an existing document from a stream providing necessary converting to get pdf document.
+    /// </summary>
+    /// <param name="input">
+    /// Input stream to convert into pdf document.
+    /// </param>
+    /// <param name="options">
+    /// Represents properties for converting <paramref name="input"/> into pdf document.
+    /// </param>
+    /// <returns>Document object</returns>
     System::SharedPtr<Document> OpenStream(System::SharedPtr<System::IO::Stream> input, System::SharedPtr<LoadOptions> options);
+    /// <summary>
+    /// Just create and return Document using <paramref name="filename" />. The same as <see cref="Document(Stream)"/>.
+    /// </summary>
+    /// <param name="filename">The name of the pdf document file. </param>
+    /// <returns>Document object</returns>
     System::SharedPtr<Document> OpenFile(System::String filename);
+    /// <summary>
+    /// Initialize and return new instance of the <see cref="Document"/> class for working with encrypted document. 
+    /// </summary>
+    /// <param name="filename">Document file name.</param>
+    /// <param name="password">User or owner password.</param>
+    /// <returns>Document object</returns>
     System::SharedPtr<Document> OpenFile(System::String filename, System::String password);
+    /// <summary>
+    /// Initialize new instance of the <see cref="Document"/> class for working with encrypted document. 
+    /// </summary>
+    /// <param name="filename">Document file name.</param>
+    /// <param name="password">User or owner password.</param>
+    /// <param name="isManagedStream">if set to <c>true</c> inner stream is closed before exit; otherwise, is not.</param>
+    /// <returns>Document object</returns>
     System::SharedPtr<Document> OpenFile(System::String filename, System::String password, bool isManagedStream);
+    /// <summary>
+    /// Open an existing document from a file providing necessary converting oprions to get pdf document.
+    /// </summary>
+    /// <param name="filename">
+    /// Input file to convert into pdf document.
+    /// </param>
+    /// <param name="options">
+    /// Represents properties for converting <paramref name="filename"/> into pdf document.
+    /// </param>
+    /// <returns>Document object</returns>
     System::SharedPtr<Document> OpenFile(System::String filename, System::SharedPtr<LoadOptions> options);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ComHelper"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

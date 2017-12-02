@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Generator_BorderInfo_h_
 #define _Aspose_Pdf_Generator_BorderInfo_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_text_writer.h>
 #include <xml/xml_reader.h>
@@ -40,42 +40,99 @@ class ASPOSE_PDF_SHARED_API BorderInfo FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets a object that indicates left of the border.
+    /// </summary>
     System::SharedPtr<GraphInfo> get_Left();
+    /// <summary>
+    /// Gets or sets a object that indicates left of the border.
+    /// </summary>
     void set_Left(System::SharedPtr<GraphInfo> value);
+    /// <summary>
+    /// Gets or sets a object that indicates right of the border.
+    /// </summary>
     System::SharedPtr<GraphInfo> get_Right();
+    /// <summary>
+    /// Gets or sets a object that indicates right of the border.
+    /// </summary>
     void set_Right(System::SharedPtr<GraphInfo> value);
+    /// <summary>
+    /// Gets or sets a object that indicates the top border.
+    /// </summary>
     System::SharedPtr<GraphInfo> get_Top();
+    /// <summary>
+    /// Gets or sets a object that indicates the top border.
+    /// </summary>
     void set_Top(System::SharedPtr<GraphInfo> value);
+    /// <summary>
+    /// Gets or sets a object that indicates bottom of the border.
+    /// </summary>
     System::SharedPtr<GraphInfo> get_Bottom();
+    /// <summary>
+    /// Gets or sets a object that indicates bottom of the border.
+    /// </summary>
     void set_Bottom(System::SharedPtr<GraphInfo> value);
+    /// <summary>
+    /// Gets or sets a rouded border radius
+    /// </summary>
     double get_RoundedBorderRadius();
+    /// <summary>
+    /// Gets or sets a rouded border radius
+    /// </summary>
     void set_RoundedBorderRadius(double value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BorderInfo"/> class.
+    /// </summary>
+    /// <param name="borderSide">Indicates the border sides info. For example: (int)(BorderSide.Left | BorderSide.Top).</param>
+    /// <param name="borderColor">The border color.</param>
     BorderInfo(BorderSide borderSide, System::SharedPtr<Color> borderColor);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BorderInfo"/> class.
+    /// </summary>
     BorderInfo();
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BorderInfo"/> class.
+    /// </summary>
+    /// <param name="borderSide">Indicates the border sides info. For example: (BorderSide.Left | BorderSide.Top).</param>
     BorderInfo(BorderSide borderSide);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BorderInfo"/> class.
+    /// </summary>
+    /// <param name="borderSide">Indicates the border sides info. For example: (BorderSide.Left | BorderSide.Top).</param>
+    /// <param name="borderWidth">The width of the border.</param>
     BorderInfo(BorderSide borderSide, float borderWidth);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BorderInfo"/> class.
+    /// </summary>
+    /// <param name="borderSide">Indicates the border sides info. For example: (BorderSide.Left | BorderSide.Top).</param>
+    /// <param name="borderWidth">The width of the border.</param>
+    /// <param name="borderColor">The border color.</param>
     BorderInfo(BorderSide borderSide, float borderWidth, System::SharedPtr<Color> borderColor);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BorderInfo"/> class.
+    /// </summary>
+    /// <param name="borderSide">Indicates the border sides info. For example: (BorderSide.Left | BorderSide.Top).</param>
+    /// <param name="info">The border info.</param>
     BorderInfo(BorderSide borderSide, System::SharedPtr<GraphInfo> info);
     
+    /// <summary>
+    /// Clones a new BorderInfo object.
+    /// </summary>
+    /// <returns>The new BorderInfo object.</returns>
     System::SharedPtr<BorderInfo> Clone();
     
 protected:
 
+    /// <summary>
+    /// Gets bool is all four border parts.
+    /// </summary>
     bool get_IsSame();
     
     void SerializeGraphInfo(System::SharedPtr<System::Xml::XmlTextWriter> writer, System::String side, System::SharedPtr<GraphInfo> info);
     void Serialize(System::SharedPtr<System::Xml::XmlTextWriter> writer);
     void Deserialize(System::SharedPtr<System::Xml::XmlReader> reader);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "BorderInfo"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

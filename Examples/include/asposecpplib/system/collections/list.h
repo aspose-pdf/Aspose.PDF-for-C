@@ -553,7 +553,10 @@ namespace Generic {
         template <typename Q, typename I>
         I FindInData(I begin, I end, const System::SharedPtr<Q> &item) const
         {
-            return std::find_if(begin, end, [&item](const System::SharedPtr<Q> &element) { return element == nullptr ? item == nullptr : element->Equals(item); });
+            return std::find_if(begin, end, [&item](const System::SharedPtr<Q> &element)
+            {
+                return element == nullptr ? item == nullptr : StaticCast_noexcept<System::Object>(element)->Equals(item);
+            });
         }
 
 #ifdef __DBG_FOR_EACH_MEMEBR

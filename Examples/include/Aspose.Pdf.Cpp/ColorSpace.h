@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_ColorSpace_h_
 #define _Aspose_Pdf_ColorSpace_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/object.h>
@@ -16,8 +16,17 @@ namespace Pdf {
 /// </summary>
 enum class ColorSpace
 {
+    /// <summary>
+    /// The device-dependent RGB color space.
+    /// </summary>
     DeviceRGB,
+    /// <summary>
+    /// The device-dependent CMYK color space.
+    /// </summary>
     DeviceCMYK,
+    /// <summary>
+    /// The device-dependent gray color space.
+    /// </summary>
     DeviceGray
 };
 
@@ -33,17 +42,6 @@ public:
 
     static System::String ToString(ColorSpace value);
     static ColorSpace ToEnum(System::String value);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ColorSpaceConverter"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

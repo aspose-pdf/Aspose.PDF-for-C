@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_FitExplicitDestination_h_
 #define _Aspose_Pdf_InteractiveFeatures_FitExplicitDestination_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -36,24 +36,36 @@ class ASPOSE_PDF_SHARED_API FitExplicitDestination FINAL : public Aspose::Pdf::I
     
 public:
 
+    /// <summary>
+    /// Creates local explicit destination.
+    /// </summary>
+    /// <param name="page">The destination page object.</param>
     FitExplicitDestination(System::SharedPtr<Aspose::Pdf::Page> page);
+    /// <summary>
+    /// Creates remote explicit destination.
+    /// </summary>
+    /// <param name="document">The Aspose.Pdf.Document object.</param>
+    /// <param name="pageNumber">The destination page number.</param>
     FitExplicitDestination(System::SharedPtr<Document> document, int32_t pageNumber);
+    /// <summary>
+    /// Creates remote explicit destination.
+    /// </summary>
+    /// <param name="pageNumber">The destination page number of remote document.</param>
     FitExplicitDestination(int32_t pageNumber);
     
+    /// <summary>
+    /// Converts the object state into string value. Example: "1 Fit".
+    /// </summary>
+    /// <returns>String value representing object state.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Creates the instance and initializes it by engine destination object.
+    /// </summary>
+    /// <param name="engineDest">Engine destination object.</param>
     FitExplicitDestination(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfArray> engineDest);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "FitExplicitDestination"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

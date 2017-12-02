@@ -24,6 +24,6 @@ void AddImage()
 
 	stream->Seek(0, System::IO::SeekOrigin::Begin);
 	page->AddImage(stream, rect);
-	doc->Save(L"..\\Data\\Document\\Document.pdf");
+	doc->Save(L"..\\Data\\Document\\Document_out.pdf");
 	// ExEnd:AddImage	
 }

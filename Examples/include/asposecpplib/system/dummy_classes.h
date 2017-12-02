@@ -7,7 +7,7 @@
 #include "system/uri.h"
 #include "system/io/text_writer.h"
 #include "system/collections/dictionary.h"
-
+#include <system/component_model/component.h>
 
 #include "fwd.h"
 
@@ -74,6 +74,15 @@ namespace System {
         {
             virtual SharedPtr<NetworkCredential> GetCredential(String host, int port, String authenticationType) = 0;
             RTTI_INFO_DECL();
+        };
+
+        class CredentialCache : public ICredentials, public ICredentialsByHost
+        {
+        public:
+            static SharedPtr<ICredentials> get_DefaultCredentials()
+            {
+                throw NotImplementedException(ASPOSE_CURRENT_FUNCTION);
+            }
         };
 
         class NetworkCredential : public ICredentials, public ICredentialsByHost
@@ -772,9 +781,23 @@ namespace System {
 
             virtual SharedPtr<System::IO::Stream> GetRequestStream(){ throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
             virtual SharedPtr<WebResponse> GetResponse(){ throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
-
         };
-    }
-}
+
+        class WebClient : public ComponentModel::Component
+        {
+        public:
+            void set_UseDefaultCredentials(bool)
+            {
+                throw NotImplementedException(ASPOSE_CURRENT_FUNCTION);
+            }
+
+            ByteArrayPtr DownloadData(SharedPtr<Uri>)
+            {
+                throw NotImplementedException(ASPOSE_CURRENT_FUNCTION);
+            }
+        };
+
+    } // namespace Net
+} // namespace System
 
 #endif

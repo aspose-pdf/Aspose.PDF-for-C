@@ -1,5 +1,5 @@
-#ifndef __pen_h__
-#define __pen_h__
+#ifndef _aspose_drawing_pen_h_
+#define _aspose_drawing_pen_h_
 
 #include "drawing/color.h"
 #include "drawing/brush.h"
@@ -9,6 +9,8 @@
 #include "drawing/drawing2d/dash_style.h"
 #include "drawing/drawing2d/pen_alignment.h"
 #include "drawing/drawing2d/matrix.h"
+#include "drawing/drawing2d/matrix_order.h"
+#include "drawing/drawing2d/pen_type.h"
 #include "system/exceptions.h"
 #include <cstdint>
 
@@ -81,6 +83,16 @@ public:
 
     SharedPtr<Pen> Clone();
 
+    void ResetTransform();
+    void MultiplyTransform(SharedPtr<Drawing2D::Matrix> matrix, Drawing2D::MatrixOrder order = Drawing2D::MatrixOrder::Prepend);
+    void RotateTransform(float angle, Drawing2D::MatrixOrder order = Drawing2D::MatrixOrder::Prepend);
+    void ScaleTransform(float sx, float sy, Drawing2D::MatrixOrder order = Drawing2D::MatrixOrder::Prepend);
+    void TranslateTransform(float dx, float dy, Drawing2D::MatrixOrder order = Drawing2D::MatrixOrder::Prepend);
+
+    void SetLineCap(Drawing2D::LineCap startCap, Drawing2D::LineCap endCap, Drawing2D::DashCap dashCap);
+    Drawing2D::PenType get_PenType() const;
+    Color get_Color() const;
+
     void Dispose() { };
 
 protected:
@@ -106,22 +118,24 @@ private:
     SharedPtr<Brush> m_brush;
     SkColor m_sk_color;
     SkScalar m_sk_width;
-    SkScalar m_sk_miter_limit;
+
+    float m_sk_miter_limit = 4.0f;
+    float m_dash_offset = 0;
 
     Drawing2D::DashCap m_dash_cap;
     Drawing2D::LineCap m_start_cap;
     Drawing2D::LineCap m_end_cap;
     Drawing2D::DashStyle m_dash_style;
     Drawing2D::LineJoin m_line_join;
+    Drawing2D::PenAlignment m_pen_alignment;
 
     ArrayPtr<float> m_dash_pattern;
     ArrayPtr<float> m_compound_array;
 
     SharedPtr<Drawing2D::CustomLineCap> m_custom_start_cap;
     SharedPtr<Drawing2D::CustomLineCap> m_custom_end_cap;
-
 };
 
-}}
+}} // System::Drawing
 
-#endif
+#endif // _aspose_drawing_pen_h_

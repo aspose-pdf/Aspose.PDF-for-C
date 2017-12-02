@@ -50,8 +50,10 @@ public:
     int GetCellDescent(FontStyle style);
     int GetLineSpacing(FontStyle style);
     String get_Name() const;
+    static ArrayPtr<SharedPtr<FontFamily>> get_Families();
     static SharedPtr<FontFamily> get_GenericSansSerif();
     static SharedPtr<FontFamily> get_GenericMonospace();
+    static SharedPtr<FontFamily> get_GenericSerif();
     String GetName(int language) const;
 
     void Dispose() { };

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_XslFoLoadOptions_h_
 #define _Aspose_Pdf_XslFoLoadOptions_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include "XmlLoadOptions.h"
 
@@ -25,27 +25,47 @@ class ASPOSE_PDF_SHARED_API XslFoLoadOptions FINAL : public Aspose::Pdf::XmlLoad
     
 public:
 
+    /// <summary>
+    ///  This property will be available during migration to new XSL-FO engine.
+    ///  If this property is true, the previous version of XSL-FO engine will be used.
+    /// </summary>
     bool get_UseOldXslFoEngine();
+    /// <summary>
+    ///  This property will be available during migration to new XSL-FO engine.
+    ///  If this property is true, the previous version of XSL-FO engine will be used.
+    /// </summary>
     void set_UseOldXslFoEngine(bool value);
+    /// <summary>
+    /// The base path/url from which are searched relative pathes to external resources (if any) referenced in loaded SVG file.
+    /// </summary>
     System::String get_BasePath();
+    /// <summary>
+    /// The base path/url from which are searched relative pathes to external resources (if any) referenced in loaded SVG file.
+    /// </summary>
     void set_BasePath(System::String value);
     
+    /// <summary>
+    /// Creates <see cref="XslFoLoadOptions"/> object without xsl data.
+    /// </summary>
     XslFoLoadOptions();
+    /// <summary>
+    /// Creates <see cref="XslFoLoadOptions"/> object with xsl data.
+    /// </summary>
+    /// <param name="xslFile">
+    /// Xsl file to convert XSL-FO document into pdf document.
+    /// </param>
     XslFoLoadOptions(System::String xslFile);
+    /// <summary>
+    /// Creates <see cref="XslFoLoadOptions"/> object with xsl data.
+    /// </summary>
+    /// <param name="xslStream">
+    /// Xsl stream to convert XSL-FO document into pdf document.
+    /// </param>
     XslFoLoadOptions(System::SharedPtr<System::IO::Stream> xslStream);
     
 protected:
 
     System::String IntermediateXmlFileIfXslTransformUsed;
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "XslFoLoadOptions"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

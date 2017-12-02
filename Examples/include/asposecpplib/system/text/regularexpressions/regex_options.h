@@ -17,9 +17,9 @@ namespace System { namespace Text { namespace RegularExpressions {
         RightToLeft=128,
         Singleline=256
     };
+    DECLARE_ENUM_OPERATORS(System::Text::RegularExpressions::RegexOptions);
 }}}
 
-DECLARE_ENUM_OPERATORS(System::Text::RegularExpressions::RegexOptions);
 
 #endif // _RegExOptions_h_
 

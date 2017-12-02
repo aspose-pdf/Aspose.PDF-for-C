@@ -1,6 +1,8 @@
 #ifndef _aspose_system_text_regularexpressions_group_collection_h_
 #define _aspose_system_text_regularexpressions_group_collection_h_
 
+#include <map>
+
 #include <system/text/regularexpressions/group.h>
 #include <system/collections/list.h>
 
@@ -9,10 +11,14 @@ namespace Text {
 namespace RegularExpressions {
 
     class Match;
-
     class GroupCollection : public System::Collections::Generic::List<GroupPtr>
     {
     public:
+        typedef System::Collections::Generic::List<GroupPtr> Base;
+        using Base::idx_get;
+        using Base::operator[];
+
+        GroupCollection(WeakPtr<Match> match);
 
         void Add(const GroupPtr &item) override {}
 
@@ -22,34 +28,21 @@ namespace RegularExpressions {
 
         bool IsReadOnly() const { return true; }
 
-        GroupPtr& operator[](int index)
-        {
-            return m_data[index];
-        }
-
         GroupPtr operator[](String name) const
         {
-            if (get_Count()<2)
-                System::ArgumentOutOfRangeException();
-            return m_data[m_data[0]->GetGroupIndexFromName(name)];
+            return idx_get(name);
         }
 
-        GroupPtr idx_get(int index)
-        {
-            return m_data[index];
-        }
+        virtual GroupPtr idx_get(String name) const;
 
-        GroupPtr idx_get(String name) const
-        {
-            if (get_Count()<2)
-                System::ArgumentOutOfRangeException();
-            return m_data[m_data[0]->GetGroupIndexFromName(name)];
-        }
+        GroupPtr get_Item(int index) const { return idx_get(index); }
+        GroupPtr get_Item(String name) const { return idx_get(name); }
+        void AddGroup(const GroupPtr &item);
 
-        GroupPtr get_Item(int index) const { return m_data[index]; }
-        GroupPtr get_Item(String name) const { return (*this)[name]; }
+    protected:
+        GroupCollection() {};
+        WeakPtr<Match> match;
 
-        friend class Match;
 
 #ifdef __DBG_FOR_EACH_MEMEBR
     public:
@@ -73,7 +66,7 @@ namespace RegularExpressions {
 
         GroupPtr operator[] (size_t idx) const
         {
-            return this->get()->get_Item((int)idx);
+            return (*this)->idx_get((int)idx);
         }
 
     };

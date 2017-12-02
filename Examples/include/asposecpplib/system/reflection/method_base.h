@@ -8,6 +8,7 @@ namespace System { namespace Reflection {
         class MethodBase : public MemberInfo
         {
             FRIEND_FUNCTION_System_MakeObject;
+            //friend System::SharedPtr<System::Reflection::MethodBase> System::MakeObject<System::Reflection::MethodBase, System::String>(System::String);
         private:
             MethodBase(const String& full_name);
         };

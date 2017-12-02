@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_AnnotationActionCollection_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_AnnotationActionCollection_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include "BaseActionCollection.h"
 
@@ -32,47 +32,122 @@ class ASPOSE_PDF_SHARED_API AnnotationActionCollection FINAL : public Aspose::Pd
     
 public:
 
+    /// <summary>
+    /// Gets or sets an action to be performed when the cursor enters the annotation�s active area.
+    /// </summary>
     System::SharedPtr<PdfAction> get_OnEnter();
+    /// <summary>
+    /// Gets or sets an action to be performed when the cursor enters the annotation�s active area.
+    /// </summary>
     void set_OnEnter(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets an action to be performed when the cursor exits the annotation�s active area.
+    /// </summary>
     System::SharedPtr<PdfAction> get_OnExit();
+    /// <summary>
+    /// Gets or sets an action to be performed when the cursor exits the annotation�s active area.
+    /// </summary>
     void set_OnExit(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets an action to be performed when the mouse button is pressed inside the annotation�s active area.
+    /// </summary>
     System::SharedPtr<PdfAction> get_OnPressMouseBtn();
+    /// <summary>
+    /// Gets or sets an action to be performed when the mouse button is pressed inside the annotation�s active area.
+    /// </summary>
     void set_OnPressMouseBtn(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets an action to be performed when the mouse button is released inside the annotation�s active area.
+    /// </summary>
     System::SharedPtr<PdfAction> get_OnReleaseMouseBtn();
+    /// <summary>
+    /// Gets or sets an action to be performed when the mouse button is released inside the annotation�s active area.
+    /// </summary>
     void set_OnReleaseMouseBtn(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets an action to be performed when the annotation receives the input focus.
+    /// </summary>
     System::SharedPtr<PdfAction> get_OnReceiveFocus();
+    /// <summary>
+    /// Gets or sets an action to be performed when the annotation receives the input focus.
+    /// </summary>
     void set_OnReceiveFocus(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets an action to be performed when the page containing the annotation is opened.
+    /// </summary>
     System::SharedPtr<PdfAction> get_OnOpenPage();
+    /// <summary>
+    /// Gets or sets an action to be performed when the page containing the annotation is opened.
+    /// </summary>
     void set_OnOpenPage(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets an action to be performed when the page containing the annotation is closed.
+    /// </summary>
     System::SharedPtr<PdfAction> get_OnClosePage();
+    /// <summary>
+    /// Gets or sets an action to be performed when the page containing the annotation is closed.
+    /// </summary>
     void set_OnClosePage(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets an action to be performed when the page containing the annotation becomes visible in the viewer application�s user interface.
+    /// </summary>
     System::SharedPtr<PdfAction> get_OnShowPage();
+    /// <summary>
+    /// Gets or sets an action to be performed when the page containing the annotation becomes visible in the viewer application�s user interface.
+    /// </summary>
     void set_OnShowPage(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets an action to be performed when the page containing the annotation is no longer visible in the viewer application�s user interface.
+    /// </summary>
     System::SharedPtr<PdfAction> get_OnHidePage();
+    /// <summary>
+    /// Gets or sets an action to be performed when the page containing the annotation is no longer visible in the viewer application�s user interface.
+    /// </summary>
     void set_OnHidePage(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets an action to be performed when the annotation loses the input focus.
+    /// </summary>
     System::SharedPtr<PdfAction> get_OnLostFocus();
+    /// <summary>
+    /// Gets or sets an action to be performed when the annotation loses the input focus.
+    /// </summary>
     void set_OnLostFocus(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets an action to be performed when user modifies character of the field. 
+    /// </summary>
     System::SharedPtr<PdfAction> get_OnModifyCharacter();
+    /// <summary>
+    /// Gets or sets an action to be performed when user modifies character of the field. 
+    /// </summary>
     void set_OnModifyCharacter(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets an action to be performed when user changes contents of the field. 
+    /// </summary>
     System::SharedPtr<PdfAction> get_OnValidate();
+    /// <summary>
+    /// Gets or sets an action to be performed when user changes contents of the field. 
+    /// </summary>
     void set_OnValidate(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets an action to be performed to format field value. 
+    /// </summary>
     System::SharedPtr<PdfAction> get_OnFormat();
+    /// <summary>
+    /// Gets or sets an action to be performed to format field value. 
+    /// </summary>
     void set_OnFormat(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets an action to calculate field value. 
+    /// </summary>
     System::SharedPtr<PdfAction> get_OnCalculate();
+    /// <summary>
+    /// Gets or sets an action to calculate field value. 
+    /// </summary>
     void set_OnCalculate(System::SharedPtr<PdfAction> value);
     
 protected:
 
     AnnotationActionCollection(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> annotation);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "AnnotationActionCollection"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_FitHExplicitDestination_h_
 #define _Aspose_Pdf_InteractiveFeatures_FitHExplicitDestination_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -36,26 +36,44 @@ class ASPOSE_PDF_SHARED_API FitHExplicitDestination FINAL : public Aspose::Pdf::
     
 public:
 
+    /// <summary>
+    /// Gets the vertical coordinate top positioned at the top edge of the window.
+    /// </summary>
     double get_Top();
     
+    /// <summary>
+    /// Creates local explicit destination.
+    /// </summary>
+    /// <param name="page">The destination page object.</param>
+    /// <param name="top">The vertical coordinate top positioned at the top edge of the window.</param>
     FitHExplicitDestination(System::SharedPtr<Aspose::Pdf::Page> page, double top);
+    /// <summary>
+    /// Creates remote explicit destination.
+    /// </summary>
+    /// <param name="document">The parent document that contains this object.</param>
+    /// <param name="pageNumber">The destination page number of remote document.</param>
+    /// <param name="top">The vertical coordinate top positioned at the top edge of the window.</param>
     FitHExplicitDestination(System::SharedPtr<Document> document, int32_t pageNumber, double top);
+    /// <summary>
+    /// Creates remote explicit destination.
+    /// </summary>
+    /// <param name="pageNumber">The destination page number of remote document.</param>
+    /// <param name="top">The vertical coordinate top positioned at the top edge of the window.</param>
     FitHExplicitDestination(int32_t pageNumber, double top);
     
+    /// <summary>
+    /// Converts the object state into string value. Example: "1 FitH 100".
+    /// </summary>
+    /// <returns>String value representing object state.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Creates the instance and initializes it by engine destination object.
+    /// </summary>
+    /// <param name="engineDest">Engine destination object.</param>
     FitHExplicitDestination(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfArray> engineDest);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "FitHExplicitDestination"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Text_TextFragmentCollection_h_
 #define _Aspose_Pdf_Text_TextFragmentCollection_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/collections/ienumerator.h>
@@ -60,14 +60,6 @@ private:
     
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "TextFragmentsEnumerator"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     private:
     
         System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<TextFragment>>> cursor;
@@ -79,32 +71,57 @@ private:
     
 public:
 
+    ///<summary>
+    /// Gets the number of <see cref="TextFragment"/> object elements actually contained in the collection. 
+    /// </summary>
     int32_t get_Count() const;
+    ///<summary>
+    /// Gets an object that can be used to synchronize access to the collection.
+    /// </summary>
     System::SharedPtr<System::Object> get_SyncRoot();
+    ///<summary>
+    /// Gets a value indicating whether access to the collection is synchronized (thread safe). 
+    ///</summary>
     bool get_IsSynchronized();
     
+    ///<summary>
+    /// Returns an enumerator for the entire collection.
+    ///</summary>
+    ///<returns>Enumerator object.</returns>
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<TextFragment>>> GetEnumerator();
+    ///<summary>
+    /// Copies the entire collection to a compatible one-dimensional Array, starting at the specified index of the target array
+    ///</summary> 
+    /// <param name="array">Array of objects which will be copied.</param>
+    /// <param name="index">Starting index from which copying will be started.</param>
+    //<<--REFACTORING: Old code: public void CopyTo(Array array, int index)
     void CopyTo(System::ArrayPtr<System::SharedPtr<TextFragment>> array, int32_t index);
     
+    /// <summary>
+    /// Gets the text fragment element at the specified index.
+    /// </summary>
+    /// <param name="index">Index within the collection.</param>
+    /// <returns>TextFragment object.</returns>
     System::SharedPtr<TextFragment> idx_get(int32_t index);
     
 protected:
 
     System::EventHandler<System::SharedPtr<System::EventArgs>> OnCollectionChanged;
     
+    /// <summary>
+    /// Initializes a new instance of <see cref="TextFragmentCollection"/> collection class
+    /// </summary>
     TextFragmentCollection();
     
+    /// <summary>
+    /// Adds the text fragment element at the specified index.
+    /// </summary>
     void Add(System::SharedPtr<TextFragment> const &fragment);
+    /// <summary>
+    /// Deletes the text fragment element at the specified index.
+    /// </summary>
     void Delete(int32_t index);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextFragmentCollection"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -113,8 +130,14 @@ private:
     
     bool get_IsReadOnly();
     
+    /// <summary>
+    /// </summary>
     bool Remove(System::SharedPtr<TextFragment> const &item);
+    /// <summary>
+    /// </summary>
     void Clear();
+    /// <summary>
+    /// </summary>
     bool Contains(System::SharedPtr<TextFragment> const &item) const;
     
 };

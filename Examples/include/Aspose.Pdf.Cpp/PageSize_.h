@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_PageSize__h_
 #define _Aspose_Pdf_PageSize__h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/object.h>
@@ -28,25 +28,84 @@ class ASPOSE_PDF_SHARED_API PageSize FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets page width.
+    /// </summary>
     float get_Width();
+    /// <summary>
+    /// Gets or sets page width.
+    /// </summary>
     void set_Width(float value);
+    /// <summary>
+    /// Gets or sets page height.
+    /// </summary>
     float get_Height();
+    /// <summary>
+    /// Gets or sets page height.
+    /// </summary>
     void set_Height(float value);
+    /// <summary>
+    /// Gets page orientation. Returns true of this is landscape orientation and false if this is portrait. 
+    /// </summary>
     bool get_IsLandscape();
+    /// <summary>
+    /// Gets page orientation. Returns true of this is landscape orientation and false if this is portrait. 
+    /// </summary>
     void set_IsLandscape(bool value);
+    /// <summary>
+    /// A0 size (1189x840 mm).
+    /// </summary>
     static System::SharedPtr<PageSize> get_A0();
+    /// <summary>
+    /// A1 size (840x594 mm).
+    /// </summary>
     static System::SharedPtr<PageSize> get_A1();
+    /// <summary>
+    /// A2 size (594x420 mm).
+    /// </summary>
     static System::SharedPtr<PageSize> get_A2();
+    /// <summary>
+    /// A3 size (420x297 mm).
+    /// </summary>
     static System::SharedPtr<PageSize> get_A3();
+    /// <summary>
+    /// A4 size (297x210 mm).
+    /// </summary>
     static System::SharedPtr<PageSize> get_A4();
+    /// <summary>
+    /// A5 size (210x148 mm).
+    /// </summary>
     static System::SharedPtr<PageSize> get_A5();
+    /// <summary>
+    /// A6 size (148x105 mm).
+    /// </summary>
     static System::SharedPtr<PageSize> get_A6();
+    /// <summary>
+    /// B5 size (250x176 mm).
+    /// </summary>
     static System::SharedPtr<PageSize> get_B5();
+    /// <summary>
+    /// Letter size (279x216 mm).
+    /// </summary>
     static System::SharedPtr<PageSize> get_PageLetter();
+    /// <summary>
+    /// Legal size (356x216 mm).
+    /// </summary>
     static System::SharedPtr<PageSize> get_PageLegal();
+    /// <summary>
+    /// Ledger size (432x279 mm).
+    /// </summary>
     static System::SharedPtr<PageSize> get_PageLedger();
+    /// <summary>
+    /// 11x17 inches format.
+    /// </summary>
     static System::SharedPtr<PageSize> get_P11x17();
     
+    /// <summary>
+    /// Constructor for PageSize.
+    /// </summary>
+    /// <param name="x">Width of the page.</param>
+    /// <param name="y">Height of the page.</param>
     PageSize(float x, float y);
     
 protected:
@@ -54,14 +113,6 @@ protected:
     static const float LEAVE_INTACT;
     
     static void __FreeStaticPointers();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PageSize"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

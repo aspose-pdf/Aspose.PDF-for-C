@@ -1,5 +1,5 @@
-#ifndef _rectangle_h_
-#define _rectangle_h_
+#ifndef _aspose_system_drawing_rectangle_h_
+#define _aspose_system_drawing_rectangle_h_
 
 #include "fwd.h"
 #include <system/object.h>
@@ -108,6 +108,8 @@ namespace System { namespace Drawing {
 
 namespace System
 {
+    template<> struct IsBoxable<Drawing::Rectangle> : std::true_type {};
+
     template <>
     class BoxedValue<System::Drawing::Rectangle> : public DefaultBoxedValue<System::Drawing::Rectangle>
     {
@@ -118,4 +120,4 @@ namespace System
     };
 }
 
-#endif
+#endif // _aspose_system_drawing_rectangle_h_

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_TextAnnotation_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_TextAnnotation_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include "InteractiveFeatures/Annotations/MarkupAnnotation.h"
 
@@ -42,16 +42,46 @@ class ASPOSE_PDF_SHARED_API TextAnnotation FINAL : public Aspose::Pdf::Interacti
     
 public:
 
+    /// <summary>
+    /// Gets or sets a flag specifying whether the annotation should initially be displayed open.
+    /// </summary>
     bool get_Open();
+    /// <summary>
+    /// Gets or sets a flag specifying whether the annotation should initially be displayed open.
+    /// </summary>
     void set_Open(bool value);
+    /// <summary>
+    /// Gets or sets an icon to be used in displaying the annotation.
+    /// </summary>
     TextIcon get_Icon();
+    /// <summary>
+    /// Gets or sets an icon to be used in displaying the annotation.
+    /// </summary>
     void set_Icon(TextIcon value);
+    /// <summary>
+    /// Gets or sets the state to which the original annotation should be set.
+    /// </summary>
     AnnotationState get_State();
+    /// <summary>
+    /// Gets or sets the state to which the original annotation should be set.
+    /// </summary>
     void set_State(AnnotationState value);
+    /// <summary>
+    /// Gets type of annotation.
+    /// </summary>
     virtual Aspose::Pdf::InteractiveFeatures::Annotations::AnnotationType get_AnnotationType();
     
+    /// <summary>
+    /// Accepts visitor object to process the annotation.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<AnnotationSelector> visitor);
     
+    /// <summary>
+    /// Creates new Text annotation on the specified page.
+    /// </summary>
+    /// <param name="page">The document's page where annotation should be created.</param>
+    /// <param name="rect">The annotation rectangle, defining the location of the annotation on the page.</param>
     TextAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
     
 protected:
@@ -62,18 +92,15 @@ protected:
     virtual void WriteXfdf(System::SharedPtr<System::Xml::XmlWriter> writer);
     virtual void ReadXfdf(System::SharedPtr<System::Xml::XmlReader> reader);
     
+    /// <summary>
+    /// Ititializes Text annotation with engine annotation object.
+    /// </summary>
+    /// <param name="engineAnnot">Engine object that represents the annotation.</param>
+    /// <param name="document">The Aspose.Pdf.Document object.</param>
     TextAnnotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> engineAnnot, System::SharedPtr<Document> document);
     
     virtual bool AppearanceSupported();
     virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> CreateAppearanceProgram(System::SharedPtr<Annotation::AppearanceParameters> parameters, System::SharedPtr<Annotation> annotation);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextAnnotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

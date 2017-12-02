@@ -1,6 +1,7 @@
 #pragma once
 
 #include <system/shared_ptr.h>
+#include <system/weak_ptr.h>
 #include <type_traits>
 #include <thread>
 
@@ -29,14 +30,14 @@ GetHashCode(const T& obj)
 }
 
 template<typename T>
-typename std::enable_if<!std::is_scalar<T>::value && System::IsSharedPtr<T>::value, int>::type
+typename std::enable_if<!std::is_scalar<T>::value && (System::IsSharedPtr<T>::value || System::IsWeakPtr<T>::value), int>::type
 GetHashCode(const T& obj)
 {
     return obj->GetHashCode();
 }
 
 template<typename T>
-typename std::enable_if<!std::is_scalar<T>::value && !System::IsSharedPtr<T>::value, int>::type
+typename std::enable_if<!std::is_scalar<T>::value && !System::IsSharedPtr<T>::value && !System::IsWeakPtr<T>::value, int>::type
 GetHashCode(const T& obj)
 {
     return obj.GetHashCode();

@@ -1,6 +1,7 @@
 #ifndef _aspose_xml_text_reader_h_
 #define _aspose_xml_text_reader_h_
 
+#include "xml/entity_handling.h"
 #include "xml/xml_reader.h"
 #include "xml/whitespace_handling.h"
 #include "xml/xml_reader_settings.h"
@@ -9,11 +10,14 @@
 
 #include "xml/detail/xml_3rd_party_types.h"
 
+#include <memory>
+
 namespace System { namespace Xml {
 
 namespace Schema { class XmlSchema; }
 
 class XmlResolver;
+class XmlNameTable;
 
 class XmlTextReader : public XmlReader
 {
@@ -83,17 +87,26 @@ public:
     String ReadInnerXml() override;
     String ReadOuterXml() override;
 
+    String ReadElementString() override;
+    String ReadElementString(const String& value) override;
+    String ReadElementString(const String& localName, const String& namespaceUri) override;
+
     // XmlTextReader
 
     String get_Encoding() const;
 
-    void set_XmlResolver(const SharedPtr<XmlResolver>& value)
-    { m_xmlResolver = value; }
+    void set_XmlResolver(const SharedPtr<XmlResolver>& value) { m_xmlResolver = value; }
+    
+    SharedPtr<XmlNameTable> get_NameTable() const;
 
-    void set_WhitespaceHandling(WhitespaceHandling value)
-    {
-        //throw NotSupportedException();
-    }
+    int get_LineNumber() const;
+    int get_LinePosition() const;
+
+    void set_ProhibitDtd(bool value);
+
+    void set_EntityHandling(EntityHandling value);
+    void set_Normalization(bool value);
+    void set_WhitespaceHandling(WhitespaceHandling value);
 
     int ReadBinHex(const ArrayPtr<uint8_t>& buffer, int startPosition, int length);
 
@@ -136,6 +149,9 @@ private:
     static int s_treader_close(void *context);
 
     static String error_message_to_string(const char* msg);
+
+    struct TextReaderContext;
+    std::unique_ptr<TextReaderContext> m_text_reader_context;
 };
 
 }} // namespace System::Xml

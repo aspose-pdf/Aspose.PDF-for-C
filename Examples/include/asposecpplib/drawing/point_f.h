@@ -1,5 +1,5 @@
-#ifndef _point_f_h_
-#define _point_f_h_
+#ifndef _aspose_system_drawing_point_f_h_
+#define _aspose_system_drawing_point_f_h_
 
 #include "fwd.h"
 #include <system/string.h>
@@ -64,8 +64,11 @@ namespace System { namespace Drawing {
 
 }}
 
+
 namespace System
 {
+    template<> struct IsBoxable<Drawing::PointF> : std::true_type {};
+
     template <>
     class BoxedValue<System::Drawing::PointF> : public DefaultBoxedValue<System::Drawing::PointF>
     {
@@ -76,4 +79,4 @@ namespace System
     };
 }
 
-#endif
+#endif // _aspose_system_drawing_point_f_h_

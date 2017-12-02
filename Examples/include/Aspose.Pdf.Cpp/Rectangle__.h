@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Rectangle___h_
 #define _Aspose_Pdf_Rectangle___h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -54,51 +54,148 @@ class ASPOSE_PDF_SHARED_API Rectangle FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Width of rectangle.
+    /// </summary>
     double get_Width();
+    /// <summary>
+    /// Height of rectangle.
+    /// </summary>
     double get_Height();
+    /// <summary>
+    /// X-coordinate of lower - left corner.
+    /// </summary>
     double get_LLX();
+    /// <summary>
+    /// X-coordinate of lower - left corner.
+    /// </summary>
     void set_LLX(double value);
+    /// <summary>
+    /// Y - coordinate of lower-left corner.
+    /// </summary>
     double get_LLY();
+    /// <summary>
+    /// Y - coordinate of lower-left corner.
+    /// </summary>
     void set_LLY(double value);
+    /// <summary>
+    /// X - coordinate of upper-right corner.
+    /// </summary>
     double get_URX();
+    /// <summary>
+    /// X - coordinate of upper-right corner.
+    /// </summary>
     void set_URX(double value);
+    /// <summary>
+    /// Y - coordinate of upper-right corner.
+    /// </summary>
     double get_URY();
+    /// <summary>
+    /// Y - coordinate of upper-right corner.
+    /// </summary>
     void set_URY(double value);
     
     static System::SharedPtr<Rectangle> Empty;
     
+    /// <summary>
+    /// Initializes trivial rectangle i.e. rectangle with zero position and size.
+    /// </summary>
     static System::SharedPtr<Rectangle> get_Trivial();
+    /// <summary>
+    /// Checks if rectangle is trivial i.e. has zero size and position.
+    /// </summary>
     bool get_IsTrivial();
+    /// <summary>
+    /// Checks if rectangle is empty.
+    /// </summary>
     bool get_IsEmpty();
+    /// <summary>
+    /// Checks if rectangle is point i.e. LLX is equal URX and LLY is equal URY.
+    /// </summary>
     bool get_IsPoint();
     
+    /// <summary>
+    /// Constructor of Rectangle.
+    /// </summary>
+    /// <param name="llx">X of lower left corner.</param>
+    /// <param name="lly">Y of lower left corner.</param>
+    /// <param name="urx">X of upper right corner.</param>
+    /// <param name="ury">Y of upper right corner.</param>        
     Rectangle(double llx, double lly, double urx, double ury);
     
+    /// <summary>
+    /// Converts rectangle to instance of System.Drawing.Rectangle. Floating-point positions and size are truncated.
+    /// </summary>
+    /// <returns>Result of conversion.</returns>
     System::Drawing::Rectangle ToRect();
+    /// <summary>
+    /// Initializes new rectangle from given instance of System.Drawing.Rectangle.
+    /// </summary>
+    /// <param name="src">Source rectangle which position and size will be set to new rectangle.</param>
+    /// <returns>New rectangle.</returns>
     static System::SharedPtr<Rectangle> FromRect(System::Drawing::Rectangle src);
+    /// <summary>
+    /// Gets rectangle string representation.
+    /// </summary>
+    /// <returns>
+    /// String has format llx,lly,urx,ury.
+    /// </returns>
     virtual System::String ToString();
+    /// <summary>
+    /// Try to parse string and extract from it rectangle components llx, lly, urx, ury.
+    /// </summary>
+    /// <param name="value">
+    /// String to parse.
+    /// </param>
+    /// <returns>
+    /// Rectangle object.
+    /// </returns>
     static System::SharedPtr<Rectangle> Parse(System::String value);
+    /// <summary>
+    /// Check if rectangles are equal i.e. hase same position and sizes.
+    /// </summary>
+    /// <param name="other">Rectangle which will be compared.</param>
+    /// <returns>True if rectangles are eqals, false otherwise.</returns>
     bool Equals(System::SharedPtr<Rectangle> other);
+    /// <summary>
+    /// Intersects to rectangles. 
+    /// </summary>
+    /// <param name="otherRect">Rectangle to which this recatangle be intersected.</param>
+    /// <returns>Intersection of rectangles; null if rectangles are not intersected.</returns>
     System::SharedPtr<Rectangle> Intersect(System::SharedPtr<Rectangle> otherRect);
+    /// <summary>
+    /// Rotate rectangle by the specified angle.
+    /// </summary>
+    /// <param name="angle">Angle of rotation. Member of Rotation enumeration.</param>
     void Rotate(Rotation angle);
+    /// <summary>
+    /// Rotate rectangle by the specified angle.
+    /// </summary>
+    /// <param name="angle">Angle of rotation in degrees between 0 and 360.</param>
     void Rotate(int32_t angle);
+    /// <summary>
+    /// Clones the Rectangle object.
+    /// </summary>
+    /// <returns>Clone object.</returns>
     System::SharedPtr<Rectangle> Clone();
     
 protected:
 
     System::Drawing::RectangleF ToRectangleF();
     System::SharedPtr<Engine::Data::PdfArray> ToArray(System::SharedPtr<Engine::Data::ITrailerable> trailerable);
+    /// <summary>
+    /// Intersects rectangles. OBolsete method. Please use Intersect instead. 
+    /// </summary>
+    /// <param name="otherRect"></param>
+    /// <returns></returns>
     void _Intersect(System::SharedPtr<Rectangle> otherRect);
+    /// <summary>
+    /// Determines whether this rectangle intersects with other rectangle.
+    /// </summary>
+    /// <param name="otherRect">Intersection will be tested with specified rectangle.</param>
+    /// <returns>True if this rectangle intersects with specified rectangle. Otherwise false.</returns>
     bool IsIntersect(System::SharedPtr<Rectangle> otherRect);
     static void __FreeStaticPointers();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Rectangle"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -108,6 +205,13 @@ private:
     double _ury;
     bool _isEmpty;
     
+    /// <summary>
+    /// Constructor of Rectangle.
+    /// </summary>
+    /// <param name="llx">X of lower left corner.</param>
+    /// <param name="lly">Y of lower left corner.</param>
+    /// <param name="urx">X of upper right corner.</param>
+    /// <param name="ury">Y of upper right corner.</param>        
     Rectangle(double llx, double lly, double urx, double ury, bool isEmpty);
     
     void normalize();

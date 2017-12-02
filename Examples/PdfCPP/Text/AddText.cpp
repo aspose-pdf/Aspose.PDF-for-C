@@ -19,6 +19,7 @@ void AddText()
 
 	text = MakeObject<TextFragment>(L"This example is created by Aspose.Pdf for C++.");
 	text->set_Position(MakeObject<Position>(100, 700));
+	
 	tb->AppendText(text);
 
 	text = MakeObject<TextFragment>(L"Demonstrates how to use TextBuilder to append text into pdf file.");
@@ -30,7 +31,7 @@ void AddText()
 	par->AppendLine(L"New paragraph");
 	par->AppendLine(L"Line 2");
 	par->AppendLine(L"Line 3");
-
+	
 	tb->AppendParagraph(par);
 	doc->Save(L"..\\Data\\Text\\AddText.pdf");
 	// ExEnd:AddText

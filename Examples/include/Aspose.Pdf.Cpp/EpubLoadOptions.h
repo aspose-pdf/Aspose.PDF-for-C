@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_EpubLoadOptions_h_
 #define _Aspose_Pdf_EpubLoadOptions_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <drawing/size_f.h>
 
@@ -25,23 +25,31 @@ class ASPOSE_PDF_SHARED_API EpubLoadOptions FINAL : public Aspose::Pdf::LoadOpti
     
 public:
 
+    /// <summary>
+    /// Gets or sets output page size for import.
+    /// </summary>
     System::Drawing::SizeF get_PageSize();
+    /// <summary>
+    /// Gets reference on object that represent marging info.
+    /// </summary>
     System::SharedPtr<MarginInfo> get_Margin();
     
+    /// <summary>
+    /// Creates default load options for converting EPUB file into pdf document. 
+    /// Default pdf page size - A4 300dpi 2480 X 3508.
+    /// </summary>
     EpubLoadOptions();
+    /// <summary>
+    /// Creates load options with specified page size.
+    /// </summary>
+    /// <param name="pageSize">
+    /// Defines pdf page width and height.
+    /// </param>
     EpubLoadOptions(System::Drawing::SizeF pageSize);
     
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "EpubLoadOptions"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

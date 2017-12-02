@@ -27,22 +27,24 @@ public:
 
     virtual ~InvalidPasswordException();
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="InvalidPasswordException"/> class.
+    /// </summary>
+    /// <param name="message">The message.</param>
     InvalidPasswordException(System::String message);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="InvalidPasswordException"></see> class with a specified error message and a reference to the inner exception that is the cause of this exception.
+    /// </summary>
+    /// <param name="message">The error message that explains the reason for the exception. </param>
+    /// <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified. </param>
     InvalidPasswordException(System::String message, System::Exception innerException);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="InvalidPasswordException"></see> class with a specified error message and a reference to the inner exception that is the cause of this exception.
+    /// </summary>
+    /// <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified. </param>
     InvalidPasswordException(System::Exception innerException);
     InvalidPasswordException();
     InvalidPasswordException(std::nullptr_t);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "InvalidPasswordException"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

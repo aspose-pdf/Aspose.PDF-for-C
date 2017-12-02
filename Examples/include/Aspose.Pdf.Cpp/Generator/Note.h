@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Generator_Note_h_
 #define _Aspose_Pdf_Generator_Note_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_text_writer.h>
 #include <xml/xml_reader.h>
@@ -31,11 +31,27 @@ class ASPOSE_PDF_SHARED_API Note FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets a note fragment.
+    /// </summary>
     System::SharedPtr<Text::TextFragment> get_Fragment();
+    /// <summary>
+    /// Gets or sets a note fragment.
+    /// </summary>
     void set_Fragment(System::SharedPtr<Text::TextFragment> value);
+    /// <summary>
+    /// Gets or sets a note text.
+    /// </summary>
     System::String get_Text();
+    /// <summary>
+    /// Gets or sets a note text.
+    /// </summary>
     void set_Text(System::String value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Note"/> class.
+    /// </summary>
+    /// <param name="content">The note content.</param>
     Note(System::String content);
     
 protected:
@@ -43,14 +59,6 @@ protected:
     void Serialize(System::SharedPtr<System::Xml::XmlTextWriter> writer);
     void Deserialize(System::SharedPtr<System::Xml::XmlReader> reader);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Note"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

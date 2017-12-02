@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_SoundData_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_SoundData_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -38,14 +38,41 @@ class ASPOSE_PDF_SHARED_API SoundData FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets the sampling rate, in samples per second.
+    /// </summary>
     int32_t get_Rate();
+    /// <summary>
+    /// Gets or sets the sampling rate, in samples per second.
+    /// </summary>
     void set_Rate(int32_t value);
+    /// <summary>
+    /// Gets or sets the number of sound channels.
+    /// </summary>
     int32_t get_Channels();
+    /// <summary>
+    /// Gets or sets the number of sound channels.
+    /// </summary>
     void set_Channels(int32_t value);
+    /// <summary>
+    /// Gets or sets the number of bits per sample value per channel.
+    /// </summary>
     int32_t get_Bits();
+    /// <summary>
+    /// Gets or sets the number of bits per sample value per channel.
+    /// </summary>
     void set_Bits(int32_t value);
+    /// <summary>
+    /// Gets stream of the sound to be played when the annotation is activated.
+    /// </summary>
     System::SharedPtr<System::IO::Stream> get_Contents();
+    /// <summary>
+    /// Gets or sets the encoding format for the sample data.
+    /// </summary>
     Annotations::SoundEncoding get_Encoding();
+    /// <summary>
+    /// Gets or sets the encoding format for the sample data.
+    /// </summary>
     void set_Encoding(Annotations::SoundEncoding value);
     
 protected:
@@ -53,18 +80,19 @@ protected:
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDataStream> get_EngineStm();
     
     SoundData(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDataStream> engineStm);
+    /// <summary>
+    /// </summary>
+    /// <param name="parent"></param>
+    /// <param name="soundFile"></param>
     SoundData(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> parent, System::String soundFile);
+    /// <summary>
+    /// </summary>
+    /// <param name="parent"></param>
+    /// <param name="soundFile"></param>
+    /// <param name="soundSampleData"></param>
     SoundData(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> parent, System::String soundFile, System::SharedPtr<Annotations::SoundSampleData> soundSampleData);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SoundData"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

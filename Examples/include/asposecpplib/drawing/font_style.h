@@ -14,9 +14,12 @@ namespace System { namespace Drawing {
         Strikeout = 8,
     };
 
+DECLARE_ENUM_OPERATORS(System::Drawing::FontStyle);
+
 }}
 
-DECLARE_ENUM_OPERATORS(System::Drawing::FontStyle);
+DECLARE_USING_ENUM_OPERATORS(System::Drawing); 
+
 
 template<>
 struct EnumMetaInfo<System::Drawing::FontStyle>

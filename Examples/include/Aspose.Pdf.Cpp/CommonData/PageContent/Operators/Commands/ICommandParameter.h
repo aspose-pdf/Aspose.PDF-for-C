@@ -46,8 +46,19 @@ class ASPOSE_PDF_SHARED_API ICommandParameter : public Aspose::Pdf::Engine::Comm
     
 public:
 
+    /// <summary>
+    /// Gets the name.
+    /// </summary>
+    /// <value>The name.</value>
     virtual System::String get_Name() = 0;
     
+    /// <summary>
+    /// Gets or sets the value.
+    /// </summary>
+    /// <value>The value.</value>
+    //<<-- REFACTORING: Commanted
+    //object Value { get; set; }
+    //....
     virtual System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfPrimitive> get_IPdfPrimitive() = 0;
     virtual bool is_IPdfPrimitive() = 0;
     virtual uint8_t get_byte() = 0;
@@ -65,10 +76,23 @@ public:
     virtual bool is_null() = 0;
     virtual System::String valueToString() = 0;
     
+    /// <summary>
+    /// Occurs when command's parameter has been changed.
+    /// </summary>
     System::Event<void(System::SharedPtr<System::Object>, System::SharedPtr<CommandParameterChangedEventArgs>)> CommandParameterChanged;
+    /// <summary>
+    /// Occurs when command parameter is changinging.
+    /// </summary>
     System::Event<void(System::SharedPtr<System::Object>, System::SharedPtr<CommandParameterChangingEventArgs>)> CommandParameterChanging;
     
+    /// <summary>
+    /// Resets this instance.
+    /// </summary>
     virtual void Reset() = 0;
+    /// <summary>
+    /// Serializes the specified writer.
+    /// </summary>
+    /// <param name="writer">The writer.</param>
     virtual void Serialize(System::SharedPtr<Aspose::Pdf::Engine::IO::Stream::IPdfStreamWriter> writer) = 0;
     
 };

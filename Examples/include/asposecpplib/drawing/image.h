@@ -15,6 +15,7 @@
 #include "drawing/rectangle_f.h"
 #include "system/io/stream.h"
 #include "system/string.h"
+#include "imaging/image_flags.h"
 
 // skia headers and forwards
 #ifdef ASPOSECPP_SHARED_EXPORTS
@@ -61,6 +62,10 @@ namespace System { namespace Drawing {
 
         virtual int get_Width() const = 0;
         virtual int get_Height() const = 0;
+        virtual Imaging::ImageFlags get_Flags() const
+        {
+            throw System::NotImplementedException(ASPOSE_CURRENT_FUNCTION);
+        }
         Size get_Size() const;
 
         virtual Imaging::ImageFormatPtr get_RawFormat() const = 0;
@@ -87,18 +92,21 @@ namespace System { namespace Drawing {
         void Dispose() { };
 
     protected:
-        enum { k_default_save_quality = 80 };
 
+        static const int s_default_save_quality = 80;
+        
         friend class Graphics;
         friend class TextureBrush;
         friend class Bitmap;
 
         virtual SkCanvas * GetDrawingCanvas() const = 0;
-        virtual sk_sp<SkData> GetRawBytes(SkEncodedFormat encoder_type) const = 0;
+        virtual sk_sp<SkData> GetRawBytes(SkEncodedFormat encoder_type, int quality) = 0;
 
-        void InternalSave(SharedPtr<System::IO::Stream> stream, SkEncodedFormat encoder_type);
+        void InternalSave(SharedPtr<System::IO::Stream> stream, SkEncodedFormat encoder_type, int quality = s_default_save_quality);
 
-        static SkEncodedFormat CheckImageFormat(Imaging::ImageFormatPtr image_format);
+        static SkEncodedFormat CheckOutputFormat(Imaging::ImageFormatPtr image_format);
+        static SkEncodedFormat CheckOutputFormat(Imaging::ImageCodecInfoPtr encoder);
+        static SkEncodedFormat CheckOutputFormat(SkEncodedFormat encoded_format);
 
         virtual const SkBitmap* GetSkBitmap() const = 0;
         virtual const SkImageInfo* GetSkImageInfo() const = 0;

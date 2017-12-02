@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Operator_h_
 #define _Aspose_Pdf_Operator_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -240,11 +240,30 @@ class ASPOSE_PDF_SHARED_API ABSTRACT Operator : public System::Object
     
 public:
 
+    /// <summary>
+    /// Operator index in page operators list.
+    /// </summary>
     int32_t get_Index();
+    /// <summary>
+    /// Operator index in page operators list.
+    /// </summary>
     void set_Index(int32_t value);
     
+    /// <summary>
+    /// Accepts visitor IOperatorSelector which provides operators processing.
+    /// </summary>
+    /// <param name="visitor">Visitor object</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor) = 0;
+    /// <summary>
+    /// Returns text of operator and its parameters.
+    /// </summary>
+    /// <returns>Operator text</returns>
     virtual System::String ToString();
+    /// <summary>
+    /// Determines if the operator is operator which responsible for text output (Tj, TJ, etc)
+    /// </summary>
+    /// <param name="op">Operator object</param>
+    /// <returns>True if this is text output operator</returns>
     static bool IsTextShowOperator(System::SharedPtr<Operator> op);
     
 protected:
@@ -259,34 +278,81 @@ protected:
     
     System::ArrayPtr<uint8_t> _bytes;
     
+    /// <summary>
+    /// Gets operator name.
+    /// </summary>
     virtual System::String get_CommandName();
+    /// <summary>
+    /// Gets array of operator parameters.
+    /// </summary>
     virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Engine::CommonData::PageContent::Operators::Commands::CommandParameter>>> get_Parameters();
+    /// <summary>
+    /// Gets parameters count.
+    /// </summary>
+    //<<-- REFACTORING: New property, ParametersCount [perfomance optimization]
     virtual int32_t get_ParametersCount();
     virtual System::SharedPtr<Engine::CommonData::PageContent::Operators::Commands::ICommand> get_Command();
+    /// <summary>
+    /// Returns true if operator has binary parameter.
+    /// </summary>
     virtual bool get_HasBinaryData();
     
     bool is_command_null();
     void Reset();
+    /// <summary>
+    /// Creates operator from Pdf.Kit.Engine.ICommand instance.
+    /// </summary>
+    /// <param name="command">Pdf.Kit.Engine.ICommand instance representing this operator </param>
+    /// <returns>Created operator</returns>
     static System::SharedPtr<Operator> Create(System::SharedPtr<Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
+    /// <summary>
+    /// Creates operator from Pdf.Kit.Engine.ICommand instance.
+    /// </summary>
+    /// <param name="index">Index of operator in oeprators list</param>
+    /// <param name="command">Pdf.Kit.Engine.ICommand instance representing this operator </param>
+    /// <returns>Created operator</returns>
     static System::SharedPtr<Operator> Create(int32_t index, System::SharedPtr<Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
+    /// <summary>
+    /// Loads operator from command
+    /// </summary>
+    /// <param name="command"></param>
     virtual void FromCommand(System::SharedPtr<Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
+    /// <summary>
+    /// saves operator to command
+    /// </summary>
+    /// <param name="command"></param>
+    /// <returns></returns>
     virtual System::SharedPtr<Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     
+    /// <summary>
+    /// Constructor of Operator. Creates operattor by command object and operator index.
+    /// </summary>
+    /// <param name="index">Index of operator in operators list</param>
+    /// <param name="command">Command object of operator</param>
     Operator(int32_t index, System::SharedPtr<Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
+    /// <summary>
+    /// Returns text representation of Pdf primitive (string, array, dictionary etc.) according to PDF specification.
+    /// </summary>
+    /// <param name="primitive">Primitive</param>
+    /// <returns>Text represetation of the primitive</returns>
     static System::String ToString(System::SharedPtr<Engine::Data::IPdfPrimitive> primitive);
+    /// <summary>
+    /// Escapese special characters in string according to PDF specification
+    /// </summary>
+    /// <param name="s">Source string</param>
+    /// <returns>Escaped string</returns>
     static System::String escape(System::String s);
+    /// <summary>
+    /// Converts floating-point number to string 
+    /// This function is created to avoid .NET-specific IFormatProvider usage
+    /// </summary>
+    /// <param name="v">Value to be converted</param>
+    /// <returns></returns>
+    //<<--REFACTORING: private -> protected
     static System::String FloatToStr(double v);
     System::Object::shared_members_type GetSharedMembers() override;
     static void __FreeStaticPointers();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Operator"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -317,25 +383,33 @@ class ASPOSE_PDF_SHARED_API FillStroke : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     FillStroke();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     FillStroke(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "FillStroke"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -355,27 +429,35 @@ class ASPOSE_PDF_SHARED_API ClosePathFillStroke : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     ClosePathFillStroke();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns string representation of operator.
+    /// </summary>
+    /// <returns>String representation</returns>
     virtual System::String ToString();
     
 protected:
 
     virtual System::String get_CommandName();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     ClosePathFillStroke(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ClosePathFillStroke"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -395,27 +477,35 @@ class ASPOSE_PDF_SHARED_API ClosePathEOFillStroke : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     ClosePathEOFillStroke();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
     virtual System::String get_CommandName();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     ClosePathEOFillStroke(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ClosePathEOFillStroke"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -435,23 +525,27 @@ class ASPOSE_PDF_SHARED_API EOFillStroke : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     EOFillStroke();
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     EOFillStroke(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "EOFillStroke"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -476,10 +570,24 @@ class ASPOSE_PDF_SHARED_API BDC : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Gets or sets marked content tag
+    /// </summary>
     System::String get_Tag();
+    /// <summary>
+    /// Gets or sets marked content tag
+    /// </summary>
     void set_Tag(System::String value);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
@@ -489,7 +597,15 @@ protected:
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfName> get_PropertiesName();
     void set_PropertiesName(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfName> value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     BDC(System::String tag);
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     BDC(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     BDC(System::String tag, System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> properties);
     BDC(System::String tag, System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfName> property);
@@ -497,14 +613,6 @@ protected:
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "BDC"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -531,24 +639,28 @@ class ASPOSE_PDF_SHARED_API BI : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     BI();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     BI(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "BI"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -568,28 +680,43 @@ class ASPOSE_PDF_SHARED_API BMC : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Gets or sets marked content tag
+    /// </summary>
     System::String get_Tag();
+    /// <summary>
+    /// Gets or sets marked content tag
+    /// </summary>
     void set_Tag(System::String value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="tag">Marked content tag.</param>
     BMC(System::String tag);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     BMC(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "BMC"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -616,24 +743,32 @@ class ASPOSE_PDF_SHARED_API ABSTRACT TextOperator : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     TextOperator();
+    /// <summary>
+    /// Text operator which accepts text properties. 
+    /// </summary>
+    /// <param name="textProperties">Text properties.</param>
     TextOperator(System::SharedPtr<Aspose::Pdf::Facades::TextProperties> textProperties);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes TextOperator 
+    /// </summary>
+    /// <param name="index">Index of operator in operators list.</param>
+    /// <param name="command">Operator command.</param>
     TextOperator(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextOperator"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -657,27 +792,35 @@ class ASPOSE_PDF_SHARED_API BX : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     BX();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
     virtual System::String get_CommandName();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     BX(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "BX"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -697,26 +840,40 @@ class ASPOSE_PDF_SHARED_API CurveTo : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes curve operator.
+    /// </summary>
+    /// <param name="x1">Abscissa of first point.</param>
+    /// <param name="y1">Ordinate of first point.</param>
+    /// <param name="x2">Abscissa of second point.</param>
+    /// <param name="y2">Ordinate of second point.</param>
+    /// <param name="x3">Abscissa of third point.</param>
+    /// <param name="y3">Ordinate of third point.</param>
     CurveTo(double x1, double y1, double x2, double y2, double x3, double y3);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     CurveTo(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "CurveTo"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -744,30 +901,54 @@ class ASPOSE_PDF_SHARED_API ConcatenateMatrix : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Matrix argument of the operator. 
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::DOM::Matrix> get_Matrix();
+    /// <summary>
+    /// Matrix argument of the operator. 
+    /// </summary>
     void set_Matrix(System::SharedPtr<Aspose::Pdf::DOM::Matrix> value);
     
+    /// <summary>
+    /// Initializes operator. 
+    /// </summary>
+    /// <param name="a">A coefficient</param>
+    /// <param name="b">B coefficient</param>
+    /// <param name="c">C coefficient</param>
+    /// <param name="d">D coefficient</param>
+    /// <param name="e">E coefficient</param>
+    /// <param name="f">F coefficient</param>
     ConcatenateMatrix(double a, double b, double c, double d, double e, double f);
+    /// <summary>
+    /// Initializes operator by matrix.
+    /// </summary>
+    /// <param name="m">Transfomation matrix.</param>
     ConcatenateMatrix(System::SharedPtr<Aspose::Pdf::DOM::Matrix> m);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of representation</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     ConcatenateMatrix(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ConcatenateMatrix"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -793,26 +974,37 @@ class ASPOSE_PDF_SHARED_API SetColorSpaceStroke : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Gets or sets color space name.
+    /// </summary>
     System::String get_Name();
+    /// <summary>
+    /// Gets or sets color space name.
+    /// </summary>
     void set_Name(System::String value);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetColorSpaceStroke(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="name">Color space name.</param>
     SetColorSpaceStroke(System::String name);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetColorSpaceStroke"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -838,28 +1030,39 @@ class ASPOSE_PDF_SHARED_API SetColorSpace : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Gets or sets color space name.
+    /// </summary>
     System::String get_Name();
+    /// <summary>
+    /// Gets or sets color space name.
+    /// </summary>
     void set_Name(System::String value);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
     virtual System::String get_CommandName();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="name">Color space name.</param>
     SetColorSpace(System::String name);
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetColorSpace(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetColorSpace"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -883,31 +1086,61 @@ class ASPOSE_PDF_SHARED_API SetDash : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Dash pattern. Array�s elements shall be numbers that specify the lengths of alternating dashes and gaps.
+    /// In case of one element array dash and gap lengths are equal.
+    /// </summary>
     System::ArrayPtr<int32_t> get_Pattern();
+    /// <summary>
+    /// Dash pattern. Array�s elements shall be numbers that specify the lengths of alternating dashes and gaps.
+    /// In case of one element array dash and gap lengths are equal.
+    /// </summary>
     void set_Pattern(System::ArrayPtr<int32_t> value);
+    /// <summary>
+    /// Dash phase. Before beginning to stroke a path, the dash array shall be cycled through, adding up the lengths of dashes and gaps. 
+    /// When the accumulated length equals the value specified by the dash phase, stroking of the path shall begin, 
+    /// and the dash array shall be used cyclically from that point onward.
+    /// </summary>
     int32_t get_Phase();
+    /// <summary>
+    /// Dash phase. Before beginning to stroke a path, the dash array shall be cycled through, adding up the lengths of dashes and gaps. 
+    /// When the accumulated length equals the value specified by the dash phase, stroking of the path shall begin, 
+    /// and the dash array shall be used cyclically from that point onward.
+    /// </summary>
     void set_Phase(int32_t value);
     
+    /// <summary>
+    /// Creates set dash pattern operator.
+    /// </summary>
+    /// <param name="pattern">Array which defines dash pattern.</param>
+    /// <param name="phase">Dash phase.</param>
     SetDash(System::ArrayPtr<int32_t> pattern, int32_t phase);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Gets operator string representation.
+    /// </summary>
+    /// <returns>
+    /// [x1 x2] y d, where x1 - dash length, x2 - gap length, y - phase.
+    /// </returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetDash(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetDash"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -932,23 +1165,27 @@ class ASPOSE_PDF_SHARED_API SetCharWidth : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     SetCharWidth();
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetCharWidth(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetCharWidth"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -968,23 +1205,27 @@ class ASPOSE_PDF_SHARED_API SetCharWidthBoundingBox : public Aspose::Pdf::Operat
     
 public:
 
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     SetCharWidthBoundingBox();
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetCharWidthBoundingBox(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetCharWidthBoundingBox"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -1004,29 +1245,48 @@ class ASPOSE_PDF_SHARED_API Do : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Name of XObject argument of the operator.
+    /// </summary>
     System::String get_Name();
+    /// <summary>
+    /// Name of XObject argument of the operator.
+    /// </summary>
     void set_Name(System::String value);
     
+    /// <summary>
+    /// Constructs new Do operator. 
+    /// </summary>
+    /// <param name="name">Name of invoked XObject.</param>
     Do(System::String name);
+    /// <summary>
+    /// Constructs new Do operator. 
+    /// Used for retrieving all Do operators, i.e. without checking their argument names.
+    /// </summary>
     Do();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     Do(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Do"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -1051,10 +1311,24 @@ class ASPOSE_PDF_SHARED_API DP : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Gets or sets marked content tag
+    /// </summary>
     System::String get_Tag();
+    /// <summary>
+    /// Gets or sets marked content tag
+    /// </summary>
     void set_Tag(System::String value);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
@@ -1064,21 +1338,21 @@ protected:
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfName> get_PropertiesName();
     void set_PropertiesName(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfName> value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     DP(System::String tag);
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     DP(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     DP(System::String tag, System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> properties);
     
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "DP"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -1105,25 +1379,29 @@ class ASPOSE_PDF_SHARED_API EI : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
     virtual bool get_HasBinaryData();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     EI();
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     EI(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "EI"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -1143,25 +1421,33 @@ class ASPOSE_PDF_SHARED_API EMC : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     EMC();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of the operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     EMC(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "EMC"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -1181,24 +1467,28 @@ class ASPOSE_PDF_SHARED_API EX : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     EX();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     EX(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "EX"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -1218,25 +1508,33 @@ class ASPOSE_PDF_SHARED_API Fill : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initilizes new f operator.
+    /// </summary>
     Fill();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     Fill(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Fill"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -1256,23 +1554,27 @@ class ASPOSE_PDF_SHARED_API ObsoleteFill : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     ObsoleteFill();
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     ObsoleteFill(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ObsoleteFill"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -1292,24 +1594,28 @@ class ASPOSE_PDF_SHARED_API EOFill : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     EOFill();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     EOFill(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "EOFill"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -1329,28 +1635,43 @@ class ASPOSE_PDF_SHARED_API GS : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Gets or sets name of graphic state resource.
+    /// </summary>
     System::String get_Name();
+    /// <summary>
+    /// Gets or sets name of graphic state resource.
+    /// </summary>
     void set_Name(System::String value);
     
+    /// <summary>
+    /// Initializes gs operator.
+    /// </summary>
+    /// <param name="name">Name of graphic state.</param>
     GS(System::String name);
     
+    /// <summary>
+    /// Returns string represnetation of operator.
+    /// </summary>
+    /// <returns>String representation of operator.</returns>
     virtual System::String ToString();
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     GS(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "GS"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -1374,26 +1695,30 @@ class ASPOSE_PDF_SHARED_API ClosePath : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     ClosePath();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
     virtual System::String get_CommandName();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     ClosePath(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ClosePath"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -1413,27 +1738,38 @@ class ASPOSE_PDF_SHARED_API SetFlat : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Gets or sets the flatness.
+    /// </summary>
     double get_Flatness();
+    /// <summary>
+    /// Gets or sets the flatness.
+    /// </summary>
     void set_Flatness(double value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="flatness">The value of flatness.</param>
     SetFlat(double flatness);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetFlat(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetFlat"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -1457,25 +1793,29 @@ class ASPOSE_PDF_SHARED_API ID : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
     virtual System::String get_CommandName();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     ID();
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     ID(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ID"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -1496,6 +1836,10 @@ class ASPOSE_PDF_SHARED_API SetLineJoin : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
@@ -1503,21 +1847,21 @@ protected:
     Aspose::Pdf::Engine::Presentation::Primitives::LineJoin get_Join();
     void set_Join(Aspose::Pdf::Engine::Presentation::Primitives::LineJoin value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     SetLineJoin();
     SetLineJoin(Aspose::Pdf::Engine::Presentation::Primitives::LineJoin join);
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetLineJoin(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetLineJoin"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -1544,27 +1888,35 @@ class ASPOSE_PDF_SHARED_API SetLineCap : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Gets or sets line caps style. 
+    /// </summary>
     Aspose::Pdf::Engine::Presentation::Primitives::LineCap get_Cap();
+    /// <summary>
+    /// Gets or sets line caps style. 
+    /// </summary>
     void set_Cap(Aspose::Pdf::Engine::Presentation::Primitives::LineCap value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     SetLineCap(Aspose::Pdf::Engine::Presentation::Primitives::LineCap cap);
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     SetLineCap(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetLineCap"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -1588,30 +1940,52 @@ class ASPOSE_PDF_SHARED_API LineTo : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// X coordinate of line point.
+    /// </summary>
     double get_X();
+    /// <summary>
+    /// X coordinate of line point.
+    /// </summary>
     void set_X(double value);
+    /// <summary>
+    /// Y coordinate of line point.
+    /// </summary>
     double get_Y();
+    /// <summary>
+    /// Y coordinate of line point.
+    /// </summary>
     void set_Y(double value);
     
+    /// <summary>
+    /// Initializes line operator.
+    /// </summary>
+    /// <param name="x">X coordinate.</param>
+    /// <param name="y">Y coordinate.</param>
     LineTo(double x, double y);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of the operator.
+    /// </summary>
+    /// <returns>Text representation of the operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     LineTo(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "LineTo"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -1636,14 +2010,39 @@ class ASPOSE_PDF_SHARED_API MoveTo : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// X coordinate 
+    /// </summary>
     double get_X();
+    /// <summary>
+    /// X coordinate 
+    /// </summary>
     void set_X(double value);
+    /// <summary>
+    /// Y coordinate
+    /// </summary>
     double get_Y();
+    /// <summary>
+    /// Y coordinate
+    /// </summary>
     void set_Y(double value);
     
+    /// <summary>
+    /// Inintalizes new <see cref="Operator.m"/> (move to) operator.
+    /// </summary>
+    /// <param name="x">The x-coordinate.</param>
+    /// <param name="y">The y-coordinate.</param>
     MoveTo(double x, double y);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of the operator.
+    /// </summary>
+    /// <returns>Text representation of the operator.</returns>
     virtual System::String ToString();
     
 protected:
@@ -1652,14 +2051,6 @@ protected:
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "MoveTo"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -1684,27 +2075,38 @@ class ASPOSE_PDF_SHARED_API SetMiterLimit : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Gets or sets the miter limit.
+    /// </summary>
     double get_MiterLimit();
+    /// <summary>
+    /// Gets or sets the miter limit.
+    /// </summary>
     void set_MiterLimit(double value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="miterLimit">Mitel limit.</param>
     SetMiterLimit(double miterLimit);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetMiterLimit(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetMiterLimit"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -1728,27 +2130,38 @@ class ASPOSE_PDF_SHARED_API MP : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Gets or sets marked content tag
+    /// </summary>
     System::String get_Tag();
+    /// <summary>
+    /// Gets or sets marked content tag
+    /// </summary>
     void set_Tag(System::String value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="tag">Marked content tag.</param>
     MP(System::String tag);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     MP(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "MP"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -1772,25 +2185,33 @@ class ASPOSE_PDF_SHARED_API EndPath : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     EndPath();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     EndPath(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "EndPath"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -1810,25 +2231,33 @@ class ASPOSE_PDF_SHARED_API GSave : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes q operator.
+    /// </summary>
     GSave();
     
+    /// <summary>
+    /// Returns text of the operator.
+    /// </summary>
+    /// <returns>Text representation of the operator.</returns>
     virtual System::String ToString();
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     GSave(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "GSave"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -1848,25 +2277,33 @@ class ASPOSE_PDF_SHARED_API GRestore : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes Q operator.
+    /// </summary>
     GRestore();
     
+    /// <summary>
+    /// Returns text of the operator.
+    /// </summary>
+    /// <returns>Text representation of the operator.</returns>
     virtual System::String ToString();
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     GRestore(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "GRestore"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -1886,35 +2323,74 @@ class ASPOSE_PDF_SHARED_API Re : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// X coordinate of most left side of rectangle.
+    /// </summary>
     double get_X();
+    /// <summary>
+    /// X coordinate of most left side of rectangle.
+    /// </summary>
     void set_X(double value);
+    /// <summary>
+    /// Y corrdinate of bottom side of rectangle.
+    /// </summary>
     double get_Y();
+    /// <summary>
+    /// Y corrdinate of bottom side of rectangle.
+    /// </summary>
     void set_Y(double value);
+    /// <summary>
+    /// Width of the rectangle.
+    /// </summary>
     double get_Width();
+    /// <summary>
+    /// Width of the rectangle.
+    /// </summary>
     void set_Width(double value);
+    /// <summary>
+    /// Height of the rectangle.
+    /// </summary>
     double get_Height();
+    /// <summary>
+    /// Height of the rectangle.
+    /// </summary>
     void set_Height(double value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     Re();
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="x">The x-coordinate of the bottom-left corner of the rectangle.</param>
+    /// <param name="y">The y-coordinate of the bottom-left corner of the rectangle.</param>
+    /// <param name="width">The width of the rectangle.</param>
+    /// <param name="height">The height of the rectangle.</param>
     Re(double x, double y, double width, double height);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of the operator.
+    /// </summary>
+    /// <returns>Text representation of the operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     Re(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Re"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -1950,20 +2426,20 @@ class ASPOSE_PDF_SHARED_API ABSTRACT SetColorOperator : public Aspose::Pdf::Oper
     
 public:
 
+    /// <summary>
+    /// Retirns color specified by the operator.
+    /// </summary>
+    /// <returns>Color specified by operator.</returns>
     virtual System::Drawing::Color getColor() = 0;
     
 protected:
 
+    /// <summary>
+    /// Initializes SetColorOperator
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="command"></param>
     SetColorOperator(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetColorOperator"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -1983,23 +2459,27 @@ class ASPOSE_PDF_SHARED_API SetColorRenderingIntent : public Aspose::Pdf::Operat
     
 public:
 
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     SetColorRenderingIntent();
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetColorRenderingIntent(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetColorRenderingIntent"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -2019,25 +2499,33 @@ class ASPOSE_PDF_SHARED_API ClosePathStroke : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     ClosePathStroke();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of the operator.
+    /// </summary>
+    /// <returns>Text representation of the operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     ClosePathStroke(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ClosePathStroke"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -2057,25 +2545,33 @@ class ASPOSE_PDF_SHARED_API Stroke : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     Stroke();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of the operator.
+    /// </summary>
+    /// <returns>Text representation of the operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     Stroke(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Stroke"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -2095,26 +2591,36 @@ class ASPOSE_PDF_SHARED_API ShFill : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Gets or sets the shading name.
+    /// </summary>
     System::String get_Name();
+    /// <summary>
+    /// Gets or sets the shading name.
+    /// </summary>
     void set_Name(System::String value);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     ShFill();
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     ShFill(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ShFill"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -2138,25 +2644,33 @@ class ASPOSE_PDF_SHARED_API CurveTo1 : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes curve operator.
+    /// </summary>
+    /// <param name="x2">Abscissa of second point.</param>
+    /// <param name="y2">Ordinate of second point.</param>
+    /// <param name="x3">Abscissa of third point.</param>
+    /// <param name="y3">Ordinate of third point.</param>
     CurveTo1(double x2, double y2, double x3, double y3);
     
+    /// <summary>
+    /// Accepts operator selector.
+    /// </summary>
+    /// <param name="visitor">Visitor object</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     CurveTo1(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "CurveTo1"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -2184,28 +2698,43 @@ class ASPOSE_PDF_SHARED_API SetLineWidth : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Gets or sets width of the line. 
+    /// </summary>
     double get_Width();
+    /// <summary>
+    /// Gets or sets width of the line. 
+    /// </summary>
     void set_Width(double value);
     
+    /// <summary>
+    /// Initializes operator with width value.
+    /// </summary>
+    /// <param name="width">Line width.</param>
     SetLineWidth(double width);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetLineWidth(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetLineWidth"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -2229,25 +2758,33 @@ class ASPOSE_PDF_SHARED_API Clip : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     Clip();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operators.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     Clip(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Clip"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -2267,23 +2804,27 @@ class ASPOSE_PDF_SHARED_API EOClip : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     EOClip();
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     EOClip(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "EOClip"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -2303,25 +2844,33 @@ class ASPOSE_PDF_SHARED_API CurveTo2 : public Aspose::Pdf::Operator
     
 public:
 
+    /// <summary>
+    /// Initializes curve operator.
+    /// </summary>
+    /// <param name="x1">Abscissa of second point.</param>
+    /// <param name="y1">Ordinate of second point.</param>
+    /// <param name="x3">Abscissa of third point.</param>
+    /// <param name="y3">Ordinate of third point.</param>
     CurveTo2(double x1, double y1, double x3, double y3);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     CurveTo2(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "CurveTo2"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -2350,21 +2899,24 @@ class ASPOSE_PDF_SHARED_API BlockTextOperator : public Aspose::Pdf::Operators::T
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     BlockTextOperator();
+    /// <summary>
+    /// Initializes BlockTextOperator which accepts TextProperties.
+    /// </summary>
+    /// <param name="textProperties">Text properties.</param>
     BlockTextOperator(System::SharedPtr<Aspose::Pdf::Facades::TextProperties> textProperties);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     BlockTextOperator(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "BlockTextOperator"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -2387,24 +2939,33 @@ class ASPOSE_PDF_SHARED_API TextShowOperator : public Aspose::Pdf::Operators::Te
     
 public:
 
+    /// <summary>
+    /// Gets text which operator out on the page.
+    /// </summary>
     virtual System::String get_Text();
+    /// <summary>
+    /// Gets text which operator out on the page.
+    /// </summary>
     virtual void set_Text(System::String value);
     
+    /// <summary>
+    /// Initializes TextShowOperator. 
+    /// </summary>
     TextShowOperator();
+    /// <summary>
+    /// Initializes TextShowOperator which allows to pass TextProperties.
+    /// </summary>
+    /// <param name="textProperties">Text properties.</param>
     TextShowOperator(System::SharedPtr<Aspose::Pdf::Facades::TextProperties> textProperties);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     TextShowOperator(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextShowOperator"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -2430,21 +2991,24 @@ class ASPOSE_PDF_SHARED_API TextStateOperator : public Aspose::Pdf::Operators::T
     
 public:
 
+    /// <summary>
+    /// Initializes TextStateOperator.
+    /// </summary>
     TextStateOperator();
+    /// <summary>
+    /// Initializes TextStateoperator which allows to pass TextProperties.
+    /// </summary>
+    /// <param name="textProperties">Text properties.</param>
     TextStateOperator(System::SharedPtr<Aspose::Pdf::Facades::TextProperties> textProperties);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     TextStateOperator(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextStateOperator"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -2467,21 +3031,24 @@ class ASPOSE_PDF_SHARED_API TextPlaceOperator : public Aspose::Pdf::Operators::T
     
 public:
 
+    /// <summary>
+    /// Initializes TextPlaceOperator.
+    /// </summary>
     TextPlaceOperator();
+    /// <summary>
+    /// Initializes TextPlaceOperator which accepts TextProperties.
+    /// </summary>
+    /// <param name="textProperties">Text properties.</param>
     TextPlaceOperator(System::SharedPtr<Aspose::Pdf::Facades::TextProperties> textProperties);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     TextPlaceOperator(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextPlaceOperator"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -2501,25 +3068,33 @@ class ASPOSE_PDF_SHARED_API BT : public Aspose::Pdf::Operators::BlockTextOperato
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     BT();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Produces text code of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     BT(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "BT"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -2539,25 +3114,33 @@ class ASPOSE_PDF_SHARED_API ET : public Aspose::Pdf::Operators::BlockTextOperato
     
 public:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     ET();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Produces text code of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     ET(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ET"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -2577,25 +3160,33 @@ class ASPOSE_PDF_SHARED_API MoveToNextLine : public Aspose::Pdf::Operators::Text
     
 public:
 
+    /// <summary>
+    /// Initializes operator. 
+    /// </summary>
     MoveToNextLine();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text of the operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     MoveToNextLine(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "MoveToNextLine"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -2615,27 +3206,38 @@ class ASPOSE_PDF_SHARED_API SetCharacterSpacing : public Aspose::Pdf::Operators:
     
 public:
 
+    /// <summary>
+    /// Gets or sets the character spacing.
+    /// </summary>
     double get_CharSpacing();
+    /// <summary>
+    /// Gets or sets the character spacing.
+    /// </summary>
     void set_CharSpacing(double value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="charSpacing">Character spacing.</param>
     SetCharacterSpacing(double charSpacing);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetCharacterSpacing(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetCharacterSpacing"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -2659,30 +3261,52 @@ class ASPOSE_PDF_SHARED_API MoveTextPosition : public Aspose::Pdf::Operators::Te
     
 public:
 
+    /// <summary>
+    /// X coordinate of text position.
+    /// </summary>
     double get_X();
+    /// <summary>
+    /// X coordinate of text position.
+    /// </summary>
     void set_X(double value);
+    /// <summary>
+    /// Y coordinate of text position.
+    /// </summary>
     double get_Y();
+    /// <summary>
+    /// Y coordinate of text position.
+    /// </summary>
     void set_Y(double value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="x">X coordinate of text position.</param>
+    /// <param name="y">Y coordinate of text position.</param>
     MoveTextPosition(double x, double y);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     MoveTextPosition(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "MoveTextPosition"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -2707,29 +3331,47 @@ class ASPOSE_PDF_SHARED_API MoveTextPositionSetLeading : public Aspose::Pdf::Ope
     
 public:
 
+    /// <summary>
+    /// X coordinate of text position.
+    /// </summary>
     double get_X();
+    /// <summary>
+    /// X coordinate of text position.
+    /// </summary>
     void set_X(double value);
+    /// <summary>
+    /// Y coordinate of text position.
+    /// </summary>
     double get_Y();
+    /// <summary>
+    /// Y coordinate of text position.
+    /// </summary>
     void set_Y(double value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="x">X coordinate of text position.</param>
+    /// <param name="y">Y coordinate of text position.</param>
     MoveTextPositionSetLeading(double x, double y);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     MoveTextPositionSetLeading(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "MoveTextPositionSetLeading"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -2754,28 +3396,44 @@ class ASPOSE_PDF_SHARED_API SelectFont : public Aspose::Pdf::Operators::TextStat
     
 public:
 
+    /// <summary>
+    /// Name of font.
+    /// </summary>
     System::String get_Name();
+    /// <summary>
+    /// Size of text.
+    /// </summary>
     double get_Size();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="resName">The name of font resource, e.g. F1, F2 etc.</param>
+    /// <param name="size">Size of the font.</param>
     SelectFont(System::String resName, double size);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SelectFont(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SelectFont"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -2806,35 +3464,69 @@ class ASPOSE_PDF_SHARED_API ShowText : public Aspose::Pdf::Operators::TextShowOp
     
 public:
 
+    /// <summary>
+    /// Text of operator.
+    /// </summary>
     virtual System::String get_Text();
+    /// <summary>
+    /// Text of operator.
+    /// </summary>
     virtual void set_Text(System::String value);
     
+    /// <summary>
+    /// Initializes Tj opearor. 
+    /// </summary>
+    /// <param name="index">Index of operator in operators list.</param>
+    /// <param name="text">argument of the operator.</param>
     ShowText(int32_t index, System::String text);
+    /// <summary>
+    /// Initializes Tj operator. 
+    /// </summary>
+    /// <param name="text">argument of the operator.</param>
     ShowText(System::String text);
+    /// <summary>
+    /// Initializes Tj opearor.
+    /// </summary>
+    /// <param name="text">text to add.</param>
+    /// <param name="font">font that is used to draw the text.</param>
     ShowText(System::String text, System::SharedPtr<Text::Font> font);
+    /// <summary>
+    /// Initializes Tj operator.
+    /// </summary>
     ShowText();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Produces text code of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Text of operator.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfString> get_PdfString();
+    /// <summary>
+    /// Text of operator.
+    /// </summary>
     void set_PdfString(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfString> value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     ShowText(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ShowText"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -2859,27 +3551,38 @@ class ASPOSE_PDF_SHARED_API SetGlyphsPositionShowText : public Aspose::Pdf::Oper
     
 public:
 
+    /// <summary>
+    /// Gets text from operator argument (glyph positioning is ignored).
+    /// </summary>
     virtual System::String get_Text();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     SetGlyphsPositionShowText();
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetGlyphsPositionShowText(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetGlyphsPositionShowText"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -2904,12 +3607,30 @@ class ASPOSE_PDF_SHARED_API SetTextLeading : public Aspose::Pdf::Operators::Text
     
 public:
 
+    /// <summary>
+    /// Gets or sets the text leading.
+    /// </summary>
     double get_Leading();
+    /// <summary>
+    /// Gets or sets the text leading.
+    /// </summary>
     void set_Leading(double value);
     
+    /// <summary>
+    /// Initializes text leading operator. 
+    /// </summary>
+    /// <param name="leading">Text leading.</param>
     SetTextLeading(double leading);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Produces text code of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
@@ -2918,14 +3639,6 @@ protected:
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetTextLeading"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -2949,30 +3662,54 @@ class ASPOSE_PDF_SHARED_API SetTextMatrix : public Aspose::Pdf::Operators::TextP
     
 public:
 
+    /// <summary>
+    /// Matrix argument of the operator. 
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::DOM::Matrix> get_Matrix();
+    /// <summary>
+    /// Matrix argument of the operator. 
+    /// </summary>
     void set_Matrix(System::SharedPtr<Aspose::Pdf::DOM::Matrix> value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="a">A coefficient</param>
+    /// <param name="b">B coefficient</param>
+    /// <param name="c">C coefficient</param>
+    /// <param name="d">D coefficient</param>
+    /// <param name="e">E coefficient</param>
+    /// <param name="f">F coefficient</param>
     SetTextMatrix(double a, double b, double c, double d, double e, double f);
+    /// <summary>
+    /// Initializes operator by matrix.
+    /// </summary>
+    /// <param name="m">Transfomation matrix.</param>
     SetTextMatrix(System::SharedPtr<Aspose::Pdf::DOM::Matrix> m);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetTextMatrix(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetTextMatrix"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -2996,23 +3733,27 @@ class ASPOSE_PDF_SHARED_API SetTextRenderingMode : public Aspose::Pdf::Operators
     
 public:
 
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     SetTextRenderingMode();
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetTextRenderingMode(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetTextRenderingMode"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -3032,27 +3773,38 @@ class ASPOSE_PDF_SHARED_API SetTextRise : public Aspose::Pdf::Operators::TextSta
     
 public:
 
+    /// <summary>
+    /// Gets or sets the text rise.
+    /// </summary>
     double get_TextRise();
+    /// <summary>
+    /// Gets or sets the text rise.
+    /// </summary>
     void set_TextRise(double value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="textRise">Text rise.</param>
     SetTextRise(double textRise);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetTextRise(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetTextRise"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -3076,11 +3828,25 @@ class ASPOSE_PDF_SHARED_API SetWordSpacing : public Aspose::Pdf::Operators::Text
     
 public:
 
+    /// <summary>
+    /// Gets or sets the word spacing.
+    /// </summary>
     double get_WordSpacing();
+    /// <summary>
+    /// Gets or sets the word spacing.
+    /// </summary>
     void set_WordSpacing(double value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="wordSpacing">Word spacing.</param>
     SetWordSpacing(double wordSpacing);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
@@ -3089,14 +3855,6 @@ protected:
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetWordSpacing"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -3120,27 +3878,38 @@ class ASPOSE_PDF_SHARED_API SetHorizontalTextScaling : public Aspose::Pdf::Opera
     
 public:
 
+    /// <summary>
+    /// Gets or sets the horizontal scaling.
+    /// </summary>
     double get_HorizontalScaling();
+    /// <summary>
+    /// Gets or sets the horizontal scaling.
+    /// </summary>
     void set_HorizontalScaling(double value);
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="horizintalScaling">Horizontal scaling.</param>
     SetHorizontalTextScaling(double horizintalScaling);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetHorizontalTextScaling(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetHorizontalTextScaling"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -3164,27 +3933,38 @@ class ASPOSE_PDF_SHARED_API MoveToNextLineShowText : public Aspose::Pdf::Operato
     
 public:
 
+    /// <summary>
+    /// Gets operator text.
+    /// </summary>
     virtual System::String get_Text();
     
+    /// <summary>
+    /// Initializesoperator.
+    /// </summary>
     MoveToNextLineShowText();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="text">The text.</param>
     MoveToNextLineShowText(System::String text);
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     MoveToNextLineShowText(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "MoveToNextLineShowText"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -3208,27 +3988,40 @@ class ASPOSE_PDF_SHARED_API SetSpacingMoveToNextLineShowText : public Aspose::Pd
     
 public:
 
+    /// <summary>
+    /// Gets word spacing.
+    /// </summary>
     double get_Aw();
+    /// <summary>
+    /// Get character spacing. 
+    /// </summary>
     double get_Ac();
+    /// <summary>
+    /// Gets text of operator.
+    /// </summary>
     virtual System::String get_Text();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetSpacingMoveToNextLineShowText(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     SetSpacingMoveToNextLineShowText();
     
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetSpacingMoveToNextLineShowText"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -3254,27 +4047,40 @@ class ASPOSE_PDF_SHARED_API SetGrayStroke : public Aspose::Pdf::Operators::SetCo
     
 public:
 
+    /// <summary>
+    /// Returns color specified by operator.
+    /// </summary>
+    /// <returns>Color specified by operator.</returns>
     virtual System::Drawing::Color getColor();
     
+    /// <summary>
+    /// Initializes operator with the specified color.
+    /// </summary>
+    /// <param name="gray">The level of gray value.</param>
     SetGrayStroke(double gray);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetGrayStroke(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetGrayStroke"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -3298,27 +4104,40 @@ class ASPOSE_PDF_SHARED_API SetGray : public Aspose::Pdf::Operators::SetColorOpe
     
 public:
 
+    /// <summary>
+    /// Returns color specified by operator.
+    /// </summary>
+    /// <returns>Color specified by operator.</returns>
     virtual System::Drawing::Color getColor();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="gray">The level of gray value.</param>
     SetGray(double gray);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns string represnetation of operator.
+    /// </summary>
+    /// <returns>String representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetGray(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetGray"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -3342,26 +4161,38 @@ class ASPOSE_PDF_SHARED_API SetCMYKColorStroke : public Aspose::Pdf::Operators::
     
 public:
 
+    /// <summary>
+    /// Returns color 
+    /// </summary>
+    /// <returns>Color specified by operator.</returns>
     virtual System::Drawing::Color getColor();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="c">The level of cyan from 0.0 to 1.0</param>
+    /// <param name="m">The level of magenta from 0.0 to 1.0</param>
+    /// <param name="y">The level of yellow from 0.0 to 1.0</param>
+    /// <param name="k">The level of black from 0.0 to 1.0</param>
     SetCMYKColorStroke(double c, double m, double y, double k);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetCMYKColorStroke(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetCMYKColorStroke"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -3388,26 +4219,36 @@ class ASPOSE_PDF_SHARED_API SetCMYKColor : public Aspose::Pdf::Operators::SetCol
     
 public:
 
+    /// <summary>
+    /// Returns color.
+    /// </summary>
+    /// <returns>Color specified by operator.</returns>
     virtual System::Drawing::Color getColor();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="c">The level of cyan from 0.0 to 1.0</param>
+    /// <param name="m">The level of magenta from 0.0 to 1.0</param>
+    /// <param name="y">The level of yellow from 0.0 to 1.0</param>
+    /// <param name="k">The level of black from 0.0 to 1.0</param>
     SetCMYKColor(double c, double m, double y, double k);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     SetCMYKColor(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetCMYKColor"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -3436,28 +4277,47 @@ class ASPOSE_PDF_SHARED_API SetRGBColorStroke : public Aspose::Pdf::Operators::S
     
 public:
 
+    /// <summary>
+    /// Returns color specified by operator.
+    /// </summary>
+    /// <returns>Color specified by operator.</returns>
     virtual System::Drawing::Color getColor();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="r">The level of red from 0.0 to 1.0</param>
+    /// <param name="g">The level of green from 0.0 to 1.0</param>
+    /// <param name="b">The level of blue from 0.0 to 1.0</param>
     SetRGBColorStroke(double r, double g, double b);
+    /// <summary>
+    /// Initializes operator with color.
+    /// </summary>
+    /// <param name="color">Operator color.</param>
     SetRGBColorStroke(System::Drawing::Color color);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetRGBColorStroke(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetRGBColorStroke"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -3483,28 +4343,47 @@ class ASPOSE_PDF_SHARED_API SetRGBColor : public Aspose::Pdf::Operators::SetColo
     
 public:
 
+    /// <summary>
+    /// Returns color specified by operator.
+    /// </summary>
+    /// <returns>Color specified by operator.</returns>
     virtual System::Drawing::Color getColor();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="r">The level of red from 0.0 to 1.0</param>
+    /// <param name="g">The level of green from 0.0 to 1.0</param>
+    /// <param name="b">The level of blue from 0.0 to 1.0</param>
     SetRGBColor(double r, double g, double b);
+    /// <summary>
+    /// Initializes operator with color.
+    /// </summary>
+    /// <param name="color">Specfied color.</param>
     SetRGBColor(System::Drawing::Color color);
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
+    /// <summary>
+    /// Returns text representation of the operator.
+    /// </summary>
+    /// <returns>Text representation of operator.</returns>
     virtual System::String ToString();
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetRGBColor(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetRGBColor"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -3530,26 +4409,34 @@ class ASPOSE_PDF_SHARED_API SetColorStroke : public Aspose::Pdf::Operators::SetC
     
 public:
 
+    /// <summary>
+    /// Returns color specified by operator.
+    /// </summary>
+    /// <returns>Color specified by operator.</returns>
     virtual System::Drawing::Color getColor();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     SetColorStroke();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetColorStroke(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetColorStroke"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -3569,26 +4456,34 @@ class ASPOSE_PDF_SHARED_API SetColor : public Aspose::Pdf::Operators::SetColorOp
     
 public:
 
+    /// <summary>
+    /// Returns color specified by the operator.
+    /// </summary>
+    /// <returns>Operator color.</returns>
     virtual System::Drawing::Color getColor();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     SetColor();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetColor(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetColor"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -3608,26 +4503,34 @@ class ASPOSE_PDF_SHARED_API SetAdvancedColorStroke : public Aspose::Pdf::Operato
     
 public:
 
+    /// <summary>
+    /// Returns color specified by operator.
+    /// </summary>
+    /// <returns>Color specifid by operator.</returns>
     virtual System::Drawing::Color getColor();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     SetAdvancedColorStroke();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetAdvancedColorStroke(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetAdvancedColorStroke"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -3647,26 +4550,34 @@ class ASPOSE_PDF_SHARED_API SetAdvancedColor : public Aspose::Pdf::Operators::Se
     
 public:
 
+    /// <summary>
+    /// Retuns color specified by operator.
+    /// </summary>
+    /// <returns>Color set by operator.</returns>
     virtual System::Drawing::Color getColor();
     
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
     SetAdvancedColor();
     
+    /// <summary>
+    /// Accepts visitor object to process operator.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<IOperatorSelector> visitor);
     
 protected:
 
+    /// <summary>
+    /// Initializes operator.
+    /// </summary>
+    /// <param name="index">Index of operator.</param>
+    /// <param name="command">Operator command.</param>
     SetAdvancedColor(int32_t index, System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     virtual void FromCommand(System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::Operators::Commands::ICommand> ToCommand();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SetAdvancedColor"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

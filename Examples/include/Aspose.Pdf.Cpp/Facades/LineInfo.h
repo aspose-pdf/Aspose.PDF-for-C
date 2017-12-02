@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Facades_LineInfo_h_
 #define _Aspose_Pdf_Facades_LineInfo_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/object.h>
 #include <system/array.h>
@@ -28,17 +28,53 @@ class ASPOSE_PDF_SHARED_API LineInfo FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets an array of numbers representing the alternating horizontal and vertical,coordinates, respectively, of each vertex.
+    /// </summary>
     System::ArrayPtr<float> get_VerticeCoordinate();
+    /// <summary>
+    /// Gets or sets an array of numbers representing the alternating horizontal and vertical,coordinates, respectively, of each vertex.
+    /// </summary>
     void set_VerticeCoordinate(System::ArrayPtr<float> value);
+    /// <summary>
+    /// Gets or sets the color of a line.
+    /// </summary>
     System::Drawing::Color get_LineColor();
+    /// <summary>
+    /// Gets or sets the color of a line.
+    /// </summary>
     void set_LineColor(System::Drawing::Color value);
+    /// <summary>
+    /// Gets or sets the width of a line. 
+    /// </summary>
     int32_t get_LineWidth();
+    /// <summary>
+    /// Gets or sets the width of a line. 
+    /// </summary>
     void set_LineWidth(int32_t value);
+    /// <summary>
+    /// Gets or sets the visibility of a line. 
+    /// </summary>
     bool get_Visibility();
+    /// <summary>
+    /// Gets or sets the visibility of a line. 
+    /// </summary>
     void set_Visibility(bool value);
+    /// <summary>
+    /// Gets or sets the dash pattern of a line.
+    /// </summary>
     System::ArrayPtr<int32_t> get_LineDashPattern();
+    /// <summary>
+    /// Gets or sets the dash pattern of a line.
+    /// </summary>
     void set_LineDashPattern(System::ArrayPtr<int32_t> value);
+    /// <summary>
+    /// Gets or sets the border style of a line, 0 represents solid, 1 represents dashed, 2 represents beleved, 3 represents insert, 4 represents underline.
+    /// </summary>
     int32_t get_BorderStyle();
+    /// <summary>
+    /// Gets or sets the border style of a line, 0 represents solid, 1 represents dashed, 2 represents beleved, 3 represents insert, 4 represents underline.
+    /// </summary>
     void set_BorderStyle(int32_t value);
     
     LineInfo();
@@ -46,14 +82,6 @@ public:
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "LineInfo"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

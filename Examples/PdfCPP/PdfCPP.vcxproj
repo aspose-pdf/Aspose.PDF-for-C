@@ -56,7 +56,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug.Static|x64'" Label="Configuration">
@@ -145,8 +144,9 @@
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
+    <PreBuildEvent />
     <PreBuildEvent>
-      <Command>copy $(ProjectDir)lib\Debug\Aspose.Pdf_vc140d.dll $(OutDir)</Command>
+      <Command>copy $(ProjectDir)lib\Debug\Aspose.Pdf_vc140d.lib $(ProjectDir)bin\Debug\</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug.Static|Win32'">

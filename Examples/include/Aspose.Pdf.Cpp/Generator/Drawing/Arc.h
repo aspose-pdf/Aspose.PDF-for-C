@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Generator_Drawing_Arc_h_
 #define _Aspose_Pdf_Generator_Drawing_Arc_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_text_writer.h>
 #include <xml/xml_reader.h>
@@ -33,17 +33,6 @@ class ASPOSE_PDF_SHARED_API NamespaceDoc : public System::Object
     typedef ::System::BaseTypesInfo<BaseType> ThisTypeBaseTypesInfo;
     RTTI_INFO_DECL();
     
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "NamespaceDoc"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
-    
 };
 
 /// <summary>
@@ -62,17 +51,55 @@ class ASPOSE_PDF_SHARED_API Arc FINAL : public Aspose::Pdf::Drawing::Shape
     
 public:
 
+    /// <summary>
+    /// Gets or sets a float value that indicates the x-coordinate of the center of the arc.
+    /// </summary>
     double get_PosX();
+    /// <summary>
+    /// Gets or sets a float value that indicates the x-coordinate of the center of the arc.
+    /// </summary>
     void set_PosX(double value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the y-coordinate of the center of the arc.
+    /// </summary>
     double get_PosY();
+    /// <summary>
+    /// Gets or sets a float value that indicates the y-coordinate of the center of the arc.
+    /// </summary>
     void set_PosY(double value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the radius of the arc.
+    /// </summary>
     double get_Radius();
+    /// <summary>
+    /// Gets or sets a float value that indicates the radius of the arc.
+    /// </summary>
     void set_Radius(double value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the beginning angle degree of the arc.
+    /// </summary>
     double get_Alpha();
+    /// <summary>
+    /// Gets or sets a float value that indicates the beginning angle degree of the arc.
+    /// </summary>
     void set_Alpha(double value);
+    /// <summary>
+    /// Gets or sets a float value that indicates the ending angle degree of the arc.
+    /// </summary>
     double get_Beta();
+    /// <summary>
+    /// Gets or sets a float value that indicates the ending angle degree of the arc.
+    /// </summary>
     void set_Beta(double value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Arc"/> class.
+    /// </summary>
+    /// <param name="posX">The x-coordinate of the center point of the arc.</param>
+    /// <param name="posY">The y-coordinate of the center point of the arc.</param>
+    /// <param name="radius">The radius value of the arc.</param>
+    /// <param name="alpha">The beginning angle value of the arc.</param>
+    /// <param name="beta">The end angle value of the arc.</param>
     Arc(float posX, float posY, float radius, float alpha, float beta);
     
 protected:
@@ -84,14 +111,6 @@ protected:
     virtual void Deserialize(System::SharedPtr<System::Xml::XmlReader> reader);
     System::ArrayPtr<float> GetStartPosition();
     System::ArrayPtr<float> GetEndPosition();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Arc"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

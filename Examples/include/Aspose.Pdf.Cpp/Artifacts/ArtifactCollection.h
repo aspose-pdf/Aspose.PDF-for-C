@@ -72,14 +72,6 @@ private:
     
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "ArtifactEnumerator"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     private:
     
         System::SharedPtr<ArtifactCollection> _collection;
@@ -91,19 +83,65 @@ private:
     
 public:
 
+    /// <summary>
+    /// Is this object synchronized.
+    /// </summary>
     bool get_IsSynchronized();
+    /// <summary>
+    /// Gets count of artifacts in collection.
+    /// </summary>
     int32_t get_Count() const;
+    /// <summary>
+    /// Gets synchronization object of the collection.
+    /// </summary>
     System::SharedPtr<System::Object> get_SyncRoot();
     
+    /// <summary>
+    /// Copies colection into an array.
+    /// </summary>
+    /// <param name="dest">Destination array.</param>
+    /// <param name="index">Starting index.</param>
+    //<<--REFACTORING: Old code. public void CopyTo(Array dest, int index)
     void CopyTo(System::ArrayPtr<System::SharedPtr<Artifact>> dest, int32_t index);
+    /// <summary>
+    /// Gets enumerator for the collection. 
+    /// </summary>
+    /// <returns>Enumerator object.</returns>
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<Artifact>>> GetEnumerator();
     
+    /// <summary>
+    /// Gets artifact by index. Index is started from 1.
+    /// </summary>
+    /// <param name="index">Index of the artifact.</param>
+    /// <returns>Artifact on the page.</returns>
     System::SharedPtr<Artifact> idx_get(int32_t index);
     
+    /// <summary>
+    /// Adds artifacts to the collection.
+    /// </summary>
+    /// <param name="artifact">Artifact which sould be added to collection.</param>
     void Add(System::SharedPtr<Artifact> const &artifact);
+    /// <summary>
+    /// Finds artifacts by custom value.
+    /// </summary>
+    /// <param name="name">Name of custom value.</param>
+    /// <param name="expectedValue">Value to find.</param>
+    /// <returns>List of found artifacts.</returns>
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Artifact>>> FindByValue(System::String name, System::String expectedValue);
+    /// <summary>
+    /// Deletes specified artifact.
+    /// </summary>
+    /// <param name="artifact">Artifact which will be deleted.</param>
     void Delete(System::SharedPtr<Artifact> artifact);
+    /// <summary>
+    /// Update artifact inside the collection. 
+    /// </summary>
+    /// <param name="artifact">Artifact to be updated.</param>
     void Update(System::SharedPtr<Artifact> artifact);
+    /// <summary>
+    /// Deletes artifact by its index. 
+    /// </summary>
+    /// <param name="index">Index of artifact to delete.</param>
     void Delete(int32_t index);
     
 protected:
@@ -114,23 +152,17 @@ protected:
     
     System::Object::shared_members_type GetSharedMembers() override;
     
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ArtifactCollection"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
-    
 private:
 
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Artifact>>> collection;
     System::SharedPtr<System::Object> syncRoot;
     System::SharedPtr<Aspose::Pdf::Page> page;
     
+    /// <summary>
+    /// </summary>
     bool get_IsReadOnly();
     
-    bool IsArtifact(System::SharedPtr<Operator> op, System::SharedPtr<Engine::Data::IPdfDictionary> &propertyList);
+    bool IsArtifact(System::SharedPtr<Operator> op, System::SharedPtr<Engine::Data::IPdfDictionary>& propertyList);
     ArtifactCollection::WatermarkType GetWatermarkType(System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> operators, System::SharedPtr<Resources> res);
     System::SharedPtr<Artifact> CreateArtifact(System::SharedPtr<Artifact::ArtifactContext> context, System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> operators, System::SharedPtr<Engine::Data::IPdfDictionary> properties);
     void CollectArtifacts(System::SharedPtr<DOM::Matrix> matrix, System::SharedPtr<OperatorCollection> opc, System::SharedPtr<Resources> res, System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Artifact>>> list);
@@ -138,9 +170,22 @@ private:
     void DeleteOperator(int32_t startIndex);
     bool OperatorsEqual(System::SharedPtr<Operator> op1, System::SharedPtr<Operator> op2);
     int32_t FindArtifact(System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> operators);
+    /// <summary>
+    /// Returns index of the artifact in page contents. If page contents was changed, tryes re-find this artifact in new contents. 
+    /// </summary>
+    /// <param name="artifact"></param>
+    /// <returns></returns>
     int32_t GetIndex(System::SharedPtr<Artifact> artifact);
+    /// <summary>
+    /// Deletes specified artifact.
+    /// </summary>
+    /// <param name="artifact">Artifact which will be deleted.</param>
     bool Remove(System::SharedPtr<Artifact> const &item);
+    /// <summary>
+    /// </summary>
     bool Contains(System::SharedPtr<Artifact> const &item) const;
+    /// <summary>
+    /// </summary>
     void Clear();
     
 };

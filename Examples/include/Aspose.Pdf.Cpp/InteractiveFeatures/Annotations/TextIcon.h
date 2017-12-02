@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_TextIcon_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_TextIcon_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/object.h>
@@ -20,16 +20,49 @@ namespace Annotations {
 /// </summary>
 enum class TextIcon
 {
+    /// <summary>
+    /// Note icon.
+    /// </summary>
     Note,
+    /// <summary>
+    /// Comment icon.
+    /// </summary>
     Comment,
+    /// <summary>
+    /// Key    icon.
+    /// </summary>
     Key,
+    /// <summary>
+    /// Help icon.
+    /// </summary>
     Help,
+    /// <summary>
+    /// NewParagraph icon.
+    /// </summary>
     NewParagraph,
+    /// <summary>
+    /// Paragraph icon.
+    /// </summary>
     Paragraph,
+    /// <summary>
+    /// Insert icon.
+    /// </summary>
     Insert,
+    /// <summary>
+    /// Check icon.
+    /// </summary>
     Check,
+    /// <summary>
+    /// Cross icon.
+    /// </summary>
     Cross,
+    /// <summary>
+    /// Circle icon.
+    /// </summary>
     Circle,
+    /// <summary>
+    /// Star icon.
+    /// </summary>
     Star
 };
 
@@ -45,17 +78,6 @@ public:
 
     static System::String ToString(TextIcon value);
     static TextIcon ToEnum(System::String value);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextIconConverter"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

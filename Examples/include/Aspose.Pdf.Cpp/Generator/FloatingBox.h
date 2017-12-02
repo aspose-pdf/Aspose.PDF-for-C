@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Generator_FloatingBox_h_
 #define _Aspose_Pdf_Generator_FloatingBox_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/collections/list.h>
 
@@ -33,49 +33,93 @@ class ASPOSE_PDF_SHARED_API FloatingBox : public Aspose::Pdf::BaseParagraph
     
 public:
 
+    /// Gets or sets a column info
     System::SharedPtr<Aspose::Pdf::ColumnInfo> get_ColumnInfo();
+    /// Gets or sets a column info
     void set_ColumnInfo(System::SharedPtr<Aspose::Pdf::ColumnInfo> value);
+    /// Gets or sets a float value that indicates the width of the floating box.
     double get_Width();
+    /// Gets or sets a float value that indicates the width of the floating box.
     void set_Width(double value);
+    /// Gets or sets a float value that indicates the height of the floating box.
     double get_Height();
+    /// Gets or sets a float value that indicates the height of the floating box.
     void set_Height(double value);
+    /// Gets or sets a bool value that indicates whether the paragraph need to be repeated on next page.
+    /// Default value is false.The attribute is only valid when the paragraph itself and the object its ReferenceParagraphID referred to both are included in RepeatingRows.
     bool get_IsNeedRepeating();
+    /// Gets or sets a bool value that indicates whether the paragraph need to be repeated on next page.
+    /// Default value is false.The attribute is only valid when the paragraph itself and the object its ReferenceParagraphID referred to both are included in RepeatingRows.
     void set_IsNeedRepeating(bool value);
+    /// Gets or sets a <see cref="Paragraphs"/> collection that indicates all paragraphs in the cell.
     System::SharedPtr<Aspose::Pdf::Paragraphs> get_Paragraphs();
+    /// Gets or sets a <see cref="Paragraphs"/> collection that indicates all paragraphs in the cell.
     void set_Paragraphs(System::SharedPtr<Aspose::Pdf::Paragraphs> value);
+    /// Gets or sets a value that indicates in case with fixed row height, do content will be truncated if it go out of margin
     bool get_IsExtraContentClip();
+    /// Gets or sets a value that indicates in case with fixed row height, do content will be truncated if it go out of margin
     void set_IsExtraContentClip(bool value);
+    /// Gets or sets a <see cref="BorderInfo"/> object that indicates the border info of the floating box.
     System::SharedPtr<BorderInfo> get_Border();
+    /// Gets or sets a <see cref="BorderInfo"/> object that indicates the border info of the floating box.
     void set_Border(System::SharedPtr<BorderInfo> value);
+    /// Gets or sets a <see cref="Aspose.Pdf.Color"/> object that indicates the background color of the 
+    /// floating box.
     System::SharedPtr<Color> get_BackgroundColor();
+    /// Gets or sets a <see cref="Aspose.Pdf.Color"/> object that indicates the background color of the 
+    /// floating box.
     void set_BackgroundColor(System::SharedPtr<Color> value);
+    /// Gets or sets a <see cref="MarginInfo"/> object that indicates the padding of the floating box.
     System::SharedPtr<MarginInfo> get_Padding();
+    /// Gets or sets a <see cref="MarginInfo"/> object that indicates the padding of the floating box.
     void set_Padding(System::SharedPtr<MarginInfo> value);
+    /// <summary>
+    /// Gets or sets the table left coordinate.
+    /// </summary>
     double get_Left();
+    /// <summary>
+    /// Gets or sets the table left coordinate.
+    /// </summary>
     void set_Left(double value);
+    /// <summary>
+    /// Gets or sets the table top coordinate.
+    /// </summary>
     double get_Top();
+    /// <summary>
+    /// Gets or sets the table top coordinate.
+    /// </summary>
     void set_Top(double value);
+    /// <summary>
+    /// Gets or sets a vertical alignment of text fragment. 
+    /// </summary>
     Aspose::Pdf::VerticalAlignment get_VerticalAlignment();
+    /// <summary>
+    /// Gets or sets a vertical alignment of text fragment. 
+    /// </summary>
     void set_VerticalAlignment(Aspose::Pdf::VerticalAlignment value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="FloatingBox"/> class with specified width and height.
+    /// </summary>
+    /// <param name="width">The width of the box.</param>
+    /// <param name="height">The height of the box.</param>
     FloatingBox(float width, float height);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="FloatingBox"/> class.
+    /// </summary>
     FloatingBox();
     
+    /// <summary>
+    /// Clones a new <see cref="FloatingBox"/> object. Paragraphs in the floating box are not cloned.
+    /// </summary>
+    /// <returns>The new <see cref="FloatingBox"/> object.</returns>
     System::SharedPtr<FloatingBox> Clone();
     
 protected:
 
-    bool Process(double &curX, double &curY, double pageHeight, double pageWidth, System::SharedPtr<MarginInfo> pageMargin, System::SharedPtr<Page> page, double bottomY, System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> operators);
+    bool Process(double& curX, double& curY, double pageHeight, double pageWidth, System::SharedPtr<MarginInfo> pageMargin, System::SharedPtr<Page> page, double bottomY, System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> operators);
     virtual void Serialize(System::SharedPtr<System::Xml::XmlTextWriter> writer);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "FloatingBox"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_RenderingOptions_h_
 #define _Aspose_Pdf_RenderingOptions_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/object.h>
 
@@ -23,25 +23,35 @@ class ASPOSE_PDF_SHARED_API RenderingOptions FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets barcode optimization mode. 
+    /// </summary>
     bool get_BarcodeOptimization();
+    /// <summary>
+    /// Gets or sets barcode optimization mode. 
+    /// </summary>
     void set_BarcodeOptimization(bool value);
+    /// <summary>
+    /// Gets or sets a mode where system fonts are rendered natively. 
+    /// </summary>
     bool get_SystemFontsNativeRendering();
+    /// <summary>
+    /// Gets or sets a mode where system fonts are rendered natively. 
+    /// </summary>
     void set_SystemFontsNativeRendering(bool value);
+    /// <summary>
+    /// Gets or sets a flag determines whether new imaging engine is used or not.
+    /// </summary>
     bool get_UseNewImagingEngine();
+    /// <summary>
+    /// Gets or sets a flag determines whether new imaging engine is used or not.
+    /// </summary>
     void set_UseNewImagingEngine(bool value);
     
+    /// <summary>
+    /// Initializes new instance of the <see cref="RenderingOptions"/> object.
+    /// </summary>
     RenderingOptions();
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "RenderingOptions"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

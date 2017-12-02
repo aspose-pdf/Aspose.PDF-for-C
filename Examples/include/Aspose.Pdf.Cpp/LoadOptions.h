@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_LoadOptions_h_
 #define _Aspose_Pdf_LoadOptions_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/text/encoding.h>
 #include <system/string.h>
@@ -25,11 +25,29 @@ namespace Pdf {
 /// </summary>
 enum class WarningType
 {
+    /// <summary>
+    /// The file is corrupted.
+    /// </summary>
     SourceFileCorruption = 0,
+    /// <summary>
+    /// Text/chart/image or other data is completely missing from either the documet tree following load, or the created document following save. 
+    /// </summary>
     DataLoss = 1,
+    /// <summary>
+    /// Major formatting losses compared to the original document. This is for occasions when the formatting loss is substantial but the data is still there.
+    /// </summary>
     MajorFormattingLoss = 2,
+    /// <summary>
+    /// Minor formatting losses compared to the original document. This is for minor losses of fidelity.
+    /// </summary>
     MinorFormattingLoss = 3,
+    /// <summary>
+    /// Known issue that will prevent the document being opened by certain user agents, or previous versions of user agents.
+    /// </summary>
     CompatibilityIssue = 4,
+    /// <summary>
+    /// The file has unexpected content.
+    /// </summary>
     UnexpectedContent = 99
 };
 
@@ -39,7 +57,13 @@ enum class WarningType
 /// </summary>
 enum class ReturnAction
 {
+    /// <summary>
+    /// Used for continue flow.
+    /// </summary>
     Continue,
+    /// <summary>
+    /// Used for abort flow.
+    /// </summary>
     Abort
 };
 
@@ -56,22 +80,35 @@ class ASPOSE_PDF_SHARED_API WarningInfo FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    ///   Returns string representation of warning message.
+    /// </summary>
+    /// <returns> 
+    /// the warning message
+    /// </returns>
     System::String get_WarningMessage();
+    /// <summary>
+    ///   Returns warning type.
+    /// </summary>
+    /// <returns> 
+    /// the warning type
+    /// </returns>
     WarningType get_WarningTypeProperty();
     
+    /// <summary>
+    /// Constructs instance for gathering information.
+    /// </summary>
+    /// <param name="type">
+    /// the warning type to set
+    /// </param>
+    /// <param name="message">
+    /// the warning message to set
+    /// </param>
     WarningInfo(WarningType type, System::String message);
     
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "WarningInfo"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -93,6 +130,15 @@ class ASPOSE_PDF_SHARED_API IWarningCallback : public System::Object
     
 public:
 
+    /// <summary>
+    /// The callback method for some program notifications. 
+    /// </summary>
+    /// <param name="warning">
+    /// the warning information for some happened warning
+    /// </param>
+    /// <returns>
+    /// the result of further program workflow
+    /// </returns>
     virtual ReturnAction Warning(System::SharedPtr<WarningInfo> warning) = 0;
     
 };
@@ -130,6 +176,9 @@ public:
         
     public:
     
+        /// <summary>
+        ///   Bynary data that loaded with custom loader - it must be set after loading
+        /// </summary>
         System::ArrayPtr<uint8_t> get_Data();
         
         System::SharedPtr<System::Text::Encoding> EncodingIfKnown;
@@ -137,6 +186,10 @@ public:
         System::String MIMETypeIfKnown;
         bool LoadingCancelled;
         
+        /// <summary>
+        ///   Creates instance of loading result
+        /// </summary>
+        /// <param name="data"> reult of custom loading must be allways provided, it can be zero-length array if it's impossible to get any result </param>
         ResourceLoadingResult(System::ArrayPtr<uint8_t> data);
         
     protected:
@@ -144,14 +197,6 @@ public:
         ResourceLoadingResult(System::ArrayPtr<uint8_t> data, System::SharedPtr<System::Text::Encoding> enc);
         
         System::Object::shared_members_type GetSharedMembers() override;
-        
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "ResourceLoadingResult"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
         
     private:
     
@@ -162,8 +207,21 @@ public:
     
 public:
 
+    /// <summary>
+    /// Callback to handle any warnings generated. 
+    /// The WarningHandler returns ReturnAction enum item specifying either Continue or Abort. 
+    /// Continue is the default action and the Load operation continues, however the user may also return Abort in which case the Load operation should cease.
+    /// </summary>
     System::SharedPtr<IWarningCallback> get_WarningHandler();
+    /// <summary>
+    /// Callback to handle any warnings generated. 
+    /// The WarningHandler returns ReturnAction enum item specifying either Continue or Abort. 
+    /// Continue is the default action and the Load operation continues, however the user may also return Abort in which case the Load operation should cease.
+    /// </summary>
     void set_WarningHandler(System::SharedPtr<IWarningCallback> value);
+    /// <summary>
+    /// Represents file format which <see cref="LoadOptions"/> describes.
+    /// </summary>
     Aspose::Pdf::LoadFormat get_LoadFormat();
     
     LoadOptions();
@@ -177,14 +235,6 @@ protected:
     bool UseAreaClipping;
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "LoadOptions"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

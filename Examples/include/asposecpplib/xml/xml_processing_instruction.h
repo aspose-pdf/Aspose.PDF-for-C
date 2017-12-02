@@ -27,7 +27,7 @@ public:
 
     String get_InnerText() const override;
 
-    void set_Data(const char_t* data);
+    void set_Data(const String& data);
 
     void WriteTo(SharedPtr<XmlWriter> writer) override;
 

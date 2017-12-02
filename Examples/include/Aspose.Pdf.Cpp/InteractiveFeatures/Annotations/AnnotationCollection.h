@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_AnnotationCollection_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_AnnotationCollection_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/collections/list.h>
@@ -61,14 +61,6 @@ private:
     
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "AnnotationHandler"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     private:
     
         System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> _engineObject;
@@ -101,14 +93,6 @@ private:
     
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "AnnotationsEnumerator"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     private:
     
         System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<AnnotationCollection::AnnotationHandler>>> _annots;
@@ -122,19 +106,67 @@ private:
     
 public:
 
+    /// <summary>
+    /// Gets a value indicating whether access to the Aspose.Pdf.InteractiveFeatures.Annotations.AnnotationCollection is synchronized (thread safe).
+    /// </summary>
     bool get_IsSynchronized();
+    /// <summary>
+    /// Gets an object that can be used to synchronize access to Aspose.Pdf.InteractiveFeatures.Annotations.AnnotationCollection.
+    /// </summary>
     System::SharedPtr<System::Object> get_SyncRoot();
+    /// <summary>
+    /// Gets count of annotations in collection.
+    /// </summary>
     int32_t get_Count() const;
     
+    /// <summary>
+    /// Adds annotation to the collection. If page is rotated then annotation rectangle will be recalculated accordingly.
+    /// </summary>
+    /// <param name="annotation">Annotation which shall be added.</param>
+    /// <param name="considerRotation">If true and if page is rotated then annotation position will be recaculated accroding to page rotation.</param>
     void Add(System::SharedPtr<Annotation> annotation, bool considerRotation);
+    /// <summary>
+    /// Adds annotation to the collection.
+    /// </summary>
+    /// <param name="annotation">Annotation which shall be added.</param>
     void Add(System::SharedPtr<Annotation> const &annotation);
+    /// <summary>
+    /// Deletes annotation from the collection by index.
+    /// </summary>
+    /// <param name="index">Index of annotation which shall be deleted.</param>
     void Delete(int32_t index);
+    /// <summary>
+    /// Deletes all annotations from the collection.
+    /// </summary>
     void Delete();
+    /// <summary>
+    /// Copies array of annotations into collection.
+    /// </summary>
+    /// <param name="array">Array to copy into collection.</param>
+    /// <param name="index">Starting index where colleciton wil lbe copied.</param>
+    //<<--REFACTORING: Old code: public void CopyTo(Array array, int index)
     void CopyTo(System::ArrayPtr<System::SharedPtr<Annotation>> array, int32_t index);
+    /// <summary>
+    /// Returns collection enumerator.
+    /// </summary>
+    /// <returns>Enumerator object</returns>
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<Annotation>>> GetEnumerator();
+    /// <summary>
+    /// Accepts visitor to process annotation.
+    /// </summary>
+    /// <param name="visitor">Annotation selector object.</param>
     void Accept(System::SharedPtr<AnnotationSelector> visitor);
+    /// <summary>
+    /// Deletes specified annotation from the collection. 
+    /// </summary>
+    /// <param name="annotation">Annotation which shall be deleted.</param>
     void Delete(System::SharedPtr<Annotation> annotation);
     
+    /// <summary>
+    /// The index of the element to get.
+    /// </summary>
+    /// <param name="index">The index value started from one.</param>
+    /// <returns>Annotation object</returns>
     System::SharedPtr<Annotation> idx_get(int32_t index);
     
 protected:
@@ -143,17 +175,13 @@ protected:
     
     void assert_();
     
+    /// <summary>
+    /// Constructor of AnnotationCollection. Creates annotation collection for annotations on the given page.
+    /// </summary>
+    /// <param name="page">Parent page of annotations.</param>
     AnnotationCollection(System::SharedPtr<Page> page);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "AnnotationCollection"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -161,12 +189,25 @@ private:
     System::WeakPtr<Page> _page;
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<AnnotationCollection::AnnotationHandler>>> cache;
     
+    /// <summary>
+    /// </summary>
     bool get_IsReadOnly();
     
+    /// <summary>
+    /// </summary>
     void Clear();
+    /// <summary>
+    /// </summary>
     bool Contains(System::SharedPtr<Annotation> const &item) const;
+    /// <summary>
+    /// Returns annotation by its index.
+    /// </summary>
+    /// <param name="index">Index of annotation. Annotation indexes start from 1.</param>
+    /// <returns>Retreived annotation</returns>
     System::SharedPtr<Annotation> get(int32_t index);
     int32_t FindAnnotation(System::SharedPtr<Annotation> annotation) const;
+    /// <summary>
+    /// </summary>
     bool Remove(System::SharedPtr<Annotation> const &annotation);
     
 };

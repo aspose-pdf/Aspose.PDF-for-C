@@ -9,6 +9,7 @@
 
 namespace System { namespace Xml {
 
+class XmlTextReader;
 class XmlReaderSettings;
 class XmlParserContext;
 
@@ -41,6 +42,7 @@ public:
     virtual UChar get_QuoteChar();
     virtual XmlNodeType get_NodeType() = 0;
 
+    virtual String GetAttribute(int32_t index);
     virtual String GetAttribute(const String& name);
     virtual bool MoveToAttribute(const String& name);
     virtual void MoveToAttribute(int index);
@@ -61,13 +63,17 @@ public:
     virtual void ReadStartElement(const String& localName, const String& namespaceUri) = 0;
     virtual String ReadInnerXml() = 0;
     virtual String ReadOuterXml() = 0;
-    virtual bool ReadToFollowing(const String &name);;
-    virtual bool ReadToFollowing(const String &localName, const String &namespaceURI);;
-    virtual int ReadElementContentAsInt(const String &localName, const String &namespaceURI);;
-    virtual bool ReadElementContentAsBoolean(const String &localName, const String &namespaceURI);;
-    virtual String ReadElementContentAsString(const String &localName, const String &namespaceURI);;
-    virtual void ReadEndElement();;
-    virtual bool IsStartElement(const String &name);;
+    virtual bool ReadToFollowing(const String &name);
+    virtual bool ReadToFollowing(const String &localName, const String &namespaceURI);
+    virtual int ReadElementContentAsInt(const String &localName, const String &namespaceURI);
+    virtual bool ReadElementContentAsBoolean(const String &localName, const String &namespaceURI);
+    virtual String ReadElementContentAsString(const String &localName, const String &namespaceURI);
+    virtual void ReadEndElement();
+    virtual bool IsStartElement();
+    virtual bool IsStartElement(const String &name);
+    virtual String ReadElementString() = 0;
+    virtual String ReadElementString(const String& value) = 0;
+    virtual String ReadElementString(const String& localName, const String& namespaceUri) = 0;
 
     static XmlReader::Ptr Create(const String& inputUri);
     static XmlReader::Ptr Create(const SharedPtr<System::IO::Stream>& input);
@@ -81,9 +87,8 @@ public:
     static XmlReader::Ptr Create(const SharedPtr<System::IO::Stream>& input, const SharedPtr<XmlReaderSettings>& settings,
                                  const SharedPtr<XmlParserContext>& inputContext);
 
-	static XmlReader::Ptr Create(const SharedPtr<System::IO::TextReader>& input, const SharedPtr<XmlReaderSettings>& settings,
-		const System::String& baseUrl);
-
+    static XmlReader::Ptr Create(const SharedPtr<System::IO::TextReader>& input, const SharedPtr<XmlReaderSettings>& settings,
+        const System::String& baseUrl);
 
     static XmlReader::Ptr Create(const XmlReader::Ptr& input, const SharedPtr<XmlReaderSettings>& settings);
 
@@ -92,6 +97,9 @@ protected:
     XmlReader();
 
     static bool is_content(XmlNodeType type);
+
+private:
+    static XmlReader::Ptr Init(const SharedPtr<XmlTextReader>& reader);
 };
 
 }} // namespace System::Xml

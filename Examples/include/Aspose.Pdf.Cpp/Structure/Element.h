@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Structure_Element_h_
 #define _Aspose_Pdf_Structure_Element_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -37,17 +37,6 @@ class ASPOSE_PDF_SHARED_API NamespaceDoc : public System::Object
     typedef ::System::BaseTypesInfo<BaseType> ThisTypeBaseTypesInfo;
     RTTI_INFO_DECL();
     
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "NamespaceDoc"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
-    
 };
 
 /// <summary>
@@ -70,14 +59,55 @@ class ASPOSE_PDF_SHARED_API ABSTRACT Element : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets child elements collection.
+    /// </summary>
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Element>>> get_Children();
+    /// <summary>
+    /// (Optional; PDF 1.4) A language specifying the natural language for all text
+    /// in the structure element except where overridden by language specifications for nested structure
+    /// elements or marked content.
+    /// </summary>
     virtual System::String get_Lang();
+    /// <summary>
+    /// (Optional; PDF 1.4) A language specifying the natural language for all text
+    /// in the structure element except where overridden by language specifications for nested structure
+    /// elements or marked content.
+    /// </summary>
     virtual void set_Lang(System::String value);
+    /// <summary>
+    /// (Optional; PDF 1.4) Text that is an exact replacement for the structure element and its children.
+    /// This replacement text (which should apply to as small a piece of content as possible)
+    /// is useful when extracting the document’s contents in support of accessibility to users
+    /// with disabilities or for other purposes.
+    /// </summary>
     virtual System::String get_ActualText();
+    /// <summary>
+    /// (Optional; PDF 1.4) Text that is an exact replacement for the structure element and its children.
+    /// This replacement text (which should apply to as small a piece of content as possible)
+    /// is useful when extracting the document’s contents in support of accessibility to users
+    /// with disabilities or for other purposes.
+    /// </summary>
     virtual void set_ActualText(System::String value);
+    /// <summary>
+    /// (Optional) An alternate description of the structure element and its children in
+    /// human-readableform, which is useful when extracting the document’s contents in support
+    /// of accessibility to users with disabilities or for other purposes.
+    /// </summary>
     virtual System::String get_Alt();
+    /// <summary>
+    /// (Optional) An alternate description of the structure element and its children in
+    /// human-readableform, which is useful when extracting the document’s contents in support
+    /// of accessibility to users with disabilities or for other purposes.
+    /// </summary>
     virtual void set_Alt(System::String value);
+    /// <summary>
+    /// (Optional; PDF 1.5) The expanded form of an abbreviation.
+    /// </summary>
     virtual System::String get_E();
+    /// <summary>
+    /// (Optional; PDF 1.5) The expanded form of an abbreviation.
+    /// </summary>
     virtual void set_E(System::String value);
     
 protected:
@@ -87,17 +117,13 @@ protected:
     System::String get_StructureType();
     System::SharedPtr<Aspose::Pdf::Collections::AsposeHashDictionary<System::String, System::String>> get_Attributes();
     
+    /// <summary>
+    /// Ctor.
+    /// </summary>
+    /// <param name="engineDict">Engine dictionary.</param>
     Element(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> engineDict);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Element"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -127,15 +153,6 @@ protected:
 
     StructElement(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> engineDict);
     
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "StructElement"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
-    
 };
 
 /// <summary>
@@ -160,14 +177,6 @@ protected:
     RootElement(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> engineDict);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "RootElement"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Generator_TOCInfo_h_
 #define _Aspose_Pdf_Generator_TOCInfo_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -39,35 +39,70 @@ class ASPOSE_PDF_SHARED_API TocInfo FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets column info.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::ColumnInfo> get_ColumnInfo();
+    /// <summary>
+    /// Gets or sets column info.
+    /// </summary>
     void set_ColumnInfo(System::SharedPtr<Aspose::Pdf::ColumnInfo> value);
+    /// <summary>
+    /// Gets or sets format array for table of contents.
+    /// </summary>
     System::ArrayPtr<System::SharedPtr<LevelFormat>> get_FormatArray();
+    /// <summary>
+    /// Gets or sets format array for table of contents.
+    /// </summary>
     void set_FormatArray(System::ArrayPtr<System::SharedPtr<LevelFormat>> value);
+    /// <summary>
+    /// Gets or sets format array length
+    /// </summary>
     int32_t get_FormatArrayLength();
+    /// <summary>
+    /// Gets or sets format array length
+    /// </summary>
     void set_FormatArrayLength(int32_t value);
+    /// <summary>
+    /// Gets or sets table of contents title.
+    /// </summary>
     System::SharedPtr<Text::TextFragment> get_Title();
+    /// <summary>
+    /// Gets or sets table of contents title.
+    /// </summary>
     void set_Title(System::SharedPtr<Text::TextFragment> value);
     
     TocInfo();
     
 protected:
 
+    /// <summary>
+    /// Gets headings numbers for auto numnering(internal).
+    /// </summary>
     System::SharedPtr<System::Collections::Generic::Dictionary<int32_t, int32_t>> get_AutoNumbers();
+    /// <summary>
+    /// Gets or sets format array for table of contents.
+    /// </summary>
     int32_t get_FormatArrayIndex();
+    /// <summary>
+    /// Gets or sets format array for table of contents.
+    /// </summary>
     void set_FormatArrayIndex(int32_t value);
+    /// <summary>
+    /// Gets or sets TOC pages count(for internal use).
+    /// </summary>
     int32_t get_PagesCount();
+    /// <summary>
+    /// Gets or sets TOC pages count(for internal use).
+    /// </summary>
     void set_PagesCount(int32_t value);
     
+    /// <summary>
+    /// Get heading text value.
+    /// </summary>
+    /// <value>The heading level.</value>
     System::String GetNumber(int32_t level);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TocInfo"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_ColorType_h_
 #define _Aspose_Pdf_ColorType_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -11,9 +11,21 @@ namespace Pdf {
 /// </summary>
 enum class ColorType
 {
+    /// <summary>
+    /// RGB color type.
+    /// </summary>
     Rgb,
+    /// <summary>
+    /// Grayscale color type.
+    /// </summary>
     Grayscale,
+    /// <summary>
+    /// Black and white color type.
+    /// </summary>
     BlackAndWhite,
+    /// <summary>
+    /// Undefined color type value.
+    /// </summary>
     Undefined
 };
 

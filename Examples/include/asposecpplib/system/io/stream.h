@@ -1,5 +1,5 @@
-#ifndef __stream_h__
-#define __stream_h__
+#ifndef _aspose_system_io_stream_h_
+#define _aspose_system_io_stream_h_
 
 #include "system/array.h"
 #include "system/idisposable.h"
@@ -14,9 +14,9 @@ namespace System {
 
 namespace System { namespace IO {
 
-    class Stream : public System::IDisposable
-    {
-        RTTI_INFO(System::IO::Stream, ::System::BaseTypesInfo<System::IDisposable>)
+class Stream : public System::IDisposable
+{
+    RTTI_INFO(System::IO::Stream, ::System::BaseTypesInfo<System::IDisposable>)
 
 public:
 
@@ -34,7 +34,7 @@ public:
     virtual void        SetLength(int64_t value) = 0;
     virtual void        Flush() = 0;
     virtual void        Close() {}
-    virtual void        Dispose() override;    
+    virtual void        Dispose() override;
 
     virtual System::SharedPtr<System::IAsyncResult> BeginRead(System::ArrayPtr<uint8_t> buffer, int offset, int count, System::AsyncCallback callback, System::SharedPtr<System::Object> state);
     virtual System::SharedPtr<System::IAsyncResult> BeginWrite(System::ArrayPtr<uint8_t> buffer, int offset, int count, System::AsyncCallback callback, System::SharedPtr<System::Object> state);
@@ -55,6 +55,6 @@ protected:
 
 };
 
-}}
+}} // System::IO
 
-#endif
+#endif // _aspose_system_io_stream_h_

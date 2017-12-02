@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Facades_Algorithm_h_
 #define _Aspose_Pdf_Facades_Algorithm_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -13,7 +13,13 @@ namespace Facades {
 /// </summary>
 enum class Algorithm
 {
+    /// <summary>
+    /// RC4 algorithm.
+    /// </summary>
     RC4,
+    /// <summary>
+    /// AES algorithm.
+    /// </summary>
     AES
 };
 

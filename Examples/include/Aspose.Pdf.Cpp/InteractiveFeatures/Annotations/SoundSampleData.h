@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_SoundSampleData_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_SoundSampleData_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/object.h>
@@ -39,34 +39,81 @@ public:
     static const int32_t DefaultOfBitsPerChannel;
     static const SoundSampleDataEncodingFormat DefaultEncodingFormat;
     
+    /// <summary>
+    /// Gets or sets the sampling rate.
+    /// </summary>
     int64_t get_SamplingRate();
+    /// <summary>
+    /// Gets or sets the sampling rate.
+    /// </summary>
     void set_SamplingRate(int64_t value);
+    /// <summary>
+    /// Gets or sets the number of sound channels.
+    /// </summary>
     int32_t get_NumberOfSoundChannels();
+    /// <summary>
+    /// Gets or sets the number of sound channels.
+    /// </summary>
     void set_NumberOfSoundChannels(int32_t value);
+    /// <summary>
+    /// Gets or sets the number of bits per sample value per channel.
+    /// </summary>
     int32_t get_BitsPerChannel();
+    /// <summary>
+    /// Gets or sets the number of bits per sample value per channel.
+    /// </summary>
     void set_BitsPerChannel(int32_t value);
+    /// <summary>
+    /// Gets or sets the encoding format.
+    /// </summary>
     SoundSampleDataEncodingFormat get_EncodingFormat();
+    /// <summary>
+    /// Gets or sets the encoding format.
+    /// </summary>
     void set_EncodingFormat(SoundSampleDataEncodingFormat value);
     
+    /// <summary>
+    /// Initializes new sound sample data.
+    /// </summary>
+    /// <param name="samplingRate">The sampling rate.</param>
     SoundSampleData(int64_t samplingRate);
+    /// <summary>
+    /// Initializes new sound sample data.
+    /// </summary>
+    /// <param name="samplingRate">The sampling rate.</param>
+    /// <param name="numberOfSoundChannels">The number of sound channels.</param>
     SoundSampleData(int64_t samplingRate, int32_t numberOfSoundChannels);
+    /// <summary>
+    /// Initializes new sound sample data.
+    /// </summary>
+    /// <param name="samplingRate">The sampling rate.</param>
+    /// <param name="numberOfSoundChannels">The number of sound channels.</param>
+    /// <param name="bitsPerChannel">The number of bits per sample value per channel.</param>
     SoundSampleData(int64_t samplingRate, int32_t numberOfSoundChannels, int32_t bitsPerChannel);
+    /// <summary>
+    /// Initializes new sound sample data.
+    /// </summary>
+    /// <param name="samplingRate">The sampling rate.</param>
+    /// <param name="numberOfSoundChannels">The number of sound channels.</param>
+    /// <param name="bitsPerChannel">The number of bits per sample value per channel.</param>
+    /// <param name="soundSampleDataEncodingFormat">The encoding format for the sample data.</param>         
     SoundSampleData(int64_t samplingRate, int32_t numberOfSoundChannels, int32_t bitsPerChannel, SoundSampleDataEncodingFormat soundSampleDataEncodingFormat);
     
 protected:
 
+    /// <summary>
+    /// Returns string representation of encoding format parameter.
+    /// </summary>
+    /// <returns>Encoding parameter as a string.</returns>
     System::String GetEncodingFormat();
+    /// <summary>
+    /// Reads the sample rate value from wav header.
+    /// </summary>
+    /// <param name="soundFile">The wav input file.</param>
+    /// <returns>If successfully found - sample rate value; otherwise, default value 11025.</returns>
     static int64_t ReadSamplingRate(System::String soundFile);
     System::Object::shared_members_type GetSharedMembers() override;
     static void __FreeStaticPointers();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "SoundSampleData"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

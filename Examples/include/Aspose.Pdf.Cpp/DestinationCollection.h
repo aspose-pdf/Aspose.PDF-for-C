@@ -50,9 +50,21 @@ protected:
     
         System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>> get_Current() const;
         
+        /// <summary>
+        /// Initializes new DestinationEnumerator collection instance from the <paramref name="destinations" />.
+        /// </summary>
+        /// <param name="destinations">The collection of destinations.</param>
         DestinationEnumerator(System::SharedPtr<System::Collections::Generic::ICollection<System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>>>> destinations);
         
+        /// <summary>
+        /// Advances the enumerator to the next destination of the collection.
+        /// </summary>
+        /// <returns>True if the enumerator was successfully advanced to the next destination; false if the enumerator has passed the end of the collection.</returns>
         bool MoveNext();
+        /// <summary>
+        /// Sets the enumerator to the initial position, which is before the first destination 
+        /// in the collection.
+        /// </summary>
         void Reset();
         void Dispose();
         
@@ -61,14 +73,6 @@ protected:
     protected:
     
         System::Object::shared_members_type GetSharedMembers() override;
-        
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "DestinationEnumerator"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
         
     private:
     
@@ -84,39 +88,74 @@ protected:
 public:
 
     int32_t get_Count() const;
+    /// <summary>
+    /// Always returns true
+    /// </summary>
     bool get_IsReadOnly();
     
+    /// <summary>
+    /// Collection is readonly
+    /// </summary>
     void Add(System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>> const &item);
+    /// <summary>
+    /// Collection is readonly
+    /// </summary>
     void Clear();
+    /// <summary>
+    /// Copies data to array
+    /// </summary>
     void CopyTo(System::ArrayPtr<System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>>> array, int32_t arrayIndex);
+    /// <summary>
+    /// Collection is readonly
+    /// </summary>
     bool Remove(System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>> const &item);
     
+    /// <summary>
+    /// Gets the destination object by index.
+    /// </summary>
+    /// <param name="index">The index of destination to get.</param>
+    /// <returns>Destination.</returns>
     System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>> idx_get(int32_t index);
     
+    /// <summary>
+    /// Returns the page number of destination by the name.
+    /// </summary>
+    /// <param name="destinameName">The name of destination.</param>
+    /// <param name="useCache">Determines whether cached version of collection is used or not.</param>
+    /// <returns>The page number if destination was found; otherwise, -1.</returns>
     int32_t GetPageNumber(System::String destinameName, bool useCache);
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>>>> GetEnumerator();
+    /// <summary>
+    /// Returns the index of destination in collection.
+    /// </summary>
+    /// <param name="value">The value to find.</param>
+    /// <returns>The index of destination in collection.</returns>
     int32_t IndexOf(System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>> value);
+    /// <summary>
+    /// Determines whether a destination is in collection or not.
+    /// </summary>
+    /// <param name="value">The value to find.</param>
+    /// <returns>True if a destination is in collection; otherwise, false.</returns>
     bool Contains(System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>> const &value) const;
     
 protected:
 
+    /// <summary>
+    /// Initializes new Destination collection instance from the <paramref name="document" />.
+    /// </summary>
+    /// <param name="document">Document contained destinations.</param>
     DestinationCollection(System::SharedPtr<Document> document);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "DestinationCollection"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
     System::SharedPtr<System::Collections::Generic::List<System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>>>> InnerList;
     System::SharedPtr<Engine::IPdfDocument> _document;
     
+    /// <summary>
+    /// Initializes the collection of destinations.
+    /// </summary>
     void Init();
     
 };

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_Border_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_Border_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_writer.h>
 #include <xml/xml_reader.h>
@@ -54,23 +54,79 @@ class ASPOSE_PDF_SHARED_API Border FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets horizontal corner radius.
+    /// </summary>
     int32_t get_HCornerRadius();
+    /// <summary>
+    /// Gets or sets horizontal corner radius.
+    /// </summary>
     void set_HCornerRadius(int32_t value);
+    /// <summary>
+    /// Obsolete property. Please use VCornerRadius instead. 
+    /// </summary>
     int32_t get_VCornerRaduis();
+    /// <summary>
+    /// Obsolete property. Please use VCornerRadius instead. 
+    /// </summary>
     void set_VCornerRaduis(int32_t value);
+    /// <summary>
+    /// Gets or sets vertical corner radius.
+    /// </summary>
     int32_t get_VCornerRadius();
+    /// <summary>
+    /// Gets or sets vertical corner radius.
+    /// </summary>
     void set_VCornerRadius(int32_t value);
+    /// <summary>
+    /// Gets or sets border width.
+    /// </summary>
     int32_t get_Width();
+    /// <summary>
+    /// Gets or sets border width.
+    /// </summary>
     void set_Width(int32_t value);
+    /// <summary>
+    /// Gets or sets effect intencity. Valid range of value is [0..2].
+    /// </summary>
     int32_t get_EffectIntensity();
+    /// <summary>
+    /// Gets or sets effect intencity. Valid range of value is [0..2].
+    /// </summary>
     void set_EffectIntensity(int32_t value);
+    /// <summary>
+    /// Gets or sets border style.
+    /// </summary>
+    /// <see cref="BorderStyle"/>
     BorderStyle get_Style();
+    /// <summary>
+    /// Gets or sets border style.
+    /// </summary>
+    /// <see cref="BorderStyle"/>
     void set_Style(BorderStyle value);
+    /// <summary>
+    /// Gets or sets border effect.
+    /// </summary>
+    /// <see cref="BorderEffect"/>
     BorderEffect get_Effect();
+    /// <summary>
+    /// Gets or sets border effect.
+    /// </summary>
+    /// <see cref="BorderEffect"/>
     void set_Effect(BorderEffect value);
+    /// <summary>
+    /// Gets or sets dash pattern.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Dash> get_Dash();
+    /// <summary>
+    /// Gets or sets dash pattern.
+    /// </summary>
     void set_Dash(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Dash> value);
     
+    /// <summary>
+    /// Constructor for border object.
+    /// </summary>
+    /// <param name="parent">Parent annotation.</param>
     Border(System::SharedPtr<Annotation> parent);
     
 protected:
@@ -81,23 +137,28 @@ protected:
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfPrimitive> _enginePrim;
     
     void WriteXfdfAttributes(System::SharedPtr<System::Xml::XmlWriter> writer);
+    /// <summary>
+    /// Writes attributes of effect property. Intensity value is being written only for cloudy type of effect.
+    /// </summary>
+    /// <param name="writer">Xml writer.</param>
     void WriteXfdfEffectAttributes(System::SharedPtr<System::Xml::XmlWriter> writer);
     void ReadXfdfAttributes(System::SharedPtr<System::Xml::XmlReader> reader);
     
+    /// <summary>
+    /// constructor of Border class.
+    /// </summary>
+    /// <param name="annotation">PDf object which describes annotation.</param>
     Border(System::SharedPtr<Annotation> owner, System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> annotation);
     
+    /// <summary>
+    /// Creates PDF object which describes the Border.
+    /// </summary>
+    /// <param name="page">Page where annotation which used this border is placed.</param>
+    /// <returns>PDF dictionary which contains border property.</returns>
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> createBorder(System::SharedPtr<Aspose::Pdf::Engine::Data::ITrailerable> page);
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> GetEngineDict();
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> GetEngineDictBE();
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Border"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

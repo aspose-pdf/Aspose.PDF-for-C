@@ -24,8 +24,9 @@ namespace System { namespace Drawing {
     public:
         SolidBrush(const Color & color);
 
-        Color get_Color();
-
+        Color get_Color() const;
+        void set_Color(Color color);
+        
         virtual SharedPtr<Brush> Clone();
 
     protected:

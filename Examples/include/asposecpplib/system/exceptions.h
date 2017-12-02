@@ -5,10 +5,15 @@
 #include <memory>
 #include "system/exception.h"
 
+#ifndef E_FAIL__
+#define E_FAIL__ 0x80004005
+#endif
+
+
 //EXCEPTION_NAMESPACE(Parent::Name::Space, Class) or EXCEPTION_NAMESPACE(, System) if there is no parent
 #define EXCEPTION_NAMESPACE(pns, ns) namespace ns\
 {\
-    const System::String CURRENT_NAMESPACE = System::String(_T(#pns)).IsEmpty()? _T(#ns) : _T(#pns)"::" _T(#ns);\
+    const System::String CURRENT_NAMESPACE = System::String(_T(#pns)).IsEmpty() ? System::String(_T(#ns)) : System::String(_T(#pns)"::" _T(#ns));\
 }\
 namespace ns
 
@@ -49,7 +54,7 @@ public: \
     int get_##code() { return m_##code; } \
 protected: \
     virtual String ExtraDescription() const { return String::FromUtf8(std::to_string(m_##code)); } \
-    int m_##code; \
+    int m_##code = E_FAIL__; \
 };
 
 #define DECLARE_INHERITED_EXCEPTION_WITH_EXTRA_MEMBER(name, parent, member) \
@@ -61,6 +66,8 @@ public: \
     name(const System::String &message) : parent(message) {} \
     name(const System::String &message, const Exception& innerException) : parent(message, innerException) {} \
     name(const System::String &message, const System::String & member) : parent(message), m_##member(member) {} \
+    name(const System::String &message, const System::String & member, const Exception& innerException) \
+        : parent(message, innerException), m_##member(member) {} \
     String get_##member() { return m_##member; } \
 protected: \
     virtual String ExtraDescription() const { return m_##member; } \
@@ -106,7 +113,7 @@ public: \
     int get_##code() { return m_##code; } \
 protected: \
     virtual String ExtraDescription() const { return String::FromUtf8(std::to_string(m_##code)); } \
-    int m_##code; \
+    int m_##code = E_FAIL__; \
 };
 
 #define DECLARE_INHERITED_EXCEPTION_WITH_HRESULT(name, parent, hresult) \
@@ -123,6 +130,7 @@ EXCEPTION_NAMESPACE(, System) {
     DECLARE_INHERITED_EXCEPTION(SystemException, Exception);
     DECLARE_INHERITED_EXCEPTION(ApplicationException, Exception);
     DECLARE_INHERITED_EXCEPTION(InvalidOperationException, Exception);
+    DECLARE_INHERITED_EXCEPTION(InvalidProgramException, Exception);
     DECLARE_INHERITED_EXCEPTION_WITH_EXTRA_MEMBER2(ObjectDisposedException, InvalidOperationException, ObjectName);
     DECLARE_INHERITED_EXCEPTION_MSG_SUFFIX(NotImplementedException, String(L" is not implemented"), SystemException);
     DECLARE_INHERITED_EXCEPTION_MSG_SUFFIX(NotSupportedException, String(L" is not supported"), SystemException);
@@ -186,6 +194,11 @@ EXCEPTION_NAMESPACE(, System) {
         {
             DECLARE_INHERITED_EXCEPTION(KeyNotFoundException, SystemException);
         }
+    }
+
+    EXCEPTION_NAMESPACE(System, Net)
+    {
+        DECLARE_INHERITED_EXCEPTION(WebException, InvalidOperationException);
     }
 
     EXCEPTION_NAMESPACE(System, Web)

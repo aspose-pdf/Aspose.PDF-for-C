@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_CheckboxField_h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_CheckboxField_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/collections/list.h>
 
@@ -44,25 +44,81 @@ class ASPOSE_PDF_SHARED_API CheckboxField FINAL : public Aspose::Pdf::Interactiv
     
 public:
 
+    /// <summary>
+    /// Returns list of allowed states. 
+    /// </summary>
+    /// <returns></returns>
     System::SharedPtr<System::Collections::Generic::List<System::String>> get_AllowedStates();
+    /// <summary>
+    /// Gets or sets style of check box.
+    /// </summary>
     BoxStyle get_Style();
+    /// <summary>
+    /// Gets or sets style of check box.
+    /// </summary>
     void set_Style(BoxStyle value);
+    /// <summary>
+    /// Gets or sets current annotation appearance state.
+    /// </summary>
     virtual System::String get_ActiveState();
+    /// <summary>
+    /// Gets or sets current annotation appearance state.
+    /// </summary>
     virtual void set_ActiveState(System::String value);
+    /// <summary>
+    /// Gets or sets state of check box.  
+    /// </summary>
     bool get_Checked();
+    /// <summary>
+    /// Gets or sets state of check box.  
+    /// </summary>
     void set_Checked(bool value);
+    /// <summary>
+    /// Gets or sets value of check box field.
+    /// </summary>
     virtual System::String get_Value();
+    /// <summary>
+    /// Gets or sets value of check box field.
+    /// </summary>
     virtual void set_Value(System::String value);
     
+    /// <summary>
+    /// Constructor for CheckboxField class.
+    /// </summary>
+    /// <param name="page">Page where check box will be placed.</param>
+    /// <param name="rect">Position and size of the check box.</param>
     CheckboxField(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
+    /// <summary>
+    /// Constructor for CheckboxField class.
+    /// </summary>
+    /// <param name="doc">Document where will be new field created.</param>
+    /// <param name="rect">Rectangle where new field will be created.</param>
     CheckboxField(System::SharedPtr<Document> doc, System::SharedPtr<Rectangle> rect);
+    /// <summary>
+    /// Create instance of CheckboxField.
+    /// </summary>
     CheckboxField();
     
 protected:
 
+    /// <summary>
+    /// Returns name of state which is "Checked" state of checkbox. This is "Yes" if presents 
+    /// or any other  value other then "Off" and "No";
+    /// </summary>
+    /// <returns></returns>
     System::String get_OnState();
+    /// <summary>
+    /// Returns name of non-checked state; This is "no" if presents or "Off" in common state.
+    /// </summary>
+    /// <returns></returns>
     System::String get_OffState();
+    /// <summary>
+    /// Gets normal caption of the field.
+    /// </summary>
     System::String get_NormalCaption();
+    /// <summary>
+    /// Gets normal caption of the field.
+    /// </summary>
     void set_NormalCaption(System::String value);
     
     static BoxStyle GetStyle(System::SharedPtr<XForm> xform, BoxStyle defaultStyle);
@@ -70,19 +126,21 @@ protected:
     
     CheckboxField(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> annotation, System::SharedPtr<Document> document);
     
+    /// <summary>
+    /// Initialize the field.
+    /// </summary>
+    /// <param name="page">Aspose.Pdf.page object.</param>
     virtual void Initialize(System::SharedPtr<Aspose::Pdf::Engine::Data::ITrailerable> trailer);
     virtual void UpdateAppearance(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Annotation> annotation);
     virtual bool AppearanceSupported();
+    /// <summary>
+    /// Creates sequense of operators for drawing appearance of the check box. 
+    /// </summary>
+    /// <param name="parameters">Appearance parameters.</param>
+    /// <param name="annotation">Annotation for which appearance will be generated</param>
+    /// <returns>List of the operators.</returns>
     virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> CreateAppearanceProgram(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Annotation::AppearanceParameters> parameters, System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Annotation> annotation);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "CheckboxField"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

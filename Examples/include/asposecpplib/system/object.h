@@ -105,7 +105,7 @@ namespace System
         template<typename T1, typename T2>
         static typename std::enable_if<IsSharedPtr<T1>::value && IsSharedPtr<T2>::value, bool>::type Equals(T1 const& objA, T2 const& objB)
         {
-            return objA == objB || (objA.get() != nullptr && objB.get() != nullptr && objA->Equals(objB));
+            return ReferenceEquals(objA, objB) || (objA.get() != nullptr && objB.get() != nullptr && objA->Equals(objB));
         }
 
         template<typename T1, typename T2>

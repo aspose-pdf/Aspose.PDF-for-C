@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_IconFit_h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_IconFit_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -40,20 +40,68 @@ class ASPOSE_PDF_SHARED_API IconFit FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets scaling reason. 
+    /// </summary>
     Aspose::Pdf::InteractiveFeatures::Forms::ScalingReason get_ScalingReason();
+    /// <summary>
+    /// Gets or sets scaling reason. 
+    /// </summary>
     void set_ScalingReason(Aspose::Pdf::InteractiveFeatures::Forms::ScalingReason value);
+    /// <summary>
+    /// The type of scaling that shall be used.        /// </summary>
     Aspose::Pdf::InteractiveFeatures::Forms::ScalingMode get_ScalingMode();
+    /// <summary>
+    /// The type of scaling that shall be used.        /// </summary>
     void set_ScalingMode(Aspose::Pdf::InteractiveFeatures::Forms::ScalingMode value);
+    /// <summary>
+    /// Gets or sets space to allocate at the left of the icon.
+    /// </summary>
     double get_LeftoverLeft();
+    /// <summary>
+    /// Gets or sets space to allocate at the left of the icon.
+    /// </summary>
     void set_LeftoverLeft(double value);
+    /// <summary>
+    /// Gets or sets space to allocate at the bottom of the icon.
+    /// </summary>
     double get_LeftoverBottom();
+    /// <summary>
+    /// Gets or sets space to allocate at the bottom of the icon.
+    /// </summary>
     void set_LeftoverBottom(double value);
+    /// <summary>
+    /// If true, indicates that the button appearance shall be scaled to fit fully within the bounds of the annotation without taking into consideration the line width of the border.
+    /// </summary>
     bool get_SpreadOnBorder();
+    /// <summary>
+    /// If true, indicates that the button appearance shall be scaled to fit fully within the bounds of the annotation without taking into consideration the line width of the border.
+    /// </summary>
     void set_SpreadOnBorder(bool value);
     
+    /// <summary>
+    /// Converts name of scaling reason into ScalingReason object. 
+    /// </summary>
+    /// <param name="reason">Name of scaling reason. </param>
+    /// <returns>Scaling reason object.</returns>
     static Aspose::Pdf::InteractiveFeatures::Forms::ScalingReason NameToScalingReason(System::String reason);
+    /// <summary>
+    /// Converts scaling reason obejct to name. 
+    /// </summary>
+    /// <param name="reason">Scaling reason object to be converted.</param>
+    /// <returns>Name of scaling reasong.</returns>
     static System::String ScalingReasonToName(Aspose::Pdf::InteractiveFeatures::Forms::ScalingReason reason);
+    /// <summary>
+    /// Converts scaling mode name into ScalingMode object.
+    /// </summary>
+    /// <param name="mode">Scaling mode name.</param>
+    /// <returns>Scaling mode object.</returns>
     static Aspose::Pdf::InteractiveFeatures::Forms::ScalingMode NameToScalingMode(System::String mode);
+    /// <summary>
+    /// Converts scaling mode object into name.
+    /// </summary>
+    /// <param name="mode">Scaling mode object.</param>
+    /// <returns>Scaling mode name.</returns>
     static System::String ScalingModeToName(Aspose::Pdf::InteractiveFeatures::Forms::ScalingMode mode);
     
 protected:
@@ -63,14 +111,6 @@ protected:
     IconFit(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> annotation);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "IconFit"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Facades_AutoRotateMode_h_
 #define _Aspose_Pdf_Facades_AutoRotateMode_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -13,8 +13,17 @@ namespace Facades {
 /// </summary>
 enum class AutoRotateMode
 {
+    /// <summary>
+    /// No rotation.
+    /// </summary>
     None,
+    /// <summary>
+    /// Rotation direction is clockwise.
+    /// </summary>
     ClockWise,
+    /// <summary>
+    /// Rotation directon is counterclockwise.
+    /// </summary>
     AntiClockWise
 };
 

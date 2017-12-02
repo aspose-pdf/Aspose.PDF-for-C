@@ -46,13 +46,13 @@ namespace System
         }
 
         template <typename T>
-        static inline typename std::enable_if<!std::is_fundamental<T>::value && !std::is_enum<T>::value && !IsBoxable<T>::value, const System::TypeInfo&>::type GetType()
+        static inline typename std::enable_if<!std::is_fundamental<T>::value && !std::is_enum<T>::value && !IsBoxable<T>::value || IsException<T>::value, const System::TypeInfo&>::type GetType()
         {
             return T::Type(); // Works for pointers as well - they redirect Type() call to Pointee_::Type()
         }
 
         template <typename T>
-        static inline typename std::enable_if<!std::is_fundamental<T>::value && !std::is_enum<T>::value && IsBoxable<T>::value, const System::TypeInfo&>::type GetType()
+        static inline typename std::enable_if<!std::is_fundamental<T>::value && !std::is_enum<T>::value && IsBoxable<T>::value && !IsException<T>::value, const System::TypeInfo&>::type GetType()
         {
             return BoxedValue<T>::Type(); // Works for pointers as well - they redirect Type() call to Pointee_::Type()
         }

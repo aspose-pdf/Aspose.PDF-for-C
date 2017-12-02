@@ -115,11 +115,17 @@ const IntPtr IntPtrZero = 0;
 #define __WIDEN2(quote) L##quote
 #define __WIDEN(quote) __WIDEN2(quote)
 
+#define __QUOTE1(x) #x
+#define __QUOTE2(x) __QUOTE1(x)
+
 #if defined(__GNUC__)
     // under gcc __PRETTY_FUNCTION__ is a variable, so it is impossible to widen :(
+    #define LOCATION std::string(__PRETTY_FUNCTION__) + ":" + std::string(__QUOTE2(__LINE__))
     #define ASPOSE_CURRENT_FUNCTION std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>>().from_bytes(__PRETTY_FUNCTION__).c_str()
+    #define ASPOSE_CURRENT_FUNCTION_LINE std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>>().from_bytes(std::string(__PRETTY_FUNCTION__) + ":" + std::string(__QUOTE2(__LINE__))).c_str()
 #elif defined(_MSC_VER)
     #define ASPOSE_CURRENT_FUNCTION __WIDEN(__FUNCSIG__)
+    #define ASPOSE_CURRENT_FUNCTION_LINE __WIDEN(__FUNCSIG__ ":" __QUOTE2(__LINE__))
 #else
     #define ASPOSE_CURRENT_FUNCTION L""
     #pragma message("ASPOSE_CURRENT_FUNCTION is undefined!")

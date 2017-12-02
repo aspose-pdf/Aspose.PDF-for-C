@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_HtmlLoadOptions_h_
 #define _Aspose_Pdf_HtmlLoadOptions_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -30,33 +30,55 @@ public:
 
     bool UseNewConversionEngine;
     
+    /// <summary>
+    /// Gets or sets the attribute specifying the encoding used for this document at the time of the parsing. If this attribute is null the encoding will determine from document character set atribute.
+    /// </summary>
     System::String get_InputEncoding();
+    /// <summary>
+    /// Gets or sets the attribute specifying the encoding used for this document at the time of the parsing. If this attribute is null the encoding will determine from document character set atribute.
+    /// </summary>
     void set_InputEncoding(System::String value);
+    /// <summary>
+    /// The base path/url for the html file.
+    /// </summary>
     System::String get_BasePath();
     
     System::SharedPtr<System::Net::ICredentials> ExternalResourcesCredentials;
     LoadOptions::ResourceLoadingStrategy CustomLoaderOfExternalResources;
     
+    /// <summary>
+    /// Gets or sets document page info
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::PageInfo> get_PageInfo();
+    /// <summary>
+    /// Gets or sets document page info
+    /// </summary>
     void set_PageInfo(System::SharedPtr<Aspose::Pdf::PageInfo> value);
     
+    /// <summary>
+    /// Creates load options for converting html into pdf document with empty base path.
+    /// </summary>
     HtmlLoadOptions();
+    /// <summary>
+    /// Creates load options for converting html into pdf document with defined base path.
+    /// </summary>
+    /// <param name="basePath">
+    /// The base path/url for the html file.
+    /// </param>
     HtmlLoadOptions(System::String basePath);
     
 protected:
 
+    /// <summary>
+    /// Gets or sets the flag that controls visibility of fields borders (button, text, combobox).
+    /// </summary>
     bool get_ShowFieldsBorders();
+    /// <summary>
+    /// Gets or sets the flag that controls visibility of fields borders (button, text, combobox).
+    /// </summary>
     void set_ShowFieldsBorders(bool value);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "HtmlLoadOptions"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

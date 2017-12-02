@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_CgmImportOptions_h_
 #define _Aspose_Pdf_CgmImportOptions_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <drawing/size_f.h>
 
@@ -23,22 +23,25 @@ class ASPOSE_PDF_SHARED_API CgmImportOptions : public Aspose::Pdf::ImportOptions
     
 public:
 
+    /// <summary>
+    /// Gets or sets output page size for import.
+    /// Default page size - A4 300dpi 2480 X 3508.
+    /// </summary>
     System::Drawing::SizeF get_PageSize();
+    /// <summary>
+    /// Gets or sets output page size for import.
+    /// Default page size - A4 300dpi 2480 X 3508.
+    /// </summary>
     void set_PageSize(System::Drawing::SizeF value);
     
+    /// <summary>
+    /// Constructor
+    /// </summary>
     CgmImportOptions();
     
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "CgmImportOptions"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_AnnotationType_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_AnnotationType_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/object.h>
@@ -21,31 +21,109 @@ namespace Annotations {
 /// </summary>
 enum class AnnotationType
 {
+    /// <summary>
+    /// Text annotation type.
+    /// </summary>
     Text,
+    /// <summary>
+    /// Circle annotation type.
+    /// </summary>
     Circle,
+    /// <summary>
+    /// Polygon annotation type. 
+    /// </summary>
     Polygon,
+    /// <summary>
+    /// Plyline annotation type.
+    /// </summary>
     PolyLine,
+    /// <summary>
+    /// Line annotation type.
+    /// </summary>
     Line,
+    /// <summary>
+    /// Square annotatotion type.
+    /// </summary>
     Square,
+    /// <summary>
+    /// Free text annotation type.
+    /// </summary>
     FreeText,
+    /// <summary>
+    /// Highlight annotation type.
+    /// </summary>
     Highlight,
+    /// <summary>
+    /// Underline annotation type.
+    /// </summary>
     Underline,
+    /// <summary>
+    /// Squiggle annotation type.
+    /// </summary>
     Squiggly,
+    /// <summary>
+    /// Strikeout annotation type.
+    /// </summary>
     StrikeOut,
+    /// <summary>
+    /// Caret annotation type.
+    /// </summary>
     Caret,
+    /// <summary>
+    /// Ink annotation type.
+    /// </summary>
     Ink,
+    /// <summary>
+    /// Link annotation type.
+    /// </summary>
     Link,
+    /// <summary>
+    /// Popup annotation type.
+    /// </summary>
     Popup,
+    /// <summary>
+    /// File attachment annotation type.
+    /// </summary>
     FileAttachment,
+    /// <summary>
+    /// Sound annotation type.
+    /// </summary>
     Sound,
+    /// <summary>
+    /// Movie annotation type.
+    /// </summary>
     Movie,
+    /// <summary>
+    /// Screen annotation type.
+    /// </summary>
     Screen,
+    /// <summary>
+    /// Widget annotation type.
+    /// </summary>
     Widget,
+    /// <summary>
+    /// Watermark annotation type.
+    /// </summary>
     Watermark,
+    /// <summary>
+    /// Trap network annotation type.
+    /// </summary>
     TrapNet,
+    /// <summary>
+    /// Printer mark annotation type.
+    /// </summary>
     PrinterMark,
+    /// <summary>
+    /// Redaction annotation type.
+    /// </summary>
     Redaction,
+    /// <summary>
+    /// Rubber stamp annotation type.
+    /// </summary>
     Stamp,
+    /// <summary>
+    /// Unknown annotation.
+    /// </summary>
     Unknown
 };
 
@@ -61,17 +139,6 @@ public:
 
     static System::String ToString(AnnotationType value);
     static AnnotationType ToEnum(System::String value);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "AnnotationTypeConverter"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

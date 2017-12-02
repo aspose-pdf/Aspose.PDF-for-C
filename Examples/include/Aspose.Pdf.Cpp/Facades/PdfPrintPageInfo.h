@@ -28,20 +28,18 @@ class ASPOSE_PDF_SHARED_API PdfPrintPageInfo : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets currently printed page number;
+    /// </summary>
     int32_t get_PageNumber();
     
 protected:
 
+    /// <summary>
+    /// Initializes new PdfPrintPageInfo object.
+    /// </summary>
+    /// <param name="pageNumber">Currently printed page number.</param>
     PdfPrintPageInfo(int32_t pageNumber);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PdfPrintPageInfo"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

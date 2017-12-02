@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_TextAlignment_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_TextAlignment_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -15,8 +15,17 @@ namespace Annotations {
 /// </summary>
 enum class TextAlignment
 {
+    /// <summary>
+    /// Text is aligned to left.
+    /// </summary>
     Left,
+    /// <summary>
+    /// Text is centered.
+    /// </summary>
     Center,
+    /// <summary>
+    /// Text is aligned to right.
+    /// </summary>
     Right
 };
 

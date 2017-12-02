@@ -25,25 +25,51 @@ class ASPOSE_PDF_SHARED_API ColumnInfo FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets a string that contains the width of columns. 
+    /// The value of each column should be separated by blank.The default unit is point,
+    /// but cm, inch and percentage of available width are also supported.
+    /// For example,"120 2.5cm 1.5inch"
+    /// </summary>
     System::String get_ColumnWidths();
+    /// <summary>
+    /// Gets or sets a string that contains the width of columns. 
+    /// The value of each column should be separated by blank.The default unit is point,
+    /// but cm, inch and percentage of available width are also supported.
+    /// For example,"120 2.5cm 1.5inch"
+    /// </summary>
     void set_ColumnWidths(System::String value);
+    /// <summary>
+    /// Gets or sets a string that contains the spacing between columns. 
+    /// The value of each spacing should be separated by blank. The default unit is point,
+    /// but cm and inch are also supported.For example,"120 2.5cm 1.5inch".
+    /// </summary>
+    /// <remarks>
+    /// If this property is not set, default value 1.25cm will be used for each spacing.
+    /// </remarks>
     System::String get_ColumnSpacing();
+    /// <summary>
+    /// Gets or sets a string that contains the spacing between columns. 
+    /// The value of each spacing should be separated by blank. The default unit is point,
+    /// but cm and inch are also supported.For example,"120 2.5cm 1.5inch".
+    /// </summary>
+    /// <remarks>
+    /// If this property is not set, default value 1.25cm will be used for each spacing.
+    /// </remarks>
     void set_ColumnSpacing(System::String value);
+    /// <summary>
+    /// Gets or sets a int value that indicates the number of columns.
+    /// </summary>
     int32_t get_ColumnCount();
+    /// <summary>
+    /// Gets or sets a int value that indicates the number of columns.
+    /// </summary>
     void set_ColumnCount(int32_t value);
     
+    /// <summary>
+    /// Initializes a new instance of the ColumnInfo class.
+    /// </summary>
     ColumnInfo();
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ColumnInfo"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

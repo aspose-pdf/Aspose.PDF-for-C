@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Justification_h_
 #define _Aspose_Pdf_InteractiveFeatures_Justification_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/object.h>
@@ -18,8 +18,17 @@ namespace InteractiveFeatures {
 /// </summary>
 enum class Justification
 {
+    /// <summary>
+    /// Left justification.
+    /// </summary>
     Left = 0,
+    /// <summary>
+    /// Center justification.
+    /// </summary>
     Center = 1,
+    /// <summary>
+    /// Right justification.
+    /// </summary>
     Right = 2
 };
 
@@ -35,17 +44,6 @@ public:
 
     static System::String ToXfdfString(Justification value);
     static Justification ToEnum(System::String value);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "JustificationConverter"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

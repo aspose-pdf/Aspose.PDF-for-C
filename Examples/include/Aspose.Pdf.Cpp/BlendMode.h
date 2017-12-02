@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_BlendMode_h_
 #define _Aspose_Pdf_BlendMode_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/enum.h>
 
@@ -15,21 +15,69 @@ namespace Pdf {
 /// </summary>
 enum class BlendMode
 {
+    /// <summary>
+    /// Normal blend mode.
+    /// </summary>
     Normal,
+    /// <summary>
+    /// Multiply blend mode.
+    /// </summary>
     Multiply,
+    /// <summary>
+    /// Screen blend mode.
+    /// </summary>
     Screen,
+    /// <summary>
+    /// Overlay blend mode.
+    /// </summary>
     Overlay,
+    /// <summary>
+    /// Darken blend mode.
+    /// </summary>
     Darken,
+    /// <summary>
+    /// Lighten blend mode.
+    /// </summary>
     Lighten,
+    /// <summary>
+    /// ColorDodge blend mode.
+    /// </summary>
     ColorDodge,
+    /// <summary>
+    /// ColorBurn blend mode.
+    /// </summary>
     ColorBurn,
+    /// <summary>
+    /// HardLight blend mode.
+    /// </summary>
     HardLight,
+    /// <summary>
+    /// SoftLight blend mode.
+    /// </summary>
     SoftLight,
+    /// <summary>
+    /// Difference blend mode.
+    /// </summary>
     Difference,
+    /// <summary>
+    /// Exclusion blend mode.
+    /// </summary>
     Exclusion,
+    /// <summary>
+    /// Hue blend mode.
+    /// </summary>
     Hue,
+    /// <summary>
+    /// Saturation blend mode.
+    /// </summary>
     Saturation,
+    /// <summary>
+    /// Color blend mode.
+    /// </summary>
     Color,
+    /// <summary>
+    /// Luminosity blend mode.
+    /// </summary>
     Luminosity
 };
 

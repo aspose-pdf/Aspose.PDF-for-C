@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_DefaultAppearance_h_
 #define _Aspose_Pdf_InteractiveFeatures_DefaultAppearance_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -46,22 +46,67 @@ class ASPOSE_PDF_SHARED_API DefaultAppearance FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets font size in default apperance.
+    /// </summary>
     double get_FontSize();
+    /// <summary>
+    /// Gets font size in default apperance.
+    /// </summary>
     void set_FontSize(double value);
+    /// <summary>
+    /// Gets or sets the color of text in the default appearance.
+    /// </summary>
     System::Drawing::Color get_TextColor();
+    /// <summary>
+    /// Gets or sets the color of text in the default appearance.
+    /// </summary>
     void set_TextColor(System::Drawing::Color value);
+    /// <summary>
+    /// Gets font name in the default appearance.
+    /// </summary>
     System::String get_FontName();
+    /// <summary>
+    /// Gets font name in the default appearance.
+    /// </summary>
     void set_FontName(System::String value);
+    /// <summary>
+    /// Gets font specified as default for text.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Text::Font> get_Font();
+    /// <summary>
+    /// Gets the list of pdf operators which represent appearence. 
+    /// </summary>
     System::String get_Text();
     
+    /// <summary>
+    /// Constructor of DefaultAppearance.
+    /// </summary>
     DefaultAppearance();
+    /// <summary>
+    /// Constructor of DefaultAppearance.
+    /// </summary>
+    /// <param name="fontName">Font name.</param>
+    /// <param name="fontSize">Font size.</param>
+    /// <param name="textColor">Color of text.</param>
     DefaultAppearance(System::String fontName, double fontSize, System::Drawing::Color textColor);
+    /// <summary>
+    /// Constructor of Default Appearance. Previously created font may be specified as default font. 
+    /// </summary>
+    /// <param name="font">Font which will be used as default.</param>
+    /// <param name="fontSize">Font size.</param>
+    /// <param name="textColor">Color of text.</param>
     DefaultAppearance(System::SharedPtr<Aspose::Pdf::Text::Font> font, double fontSize, System::Drawing::Color textColor);
     
 protected:
 
+    /// <summary>
+    /// Gets or sets the color of border in the default appearance.
+    /// </summary>
     System::Drawing::Color get_BorderColor();
+    /// <summary>
+    /// Gets or sets the color of border in the default appearance.
+    /// </summary>
     void set_BorderColor(System::Drawing::Color value);
     
     DefaultAppearance(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> EngineDict);
@@ -70,14 +115,6 @@ protected:
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfPrimitive> GetProgram(System::SharedPtr<Aspose::Pdf::Engine::Data::ITrailerable> trailerable);
     System::Object::shared_members_type GetSharedMembers() override;
     static void __FreeStaticPointers();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "DefaultAppearance"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

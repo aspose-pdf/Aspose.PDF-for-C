@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_HighlightingMode_h_
 #define _Aspose_Pdf_InteractiveFeatures_HighlightingMode_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/object.h>
@@ -18,10 +18,25 @@ namespace InteractiveFeatures {
 /// </summary>
 enum class HighlightingMode
 {
+    /// <summary>
+    /// No highlighting.
+    /// </summary>
     None,
+    /// <summary>
+    /// Invert the contents of the annotation rectangle.
+    /// </summary>
     Invert,
+    /// <summary>
+    /// Invert the annotation�s border.
+    /// </summary>
     Outline,
+    /// <summary>
+    /// Display the annotation�s down appearance, if any. If no down appearance is defined, offset the contents of the annotation rectangle to appear as if it were being pushed below the surface of the page.
+    /// </summary>
     Push,
+    /// <summary>
+    /// Same as Push (which is preferred).
+    /// </summary>
     Toggle
 };
 
@@ -37,17 +52,6 @@ public:
 
     static System::String ToString(HighlightingMode value);
     static HighlightingMode ToEnum(System::String value);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "HighlightingModeConverter"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

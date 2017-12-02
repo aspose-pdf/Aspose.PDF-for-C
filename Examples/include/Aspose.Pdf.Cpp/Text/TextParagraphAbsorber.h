@@ -40,13 +40,35 @@ class ASPOSE_PDF_SHARED_API TextParagraphAbsorber FINAL : public Aspose::Pdf::Te
     
 public:
 
+    /// <summary>
+    /// Gets collection of search occurrences that are presented with <see cref="TextParagraph"/> objects.
+    /// </summary>
     System::SharedPtr<TextParagraphCollection> get_TextParagraphs();
+    /// <summary>
+    /// Gets collection of search occurrences that are presented with <see cref="TextParagraph"/> objects.
+    /// </summary>
     void set_TextParagraphs(System::SharedPtr<TextParagraphCollection> value);
+    /// <summary>
+    /// Gets or sets ractangles that the <see cref="TextParagraphAbsorber"/> used to searche for text paragraphs on the PDF document or page.
+    /// </summary>
     System::ArrayPtr<System::SharedPtr<Rectangle>> get_Rectangles();
+    /// <summary>
+    /// Gets or sets ractangles that the <see cref="TextParagraphAbsorber"/> used to searche for text paragraphs on the PDF document or page.
+    /// </summary>
     void set_Rectangles(System::ArrayPtr<System::SharedPtr<Rectangle>> value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TextParagraphAbsorber"/> with rectangles collection.  
+    /// </summary>
+    /// <remarks>
+    /// The absorber will sarch for text and return paragraphs corresponding to the rectangles.
+    /// </remarks>
+    /// <param name="rectangles">The paragraphs' rectangles.</param>
     TextParagraphAbsorber(System::ArrayPtr<System::SharedPtr<Rectangle>> rectangles);
     
+    /// <summary>
+    /// Performs search on the specified page.
+    /// </summary>
     virtual void Visit(System::SharedPtr<Page> page);
     
 protected:
@@ -54,14 +76,6 @@ protected:
     System::SharedPtr<TextBuilder> tb;
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextParagraphAbsorber"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

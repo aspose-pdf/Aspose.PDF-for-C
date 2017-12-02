@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Table_Cells_h_
 #define _Aspose_Pdf_Table_Cells_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/collections/ienumerator.h>
@@ -33,17 +33,64 @@ class ASPOSE_PDF_SHARED_API Cells FINAL : public System::Collections::Generic::I
     
 public:
 
+    /// <summary>
+    /// The items count.
+    /// </summary>
     int32_t get_Count();
     
+    /// <summary>
+    /// Add cell to collection.
+    /// </summary>
+    ///<returns>The new cell</returns>
     System::SharedPtr<Cell> Add();
+    /// <summary>
+    /// Add cell to collection.
+    /// </summary>
+    /// <param name="text">The text for cell.</param>
+    /// <param name="ts">The text state.</param>
+    /// <returns>The new cell</returns>
     System::SharedPtr<Cell> Add(System::String text, System::SharedPtr<Aspose::Pdf::Text::TextState> ts);
+    /// <summary>
+    /// Add cell to collection.
+    /// </summary>
+    /// <param name="text">The text for cell.</param>
+    /// <returns>The new cell</returns>
     System::SharedPtr<Cell> Add(System::String text);
+    /// <summary>
+    /// Add cell to collection.
+    /// </summary>
+    /// <param name="cell">The cell to collection.</param>
+    /// <returns></returns>
     void Add(System::SharedPtr<Cell> cell);
+    /// <summary>
+    /// Remove cell set from collection.
+    /// </summary>
+    /// <param name="index">The collection index.</param>
+    /// <param name="count">The rows count.</param>
     void RemoveRange(int32_t index, int32_t count);
+    /// <summary>
+    /// Remove cell set from collection.
+    /// </summary>
+    /// <param name="cell">The cell object.</param>
     void Remove(System::SharedPtr<Cell> cell);
+    /// <summary>
+    /// Insert cell to collection.
+    /// </summary>
+    /// <param name="index">The selected index.</param>
+    /// <param name="cell">The selected cell.</param>
     void Insert(int32_t index, System::SharedPtr<Cell> cell);
     
+    /// <summary>
+    /// Gets or sets cells.
+    /// </summary>
+    /// <returns></returns>
+    /// <param name="index">The cell index.</param>
     System::SharedPtr<Cell> idx_get(int32_t index);
+    /// <summary>
+    /// Gets or sets cells.
+    /// </summary>
+    /// <returns></returns>
+    /// <param name="index">The cell index.</param>
     void idx_set(int32_t index, System::SharedPtr<Cell> value);
     
     Cells();
@@ -51,14 +98,6 @@ public:
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Cells"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

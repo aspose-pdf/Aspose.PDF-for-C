@@ -147,6 +147,13 @@ namespace System
             return connect(Callback(member, obj));
         }
 
+        template <class MemberType, class ClassType>
+        MulticastDelegate& connect(MemberType ClassType::* member, const WeakPtr<ClassType> & obj)
+        {
+            assert(obj != nullptr);
+            return connect(Callback(member, obj.lock_best_cast()));
+        }
+
         MulticastDelegate& operator +=(Callback callback)
         {
             return connect(std::move(callback));
@@ -180,6 +187,13 @@ namespace System
         {
             assert(obj != nullptr);
             return disconnect(Callback(member, obj));
+        }
+
+        template <class MemberType, class ClassType>
+        MulticastDelegate& disconnect(MemberType ClassType::* member, const WeakPtr<ClassType> & obj)
+        {
+            assert(obj != nullptr);
+            return disconnect(Callback(member, obj.lock_best_cast()));
         }
 
         MulticastDelegate& disconnect(MulticastDelegate& other)

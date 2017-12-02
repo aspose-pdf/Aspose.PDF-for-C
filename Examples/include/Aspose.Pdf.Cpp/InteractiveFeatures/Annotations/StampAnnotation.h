@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_StampAnnotation_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_StampAnnotation_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/io/stream.h>
 
@@ -33,16 +33,7 @@ namespace Annotations {
 /// Next code snippet demonstrates how to add 2 stamps into the first pdf document page.
 /// Input document comes from inFile and changes are saved into the outFile.
 /// The first stamp has icon NotForPublicRelease and the second comes with image from rubber.jpg.
-/// <code lang="C#">
-/// Document document = new Document(inFile);
-/// StampAnnotation stamp1 = new StampAnnotation(StampIcon.NotForPublicRelease);
-///	stamp1.Rect = new Rectangle(100, 100, 120, 120)
-///	document.Pages[1].Annotations.Add(stamp1);
-/// StampAnnotation stamp2 = new StampAnnotation(new FileStream("rubber.jpg", FileMode.Open));
-///	stamp2.Rect = new Rectangle(200, 200, 220, 220)
-///	document.Pages[1].Annotations.Add(stamp2);
-/// document.Save(outFile);
-/// </code>
+/// <code></code>
 /// </example>
 class ASPOSE_PDF_SHARED_API StampAnnotation FINAL : public Aspose::Pdf::InteractiveFeatures::Annotations::MarkupAnnotation
 {
@@ -58,14 +49,38 @@ class ASPOSE_PDF_SHARED_API StampAnnotation FINAL : public Aspose::Pdf::Interact
     
 public:
 
+    /// <summary>
+    /// Gets or sets icon for rubber stamp.
+    /// </summary>
     StampIcon get_Icon();
+    /// <summary>
+    /// Gets or sets icon for rubber stamp.
+    /// </summary>
     void set_Icon(StampIcon value);
+    /// <summary>
+    /// Gets type of annotation.
+    /// </summary>
     virtual Aspose::Pdf::InteractiveFeatures::Annotations::AnnotationType get_AnnotationType();
+    /// <summary>
+    /// Gets or sets image of the annotation.
+    /// </summary>
     System::SharedPtr<System::IO::Stream> get_Image();
+    /// <summary>
+    /// Gets or sets image of the annotation.
+    /// </summary>
     void set_Image(System::SharedPtr<System::IO::Stream> value);
     
+    /// <summary>
+    /// Acepts <see cref="AnnotationSelector"/> visitor when browsing annotation collection.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<AnnotationSelector> visitor);
     
+    /// <summary>
+    /// Creates new Stamp annotation on the specified page.
+    /// </summary>
+    /// <param name="page">The document's page where annotation should be created.</param>
+    /// <param name="rect">The annotation rectangle, defining the location of the annotation on the page.</param>
     StampAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
     
 protected:
@@ -73,17 +88,14 @@ protected:
     virtual void WriteXfdf(System::SharedPtr<System::Xml::XmlWriter> writer);
     virtual void ReadXfdf(System::SharedPtr<System::Xml::XmlReader> reader);
     
+    /// <summary>
+    /// Ititializes Stamp annotation with engine annotation object.
+    /// </summary>
+    /// <param name="engineAnnot">Engine object that represents the annotation.</param>
+    /// <param name="document">The Aspose.Pdf.Document object.</param>
     StampAnnotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> engineAnnot, System::SharedPtr<Document> document);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "StampAnnotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

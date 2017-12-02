@@ -23,22 +23,24 @@ class ASPOSE_PDF_SHARED_API WebHyperlink FINAL : public Aspose::Pdf::Hyperlink
     
 public:
 
+    /// <summary>
+    /// Gets or sets the web url.
+    /// </summary>
     System::String get_Url();
+    /// <summary>
+    /// Gets or sets the web url.
+    /// </summary>
     void set_Url(System::String value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="WebHyperlink"/> class.
+    /// </summary>
     WebHyperlink();
+    /// <summary>
+    /// Initializes a new instance of the <see cref="WebHyperlink"/> class.
+    /// </summary>
+    /// <param name="url">Web url for hyperlink.</param>
     WebHyperlink(System::String url);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "WebHyperlink"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

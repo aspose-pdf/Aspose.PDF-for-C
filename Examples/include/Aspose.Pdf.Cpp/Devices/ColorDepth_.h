@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Devices_ColorDepth__h_
 #define _Aspose_Pdf_Devices_ColorDepth__h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -13,9 +13,22 @@ namespace Devices {
 /// </summary>
 enum class ColorDepth
 {
+    /// <summary>
+    /// Default color depth.
+    /// 32 bit depth is used by default.
+    /// </summary>
     Default,
+    /// <summary>
+    /// 8 bits per pixel. Equal <see cref="PixelFormat.Format8bppIndexed"/>
+    /// </summary>
     Format8bpp,
+    /// <summary>
+    /// 4 bits per pixel. Equal <see cref="PixelFormat.Format4bppIndexed"/>
+    /// </summary>
     Format4bpp,
+    /// <summary>
+    /// 1 bit per pixel. Equal <see cref="PixelFormat.Format32bppRgb"/>
+    /// </summary>
     Format1bpp
 };
 

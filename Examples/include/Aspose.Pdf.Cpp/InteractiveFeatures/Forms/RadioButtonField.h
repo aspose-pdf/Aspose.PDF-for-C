@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_RadioButtonField_h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_RadioButtonField_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/collections/list.h>
 
@@ -46,25 +46,75 @@ class ASPOSE_PDF_SHARED_API RadioButtonField FINAL : public Aspose::Pdf::Interac
     
 public:
 
+    /// <summary>
+    /// Style of field box.
+    /// </summary>
     BoxStyle get_Style();
+    /// <summary>
+    /// Style of field box.
+    /// </summary>
     void set_Style(BoxStyle value);
+    /// <summary>
+    /// Gets or sets index of selected item. Numbering of items is started from 1.
+    /// </summary>
     virtual int32_t get_Selected();
+    /// <summary>
+    /// Gets or sets index of selected item. Numbering of items is started from 1.
+    /// </summary>
     virtual void set_Selected(int32_t value);
+    /// <summary>
+    /// Gets collection of options of the radio button.
+    /// </summary>
     virtual System::SharedPtr<OptionCollection> get_Options();
+    /// <summary>
+    /// Gets index of page which contains this RadioButton field.
+    /// </summary>
     virtual int32_t get_PageIndex();
+    /// <summary>
+    /// Gets or sets value of field.
+    /// </summary>
     virtual System::String get_Value();
+    /// <summary>
+    /// Gets or sets value of field.
+    /// </summary>
     virtual void set_Value(System::String value);
     
+    /// <summary>
+    /// Constructor for RadiouttonField
+    /// </summary>
+    /// <param name="page">Page where radio button will be placed.</param>
     RadioButtonField(System::SharedPtr<Aspose::Pdf::Page> page);
     RadioButtonField(System::SharedPtr<Document> doc);
     
+    /// <summary>
+    /// Adds new option field to RadioButton field
+    /// </summary>
+    /// <param name="newItem">Item which should be added.</param>
     void Add(System::SharedPtr<RadioButtonOptionField> newItem);
+    /// <summary>
+    /// Add  to radio button option with specifed rectangle. 
+    /// </summary>
+    /// <param name="optionName">Name of new option.</param>
+    /// <param name="rect">New item rectangle.</param>
     void AddOption(System::String optionName, System::SharedPtr<Rectangle> rect);
+    /// <summary>
+    /// Add option to radion button. 
+    /// </summary>
+    /// <param name="optionName">Name of the option which will be added.</param>
     virtual void AddOption(System::String optionName);
+    /// <summary>
+    /// Move all subitems of radio button to specified positins on the page. 
+    /// </summary>
+    /// <param name="point">Sets position of RadioButton field annotations.</param>
     virtual void SetPosition(System::SharedPtr<Point> point);
     
 protected:
 
+    /// <summary>
+    /// Returns true if checkbox value is equal to specified value.
+    /// </summary>
+    /// <param name="value">Value to compare.</param>
+    /// <returns>True if checkbox value equals to specified value.</returns>
     virtual bool IsEqualTo(System::String value);
     virtual System::String GetConformXFAValue(System::String value);
     
@@ -72,17 +122,13 @@ protected:
     RadioButtonField(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
     RadioButtonField(System::SharedPtr<Document> doc, System::SharedPtr<Rectangle> rect);
     
+    /// <summary>
+    /// Initialize the field.
+    /// </summary>
+    /// <param name="page">The Aspose.Pdf.Page object where the field should be located.</param>
     virtual void Initialize(System::SharedPtr<Aspose::Pdf::Engine::Data::ITrailerable> trailer);
     virtual void UpdateAppearances();
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "RadioButtonField"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

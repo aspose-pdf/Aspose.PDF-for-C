@@ -12,6 +12,7 @@
 ASPOSECPP_3RD_PARTY_CLASS(SkColorTable);
 
 namespace System { namespace Drawing { class Bitmap; } }
+namespace System { namespace Drawing { class Image; } }
 
 namespace System { namespace Drawing { namespace Imaging {
 
@@ -20,7 +21,7 @@ typedef SharedPtr<ColorPalette> ColorPalettePtr;
 
 class ColorPalette : public Object
 {
-    friend class Image;
+    friend class System::Drawing::Image;
     friend class System::Drawing::Bitmap;
     FRIEND_FUNCTION_System_MakeObject;
 public:

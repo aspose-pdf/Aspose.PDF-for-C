@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Facades_FontColor_h_
 #define _Aspose_Pdf_Facades_FontColor_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/object.h>
 #include <cstdint>
@@ -26,26 +26,42 @@ class ASPOSE_PDF_SHARED_API FontColor FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Green component of color.
+    /// </summary>
     int32_t get_Green();
+    /// <summary>
+    /// Green component of color.
+    /// </summary>
     void set_Green(int32_t value);
+    /// <summary>
+    /// Red component of color.
+    /// </summary>
     int32_t get_Red();
+    /// <summary>
+    /// Red component of color.
+    /// </summary>
     void set_Red(int32_t value);
+    /// <summary>
+    /// Blue component of color.
+    /// </summary>
     int32_t get_Blue();
+    /// <summary>
+    /// Blue component of color.
+    /// </summary>
     void set_Blue(int32_t value);
     
+    /// <summary>
+    /// Initializes color with specified color components.
+    /// </summary>
+    /// <param name="r">Red component.</param>
+    /// <param name="g">Green component.</param>
+    /// <param name="b">Blue component.</param>
     FontColor(int32_t r, int32_t g, int32_t b);
+    /// <summary>
+    /// Initializes color.
+    /// </summary>
     FontColor();
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "FontColor"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

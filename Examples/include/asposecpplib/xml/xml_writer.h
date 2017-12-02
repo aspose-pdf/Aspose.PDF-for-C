@@ -2,6 +2,7 @@
 #define _aspose_xml_xml_writer_h_
 
 #include <system/array.h>
+#include <system/idisposable.h>
 #include <system/text/string_builder.h>
 #include <system/io/text_writer.h>
 
@@ -10,7 +11,7 @@
 
 namespace System { namespace Xml {
 
-class XmlWriter : public Object
+class XmlWriter : public IDisposable
 {
     RTTI_INFO(XmlWriter, ::System::BaseTypesInfo<System::Object>);
 

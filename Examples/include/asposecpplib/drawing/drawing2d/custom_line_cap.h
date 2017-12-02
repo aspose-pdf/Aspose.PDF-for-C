@@ -3,6 +3,7 @@
 
 #include "fwd.h"
 #include "drawing/drawing2d/line_cap.h"
+#include "drawing/drawing2d/line_join.h"
 #include "system/exceptions.h"
 
 #ifdef ASPOSECPP_SHARED_EXPORTS
@@ -26,6 +27,8 @@ class GraphicsPath;
 
 class CustomLineCap : public Object
 {
+    RTTI_INFO(System::Drawing::Drawing2D::CustomLineCap, ::System::BaseTypesInfo<System::Object>)
+
 public:
     CustomLineCap(SharedPtr<GraphicsPath> fillPath, SharedPtr<GraphicsPath> strokePath,
         LineCap baseCap = LineCap::Flat, float baseInset = 0);
@@ -36,8 +39,24 @@ public:
 
     virtual SharedPtr<CustomLineCap> Clone();
 
+    LineCap get_BaseCap() const;
+    void set_BaseCap(LineCap value);
+    
+    float get_BaseInset() const;
+    void set_BaseInset(float value);
+    
+    LineJoin get_StrokeJoin() const;
+    void set_StrokeJoin(LineJoin value);
+    
+    float get_WidthScale() const;
+    void set_WidthScale(float value);
+
+    void Dispose() {};
+
 protected:
     friend class System::Drawing::Pen;
+
+    CustomLineCap();
 
     static SharedPtr<CustomLineCap> MakeForLineCap(LineCap value);
 
@@ -46,8 +65,8 @@ protected:
 
     void AppendPath(const SkPath* src_path, SkPath* dest_path, SkScalar width, bool is_start_cap) const;
 
-    const bool m_is_filled;
-    const float m_inset;
+    bool m_is_filled;
+    float m_inset;
     SharedPtr<GraphicsPath> m_path;
 
     LineCap m_start_cap;

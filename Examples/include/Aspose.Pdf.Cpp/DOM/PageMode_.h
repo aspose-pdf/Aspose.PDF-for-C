@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_DOM_PageMode__h_
 #define _Aspose_Pdf_DOM_PageMode__h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/object.h>
@@ -18,11 +18,29 @@ namespace DOM {
 /// </summary>
 enum class PageMode
 {
+    /// <summary>
+    /// Dont use any components.
+    /// </summary>
     UseNone,
+    /// <summary>
+    /// Document outline visible.
+    /// </summary>
     UseOutlines,
+    /// <summary>
+    /// Thumbnail images visible.
+    /// </summary>
     UseThumbs,
+    /// <summary>
+    /// FullScreenFull-screen mode, with no menu bar, window controls, or any other window visible.
+    /// </summary>
     FullScreen,
+    /// <summary>
+    /// Optional content group panel visible.
+    /// </summary>
     UseOC,
+    /// <summary>
+    /// Attachments panel visible.
+    /// </summary>
     UseAttachments
 };
 
@@ -38,17 +56,6 @@ public:
 
     static System::String ToString(PageMode value);
     static PageMode ToEnum(System::String value);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PageModeConverter"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_CommonData_Text_Fonts_FontSubstitutions_FontSubstitutionCollection_h_
 #define _Aspose_Pdf_CommonData_Text_Fonts_FontSubstitutions_FontSubstitutionCollection_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/collections/list.h>
@@ -63,14 +63,6 @@ private:
     
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "FontSubstitutionsEnumerator"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     private:
     
         System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<FontSubstitution>>> cursor;
@@ -82,41 +74,81 @@ private:
     
 public:
 
+    ///<summary>
+    /// Gets the number of <see cref="Font"/> object elements actually contained in the collection. 
+    /// </summary>
     int32_t get_Count() const;
+    ///<summary>
+    /// Gets an object that can be used to synchronize access to the collection.
+    /// </summary>
     System::SharedPtr<System::Object> get_SyncRoot();
+    ///<summary>
+    /// Gets a value indicating whether access to the collection is synchronized (thread safe). 
+    ///</summary>
     bool get_IsSynchronized();
     
+    ///<summary>
+    /// Returns an enumerator for the entire collection.
+    ///</summary>
+    /// <returns>Enumerator object</returns>
+    //<<--REFACTORING: Old code: public IEnumerator GetEnumerator()
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<FontSubstitution>>> GetEnumerator();
+    ///<summary>
+    /// Copies the entire collection to a compatible one-dimensional Array, starting at the specified index of the target array
+    ///</summary> 
+    /// <param name="array">Array of objects which will be copied.</param>
+    /// <param name="index">Starting index from which copying will be started.</param>
+    //<<--REFACTORING: Old code: public void CopyTo(Array array, int index)
     void CopyTo(System::ArrayPtr<System::SharedPtr<FontSubstitution>> array, int32_t index);
+    /// <summary>
+    /// Adds new font substitution object to the collection.
+    /// </summary>
+    /// <param name="fontSubstitution">Font substitution strategy.</param>
     void Add(System::SharedPtr<FontSubstitution> const &fontSubstitution);
+    /// <summary>
+    /// Clears the font substitution collection.
+    /// </summary>
     void Clear();
     
+    /// <summary>
+    /// Gets the font element at the specified index.
+    /// </summary>
+    /// <param name="index">Index within the collection.</param>
+    /// <returns>FontSubstitution object.</returns>
     System::SharedPtr<FontSubstitution> idx_get(int32_t index);
     
 protected:
 
+    ///<summary>
+    /// Initializes collection object
+    ///</summary>
     FontSubstitutionCollection();
     
+    /// <summary>
+    /// Deletes the font substitution element at the specified index.
+    /// </summary>
     void Delete(int32_t index);
+    /// <summary>
+    /// Deletes the font substitution element.
+    /// </summary>
     void Delete(System::SharedPtr<FontSubstitution> fontSubstitution);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "FontSubstitutionCollection"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<FontSubstitution>>> fontSubstitutions;
     System::SharedPtr<System::Object> syncRoot;
     
+    ///<summary>
+    ///</summary>
     bool get_IsReadOnly();
     
+    /// <summary>
+    /// Deletes the font substitution element.
+    /// </summary>
     bool Remove(System::SharedPtr<FontSubstitution> const &fontSubstitution);
+    /// <summary>
+    /// </summary>
     bool Contains(System::SharedPtr<FontSubstitution> const &item) const;
     
 };

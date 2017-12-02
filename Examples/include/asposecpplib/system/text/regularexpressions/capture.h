@@ -7,48 +7,33 @@
 #include <memory>
 #include <vector>
 
-#ifdef ASPOSECPP_SHARED_EXPORTS
-#include <boost/regex.hpp>
-#endif
-
 
 namespace System { namespace Text { namespace RegularExpressions {
-    namespace Detail {
-#ifdef ASPOSECPP_SHARED_EXPORTS
-        struct MatchResultsHolder : public boost::wcmatch { //Properly declaring all templates to create a typedef is too expensive
-            template <typename ...T> inline MatchResultsHolder(const T& ...copy) : boost::wcmatch(copy...) {}
-        };
-#else
-        struct MatchResultsHolder;
-#endif
-    }
 
+    typedef std::shared_ptr<const std::wstring> WStringPtr;
     class CaptureCollection;
+    
+    class Capture;
+    typedef SharedPtr<Capture> CapturePtr;
 
     class Capture: public Object
     {
         friend class CaptureCollection;
 
     public:
-        virtual ~Capture();
+        Capture(WStringPtr source, int index, int length);
 
         int get_Index() const { return index; }
         int get_Length() const { return length; }
-        String get_Value() const { return input.get_Length() >= (index+length) ? input.Substring(index,length) : String::Empty; }
+        String get_Value() const;
         String ToString() ASPOSE_CONST override { return get_Value(); }
 
-        bool operator==(const Capture& item) const { return this == &item; }
 
     protected:
 
         int index;
         int length;
-        String input;
-        std::unique_ptr<Detail::MatchResultsHolder> what;
-
-        Capture();
-        Capture(const Capture &copy);
-        Capture& operator = (const Capture &copy);
+        WStringPtr source;
 
 #ifdef __DBG_FOR_EACH_MEMEBR
     public:
@@ -63,7 +48,6 @@ namespace System { namespace Text { namespace RegularExpressions {
 #endif
     };
 
-    typedef SharedPtr<Capture> CapturePtr;
 
 }}} // namespace System::Text::RegularExpressions
 

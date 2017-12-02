@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_ActionCollection_h_
 #define _Aspose_Pdf_InteractiveFeatures_ActionCollection_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/object.h>
@@ -63,14 +63,6 @@ private:
     
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "ActionsEnumerator"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     private:
     
         System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfPrimitive> actions;
@@ -82,16 +74,51 @@ private:
     
 public:
 
+    /// <summary>
+    /// Count of actions on the collection.
+    /// </summary>
     int32_t get_Count() const;
+    /// <summary>
+    /// Returns true if object is synchronized.
+    /// </summary>
     bool get_IsSynchronized();
+    /// <summary>
+    /// Gets synchronization object.
+    /// </summary>
     System::SharedPtr<System::Object> get_SyncRoot();
     
+    /// <summary>
+    /// Adds new action into colleciton.
+    /// </summary>
+    /// <param name="action">Action which should be added.</param>
     void Add(System::SharedPtr<PdfAction> const &action);
+    /// <summary>
+    /// Removes action from collection by index.
+    /// </summary>
+    /// <param name="index">Index of action to remove.</param>
     void Delete(int32_t index);
+    /// <summary>
+    /// Delete all actions.
+    /// </summary>
     void Delete();
+    /// <summary>
+    /// Copies actions array into collection.
+    /// </summary>
+    /// <param name="array">Array of actions which must be copied into collection.</param>
+    /// <param name="index">Index starting from which array will be copied.</param>
+    //<<--REFACTORING: Old code: public void CopyTo(Array array, int index)
     void CopyTo(System::ArrayPtr<System::SharedPtr<PdfAction>> array, int32_t index);
+    /// <summary>
+    /// Returns enumerator for collection.
+    /// </summary>
+    /// <returns>Collection enumerator.</returns>
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<PdfAction>>> GetEnumerator();
     
+    /// <summary>
+    /// Gets action by its index.
+    /// </summary>
+    /// <param name="index">Index of action.</param>
+    /// <returns>Retreived action.</returns>
     System::SharedPtr<PdfAction> idx_get(int32_t index);
     
 protected:
@@ -104,14 +131,6 @@ protected:
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfPrimitive> createActions(System::SharedPtr<Aspose::Pdf::Engine::Data::ITrailerable> trailer);
     System::Object::shared_members_type GetSharedMembers() override;
     
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ActionCollection"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
-    
 private:
 
     System::SharedPtr<System::Object> syncRoot;
@@ -119,8 +138,14 @@ private:
     
     bool get_IsReadOnly();
     
+    /// <summary>
+    /// </summary>
     bool Remove(System::SharedPtr<PdfAction> const &item);
+    /// <summary>
+    /// </summary>
     bool Contains(System::SharedPtr<PdfAction> const &item) const;
+    /// <summary>
+    /// </summary>
     void Clear();
     System::SharedPtr<PdfAction> get(int32_t index);
     

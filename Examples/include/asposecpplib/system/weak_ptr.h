@@ -161,6 +161,24 @@ namespace System
     template <class T>
     using IsWeakPtr = System::detail::is_a<T, System::WeakPtr>;
 
+    template<class Y, class X>
+    SharedPtr<Y> static_pointer_cast(const WeakPtr<X>& x)
+    {
+        return x.lock_best_cast().template static_pointer_cast<Y>();
+    }
+
+    template<class Y, class X>
+    SharedPtr<Y> dynamic_pointer_cast(const WeakPtr<X>& x)
+    {
+        return x.lock_best_cast().template dynamic_pointer_cast<Y>();
+    }
+
+    template<class Y, class X>
+    SharedPtr<Y> const_pointer_cast(const WeakPtr<X>& x)
+    {
+        return x.lock_best_cast().template const_pointer_cast<Y>();
+    }
+
 } // namespace System
 
 #endif // _aspose_system_weak_ptr_h_

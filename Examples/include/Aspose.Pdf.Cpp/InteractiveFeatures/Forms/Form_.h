@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_Form__h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_Form__h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 //using Aspose.Drawing;
 
 // C# preprocessor directive: #if SUPPORT_ASPOSE_FLOAT2FIXED 
@@ -117,14 +117,6 @@ protected:
     
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "FieldsEnumerator"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     private:
     
         System::SharedPtr<Document> _document;
@@ -156,44 +148,122 @@ private:
     
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "XfaTestConversionData"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     };
     
     
 public:
 
+    /// <summary>
+    /// Returns true if object is thread-safe.
+    /// </summary>
     bool get_IsSynchronized();
+    /// <summary>
+    /// Returns synchronization object.
+    /// </summary>
     System::SharedPtr<System::Object> get_SyncRoot();
+    /// <summary>
+    /// Gets number of the fields on this form.
+    /// </summary>
     int32_t get_Count() const;
+    /// <summary>
+    /// Gets default resources placed on this form.
+    /// </summary>
     System::SharedPtr<Resources> get_DefaultResources();
+    /// <summary>
+    /// Gets or sets default appearance of the form (object which describes default font, text size and color for fields on the form).
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::DefaultAppearance> get_DefaultAppearance();
+    /// <summary>
+    /// Gets or sets default appearance of the form (object which describes default font, text size and color for fields on the form).
+    /// </summary>
     void set_DefaultAppearance(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::DefaultAppearance> value);
+    /// <summary>
+    /// Gets XFA data of the form (if presents).
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Forms::XFA> get_XFA();
+    /// <summary>
+    /// Gets type of the form. Possible values are: Standard, Static, Dynamic.
+    /// </summary>
     FormType get_Type();
+    /// <summary>
+    /// Gets type of the form. Possible values are: Standard, Static, Dynamic.
+    /// </summary>
     void set_Type(FormType value);
+    /// <summary>
+    /// Gets list of all fields in lowest level of hierarhical form.
+    /// </summary>
     System::ArrayPtr<System::SharedPtr<Field>> get_Fields();
     
     void CopyTo(System::ArrayPtr<System::SharedPtr<Field>> array, int32_t index);
+    /// <summary>
+    /// Gets enumeration of form fields.
+    /// </summary>
+    /// <returns>Field enumerator.</returns>
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation>>> GetEnumerator();
+    /// <summary>
+    /// Adds field on the form.
+    /// </summary>
+    /// <param name="field">Field which must be added.</param>
+    /// <param name="pageNumber">Page index where added field will be placed.</param>
     void Add(System::SharedPtr<Field> field, int32_t pageNumber);
+    /// <summary>
+    /// Adds field on the form.
+    /// </summary>
+    /// <param name="field">Field which must be added.</param>
     void Add(System::SharedPtr<Field> field);
+    /// <summary>
+    /// Delete field from the form.
+    /// </summary>
+    /// <param name="field">Field which must be deleted.</param>
     void Delete(System::SharedPtr<Field> field);
+    /// <summary>
+    /// Deletes field from the form by its name.
+    /// </summary>
+    /// <param name="fieldName">Name of the filed which must be deleted.</param>
     void Delete(System::String fieldName);
+    /// <summary>
+    /// Removes all form fields and place their values directly on the page.
+    /// </summary>
     void Flatten();
     
+    /// <summary>
+    /// Gets field of the form by field name. Throws excpetion if the field was not found.
+    /// </summary>
+    /// <param name="name">Name of the field.</param>
+    /// <returns>Retreived field.</returns>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation> idx_get(System::String name);
+    /// <summary>
+    /// Gets field of the form by field index.
+    /// </summary>
+    /// <param name="index">Index of the field.</param>
+    /// <returns>Retreived field.</returns>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation> idx_get(int32_t index);
     
+    /// <summary>
+    /// Adds new field to the form; If this field is already placed on other or this form, the copy of field is created. 
+    /// </summary>
+    /// <param name="field">Field name.</param>
+    /// <param name="partialName">Name of field on the form.</param>
+    /// <param name="pageNumber">Page number where field will be added.</param>
+    /// <returns>Added field returned. If copy of the field was created it will be returned.</returns>
     System::SharedPtr<Field> Add(System::SharedPtr<Field> field, System::String partialName, int32_t pageNumber);
+    /// <summary>
+    /// Adds additional appearance of the field to specified page of the document in the specified location. 
+    /// </summary>
+    /// <param name="field">Field which appearance should be added on form.</param>
+    /// <param name="pageNumber">Number of the page where field must be placed.</param>
+    /// <param name="rect">Rectangle where field will be placed.</param>
     void AddFieldAppearance(System::SharedPtr<Field> field, int32_t pageNumber, System::SharedPtr<Rectangle> rect);
+    /// <summary>
+    /// Sets XFA of the form to specified value.
+    /// </summary>
+    /// <param name="xml">Xml document which concains new XFA data.</param>
     void AssignXfa(System::SharedPtr<System::Xml::XmlDocument> xml);
+    /// <summary>
+    /// Returns fields inside of specified rectangle.
+    /// </summary>
+    /// <param name="rect">Rectangle where fields should be found.</param>
+    /// <returns>Array with found fields.</returns>
     System::ArrayPtr<System::SharedPtr<Field>> GetFieldsInRect(System::SharedPtr<Rectangle> rect);
     
 protected:
@@ -210,10 +280,18 @@ protected:
     static System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation> findInHash(System::SharedPtr<Aspose::Pdf::Collections::AsposeHashDictionary<System::String, System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation>>> hash, System::String name);
     static System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation> getFieldByRemainedName(System::String remainedName, System::SharedPtr<Aspose::Pdf::Collections::AsposeHashDictionary<System::String, System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation>>> hash, System::SharedPtr<System::Collections::Generic::ICollection<System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation>>> fields);
     void assertDefaultResources();
+    /// <summary>
+    /// Clears cashed fields. This is required when form is flatteing.
+    /// </summary>
     void ClearCache();
     
     Form(System::SharedPtr<Document> document);
     
+    /// <summary>
+    /// Searches field by field name. Returns null if field was not found.
+    /// </summary>
+    /// <param name="name">Field name.</param>
+    /// <returns>Field object.</returns>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation> get(System::String name);
     System::SharedPtr<Field> findField(System::String name);
     System::SharedPtr<Field> remove(System::String name);
@@ -222,16 +300,12 @@ protected:
     void removeFieldFromAnnots(System::SharedPtr<Field> removedField);
     System::SharedPtr<Resources> CreateDefaultResources();
     void UpdateStaticFormAppearance(int32_t pageIndex);
+    /// <summary>
+    /// Recalculates calculated fields of the form.
+    /// </summary>
+    /// <returns>true if at least one field was changed.</returns>
     bool Recalculate();
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Form"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -262,6 +336,10 @@ private:
     System::SharedPtr<Rectangle> Intersect(System::SharedPtr<Rectangle> rect1, System::SharedPtr<Rectangle> rect2);
     bool Contains(System::SharedPtr<Rectangle> rect, System::SharedPtr<Rectangle> subRect);
     System::String GetFullPath(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> field);
+    /// <summary>
+    /// Adds field on 1st page of the document.
+    /// </summary>
+    /// <param name="item">Field to be added.</param>
     void Add(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation> const &item);
     void Clear();
     bool Contains(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::WidgetAnnotation> const &item) const;

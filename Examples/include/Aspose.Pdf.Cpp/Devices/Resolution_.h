@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Devices_Resolution__h_
 #define _Aspose_Pdf_Devices_Resolution__h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/object.h>
 #include <cstdint>
@@ -26,24 +26,40 @@ class ASPOSE_PDF_SHARED_API Resolution FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// Gets or sets horizontal image resolution.
+    /// </summary>
     int32_t get_X();
+    /// <summary>
+    /// Gets or sets horizontal image resolution.
+    /// </summary>
     void set_X(int32_t value);
+    /// <summary>
+    /// Gets or sets vertical image resolution.
+    /// </summary>
     int32_t get_Y();
+    /// <summary>
+    /// Gets or sets vertical image resolution.
+    /// </summary>
     void set_Y(int32_t value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Resolution"/> class.
+    /// </summary>
+    /// <param name="value">
+    /// Value which represents the horizontal and vertical resolution.
+    /// </param>
     Resolution(int32_t value);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Resolution"/> class.
+    /// </summary>
+    /// <param name="valueX">
+    /// Horizontal resolution.
+    /// </param>
+    /// <param name="valueY">
+    /// Vertical resolution.
+    /// </param>
     Resolution(int32_t valueX, int32_t valueY);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Resolution"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

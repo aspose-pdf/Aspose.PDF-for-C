@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_PageNumberStamp_h_
 #define _Aspose_Pdf_PageNumberStamp_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -29,28 +29,50 @@ class ASPOSE_PDF_SHARED_API PageNumberStamp FINAL : public Aspose::Pdf::TextStam
     
 public:
 
+    /// <summary>
+    /// String value for stamping page numbers. 
+    /// Value must include char '#' which is replaced with the page number in the process of stamping.
+    /// </summary>
     System::String get_Format();
+    /// <summary>
+    /// String value for stamping page numbers. 
+    /// Value must include char '#' which is replaced with the page number in the process of stamping.
+    /// </summary>
     void set_Format(System::String value);
+    /// <summary>
+    /// Gets or sets value of the number of starting page. Other pages will be numbered starting from this value.
+    /// </summary>
     int32_t get_StartingNumber();
+    /// <summary>
+    /// Gets or sets value of the number of starting page. Other pages will be numbered starting from this value.
+    /// </summary>
     void set_StartingNumber(int32_t value);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PageNumberStamp"/> class.
+    /// </summary>
+    /// <param name="format">
+    /// String value used for stamping. See <see cref="Format"/> property for details.
+    /// </param>
     PageNumberStamp(System::String format);
     
+    /// <summary>
+    /// Adds page number.
+    /// </summary>
+    /// <param name="page">
+    /// Page for stamping.
+    /// </param>
     virtual void Put(System::SharedPtr<Page> page);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PageNumberStamp"/> class. Format is set to "#".
+    /// </summary>
     PageNumberStamp();
+    /// <summary>
+    /// Creates PageNumberStamp by formatted text.
+    /// </summary>
+    /// <param name="formattedText">Formatted text which used to create Page Number Stamp.</param>
     PageNumberStamp(System::SharedPtr<Facades::FormattedText> formattedText);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PageNumberStamp"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

@@ -38,6 +38,7 @@ ASPOSECPP_3RD_PARTY_TYPEDEF(UChar, std::uint16_t);
 
 
 namespace System { namespace Text { class StringBuilder; } }
+namespace System { namespace Globalization { class TextElementEnumerator; } }
 
 namespace System
 {
@@ -56,15 +57,37 @@ namespace System
 
     using icu::UnicodeString;
 
+
+
+    template <typename T, typename CharT>
+    struct IsStringByteSequence
+        : public std::integral_constant<bool, std::is_same<typename std::remove_const<typename std::remove_pointer<typename std::decay<T>::type>::type>::type, CharT>::value> {};
+
+    template <typename T, typename CharT>
+    struct IsStringPointer :
+        public std::integral_constant<bool, IsStringByteSequence<T, CharT>::value && std::is_pointer<T>::value> {};
+
+    template <typename T, typename CharT>
+    struct IsNonConstStringArray :
+        public std::integral_constant<bool, IsStringByteSequence<T, CharT>::value && std::is_array<T>::value && !std::is_const<T>::value> {};
+
+    template <typename T, typename CharT>
+    struct IsStringLiteral :
+        public std::integral_constant<bool, IsStringByteSequence<T, CharT>::value && std::is_array<T>::value && std::is_const<T>::value> {};
+
+
+
+
     class String
     {
         friend class System::Text::StringBuilder;
+        friend class System::Globalization::TextElementEnumerator;
+
         RTTI_INFO_VALUE_TYPE(System::String);
     public:
         using reverse_iterator = std::reverse_iterator<const UChar*>;
 
         String();
-        String(std::nullptr_t);
 
 #if U_SIZEOF_WCHAR_T == 4
         String(const UChar* str);
@@ -72,7 +95,29 @@ namespace System
         String(const UChar ch, int count);
 #endif
 
-        String(const wchar_t* str);
+        //String(std::nullptr_t);
+        template<typename T>
+        String(const T& value,
+               typename std::enable_if<std::is_same<T, std::nullptr_t>::value>::type* = nullptr)
+            : String()
+        {}
+
+        template<typename T>
+        String(T& value, typename std::enable_if<IsNonConstStringArray<T, wchar_t>::value>::type* = nullptr)
+            : String(value, std::extent<T>::value - 1)
+        {}
+
+        template<typename T>
+            String(T& value, typename std::enable_if<IsStringLiteral<T, wchar_t>::value>::type* = nullptr)
+                : String(value, std::extent<T>::value - 1)
+        {}
+
+        //String::String(const wchar_t* str)
+        template<typename T>
+        String(const T& value, typename std::enable_if<IsStringPointer<T, wchar_t>::value>::type* = nullptr)
+            : String(value, -1)
+        {}
+
         String(const wchar_t* str, int length);
         explicit String(const wchar_t ch, int count = 1);
 
@@ -91,7 +136,7 @@ namespace System
         reverse_iterator rbegin() const;
         reverse_iterator rend() const;
 
-        explicit operator bool() const;
+        //explicit operator bool() const;
 
         bool IsNullOrEmpty() const;
 
@@ -109,13 +154,19 @@ namespace System
         wchar_t operator[](int index) const;
         String& SetCharAt(int index, wchar_t ch);
 
-        String& operator=(std::nullptr_t);
-        String& operator=(const wchar_t* str);
+        //String& operator=(std::nullptr_t);
+        //String& operator=(const wchar_t* str);
         String& operator=(const String& str);
         String& operator=(String&& str);
 
-        String operator+(const wchar_t* str) const;
+        //String operator+(const wchar_t* str) const;
         String operator+(const String& str) const;
+        template <typename T>
+        typename std::enable_if<IsStringLiteral<T, wchar_t>::value, String>::type operator+(const T& arg) const
+        {
+            return *this + String(arg, std::extent<T>::value - 1);
+        }
+
         String operator+(wchar_t x) const;
         String operator+(int i) const;
         String operator+(uint32_t i) const;
@@ -127,25 +178,25 @@ namespace System
             return *this + value->ToString();
         }
         template <typename T>
-        typename std::enable_if<!IsSharedPtr<T>::value && !std::is_scalar<T>::value, String>::type operator+(const T& value) const
+        typename std::enable_if<!IsSharedPtr<T>::value && !std::is_scalar<T>::value && !std::is_array<T>::value, String>::type operator+(const T& value) const
         {
             return *this + value.ToString();
         }
 
         String& operator+=(wchar_t c);
-        String& operator+=(const wchar_t* str);
+        //String& operator+=(const wchar_t* str);
         String& operator+=(const String& str);
 
-        bool operator==(const wchar_t* str) const;
+        //bool operator==(const wchar_t* str) const;
         bool operator==(const String& str) const;
         bool operator==(std::nullptr_t) const;
 
 
-        bool operator!=(const wchar_t* str) const;
+        //bool operator!=(const wchar_t* str) const;
         bool operator!=(const String& str) const;
         bool operator!=(std::nullptr_t) const;
 
-        bool operator<(const wchar_t* str) const;
+        //bool operator<(const wchar_t* str) const;
         bool operator<(const String& str) const;
 
         String Clone() const;
@@ -161,6 +212,7 @@ namespace System
         int CompareTo(const String& str) const;
         void CopyTo(int sourceIndex, const ArrayPtr<wchar_t>& destination, int destinationIndex, int count) const;
         String Normalize(System::Text::NormalizationForm);
+        bool IsNormalized(System::Text::NormalizationForm);
 
         bool StartsWith(const String& value, System::StringComparison comparisonType) const;
         bool StartsWith(const String& value, bool ignoreCase = false, SharedPtr<System::Globalization::CultureInfo> culture = nullptr) const;
@@ -308,6 +360,8 @@ namespace System
         static String FromWCS(const std::wstring& wcs);
         static String FromUtf32(const uint32_t *utf32, int32_t length);
 
+        explicit String(const icu::UnicodeString& str);
+        explicit String(const std::wstring& str) : String(str.data(), str.length()) {};
 
     protected:
 
@@ -316,32 +370,59 @@ namespace System
         ArrayPtr<String> SplitBySpring(const String& separators, bool ignoreCase = false, bool skipEmpty = false) const;
 
         mutable Detail::UnicodeStringHolder m_str; // mutable because of u_str
-        String(const icu::UnicodeString& str);
         bool EndstWithImpl(const String& str, bool ignoreCase = false) const;
 
         bool m_is_null;
 
     }; // class String
 
-    String inline operator+(const wchar_t* left, const String& right)
+    template<typename T>
+    typename std::enable_if<IsStringLiteral<T, wchar_t>::value, String>::type  inline operator+(T&  left, const String& right)
+    {
+        return String(left, std::extent<T>::value - 1) + right;
+    }
+
+    template<typename T>
+    typename std::enable_if<IsStringPointer<T, wchar_t>::value, String>::type  inline operator+(T&  left, const String& right)
     {
         return String(left) + right;
     }
+
 
     String inline operator+(const wchar_t left, const String& right)
     {
         return String(left, 1) + right;
     }
 
-    bool inline operator==(const wchar_t* left, const String& right)
+    template<class T, typename std::enable_if<IsStringLiteral<T, wchar_t>::value>::type* = nullptr>
+    bool inline operator==(T&  left, const String& right)
     {
-        return right == left;
+        return String(left, std::extent<T>::value - 1) == right;
     }
 
-    bool inline operator!=(const wchar_t* left, const String& right)
+    template<class T, typename std::enable_if<IsStringPointer<T, wchar_t>::value>::type* = nullptr>
+    bool inline operator==(T&  left, const String& right)
     {
-        return !(right == left);
+        return String(left) == right;
     }
+
+    template<class T, typename std::enable_if<IsStringLiteral<T, wchar_t>::value>::type* = nullptr>
+    bool inline operator!=(T&  left, const String& right)
+    {
+        return !(String(left, std::extent<T>::value - 1) == right);
+    }
+
+    template<class T, typename std::enable_if<IsStringPointer<T, wchar_t>::value>::type* = nullptr>
+    bool inline operator!=(T&  left, const String& right)
+    {
+        return !(String(left) == right);
+    }
+
+
+    //bool inline operator!=(const wchar_t* left, const String& right)
+    //{
+    //    return !(right == left);
+    //}
 
     bool operator==(SharedPtr<Object> left, const String& right);
     bool operator!=(SharedPtr<Object> left, const String& right);
@@ -373,5 +454,7 @@ namespace std
     };
 }
 
+typedef wchar_t* wchar_t_array;
+typedef wchar_t const* const_wchar_t_array;
 
 #endif // _aspose_system_string_h_

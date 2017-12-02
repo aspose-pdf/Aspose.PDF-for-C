@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Table_Rows_h_
 #define _Aspose_Pdf_Table_Rows_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/collections/ienumerator.h>
@@ -31,16 +31,54 @@ class ASPOSE_PDF_SHARED_API Rows FINAL : public System::Collections::Generic::IE
     
 public:
 
+    /// <summary>
+    /// The items count.
+    /// </summary>
     int32_t get_Count();
     
+    /// <summary>
+    /// Add row to collection.
+    /// </summary>
+    /// <returns>The new row</returns>
     System::SharedPtr<Row> Add();
+    /// <summary>
+    /// Add row to cellection.
+    /// </summary>
+    /// <param name="row">The new row.</param>
+    /// <returns></returns>
     void Add(System::SharedPtr<Row> row);
+    /// <summary>
+    /// Returns index of row in collection.
+    /// </summary>
+    /// <param name="row">The existing row.</param>
+    /// <returns>The row index</returns>
     int32_t IndexOf(System::SharedPtr<Row> row);
+    /// <summary>
+    /// Remove row from collection.
+    /// </summary>
+    /// <param name="row">The existing row.</param>
     void Remove(System::SharedPtr<Row> row);
+    /// <summary>
+    /// Remove row at position from collection.
+    /// </summary>
+    /// <param name="index">The collection index.</param>
     void RemoveAt(int32_t index);
+    /// <summary>
+    /// Remove row set from collection.
+    /// </summary>
+    /// <param name="index">The collection index.</param>
+    /// <param name="count">The rows count.</param>
     void RemoveRange(int32_t index, int32_t count);
     
+    /// <summary>
+    /// Gets or sets row.
+    /// </summary>
+    /// <param name="index">The row index.</param>
     System::SharedPtr<Row> idx_get(int32_t index);
+    /// <summary>
+    /// Gets or sets row.
+    /// </summary>
+    /// <param name="index">The row index.</param>
     void idx_set(int32_t index, System::SharedPtr<Row> value);
     
     Rows();
@@ -48,14 +86,6 @@ public:
 protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Rows"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

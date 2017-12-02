@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_GoToAction_h_
 #define _Aspose_Pdf_InteractiveFeatures_GoToAction_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/object.h>
@@ -40,27 +40,45 @@ class ASPOSE_PDF_SHARED_API GoToAction : public Aspose::Pdf::InteractiveFeatures
     
 public:
 
+    /// <summary>
+    /// Gets or sets the destination to jump to.
+    /// </summary>
     virtual System::SharedPtr<IAppointment> get_Destination();
+    /// <summary>
+    /// Gets or sets the destination to jump to.
+    /// </summary>
     virtual void set_Destination(System::SharedPtr<IAppointment> value);
     
+    /// <summary>
+    /// Constructor for GoToAction class.
+    /// </summary>
+    /// <param name="page">The destination page number to jump to.</param>
     GoToAction(int32_t page);
+    /// <summary>
+    /// Constructor for GoToAction class.
+    /// </summary>
+    /// <param name="page">Aspose.Pdf.Page destination object to jump to.</param>
     GoToAction(System::SharedPtr<Page> page);
-    GoToAction(System::SharedPtr<Page> page, ExplicitDestinationType type, System::ArrayPtr<double> const &values);
+    /// <summary>
+    /// Constructor for GoToAction class. 
+    /// </summary>
+    /// <param name="page">Destination page.</param>
+    /// <param name="type">Destination type.</param>
+    /// <param name="values">Action parameters.</param>
+    GoToAction(System::SharedPtr<Page> page, ExplicitDestinationType type, const System::ArrayPtr<double>& values);
+    /// <summary>
+    /// Constructor.
+    /// </summary>
+    /// <param name="destination">Explicit destination.</param>
     GoToAction(System::SharedPtr<ExplicitDestination> destination);
+    /// <summary>
+    /// Constructor.
+    /// </summary>
     GoToAction();
     
 protected:
 
     GoToAction(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> action);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "GoToAction"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

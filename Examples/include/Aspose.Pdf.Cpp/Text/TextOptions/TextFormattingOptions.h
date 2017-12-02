@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Text_TextOptions_TextFormattingOptions_h_
 #define _Aspose_Pdf_Text_TextOptions_TextFormattingOptions_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include "Text/TextOptions/TextOptions.h"
 #include "aspose_pdf_api_defs.h"
@@ -32,8 +32,18 @@ public:
 
     enum class WordWrapMode
     {
+        /// <summary>
+        /// No wrapping is performed
+        /// </summary>
         NoWrap,
+        /// <summary>
+        /// Discretionary hyphenation is performed. Allows breaking words in the middle.
+        /// </summary>
         DiscretionaryHyphenation,
+        /// <summary>
+        /// Word wrapping only wraps complete words.
+        /// If the complete word cannot be wrapped, attempts to use discretionary hyphenation
+        /// </summary>
         ByWords
     };
     
@@ -42,32 +52,50 @@ protected:
 
     enum class LineSpacingMode
     {
+        /// <summary>
+        /// Line spacing is font size
+        /// </summary>
         FontSize,
+        /// <summary>
+        /// Line spacing is a full space between descender and ascender
+        /// </summary>
         FullSize
     };
     
     
 public:
 
+    /// <summary>
+    /// Gets or sets word wrap mode. 
+    /// Default value is WordWrapMode.NoWrap
+    /// </summary>
     TextFormattingOptions::WordWrapMode get_WrapMode();
+    /// <summary>
+    /// Gets or sets word wrap mode. 
+    /// Default value is WordWrapMode.NoWrap
+    /// </summary>
     void set_WrapMode(TextFormattingOptions::WordWrapMode value);
     
+    /// <summary>
+    /// Initializes new instance of the <see cref="TextFormattingOptions"/> object for the specified word wrap mode.
+    /// </summary>
+    /// <param name="wrapMode">Word wrap mode.</param>
     TextFormattingOptions(TextFormattingOptions::WordWrapMode wrapMode);
     
 protected:
 
+    /// <summary>
+    /// Gets line spacing mode. 
+    /// Default value is LineSpacingMode.FontSize
+    /// </summary>
     TextFormattingOptions::LineSpacingMode get_LineSpacing();
+    /// <summary>
+    /// Gets line spacing mode. 
+    /// Default value is LineSpacingMode.FontSize
+    /// </summary>
     void set_LineSpacing(TextFormattingOptions::LineSpacingMode value);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextFormattingOptions"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

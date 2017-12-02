@@ -2,6 +2,7 @@
 #define _iequality_comparer_h_
 
 #include "system/object.h"
+#include <system/details/equality_helper.h>
 
 namespace System { namespace Collections { namespace Generic {
 
@@ -15,7 +16,6 @@ namespace System { namespace Collections { namespace Generic {
 
         virtual int GetHashCode(T obj) const = 0;
     };
-
 
     template<class T>
     struct EqualityComparerAdapter
@@ -36,20 +36,21 @@ namespace System { namespace Collections { namespace Generic {
             if( m_comparator )
                 return m_comparator->Equals(x, y);
 
-            return x == y; // std::equal_to approach
+            return System::Details::AreEqual(x, y);
         }
+
     private:
         SharedPtr<IEqualityComparer<T>> m_comparator;
     };
 
-    template <typename TKey, bool IsObject = std::is_base_of<System::Object, TKey>::value>
+    template <typename TKey, bool IsObject = std::is_base_of<System::Object, TKey>::value, bool IsEnum = std::is_enum<TKey>::value>
     struct DictionaryHashSelector
     {
         typedef std::hash<TKey> type;
     };
 
     template <typename TKey>
-    struct DictionaryHashSelector<TKey, true>
+    struct DictionaryHashSelector<TKey, true, false>
     {
         using type = struct
         {
@@ -59,6 +60,21 @@ namespace System { namespace Collections { namespace Generic {
             std::size_t operator ()(const System::Object &obj) const
             {
                 return obj.GetHashCode();
+            }
+        };
+    };
+
+    template <typename TKey>
+    struct DictionaryHashSelector<TKey, false, true>
+    {
+        using type = struct
+        {
+            using argument_type = const TKey&;
+            using result_type = std::size_t;
+
+            std::size_t operator ()(const TKey &enum_) const
+            {
+                return static_cast<std::size_t>(enum_);
             }
         };
     };

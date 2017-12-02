@@ -132,7 +132,7 @@ public:
         static const System::TypeInfo& Type() { \
             return *System::static_holder<ThisTypeInfo>::GetValue(); \
         } \
-        virtual const System::TypeInfo& GetType() const { \
+        const System::TypeInfo& GetType() const { \
             return thisType::Type(); \
         } \
     private:\

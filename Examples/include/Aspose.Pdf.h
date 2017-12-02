@@ -60,3 +60,5 @@
 #include "Text/TextFragmentState.h"
 #include "Text/TextParagraph.h"
 #include "Text/TextOptions/TextReplaceOptions.h"
+#include "IO/ConvertStrategies/PdfFormat.h"
+#include "IO/ConvertStrategies/ConvertErrorAction.h"

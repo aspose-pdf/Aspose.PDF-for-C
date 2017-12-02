@@ -22,7 +22,8 @@ namespace System { namespace Diagnostics {
 
     class StackFrame : public System::Object
     {
-        FRIEND_FUNCTION_System_MakeObject
+        FRIEND_FUNCTION_System_MakeObject;
+
     public:
         StackFrame(int skip_frames);
 

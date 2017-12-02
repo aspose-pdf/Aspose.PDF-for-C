@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Facades_PositioningMode_h_
 #define _Aspose_Pdf_Facades_PositioningMode_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -15,8 +15,18 @@ namespace Facades {
 /// </summary>
 enum class PositioningMode
 {
+    /// <summary>
+    /// Legacy text positioning
+    /// </summary>
     Legacy,
+    /// <summary>
+    /// Updated line spacing, vertical position calculation is done by the old rules 
+    /// (i.e. text is positioned relative to bottom-left corner of the specified rectangle)
+    /// </summary>
     ModernLineSpacing,
+    /// <summary>
+    /// Updated line spacing and vertical position calculation is done based on left-top corner rather than left-bottom.
+    /// </summary>
     Current
 };
 

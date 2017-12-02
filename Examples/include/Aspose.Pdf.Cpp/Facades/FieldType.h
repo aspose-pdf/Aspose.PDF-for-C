@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Facades_FieldType_h_
 #define _Aspose_Pdf_Facades_FieldType_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/enum.h>
 
@@ -17,16 +17,49 @@ namespace Facades {
 /// </summary>
 enum class FieldType
 {
+    /// <summary>
+    /// Text field.
+    /// </summary>
     Text,
+    /// <summary>
+    /// Combo box field.
+    /// </summary>
     ComboBox,
+    /// <summary>
+    /// List box field.
+    /// </summary>
     ListBox,
+    /// <summary>
+    /// Radio button field.
+    /// </summary>
     Radio,
+    /// <summary>
+    /// Check box field.
+    /// </summary>
     CheckBox,
+    /// <summary>
+    /// Push button field.
+    /// </summary>
     PushButton,
+    /// <summary>
+    /// Multiline text field.
+    /// </summary>
     MultiLineText,
+    /// <summary>
+    /// Barcode field.
+    /// </summary>
     Barcode,
+    /// <summary>
+    /// Invalid field type.
+    /// </summary>
     InvalidNameOrType,
+    /// <summary>
+    /// Signature field.
+    /// </summary>
     Signature,
+    /// <summary>
+    /// Image field.
+    /// </summary>
     Image
 };
 

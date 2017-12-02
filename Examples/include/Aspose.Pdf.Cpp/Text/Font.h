@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Text_Font_h_
 #define _Aspose_Pdf_Text_Font_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -56,20 +56,21 @@ namespace Text {
 /// </summary>
 /// <example>
 /// The example demonstrates how to search text on first page and change font of a first search occurrence.
-/// <code lang="C#"> 
+/// 
+/// <code>
 /// // Open document
-/// Document doc = new Document(@"D:\Tests\input.pdf");
+/// System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
 /// // Create TextFragmentAbsorber object to find all "hello world" text occurrences
-/// TextFragmentAbsorber absorber = new TextFragmentAbsorber("hello world");
+/// System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
 /// // Accept the absorber for first page
-/// doc.Pages[1].Accept(absorber);
+/// doc->get_Pages()->idx_get(1)->Accept(absorber);
 /// // Create font and mark it to be embedded
-/// Font font = FontRepository.FindFont("Arial");
-/// font.IsEmbedded = true;
+/// System::SharedPtr<Aspose::Pdf::Text::Font> font = Aspose::Pdf::Text::FontRepository::FindFont(L"Arial");
+/// font->set_IsEmbedded(true);
 /// // Change font of the first text occurrence
-/// absorber.TextFragments[1].TextState.Font = font;
+/// absorber->get_TextFragments()->idx_get(1)->get_TextState()->set_Font(font);
 /// // Save document
-/// doc.Save(@"D:\Tests\output.pdf"); 
+/// doc->Save(L"D:\\Tests\\output.pdf");
 /// </code>
 /// </example>
 /// <seealso cref="TextFragmentAbsorber"/>
@@ -117,13 +118,157 @@ class ASPOSE_PDF_SHARED_API Font FINAL : public System::Object
     
 public:
 
+    ///<summary>
+    /// Gets font name of the <see cref="Font"/> object.
+    /// </summary>
+    /// <example>
+    /// The example demonstrates how to search text on first page and view font name of a first text occurrence.
+    /// 
+    ///	<code>
+    ///	// Open document
+    ///	System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
+    ///	// Create TextFragmentAbsorber object to find all "hello world" text occurrences
+    ///	System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
+    ///	// Accept the absorber for first page
+    ///	doc->get_Pages()->idx_get(1)->Accept(absorber);
+    ///	// View font name of first text occurrence
+    ///	System::Console::get_Out()->WriteLine(absorber->get_TextFragments()->idx_get(1)->get_TextState()->get_Font()->get_FontName());
+    ///	</code>
+    /// </example>
+    /// <seealso cref="TextFragmentAbsorber"/>
+    /// <seealso cref="Document"/>
     System::String get_FontName();
+    /// <summary>
+    /// Gets or sets a value that indicates whether the font is embedded.
+    /// </summary>
+    /// <example>
+    /// The following example demonstrates how to find a font, mark it as embedded, search text on the document's page and replace the text font.
+    /// 
+    /// <code>
+    /// // Create font and mark it to be embedded
+    /// System::SharedPtr<Aspose::Pdf::Text::Font> font = Aspose::Pdf::Text::FontRepository::FindFont(L"Arial");
+    /// font->set_IsEmbedded(true);
+    /// // open document
+    /// System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
+    /// // create TextFragmentAbsorber object to find all "hello world" text occurrences
+    /// System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
+    /// // accept the absorber for first page
+    /// doc->get_Pages()->idx_get(1)->Accept(absorber);
+    /// // change font for the first text occurrence
+    /// absorber->get_TextFragments()->idx_get(1)->get_TextState()->set_Font(font);
+    /// // save document
+    /// doc->Save(L"D:\\Tests\\output.pdf");
+    /// </code>
+    /// </example> 
+    /// <seealso cref="TextFragmentAbsorber"/>
+    /// <seealso cref="FontRepository"/>
+    /// <seealso cref="Document"/>
     bool get_IsEmbedded();
+    /// <summary>
+    /// Gets or sets a value that indicates whether the font is embedded.
+    /// </summary>
+    /// <example>
+    /// The following example demonstrates how to find a font, mark it as embedded, search text on the document's page and replace the text font.
+    /// 
+    /// <code>
+    /// // Create font and mark it to be embedded
+    /// System::SharedPtr<Aspose::Pdf::Text::Font> font = Aspose::Pdf::Text::FontRepository::FindFont(L"Arial");
+    /// font->set_IsEmbedded(true);
+    /// // open document
+    /// System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
+    /// // create TextFragmentAbsorber object to find all "hello world" text occurrences
+    /// System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
+    /// // accept the absorber for first page
+    /// doc->get_Pages()->idx_get(1)->Accept(absorber);
+    /// // change font for the first text occurrence
+    /// absorber->get_TextFragments()->idx_get(1)->get_TextState()->set_Font(font);
+    /// // save document
+    /// doc->Save(L"D:\\Tests\\output.pdf");
+    /// </code>
+    /// </example> 
+    /// <seealso cref="TextFragmentAbsorber"/>
+    /// <seealso cref="FontRepository"/>
+    /// <seealso cref="Document"/>
     void set_IsEmbedded(bool value);
+    /// <summary>
+    /// Gets or sets a value that indicates whether the font is a subset.
+    /// </summary>
+    /// <example>
+    /// The example demonstrates how to search text on first page and get the value that indicates whether the font is a subset.
+    /// 
+    ///	<code>
+    ///	// Open document
+    ///	System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
+    ///	// Create TextFragmentAbsorber object to find all "hello world" text occurrences
+    ///	System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
+    ///	// Accept the absorber for first page
+    ///	doc->get_Pages()->idx_get(1)->Accept(absorber);
+    ///	// View font's IsSubset value of first text occurrence
+    ///	if (absorber->get_TextFragments()->idx_get(1)->get_TextState()->get_Font()->get_IsSubset())
+    ///	{
+    ///	    System::Console::get_Out()->WriteLine(L"the font is a subset");
+    ///	}
+    ///	</code>
+    /// </example>
+    /// <seealso cref="TextFragmentAbsorber"/>
+    /// <seealso cref="Document"/>
     bool get_IsSubset();
+    /// <summary>
+    /// Gets or sets a value that indicates whether the font is a subset.
+    /// </summary>
+    /// <example>
+    /// The example demonstrates how to search text on first page and get the value that indicates whether the font is a subset.
+    /// 
+    ///	<code>
+    ///	// Open document
+    ///	System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
+    ///	// Create TextFragmentAbsorber object to find all "hello world" text occurrences
+    ///	System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
+    ///	// Accept the absorber for first page
+    ///	doc->get_Pages()->idx_get(1)->Accept(absorber);
+    ///	// View font's IsSubset value of first text occurrence
+    ///	if (absorber->get_TextFragments()->idx_get(1)->get_TextState()->get_Font()->get_IsSubset())
+    ///	{
+    ///	    System::Console::get_Out()->WriteLine(L"the font is a subset");
+    ///	}
+    ///	</code>
+    /// </example>
+    /// <seealso cref="TextFragmentAbsorber"/>
+    /// <seealso cref="Document"/>
     void set_IsSubset(bool value);
+    /// <summary>
+    /// Gets indicating whether the font is present (installed) in the system.
+    /// </summary>
+    /// <remarks>
+    /// Some operations are not available with fonts that could not be found in the system.
+    /// </remarks>
+    /// <example>
+    /// The example demonstrates how to search text on first page and get the value that indicates whether the font is installed in the system.
+    /// 
+    ///	<code>
+    ///	// Open document
+    ///	System::SharedPtr<Aspose::Pdf::Document> doc = System::MakeObject<Aspose::Pdf::Document>(L"D:\\Tests\\input.pdf");
+    ///	// Create TextFragmentAbsorber object to find all "hello world" text occurrences
+    ///	System::SharedPtr<Aspose::Pdf::Text::TextFragmentAbsorber> absorber = System::MakeObject<Aspose::Pdf::Text::TextFragmentAbsorber>(L"hello world");
+    ///	// Accept the absorber for first page
+    ///	doc->get_Pages()->idx_get(1)->Accept(absorber);
+    ///	// View font's IsSubset value of first text occurrence
+    ///	if (absorber->get_TextFragments()->idx_get(1)->get_TextState()->get_Font()->get_IsAccessible())
+    ///	{
+    ///	    System::Console::get_Out()->WriteLine(L"the font is installed in the system");
+    ///	}
+    ///	</code>
+    /// </example>
+    /// <seealso cref="TextFragmentAbsorber"/>
+    /// <seealso cref="Document"/>
     bool get_IsAccessible();
     
+    /// <summary>
+    /// Saves the font into the stream.
+    /// Note that the font is saved to intermediate TTF format intended to be used in a converted copy of the original document only.
+    /// The font file is not intended to be used outside the original document context.
+    /// </summary>
+    /// <param name="stream">Stream to save the font.</param>
     void Save(System::SharedPtr<System::IO::Stream> stream);
     
 protected:
@@ -132,7 +277,19 @@ protected:
     void set_iPdfFont(System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Fonts::IPdfFont> value);
     System::SharedPtr<Aspose::Fonts::IFont> get_iFont();
     void set_iFont(System::SharedPtr<Aspose::Fonts::IFont> value);
+    /// <summary>
+    /// Pdf font object.
+    /// </summary>
+    /// <remarks>
+    /// For internal usage only
+    /// </remarks>
     System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Fonts::IPdfFont> get_IPdfFont();
+    /// <summary>
+    /// System font object.
+    /// </summary>
+    /// <remarks>
+    /// For internal usage only
+    /// </remarks>
     System::SharedPtr<Aspose::Fonts::IFont> get_IFont();
     System::String get_UniqueId();
     
@@ -146,14 +303,6 @@ protected:
     void InitWithIPdfFont(System::SharedPtr<Aspose::Pdf::Engine::Data::ITrailerable> trailerable, System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Fonts::IPdfFont> iPdfFont);
     System::SharedPtr<Font> Clone();
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Font"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

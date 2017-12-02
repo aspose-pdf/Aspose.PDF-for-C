@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_ISupportsMemoryCleanup_h_
 #define _Aspose_Pdf_ISupportsMemoryCleanup_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/object.h>
 
@@ -23,6 +23,9 @@ class ASPOSE_PDF_SHARED_API ISupportsMemoryCleanup : public virtual System::Obje
     
 public:
 
+    /// <summary>
+    /// Clears cached data, frees memory etc.
+    /// </summary>
     virtual void FreeMemory() = 0;
     
 };

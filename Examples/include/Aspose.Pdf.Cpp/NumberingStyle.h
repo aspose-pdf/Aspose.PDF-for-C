@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_NumberingStyle_h_
 #define _Aspose_Pdf_NumberingStyle_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/enum.h>
 
@@ -16,11 +16,29 @@ namespace Pdf {
 /// </summary>
 enum class NumberingStyle
 {
+    /// <summary>
+    /// No numbering.
+    /// </summary>
     None,
+    /// <summary>
+    /// Arabic decimal numbers.
+    /// </summary>
     NumeralsArabic,
+    /// <summary>
+    /// Uppercase roman numbers (I, II, III...).
+    /// </summary>
     NumeralsRomanUppercase,
+    /// <summary>
+    /// Lowercase roman numbers (i, ii, iii...).
+    /// </summary>
     NumeralsRomanLowercase,
+    /// <summary>
+    /// Uppercase latin letters (A, B, C...).
+    /// </summary>
     LettersUppercase,
+    /// <summary>
+    /// Lowercase latin letters (a, b, c...).
+    /// </summary>
     LettersLowercase
 };
 

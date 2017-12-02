@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_MovieAnnotation_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_MovieAnnotation_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 
@@ -40,16 +40,47 @@ class ASPOSE_PDF_SHARED_API MovieAnnotation FINAL : public Aspose::Pdf::Interact
     
 public:
 
+    /// <summary>
+    /// Gets or sets the title of the movie annotation.
+    /// </summary>
     System::String get_Title();
+    /// <summary>
+    /// Gets or sets the title of the movie annotation.
+    /// </summary>
     void set_Title(System::String value);
+    /// <summary>
+    /// Gets or sets a file specification identifying a self-describing movie file.
+    /// </summary>
     System::SharedPtr<FileSpecification> get_File();
+    /// <summary>
+    /// Gets or sets a file specification identifying a self-describing movie file.
+    /// </summary>
     void set_File(System::SharedPtr<FileSpecification> value);
+    /// <summary>
+    /// Gets or sets the width and height of the movie�s bounding box, in pixels, specified as [ width height ].
+    /// </summary>
     System::SharedPtr<Point> get_Aspect();
+    /// <summary>
+    /// Gets or sets the width and height of the movie�s bounding box, in pixels, specified as [ width height ].
+    /// </summary>
     void set_Aspect(System::SharedPtr<Point> value);
+    /// <summary>
+    /// Gets type of annotation.
+    /// </summary>
     virtual Aspose::Pdf::InteractiveFeatures::Annotations::AnnotationType get_AnnotationType();
     
+    /// <summary>
+    /// Creates new Sound annotation on the specified page.
+    /// </summary>
+    /// <param name="page">The document's page where annotation should be created.</param>
+    /// <param name="rect">The annotation rectangle, defining the location of the annotation on the page.</param>
+    /// <param name="movieFile">A movie file to be played when the annotation is activated.</param>
     MovieAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect, System::String movieFile);
     
+    /// <summary>
+    /// Accepts visitor object to process the annotation.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<AnnotationSelector> visitor);
     
 protected:
@@ -57,14 +88,6 @@ protected:
     MovieAnnotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> engineAnnot, System::SharedPtr<Document> document);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "MovieAnnotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

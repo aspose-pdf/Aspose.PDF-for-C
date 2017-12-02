@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_CommonData_Text_Fonts_FontSources_MemoryFontSource_h_
 #define _Aspose_Pdf_CommonData_Text_Fonts_FontSources_MemoryFontSource_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/object.h>
@@ -33,11 +33,26 @@ class ASPOSE_PDF_SHARED_API MemoryFontSource FINAL : public Aspose::Pdf::Text::F
     
 public:
 
+    /// <summary>
+    /// Font file byte array. 
+    /// </summary>
     System::ArrayPtr<uint8_t> get_FontBytes();
     
+    /// <summary> 
+    /// Initializes a new instance of <see cref="MemoryFontSource"/> class.
+    /// </summary>
+    /// <param name="fontBytes">Font file byte array.</param>
     MemoryFontSource(System::ArrayPtr<uint8_t> fontBytes);
     
+    /// <summary>
+    /// Check if font file source objects are equal.
+    /// </summary>
+    /// <param name="obj">Font file source object which will be compared.</param>
+    /// <returns>True if both objects are font file sources targeted to the same file.</returns>
     virtual bool Equals(System::SharedPtr<System::Object> obj);
+    /// <summary>
+    /// Releases internal resources.
+    /// </summary>
     void Dispose();
     
     virtual ~MemoryFontSource();
@@ -46,14 +61,6 @@ protected:
 
     virtual System::ArrayPtr<System::SharedPtr<Aspose::Fonts::Sources::FontDefinition>> GetFontDefinitions();
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "MemoryFontSource"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

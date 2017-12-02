@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_HorizontalAlignment_h_
 #define _Aspose_Pdf_HorizontalAlignment_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/enum.h>
 
@@ -15,11 +15,31 @@ namespace Pdf {
 /// </summary>
 enum class HorizontalAlignment
 {
+    /// <summary>
+    /// No alignment.
+    /// </summary>
     None,
+    /// <summary>
+    /// Align to left.
+    /// </summary>
     Left,
+    /// <summary>
+    /// Center alignment.
+    /// </summary>
     Center,
+    /// <summary>
+    /// Align to right.
+    /// </summary>
     Right,
+    /// <summary>
+    /// Justify alignment. Text will be aligned on both left and right margins.
+    /// </summary>
     Justify,
+    /// <summary>
+    /// Similar to 'Justify' alignment, except that the very last line will only be 
+    ///	left-aligned in 'Justify' mode, while in 'FullJustify' mode all lines will be
+    ///	left- and right-aligned.
+    /// </summary>
     FullJustify
 };
 

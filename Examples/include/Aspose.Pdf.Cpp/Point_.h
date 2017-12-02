@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Point__h_
 #define _Aspose_Pdf_Point__h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/object.h>
@@ -25,26 +25,43 @@ class ASPOSE_PDF_SHARED_API Point FINAL : public System::Object
     
 public:
 
+    /// <summary>
+    /// X coordinate value.
+    /// </summary>
     double get_X();
+    /// <summary>
+    /// X coordinate value.
+    /// </summary>
     void set_X(double value);
+    /// <summary>
+    /// Y coordinate value.
+    /// </summary>
     double get_Y();
+    /// <summary>
+    /// Y coordinate value.
+    /// </summary>
     void set_Y(double value);
+    /// <summary>
+    /// Gets point with zero coordinates.
+    /// </summary>
     static System::SharedPtr<Point> get_Trivial();
     
+    /// <summary>
+    /// Initializes new instance of the <see cref="Point"/>.
+    /// </summary>
+    /// <param name="x">
+    /// x coordinate value.
+    /// </param>
+    /// <param name="y">
+    /// y coordinate value.
+    /// </param>
     Point(double x, double y);
     
+    /// <summary>
+    /// Converts point into System.Drawing.PointF object.
+    /// </summary>
+    /// <returns>PointF structure.</returns>
     System::Drawing::PointF ToPoint();
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Point"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

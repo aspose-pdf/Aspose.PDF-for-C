@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_ScreenAnnotation_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_ScreenAnnotation_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include "InteractiveFeatures/Annotations/Annotation.h"
 
@@ -37,30 +37,46 @@ class ASPOSE_PDF_SHARED_API ScreenAnnotation FINAL : public Aspose::Pdf::Interac
     
 public:
 
+    /// <summary>
+    /// Gets or sets the title of the screen annotation.
+    /// </summary>
     System::String get_Title();
+    /// <summary>
+    /// Gets or sets the title of the screen annotation.
+    /// </summary>
     void set_Title(System::String value);
+    /// <summary>
+    /// Gets or sets an action to be performed when the annotation is activated.
+    /// </summary>
     System::SharedPtr<PdfAction> get_Action();
+    /// <summary>
+    /// Gets type of annotation.
+    /// </summary>
     virtual Aspose::Pdf::InteractiveFeatures::Annotations::AnnotationType get_AnnotationType();
     
+    /// <summary>
+    /// Creates new Screen annotation on the specified page.
+    /// </summary>
+    /// <param name="page">The document's page where annotation should be created.</param>
+    /// <param name="rect">The annotation rectangle, defining the location of the annotation on the page.</param>
+    /// <param name="mediaFile">The path to multimedia file.</param>
     ScreenAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect, System::String mediaFile);
     
+    /// <summary>
+    /// Accepts visitor object to process the annotation.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<AnnotationSelector> visitor);
     
 protected:
 
     ScreenAnnotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> engineAnnot, System::SharedPtr<Document> document);
     
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "ScreenAnnotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
-    
 private:
 
+    /// <summary>
+    /// Gets or sets an action to be performed when the annotation is activated.
+    /// </summary>
     void set_Action(System::SharedPtr<PdfAction> value);
     
 };

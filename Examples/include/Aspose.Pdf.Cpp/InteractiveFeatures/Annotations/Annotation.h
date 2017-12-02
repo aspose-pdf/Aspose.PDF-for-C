@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_Annotation_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_Annotation_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_writer.h>
 #include <system/string.h>
@@ -97,17 +97,6 @@ class ASPOSE_PDF_SHARED_API NamespaceDoc : public System::Object
     typedef ::System::BaseTypesInfo<BaseType> ThisTypeBaseTypesInfo;
     RTTI_INFO_DECL();
     
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "NamespaceDoc"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
-    
 };
 
 /// <summary>
@@ -187,20 +176,22 @@ public:
         bool isChecked;
         bool isSupported;
         
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="appearanceType">Type of appearance (Normal etc)</param>
         AppearanceParameters(System::String appearanceType);
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="isChecked">true if checked (applicable for Checbox field)</param>
         AppearanceParameters(bool isChecked);
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="appearanceType">Type of apperance</param>
+        /// <param name="isChecked">true if checked (applicable for checkbox)</param>
         AppearanceParameters(System::String appearanceType, bool isChecked);
-        
-    protected:
-    
-        
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "AppearanceParameters"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
         
     };
     
@@ -222,40 +213,145 @@ public:
     
 public:
 
+    /// <summary>
+    /// If this property set to true, fonts will be added to document as subsets. Default value is true.
+    /// </summary>
     static bool get_UseFontSubset();
+    /// <summary>
+    /// If this property set to true, fonts will be added to document as subsets. Default value is true.
+    /// </summary>
     static void set_UseFontSubset(bool value);
+    /// <summary>
+    /// Flags of the annotation.
+    /// </summary>
     AnnotationFlags get_Flags();
+    /// <summary>
+    /// Flags of the annotation.
+    /// </summary>
     void set_Flags(AnnotationFlags value);
+    /// <summary>
+    /// Gets type of annotation.
+    /// </summary>
     virtual Aspose::Pdf::InteractiveFeatures::Annotations::AnnotationType get_AnnotationType() = 0;
+    /// <summary>
+    /// Gets or sets width of the annotation.
+    /// </summary>
     virtual double get_Width();
+    /// <summary>
+    /// Gets or sets width of the annotation.
+    /// </summary>
     virtual void set_Width(double value);
+    /// <summary>
+    /// Gets or sets height of the annotation.
+    /// </summary>
     virtual double get_Height();
+    /// <summary>
+    /// Gets or sets height of the annotation.
+    /// </summary>
     virtual void set_Height(double value);
+    /// <summary>
+    /// Gets or sets annotation rectangle.
+    /// </summary>
     virtual System::SharedPtr<Rectangle> get_Rect();
+    /// <summary>
+    /// Gets or sets annotation rectangle.
+    /// </summary>
     virtual void set_Rect(System::SharedPtr<Rectangle> value);
+    /// <summary>
+    /// Gets or sets annotation text.
+    /// </summary>
     System::String get_Contents();
+    /// <summary>
+    /// Gets or sets annotation text.
+    /// </summary>
     void set_Contents(System::String value);
+    /// <summary>
+    /// Gets or sets annotation name on the page.
+    /// </summary>
     System::String get_Name();
+    /// <summary>
+    /// Gets or sets annotation name on the page.
+    /// </summary>
     void set_Name(System::String value);
+    /// <summary>
+    /// Gets or sets date and time when annotation was recently modified.
+    /// </summary>
     System::DateTime get_Modified();
+    /// <summary>
+    /// Gets or sets date and time when annotation was recently modified.
+    /// </summary>
     void set_Modified(System::DateTime value);
+    /// <summary>
+    /// Gets or sets annotation color.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Color> get_Color();
+    /// <summary>
+    /// Gets or sets annotation color.
+    /// </summary>
     void set_Color(System::SharedPtr<Aspose::Pdf::Color> value);
+    /// <summary>
+    /// Gets or sets annotation border characteristics. <see cref="Border"/>
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Border> get_Border();
+    /// <summary>
+    /// Gets or sets annotation border characteristics. <see cref="Border"/>
+    /// </summary>
     void set_Border(System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Border> value);
+    /// <summary>
+    /// Gets or sets current annotation appearance state.
+    /// </summary>
     virtual System::String get_ActiveState();
+    /// <summary>
+    /// Gets or sets current annotation appearance state.
+    /// </summary>
     virtual void set_ActiveState(System::String value);
+    /// <summary>
+    /// Gets annotation characteristics.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::InteractiveFeatures::Annotations::Characteristics> get_Characteristics();
+    /// <summary>
+    /// Gets appearance dictionary of annotation.
+    /// </summary>
     System::SharedPtr<AppearanceDictionary> get_States();
+    /// <summary>
+    /// Annotation alignment. This property is obsolete. Use HorizontalAligment instead.
+    /// </summary>
     TextAlignment get_Alignment();
+    /// <summary>
+    /// Annotation alignment. This property is obsolete. Use HorizontalAligment instead.
+    /// </summary>
     void set_Alignment(TextAlignment value);
+    /// <summary>
+    /// Gets or sets text alignmennt for annotation.
+    /// </summary>
     Aspose::Pdf::HorizontalAlignment get_HorizontalAlignment();
+    /// <summary>
+    /// Gets or sets text alignmennt for annotation.
+    /// </summary>
     void set_HorizontalAlignment(Aspose::Pdf::HorizontalAlignment value);
+    /// <summary>
+    /// Gets full qualified name of the annotation. 
+    /// </summary>
+    /// <returns></returns>
     System::String get_FullName();
+    /// <summary>
+    /// Gets appearance dictionary of the annotation.
+    /// </summary>
     System::SharedPtr<AppearanceDictionary> get_Appearance();
+    /// <summary>
+    /// Gets index of page which contains annotation.
+    /// </summary>
     virtual int32_t get_PageIndex();
     
+    /// <summary>
+    /// Accepts visitor for annotation processing.
+    /// </summary>
+    /// <param name="visitor">AnnotationSelector object.</param>
     virtual void Accept(System::SharedPtr<AnnotationSelector> visitor) = 0;
+    /// <summary>
+    /// Places annotation contents directly on the page,
+    /// annotation object will be removed.
+    /// </summary>
     virtual void Flatten();
     
 protected:
@@ -269,65 +365,146 @@ protected:
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> get_EngineObj();
     void set_EngineObj(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> value);
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> get_EngineDict();
+    /// <summary>
+    /// Gets normal appearance.
+    /// </summary>
+    /// <returns></returns>
     System::SharedPtr<XForm> get_NormalAppearance();
     bool get_FlatteningState();
     void set_FlatteningState(bool value);
+    /// <summary>
+    /// Gets the page object with which this annotation is associated.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Page> get_Page();
+    /// <summary>
+    /// Gets the page object with which this annotation is associated.
+    /// </summary>
     void set_Page(System::SharedPtr<Aspose::Pdf::Page> value);
+    /// <summary>
+    /// Gets rotated rectangle.
+    /// </summary>
     System::SharedPtr<Rectangle> get_RotatedRect();
+    /// <summary>
+    /// Returns internal rectnagle of annotation, i.e. rectangle recalculated according to RD entry of annotation
+    /// </summary>
     virtual System::SharedPtr<Rectangle> get_InnerRect();
+    /// <summary>
+    /// Property for generator support. This property gets field width originally set by user (width of the "template").
+    /// </summary>
     double get_TemplateWidth();
+    /// <summary>
+    /// Property for generator support. This property gets field height originally set by user (height of the "template").
+    /// </summary>
     double get_TemplateHeight();
     
     void Initialize(System::SharedPtr<Document> doc);
     void assertAppearance();
+    /// <summary>
+    /// Method which must be called after annotation import. 
+    /// </summary>
     virtual void AfterImport();
     virtual System::Drawing::Color GetBackgroundColor();
+    /// <summary>
+    /// Create frame.
+    /// </summary>
+    /// <param name="parametes">Appearance parameters.</param>
+    /// <param name="annotation">The annotation.</param>
+    /// <returns>List of frame appearance commands.</returns>
     virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> CreateFrame(System::SharedPtr<Annotation::AppearanceParameters> parametes, System::SharedPtr<Annotation> annotation);
+    /// <summary>
+    /// Create program for displaying this annotation.  
+    /// </summary>
+    /// <param name="parameters">Appearance parameters for this field (normal/mouse moved appearance, pressed/unpressed for button etc)
+    /// </param>
+    /// <param name="annotation">Annotation of the appearance</param>
+    /// <returns>List of appearance program.</returns>
     virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> CreateAppearanceProgram(System::SharedPtr<Annotation::AppearanceParameters> parameters, System::SharedPtr<Annotation> annotation);
     virtual void ClearAppearance(System::SharedPtr<OperatorCollection> appearance);
     virtual System::SharedPtr<XForm> PrepareAppearance(System::String key, System::SharedPtr<Annotation> annotation);
+    /// <summary>
+    /// This method must be overriden to return true in classes where apperance generation is supported. 
+    /// </summary>
+    /// <returns></returns>
     virtual bool AppearanceSupported();
+    /// <summary>
+    /// Updated appearance dictionary of the field.
+    /// </summary>
     virtual void UpdateAppearance(System::SharedPtr<Annotation> annotation);
     virtual void UpdateAppearances();
     virtual void WriteXfdf(System::SharedPtr<System::Xml::XmlWriter> writer);
+    /// <summary>
+    /// When overridden in a derived class, exports annotation attributes into XFDF.
+    /// </summary>
+    /// <param name="writer">Writer of destination file.</param>
     virtual void WriteXfdfAttributes(System::SharedPtr<System::Xml::XmlWriter> writer);
+    /// <summary>
+    /// When overridden in a derived class, exports annotation elements into XFDF.
+    /// </summary>
+    /// <param name="writer">Writer of destination file.</param>
     virtual void WriteXfdfElements(System::SharedPtr<System::Xml::XmlWriter> writer);
     virtual void ReadXfdf(System::SharedPtr<System::Xml::XmlReader> reader);
+    /// <summary>
+    /// When overridden in a derived class, import annotation attributes from XFDF.
+    /// </summary>
+    /// <param name="reader">Reader of XFDF file.</param>
     virtual void ReadXfdfAttributes(System::SharedPtr<System::Xml::XmlReader> reader);
+    /// <summary>
+    /// When overridden in a derived class, import annotation elements from XFDF.
+    /// </summary>
+    /// <param name="table">Hashtable with information parsed from the XFDF file.</param>
     virtual void ReadXfdfElements(System::SharedPtr<System::Collections::Generic::Dictionary<System::String, System::String>> table);
     
     Annotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> annotation, System::SharedPtr<Document> document);
     Annotation();
     
     virtual void Initialize(System::SharedPtr<Aspose::Pdf::Engine::Data::ITrailerable> trailer, System::SharedPtr<Rectangle> rect);
+    /// <summary>
+    /// Initialize the annotation.
+    /// </summary>
+    /// <param name="page">The Aspose.Pdf.Page object.</param>
+    /// <param name="rect">The rectangle of the annotation.</param>
     void Initialize(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
     virtual void AttachToPage(System::SharedPtr<Aspose::Pdf::Page> page);
     void Initialize(System::SharedPtr<Document> doc, System::SharedPtr<Rectangle> rect);
     
+    /// <summary>
+    /// Constructor.
+    /// </summary>
+    /// <param name="page">The page with which the annotation will be associated.</param>
+    /// <param name="rect">The annotation rectangle, defining the location of the annotation on the page.</param>
     Annotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
     Annotation(System::SharedPtr<Document> doc, System::SharedPtr<Rectangle> rect);
     
     System::SharedPtr<Rectangle> GetRectangle(bool considerRotation);
+    /// <summary>
+    /// Returns name of "checked" state according to existing state names. 
+    /// </summary>
+    /// <returns></returns>
     System::String GetCheckedStateName();
+    /// <summary>
+    /// Initializes annotation from PDF object which describes the annotation. 
+    /// </summary>
+    /// <param name="annotEngineObj">PDF obejct describing annotation</param>
+    /// <param name="page">TODO:</param>
+    /// <returns>Created annotation object of appropriate type</returns>
     static System::SharedPtr<Annotation> CreateAnnotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> annotEngineObj, System::SharedPtr<Aspose::Pdf::Page> page);
+    /// <summary>
+    /// Initializes this object with internal engine annotation object.
+    /// </summary>
+    /// <param name="annotEngineObj">Internal engine annotEngineObj object.</param>
     void Initialize(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> annotEngineObj);
     virtual void InternalFlatten(System::SharedPtr<Resources> resources, System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> operators);
     virtual System::String InternalFlatten2(System::SharedPtr<Resources> resources);
     virtual System::String InternalFlatten3(System::SharedPtr<Resources> resources);
     static bool IsEmptyAppearance(System::SharedPtr<System::IO::Stream> s);
     static System::String InternalFlatten4(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> annotation, System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> resources);
+    /// <summary>
+    /// true if the annotation must be background. 
+    /// </summary>
+    /// <returns></returns>
     virtual bool IsBackground();
     int32_t GetPageIndex(System::SharedPtr<Annotation> annotation);
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Annotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -350,6 +527,11 @@ private:
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> CreateExtGStateWithOpacity(double opacity);
     void SetColor(System::SharedPtr<Aspose::Pdf::Color> value);
     static void SetColor(System::SharedPtr<Annotation> annotation, System::SharedPtr<Aspose::Pdf::Color> value);
+    /// <summary>
+    /// Moves rectangle to origin.
+    /// </summary>
+    /// <param name="rect"></param>
+    /// <returns></returns>
     System::SharedPtr<Rectangle> ToOrigin(System::SharedPtr<Rectangle> rect);
     
 };
@@ -367,22 +549,14 @@ class ASPOSE_PDF_SHARED_API GenericAnnotation : public Aspose::Pdf::InteractiveF
     
 public:
 
+    /// <summary>
+    /// Gets type of annotation.
+    /// </summary>
     virtual Aspose::Pdf::InteractiveFeatures::Annotations::AnnotationType get_AnnotationType();
     
     virtual void Accept(System::SharedPtr<AnnotationSelector> visitor);
     
     GenericAnnotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> engineAnnot, System::SharedPtr<Document> document);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "GenericAnnotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
@@ -402,17 +576,51 @@ class ASPOSE_PDF_SHARED_API TextStyle : public System::Object
     
 public:
 
+    /// <summary>
+    /// Name of the font.
+    /// </summary>
     System::String get_FontName();
+    /// <summary>
+    /// Name of the font.
+    /// </summary>
     void set_FontName(System::String value);
+    /// <summary>
+    /// Fonst size.
+    /// </summary>
     double get_FontSize();
+    /// <summary>
+    /// Fonst size.
+    /// </summary>
     void set_FontSize(double value);
+    /// <summary>
+    /// Gets or sets horizontal alignment of the text. 
+    /// </summary>
     TextAlignment get_Alignment();
+    /// <summary>
+    /// Gets or sets horizontal alignment of the text. 
+    /// </summary>
     void set_Alignment(TextAlignment value);
+    /// <summary>
+    /// Text alignment. Valid values are: Left, Center, Rigth.
+    /// </summary>
     Aspose::Pdf::HorizontalAlignment get_HorizontalAlignment();
+    /// <summary>
+    /// Text alignment. Valid values are: Left, Center, Rigth.
+    /// </summary>
     void set_HorizontalAlignment(Aspose::Pdf::HorizontalAlignment value);
+    /// <summary>
+    /// Color of the text.
+    /// </summary>
     System::Drawing::Color get_Color();
+    /// <summary>
+    /// Color of the text.
+    /// </summary>
     void set_Color(System::Drawing::Color value);
     
+    /// <summary>
+    /// String representation of TextStyle.
+    /// </summary>
+    /// <returns>String representation.</returns>
     virtual System::String ToString();
     
 protected:
@@ -420,14 +628,6 @@ protected:
     TextStyle(System::SharedPtr<FreeTextAnnotation> annotation);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TextStyle"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

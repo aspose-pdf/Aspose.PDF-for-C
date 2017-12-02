@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Devices_TiffDevice_h_
 #define _Aspose_Pdf_Devices_TiffDevice_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 //using Aspose.Pdf.Engine.Presentation.GDIImpl.Utils;
 
 #include "Devices/DocumentDevice.h"
@@ -32,51 +32,279 @@ class ASPOSE_PDF_SHARED_API TiffDevice FINAL : public Aspose::Pdf::Devices::Docu
     
 public:
 
+    /// <summary>
+    /// Gets or sets rendering options.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::RenderingOptions> get_RenderingOptions();
+    /// <summary>
+    /// Gets or sets rendering options.
+    /// </summary>
     void set_RenderingOptions(System::SharedPtr<Aspose::Pdf::RenderingOptions> value);
+    /// <summary>
+    /// Gets or sets form presentation mode.
+    /// </summary>
     Aspose::Pdf::Devices::FormPresentationMode get_FormPresentationMode();
+    /// <summary>
+    /// Gets or sets form presentation mode.
+    /// </summary>
     void set_FormPresentationMode(Aspose::Pdf::Devices::FormPresentationMode value);
+    /// <summary>
+    /// Gets settings for mapping pdf into tiff image.
+    /// </summary>
     System::SharedPtr<TiffSettings> get_Settings();
+    /// <summary>
+    /// Gets image resolution.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Devices::Resolution> get_Resolution();
+    /// <summary>
+    /// Gets image output width.
+    /// </summary>
     int32_t get_Width();
+    /// <summary>
+    /// Gets image output height.
+    /// </summary>
     int32_t get_Height();
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="resolution">
+    /// Resolution for the result image file.
+    /// </param>
     TiffDevice(System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="resolution">
+    /// Resolution for the output image.
+    /// </param>
+    /// <param name="settings">
+    /// Tiff settings, see <see cref="TiffSettings"/> class.
+    /// </param>
     TiffDevice(System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution, System::SharedPtr<TiffSettings> settings);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="resolution">
+    /// Resolution for the output image.
+    /// </param>
+    /// <param name="settings">
+    /// Tiff settings, see <see cref="TiffSettings"/> class.
+    /// </param>
+    /// <param name="converter">
+    /// External converter
+    /// </param>        
     TiffDevice(System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution, System::SharedPtr<TiffSettings> settings, System::SharedPtr<IIndexBitmapConverter> converter);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="settings">
+    /// Tiff settings, see <see cref="TiffSettings"/> class.
+    /// </param>
     TiffDevice(System::SharedPtr<TiffSettings> settings);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="settings">
+    /// Tiff settings, see <see cref="TiffSettings"/> class.
+    /// </param>
+    /// <param name="converter">
+    /// External converter
+    /// </param>
     TiffDevice(System::SharedPtr<TiffSettings> settings, System::SharedPtr<IIndexBitmapConverter> converter);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class with default settings.
+    /// </summary>
     TiffDevice();
     
+    /// <summary>
+    /// Converts certain document pages into tiff and save it in the output stream.
+    /// </summary>
+    /// <param name="document">
+    /// The document to convert.
+    /// </param>
+    /// <param name="fromPage">
+    /// Defines page number from which converting will start.
+    /// </param>
+    /// <param name="toPage">
+    /// Defines page number which will end the converting.
+    /// </param>
+    /// <param name="output">
+    /// Output stream with tiff image.
+    /// </param>
     virtual void Process(System::SharedPtr<Document> document, int32_t fromPage, int32_t toPage, System::SharedPtr<System::IO::Stream> output);
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="width">
+    /// Image output width.
+    /// </param>
+    /// <param name="height">
+    /// Image output height.
+    /// </param>
+    /// <param name="resolution">
+    /// Resolution for the output image.
+    /// </param>
+    /// <param name="settings">
+    /// Tiff settings, see <see cref="TiffSettings"/> class.
+    /// </param>
     TiffDevice(int32_t width, int32_t height, System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution, System::SharedPtr<TiffSettings> settings);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="width">
+    /// Image output width.
+    /// </param>
+    /// <param name="height">
+    /// Image output height.
+    /// </param>
+    /// <param name="resolution">
+    /// Resolution for the output image.
+    /// </param>
+    /// <param name="settings">
+    /// Tiff settings, see <see cref="TiffSettings"/> class.
+    /// </param>
+    /// <param name="converter">
+    /// External converter
+    /// </param>
     TiffDevice(int32_t width, int32_t height, System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution, System::SharedPtr<TiffSettings> settings, System::SharedPtr<IIndexBitmapConverter> converter);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="pageSize">
+    /// Page size of the output image.
+    /// </param>
+    /// <param name="resolution">
+    /// Resolution for the output image.
+    /// </param>
+    /// <param name="settings">
+    /// Tiff settings, see <see cref="TiffSettings"/> class.
+    /// </param>
     TiffDevice(System::SharedPtr<PageSize> pageSize, System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution, System::SharedPtr<TiffSettings> settings);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="pageSize">
+    /// Page size of the output image.
+    /// </param>
+    /// <param name="resolution">
+    /// Resolution for the output image.
+    /// </param>
+    /// <param name="settings">
+    /// Tiff settings, see <see cref="TiffSettings"/> class.
+    /// </param>
+    /// <param name="converter">
+    /// External converter
+    /// </param>
     TiffDevice(System::SharedPtr<PageSize> pageSize, System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution, System::SharedPtr<TiffSettings> settings, System::SharedPtr<IIndexBitmapConverter> converter);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="width">
+    /// Image output width.
+    /// </param>
+    /// <param name="height">
+    /// Image output height.
+    /// </param>
+    /// <param name="resolution">
+    /// Resolution for the output image.
+    /// </param>
     TiffDevice(int32_t width, int32_t height, System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="pageSize">
+    /// Page size of the output image.
+    /// </param>
+    /// <param name="resolution">
+    /// Resolution for the output image.
+    /// </param>
     TiffDevice(System::SharedPtr<PageSize> pageSize, System::SharedPtr<Aspose::Pdf::Devices::Resolution> resolution);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="width">
+    /// Image output width.
+    /// </param>
+    /// <param name="height">
+    /// Image output height.
+    /// </param>
+    /// <param name="settings">
+    /// Tiff settings, see <see cref="TiffSettings"/> class.
+    /// </param>
     TiffDevice(int32_t width, int32_t height, System::SharedPtr<TiffSettings> settings);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="width">
+    /// Image output width.
+    /// </param>
+    /// <param name="height">
+    /// Image output height.
+    /// </param>
+    /// <param name="settings">
+    /// Tiff settings, see <see cref="TiffSettings"/> class.
+    /// </param>
+    /// <param name="converter">
+    /// External converter
+    /// </param>
     TiffDevice(int32_t width, int32_t height, System::SharedPtr<TiffSettings> settings, System::SharedPtr<IIndexBitmapConverter> converter);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="pageSize">
+    /// Page size of the output image.
+    /// </param>
+    /// <param name="settings">
+    /// Tiff settings, see <see cref="TiffSettings"/> class.
+    /// </param>
+    /// <param name="converter">
+    /// External converter
+    /// </param>
     TiffDevice(System::SharedPtr<PageSize> pageSize, System::SharedPtr<TiffSettings> settings, System::SharedPtr<IIndexBitmapConverter> converter);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="pageSize">
+    /// Page size of the output image.
+    /// </param>
+    /// <param name="settings">
+    /// Tiff settings, see <see cref="TiffSettings"/> class.
+    /// </param>
     TiffDevice(System::SharedPtr<PageSize> pageSize, System::SharedPtr<TiffSettings> settings);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="width">
+    /// Image output width.
+    /// </param>
+    /// <param name="height">
+    /// Image output height.
+    /// </param>
     TiffDevice(int32_t width, int32_t height);
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TiffDevice"/> class.
+    /// </summary>
+    /// <param name="pageSize">
+    /// Page size of the output image.
+    /// </param>
     TiffDevice(System::SharedPtr<PageSize> pageSize);
     
 protected:
 
+    /// <summary>
+    /// For internal usage only
+    /// replaces fonts with TTF unicode fonts to solve compatibility issues
+    /// </summary>
     bool get_ConvertFontsToUnicodeTTF();
+    /// <summary>
+    /// For internal usage only
+    /// replaces fonts with TTF unicode fonts to solve compatibility issues
+    /// </summary>
     void set_ConvertFontsToUnicodeTTF(bool value);
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "TiffDevice"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

@@ -7,16 +7,19 @@
 
 namespace System{ namespace Drawing{ namespace Imaging {
 
-    class MetafileHeader : public System::Object
-    {
-    public:
-        Rectangle get_Bounds() const;
+class MetafileHeader : public System::Object
+{
+public:
+    float get_DpiX() const;
+    float get_DpiY() const;
 
-        void set_Bounds(const Rectangle& bounds);
+    Rectangle get_Bounds() const;
 
-    private:
-        Rectangle m_bounds;
-    };
+    void set_Bounds(const Rectangle& bounds);
+
+private:
+    Rectangle m_bounds;
+};
 
 }}} //namespace System{ namespace Drawing{ namespace Imaging
 

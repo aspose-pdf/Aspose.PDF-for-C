@@ -1,5 +1,5 @@
-#ifndef _size_h_
-#define _size_h_
+#ifndef _aspose_system_drawing_size_h_
+#define _aspose_system_drawing_size_h_
 
 #include "fwd.h"
 #include <system/boxed_value.h>
@@ -54,6 +54,8 @@ namespace System { namespace Drawing {
 
 namespace System
 {
+    template<> struct IsBoxable<Drawing::Size> : std::true_type {};
+
     template <>
     class BoxedValue<System::Drawing::Size> : public DefaultBoxedValue<System::Drawing::Size>
     {
@@ -64,4 +66,4 @@ namespace System
     };
 }
 
-#endif
+#endif // _aspose_system_drawing_size_h_

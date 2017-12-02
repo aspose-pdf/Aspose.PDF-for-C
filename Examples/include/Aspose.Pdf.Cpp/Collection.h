@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_Collection_h_
 #define _Aspose_Pdf_Collection_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include "EmbeddedFileCollection.h"
 
@@ -26,20 +26,18 @@ class ASPOSE_PDF_SHARED_API Collection : public Aspose::Pdf::EmbeddedFileCollect
     
 public:
 
+    /// <summary>
+    /// Initializes new Collection object.
+    /// </summary>
     Collection();
     
 protected:
 
+    /// <summary>
+    /// Initializes new Collection object.
+    /// </summary>
+    /// <param name="document">Document object.</param>
     Collection(System::SharedPtr<Document> document);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "Collection"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

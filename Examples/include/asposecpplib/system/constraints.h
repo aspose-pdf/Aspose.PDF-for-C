@@ -26,6 +26,9 @@ struct IsCsPointer : std::false_type{};
 template <class T>
 struct IsCsPointer<SharedPtr<T> > : std::true_type {};
 
+template <class T>
+struct IsCsPointer<WeakPtr<T> > : std::true_type {};
+
 }} // namespace System::Constrains
 
 

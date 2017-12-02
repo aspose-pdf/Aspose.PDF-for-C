@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_License_h_
 #define _Aspose_Pdf_License_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 // RK: When EMBEDDED is defined, the licensing code is not included in the component.
 // This results in a built that can be embedded in another Aspose component.
 // When a component is embedded in another Aspose component, they must be 
@@ -82,7 +82,13 @@ enum class EditionType
 /// </summary>
 enum class LicenseState
 {
+    /// <summary>
+    /// The license is Evaluation
+    /// </summary>
     Evaluation,
+    /// <summary>
+    /// The license is a proper valid license.
+    /// </summary>
     Licensed
 };
 
@@ -173,21 +179,7 @@ namespace Aspose.Chart
 /// <ms>
 /// the component, in the folder that contains the calling assembly,
 /// in the folder of the entry assembly and then in the embedded resources of the calling assembly.
-/// <code>
-/// [C#]
-/// License license = new License();
-/// license.SetLicense("MyLicense.lic");
-/// [Visual Basic]
-/// Dim license As license = New license
-/// License.SetLicense("MyLicense.lic")
-/// </code>
-/// </ms>
-/// <java>
-/// the component jar file:
-/// <code>
-/// License license = new License();
-/// license.setLicense("MyLicense.lic");
-/// </code>
+/// <code></code>
 /// </java>
 /// </example>
 class ASPOSE_PDF_SHARED_API License : public System::Object
@@ -200,24 +192,85 @@ class ASPOSE_PDF_SHARED_API License : public System::Object
     
 public:
 
+    /// <summary>
+    /// License number was added as embedded resource.
+    /// </summary>
     bool get_Embedded();
+    /// <summary>
+    /// License number was added as embedded resource.
+    /// </summary>
     void set_Embedded(bool value);
     
+    /// <summary>
+    /// Initializes a new instance of this class.
+    /// </summary>
+    /// <example>
+    /// In this example, an attempt will be made to find a license file named MyLicense.lic
+    /// in the folder that contains 
+    /// <ms>
+    /// the component, in the folder that contains the calling assembly,
+    /// in the folder of the entry assembly and then in the embedded resources of the calling assembly.
+    /// <code></code>
+    /// </java>
+    /// </example>
     License();
     
+    /// <summary>
+    /// Licenses the component.
+    /// </summary>
+    /// <remarks>
+    /// <p>Tries to find the license in the following locations:</p>
+    /// <p>1. Explicit path.</p>
+    /// <ms>
+    /// <p>2. The folder of the component assembly.</p>
+    /// <p>3. The folder of the client's calling assembly.</p>
+    /// <p>4. The folder of the entry assembly.</p>
+    /// <p>5. An embedded resource in the client's calling assembly.</p>
+    /// <p><b>Note:</b>On the .NET Compact Framework, tries to find the license only in these locations:</p>
+    /// <p>1. Explicit path.</p>
+    /// <p>2. An embedded resource in the client's calling assembly.</p>
+    /// </ms>
+    /// <java>
+    /// <p>2. The folder of the component jar file.</p>
+    /// </java>
+    /// </remarks>
+    /// <example>
+    /// In this example, an attempt will be made to find a license file named MyLicense.lic
+    /// in the folder that contains 
+    /// <ms>
+    /// the component, in the folder that contains the calling assembly,
+    /// in the folder of the entry assembly and then in the embedded resources of the calling assembly.
+    /// <code></code>
+    /// </java>
+    /// <param name="licenseName">Can be a full or short file name<ms> or name of an embedded resource</ms>.
+    /// Use an empty string to switch to evaluation mode.</param>
+    /// </example>
     void SetLicense(System::String licenseName);
+    /// <summary>
+    /// Licenses the component.
+    /// </summary>
+    /// <param name="stream">A stream that contains the license.</param>
+    /// <remarks>
+    /// <p>Use this method to load a license from a stream.</p>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// <ms>
+    /// [C#]
+    /// License license = new License();
+    /// license.SetLicense(myStream);
+    /// [Visual Basic]
+    /// Dim license as License = new License
+    /// license.SetLicense(myStream)
+    /// </ms>
+    /// <java>
+    /// License license = new License();
+    /// license.setLicense(myStream);
+    /// </java>
+    /// </code>
+    /// </example>
+    /// <javaName>void setLicense(java.io.InputStream stream)</javaName>
     void SetLicense(System::SharedPtr<System::IO::Stream> stream);
-    
-protected:
-
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "License"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -255,40 +308,93 @@ private:
         ProductNameMapping(System::String oldName, System::String newName);
         ProductNameMapping();
         
-    protected:
-    
-        
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "ProductNameMapping"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     };
     
     
 public:
 
+    /// <summary>
+    /// License number was added as embedded resource.
+    /// </summary>
     bool get_EmbeddedCore();
+    /// <summary>
+    /// License number was added as embedded resource.
+    /// </summary>
     void set_EmbeddedCore(bool value);
+    /// <summary>
+    /// Gets Aspose product names this license is for. 
+    /// You need to specify value that matches the value specified in AssemblyProduct attribute.
+    /// This is used to check that the license is suitable for this product.
+    /// </summary>
     System::ArrayPtr<System::String> get_Products();
+    /// <summary>
+    /// Gets edition type.
+    /// You can use this to enable/disable some features depending on the edition type.
+    /// </summary>
     Aspose::Pdf::EditionType get_EditionType();
+    /// <summary>
+    /// Unique license number. Used to black list stolen licenses.
+    /// </summary>
     System::String get_SerialNumber();
+    /// <summary>
+    /// Gets the last date of the subscription.
+    /// This is to be checked against custom attribute on the assembly that contains the relase date.
+    /// </summary>
     System::DateTime get_SubscriptionExpiry();
+    /// <summary>
+    /// This is for temporary licenses.
+    /// </summary>
     System::DateTime get_LicenseExpiry();
-    
-    static bool UseInUnitTestsOneGlobalLicenseLikeOnProduction;
     
     void SetLicenseCore(System::String licenseName, System::SharedPtr<System::Reflection::Assembly> clientAssembly, bool isEmbedded);
     void SetLicenseCore(System::String licenseName, System::SharedPtr<System::Reflection::Assembly> clientAssembly);
+    /// <summary>
+    /// Note, this function was manually tuned (made complex) so it does not decompile in Reflector.
+    /// </summary>
     void SetLicenseCore(System::SharedPtr<System::IO::Stream> stream);
+    /// <summary>
+    /// Retruns True in case license is set and valid
+    /// </summary>
+    /// <returns></returns>
     bool IsLicensed();
+    /// <summary>
+    /// Clears license
+    /// </summary>
     static void ClearLicense();
+    /// <summary>
+    /// Call this from your component code to check if running evaluation version or not.
+    /// </summary>
+    /// <example>
+    /// <code></code>
+    /// </example>
     static LicenseState GetLicenseState();
+    /// <summary>
+    /// Note, this function was manually tuned (made complex) so it does not decompile in Reflector.
+    /// Call this when the user attempts to use a feature that is limited by edition type.
+    /// Throws a message explaining the license limitation to the user.
+    /// </summary>
+    /// <remarks>
+    /// Most of Aspose products are supposed to have just one edition type.
+    /// Only complex products might have two edition types.
+    /// When using two edition types, make sure it is easy for the client to select edition type they need.
+    /// </remarks>
+    /// <param name="wantEditionType">Specify edition type that is required to access your feature.</param>
+    /// <param name="message">Message that explains what feature the user is trying to access.</param>
+    /// <example>
+    /// For example, adding an image to the document requires Enterprise edition.
+    /// <code></code>
+    /// </example>
     static void CheckEdition(Aspose::Pdf::EditionType wantEditionType, System::String message);
+    /// <summary>
+    /// Verifies the signature on the XML file and loads it into the license files, but does not check them.
+    /// Made internal only for unit testing, do not call directly otherwise.
+    /// Note, this function was manually tuned (made complex) so it does not decompile in Reflector.
+    /// </summary>
     void LoadLicense(System::SharedPtr<System::Xml::XmlDocument> doc);
+    /// <summary>
+    /// See above. Use for unit testing only.
+    /// </summary>
+    /// <param name="fileName"></param>
     void LoadLicense(System::String fileName);
     
     LicenseCore();
@@ -297,14 +403,6 @@ protected:
 
     System::Object::shared_members_type GetSharedMembers() override;
     static void __FreeStaticPointers();
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "LicenseCore"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 
@@ -328,13 +426,50 @@ private:
     static const System::String AsposeDot;
     static System::ArrayPtr<LicenseCore::ProductNameMapping> gProductNameMap;
     
+    /// <summary>
+    /// Note: license check is performed millions times.
+    /// DateTime.Now is very expensive operation.
+    /// So, it is ok to refresh the expiry state and call DateTime.Now not so often.
+    /// </summary>
+    /// <returns></returns>
     static bool CheckLicenseExpiry();
+    /// <summary>
+    /// In January 2006 product names such as Aspose Word, Aspose Excel etc had to be changed. 
+    /// This function maps these product names so old licenses can be used in new products.
+    /// </summary>
     static System::String MapOldProductName(System::String productName);
+    /// <summary>
+    /// Verifies that content of the data element has not been tampered with. Safe to pass nulls.
+    /// Note there is no direct action taken inside this method if the signature is invalid.
+    /// If the signature is invalid, the VerificationSupervisor.SignatureInvalidFlag is set to greater 
+    /// than zero and you need to examine it somewhere later in your code. This is to confuse hackers.
+    /// </summary>
     static void VerifySignature(System::SharedPtr<System::Xml::XmlNode> dataElem, System::SharedPtr<System::Xml::XmlNode> signatureElem);
+    /// <summary>
+    /// Tries to find the license in several locations:
+    /// 1. Explicit path.
+    /// 2. The folder of this assembly.
+    /// 3. The folder of the client's calling assembly.
+    /// 4. The folder of the entry assembly (does not apply for the .NET Compact Framework).
+    /// 5. An embedded resource in the client's calling assembly.
+    /// </summary>
+    /// <param name="licenseName">This can be full or short file name or name of an embedded resource.</param>
+    /// <param name="callingAssembly">Client's calling assembly. Used to find license in embedded resource.</param>
+    /// <returns>Returns a stream that contains the license or throws.</returns>
     static System::SharedPtr<System::IO::Stream> ProbeLicense(System::String licenseName, System::SharedPtr<System::Reflection::Assembly> callingAssembly, bool isEmbedded);
     static void LoadBlackList();
+    /// <summary>
+    /// Returns text from the child element of a specified parent element or empty string if the element was not found.
+    /// </summary>
     static System::String GetStringValue(System::SharedPtr<System::Xml::XmlElement> parentElem, System::String childElemName);
+    /// <summary>
+    /// Gets date value from the specified XML element. Returns DateTime.MaxValue if the element is missing.
+    /// </summary>
     static System::DateTime GetDateValue(System::SharedPtr<System::Xml::XmlElement> parentElem, System::String childElemName);
+    /// <summary>
+    /// Xml helper function. Gets the first child element with the given name or null.
+    /// I'm using this instead of XPath because XPath is not available on the .NET Compact Framework.
+    /// </summary>
     static System::SharedPtr<System::Xml::XmlElement> GetElementByName(System::SharedPtr<System::Xml::XmlElement> parentElem, System::String childElemName);
     
     static struct __StaticConstructor__ { __StaticConstructor__(); } s_constructor__;

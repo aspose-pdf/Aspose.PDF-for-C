@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_PKCS1__h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_PKCS1__h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
@@ -39,23 +39,51 @@ class ASPOSE_PDF_SHARED_API PKCS1 FINAL : public Aspose::Pdf::InteractiveFeature
     
 public:
 
+    /// <summary>
+    /// Initializes new instance of the <see cref="PKCS1"/> class.
+    /// </summary>
+    /// <param name="image">
+    /// This image will define signature appearance on the page.
+    /// </param>
     PKCS1(System::SharedPtr<System::IO::Stream> image);
+    /// <summary>
+    /// Inititalizes new instance of the <see cref="PKCS1"/> class.
+    /// </summary>
     PKCS1();
+    /// <summary>
+    /// Inititalizes new instance of the <see cref="PKCS1"/> class.
+    /// </summary>
+    /// <param name="pfx">
+    /// Pfx file which contains certificate for signing.
+    /// </param>
+    /// <param name="password">
+    /// Password for certificate.
+    /// </param>
+    /// Password to get access to the private key in the certificate.
     PKCS1(System::String pfx, System::String password);
+    /// <summary>
+    /// Inititalizes new instance of the <see cref="PKCS1"/> class.
+    /// </summary>
+    /// <param name="pfx">
+    /// Stream with certificate data organized as pfx.
+    /// </param>
+    /// <param name="password">
+    /// Password to get access to the private key in the certificate.
+    /// </param>
     PKCS1(System::SharedPtr<System::IO::Stream> pfx, System::String password);
     
 protected:
 
+    /// <summary>
+    /// Initialize signature object from signature dictionary. Then this object will be used for verifying the document.
+    /// </summary>
+    /// <param name="signature">
+    /// Signature dictionary.
+    /// </param>
+    /// <param name="document">
+    /// The document, it is used then to get file data in order to verify signature.
+    /// </param>
     PKCS1(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> signature, System::SharedPtr<Aspose::Pdf::Engine::IPdfDocument> document);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "PKCS1"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 

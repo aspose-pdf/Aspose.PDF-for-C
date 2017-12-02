@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_DocumentActionCollection_h_
 #define _Aspose_Pdf_InteractiveFeatures_DocumentActionCollection_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <system/shared_ptr.h>
 #include <system/object.h>
@@ -31,17 +31,51 @@ class ASPOSE_PDF_SHARED_API DocumentActionCollection FINAL : public System::Obje
     
 public:
 
+    /// <summary>
+    /// Gets or sets action performed before document saving.
+    /// </summary>
     System::SharedPtr<PdfAction> get_BeforeSaving();
+    /// <summary>
+    /// Gets or sets action performed before document saving.
+    /// </summary>
     void set_BeforeSaving(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets action that will be performed before documetn closing.
+    /// </summary>
     System::SharedPtr<PdfAction> get_BeforeClosing();
+    /// <summary>
+    /// Gets or sets action that will be performed before documetn closing.
+    /// </summary>
     void set_BeforeClosing(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Gets or sets action that will be performed after document saving.
+    /// </summary>
     System::SharedPtr<PdfAction> get_AfterSaving();
+    /// <summary>
+    /// Gets or sets action that will be performed after document saving.
+    /// </summary>
     void set_AfterSaving(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Action that will be performed before document printing.
+    /// </summary>
     System::SharedPtr<PdfAction> get_BeforePrinting();
+    /// <summary>
+    /// Action that will be performed before document printing.
+    /// </summary>
     void set_BeforePrinting(System::SharedPtr<PdfAction> value);
+    /// <summary>
+    /// Action that will be performed after document printing.
+    /// </summary>
     System::SharedPtr<PdfAction> get_AfterPrinting();
+    /// <summary>
+    /// Action that will be performed after document printing.
+    /// </summary>
     void set_AfterPrinting(System::SharedPtr<PdfAction> value);
     
+    /// <summary>
+    /// Constructor for DocumentActionCollection. Constructs DocumentActionCollection objects from Pdf.Kit.Engine Document object.
+    /// </summary>
+    /// <param name="document">Document for which action colleciton is created.</param>
     DocumentActionCollection(System::SharedPtr<Document> document);
     
 protected:
@@ -49,14 +83,6 @@ protected:
     System::SharedPtr<Aspose::Pdf::Engine::IPdfDocument> document;
     
     System::Object::shared_members_type GetSharedMembers() override;
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "DocumentActionCollection"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 private:
 

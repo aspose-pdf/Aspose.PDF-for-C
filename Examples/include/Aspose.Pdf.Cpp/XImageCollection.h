@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_XImageCollection_h_
 #define _Aspose_Pdf_XImageCollection_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 // C# preprocessor directive: #if SUPPORT_ASPOSE_IMAGING 
 
@@ -89,14 +89,6 @@ private:
     
         System::Object::shared_members_type GetSharedMembers() override;
         
-        #if defined(__DBG_FOR_EACH_MEMEBR)
-        protected:
-        void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-        const char* DBG_class_name() const override { return "ImagesEnumerator"; }
-        bool DBG_unknown_type() const override { return false; }
-        #endif
-        
-        
     private:
     
         System::SharedPtr<XImageCollection> _parent;
@@ -109,27 +101,95 @@ private:
     
 public:
 
+    /// <summary>
+    /// Count of images in collection.
+    /// </summary>
     int32_t get_Count() const;
+    /// <summary>
+    /// Returns true if object is synchronized.
+    /// </summary>
     bool get_IsSynchronized();
+    /// <summary>
+    /// Returns synchronization object.
+    /// </summary>
     System::SharedPtr<System::Object> get_SyncRoot();
+    /// <summary>
+    /// Gets array of image names.
+    /// </summary>
     System::ArrayPtr<System::String> get_Names();
     
+    /// <summary>
+    /// Adds entity to the end of the collection, so entity can be accessed by the last index.
+    /// </summary>
+    /// <param name="image">Stream containing image data (in JPEG format).</param> 
     void Add(System::SharedPtr<System::IO::Stream> image);
+    /// <summary>
+    /// Adds entity to the end of the collection, so entity can be accessed by the last index.
+    /// </summary>
+    /// <param name="image">Stream containing image data (in JPEG format).</param>
+    /// <param name="quality">JPEG quality.</param>
     void Add(System::SharedPtr<System::IO::Stream> image, int32_t quality);
+    /// <summary>
+    /// Removes index from collection by index.
+    /// </summary>
+    /// <param name="index">Image index.</param>
     void Delete(int32_t index);
+    /// <summary>
+    /// Removes index from collection by name.
+    /// </summary>
+    /// <param name="name">Name of image which must to be deleted.</param>
     void Delete(System::String name);
+    /// <summary>
+    /// Deletes images from collection.
+    /// </summary>
     void Delete();
+    /// <summary>
+    /// Returns collection enumerator.
+    /// </summary>
+    /// <returns>Enumerator of collection</returns>
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<XImage>>> GetEnumerator();
+    /// <summary>
+    /// Copies array of images into collection.
+    /// </summary>
+    /// <param name="array">Array to be copied.</param>
+    /// <param name="index">Index where images will be copied into collection.</param>
+    //<<--REFACTORING: Old code: public void CopyTo(Array array, int index)
     void CopyTo(System::ArrayPtr<System::SharedPtr<XImage>> array, int32_t index);
+    /// <summary>
+    /// Replace image in collection with another image. 
+    /// </summary>
+    /// <param name="index">Index of collection item which will be replaced.</param>
+    /// <param name="stream">Stream containing image data (in JPEG format).</param>
     void Replace(int32_t index, System::SharedPtr<System::IO::Stream> stream);
+    /// <summary>
+    /// Replace image in collection with another image. 
+    /// </summary>
+    /// <param name="index">Index of collection item which will be replaced.</param>
+    /// <param name="stream">Stream containing image data (in JPEG format).</param>
+    /// <param name="quality">JPEG quality.</param>
     void Replace(int32_t index, System::SharedPtr<System::IO::Stream> stream, int32_t quality);
     
+    /// <summary>
+    /// Gets image from collection by its index.
+    /// </summary>
+    /// <param name="index">Image index</param>
+    /// <returns>Retreived image.</returns>
     System::SharedPtr<XImage> idx_get(int32_t index);
+    /// <summary>
+    /// Gets image from collection by its name.
+    /// </summary>
+    /// <param name="name">Image name.</param>
+    /// <returns>Retreived image.</returns>
     System::SharedPtr<XImage> idx_get(System::String name);
     
 protected:
 
     System::SharedPtr<Engine::Data::IPdfDataStream> MakeImageFromSteram(System::SharedPtr<System::IO::Stream> stream, int32_t quality);
+    /// <summary>
+    /// Determines whether emf format is used.
+    /// </summary>
+    /// <param name="stream">Input stream with image.</param>
+    /// <returns>Is emf format is detected than jpeg stream returned; otherwise, input stream.</returns>
     static System::SharedPtr<System::IO::Stream> IsMetafile(System::SharedPtr<System::IO::Stream> stream);
     System::SharedPtr<Engine::Data::IPdfObject> add(System::SharedPtr<System::IO::Stream> stream, int32_t quality, bool isBlackWhite);
     System::SharedPtr<Engine::Data::IPdfObject> add(System::SharedPtr<System::IO::Stream> stream, bool isBlackWhite);
@@ -141,14 +201,6 @@ protected:
     bool HasImage(System::String imgName);
     System::Object::shared_members_type GetSharedMembers() override;
     
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "XImageCollection"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
-    
 private:
 
     System::SharedPtr<System::Object> syncRoot;
@@ -157,15 +209,25 @@ private:
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<System::Object>>> _cache;
     System::SharedPtr<Collections::AsposeHashDictionary<System::String, System::SharedPtr<System::Object>>> _hash;
     
+    /// <summary>
+    /// </summary>
     bool get_IsReadOnly();
     
     System::ArrayPtr<uint8_t> GetImageMask(System::SharedPtr<System::Drawing::Image> image);
     System::SharedPtr<System::Drawing::Imaging::ImageCodecInfo> GetEncoder(System::SharedPtr<System::Drawing::Imaging::ImageFormat> format);
-    void AddDCTDecodeImage(System::SharedPtr<System::IO::Stream> stream, System::SharedPtr<Engine::Data::ITrailerable> p, System::SharedPtr<Engine::Data::IPdfDataStream> img, int32_t quality, System::SharedPtr<System::Drawing::Image> &originalImage);
+    void AddDCTDecodeImage(System::SharedPtr<System::IO::Stream> stream, System::SharedPtr<Engine::Data::ITrailerable> p, System::SharedPtr<Engine::Data::IPdfDataStream> img, int32_t quality, System::SharedPtr<System::Drawing::Image>& originalImage);
     System::SharedPtr<Engine::Data::IPdfObject> AddOrReplace(int32_t index, System::SharedPtr<System::IO::Stream> stream, int32_t quality, bool isBlackWhite);
+    /// <summary>
+    /// </summary>
     void Add(System::SharedPtr<XImage> const &item);
+    /// <summary>
+    /// </summary>
     bool Remove(System::SharedPtr<XImage> const &item);
+    /// <summary>
+    /// </summary>
     bool Contains(System::SharedPtr<XImage> const &item) const;
+    /// <summary>
+    /// </summary>
     void Clear();
     System::SharedPtr<XImage> get(int32_t index);
     System::SharedPtr<XImage> get(System::String name);

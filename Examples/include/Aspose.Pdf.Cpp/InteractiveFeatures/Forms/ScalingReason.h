@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Forms_ScalingReason_h_
 #define _Aspose_Pdf_InteractiveFeatures_Forms_ScalingReason_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 namespace Aspose {
 
@@ -15,9 +15,21 @@ namespace Forms {
 /// </summary>
 enum class ScalingReason
 {
+    /// <summary>
+    /// Always scale.
+    /// </summary>
     Always,
+    /// <summary>
+    /// BScale only when the icon is bigger than the annotation rectangle.
+    /// </summary>
     IconIsBigger,
+    /// <summary>
+    /// Scale only when the icon is smaller than the annotation rectangle.
+    /// </summary>
     IconIsSmaller,
+    /// <summary>
+    /// Never scale.
+    /// </summary>
     Never
 };
 

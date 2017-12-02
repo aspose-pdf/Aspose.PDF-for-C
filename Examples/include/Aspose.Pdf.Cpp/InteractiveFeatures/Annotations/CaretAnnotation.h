@@ -1,6 +1,6 @@
 ﻿#ifndef _Aspose_Pdf_InteractiveFeatures_Annotations_CaretAnnotation_h_
 #define _Aspose_Pdf_InteractiveFeatures_Annotations_CaretAnnotation_h_
-// Copyright (c) 2001-2014 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2017 Aspose Pty Ltd. All Rights Reserved.
 
 #include <xml/xml_writer.h>
 
@@ -41,14 +41,40 @@ class ASPOSE_PDF_SHARED_API CaretAnnotation FINAL : public Aspose::Pdf::Interact
     
 public:
 
+    /// <summary>
+    /// Gets type of annotation.
+    /// </summary>
     virtual Aspose::Pdf::InteractiveFeatures::Annotations::AnnotationType get_AnnotationType();
+    /// <summary>
+    /// Gets or sets caret rectangle.
+    /// </summary>
     System::SharedPtr<Rectangle> get_Frame();
+    /// <summary>
+    /// Gets or sets caret rectangle.
+    /// </summary>
     void set_Frame(System::SharedPtr<Rectangle> value);
+    /// <summary>
+    /// Gets or sets symbol associated with caret.
+    /// </summary>
+    /// <see cref="CaretSymbol"/>
     CaretSymbol get_Symbol();
+    /// <summary>
+    /// Gets or sets symbol associated with caret.
+    /// </summary>
+    /// <see cref="CaretSymbol"/>
     void set_Symbol(CaretSymbol value);
     
+    /// <summary>
+    /// Accepts visitor object to process the annotation.
+    /// </summary>
+    /// <param name="visitor">Visitor object.</param>
     virtual void Accept(System::SharedPtr<AnnotationSelector> visitor);
     
+    /// <summary>
+    /// Creates new Caret annotation on the specified page.
+    /// </summary>
+    /// <param name="page">Document's page where annotation should be created.</param>
+    /// <param name="rect">Required rectangle that sets annotation's border.</param>
     CaretAnnotation(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
     
 protected:
@@ -56,16 +82,12 @@ protected:
     virtual void WriteXfdf(System::SharedPtr<System::Xml::XmlWriter> writer);
     virtual void ReadXfdf(System::SharedPtr<System::Xml::XmlReader> reader);
     
+    /// <summary>
+    /// Ititializes Caret annotation with engine annotation object.
+    /// </summary>
+    /// <param name="engineAnnot">Engine object that presents the annotation.</param>
+    /// <param name="document">The Aspose.Pdf.Document object.</param>
     CaretAnnotation(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> engineAnnot, System::SharedPtr<Document> document);
-    
-    
-    #if defined(__DBG_FOR_EACH_MEMEBR)
-    protected:
-    void DBG_for_each_member(System::DBG::for_each_member_visitor &visitor) const override;
-    const char* DBG_class_name() const override { return "CaretAnnotation"; }
-    bool DBG_unknown_type() const override { return false; }
-    #endif
-    
     
 };
 
