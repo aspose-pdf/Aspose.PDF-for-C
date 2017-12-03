@@ -32,11 +32,17 @@ int main()
 	//// =====================================================
 	
 	//AddAnnotation();	
+	//ModifyAnnotationInPDF();
+	//DeleteAnnotationsInPDF();
+	//DeleteParticularAnnotationsInPDF();
+	//ImportAnnotationsInPDF();
+	//ExportAnnotationsInPDF();
+	//ExtractAnnotationsInPDF();
 
 	//// Document
 	//// =====================================================
 
-	AddImage();
+	//AddImage();
 	//GetSetInfo();
 	//GetSetMetadata();
 	//GetSetDocWindowProperties();
@@ -74,6 +80,21 @@ int main()
 	//ReplacePageImage();
 	//ExtractImage();
 	//ExtractImageFromParticularPage();
+
+	//// Security and Signatures
+	//// =====================================================
+
+	//SetDocumentPriveleges();
+	//DecryptDocument();
+	//ChangePDFPassword();
+
+	//// Bookmarks
+	//// =====================================================
+
+	//CreateBookmarkInPDF();
+	//AddChildBookmark();
+	//DeletePDFBookmarks();
+	//DeleteParticularBookmark();
 
 	// Stop before exiting
 	printf("\n\nProgram Finished. Press any key to exit....");

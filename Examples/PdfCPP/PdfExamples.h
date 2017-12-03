@@ -25,6 +25,18 @@ void ExtractTextFromRangeOfPages();
 //// Annotations
 // Add comments(annotation) to a document
 void AddAnnotation();
+// Modify Annotation
+void ModifyAnnotationInPDF();
+// Delete All Annotations
+void DeleteAnnotationsInPDF();
+// Delete Particular Annotation
+void DeleteParticularAnnotationsInPDF();
+// Import Annotations
+void ImportAnnotationsInPDF();
+// Export Annotations
+void ExportAnnotationsInPDF();
+// Extract Annotations
+void ExtractAnnotationsInPDF();
 
 //// Document
 //Add, create and image to document
@@ -88,3 +100,20 @@ void ExtractImage();
 // Extract image from particular page
 void ExtractImageFromParticularPage();
 
+/// SecurityAndSignatures
+// Set Document Privileges
+void SetDocumentPriveleges();
+// Decrypt PDF document using owner password
+void DecryptDocument();
+// Change Password of PDF File
+void ChangePDFPassword();
+
+/// Bookmarks
+// Add Bookmark
+void CreateBookmarkInPDF();
+// Create child bookmark
+void AddChildBookmark();
+// Delete All Bookmarks
+void DeletePDFBookmarks();
+// Delete particular bookmark
+void DeleteParticularBookmark();

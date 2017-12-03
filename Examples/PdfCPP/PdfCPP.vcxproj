@@ -263,9 +263,19 @@ copy $(ProjectDir)lib\Release\aspose.pdf_vc140.dll $(OutDir)</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Annotations\AddAnnotation.cpp" />
+    <ClCompile Include="Annotations\DeleteAllAnnotations.cpp" />
+    <ClCompile Include="Annotations\DeleteParticularAnnotation.cpp" />
+    <ClCompile Include="Annotations\ExportAnnotations.cpp" />
+    <ClCompile Include="Annotations\ExtractAnnotations.cpp" />
+    <ClCompile Include="Annotations\ImportAnnotations.cpp" />
+    <ClCompile Include="Annotations\ModifyAnnotations.cpp" />
     <ClCompile Include="Attachments\AddAttachments.cpp" />
     <ClCompile Include="Attachments\DeleteAttachments.cpp" />
     <ClCompile Include="Attachments\GetAttachmentInformation.cpp" />
+    <ClCompile Include="Bookmarks\CreateBookmark.cpp" />
+    <ClCompile Include="Bookmarks\CreateChildBookmark.cpp" />
+    <ClCompile Include="Bookmarks\DeleteAllBookmarks.cpp" />
+    <ClCompile Include="Bookmarks\DeleteBookmark.cpp" />
     <ClCompile Include="Document\AddImage.cpp" />
     <ClCompile Include="Document\CreateDoc.cpp" />
     <ClCompile Include="Document\EmbedFont.cpp" />
@@ -291,6 +301,9 @@ copy $(ProjectDir)lib\Release\aspose.pdf_vc140.dll $(OutDir)</Command>
     <ClCompile Include="Pages\InsertEmptyPageAtEnd.cpp" />
     <ClCompile Include="Pages\SplitToPages.cpp" />
     <ClCompile Include="Pages\UpdateDimensions.cpp" />
+    <ClCompile Include="SecurityAndSignatures\ChangePassword.cpp" />
+    <ClCompile Include="SecurityAndSignatures\DecryptPDFFile.cpp" />
+    <ClCompile Include="SecurityAndSignatures\SetPrivileges.cpp" />
     <ClCompile Include="Text\AddText.cpp" />
     <ClCompile Include="Text\AddTextSegment.cpp" />
     <ClCompile Include="Text\AddUnderlineText.cpp" />
