@@ -17,7 +17,7 @@ Directory | Description
 ## Resources
 
 * **Website:** [https://www.aspose.com/](https://www.aspose.com/)
-* **Product Home:** [Aspose.Pdf for C++](https://www.aspose.com/products/pdf/cpp)
+* **Product Home:** [Aspose.Pdf for C++](https://products.aspose.com/pdf/cpp)
 * **Download:** [Download Aspose.Pdf for C++](https://downloads.aspose.com/pdf/cpp)
 * **Documentation:** [Aspose.Pdf for C++ Documentation](https://docs.aspose.com/display/pdfcpp/Home)
 * **Forum:** [Aspose.Pdf for C++ Forum](https://forum.aspose.com/c/pdf)
