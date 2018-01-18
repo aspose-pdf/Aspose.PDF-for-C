@@ -1,8 +1,8 @@
 ## Aspose.Pdf for C++
 
-[Aspose.Pdf for C++](https://www.aspose.com/products/pdf/cpp) allow developers to create PDF documents, whether simple or complex, on the fly programmatically.
+[Aspose.Pdf for C++](https://https://products.aspose.com/pdf/cpp) allow developers to create PDF documents, whether simple or complex, on the fly programmatically.
 
-This repository contains [Examples](Examples) for [Aspose.Pdf for C++](https://www.aspose.com/products/pdf/cpp) to help you learn and write your own applications.
+This repository contains [Examples](Examples) for [Aspose.Pdf for C++](https://https://products.aspose.com/pdf/cpp) to help you learn and write your own applications.
 
 <p align="center">
   <a title="Download ZIP" href="https://github.com/aspose-pdf/Aspose.Pdf-for-c/archive/master.zip">
