@@ -69,3 +69,4 @@
 #include "Facades/PdfAnnotationEditor.h"
 #include "InteractiveFeatures/Annotations/TextAnnotation.h"
 #include "InteractiveFeatures/Annotations/AnnotationType.h"
+#include "Facades/PdfConverter.h"

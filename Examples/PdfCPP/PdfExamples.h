@@ -87,6 +87,8 @@ void DeleteParticularPage();
 void UpdateDimensions();
 // Split pdf to pages
 void SplitToPages();
+// Convert PDF Pages To image
+void ConvertPDFPages();
 
 //// Images
 // Delete image from particular page

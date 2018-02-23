@@ -294,6 +294,7 @@ copy $(ProjectDir)lib\Release\aspose.pdf_vc140.dll $(OutDir)</Command>
     <ClCompile Include="Images\ReplacePageImage.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pages\ConcatenatePdfFiles.cpp" />
+    <ClCompile Include="Pages\ConvertPDFPages.cpp" />
     <ClCompile Include="Pages\DeleteParticularPage.cpp" />
     <ClCompile Include="Pages\GetPageCount.cpp" />
     <ClCompile Include="Pages\GetPageProperties.cpp" />

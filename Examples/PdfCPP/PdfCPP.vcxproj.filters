@@ -149,6 +149,7 @@
     <ClCompile Include="Annotations\ImportAnnotations.cpp" />
     <ClCompile Include="Annotations\ExportAnnotations.cpp" />
     <ClCompile Include="Annotations\ExtractAnnotations.cpp" />
+    <ClCompile Include="Pages\ConvertPDFPages.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PdfExamples.h" />

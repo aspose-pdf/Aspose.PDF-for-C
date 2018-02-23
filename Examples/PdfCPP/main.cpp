@@ -71,6 +71,7 @@ int main()
 	//DeleteParticularPage();
 	//UpdateDimensions();
 	//SplitToPages();
+	ConvertPDFPages();
 
 	//// Images
 	//// =====================================================
