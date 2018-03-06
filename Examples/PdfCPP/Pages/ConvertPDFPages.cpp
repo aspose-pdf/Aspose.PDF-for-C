@@ -18,7 +18,7 @@ void ConvertPDFPages()
 	while (converter->HasNextImage())
 	{
 		// Save images to local path
-		converter->GetNextImage(prefix + imageCount + suffix, System::Drawing::Imaging::ImageFormat::get_Jpeg(), 800, 1000);
+		converter->GetNextImage(prefix + imageCount + L".jpg", System::Drawing::Imaging::ImageFormat::get_Jpeg(), 800, 1000);
 		imageCount++;
 	}
 	// ExEnd:ConvertPDFPages	
