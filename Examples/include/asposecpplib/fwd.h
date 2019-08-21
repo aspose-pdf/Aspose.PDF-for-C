@@ -30,6 +30,7 @@ namespace System {
         class Encoder;
         class Decoder;
         class Encoding;
+        class EncodingInfo;
         class EncoderReplacementFallbackBuffer;
         class EncoderReplacementFallback;
     }
@@ -84,6 +85,8 @@ typedef System::SmartPtr<System::Text::EncoderReplacementFallbackBuffer>   Encod
 typedef System::SmartPtr<System::Text::EncoderReplacementFallback>         EncoderReplacementFallbackPtr;
 /// An alias for a smart pointer that points to an instance of System::Text::Encoding class.
 typedef System::SmartPtr<System::Text::Encoding>                           EncodingPtr;
+/// An alias for a smart pointer that points to an instance of System::Text::EncodingInfo class.
+typedef System::SmartPtr<System::Text::EncodingInfo>                       EncodingInfoPtr;
 
 /// An alias for a smart pointer that points to an instance of System::IO::Stream class.
 typedef System::SmartPtr<System::IO::Stream>                               StreamPtr;

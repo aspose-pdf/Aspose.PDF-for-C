@@ -5,9 +5,9 @@
 
 namespace Aspose { namespace Pdf { namespace Annotations { class Annotation; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Annotations { class SoundAnnotationTests; } } } }
-namespace Aspose { namespace Pdf { namespace Annotations { class SoundData; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class SoundIcon; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { class SoundData; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class AnnotationSelector; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { class Document; } }
@@ -39,11 +39,11 @@ class ASPOSE_PDF_SHARED_API SoundAnnotation FINAL : public Aspose::Pdf::Annotati
 public:
 
     /// <summary>
-    /// Gets or sets an icon to be used in displaying the annotation.
+    /// Gets an icon to be used in displaying the annotation.
     /// </summary>
     SoundIcon get_Icon();
     /// <summary>
-    /// Gets or sets an icon to be used in displaying the annotation.
+    /// Sets an icon to be used in displaying the annotation.
     /// </summary>
     void set_Icon(SoundIcon value);
     /// <summary>

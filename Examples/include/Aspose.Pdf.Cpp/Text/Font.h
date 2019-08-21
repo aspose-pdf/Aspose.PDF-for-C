@@ -21,6 +21,7 @@ namespace Aspose { namespace Pdf { namespace Annotations { class RedactionAnnota
 namespace Aspose { namespace Pdf { namespace Annotations { class WatermarkAnnotation; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace IO { namespace ConvertStrategies { class TransparentContentRemoval; } } } } }
 namespace Aspose { namespace Pdf { namespace PageModel { class TextElement; } } }
+namespace Aspose { namespace Pdf { class HtmlFragment; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Fonts { namespace Substitution { class FontSubstitutor; } } } } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class TextSegmentBuilder; } } } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace IO { namespace ConvertStrategies { class PdfAConvertStrategy; } } } } }
@@ -55,6 +56,7 @@ namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v9_6;
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v10_3; } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v17_11; } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v18_6; } } }
+namespace Aspose { namespace Pdf { namespace Tests { namespace Markdown { class MarkdownToPDFTests; } } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v6_9; } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v7_1; } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v7_3; } } }
@@ -134,6 +136,7 @@ class ASPOSE_PDF_SHARED_API Font FINAL : public System::Object
     friend class Aspose::Pdf::Annotations::WatermarkAnnotation;
     friend class Aspose::Pdf::Engine::IO::ConvertStrategies::TransparentContentRemoval;
     friend class Aspose::Pdf::PageModel::TextElement;
+    friend class Aspose::Pdf::HtmlFragment;
     friend class Aspose::Pdf::Engine::CommonData::Text::Fonts::Substitution::FontSubstitutor;
     friend class Aspose::Pdf::Engine::CommonData::Text::Segmenting::TextSegmentBuilder;
     friend class Aspose::Pdf::Engine::IO::ConvertStrategies::PdfAConvertStrategy;
@@ -169,6 +172,7 @@ class ASPOSE_PDF_SHARED_API Font FINAL : public System::Object
     friend class Aspose::Pdf::Tests::RegressionTests_v10_3;
     friend class Aspose::Pdf::Tests::RegressionTests_v17_11;
     friend class Aspose::Pdf::Tests::RegressionTests_v18_6;
+    friend class Aspose::Pdf::Tests::Markdown::MarkdownToPDFTests;
     friend class Aspose::Pdf::Tests::RegressionTests_v6_9;
     friend class Aspose::Pdf::Tests::RegressionTests_v7_1;
     friend class Aspose::Pdf::Tests::RegressionTests_v7_3;
@@ -271,7 +275,7 @@ public:
     /// </summary>
     System::String get_DecodedFontName();
     /// <summary>
-    /// Gets or sets a value that indicates whether the font is embedded.
+    /// Gets a value that indicates whether the font is embedded.
     /// </summary>
     /// <example>
     /// The following example demonstrates how to find a font, mark it as embedded, search text on the document's page and replace the text font.
@@ -300,7 +304,7 @@ public:
     /// <seealso cref="Document"/>
     bool get_IsEmbedded();
     /// <summary>
-    /// Gets or sets a value that indicates whether the font is embedded.
+    /// Sets a value that indicates whether the font is embedded.
     /// </summary>
     /// <example>
     /// The following example demonstrates how to find a font, mark it as embedded, search text on the document's page and replace the text font.
@@ -329,7 +333,7 @@ public:
     /// <seealso cref="Document"/>
     void set_IsEmbedded(bool value);
     /// <summary>
-    /// Gets or sets a value that indicates whether the font is a subset.
+    /// Gets a value that indicates whether the font is a subset.
     /// </summary>
     /// <example>
     /// The example demonstrates how to search text on first page and get the value that indicates whether the font is a subset.
@@ -352,7 +356,7 @@ public:
     /// <seealso cref="Document"/>
     bool get_IsSubset();
     /// <summary>
-    /// Gets or sets a value that indicates whether the font is a subset.
+    /// Sets a value that indicates whether the font is a subset.
     /// </summary>
     /// <example>
     /// The example demonstrates how to search text on first page and get the value that indicates whether the font is a subset.

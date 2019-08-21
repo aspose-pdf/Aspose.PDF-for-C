@@ -96,7 +96,7 @@ public:
     void WeakRefRemoved();
     /// @brief Gets reference counter data structure associated with the object.
     /// @return Pointer to reference counting data structure associated with object.
-    Detail::SmartPtrCounter* GetCounter();
+    inline Detail::SmartPtrCounter* GetCounter();
     /// @brief Gets current value of shared refernce counter.
     /// @return Current value of shared reference counter.
     int SharedCount() const;
@@ -241,6 +241,12 @@ private:
         {
             ptr = std::make_unique<TypeInfo>(u"System::Object");
         }
+
+        // Explicitly deleting several members to avoid warnings
+        ThisTypeInfo(const ThisTypeInfo&) = delete;
+        ThisTypeInfo(ThisTypeInfo&&) = delete;
+        ThisTypeInfo& operator = (const ThisTypeInfo&) = delete;
+        ThisTypeInfo& operator = (ThisTypeInfo&&) = delete;
     };
 
     /// Mutex type to use for lock() statement translation.
@@ -263,7 +269,7 @@ private:
 #ifdef __DBG_GARBAGE_COLLECTION
     /// GC generation object falls into.
     int m_generation;
-    friend bool System::Details::__buildIsolationIsland(Object *&last, std::map<Object*, shared_members_type> &island, int generation);
+    friend bool ASPOSECPP_SHARED_API System::Details::__buildIsolationIsland(Object *&last, std::map<Object*, shared_members_type> &island, int generation);
 #endif
 };
 

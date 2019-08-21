@@ -43,6 +43,7 @@ public:
     ASPOSECPP_SHARED_API int GetDaysInMonth(int year, int month, int era) const override;
     ASPOSECPP_SHARED_API int GetDayOfYear(const DateTime& time) const override;
     ASPOSECPP_SHARED_API DayOfWeek GetDayOfWeek(const DateTime& time) const override;
+    ASPOSECPP_SHARED_API int GetEra(const DateTime& time) const override;
     ASPOSECPP_SHARED_API int GetMonth(const DateTime& time) const override;
     ASPOSECPP_SHARED_API int GetDayOfMonth(const DateTime& time) const override;
     ASPOSECPP_SHARED_API int GetLeapMonth(int year, int era) const override;
@@ -62,7 +63,7 @@ private:
     void VerifyDate(int year, int month, int day, int era) const override;
 
     int EraToIcuEra(int era) const override;
-    int IcuEraToEra(int icuEra) const override;
+    int IcuEraToEra(int icu_era) const override;
 
     /// Convert Japanese year and era to Gregorian year.
     /// @param year Japanese year.

@@ -51,7 +51,7 @@ class ASPOSE_PDF_SHARED_API TextDevice FINAL : public Aspose::Pdf::Devices::Page
 public:
 
     /// <summary>
-    /// Gets or sets text extraction options.
+    /// Gets text extraction options.
     /// </summary>
     /// <example>
     /// The example demonstrates how to extracted text in raw order.
@@ -71,7 +71,7 @@ public:
     /// </example>
     System::SharedPtr<Aspose::Pdf::Text::TextExtractionOptions> get_ExtractionOptions();
     /// <summary>
-    /// Gets or sets text extraction options.
+    /// Sets text extraction options.
     /// </summary>
     /// <example>
     /// The example demonstrates how to extracted text in raw order.
@@ -91,7 +91,7 @@ public:
     /// </example>
     void set_ExtractionOptions(System::SharedPtr<Aspose::Pdf::Text::TextExtractionOptions> value);
     /// <summary>
-    /// Gets or sets encoding of extracted text.
+    /// Gets encoding of extracted text.
     /// </summary>
     /// <example>
     /// The example demonstrates how to represent extracted text in UTF-8 encoding.
@@ -111,7 +111,7 @@ public:
     /// </example>
     System::SharedPtr<System::Text::Encoding> get_Encoding();
     /// <summary>
-    /// Gets or sets encoding of extracted text.
+    /// Sets encoding of extracted text.
     /// </summary>
     /// <example>
     /// The example demonstrates how to represent extracted text in UTF-8 encoding.

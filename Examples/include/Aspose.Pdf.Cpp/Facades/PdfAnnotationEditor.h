@@ -44,7 +44,20 @@ public:
     /// <code lang="C#">
     /// PdfAnnotationEditor editor = new PdfAnnotationEditor();
     /// editor.BindPdf("example.pdf");
-    /// editor.ImportAnnotationFromXfdf("annots.xfdf");
+    /// editor.ImportAnnotationsFromXfdf("annots.xfdf");
+    /// editor.Save("example_out.pdf");
+    /// </code>
+    /// </example>
+    void ImportAnnotationsFromXfdf(System::String xfdfFile);
+    /// <summary>
+    /// Imports all annotations from XFDF file.
+    /// </summary>
+    /// <param name="xfdfFile">The input XFDF file.</param>
+    /// <example>
+    /// <code lang="C#">
+    /// PdfAnnotationEditor editor = new PdfAnnotationEditor();
+    /// editor.BindPdf("example.pdf");
+    /// editor.ImportAnnotationsFromXfdf("annots.xfdf");
     /// editor.Save("example_out.pdf");
     /// </code>
     /// </example>
@@ -79,6 +92,19 @@ public:
     /// </code> 
     /// </example>
     void ImportAnnotationFromXfdf(System::SharedPtr<System::IO::Stream> xfdfStream, System::ArrayPtr<Aspose::Pdf::Annotations::AnnotationType> annotType);
+    /// <summary>
+    /// Imports all annotations from XFDF data stream.
+    /// </summary>
+    /// <param name="xfdfStream">The input XFDF data stream.</param>
+    /// <example>
+    /// <code lang="C#">
+    /// PdfAnnotationEditor editor = new PdfAnnotationEditor();
+    /// editor.BindPdf("example.pdf");
+    /// editor.ImportAnnotationsFromXfdf(File.OpenRead("annots.xfdf"));
+    /// editor.Save("example_out.pdf");
+    /// </code> 
+    /// </example>
+    void ImportAnnotationsFromXfdf(System::SharedPtr<System::IO::Stream> xfdfStream);
     /// <summary>
     /// Imports all annotations from XFDF data stream.
     /// </summary>
@@ -262,7 +288,7 @@ public:
     /// </example>
     void ExportAnnotationsXfdf(System::SharedPtr<System::IO::Stream> xmlOutputStream, int32_t start, int32_t end, System::ArrayPtr<System::String> annotTypes);
     /// <summary>
-    /// Exports the content of the specified annotation types into XFDF
+    /// Exports the content of the specified annotations types into XFDF
     /// </summary>
     /// <param name="xmlOutputStream">The output XFDF stream.</param>
     /// <param name="start">Start page from which the annotations of the document will be exported.</param>
@@ -280,6 +306,11 @@ public:
     /// </code>
     /// </example>
     void ExportAnnotationsXfdf(System::SharedPtr<System::IO::Stream> xmlOutputStream, int32_t start, int32_t end, System::ArrayPtr<Aspose::Pdf::Annotations::AnnotationType> annotTypes);
+    /// <summary>
+    /// Exports 
+    /// </summary>
+    /// <param name="xmlOutputStream"></param>
+    void ExportAnnotationsToXfdf(System::SharedPtr<System::IO::Stream> xmlOutputStream);
     /// <summary>
     /// Gets the list of annotations of the specified types.
     /// </summary>

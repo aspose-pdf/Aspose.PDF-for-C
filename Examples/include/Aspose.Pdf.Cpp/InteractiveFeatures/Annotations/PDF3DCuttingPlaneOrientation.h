@@ -28,32 +28,32 @@ class ASPOSE_PDF_SHARED_API PDF3DCuttingPlaneOrientation : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets the angle to X axis.
+    /// Gets the angle to X axis.
     /// </summary>
     /// <value>The angle to X axis.</value>
     System::Nullable<double> get_AngleX();
     /// <summary>
-    /// Gets or sets the angle to X axis.
+    /// Sets the angle to X axis.
     /// </summary>
     /// <value>The angle to X axis.</value>
     void set_AngleX(System::Nullable<double> value);
     /// <summary>
-    /// Gets or sets the angle to Y axis.
+    /// Gets the angle to Y axis.
     /// </summary>
     /// <value>The angle Y axis.</value>
     System::Nullable<double> get_AngleY();
     /// <summary>
-    /// Gets or sets the angle to Y axis.
+    /// Sets the angle to Y axis.
     /// </summary>
     /// <value>The angle Y axis.</value>
     void set_AngleY(System::Nullable<double> value);
     /// <summary>
-    /// Gets or sets the angle to Z axis.
+    /// Gets the angle to Z axis.
     /// </summary>
     /// <value>The angle to Z axis.</value>
     System::Nullable<double> get_AngleZ();
     /// <summary>
-    /// Gets or sets the angle to Z axis.
+    /// Sets the angle to Z axis.
     /// </summary>
     /// <value>The angle to Z axis.</value>
     void set_AngleZ(System::Nullable<double> value);

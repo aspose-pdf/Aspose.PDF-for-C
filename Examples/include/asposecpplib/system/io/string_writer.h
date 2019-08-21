@@ -70,7 +70,7 @@ namespace System { namespace IO {
         /// @param buffer The array containing the characters to write
         /// @param index A 0-based index of the elemnet in @p buffer at which the subrange to write begins
         /// @param count The number of characters in the subrange to write
-        virtual void Write(ArrayPtr<char_t> buffer, int index, int count) {
+        virtual void Write(ArrayPtr<char_t> buffer, int index, int count) override {
             if (buffer == nullptr)
                 throw ArgumentNullException(u"buffer");
             if (index < 0)

@@ -14,10 +14,13 @@
 namespace Aspose { namespace Pdf { class Heading; } }
 namespace Aspose { namespace Pdf { class PageGenerator; } }
 namespace Aspose { namespace Pdf { namespace Facades { class PdfFileMend; } } }
+namespace Aspose { namespace Pdf { namespace Text { class TextParagraphAbsorber; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextBuilder; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Text { class TextParagraphAbsorberTests; } } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Text { class TextBuilderTests; } } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v9_9; } } }
+namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
+namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragmentCollection; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFormattingOptions; } } }
 namespace Aspose { namespace Pdf { class Matrix; } }
@@ -25,14 +28,13 @@ namespace Aspose { namespace Pdf { namespace Text { class Position; } } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class TextSegmenter; } } } } } }
 namespace Aspose { namespace Pdf { class MarginInfo; } }
-namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
-namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
 namespace Aspose { namespace Pdf { class Color; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class SegmentsGroupState; } } } } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextSegment; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragment; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextSegmentCollection; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextState; } } }
+namespace Aspose { namespace Pdf { namespace Text { class TextEditOptions; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class PhysicalTextSegment; } } } } } }
 
 namespace Aspose {
@@ -55,6 +57,7 @@ class ASPOSE_PDF_SHARED_API TextParagraph FINAL : public System::Object
     friend class Aspose::Pdf::Heading;
     friend class Aspose::Pdf::PageGenerator;
     friend class Aspose::Pdf::Facades::PdfFileMend;
+    friend class Aspose::Pdf::Text::TextParagraphAbsorber;
     friend class Aspose::Pdf::Text::TextBuilder;
     friend class Aspose::Pdf::Tests::Text::TextParagraphAbsorberTests;
     friend class Aspose::Pdf::Tests::Text::TextBuilderTests;
@@ -142,6 +145,8 @@ private:
         double get_SpaceWidth();
         void set_SpaceWidth(double value);
         
+        JustificationSpace();
+        
     protected:
     
         System::Object::shared_members_type GetSharedMembers() override;
@@ -157,75 +162,75 @@ private:
 public:
 
     /// <summary>
-    /// Gets or sets vertical alignment for the text inside paragrph's <see cref="Rectangle"/>. 
+    /// Gets vertical alignment for the text inside paragrph's <see cref="Rectangle"/>. 
     /// </summary>
     /// <remarks>
     /// VerticalAlignment.None is equal to VerticalAlignment.Bottom.
     /// </remarks>
     Aspose::Pdf::VerticalAlignment get_VerticalAlignment();
     /// <summary>
-    /// Gets or sets vertical alignment for the text inside paragrph's <see cref="Rectangle"/>. 
+    /// Sets vertical alignment for the text inside paragrph's <see cref="Rectangle"/>. 
     /// </summary>
     /// <remarks>
     /// VerticalAlignment.None is equal to VerticalAlignment.Bottom.
     /// </remarks>
     void set_VerticalAlignment(Aspose::Pdf::VerticalAlignment value);
     /// <summary>
-    /// Gets or sets subsequent lines indent value.
+    /// Gets subsequent lines indent value.
     /// If set to a non-zero value, it has an advantage over the FormattingOptions.SubsequentLinesIndent value.
     /// </summary>
     float get_SubsequentLinesIndent();
     /// <summary>
-    /// Gets or sets subsequent lines indent value.
+    /// Sets subsequent lines indent value.
     /// If set to a non-zero value, it has an advantage over the FormattingOptions.SubsequentLinesIndent value.
     /// </summary>
     void set_SubsequentLinesIndent(float value);
     /// <summary>
-    /// Gets or sets subsequent lines indent value.
+    /// Gets subsequent lines indent value.
     /// If set to a non-zero value, it has an advantage over the FormattingOptions.SubsequentLinesIndent value.
     /// </summary>
     float get_FirstLineIndent();
     /// <summary>
-    /// Gets or sets subsequent lines indent value.
+    /// Sets subsequent lines indent value.
     /// If set to a non-zero value, it has an advantage over the FormattingOptions.SubsequentLinesIndent value.
     /// </summary>
     void set_FirstLineIndent(float value);
     /// <summary>
-    /// Gets or sets value whether text is justified.
+    /// Gets value whether text is justified.
     /// </summary>
     bool get_Justify();
     /// <summary>
-    /// Gets or sets value whether text is justified.
+    /// Sets value whether text is justified.
     /// </summary>
     void set_Justify(bool value);
     /// <summary>
-    /// Gets or sets horizontal alignment for the text inside paragrph's <see cref="Rectangle"/>. 
+    /// Gets horizontal alignment for the text inside paragrph's <see cref="Rectangle"/>. 
     /// </summary>
     /// <remarks>
     /// HorizontalAlignment.None is equal to HorizontalAlignment.Left.
     /// </remarks>
     Aspose::Pdf::HorizontalAlignment get_HorizontalAlignment();
     /// <summary>
-    /// Gets or sets horizontal alignment for the text inside paragrph's <see cref="Rectangle"/>. 
+    /// Sets horizontal alignment for the text inside paragrph's <see cref="Rectangle"/>. 
     /// </summary>
     /// <remarks>
     /// HorizontalAlignment.None is equal to HorizontalAlignment.Left.
     /// </remarks>
     void set_HorizontalAlignment(Aspose::Pdf::HorizontalAlignment value);
     /// <summary>
-    /// Gets or sets formatting options.
+    /// Gets formatting options.
     /// </summary>
     System::SharedPtr<TextFormattingOptions> get_FormattingOptions();
     /// <summary>
-    /// Gets or sets formatting options.
+    /// Sets formatting options.
     /// </summary>
     void set_FormattingOptions(System::SharedPtr<TextFormattingOptions> value);
     /// <summary>
-    /// Gets or sets position of the paragraph.
+    /// Gets position of the paragraph.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Text::Position> get_Position();
     /// <summary>
-    /// Gets or sets position of the paragraph.
+    /// Sets position of the paragraph.
     /// </summary>
     void set_Position(System::SharedPtr<Aspose::Pdf::Text::Position> value);
     /// <summary>
@@ -233,27 +238,27 @@ public:
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_TextRectangle();
     /// <summary>
-    /// Gets or sets rectangle of the paragraph.
+    /// Gets rectangle of the paragraph.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_Rectangle();
     /// <summary>
-    /// Gets or sets rectangle of the paragraph.
+    /// Sets rectangle of the paragraph.
     /// </summary>
     void set_Rectangle(System::SharedPtr<Aspose::Pdf::Rectangle> value);
     /// <summary>
-    /// Gets or sets the padding.
+    /// Gets the padding.
     /// </summary>
     System::SharedPtr<MarginInfo> get_Margin();
     /// <summary>
-    /// Gets or sets the padding.
+    /// Sets the padding.
     /// </summary>
     void set_Margin(System::SharedPtr<MarginInfo> value);
     /// <summary>
-    /// Gets or sets rotation angle in degrees.
+    /// Gets rotation angle in degrees.
     /// </summary>
     double get_Rotation();
     /// <summary>
-    /// Gets or sets rotation angle in degrees.
+    /// Sets rotation angle in degrees.
     /// </summary>
     void set_Rotation(double value);
     
@@ -331,22 +336,25 @@ public:
 protected:
 
     System::SharedPtr<System::Collections::Generic::Dictionary<int32_t, float>> get_LineSpacings();
+    
+    int32_t updatePositioningCalls;
+    
     System::String get_McName();
     int32_t get_McId();
     /// <summary>
-    /// Gets or sets background color for the text paragraph.
+    /// Gets background color for the text paragraph.
     /// </summary>
     System::SharedPtr<Color> get_BackgroundColor();
     /// <summary>
-    /// Gets or sets background color for the text paragraph.
+    /// Sets background color for the text paragraph.
     /// </summary>
     void set_BackgroundColor(System::SharedPtr<Color> value);
     /// <summary>
-    /// Gets or sets value whether text is placed behind the bounds (false), or not placed and collection RemainingLines is populated.
+    /// Gets value whether text is placed behind the bounds (false), or not placed and collection RemainingLines is populated.
     /// </summary>
     bool get_LimitWithBounds();
     /// <summary>
-    /// Gets or sets value whether text is placed behind the bounds (false), or not placed and collection RemainingLines is populated.
+    /// Sets value whether text is placed behind the bounds (false), or not placed and collection RemainingLines is populated.
     /// </summary>
     void set_LimitWithBounds(bool value);
     /// <summary>
@@ -360,7 +368,7 @@ protected:
     /// </summary>
     void set_PreserveOriginalLinespacing(bool value);
     /// <summary>
-    /// Gets or sets hyphen symbol that is used in hyphenation process. 
+    /// Gets hyphen symbol that is used in hyphenation process. 
     /// </summary>
     /// <remarks>
     /// The hyphenation symbol is "-" by default.
@@ -368,7 +376,7 @@ protected:
     /// </remarks>
     System::String get_HyphenSymbol();
     /// <summary>
-    /// Gets or sets hyphen symbol that is used in hyphenation process. 
+    /// Sets hyphen symbol that is used in hyphenation process. 
     /// </summary>
     /// <remarks>
     /// The hyphenation symbol is "-" by default.
@@ -390,11 +398,11 @@ protected:
     System::SharedPtr<TextSegment> get_LastSegment();
     double get_LastFragmentHeight();
     /// <summary>
-    /// Gets or sets Rotation of the paragraph.
+    /// Gets Rotation of the paragraph.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Matrix> get_Matrix();
     /// <summary>
-    /// Gets or sets Rotation of the paragraph.
+    /// Sets Rotation of the paragraph.
     /// </summary>
     void set_Matrix(System::SharedPtr<Aspose::Pdf::Matrix> value);
     bool get_OldCodeCompatibilityMode();
@@ -539,6 +547,11 @@ private:
     /// </summary>
     /// <returns></returns>
     System::SharedPtr<TextSegment> CreateNewSegment(System::String text, System::SharedPtr<TextState> state, bool allowAttachment);
+    /// <summary>
+    /// Creates new segment.
+    /// </summary>
+    /// <returns></returns>
+    System::SharedPtr<TextSegment> CreateNewSegment(System::String text, System::SharedPtr<TextState> state, bool allowAttachment, System::SharedPtr<TextEditOptions> opts);
     /// <summary>
     /// Clears all physical segments
     /// </summary>

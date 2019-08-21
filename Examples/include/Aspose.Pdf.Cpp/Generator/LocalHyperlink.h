@@ -27,19 +27,19 @@ class ASPOSE_PDF_SHARED_API LocalHyperlink FINAL : public Aspose::Pdf::Hyperlink
 public:
 
     /// <summary>
-    /// Gets or sets the target paragraph.
+    /// Gets the target paragraph.
     /// </summary>
     System::SharedPtr<BaseParagraph> get_Target();
     /// <summary>
-    /// Gets or sets the target paragraph.
+    /// Sets the target paragraph.
     /// </summary>
     void set_Target(System::SharedPtr<BaseParagraph> value);
     /// <summary>
-    /// Gets or sets the target page number.
+    /// Gets the target page number.
     /// </summary>
     int32_t get_TargetPageNumber();
     /// <summary>
-    /// Gets or sets the target page number.
+    /// Sets the target page number.
     /// </summary>
     void set_TargetPageNumber(int32_t value);
     

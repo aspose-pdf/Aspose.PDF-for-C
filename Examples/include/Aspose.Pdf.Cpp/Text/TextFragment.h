@@ -27,6 +27,7 @@ namespace Aspose { namespace Pdf { class Page; } }
 namespace Aspose { namespace Pdf { class TextStamp; } }
 namespace Aspose { namespace Pdf { class Cell; } }
 namespace Aspose { namespace Pdf { class Cells; } }
+namespace Aspose { namespace Pdf { namespace Text { class TextParagraphAbsorber; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextParagraph; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextBuilder; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragmentAbsorber; } } }
@@ -35,16 +36,16 @@ namespace Aspose { namespace Pdf { class XForm; } }
 namespace Aspose { namespace Pdf { class Table; } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace PDFUA { class PDFUA_CreatingTests; } } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v19_1; } } }
+namespace Aspose { namespace Pdf { namespace Text { class TextState; } } }
+namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
+namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
 namespace Aspose { namespace Pdf { namespace Text { class TextSegmentCollection; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragmentCollection; } } }
-namespace Aspose { namespace Pdf { namespace Text { class TextState; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class TextSegmenter; } } } } } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
 namespace Aspose { namespace Pdf { class Note; } }
 namespace Aspose { namespace Pdf { namespace Text { class TextReplaceOptions; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class SegmentsGroupState; } } } } } }
-namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
-namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
 namespace Aspose { namespace Pdf { class Hyperlink; } }
 namespace Aspose { namespace Pdf { namespace Text { class Position; } } }
 namespace Aspose { namespace Pdf { namespace Text { class Font; } } }
@@ -147,6 +148,7 @@ class ASPOSE_PDF_SHARED_API TextFragment : public Aspose::Pdf::BaseParagraph
     friend class Aspose::Pdf::TextStamp;
     friend class Aspose::Pdf::Cell;
     friend class Aspose::Pdf::Cells;
+    friend class Aspose::Pdf::Text::TextParagraphAbsorber;
     friend class Aspose::Pdf::Text::TextParagraph;
     friend class Aspose::Pdf::Text::TextBuilder;
     friend class Aspose::Pdf::Text::TextFragmentAbsorber;
@@ -159,7 +161,7 @@ class ASPOSE_PDF_SHARED_API TextFragment : public Aspose::Pdf::BaseParagraph
 public:
 
     /// <summary>
-    /// Gets or sets <see cref="string"/> text object that the <see cref="TextFragment"/> object represents.
+    /// Gets <see cref="System::String"/> text object that the <see cref="TextFragment"/> object represents.
     /// </summary>
     /// <example>
     /// The example demonstrates how to search a text and replace first occurrence represented with <see cref="TextFragment"/> object .
@@ -184,7 +186,7 @@ public:
     /// <seealso cref="Document"/>
     System::String get_Text();
     /// <summary>
-    /// Gets or sets <see cref="string"/> text object that the <see cref="TextFragment"/> object represents.
+    /// Sets <see cref="System::String"/> text object that the <see cref="TextFragment"/> object represents.
     /// </summary>
     /// <example>
     /// The example demonstrates how to search a text and replace first occurrence represented with <see cref="TextFragment"/> object .
@@ -209,19 +211,19 @@ public:
     /// <seealso cref="Document"/>
     void set_Text(System::String value);
     /// <summary>
-    /// Gets or sets a vertical alignment of text fragment. 
+    /// Gets a vertical alignment of text fragment. 
     /// </summary>
     virtual Aspose::Pdf::VerticalAlignment get_VerticalAlignment();
     /// <summary>
-    /// Gets or sets a vertical alignment of text fragment. 
+    /// Sets a vertical alignment of text fragment. 
     /// </summary>
     virtual void set_VerticalAlignment(Aspose::Pdf::VerticalAlignment value);
     /// <summary>
-    /// Gets or sets a horizontal alignment of text fragment. 
+    /// Gets a horizontal alignment of text fragment. 
     /// </summary>
     virtual Aspose::Pdf::HorizontalAlignment get_HorizontalAlignment();
     /// <summary>
-    /// Gets or sets a horizontal alignment of text fragment. 
+    /// Sets a horizontal alignment of text fragment. 
     /// </summary>
     virtual void set_HorizontalAlignment(Aspose::Pdf::HorizontalAlignment value);
     /// <summary>
@@ -229,7 +231,7 @@ public:
     /// </summary>
     virtual void set_Hyperlink(System::SharedPtr<Aspose::Pdf::Hyperlink> value);
     /// <summary>
-    /// Gets or sets text state for the text that <see cref="TextFragment"/> object represents.
+    /// Gets text state for the text that <see cref="TextFragment"/> object represents.
     /// </summary>
     /// <remarks>
     /// Provides a way to change following properties of the text:
@@ -333,7 +335,7 @@ public:
     /// <seealso cref="TextSegment"/> 
     void set_Segments(System::SharedPtr<TextSegmentCollection> value);
     /// <summary>
-    /// Gets or sets text position for text, represented with <see cref="TextFragment"/> object.
+    /// Gets text position for text, represented with <see cref="TextFragment"/> object.
     /// </summary>
     /// <example>
     /// The example demonstrates how to view placement of a text, represented by <see cref="TextFragment"/> object.
@@ -361,7 +363,7 @@ public:
     /// <seealso cref="TextSegment"/> 
     System::SharedPtr<Aspose::Pdf::Text::Position> get_Position();
     /// <summary>
-    /// Gets or sets text position for text, represented with <see cref="TextFragment"/> object.
+    /// Sets text position for text, represented with <see cref="TextFragment"/> object.
     /// </summary>
     /// <example>
     /// The example demonstrates how to view placement of a text, represented by <see cref="TextFragment"/> object.
@@ -417,27 +419,27 @@ public:
     /// </remarks>
     System::SharedPtr<XForm> get_Form();
     /// <summary>
-    /// Gets or sets wrap lines count for this paragraph(for pdf generation only)
+    /// Gets wrap lines count for this paragraph(for pdf generation only)
     /// </summary>
     int32_t get_WrapLinesCount();
     /// <summary>
-    /// Gets or sets wrap lines count for this paragraph(for pdf generation only)
+    /// Sets wrap lines count for this paragraph(for pdf generation only)
     /// </summary>
     void set_WrapLinesCount(int32_t value);
     /// <summary>
-    /// Gets or sets the paragraph end note.(for pdf generation only)
+    /// Gets the paragraph end note.(for pdf generation only)
     /// </summary>
     System::SharedPtr<Note> get_EndNote();
     /// <summary>
-    /// Gets or sets the paragraph end note.(for pdf generation only)
+    /// Sets the paragraph end note.(for pdf generation only)
     /// </summary>
     void set_EndNote(System::SharedPtr<Note> value);
     /// <summary>
-    /// Gets or sets the paragraph foot note.(for pdf generation only)
+    /// Gets the paragraph foot note.(for pdf generation only)
     /// </summary>
     System::SharedPtr<Note> get_FootNote();
     /// <summary>
-    /// Gets or sets the paragraph foot note.(for pdf generation only)
+    /// Sets the paragraph foot note.(for pdf generation only)
     /// </summary>
     void set_FootNote(System::SharedPtr<Note> value);
     
@@ -495,7 +497,7 @@ protected:
     System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Segmenting::SegmentsGroupState> get_SegmentsGroupState();
     void set_SegmentsGroupState(System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Segmenting::SegmentsGroupState> value);
     /// <summary>
-    /// Gets or sets text state for the text that <see cref="TextFragment"/> object represents.
+    /// Sets text state for the text that <see cref="TextFragment"/> object represents.
     /// </summary>
     /// <remarks>
     /// Provides a way to change following properties of the text:
@@ -531,11 +533,11 @@ protected:
     /// <seealso cref="Document"/>
     void set_TextState(System::SharedPtr<TextFragmentState> value);
     /// <summary>
-    /// Gets or sets collection that contains current fragment
+    /// Gets collection that contains current fragment
     /// </summary>
     System::SharedPtr<TextFragmentCollection> get_Fragments();
     /// <summary>
-    /// Gets or sets collection that contains current fragment
+    /// Sets collection that contains current fragment
     /// </summary>
     void set_Fragments(System::SharedPtr<TextFragmentCollection> value);
     /// <summary>
@@ -614,7 +616,7 @@ protected:
     /// </remarks>
     /// <param name="inText">String representing new text value.</param>
     void LightWeightTextSetterWithNoTextShift(System::String inText);
-    System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Segmenting::PhysicalTextSegment>>> GetLineSegments(double x_indent, double y_indent);
+    System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Segmenting::PhysicalTextSegment>>> GetLineSegments(double x_indent, double y_indent, double angle);
     void SetMarkedContentProperties(System::String name, int32_t id);
     void Assign(System::SharedPtr<TextFragment> fragment);
     void AssignWithSegments(System::SharedPtr<TextFragment> fragment);

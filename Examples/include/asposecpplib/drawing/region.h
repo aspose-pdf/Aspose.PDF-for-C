@@ -24,6 +24,10 @@ ASPOSECPP_3RD_PARTY_CLASS(SkRegion);
 ASPOSECPP_3RD_PARTY_STRUCT(SkIRect);
 /// Forward declaration of SkRect struct.
 ASPOSECPP_3RD_PARTY_STRUCT(SkRect);
+/// Forward declaration of SkMatrix class.
+ASPOSECPP_3RD_PARTY_CLASS(SkMatrix);
+/// Forward declaration of SkMatrix class.
+ASPOSECPP_3RD_PARTY_CLASS(SkPath);
 
 namespace System { namespace Drawing { namespace Details { namespace Region { class BaseRegionDataNode; } } } }
 namespace System { namespace Drawing { namespace Details { namespace Skia { class SkiaData; } } } }
@@ -56,6 +60,7 @@ public:
     /// by the specified path.
     /// @param path A path that defines the region
     ASPOSECPP_SHARED_API Region(const SharedPtr<Drawing2D::GraphicsPath>& path);
+    ASPOSECPP_SHARED_API Region(const SkPath& path);
     /// Constructs a new instance of Region class that represents a region defined
     /// by the specified RegionData object.
     /// @param region_data A RegionData object that defines the region
@@ -148,6 +153,10 @@ public:
     /// Transforms this region by the specified matrix.
     /// @param matrix Transformation matrix
     ASPOSECPP_SHARED_API void Transform(const SharedPtr<Drawing2D::Matrix>& matrix);
+
+    /// Transforms this region by the specified matrix.
+    /// @param matrix Transformation matrix
+    ASPOSECPP_SHARED_API void Transform(const SkMatrix& matrix);
 
     /// Replaces the region represented by the current object with the portion of the region
     /// defined by the specified recangle that does not intersect with this region.

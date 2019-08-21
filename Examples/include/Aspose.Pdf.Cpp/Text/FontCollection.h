@@ -216,7 +216,7 @@ public:
 protected:
 
     System::SharedPtr<Aspose::Pdf::Engine::CommonData::PageContent::IResourceDictionary> get_ResourceDictionary();
-    System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> get_FontsDictionary();
+    System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> get_FontsDictionary() const;
     bool get_ResourceMode();
     
     /// <summary>

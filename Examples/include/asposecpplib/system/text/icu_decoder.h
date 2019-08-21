@@ -125,20 +125,11 @@ public:
     /// @param completed Reference to variable to be set to true if input buffer was exhausted and to false otherwise.
     virtual ASPOSECPP_SHARED_API void Convert(const uint8_t* bytes, int byteCount, char_t *chars, int charCount, bool flush, int &bytesUsed, int &charsUsed, bool &completed);
 
-    /// Sets decoding context to recover promtly if decoding breaks between bytes of same character.
-    /// @param context Context to recover from.
-    void SetToUnicodeContext(const uint8_t *context) const { m_toUnicodeContext = context; };
-    /// Gets decoding context to recover promtly if decoding breaks between bytes of same character.
-    /// @return Context to recover from.
-    const uint8_t *GetToUnicodeContext() const { return m_toUnicodeContext; }
-
 private:
     /// Initializes ICU callbacks for internal algorithms consistency.
     void SetICUCallbacks();
     /// ICU converter to wrap.
     UConverter *m_icu_converter = 0;
-    /// Context to recover from if decoding breaks between bytes of same character.
-    mutable const uint8_t *m_toUnicodeContext = 0;
 };
 
 }};

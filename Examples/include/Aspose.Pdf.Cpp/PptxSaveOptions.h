@@ -29,6 +29,14 @@ public:
     /// </summary>
     void set_SlidesAsImages(bool value);
     /// <summary>
+    /// Gets the image resolution (dpi). Default is 192 dpi.
+    /// </summary>
+    int32_t get_ImageResolution();
+    /// <summary>
+    /// Sets the image resolution (dpi). Default is 192 dpi.
+    /// </summary>
+    void set_ImageResolution(int32_t value);
+    /// <summary>
     /// If set to true then images are separated from all other graphics
     /// </summary>
     bool get_SeparateImages();
@@ -52,6 +60,7 @@ public:
     
 private:
 
+    int32_t _imageResolution;
     bool pr_SlidesAsImages;
     bool pr_SeparateImages;
     bool pr_OptimizeTextBoxes;

@@ -7,9 +7,9 @@
 
 namespace Aspose { namespace Pdf { namespace Annotations { class Annotation; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Annotations { class FileAttachmentAnnotationTests; } } } }
-namespace Aspose { namespace Pdf { class FileSpecification; } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class FileIcon; } } }
+namespace Aspose { namespace Pdf { class FileSpecification; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { namespace Annotations { class AnnotationSelector; } } }
@@ -52,19 +52,19 @@ public:
     /// </summary>
     void set_File(System::SharedPtr<FileSpecification> value);
     /// <summary>
-    /// Gets or sets icon that shall be used in displaying annotation.
+    /// Gets icon that shall be used in displaying annotation.
     /// </summary>
     FileIcon get_Icon();
     /// <summary>
-    /// Gets or sets icon that shall be used in displaying annotation.
+    /// Sets icon that shall be used in displaying annotation.
     /// </summary>
     void set_Icon(FileIcon value);
     /// <summary>
-    /// Gets or sets icon's opacity from 0 to 1: 0 - completely transparant, 1 - completely opaque.
+    /// Gets icon's opacity from 0 to 1: 0 - completely transparant, 1 - completely opaque.
     /// </summary>
     double get_Opacity();
     /// <summary>
-    /// Gets or sets icon's opacity from 0 to 1: 0 - completely transparant, 1 - completely opaque.
+    /// Sets icon's opacity from 0 to 1: 0 - completely transparant, 1 - completely opaque.
     /// </summary>
     void set_Opacity(double value);
     

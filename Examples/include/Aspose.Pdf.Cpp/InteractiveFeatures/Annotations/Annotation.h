@@ -121,16 +121,16 @@ namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v17_1
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v18_11; } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v19_4; } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v19_5; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationFlags; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { enum class TextAlignment; } } }
+namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
 namespace Aspose { namespace Pdf { class Color; } }
-namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationFlags; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class AppearanceDictionary; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
 namespace Aspose { namespace Pdf { class XForm; } }
-namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
-namespace Aspose { namespace Pdf { namespace Annotations { enum class TextAlignment; } } }
-namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
 namespace Aspose { namespace Pdf { class Operator; } }
 namespace Aspose { namespace Pdf { class OperatorCollection; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class ITrailerable; } } } }
@@ -358,11 +358,11 @@ public:
     /// </summary>
     virtual Aspose::Pdf::Annotations::AnnotationType get_AnnotationType() = 0;
     /// <summary>
-    /// Gets or sets width of the annotation.
+    /// Gets width of the annotation.
     /// </summary>
     virtual double get_Width();
     /// <summary>
-    /// Gets or sets width of the annotation.
+    /// Sets width of the annotation.
     /// </summary>
     virtual void set_Width(double value);
     /// <summary>
@@ -370,67 +370,67 @@ public:
     /// </summary>
     System::SharedPtr<PdfActionCollection> get_Actions();
     /// <summary>
-    /// Gets or sets height of the annotation.
+    /// Gets height of the annotation.
     /// </summary>
     virtual double get_Height();
     /// <summary>
-    /// Gets or sets height of the annotation.
+    /// Sets height of the annotation.
     /// </summary>
     virtual void set_Height(double value);
     /// <summary>
-    /// Gets or sets annotation rectangle.
+    /// Gets annotation rectangle.
     /// </summary>
     virtual System::SharedPtr<Rectangle> get_Rect();
     /// <summary>
-    /// Gets or sets annotation rectangle.
+    /// Sets annotation rectangle.
     /// </summary>
     virtual void set_Rect(System::SharedPtr<Rectangle> value);
     /// <summary>
-    /// Gets or sets annotation text.
+    /// Gets annotation text.
     /// </summary>
     System::String get_Contents();
     /// <summary>
-    /// Gets or sets annotation text.
+    /// Sets annotation text.
     /// </summary>
     void set_Contents(System::String value);
     /// <summary>
-    /// Gets or sets annotation name on the page.
+    /// Gets annotation name on the page.
     /// </summary>
     System::String get_Name();
     /// <summary>
-    /// Gets or sets annotation name on the page.
+    /// Sets annotation name on the page.
     /// </summary>
     void set_Name(System::String value);
     /// <summary>
-    /// Gets or sets date and time when annotation was recently modified.
+    /// Gets date and time when annotation was recently modified.
     /// </summary>
     System::DateTime get_Modified();
     /// <summary>
-    /// Gets or sets date and time when annotation was recently modified.
+    /// Sets date and time when annotation was recently modified.
     /// </summary>
     void set_Modified(System::DateTime value);
     /// <summary>
-    /// Gets or sets annotation color.
+    /// Gets annotation color.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Color> get_Color();
     /// <summary>
-    /// Gets or sets annotation color.
+    /// Sets annotation color.
     /// </summary>
     void set_Color(System::SharedPtr<Aspose::Pdf::Color> value);
     /// <summary>
-    /// Gets or sets annotation border characteristics. <see cref="Border"/>
+    /// Gets annotation border characteristics. <see cref="Border"/>
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Annotations::Border> get_Border();
     /// <summary>
-    /// Gets or sets annotation border characteristics. <see cref="Border"/>
+    /// Sets annotation border characteristics. <see cref="Border"/>
     /// </summary>
     void set_Border(System::SharedPtr<Aspose::Pdf::Annotations::Border> value);
     /// <summary>
-    /// Gets or sets current annotation appearance state.
+    /// Gets current annotation appearance state.
     /// </summary>
     virtual System::String get_ActiveState();
     /// <summary>
-    /// Gets or sets current annotation appearance state.
+    /// Sets current annotation appearance state.
     /// </summary>
     virtual void set_ActiveState(System::String value);
     /// <summary>
@@ -450,11 +450,11 @@ public:
     /// </summary>
     void set_Alignment(TextAlignment value);
     /// <summary>
-    /// Gets or sets text alignmennt for annotation.
+    /// Gets text alignmennt for annotation.
     /// </summary>
     Aspose::Pdf::HorizontalAlignment get_HorizontalAlignment();
     /// <summary>
-    /// Gets or sets text alignmennt for annotation.
+    /// Sets text alignmennt for annotation.
     /// </summary>
     void set_HorizontalAlignment(Aspose::Pdf::HorizontalAlignment value);
     /// <summary>
@@ -755,11 +755,11 @@ public:
     /// </summary>
     void set_FontSize(double value);
     /// <summary>
-    /// Gets or sets horizontal alignment of the text. 
+    /// Gets horizontal alignment of the text. 
     /// </summary>
     TextAlignment get_Alignment();
     /// <summary>
-    /// Gets or sets horizontal alignment of the text. 
+    /// Sets horizontal alignment of the text. 
     /// </summary>
     void set_Alignment(TextAlignment value);
     /// <summary>

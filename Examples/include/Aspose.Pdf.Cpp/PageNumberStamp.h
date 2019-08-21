@@ -40,11 +40,11 @@ public:
     /// </summary>
     void set_Format(System::String value);
     /// <summary>
-    /// Gets or sets value of the number of starting page. Other pages will be numbered starting from this value.
+    /// Gets value of the number of starting page. Other pages will be numbered starting from this value.
     /// </summary>
     int32_t get_StartingNumber();
     /// <summary>
-    /// Gets or sets value of the number of starting page. Other pages will be numbered starting from this value.
+    /// Sets value of the number of starting page. Other pages will be numbered starting from this value.
     /// </summary>
     void set_StartingNumber(int32_t value);
     /// <summary>

@@ -33,11 +33,11 @@ class ASPOSE_PDF_SHARED_API GoToURIAction FINAL : public Aspose::Pdf::Annotation
 public:
 
     /// <summary>
-    /// Gets or sets the uniform resource identifier to resolve.
+    /// Gets the uniform resource identifier to resolve.
     /// </summary>
     System::String get_URI();
     /// <summary>
-    /// Gets or sets the uniform resource identifier to resolve.
+    /// Sets the uniform resource identifier to resolve.
     /// </summary>
     void set_URI(System::String value);
     

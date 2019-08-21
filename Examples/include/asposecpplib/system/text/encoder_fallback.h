@@ -1,6 +1,5 @@
 /// @file system/text/encoder_fallback.h
-#ifndef __EncoderFallback_h__
-#define __EncoderFallback_h__
+#pragma once
 
 #include "system/exceptions.h"
 #include "system/object.h"
@@ -14,17 +13,9 @@ namespace System { namespace Text {
 /// Always wrap this class into System::SmartPtr pointer and use this pointer to pass it to functions as argument.
 class ASPOSECPP_SHARED_CLASS EncoderFallback: public Object
 {
-private:
-    /// Default exception fallback implementation.
-    static const EncoderFallbackPtr exception_fallback;
-    /// Default replacement fallback implementation.
-    static const EncoderFallbackPtr replacement_fallback;
-    /// Default standard safe fallback implementation.
-    static const EncoderFallbackPtr standard_safe_fallback;
-
 protected:
     /// Constructor.
-    EncoderFallback() {}
+    EncoderFallback() = default;
 
 public:
     /// Gets default exception fallback implementation.
@@ -45,6 +36,4 @@ public:
     virtual ASPOSECPP_SHARED_API EncoderFallbackBufferPtr CreateFallbackBuffer() = 0;
 };
 
-}}
-
-#endif
+}} // namespace System::Text

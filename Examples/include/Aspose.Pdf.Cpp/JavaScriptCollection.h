@@ -39,16 +39,16 @@ public:
     System::SharedPtr<System::Collections::Generic::IList<System::String>> get_Keys();
     
     /// <summary>
-    /// Gets or sets JavaScrip from collection by its key.
+    /// Gets JavaScrip from collection by its key.
     /// </summary>
     /// <param name="key"></param>
     /// <returns></returns>
     System::String idx_get(System::String key);
     /// <summary>
-    /// Gets or sets JavaScrip from collection by its key.
+    /// Sets JavaScrip from collection by its key.
     /// </summary>
     /// <param name="key"></param>
-    /// <returns></returns>
+    /// <param name="value"></param>
     void idx_set(System::String key, System::String value);
     
     /// <summary>

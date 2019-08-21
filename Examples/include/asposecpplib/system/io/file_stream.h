@@ -32,7 +32,7 @@ public:
     /// @param options Additional options
     ASPOSECPP_SHARED_API FileStream(const String& path, FileMode mode,
                FileAccess access = FileAccess::ReadWrite,
-               FileShare share = FileShare::ReadWrite,
+               FileShare share = FileShare::Read,
                int bufferSize = DefaultBufferSize,
                FileOptions options = FileOptions::SequentialScan);
     /// Destructor.
@@ -121,6 +121,11 @@ private:
     void FlushRead();
     /// Flushes the write buffer.
     void FlushWrite();
+
+#ifndef _WIN32
+    int m_fd = -1;
+    bool TryLockFile(const std::string& filename);
+#endif
 };
 
 }}

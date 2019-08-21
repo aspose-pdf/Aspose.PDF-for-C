@@ -12,6 +12,7 @@
 
 #include "aspose_pdf_api_defs.h"
 
+namespace Aspose { namespace Pdf { class HtmlFragment; } }
 namespace Aspose { namespace Pdf { class ApsUsingConverter; } }
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { class SvgConverter; } }
@@ -172,6 +173,7 @@ class ASPOSE_PDF_SHARED_API LoadOptions : public System::Object
     typedef ::System::BaseTypesInfo<BaseType> ThisTypeBaseTypesInfo;
     RTTI_INFO_DECL();
     
+    friend class Aspose::Pdf::HtmlFragment;
     friend class Aspose::Pdf::ApsUsingConverter;
     friend class Aspose::Pdf::Document;
     friend class Aspose::Pdf::SvgConverter;

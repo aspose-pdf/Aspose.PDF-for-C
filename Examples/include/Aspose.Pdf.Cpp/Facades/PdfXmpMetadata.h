@@ -226,7 +226,7 @@ public:
     bool Remove(System::String const &key);
     
     /// <summary>
-    /// Gets or sets value by key.
+    /// Gets value by key.
     /// </summary>
     /// <param name="key">The key name to get/set.</param>
     /// <returns>Object by key</returns>
@@ -239,10 +239,10 @@ public:
     /// </example>
     System::SharedPtr<XmpValue> idx_get(System::String const &key) const;
     /// <summary>
-    /// Gets or sets value by key.
+    /// Sets value by key.
     /// </summary>
     /// <param name="key">The key name to get/set.</param>
-    /// <returns>Object by key</returns>
+    /// <param name="value">Object by key</param>
     /// <example>
     /// <code lang="C#">
     /// PdfXmpMetadata pxm = new PdfXmpMetadata();
@@ -276,7 +276,7 @@ public:
     /// Gets value of XMP metadata by key.
     /// </summary>
     /// <param name="key">Key of the value.</param>
-    /// <returns>Value from XMP metadata.</returns>
+    /// <param name="value">Value from XMP metadata.</param>
     /// <example>
     /// <code lang="C#">
     /// PdfXmpMetadata pxm = new PdfXmpMetadata();

@@ -4,8 +4,8 @@
 #include "InteractiveFeatures/PdfAction.h"
 
 namespace Aspose { namespace Pdf { namespace Annotations { class ScreenAnnotation; } } }
-namespace Aspose { namespace Pdf { namespace Annotations { class Rendition; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class RenditionOperation; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { class Rendition; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
 
 namespace Aspose {
@@ -32,7 +32,7 @@ class ASPOSE_PDF_SHARED_API RenditionAction FINAL : public Aspose::Pdf::Annotati
 public:
 
     /// <summary>
-    /// Gets or sets rendition associated with the action.
+    /// Gets rendition associated with the action.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Annotations::Rendition> get_Rendition();
     /// <summary>
@@ -44,11 +44,11 @@ public:
     /// </summary>
     void set_RenditionOperation(Aspose::Pdf::Annotations::RenditionOperation value);
     /// <summary>
-    /// Gets or sets JavaScript code associated with the action.
+    /// Gets JavaScript code associated with the action.
     /// </summary>
     System::String get_JavaScript();
     /// <summary>
-    /// Gets or sets JavaScript code associated with the action.
+    /// Sets JavaScript code associated with the action.
     /// </summary>
     void set_JavaScript(System::String value);
     

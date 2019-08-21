@@ -11,9 +11,9 @@ namespace Aspose { namespace Pdf { namespace Text { class TextParagraph; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextState; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Text { class TextBuilderTests; } } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Facades { class FormattedTextTests; } } } }
+namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragment; } } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
-namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
 namespace Aspose { namespace Pdf { namespace Text { class Font; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { class XForm; } }
@@ -131,11 +131,11 @@ public:
     /// </summary>
     void set_Scale(bool value);
     /// <summary>
-    /// Gets or sets string value which is used as stamp on the page.
+    /// Gets string value which is used as stamp on the page.
     /// </summary>
     System::String get_Value();
     /// <summary>
-    /// Gets or sets string value which is used as stamp on the page.
+    /// Sets string value which is used as stamp on the page.
     /// </summary>
     void set_Value(System::String value);
     /// <summary>

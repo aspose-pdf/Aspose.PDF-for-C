@@ -37,27 +37,27 @@ class ASPOSE_PDF_SHARED_API Option FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets option export value.
+    /// Gets option export value.
     /// </summary>
     System::String get_Value();
     /// <summary>
-    /// Gets or sets option export value.
+    /// Sets option export value.
     /// </summary>
     void set_Value(System::String value);
     /// <summary>
-    /// Gets or sets name of option.
+    /// Gets name of option.
     /// </summary>
     System::String get_Name();
     /// <summary>
-    /// Gets or sets name of option.
+    /// Sets name of option.
     /// </summary>
     void set_Name(System::String value);
     /// <summary>
-    /// Gets or sets selected status of option. Returns true if option is selected.
+    /// Gets selected status of option. Returns true if option is selected.
     /// </summary>
     bool get_Selected();
     /// <summary>
-    /// Gets or sets selected status of option. Returns true if option is selected.
+    /// Sets selected status of option. Returns true if option is selected.
     /// </summary>
     void set_Selected(bool value);
     /// <summary>

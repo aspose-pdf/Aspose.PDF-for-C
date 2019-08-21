@@ -38,31 +38,31 @@ class ASPOSE_PDF_SHARED_API DocumentInfo FINAL : public System::Collections::Gen
 public:
 
     /// <summary>
-    /// Gets or sets document title.
+    /// Gets document title.
     /// </summary>
     System::String get_Title();
     /// <summary>
-    /// Gets or sets document title.
+    /// Sets document title.
     /// </summary>
     void set_Title(System::String value);
     /// <summary>
-    /// Gets or sets document creator.
+    /// Gets document creator.
     /// </summary>
     System::String get_Creator();
     /// <summary>
-    /// Gets or sets document author.
+    /// Gets document author.
     /// </summary>
     System::String get_Author();
     /// <summary>
-    /// Gets or sets document author.
+    /// Sets document author.
     /// </summary>
     void set_Author(System::String value);
     /// <summary>
-    /// Gets or sets the subject of the document.
+    /// Gets the subject of the document.
     /// </summary>
     System::String get_Subject();
     /// <summary>
-    /// Gets or sets the subject of the document.
+    /// Sets the subject of the document.
     /// </summary>
     void set_Subject(System::String value);
     /// <summary>
@@ -74,15 +74,15 @@ public:
     /// </summary>
     void set_Keywords(System::String value);
     /// <summary>
-    /// Gets or sets the document producer.
+    /// Gets the document producer.
     /// </summary>
     System::String get_Producer();
     /// <summary>
-    /// Gets or sets the date of document creation.
+    /// Gets the date of document creation.
     /// </summary>
     System::DateTime get_CreationDate();
     /// <summary>
-    /// Gets or sets the date of document creation.
+    /// Sets the date of document creation.
     /// </summary>
     void set_CreationDate(System::DateTime value);
     /// <summary>
@@ -102,19 +102,19 @@ public:
     /// </summary>
     void set_ModTimeZone(System::TimeSpan value);
     /// <summary>
-    /// Gets or sets the date of document modification.
+    /// Gets the date of document modification.
     /// </summary>
     System::DateTime get_ModDate();
     /// <summary>
-    /// Gets or sets the date of document modification.
+    /// Sets the date of document modification.
     /// </summary>
     void set_ModDate(System::DateTime value);
     /// <summary>
-    /// Gets or sets the trapped flag.
+    /// Gets the trapped flag.
     /// </summary>
     System::String get_Trapped();
     /// <summary>
-    /// Gets or sets the trapped flag.
+    /// Sets the trapped flag.
     /// </summary>
     void set_Trapped(System::String value);
     
@@ -141,16 +141,16 @@ public:
     void Remove(System::String key);
     
     /// <summary>
-    /// Gets or sets the value associated with the specified key.
+    /// Gets the value associated with the specified key.
     /// </summary>
     /// <param name="key">The key whose value to get or set.</param>
     /// <returns></returns>
     System::String idx_get(System::String const &key);
     /// <summary>
-    /// Gets or sets the value associated with the specified key.
+    /// Sets the value associated with the specified key.
     /// </summary>
     /// <param name="key">The key whose value to get or set.</param>
-    /// <returns></returns>
+    /// <param name="value"></param>
     void idx_set(System::String const &key, System::String value);
     
     /// <summary>
@@ -168,11 +168,11 @@ public:
 protected:
 
     /// <summary>
-    /// Gets or sets document creator.
+    /// Sets document creator.
     /// </summary>
     void set_Creator(System::String value);
     /// <summary>
-    /// Gets or sets the document producer.
+    /// Sets the document producer.
     /// </summary>
     void set_Producer(System::String value);
     

@@ -11,8 +11,8 @@
 namespace Aspose { namespace Pdf { namespace Annotations { class Annotation; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Annotations { class InkAnnotationTests; } } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class CapStyle; } } }
-namespace Aspose { namespace Pdf { class Point; } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
+namespace Aspose { namespace Pdf { class Point; } }
 namespace Aspose { namespace Pdf { namespace Annotations { class AnnotationSelector; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { class Document; } }
@@ -53,11 +53,11 @@ public:
     /// </summary>
     void set_CapStyle(Aspose::Pdf::Annotations::CapStyle value);
     /// <summary>
-    /// Gets or sets list of gestures that are independent lines which are represented by Point[] arrays.
+    /// Gets list of gestures that are independent lines which are represented by Point[] arrays.
     /// </summary>
     System::SharedPtr<System::Collections::Generic::IList<System::ArrayPtr<System::SharedPtr<Point>>>> get_InkList();
     /// <summary>
-    /// Gets or sets list of gestures that are independent lines which are represented by Point[] arrays.
+    /// Sets list of gestures that are independent lines which are represented by Point[] arrays.
     /// </summary>
     void set_InkList(System::SharedPtr<System::Collections::Generic::IList<System::ArrayPtr<System::SharedPtr<Point>>>> value);
     /// <summary>

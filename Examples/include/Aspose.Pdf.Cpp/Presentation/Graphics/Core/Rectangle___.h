@@ -44,112 +44,112 @@ public:
     /// </summary>
     static Rectangle get_Empty();
     /// <summary>
-    /// Gets or sets the coordinates of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Gets the coordinates of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <value>A <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Point"/> that represents the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</value>
     Point get_Location();
     /// <summary>
-    /// Gets or sets the coordinates of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Sets the coordinates of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <value>A <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Point"/> that represents the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</value>
     void set_Location(Point value);
     /// <summary>
-    /// Gets or sets the size of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/>.
+    /// Gets the size of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/>.
     /// </summary>
     /// <value>A <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Size"/> that represents the width and height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</value>
     Aspose::Pdf::Engine::Presentation::Graphics::Size get_Size();
     /// <summary>
-    /// Gets or sets the size of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/>.
+    /// Sets the size of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/>.
     /// </summary>
     /// <value>A <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Size"/> that represents the width and height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</value>
     void set_Size(Aspose::Pdf::Engine::Presentation::Graphics::Size value);
     /// <summary>
-    /// Gets or sets the x-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Gets the x-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <value>The x-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</value>
     int32_t get_X();
     /// <summary>
-    /// Gets or sets the x-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Sets the x-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <value>The x-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</value>
     void set_X(int32_t value);
     /// <summary>
-    /// Gets or sets the y-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Gets the y-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <value>The y-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</value>
     int32_t get_Y();
     /// <summary>
-    /// Gets or sets the y-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Sets the y-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <value>The y-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</value>
     void set_Y(int32_t value);
     /// <summary>
-    /// Gets or sets the width of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Gets the width of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <returns>The width of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</returns>
     int32_t get_Width();
     /// <summary>
-    /// Gets or sets the width of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Sets the width of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
-    /// <returns>The width of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</returns>
+    /// <param name="value">The width of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</param>
     void set_Width(int32_t value);
     /// <summary>
-    /// Gets or sets the height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Gets the height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <returns>The height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</returns>
     int32_t get_Height();
     /// <summary>
-    /// Gets or sets the height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Sets the height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
-    /// <returns>The height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</returns>
+    /// <param name="value">The height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</param>
     void set_Height(int32_t value);
     /// <summary>
-    /// Gets or sets the x-coordinate of the left edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Gets the x-coordinate of the left edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <value>The x-coordinate of the left edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</value>
     int32_t get_Left();
     /// <summary>
-    /// Gets or sets the x-coordinate of the left edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Sets the x-coordinate of the left edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <value>The x-coordinate of the left edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.</value>
     void set_Left(int32_t value);
     /// <summary>
-    /// Gets or sets the y-coordinate of the top edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Gets the y-coordinate of the top edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <value>
     /// The y-coordinate of the top edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </value>
     int32_t get_Top();
     /// <summary>
-    /// Gets or sets the y-coordinate of the top edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Sets the y-coordinate of the top edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <value>
     /// The y-coordinate of the top edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </value>
     void set_Top(int32_t value);
     /// <summary>
-    /// Gets or sets the x-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::X"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Width"/> property values of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Gets the x-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::X"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Width"/> property values of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <value>
     /// The x-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::X"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Width"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/>.
     /// </value>
     int32_t get_Right();
     /// <summary>
-    /// Gets or sets the x-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::X"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Width"/> property values of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Sets the x-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::X"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Width"/> property values of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <value>
     /// The x-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::X"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Width"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/>.
     /// </value>
     void set_Right(int32_t value);
     /// <summary>
-    /// Gets or sets the y-coordinate that is the sum of the <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Y"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Height"/> property values of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Gets the y-coordinate that is the sum of the <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Y"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Height"/> property values of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <value>
     /// The y-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Y"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Height"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/>.
     /// </value>
     int32_t get_Bottom();
     /// <summary>
-    /// Gets or sets the y-coordinate that is the sum of the <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Y"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Height"/> property values of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
+    /// Sets the y-coordinate that is the sum of the <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Y"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Height"/> property values of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/> structure.
     /// </summary>
     /// <value>
     /// The y-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Y"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle::Height"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Rectangle"/>.

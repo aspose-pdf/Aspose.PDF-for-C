@@ -41,104 +41,104 @@ public:
     /// </summary>
     static RectangleF get_Empty();
     /// <summary>
-    /// Gets or sets the coordinates of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Gets the coordinates of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
     /// <returns>A <see cref="Aspose::Pdf::Engine::Presentation::Graphics::PointF"/> that represents the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
     PointF get_Location();
     /// <summary>
-    /// Gets or sets the coordinates of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Sets the coordinates of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
-    /// <returns>A <see cref="Aspose::Pdf::Engine::Presentation::Graphics::PointF"/> that represents the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
+    /// <param name="value">A <see cref="Aspose::Pdf::Engine::Presentation::Graphics::PointF"/> that represents the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</param>
     void set_Location(PointF value);
     /// <summary>
-    /// Gets or sets the size of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/>.
+    /// Gets the size of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/>.
     /// </summary>
     /// <returns>A <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/> that represents the width and height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
     SizeF get_Size();
     /// <summary>
-    /// Gets or sets the size of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/>.
+    /// Sets the size of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/>.
     /// </summary>
-    /// <returns>A <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/> that represents the width and height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
+    /// <param name="value">A <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/> that represents the width and height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</param>
     void set_Size(SizeF value);
     /// <summary>
-    /// Gets or sets the x-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Gets the x-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
     /// <returns>The x-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
     float get_X();
     /// <summary>
-    /// Gets or sets the x-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Sets the x-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
-    /// <returns>The x-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
+    /// <param name="value">The x-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</param>
     void set_X(float value);
     /// <summary>
-    /// Gets or sets the y-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Gets the y-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
     /// <returns>The y-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
     float get_Y();
     /// <summary>
-    /// Gets or sets the y-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Sets the y-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
-    /// <returns>The y-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
+    /// <param name="value">The y-coordinate of the upper-left corner of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</param>
     void set_Y(float value);
     /// <summary>
-    /// Gets or sets the width of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Gets the width of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
     /// <returns>The width of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
     float get_Width();
     /// <summary>
-    /// Gets or sets the width of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Sets the width of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
-    /// <returns>The width of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
+    /// <param name="value">The width of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</param>
     void set_Width(float value);
     /// <summary>
-    /// Gets or sets the height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Gets the height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
     /// <returns>The height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
     float get_Height();
     /// <summary>
-    /// Gets or sets the height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Sets the height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
-    /// <returns>The height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
+    /// <param name="value">The height of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</param>
     void set_Height(float value);
     /// <summary>
-    /// Gets or sets the x-coordinate of the left edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Gets the x-coordinate of the left edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
     /// <returns>The x-coordinate of the left edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
     float get_Left();
     /// <summary>
-    /// Gets or sets the x-coordinate of the left edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Sets the x-coordinate of the left edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
-    /// <returns>The x-coordinate of the left edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
+    /// <param name="value">The x-coordinate of the left edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</param>
     void set_Left(float value);
     /// <summary>
-    /// Gets or sets the y-coordinate of the top edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Gets the y-coordinate of the top edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
     /// <returns>The y-coordinate of the top edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
     float get_Top();
     /// <summary>
-    /// Gets or sets the y-coordinate of the top edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Sets the y-coordinate of the top edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
-    /// <returns>The y-coordinate of the top edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
+    /// <param name="value">The y-coordinate of the top edge of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</param>
     void set_Top(float value);
     /// <summary>
-    /// Gets or sets the x-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::X"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Width"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Gets the x-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::X"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Width"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
     /// <returns>The x-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::X"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Width"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
     float get_Right();
     /// <summary>
-    /// Gets or sets the x-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::X"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Width"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Sets the x-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::X"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Width"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
-    /// <returns>The x-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::X"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Width"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
+    /// <param name="value">The x-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::X"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Width"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</param>
     void set_Right(float value);
     /// <summary>
-    /// Gets or sets the y-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Y"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Height"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Gets the y-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Y"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Height"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
     /// <returns>The y-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Y"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Height"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
     float get_Bottom();
     /// <summary>
-    /// Gets or sets the y-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Y"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Height"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
+    /// Sets the y-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Y"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Height"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.
     /// </summary>
-    /// <returns>The y-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Y"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Height"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</returns>
+    /// <param name="value">The y-coordinate that is the sum of <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Y"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Height"/> of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> structure.</param>
     void set_Bottom(float value);
     /// <summary>
     /// Gets a value indicating whether the <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Width"/> or <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF::Height"/> property of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::RectangleF"/> has a value of zero.

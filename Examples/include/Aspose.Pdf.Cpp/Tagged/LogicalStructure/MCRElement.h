@@ -9,6 +9,7 @@ namespace Aspose { namespace Pdf { namespace Tagged { namespace Helpers { class 
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class LinkElement; } } }
 namespace Aspose { namespace Pdf { namespace Tagged { class TaggedContent; } } }
 namespace Aspose { namespace Pdf { namespace Tagged { class TaggedContext; } } }
+namespace Aspose { namespace Pdf { namespace LogicalStructure { class TableElement; } } }
 namespace Aspose { namespace Pdf { class Image; } }
 namespace Aspose { namespace Pdf { namespace Text { class TextSegment; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragment; } } }
@@ -17,6 +18,7 @@ namespace Aspose { namespace Pdf { namespace Operators { class BDC; } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class StructureElement; } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class ITextElement; } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class BLSTextElement; } } }
+namespace Aspose { namespace Pdf { class Paragraphs; } }
 namespace Aspose { namespace Pdf { class Hyperlink; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfPrimitive; } } } }
 
@@ -42,6 +44,7 @@ class ASPOSE_PDF_SHARED_API MCRElement FINAL : public Aspose::Pdf::LogicalStruct
     friend class Aspose::Pdf::LogicalStructure::LinkElement;
     friend class Aspose::Pdf::Tagged::TaggedContent;
     friend class Aspose::Pdf::Tagged::TaggedContext;
+    friend class Aspose::Pdf::LogicalStructure::TableElement;
     
 public:
 
@@ -79,6 +82,7 @@ protected:
     System::SharedPtr<StructureElement> get_ParentStructureElement();
     System::SharedPtr<ITextElement> get_ParentTextElement();
     System::SharedPtr<BLSTextElement> get_ParentBLSTextElement();
+    System::SharedPtr<Paragraphs> get_ContextParagraphs();
     int32_t get_NewMCID();
     void set_NewMCID(int32_t value);
     System::SharedPtr<Operators::BDC> get_BdcOperator();

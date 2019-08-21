@@ -33,7 +33,7 @@ class ASPOSE_PDF_SHARED_API Path FINAL : public Aspose::Pdf::Drawing::Shape
 public:
 
     /// <summary>
-    /// Gets or sets shapes collection.
+    /// Gets shapes collection.
     /// </summary>
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Shape>>> get_Shapes();
     

@@ -51,35 +51,35 @@ public:
     /// <returns></returns>
     System::SharedPtr<System::Collections::Generic::List<System::String>> get_AllowedStates();
     /// <summary>
-    /// Gets or sets style of check box.
+    /// Gets style of check box.
     /// </summary>
     BoxStyle get_Style();
     /// <summary>
-    /// Gets or sets style of check box.
+    /// Sets style of check box.
     /// </summary>
     void set_Style(BoxStyle value);
     /// <summary>
-    /// Gets or sets current annotation appearance state.
+    /// Gets current annotation appearance state.
     /// </summary>
     virtual System::String get_ActiveState();
     /// <summary>
-    /// Gets or sets current annotation appearance state.
+    /// Sets current annotation appearance state.
     /// </summary>
     virtual void set_ActiveState(System::String value);
     /// <summary>
-    /// Gets or sets state of check box.  
+    /// Gets state of check box.  
     /// </summary>
     bool get_Checked();
     /// <summary>
-    /// Gets or sets state of check box.  
+    /// Sets state of check box.  
     /// </summary>
     void set_Checked(bool value);
     /// <summary>
-    /// Gets or sets value of check box field.
+    /// Gets value of check box field.
     /// </summary>
     virtual System::String get_Value();
     /// <summary>
-    /// Gets or sets value of check box field.
+    /// Sets value of check box field.
     /// </summary>
     virtual void set_Value(System::String value);
     
@@ -104,6 +104,12 @@ public:
     /// </summary>
     /// <param name="doc">Document where field will be created.</param>
     CheckboxField(System::SharedPtr<Document> doc);
+    
+    /// <summary>
+    /// Clone the checkbox.
+    /// </summary>
+    /// <returns>The cloned object</returns>
+    virtual System::SharedPtr<System::Object> Clone();
     
 protected:
 

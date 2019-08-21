@@ -76,18 +76,22 @@ public:
     void InsertRange(int32_t index, System::SharedPtr<System::Collections::Generic::IEnumerable<System::SharedPtr<BaseParagraph>>> collection);
     
     /// <summary>
-    /// Gets or sets paragraph from or to collection.
+    /// Gets paragraph from or to collection.
     /// </summary>
     /// <param name="index">The paragraph index.</param>
     /// <returns></returns>
     System::SharedPtr<BaseParagraph> idx_get(int32_t index);
     /// <summary>
-    /// Gets or sets paragraph from or to collection.
+    /// Sets paragraph from or to collection.
     /// </summary>
     /// <param name="index">The paragraph index.</param>
-    /// <returns></returns>
+    /// <param name="value"></param>
     void idx_set(int32_t index, System::SharedPtr<BaseParagraph> value);
     
+    /// <summary>
+    /// Gets the enumerator.
+    /// </summary>
+    /// <returns></returns>
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<BaseParagraph>>> GetEnumerator();
     static int32_t _anonymous_method_0(System::SharedPtr<BaseParagraph> x, System::SharedPtr<BaseParagraph> y);
     /// <summary>

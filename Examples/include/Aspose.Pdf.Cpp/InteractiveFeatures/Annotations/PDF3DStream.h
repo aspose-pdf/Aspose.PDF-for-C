@@ -45,12 +45,12 @@ class ASPOSE_PDF_SHARED_API PDF3DStream : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets the content.
+    /// Gets the content.
     /// </summary>
     /// <value>The content.</value>
     System::SharedPtr<PDF3DContent> get_Content();
     /// <summary>
-    /// Gets or sets the content.
+    /// Sets the content.
     /// </summary>
     /// <value>The content.</value>
     void set_Content(System::SharedPtr<PDF3DContent> value);

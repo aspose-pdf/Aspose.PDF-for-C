@@ -4,7 +4,7 @@
 namespace System { namespace Globalization { namespace Details {
 
 /// Identifiers of known calendars.
-enum CalendarId
+enum class CalendarId
 {
     /// No calendar.
     UNINITIALIZED_VALUE = 0,
@@ -57,5 +57,21 @@ enum CalendarId
     /// Calendar ID limit.
     LAST_CALENDAR = 23
 };
+
+inline constexpr bool IsGregorianCalendarId(CalendarId calendar_id)
+{
+    return calendar_id == CalendarId::GREGORIAN
+        || calendar_id == CalendarId::GREGORIAN_US
+        || calendar_id == CalendarId::GREGORIAN_ME_FRENCH
+        || calendar_id == CalendarId::GREGORIAN_ARABIC
+        || calendar_id == CalendarId::GREGORIAN_XLIT_ENGLISH
+        || calendar_id == CalendarId::GREGORIAN_XLIT_FRENCH;
+}
+
+inline constexpr bool IsValidCalendarId(CalendarId calendar_id)
+{
+    return static_cast<int>(calendar_id) >= 0
+        && static_cast<int>(calendar_id) <= static_cast<int>(CalendarId::LAST_CALENDAR);
+}
 
 }}} // namespace System::Globalization::Details

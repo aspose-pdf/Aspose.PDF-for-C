@@ -42,27 +42,27 @@ class ASPOSE_PDF_SHARED_API TextAnnotation FINAL : public Aspose::Pdf::Annotatio
 public:
 
     /// <summary>
-    /// Gets or sets a flag specifying whether the annotation should initially be displayed open.
+    /// Gets a flag specifying whether the annotation should initially be displayed open.
     /// </summary>
     bool get_Open();
     /// <summary>
-    /// Gets or sets a flag specifying whether the annotation should initially be displayed open.
+    /// Sets a flag specifying whether the annotation should initially be displayed open.
     /// </summary>
     void set_Open(bool value);
     /// <summary>
-    /// Gets or sets an icon to be used in displaying the annotation.
+    /// Gets an icon to be used in displaying the annotation.
     /// </summary>
     TextIcon get_Icon();
     /// <summary>
-    /// Gets or sets an icon to be used in displaying the annotation.
+    /// Sets an icon to be used in displaying the annotation.
     /// </summary>
     void set_Icon(TextIcon value);
     /// <summary>
-    /// Gets or sets the state to which the original annotation should be set.
+    /// Gets the state to which the original annotation should be set.
     /// </summary>
     AnnotationState get_State();
     /// <summary>
-    /// Gets or sets the state to which the original annotation should be set.
+    /// Sets the state to which the original annotation should be set.
     /// </summary>
     void set_State(AnnotationState value);
     /// <summary>

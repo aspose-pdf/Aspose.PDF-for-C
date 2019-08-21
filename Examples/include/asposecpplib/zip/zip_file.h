@@ -21,12 +21,7 @@
 #include "zip/extract_existing_file_action.h"
 #include "zip/encryption_algorithm.h"
 
-#ifdef ASPOSE_FOUNDATION_NS
-namespace Aspose { namespace Foundation { namespace Zip {
-using namespace Enums;
-#else
 namespace Aspose { namespace Zip {
-#endif
 
 class ZipEntry;
 
@@ -307,11 +302,7 @@ private:
 
 };
 
-#ifdef ASPOSE_FOUNDATION_NS
-}}} // namespace Aspose::Foundation::Zip
-#else
 }} // namespace Aspose::Zip
-#endif
 
 #endif // _aspose_zip_zip_file_h_
 

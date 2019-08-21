@@ -9,9 +9,9 @@
 #include "InteractiveFeatures/Forms/Field.h"
 
 namespace Aspose { namespace Pdf { namespace Facades { class FormEditor; } } }
+namespace Aspose { namespace Pdf { namespace Forms { enum class IconCaptionPosition; } } }
 namespace Aspose { namespace Pdf { class XForm; } }
 namespace Aspose { namespace Pdf { namespace Forms { class IconFit; } } }
-namespace Aspose { namespace Pdf { namespace Forms { enum class IconCaptionPosition; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { namespace Annotations { class Annotation; } } }
@@ -44,57 +44,57 @@ class ASPOSE_PDF_SHARED_API ButtonField FINAL : public Aspose::Pdf::Forms::Field
 public:
 
     /// <summary>
-    /// Gets or sets normal caption.
+    /// Gets normal caption.
     /// </summary>
     System::String get_NormalCaption();
     /// <summary>
-    /// Gets or sets normal caption.
+    /// Sets normal caption.
     /// </summary>
     void set_NormalCaption(System::String value);
     /// <summary>
-    /// Gets or sets rollover caption of button which shall be displayed when the user rolls the cursor 
+    /// Gets rollover caption of button which shall be displayed when the user rolls the cursor 
     /// into its active area without pressing the mouse button.
     /// </summary>
     System::String get_RolloverCaption();
     /// <summary>
-    /// Gets or sets rollover caption of button which shall be displayed when the user rolls the cursor 
+    /// Sets rollover caption of button which shall be displayed when the user rolls the cursor 
     /// into its active area without pressing the mouse button.
     /// </summary>
     void set_RolloverCaption(System::String value);
     /// <summary>
-    /// Gets or sets alternate caption of the button which shall be displayed 
+    /// Gets alternate caption of the button which shall be displayed 
     /// when the mouse button is pressed within its active area.
     /// </summary>
     System::String get_AlternateCaption();
     /// <summary>
-    /// Gets or sets alternate caption of the button which shall be displayed 
+    /// Sets alternate caption of the button which shall be displayed 
     /// when the mouse button is pressed within its active area.
     /// </summary>
     void set_AlternateCaption(System::String value);
     /// <summary>
-    /// Gets or sets normal icon of the button which shall be displayed when it is not interacting with the user.
+    /// Gets normal icon of the button which shall be displayed when it is not interacting with the user.
     /// </summary>
     System::SharedPtr<XForm> get_NormalIcon();
     /// <summary>
-    /// Gets or sets normal icon of the button which shall be displayed when it is not interacting with the user.
+    /// Sets normal icon of the button which shall be displayed when it is not interacting with the user.
     /// </summary>
     void set_NormalIcon(System::SharedPtr<XForm> value);
     /// <summary>
-    /// Gets or sets rollover icon of the button which shall be displayed when the user 
+    /// Gets rollover icon of the button which shall be displayed when the user 
     /// rolls the cursor into its active area without pressing the mouse button.
     /// </summary>
     System::SharedPtr<XForm> get_RolloverIcon();
     /// <summary>
-    /// Gets or sets rollover icon of the button which shall be displayed when the user 
+    /// Sets rollover icon of the button which shall be displayed when the user 
     /// rolls the cursor into its active area without pressing the mouse button.
     /// </summary>
     void set_RolloverIcon(System::SharedPtr<XForm> value);
     /// <summary>
-    /// Gets or sets alternate icon which shall be displayed when the mouse button is pressed within its active area.
+    /// Gets alternate icon which shall be displayed when the mouse button is pressed within its active area.
     /// </summary>
     System::SharedPtr<XForm> get_AlternateIcon();
     /// <summary>
-    /// Gets or sets alternate icon which shall be displayed when the mouse button is pressed within its active area.
+    /// Sets alternate icon which shall be displayed when the mouse button is pressed within its active area.
     /// </summary>
     void set_AlternateIcon(System::SharedPtr<XForm> value);
     /// <summary>
@@ -102,12 +102,12 @@ public:
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Forms::IconFit> get_IconFit();
     /// <summary>
-    /// Gets or sets icon caption position.
+    /// Gets icon caption position.
     /// </summary>
     /// 
     IconCaptionPosition get_ICPosition();
     /// <summary>
-    /// Gets or sets icon caption position.
+    /// Sets icon caption position.
     /// </summary>
     /// 
     void set_ICPosition(IconCaptionPosition value);

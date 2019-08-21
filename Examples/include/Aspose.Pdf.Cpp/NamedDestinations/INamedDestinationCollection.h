@@ -38,16 +38,16 @@ public:
     virtual System::ArrayPtr<System::String> get_Names() = 0;
     
     /// <summary>
-    /// Gets or sets destination by its name.
+    /// Gets destination by its name.
     /// </summary>
     /// <param name="name"></param>
     /// <returns></returns>
     virtual System::SharedPtr<Annotations::IAppointment> idx_get(System::String name) = 0;
     /// <summary>
-    /// Gets or sets destination by its name.
+    /// Sets destination by its name.
     /// </summary>
     /// <param name="name"></param>
-    /// <returns></returns>
+    /// <param name="value"></param>
     virtual void idx_set(System::String name, System::SharedPtr<Annotations::IAppointment> value) = 0;
     
     /// <summary>

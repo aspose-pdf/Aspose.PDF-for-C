@@ -953,15 +953,20 @@ public:
 
     /// Releases all operating system resources acquired by the current object.
     void Dispose() { };
+
+    ASPOSECPP_SHARED_API ~Graphics();
+
+    ASPOSECPP_SHARED_API SkCanvas* GetSkCanvas() const; 
+
 private:
     /// The underlying canvas.
-    std::unique_ptr<SkCanvas> m_sk_canvas;
+    SkCanvas* m_sk_canvas = nullptr;
     /// Constructs a new instance of Graphics object and initializes it with
     /// the specified canvas object and horizontal and vertical resolution.
     /// @param canvas The SkCanvas object to be used be the Graphics object being created
     /// @param hRes The horizontal resolution
     /// @param vRes The vertical resolution
-    Graphics(SkCanvas * canvas, float hRes = 96.0f, float vRes = 96.0f);
+    ASPOSECPP_SHARED_API Graphics(SkCanvas * canvas, float hRes = 96.0f, float vRes = 96.0f);
 
     void SaveState(int id);
     void RestoreState(int id);

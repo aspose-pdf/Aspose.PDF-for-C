@@ -11,11 +11,11 @@ namespace Aspose { namespace Pdf { namespace Forms { class Field; } } }
 namespace Aspose { namespace Pdf { namespace Forms { class ChoiceOption; } } }
 namespace Aspose { namespace Pdf { namespace Forms { class ListBoxField; } } }
 namespace Aspose { namespace Pdf { class ApsToPdfConverter; } }
+namespace Aspose { namespace Pdf { namespace Annotations { enum class HighlightingMode; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class PdfAction; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class AnnotationActionCollection; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class DefaultAppearance; } } }
-namespace Aspose { namespace Pdf { namespace Annotations { enum class HighlightingMode; } } }
-namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
 namespace Aspose { namespace Pdf { namespace Text { class Font; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class AnnotationSelector; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
@@ -80,35 +80,35 @@ public:
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Forms::Field> get_Parent();
     /// <summary>
-    /// Gets or sets default appearance of the field.
+    /// Gets default appearance of the field.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Annotations::DefaultAppearance> get_DefaultAppearance();
     /// <summary>
-    /// Gets or sets default appearance of the field.
+    /// Sets default appearance of the field.
     /// </summary>
     void set_DefaultAppearance(System::SharedPtr<Aspose::Pdf::Annotations::DefaultAppearance> value);
     /// <summary>
-    /// Gets or sets read only status of the field.
+    /// Gets read only status of the field.
     /// </summary>
     bool get_ReadOnly();
     /// <summary>
-    /// Gets or sets read only status of the field.
+    /// Sets read only status of the field.
     /// </summary>
     void set_ReadOnly(bool value);
     /// <summary>
-    /// Gets or sets required status of the field.
+    /// Gets required status of the field.
     /// </summary>
     bool get_Required();
     /// <summary>
-    /// Gets or sets required status of the field.
+    /// Sets required status of the field.
     /// </summary>
     void set_Required(bool value);
     /// <summary>
-    /// Gets or sets exportable flag of the field. 
+    /// Gets exportable flag of the field. 
     /// </summary>
     bool get_Exportable();
     /// <summary>
-    /// Gets or sets exportable flag of the field. 
+    /// Sets exportable flag of the field. 
     /// </summary>
     void set_Exportable(bool value);
     /// <summary>

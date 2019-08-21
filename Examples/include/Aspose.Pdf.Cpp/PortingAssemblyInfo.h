@@ -52,6 +52,7 @@ public:
 
     static const System::String AssemblyVersion;
     static const System::String Product;
+    static const System::String Producer;
     static const System::String FileVersion;
     
 };

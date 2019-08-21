@@ -38,16 +38,16 @@ public:
     System::ArrayPtr<System::String> get_Names();
     
     /// <summary>
-    /// Gets or sets appointment by its name. 
+    /// Gets appointment by its name. 
     /// </summary>
     /// <param name="name">Name of the appointment.</param>
     /// <returns>Appoitnemt</returns>
     System::SharedPtr<Annotations::IAppointment> idx_get(System::String name);
     /// <summary>
-    /// Gets or sets appointment by its name. 
+    /// Sets appointment by its name. 
     /// </summary>
     /// <param name="name">Name of the appointment.</param>
-    /// <returns>Appoitnemt</returns>
+    /// <param name="value">Appoitnemt</param>
     void idx_set(System::String name, System::SharedPtr<Annotations::IAppointment> value);
     
     /// <summary>

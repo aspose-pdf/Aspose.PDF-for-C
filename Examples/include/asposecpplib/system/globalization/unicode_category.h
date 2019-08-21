@@ -1,6 +1,7 @@
 /// @file system/globalization/unicode_category.h
-#ifndef __unicaode_category_h__
-#define __unicaode_category_h__
+#pragma once
+
+#include <system/details/enum_meta_info.h>
 
 namespace System { namespace Globalization {
 
@@ -71,4 +72,8 @@ enum class UnicodeCategory
 
 }} // namespace System::Globalization
 
-#endif
+template<>
+struct EnumMetaInfo<System::Globalization::UnicodeCategory>
+{
+    static ASPOSECPP_SHARED_API const std::array<std::pair<System::Globalization::UnicodeCategory, const char16_t*>, 30>& values();
+};

@@ -3,10 +3,10 @@
 
 #include "InteractiveFeatures/Annotations/Annotation.h"
 
+namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
 namespace Aspose { namespace Pdf { class FileSpecification; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
 namespace Aspose { namespace Pdf { class Point; } }
-namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { class Page; } }
@@ -37,43 +37,43 @@ class ASPOSE_PDF_SHARED_API MovieAnnotation FINAL : public Aspose::Pdf::Annotati
 public:
 
     /// <summary>
-    /// Gets or sets the title of the movie annotation.
+    /// Gets the title of the movie annotation.
     /// </summary>
     System::String get_Title();
     /// <summary>
-    /// Gets or sets the title of the movie annotation.
+    /// Sets the title of the movie annotation.
     /// </summary>
     void set_Title(System::String value);
     /// <summary>
-    /// Gets or sets a file specification identifying a self-describing movie file.
+    /// Gets a file specification identifying a self-describing movie file.
     /// </summary>
     System::SharedPtr<FileSpecification> get_File();
     /// <summary>
-    /// Gets or sets a file specification identifying a self-describing movie file.
+    /// Sets a file specification identifying a self-describing movie file.
     /// </summary>
     void set_File(System::SharedPtr<FileSpecification> value);
     /// <summary>
-    /// Gets or sets a flag or stream specifying whether and how a poster image representing the movie shall be displayed. If true, the poster image shall be retrieved from the movie file; if it is false, no poster shall be displayed.
+    /// Gets a flag or stream specifying whether and how a poster image representing the movie shall be displayed. If true, the poster image shall be retrieved from the movie file; if it is false, no poster shall be displayed.
     /// </summary>
     bool get_Poster();
     /// <summary>
-    /// Gets or sets a flag or stream specifying whether and how a poster image representing the movie shall be displayed. If true, the poster image shall be retrieved from the movie file; if it is false, no poster shall be displayed.
+    /// Sets a flag or stream specifying whether and how a poster image representing the movie shall be displayed. If true, the poster image shall be retrieved from the movie file; if it is false, no poster shall be displayed.
     /// </summary>
     void set_Poster(bool value);
     /// <summary>
-    /// Gets or sets the width and height of the movie�s bounding box, in pixels.
+    /// Gets the width and height of the movie�s bounding box, in pixels.
     /// </summary>
     System::SharedPtr<Point> get_Aspect();
     /// <summary>
-    /// Gets or sets the width and height of the movie�s bounding box, in pixels.
+    /// Sets the width and height of the movie�s bounding box, in pixels.
     /// </summary>
     void set_Aspect(System::SharedPtr<Point> value);
     /// <summary>
-    /// Gets or sets the number of degrees by which the movie shall be rotated clockwise relative to the page. The value shall be a multiple of 90.
+    /// Gets the number of degrees by which the movie shall be rotated clockwise relative to the page. The value shall be a multiple of 90.
     /// </summary>
     int32_t get_Rotate();
     /// <summary>
-    /// Gets or sets the number of degrees by which the movie shall be rotated clockwise relative to the page. The value shall be a multiple of 90.
+    /// Sets the number of degrees by which the movie shall be rotated clockwise relative to the page. The value shall be a multiple of 90.
     /// </summary>
     void set_Rotate(int32_t value);
     /// <summary>

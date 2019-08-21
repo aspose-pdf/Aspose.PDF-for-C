@@ -60,12 +60,12 @@ public:
     /// <value>The human readable string.</value>
     virtual System::String get_ExtractedStringLigaturized() = 0;
     /// <summary>
-    /// Gets or sets the encoding.
+    /// Gets the encoding.
     /// </summary>
     /// <value>The encoding.</value>
     virtual System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Encoding::IPdfEncoding> get_Encoding() = 0;
     /// <summary>
-    /// Gets or sets the encoding.
+    /// Sets the encoding.
     /// </summary>
     /// <value>The encoding.</value>
     virtual void set_Encoding(System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Encoding::IPdfEncoding> value) = 0;
@@ -78,12 +78,12 @@ public:
     /// </summary>
     virtual System::SharedPtr<IPdfStringExtractionInfo> get_ExtractionInfo() = 0;
     /// <summary>
-    /// Gets or sets the value.
+    /// Gets the value.
     /// </summary>
     /// <value>The string value.</value>
     virtual System::String get_Value() = 0;
     /// <summary>
-    /// Gets or sets the value.
+    /// Sets the value.
     /// </summary>
     /// <value>The string value.</value>
     virtual void set_Value(System::String value) = 0;

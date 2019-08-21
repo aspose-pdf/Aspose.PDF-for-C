@@ -26,7 +26,7 @@ class ASPOSECPP_SHARED_CLASS DoWorkEventArgs : public CancelEventArgs
 public:
     /// Constructs arguments instance.
     /// @param argument Argument property initializer.
-    DoWorkEventArgs(const SharedPtr<System::Object>& argument) : CancelEventArgs() {}
+    DoWorkEventArgs(const SharedPtr<System::Object>& argument) : CancelEventArgs(), m_argument(argument) {}
 
     /// Gets Argument property; not implemented.
     ASPOSECPP_SHARED_API SharedPtr<System::Object> get_Argument();

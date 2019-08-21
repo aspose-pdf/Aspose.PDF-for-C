@@ -29,19 +29,19 @@ class ASPOSE_PDF_SHARED_API BackgroundArtifact : public Aspose::Pdf::Artifact
 public:
 
     /// <summary>
-    /// Gets or sets bacground color of background artifact
+    /// Gets bacground color of background artifact
     /// </summary>
     System::SharedPtr<Color> get_BackgroundColor();
     /// <summary>
-    /// Gets or sets bacground color of background artifact
+    /// Sets bacground color of background artifact
     /// </summary>
     void set_BackgroundColor(System::SharedPtr<Color> value);
     /// <summary>
-    /// Gets or sets bacground image of background artifact
+    /// Gets bacground image of background artifact
     /// </summary>
     System::SharedPtr<System::IO::Stream> get_BackgroundImage();
     /// <summary>
-    /// Gets or sets bacground image of background artifact
+    /// Sets bacground image of background artifact
     /// </summary>
     void set_BackgroundImage(System::SharedPtr<System::IO::Stream> value);
     

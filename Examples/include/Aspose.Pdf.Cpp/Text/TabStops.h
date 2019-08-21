@@ -12,9 +12,9 @@
 
 namespace Aspose { namespace Pdf { namespace Text { class TextFragment; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextState; } } }
-namespace Aspose { namespace Pdf { namespace Text { class TabStop; } } }
 namespace Aspose { namespace Pdf { namespace Text { enum class TabAlignmentType; } } }
 namespace Aspose { namespace Pdf { namespace Text { enum class TabLeaderType; } } }
+namespace Aspose { namespace Pdf { namespace Text { class TabStop; } } }
 
 namespace Aspose {
 
@@ -88,16 +88,16 @@ public:
     System::SharedPtr<System::Object> Clone();
     
     /// <summary>
-    /// Gets or sets a <see cref="TabStop"/> object from the collection according to TabStop index.
+    /// Gets a <see cref="TabStop"/> object from the collection according to TabStop index.
     /// </summary>
     /// <param name="index">Zero-based index of element in <see cref="TabStops"/> collection.</param>
     /// <returns><see cref="TabStop"/> object.</returns>
     System::SharedPtr<TabStop> idx_get(int32_t index);
     /// <summary>
-    /// Gets or sets a <see cref="TabStop"/> object from the collection according to TabStop index.
+    /// Sets a <see cref="TabStop"/> object from the collection according to TabStop index.
     /// </summary>
     /// <param name="index">Zero-based index of element in <see cref="TabStops"/> collection.</param>
-    /// <returns><see cref="TabStop"/> object.</returns>
+    /// <param name="value"><see cref="TabStop"/> object.</param>
     void idx_set(int32_t index, System::SharedPtr<TabStop> value);
     
 protected:

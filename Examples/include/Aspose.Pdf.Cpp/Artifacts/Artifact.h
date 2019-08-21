@@ -1,9 +1,9 @@
 ﻿#pragma once
 
-// C# preprocessor directive: #if !NETCORE 
+// C# preprocessor directive: #if !NETCORE
 
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
 #include <system/string.h>
@@ -216,12 +216,12 @@ public:
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_Rectangle();
     /// <summary>
-    /// Gets or sets artifact position.
+    /// Gets artifact position.
     /// If this property is specified, then margins and alignments are ignored.
     /// </summary>
     System::SharedPtr<Point> get_Position();
     /// <summary>
-    /// Gets or sets artifact position.
+    /// Sets artifact position.
     /// If this property is specified, then margins and alignments are ignored.
     /// </summary>
     void set_Position(System::SharedPtr<Point> value);
@@ -286,11 +286,11 @@ public:
     /// </summary>
     void set_ArtifactVerticalAlignment(VerticalAlignment value);
     /// <summary>
-    /// Gets or sets articat rotatin angle.
+    /// Gets articat rotatin angle.
     /// </summary>
     double get_Rotation();
     /// <summary>
-    /// Gets or sets articat rotatin angle.
+    /// Sets articat rotatin angle.
     /// </summary>
     void set_Rotation(double value);
     /// <summary>
@@ -306,11 +306,11 @@ public:
     /// </summary>
     System::SharedPtr<XImage> get_Image();
     /// <summary>
-    /// Gets or sets opacity of the artifact. Possible values are in range 0..1.
+    /// Gets opacity of the artifact. Possible values are in range 0..1.
     /// </summary>
     double get_Opacity();
     /// <summary>
-    /// Gets or sets opacity of the artifact. Possible values are in range 0..1.
+    /// Sets opacity of the artifact. Possible values are in range 0..1.
     /// </summary>
     void set_Opacity(double value);
     /// <summary>

@@ -109,41 +109,41 @@ class ASPOSE_PDF_SHARED_API Field : public Aspose::Pdf::Annotations::WidgetAnnot
 public:
 
     /// <summary>
-    /// Gets or sets partial name of the field.
+    /// Gets partial name of the field.
     /// </summary>
     System::String get_PartialName();
     /// <summary>
-    /// Gets or sets partial name of the field.
+    /// Sets partial name of the field.
     /// </summary>
     void set_PartialName(System::String value);
     /// <summary>
-    /// Gets or sets alternate name of the field (An alternate field 
+    /// Gets alternate name of the field (An alternate field 
     /// name that shall be used in place of the actual field name 
     /// wherever the field shall be identified in the user interface).
     /// Alternate name is used as field tooltip in Adobe Acrobat.
     /// </summary>
     System::String get_AlternateName();
     /// <summary>
-    /// Gets or sets alternate name of the field (An alternate field 
+    /// Sets alternate name of the field (An alternate field 
     /// name that shall be used in place of the actual field name 
     /// wherever the field shall be identified in the user interface).
     /// Alternate name is used as field tooltip in Adobe Acrobat.
     /// </summary>
     void set_AlternateName(System::String value);
     /// <summary>
-    /// Gets or sets mapping name  of the field that shall be used when exporting interactive form field data from the document.
+    /// Gets mapping name  of the field that shall be used when exporting interactive form field data from the document.
     /// </summary>
     System::String get_MappingName();
     /// <summary>
-    /// Gets or sets mapping name  of the field that shall be used when exporting interactive form field data from the document.
+    /// Sets mapping name  of the field that shall be used when exporting interactive form field data from the document.
     /// </summary>
     void set_MappingName(System::String value);
     /// <summary>
-    /// Gets or sets value of the field.
+    /// Gets value of the field.
     /// </summary>
     virtual System::String get_Value();
     /// <summary>
-    /// Gets or sets value of the field.
+    /// Sets value of the field.
     /// </summary>
     virtual void set_Value(System::String value);
     /// <summary>
@@ -151,7 +151,7 @@ public:
     /// </summary>
     bool get_IsSynchronized();
     /// <summary>
-    /// Gets or sets number of subfields in this field. (For example number of items in radio button field).
+    /// Gets number of subfields in this field. (For example number of items in radio button field).
     /// </summary>
     int32_t get_Count() const;
     /// <summary>
@@ -159,15 +159,15 @@ public:
     /// </summary>
     System::SharedPtr<System::Object> get_SyncRoot();
     /// <summary>
-    /// Gets or sets boolean value which indicates is this field non-terminal field i.e. group of fields.
+    /// Gets boolean value which indicates is this field non-terminal field i.e. group of fields.
     /// </summary>
     bool get_IsGroup();
     /// <summary>
-    /// Gets or sets index of this anotation on the page.
+    /// Gets index of this anotation on the page.
     /// </summary>
     int32_t get_AnnotationIndex();
     /// <summary>
-    /// Gets or sets index of this anotation on the page.
+    /// Sets index of this anotation on the page.
     /// </summary>
     void set_AnnotationIndex(int32_t value);
     /// <summary>
@@ -175,11 +175,11 @@ public:
     /// </summary>
     virtual int32_t get_PageIndex();
     /// <summary>
-    /// Gets or sets the field rectangle.
+    /// Gets the field rectangle.
     /// </summary>
     virtual System::SharedPtr<Rectangle> get_Rect();
     /// <summary>
-    /// Gets or sets the field rectangle.
+    /// Sets the field rectangle.
     /// </summary>
     virtual void set_Rect(System::SharedPtr<Rectangle> value);
     /// <summary>
@@ -207,11 +207,11 @@ public:
     /// </summary>
     static void set_MaxFontSize(double value);
     /// <summary>
-    /// Gets or sets tab order of the field.
+    /// Gets tab order of the field.
     /// </summary>
     int32_t get_TabOrder();
     /// <summary>
-    /// Gets or sets tab order of the field.
+    /// Sets tab order of the field.
     /// </summary>
     void set_TabOrder(int32_t value);
     bool get_IsReadOnly();

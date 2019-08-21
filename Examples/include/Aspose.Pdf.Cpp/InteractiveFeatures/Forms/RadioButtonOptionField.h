@@ -5,9 +5,9 @@
 
 namespace Aspose { namespace Pdf { class PageGenerator; } }
 namespace Aspose { namespace Pdf { namespace Forms { class RadioButtonField; } } }
-namespace Aspose { namespace Pdf { namespace Text { class TextFragment; } } }
 namespace Aspose { namespace Pdf { namespace Forms { enum class BoxShape; } } }
 namespace Aspose { namespace Pdf { namespace Forms { enum class BoxStyle; } } }
+namespace Aspose { namespace Pdf { namespace Text { class TextFragment; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { class Page; } }
@@ -42,27 +42,27 @@ class ASPOSE_PDF_SHARED_API RadioButtonOptionField FINAL : public Aspose::Pdf::F
 public:
 
     /// <summary>
-    /// Gets or sets name of the option.
+    /// Gets name of the option.
     /// </summary>
     System::String get_OptionName();
     /// <summary>
-    /// Gets or sets name of the option.
+    /// Sets name of the option.
     /// </summary>
     void set_OptionName(System::String value);
     /// <summary>
-    /// Gets or sets caption.
+    /// Gets caption.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Text::TextFragment> get_Caption();
     /// <summary>
-    /// Gets or sets caption.
+    /// Sets caption.
     /// </summary>
     void set_Caption(System::SharedPtr<Aspose::Pdf::Text::TextFragment> value);
     /// <summary>
-    /// Gets or sets style of check box.
+    /// Gets style of check box.
     /// </summary>
     BoxStyle get_Style();
     /// <summary>
-    /// Gets or sets style of check box.
+    /// Sets style of check box.
     /// </summary>
     void set_Style(BoxStyle value);
     

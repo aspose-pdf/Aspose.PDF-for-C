@@ -29,11 +29,11 @@ class ASPOSE_PDF_SHARED_API NamedAction FINAL : public Aspose::Pdf::Annotations:
 public:
 
     /// <summary>
-    /// Gets or sets the action to be performed.
+    /// Gets the action to be performed.
     /// </summary>
     System::String get_Name();
     /// <summary>
-    /// Gets or sets the action to be performed.
+    /// Sets the action to be performed.
     /// </summary>
     void set_Name(System::String value);
     

@@ -96,7 +96,7 @@ struct DictionaryHashSelector<T, typename std::enable_if<System::detail::has_met
         /// @return Calculated hash value.
         std::size_t operator ()(argument_type obj) const
         {
-            return obj.GetHashCode();
+            return static_cast<std::size_t>(obj.GetHashCode());
         }
     };
 };
@@ -177,7 +177,7 @@ struct EqualityComparerHashAdapter
     std::size_t operator ()(const T &x) const
     {
         if (m_comparator)
-            return m_comparator->GetHashCode(x);
+            return static_cast<std::size_t>(m_comparator->GetHashCode(x));
 
         typename DictionaryHashSelector<T>::type hash_selector;
 

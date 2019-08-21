@@ -29,11 +29,18 @@
 namespace std {
 namespace experimental {
 
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable: 4643)
+#endif
 // 20.5.4, optional for object types
 template <class T> class optional;
 
 // 20.5.5, optional for lvalue reference types
 template <class T> class optional<T&>;
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
 #if defined NDEBUG
 # define TR2_OPTIONAL_ASSERTED_EXPRESSION(CHECK, EXPR) (EXPR)

@@ -36,19 +36,19 @@ class ASPOSE_PDF_SHARED_API ListBoxField FINAL : public Aspose::Pdf::Forms::Choi
 public:
 
     /// <summary>
-    /// Gets or sets index of the top visible element of the list.
+    /// Gets index of the top visible element of the list.
     /// </summary>
     int32_t get_TopIndex();
     /// <summary>
-    /// Gets or sets index of the top visible element of the list.
+    /// Sets index of the top visible element of the list.
     /// </summary>
     void set_TopIndex(int32_t value);
     /// <summary>
-    /// Gets or sets index of the selected item. Items are numbered from 1.
+    /// Sets index of the selected item. Items are numbered from 1.
     /// </summary>
     virtual void set_Selected(int32_t value);
     /// <summary>
-    /// Gets or sets array of the selected items in the multiselect list. For single-select list returns array with single item.
+    /// Sets array of the selected items in the multiselect list. For single-select list returns array with single item.
     /// </summary>
     virtual void set_SelectedItems(System::ArrayPtr<int32_t> value);
     

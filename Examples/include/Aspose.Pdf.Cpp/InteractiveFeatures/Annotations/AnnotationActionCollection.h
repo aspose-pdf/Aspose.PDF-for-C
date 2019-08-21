@@ -30,115 +30,115 @@ class ASPOSE_PDF_SHARED_API AnnotationActionCollection FINAL : public Aspose::Pd
 public:
 
     /// <summary>
-    /// Gets or sets an action to be performed when the cursor enters the annotation�s active area.
+    /// Gets an action to be performed when the cursor enters the annotation�s active area.
     /// </summary>
     System::SharedPtr<PdfAction> get_OnEnter();
     /// <summary>
-    /// Gets or sets an action to be performed when the cursor enters the annotation�s active area.
+    /// Sets an action to be performed when the cursor enters the annotation�s active area.
     /// </summary>
     void set_OnEnter(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets an action to be performed when the cursor exits the annotation�s active area.
+    /// Gets an action to be performed when the cursor exits the annotation�s active area.
     /// </summary>
     System::SharedPtr<PdfAction> get_OnExit();
     /// <summary>
-    /// Gets or sets an action to be performed when the cursor exits the annotation�s active area.
+    /// Sets an action to be performed when the cursor exits the annotation�s active area.
     /// </summary>
     void set_OnExit(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets an action to be performed when the mouse button is pressed inside the annotation�s active area.
+    /// Gets an action to be performed when the mouse button is pressed inside the annotation�s active area.
     /// </summary>
     System::SharedPtr<PdfAction> get_OnPressMouseBtn();
     /// <summary>
-    /// Gets or sets an action to be performed when the mouse button is pressed inside the annotation�s active area.
+    /// Sets an action to be performed when the mouse button is pressed inside the annotation�s active area.
     /// </summary>
     void set_OnPressMouseBtn(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets an action to be performed when the mouse button is released inside the annotation�s active area.
+    /// Gets an action to be performed when the mouse button is released inside the annotation�s active area.
     /// </summary>
     System::SharedPtr<PdfAction> get_OnReleaseMouseBtn();
     /// <summary>
-    /// Gets or sets an action to be performed when the mouse button is released inside the annotation�s active area.
+    /// Sets an action to be performed when the mouse button is released inside the annotation�s active area.
     /// </summary>
     void set_OnReleaseMouseBtn(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets an action to be performed when the annotation receives the input focus.
+    /// Gets an action to be performed when the annotation receives the input focus.
     /// </summary>
     System::SharedPtr<PdfAction> get_OnReceiveFocus();
     /// <summary>
-    /// Gets or sets an action to be performed when the annotation receives the input focus.
+    /// Sets an action to be performed when the annotation receives the input focus.
     /// </summary>
     void set_OnReceiveFocus(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets an action to be performed when the page containing the annotation is opened.
+    /// Gets an action to be performed when the page containing the annotation is opened.
     /// </summary>
     System::SharedPtr<PdfAction> get_OnOpenPage();
     /// <summary>
-    /// Gets or sets an action to be performed when the page containing the annotation is opened.
+    /// Sets an action to be performed when the page containing the annotation is opened.
     /// </summary>
     void set_OnOpenPage(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets an action to be performed when the page containing the annotation is closed.
+    /// Gets an action to be performed when the page containing the annotation is closed.
     /// </summary>
     System::SharedPtr<PdfAction> get_OnClosePage();
     /// <summary>
-    /// Gets or sets an action to be performed when the page containing the annotation is closed.
+    /// Sets an action to be performed when the page containing the annotation is closed.
     /// </summary>
     void set_OnClosePage(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets an action to be performed when the page containing the annotation becomes visible in the viewer application�s user interface.
+    /// Gets an action to be performed when the page containing the annotation becomes visible in the viewer application�s user interface.
     /// </summary>
     System::SharedPtr<PdfAction> get_OnShowPage();
     /// <summary>
-    /// Gets or sets an action to be performed when the page containing the annotation becomes visible in the viewer application�s user interface.
+    /// Sets an action to be performed when the page containing the annotation becomes visible in the viewer application�s user interface.
     /// </summary>
     void set_OnShowPage(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets an action to be performed when the page containing the annotation is no longer visible in the viewer application�s user interface.
+    /// Gets an action to be performed when the page containing the annotation is no longer visible in the viewer application�s user interface.
     /// </summary>
     System::SharedPtr<PdfAction> get_OnHidePage();
     /// <summary>
-    /// Gets or sets an action to be performed when the page containing the annotation is no longer visible in the viewer application�s user interface.
+    /// Sets an action to be performed when the page containing the annotation is no longer visible in the viewer application�s user interface.
     /// </summary>
     void set_OnHidePage(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets an action to be performed when the annotation loses the input focus.
+    /// Gets an action to be performed when the annotation loses the input focus.
     /// </summary>
     System::SharedPtr<PdfAction> get_OnLostFocus();
     /// <summary>
-    /// Gets or sets an action to be performed when the annotation loses the input focus.
+    /// Sets an action to be performed when the annotation loses the input focus.
     /// </summary>
     void set_OnLostFocus(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets an action to be performed when user modifies character of the field. 
+    /// Gets an action to be performed when user modifies character of the field. 
     /// </summary>
     System::SharedPtr<PdfAction> get_OnModifyCharacter();
     /// <summary>
-    /// Gets or sets an action to be performed when user modifies character of the field. 
+    /// Sets an action to be performed when user modifies character of the field. 
     /// </summary>
     void set_OnModifyCharacter(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets an action to be performed when user changes contents of the field. 
+    /// Gets an action to be performed when user changes contents of the field. 
     /// </summary>
     System::SharedPtr<PdfAction> get_OnValidate();
     /// <summary>
-    /// Gets or sets an action to be performed when user changes contents of the field. 
+    /// Sets an action to be performed when user changes contents of the field. 
     /// </summary>
     void set_OnValidate(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets an action to be performed to format field value. 
+    /// Gets an action to be performed to format field value. 
     /// </summary>
     System::SharedPtr<PdfAction> get_OnFormat();
     /// <summary>
-    /// Gets or sets an action to be performed to format field value. 
+    /// Sets an action to be performed to format field value. 
     /// </summary>
     void set_OnFormat(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets an action to calculate field value. 
+    /// Gets an action to calculate field value. 
     /// </summary>
     System::SharedPtr<PdfAction> get_OnCalculate();
     /// <summary>
-    /// Gets or sets an action to calculate field value. 
+    /// Sets an action to calculate field value. 
     /// </summary>
     void set_OnCalculate(System::SharedPtr<PdfAction> value);
     

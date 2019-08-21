@@ -444,18 +444,18 @@ namespace System {
         public:
         
             /// Not implemented.
-            int64_t get_ContentLength() { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
+            int64_t get_ContentLength() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
             /// Not implemented.
-            System::String get_ContentType() { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
+            System::String get_ContentType() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
             /// Not implemented.
-            System::SharedPtr<WebHeaderCollection> get_Headers() { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
+            System::SharedPtr<WebHeaderCollection> get_Headers() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
             /// Not implemented.
-            System::SharedPtr<System::Uri> get_ResponseUri() { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
+            System::SharedPtr<System::Uri> get_ResponseUri() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
         
             /// Not implemented.
-            void Close();
+            void Close() override;
             /// Not implemented.
-            System::SharedPtr<System::IO::Stream> GetResponseStream() { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
+            System::SharedPtr<System::IO::Stream> GetResponseStream() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
             /// Not implemented.
             void GetObjectData(System::SharedPtr<System::Runtime::Serialization::SerializationInfo> serializationInfo, System::SharedPtr<System::Runtime::Serialization::StreamingContext> streamingContext) { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
         };
@@ -483,18 +483,18 @@ namespace System {
         public:
         
             /// Not implemented.
-            int64_t get_ContentLength() { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
+            int64_t get_ContentLength() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
             /// Not implemented.
-            System::String get_ContentType() { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
+            System::String get_ContentType() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
             /// Not implemented.
-            System::SharedPtr<WebHeaderCollection> get_Headers() { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
+            System::SharedPtr<WebHeaderCollection> get_Headers() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
             /// Not implemented.
-            System::SharedPtr<System::Uri> get_ResponseUri() { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
+            System::SharedPtr<System::Uri> get_ResponseUri() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
         
             /// Not implemented.
-            void Close() { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
+            void Close() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
             /// Not implemented.
-            System::SharedPtr<System::IO::Stream> GetResponseStream() { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
+            System::SharedPtr<System::IO::Stream> GetResponseStream() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); }
         };
         
         class ICredentials; 
@@ -568,21 +568,21 @@ namespace System {
             RTTI_INFO(System::Net::HttpWebRequest, ThisTypeBaseTypesInfo)
         public:
             /// Not implemented.
-            virtual int64_t   get_ContentLength(){ throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
+            virtual int64_t get_ContentLength() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
             /// Not implemented.
-            virtual void        set_ContentLength(int64_t value){ throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
+            virtual void    set_ContentLength(int64_t value) override{ throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
             /// Not implemented.
-            virtual String  get_ContentType(){ throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
+            virtual String  get_ContentType() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
             /// Not implemented.
-            virtual void    set_ContentType(const String& value){ throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
+            virtual void    set_ContentType(const String& value) override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
             /// Not implemented.
-            virtual SharedPtr<WebHeaderCollection> get_Headers(){ throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
+            virtual SharedPtr<WebHeaderCollection> get_Headers() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
             /// Not implemented.
-            virtual void set_Headers(const SharedPtr<WebHeaderCollection>& headers){ throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
+            virtual void set_Headers(const SharedPtr<WebHeaderCollection>& headers) override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
             /// Not implemented.
-            virtual String  get_Method(){ throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
+            virtual String  get_Method() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
             /// Not implemented.
-            virtual void    set_Method(const String& value){ throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
+            virtual void    set_Method(const String& value) override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
             /// Not implemented.
             String  get_Accept()
             {
@@ -606,9 +606,9 @@ namespace System {
                 throw NotImplementedException(ASPOSE_CURRENT_FUNCTION);
             }
             /// Not implemented.
-            virtual SharedPtr<System::IO::Stream> GetRequestStream(){ throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
+            virtual SharedPtr<System::IO::Stream> GetRequestStream() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
             /// Not implemented.
-            virtual SharedPtr<WebResponse> GetResponse(){ throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
+            virtual SharedPtr<WebResponse> GetResponse() override { throw NotImplementedException(ASPOSE_CURRENT_FUNCTION); };
         };
 
         ///Provides a file system implementation of the WebRequest class.

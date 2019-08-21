@@ -4,8 +4,8 @@
 #include "InteractiveFeatures/GoToAction.h"
 
 namespace Aspose { namespace Pdf { namespace Annotations { class PdfAction; } } }
-namespace Aspose { namespace Pdf { class FileSpecification; } }
 namespace Aspose { namespace Pdf { enum class ExtendedBoolean; } }
+namespace Aspose { namespace Pdf { class FileSpecification; } }
 namespace Aspose { namespace Pdf { namespace Annotations { class IAppointment; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class ExplicitDestination; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
@@ -33,27 +33,27 @@ class ASPOSE_PDF_SHARED_API GoToRemoteAction FINAL : public Aspose::Pdf::Annotat
 public:
 
     /// <summary>
-    /// Gets or sets the specification of the file in which the destination is located.
+    /// Gets the specification of the file in which the destination is located.
     /// </summary>
     System::SharedPtr<FileSpecification> get_File();
     /// <summary>
-    /// Gets or sets the specification of the file in which the destination is located.
+    /// Sets the specification of the file in which the destination is located.
     /// </summary>
     void set_File(System::SharedPtr<FileSpecification> value);
     /// <summary>
-    /// Gets or sets a flag specifying whether to open the destination document in a new window.
+    /// Gets a flag specifying whether to open the destination document in a new window.
     /// </summary>
     ExtendedBoolean get_NewWindow();
     /// <summary>
-    /// Gets or sets a flag specifying whether to open the destination document in a new window.
+    /// Sets a flag specifying whether to open the destination document in a new window.
     /// </summary>
     void set_NewWindow(ExtendedBoolean value);
     /// <summary>
-    /// Gets or sets the destination to jump to.
+    /// Gets the destination to jump to.
     /// </summary>
     virtual System::SharedPtr<IAppointment> get_Destination();
     /// <summary>
-    /// Gets or sets the destination to jump to.
+    /// Sets the destination to jump to.
     /// </summary>
     virtual void set_Destination(System::SharedPtr<IAppointment> value);
     

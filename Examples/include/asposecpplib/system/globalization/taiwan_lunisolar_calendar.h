@@ -34,6 +34,7 @@ public:
     ASPOSECPP_SHARED_API DateTime get_MinSupportedDateTime() const override;
     ASPOSECPP_SHARED_API DateTime get_MaxSupportedDateTime() const override;
     ASPOSECPP_SHARED_API ArrayPtr<int> get_Eras() const override;
+    ASPOSECPP_SHARED_API int GetEra(const DateTime& time) const override;
     ASPOSECPP_SHARED_API int GetMonthsInYear(int year, int era) const override;
     ASPOSECPP_SHARED_API int GetDaysInMonth(int year, int month, int era) const override;
     ASPOSECPP_SHARED_API int GetLeapMonth(int year, int era) const override;
@@ -51,7 +52,7 @@ private:
     void VerifyDate(int year, int month, int day, int era) const override;
 
     int EraToIcuEra(int era) const override;
-    int IcuEraToEra(int icuEra) const override;
+    int IcuEraToEra(int icu_era) const override;
 };
 
 }} // namespace System::Globalization

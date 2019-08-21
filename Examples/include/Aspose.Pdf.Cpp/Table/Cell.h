@@ -17,13 +17,13 @@ namespace Aspose { namespace Pdf { class Row; } }
 namespace Aspose { namespace Pdf { class Table; } }
 namespace Aspose { namespace Pdf { enum class BorderCornerType; } }
 namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
+namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
 namespace Aspose { namespace Pdf { namespace Text { class TextState; } } }
 namespace Aspose { namespace Pdf { class MarginInfo; } }
 namespace Aspose { namespace Pdf { class BorderInfo; } }
 namespace Aspose { namespace Pdf { class Color; } }
 namespace Aspose { namespace Pdf { class Paragraphs; } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
-namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
 namespace Aspose { namespace Pdf { class Page; } }
 namespace Aspose { namespace Pdf { class Operator; } }
 
@@ -48,103 +48,103 @@ class ASPOSE_PDF_SHARED_API Cell FINAL : public System::ICloneable
 public:
 
     /// <summary>
-    /// Gets or sets the cell have border.
+    /// Gets the cell have border.
     /// </summary>
     bool get_IsNoBorder();
     /// <summary>
-    /// Gets or sets the cell have border.
+    /// Sets the cell have border.
     /// </summary>
     void set_IsNoBorder(bool value);
     /// <summary>
-    /// Gets or sets the padding.
+    /// Gets the padding.
     /// </summary>
     System::SharedPtr<MarginInfo> get_Margin();
     /// <summary>
-    /// Gets or sets the padding.
+    /// Sets the padding.
     /// </summary>
     void set_Margin(System::SharedPtr<MarginInfo> value);
     /// <summary>
-    /// Gets or sets the border.
+    /// Gets the border.
     /// </summary>
     System::SharedPtr<BorderInfo> get_Border();
     /// <summary>
-    /// Gets or sets the border.
+    /// Sets the border.
     /// </summary>
     void set_Border(System::SharedPtr<BorderInfo> value);
     /// <summary>
-    /// Gets or sets the background color.
+    /// Gets the background color.
     /// </summary>
     System::SharedPtr<Color> get_BackgroundColor();
     /// <summary>
-    /// Gets or sets the background color.
+    /// Sets the background color.
     /// </summary>
     void set_BackgroundColor(System::SharedPtr<Color> value);
     /// <summary>
-    /// Gets or sets the background image file.
+    /// Gets the background image file.
     /// </summary>
     System::String get_BackgroundImageFile();
     /// <summary>
-    /// Gets or sets the background image file.
+    /// Sets the background image file.
     /// </summary>
     void set_BackgroundImageFile(System::String value);
     /// <summary>
-    /// Gets or sets the alignment.
+    /// Gets the alignment.
     /// </summary>
     HorizontalAlignment get_Alignment();
     /// <summary>
-    /// Gets or sets the alignment.
+    /// Sets the alignment.
     /// </summary>
     void set_Alignment(HorizontalAlignment value);
     /// <summary>
-    /// Gets or sets the default cell text state.
+    /// Gets the default cell text state.
     /// </summary>
     System::SharedPtr<Text::TextState> get_DefaultCellTextState();
     /// <summary>
-    /// Gets or sets the default cell text state.
+    /// Sets the default cell text state.
     /// </summary>
     void set_DefaultCellTextState(System::SharedPtr<Text::TextState> value);
     /// <summary>
-    /// Gets or sets the cell's formatted text.
+    /// Gets the cell's formatted text.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Paragraphs> get_Paragraphs();
     /// <summary>
-    /// Gets or sets the cell's formatted text.
+    /// Sets the cell's formatted text.
     /// </summary>
     void set_Paragraphs(System::SharedPtr<Aspose::Pdf::Paragraphs> value);
     /// <summary>
-    /// Gets or sets the cell's text word wrapped.
+    /// Gets the cell's text word wrapped.
     /// </summary>
     bool get_IsWordWrapped();
     /// <summary>
-    /// Gets or sets the cell's text word wrapped.
+    /// Sets the cell's text word wrapped.
     /// </summary>
     void set_IsWordWrapped(bool value);
     /// <summary>
-    /// Gets or sets the vertical alignment.
+    /// Gets the vertical alignment.
     /// </summary>
     Aspose::Pdf::VerticalAlignment get_VerticalAlignment();
     /// <summary>
-    /// Gets or sets the vertical alignment.
+    /// Sets the vertical alignment.
     /// </summary>
     void set_VerticalAlignment(Aspose::Pdf::VerticalAlignment value);
     /// <summary>
-    /// Gets or sets the column span.
+    /// Gets the column span.
     /// </summary>
     int32_t get_ColSpan();
     /// <summary>
-    /// Gets or sets the column span.
+    /// Sets the column span.
     /// </summary>
     void set_ColSpan(int32_t value);
     /// <summary>
-    /// Gets or sets the row span.
+    /// Gets the row span.
     /// </summary>
     int32_t get_RowSpan();
     /// <summary>
-    /// Gets or sets the row span.
+    /// Sets the row span.
     /// </summary>
     void set_RowSpan(int32_t value);
     /// <summary>
-    /// Gets or sets the column width.
+    /// Gets the column width.
     /// </summary>
     double get_Width();
     
@@ -167,11 +167,11 @@ public:
 protected:
 
     /// <summary>
-    /// Gets or sets is horizontal aligmnent set.
+    /// Gets is horizontal aligmnent set.
     /// </summary>
     bool get_IsHorizontalAlignmentSet();
     /// <summary>
-    /// Gets or sets is horizontal aligmnent set.
+    /// Sets is horizontal aligmnent set.
     /// </summary>
     void set_IsHorizontalAlignmentSet(bool value);
     /// <summary>
@@ -179,11 +179,11 @@ protected:
     /// </summary>
     int32_t get_ProcessedParagraphsCount();
     /// <summary>
-    /// Gets or sets is nothing write for this property.
+    /// Gets is nothing write for this property.
     /// </summary>
     bool get_IsNothingWrited();
     /// <summary>
-    /// Gets or sets is nothing write for this property.
+    /// Sets is nothing write for this property.
     /// </summary>
     void set_IsNothingWrited(bool value);
     /// <summary>
@@ -195,39 +195,39 @@ protected:
     /// </summary>
     void set_Rect(System::SharedPtr<Rectangle> value);
     /// <summary>
-    /// Gets or sets the column width.
+    /// Sets the column width.
     /// </summary>
     void set_Width(double value);
     /// <summary>
-    /// Gets or sets the column height(processed internally).
+    /// Gets the column height(processed internally).
     /// </summary>
     double get_Height();
     /// <summary>
-    /// Gets or sets the column height(processed internally).
+    /// Sets the column height(processed internally).
     /// </summary>
     void set_Height(double value);
     /// <summary>
-    /// Gets or sets the is height exceed size(processed internally).
+    /// Gets the is height exceed size(processed internally).
     /// </summary>
     bool get_IsHeightExceedSize();
     /// <summary>
-    /// Gets or sets the is height exceed size(processed internally).
+    /// Sets the is height exceed size(processed internally).
     /// </summary>
     void set_IsHeightExceedSize(bool value);
     /// <summary>
-    /// Gets or sets the row span additional cell(processed internally).
+    /// Gets the row span additional cell(processed internally).
     /// </summary>
     bool get_IsSpanAdditionalCell();
     /// <summary>
-    /// Gets or sets the row span additional cell(processed internally).
+    /// Sets the row span additional cell(processed internally).
     /// </summary>
     void set_IsSpanAdditionalCell(bool value);
     /// <summary>
-    /// Gets or sets cell is last spanned for disable right border(processed internally).
+    /// Gets cell is last spanned for disable right border(processed internally).
     /// </summary>
     bool get_IsLastSpannedCell();
     /// <summary>
-    /// Gets or sets cell is last spanned for disable right border(processed internally).
+    /// Sets cell is last spanned for disable right border(processed internally).
     /// </summary>
     void set_IsLastSpannedCell(bool value);
     /// <summary>
@@ -235,11 +235,11 @@ protected:
     /// </summary>
     bool get_IsRightBorderOpened();
     /// <summary>
-    /// Gets or sets the cell inserted internally(processed internally).
+    /// Gets the cell inserted internally(processed internally).
     /// </summary>
     bool get_IsInsertedInternally();
     /// <summary>
-    /// Gets or sets the cell inserted internally(processed internally).
+    /// Sets the cell inserted internally(processed internally).
     /// </summary>
     void set_IsInsertedInternally(bool value);
     

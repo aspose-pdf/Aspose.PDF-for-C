@@ -89,15 +89,15 @@ public:
     void Dispose();
     
     /// <summary>
-    /// Gets or sets cells.
+    /// Gets cells.
     /// </summary>
     /// <returns></returns>
     /// <param name="index">The cell index.</param>
     System::SharedPtr<Cell> idx_get(int32_t index);
     /// <summary>
-    /// Gets or sets cells.
+    /// Sets cells.
     /// </summary>
-    /// <returns></returns>
+    /// <param name="value"></param>
     /// <param name="index">The cell index.</param>
     void idx_set(int32_t index, System::SharedPtr<Cell> value);
     

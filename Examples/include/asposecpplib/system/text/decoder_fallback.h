@@ -1,8 +1,6 @@
 /// @file system/text/decoder_fallback.h
-#ifndef __DecoderFallback_h__
-#define __DecoderFallback_h__
+#pragma once
 
-//boost
 #include "fwd.h"
 #include "system/object.h"
 
@@ -14,17 +12,9 @@ namespace System { namespace Text {
 /// Always wrap this class into System::SmartPtr pointer and use this pointer to pass it to functions as argument.
 class ASPOSECPP_SHARED_CLASS DecoderFallback: public Object
 {
-private:
-    /// Default exception fallback implementation.
-    static const DecoderFallbackPtr exception_fallback;
-    /// Default replacement fallback implementation.
-    static const DecoderFallbackPtr replacement_fallback;
-    /// Default standard safe fallback implementation.
-    static const DecoderFallbackPtr standard_safe_fallback;
-
 protected:
     /// Constructor.
-    DecoderFallback() {}
+    DecoderFallback() = default;
 
 public:
     /// Gets default exception fallback implementation.
@@ -45,6 +35,4 @@ public:
     virtual ASPOSECPP_SHARED_API DecoderFallbackBufferPtr CreateFallbackBuffer() = 0;
 };
 
-}}
-
-#endif
+}} // namespace System::Text

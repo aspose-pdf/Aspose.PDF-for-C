@@ -20,7 +20,7 @@ public:
     static ASPOSECPP_SHARED_API const int32_t MinPort;
     static ASPOSECPP_SHARED_API const int32_t MaxPort;
 
-    virtual ASPOSECPP_SHARED_API System::Net::Sockets::AddressFamily get_AddressFamily();
+    virtual ASPOSECPP_SHARED_API System::Net::Sockets::AddressFamily get_AddressFamily() override;
     ASPOSECPP_SHARED_API System::SharedPtr<IPAddress> get_Address();
     ASPOSECPP_SHARED_API void set_Address(System::SharedPtr<IPAddress> value);
     ASPOSECPP_SHARED_API int32_t get_Port();
@@ -30,11 +30,11 @@ public:
     ASPOSECPP_SHARED_API IPEndPoint(System::SharedPtr<IPAddress> address, int32_t port);
 
     ASPOSECPP_SHARED_API String ToString() ASPOSE_CONST override;
-    virtual ASPOSECPP_SHARED_API System::SharedPtr<EndPoint> Create(System::SharedPtr<SocketAddress> socketAddress);
+    virtual ASPOSECPP_SHARED_API System::SharedPtr<EndPoint> Create(System::SharedPtr<SocketAddress> socketAddress) override;
     ASPOSECPP_SHARED_API bool Equals(System::SharedPtr<Object> comparand) override;
     ASPOSECPP_SHARED_API int32_t GetHashCode() const override;
 
-    ASPOSECPP_SHARED_API ImplPtr GetImpl();
+    ASPOSECPP_SHARED_API ImplPtr GetImpl() override;
 
 private:
     ImplPtr io_endpoint;

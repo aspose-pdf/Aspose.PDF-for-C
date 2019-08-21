@@ -294,8 +294,7 @@ namespace System
         template<class T0, class T1, class = typename std::enable_if<std::is_same<T0, T1>::value, void>::type>
         static T0 Max(T0 val1, T1 val2)
         {
-            using T = decltype(val1 + val2);
-            return Max_<T>(static_cast<T>(val1), static_cast<T>(val2));
+            return Max_<T0>(val1, static_cast<T0>(val2));
         }
 
     private:

@@ -554,7 +554,7 @@ public:
         return System::StaticCast<typename T::Pointee_>(obj);
     }
 
-    /// Converts Object to unknown type, handling both smart pointer type and bpxed value situations.
+    /// Converts Object to unknown type, handling both smart pointer type and boxed value situations.
     /// @tparam T Type to convert Object to.
     /// @param obj Object to convert.
     /// @return Either unboxed value or converted pointer.
@@ -563,7 +563,29 @@ public:
     {
         return System::ObjectExt::Unbox<T>(obj);
     }
+        
+    /// Checks whether unknown type object is nullptr.
+    /// Overload for non-scalar types.
+    /// @tparam T Object type.
+    /// @param obj Object to check.
+    /// @return True if 'obj == nullptr' is true, false otherwise. 
+    template<typename T>
+    static typename std::enable_if<!std::is_scalar<T>::value, bool>::type UnknownIsNull(T obj)
+    {
+        return obj == nullptr;
+    }
 
+    /// Checks whether unknown type object is nullptr.
+    /// Overload for scalar types.
+    /// @tparam T Object type.
+    /// @param obj Object to check.
+    /// @return Always returns false.
+    template<typename T>
+    static typename std::enable_if<std::is_scalar<T>::value, bool>::type UnknownIsNull(T obj)
+    {
+        return false;
+    }
+    
     /// Implementation of '?' operator translation for non-nullable types.
     /// @tparam T0 LHS value type.
     /// @tparam T1 Type of lambda encapsulating RHS expression.

@@ -120,6 +120,15 @@ public:
         : m_call_once(is_thread_safe)
     {}
 
+    /// Copy constructor.
+    Lazy(const Lazy& other)
+    {
+        if (other.initialized())
+        {
+            initialize(other.m_value.get());
+        }
+    }
+
     ~Lazy()
     {
         if (initialized())
@@ -128,7 +137,6 @@ public:
         }
     }
 
-    Lazy(const Lazy&) = delete;
     Lazy& operator=(const Lazy&) = delete;
 
     /// Initialize lazy value with @args.
@@ -198,6 +206,14 @@ public:
     {
         verify_initialized();
         return m_value.get();
+    }
+
+    /// Initialize value if it's not initialized and returns reference to the value.
+    /// @param user_initializer Initialization function.
+    template <typename Initializer>
+    T& get(Initializer&& user_initializer)
+    {
+        return get_or_initialize_from(std::forward<Initializer>(user_initializer));
     }
 
     /// Initialize value if it's not initialized and returns reference to the value.

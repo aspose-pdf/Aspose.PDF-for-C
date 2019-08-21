@@ -134,6 +134,12 @@ public:
     /// @param xpath A string representation of XPath expression
     /// @returns The selected node
     ASPOSECPP_SHARED_API XPathNavigator::Ptr SelectSingleNode(const String& xpath);
+
+    /// Selecs the first node in the current XPathNavigator using the specified XPath expression.
+    /// @param xpath A string representation of XPath expression
+    /// @param ns Namespace manager to use
+    /// @returns The selected node
+    ASPOSECPP_SHARED_API XPathNavigator::Ptr SelectSingleNode(const String& xpath, const SharedPtr<System::Xml::XmlNamespaceManager>& ns);
     /// Selecs the first node in the current XPathNavigator using the specified XPath expression.
     /// @param expr A string representation of XPath expression
     /// @returns The selected node

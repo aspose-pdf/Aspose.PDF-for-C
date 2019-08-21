@@ -1,10 +1,10 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-// C# preprocessor directive: #if !(NET40CP || NET35CP || NETCORE) 
+// C# preprocessor directive: #if !(NET40CP || NET35CP || NETCORE)
 
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
 #include <system/type_info.h>
@@ -203,51 +203,51 @@ public:
     public:
     
         /// <summary>
-        /// Gets or sets left margin on the resultant page.
+        /// Gets left margin on the resultant page.
         /// </summary>
         System::SharedPtr<PdfFileEditor::ContentsResizeValue> get_LeftMargin();
         /// <summary>
-        /// Gets or sets left margin on the resultant page.
+        /// Sets left margin on the resultant page.
         /// </summary>
         void set_LeftMargin(System::SharedPtr<PdfFileEditor::ContentsResizeValue> value);
         /// <summary>
-        /// Gets or sets right margin on the resultant page.
+        /// Gets right margin on the resultant page.
         /// </summary>
         System::SharedPtr<PdfFileEditor::ContentsResizeValue> get_RightMargin();
         /// <summary>
-        /// Gets or sets right margin on the resultant page.
+        /// Sets right margin on the resultant page.
         /// </summary>
         void set_RightMargin(System::SharedPtr<PdfFileEditor::ContentsResizeValue> value);
         /// <summary>
-        /// Gets or sets top margin on the resultant page.
+        /// Gets top margin on the resultant page.
         /// </summary>
         System::SharedPtr<PdfFileEditor::ContentsResizeValue> get_TopMargin();
         /// <summary>
-        /// Gets or sets top margin on the resultant page.
+        /// Sets top margin on the resultant page.
         /// </summary>
         void set_TopMargin(System::SharedPtr<PdfFileEditor::ContentsResizeValue> value);
         /// <summary>
-        /// Gets or sets bottom margin on the resultant page.
+        /// Gets bottom margin on the resultant page.
         /// </summary>
         System::SharedPtr<PdfFileEditor::ContentsResizeValue> get_BottomMargin();
         /// <summary>
-        /// Gets or sets bottom margin on the resultant page.
+        /// Sets bottom margin on the resultant page.
         /// </summary>
         void set_BottomMargin(System::SharedPtr<PdfFileEditor::ContentsResizeValue> value);
         /// <summary>
-        /// Gets or sets width of the content of the source page on the resultant page.
+        /// Gets width of the content of the source page on the resultant page.
         /// </summary>
         System::SharedPtr<PdfFileEditor::ContentsResizeValue> get_ContentsWidth();
         /// <summary>
-        /// Gets or sets width of the content of the source page on the resultant page.
+        /// Sets width of the content of the source page on the resultant page.
         /// </summary>
         void set_ContentsWidth(System::SharedPtr<PdfFileEditor::ContentsResizeValue> value);
         /// <summary>
-        /// Gets or sets height of the content of the source page on the resultant page.
+        /// Gets height of the content of the source page on the resultant page.
         /// </summary>
         System::SharedPtr<PdfFileEditor::ContentsResizeValue> get_ContentsHeight();
         /// <summary>
-        /// Gets or sets height of the content of the source page on the resultant page.
+        /// Sets height of the content of the source page on the resultant page.
         /// </summary>
         void set_ContentsHeight(System::SharedPtr<PdfFileEditor::ContentsResizeValue> value);
         
@@ -538,13 +538,13 @@ public:
     /// </summary>
     void set_IncrementalUpdates(bool value);
     /// <summary>
-    /// Gets or sets optimization flag. Equal resource streams in resultant file are merged into one PDF object if this flag set. 
+    /// Gets optimization flag. Equal resource streams in resultant file are merged into one PDF object if this flag set. 
     /// This allows to decrease resultant file size but may cause slower execution and larger memory requirements.
     /// Default value: false.
     /// </summary>
     bool get_OptimizeSize();
     /// <summary>
-    /// Gets or sets optimization flag. Equal resource streams in resultant file are merged into one PDF object if this flag set. 
+    /// Sets optimization flag. Equal resource streams in resultant file are merged into one PDF object if this flag set. 
     /// This allows to decrease resultant file size but may cause slower execution and larger memory requirements.
     /// Default value: false.
     /// </summary>
@@ -707,31 +707,31 @@ public:
     /// </example>
     System::Exception get_LastException();
     /// <summary>
-    /// Gets or sets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
+    /// Gets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
     /// Default: inline.
     /// </summary>
     Aspose::Pdf::ContentDisposition get_ContentDisposition();
     /// <summary>
-    /// Gets or sets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
+    /// Sets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
     /// Default: inline.
     /// </summary>
     void set_ContentDisposition(Aspose::Pdf::ContentDisposition value);
     /// <summary>
-    /// Gets or sets save options when result is stored as HttpResponse.
+    /// Gets save options when result is stored as HttpResponse.
     /// Default value: PdfSaveOptions. 
     /// </summary>
     System::SharedPtr<Aspose::Pdf::SaveOptions> get_SaveOptions();
     /// <summary>
-    /// Gets or sets save options when result is stored as HttpResponse.
+    /// Sets save options when result is stored as HttpResponse.
     /// Default value: PdfSaveOptions. 
     /// </summary>
     void set_SaveOptions(System::SharedPtr<Aspose::Pdf::SaveOptions> value);
     /// <summary>
-    /// Gets or sets name of attachment when result of operation is stored into HttpResponse objects as attachment.
+    /// Gets name of attachment when result of operation is stored into HttpResponse objects as attachment.
     /// </summary>
     System::String get_AttachmentName();
     /// <summary>
-    /// Gets or sets name of attachment when result of operation is stored into HttpResponse objects as attachment.
+    /// Sets name of attachment when result of operation is stored into HttpResponse objects as attachment.
     /// </summary>
     void set_AttachmentName(System::String value);
     

@@ -1,6 +1,7 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
+#include <system/string.h>
 #include <system/object.h>
 #include <cstdint>
 
@@ -24,35 +25,35 @@ class ASPOSE_PDF_SHARED_API RenderingOptions FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets barcode optimization mode. 
+    /// Gets barcode optimization mode. 
     /// </summary>
     bool get_BarcodeOptimization();
     /// <summary>
-    /// Gets or sets barcode optimization mode. 
+    /// Sets barcode optimization mode. 
     /// </summary>
     void set_BarcodeOptimization(bool value);
     /// <summary>
-    /// Gets or sets a mode where system fonts are rendered natively. 
+    /// Gets a mode where system fonts are rendered natively. 
     /// </summary>
     bool get_SystemFontsNativeRendering();
     /// <summary>
-    /// Gets or sets a mode where system fonts are rendered natively. 
+    /// Sets a mode where system fonts are rendered natively. 
     /// </summary>
     void set_SystemFontsNativeRendering(bool value);
     /// <summary>
-    /// Gets or sets a flag determines whether new imaging engine is used or not.
+    /// Gets a flag determines whether new imaging engine is used or not.
     /// </summary>
     bool get_UseNewImagingEngine();
     /// <summary>
-    /// Gets or sets a flag determines whether new imaging engine is used or not.
+    /// Sets a flag determines whether new imaging engine is used or not.
     /// </summary>
     void set_UseNewImagingEngine(bool value);
     /// <summary>
-    /// Gets or sets a value used to increase or decrease the width of rectangle for AppendRectangle operator.
+    /// Gets a value used to increase or decrease the width of rectangle for AppendRectangle operator.
     /// </summary>
     float get_WidthExtraUnits();
     /// <summary>
-    /// Gets or sets a value used to increase or decrease the width of rectangle for AppendRectangle operator.
+    /// Sets a value used to increase or decrease the width of rectangle for AppendRectangle operator.
     /// </summary>
     void set_WidthExtraUnits(float value);
     /// <summary>
@@ -80,19 +81,19 @@ public:
     /// </summary>
     void set_UseFontHinting(bool value);
     /// <summary>
-    /// Gets or sets a values used to scale all images on the page to fit page's width. 
+    /// Gets a values used to scale all images on the page to fit page's width. 
     /// </summary>
     bool get_ScaleImagesToFitPageWidth();
     /// <summary>
-    /// Gets or sets a values used to scale all images on the page to fit page's width. 
+    /// Sets a values used to scale all images on the page to fit page's width. 
     /// </summary>
     void set_ScaleImagesToFitPageWidth(bool value);
     /// <summary>
-    /// Gets or sets hiqh quality mode for interpolation.
+    /// Gets hiqh quality mode for interpolation.
     /// </summary>
     bool get_InterpolationHighQuality();
     /// <summary>
-    /// Gets or sets hiqh quality mode for interpolation.
+    /// Sets hiqh quality mode for interpolation.
     /// </summary>
     void set_InterpolationHighQuality(bool value);
     /// <summary>
@@ -111,6 +112,14 @@ public:
     /// Maximum count of symbols in symbol cache. Default value is 100.
     /// </summary>
     void set_MaxSymbolsCacheSize(int32_t value);
+    /// <summary>
+    /// Gets/sets the default name of font used to substitute of missing fonts.
+    /// </summary>
+    System::String get_DefaultFontName();
+    /// <summary>
+    /// Gets/sets the default name of font used to substitute of missing fonts.
+    /// </summary>
+    void set_DefaultFontName(System::String value);
     
     /// <summary>
     /// Initializes new instance of the <see cref="RenderingOptions"/> object.
@@ -128,6 +137,7 @@ private:
     bool _interpolationHighQuality;
     int32_t _maxFontsCacheSize;
     int32_t _maxSymbolsCacheSize;
+    System::String _defaultFontName;
     bool pr_UseFontHinting;
     
 };

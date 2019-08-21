@@ -37,35 +37,35 @@ public:
     static const SoundSampleDataEncodingFormat DefaultEncodingFormat;
     
     /// <summary>
-    /// Gets or sets the sampling rate.
+    /// Gets the sampling rate.
     /// </summary>
     int64_t get_SamplingRate();
     /// <summary>
-    /// Gets or sets the sampling rate.
+    /// Sets the sampling rate.
     /// </summary>
     void set_SamplingRate(int64_t value);
     /// <summary>
-    /// Gets or sets the number of sound channels.
+    /// Gets the number of sound channels.
     /// </summary>
     int32_t get_NumberOfSoundChannels();
     /// <summary>
-    /// Gets or sets the number of sound channels.
+    /// Sets the number of sound channels.
     /// </summary>
     void set_NumberOfSoundChannels(int32_t value);
     /// <summary>
-    /// Gets or sets the number of bits per sample value per channel.
+    /// Gets the number of bits per sample value per channel.
     /// </summary>
     int32_t get_BitsPerChannel();
     /// <summary>
-    /// Gets or sets the number of bits per sample value per channel.
+    /// Sets the number of bits per sample value per channel.
     /// </summary>
     void set_BitsPerChannel(int32_t value);
     /// <summary>
-    /// Gets or sets the encoding format.
+    /// Gets the encoding format.
     /// </summary>
     SoundSampleDataEncodingFormat get_EncodingFormat();
     /// <summary>
-    /// Gets or sets the encoding format.
+    /// Sets the encoding format.
     /// </summary>
     void set_EncodingFormat(SoundSampleDataEncodingFormat value);
     

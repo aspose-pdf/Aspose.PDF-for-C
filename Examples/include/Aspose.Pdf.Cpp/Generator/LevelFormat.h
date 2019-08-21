@@ -28,35 +28,35 @@ class ASPOSE_PDF_SHARED_API LevelFormat : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets TOC line dash.
+    /// Gets TOC line dash.
     /// </summary>
     Text::TabLeaderType get_LineDash();
     /// <summary>
-    /// Gets or sets TOC line dash.
+    /// Sets TOC line dash.
     /// </summary>
     void set_LineDash(Text::TabLeaderType value);
     /// <summary>
-    /// Gets or sets a list level margin 
+    /// Gets a list level margin 
     /// </summary>
     System::SharedPtr<MarginInfo> get_Margin();
     /// <summary>
-    /// Gets or sets a list level margin 
+    /// Sets a list level margin 
     /// </summary>
     void set_Margin(System::SharedPtr<MarginInfo> value);
     /// <summary>
-    /// Gets or sets a subsequent lines indent 
+    /// Gets a subsequent lines indent 
     /// </summary>
     float get_SubsequentLinesIndent();
     /// <summary>
-    /// Gets or sets a subsequent lines indent 
+    /// Sets a subsequent lines indent 
     /// </summary>
     void set_SubsequentLinesIndent(float value);
     /// <summary>
-    /// Gets or sets a list level text state 
+    /// Gets a list level text state 
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Text::TextState> get_TextState();
     /// <summary>
-    /// Gets or sets a list level text state 
+    /// Sets a list level text state 
     /// </summary>
     void set_TextState(System::SharedPtr<Aspose::Pdf::Text::TextState> value);
     

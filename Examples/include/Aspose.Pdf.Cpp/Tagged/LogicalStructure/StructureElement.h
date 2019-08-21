@@ -2,16 +2,18 @@
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
 #include "Tagged/LogicalStructure/Element.h"
+#include "Tagged/LogicalStructure/AttributeOwnerStandard.h"
 
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class BLSElement; } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class ListChildElement; } } }
-namespace Aspose { namespace Pdf { namespace LogicalStructure { class TableChildElement; } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class GroupingElement; } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class IllustrationElement; } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class ILSElement; } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class RubyChildElement; } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class WarichuChildElement; } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class MCRElement; } } }
+namespace Aspose { namespace Pdf { namespace LogicalStructure { class TableElement; } } }
+namespace Aspose { namespace Pdf { namespace LogicalStructure { class TableChildElement; } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class StructureTypeStandard; } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class StructureAttributeCollection; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfName; } } } }
@@ -39,16 +41,22 @@ class ASPOSE_PDF_SHARED_API StructureElement : public Aspose::Pdf::LogicalStruct
     FRIEND_FUNCTION_System_MakeObject;
     friend class Aspose::Pdf::LogicalStructure::BLSElement;
     friend class Aspose::Pdf::LogicalStructure::ListChildElement;
-    friend class Aspose::Pdf::LogicalStructure::TableChildElement;
     friend class Aspose::Pdf::LogicalStructure::GroupingElement;
     friend class Aspose::Pdf::LogicalStructure::IllustrationElement;
     friend class Aspose::Pdf::LogicalStructure::ILSElement;
     friend class Aspose::Pdf::LogicalStructure::RubyChildElement;
     friend class Aspose::Pdf::LogicalStructure::WarichuChildElement;
     friend class Aspose::Pdf::LogicalStructure::MCRElement;
+    friend class Aspose::Pdf::LogicalStructure::TableElement;
+    friend class Aspose::Pdf::LogicalStructure::TableChildElement;
     
 public:
 
+    /// <summary>
+    ///     Gets <see cref="T:/Aspose::Pdf::LogicalStructure::AttributeOwnerStandard" /> object.
+    /// </summary>
+    /// <value><see cref="T:/Aspose::Pdf::LogicalStructure::AttributeOwnerStandard" /> object.</value>
+    System::SharedPtr<AttributeOwnerStandard> get_DefaultAttributeOwner();
     /// <summary>
     ///     Gets <see cref="T:/Aspose::Pdf::LogicalStructure::StructureAttributeCollection" /> object.
     /// </summary>
@@ -65,52 +73,52 @@ public:
     /// <value>ID of the structure element.</value>
     System::String get_ID();
     /// <summary>
-    ///     Gets or sets the title for structure element.
+    ///     Gets the title for structure element.
     /// </summary>
     /// <value>Title of the structure element.</value>
     System::String get_Title();
     /// <summary>
-    ///     Gets or sets the title for structure element.
+    ///     Sets the title for structure element.
     /// </summary>
     /// <value>Title of the structure element.</value>
     void set_Title(System::String value);
     /// <summary>
-    ///     Gets or sets the language for structure element.
+    ///     Gets the language for structure element.
     /// </summary>
     /// <value>Language of the structure element.</value>
     System::String get_Language();
     /// <summary>
-    ///     Gets or sets the language for structure element.
+    ///     Sets the language for structure element.
     /// </summary>
     /// <value>Language of the structure element.</value>
     void set_Language(System::String value);
     /// <summary>
-    ///     Gets or sets the alternative text for structure element.
+    ///     Gets the alternative text for structure element.
     /// </summary>
     /// <value>Alternative text of the structure element.</value>
     System::String get_AlternativeText();
     /// <summary>
-    ///     Gets or sets the alternative text for structure element.
+    ///     Sets the alternative text for structure element.
     /// </summary>
     /// <value>Alternative text of the structure element.</value>
     void set_AlternativeText(System::String value);
     /// <summary>
-    ///     Gets or sets the expansion text for structure element.
+    ///     Gets the expansion text for structure element.
     /// </summary>
     /// <value>Expansion text of the structure element.</value>
     System::String get_ExpansionText();
     /// <summary>
-    ///     Gets or sets the expansion text for structure element.
+    ///     Sets the expansion text for structure element.
     /// </summary>
     /// <value>Expansion text of the structure element.</value>
     void set_ExpansionText(System::String value);
     /// <summary>
-    ///     Gets or sets the actual text for structure element.
+    ///     Gets the actual text for structure element.
     /// </summary>
     /// <value>Actual text of the structure element.</value>
     System::String get_ActualText();
     /// <summary>
-    ///     Gets or sets the actual text for structure element.
+    ///     Sets the actual text for structure element.
     /// </summary>
     /// <value>Actual text of the structure element.</value>
     void set_ActualText(System::String value);
@@ -151,7 +159,7 @@ protected:
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> get_Pg();
     void set_Pg(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfObject> value);
     
-    StructureElement(System::SharedPtr<Aspose::Pdf::Tagged::TaggedContext> taggedContext, System::SharedPtr<StructureTypeStandard> structureType, System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfPrimitive> pdfEngineEntity);
+    StructureElement(System::SharedPtr<Aspose::Pdf::Tagged::TaggedContext> taggedContext, System::SharedPtr<StructureTypeStandard> structureType, System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfPrimitive> pdfEngineEntity, System::SharedPtr<AttributeOwnerStandard> attributeOwner = nullptr);
     
     virtual void SetParentElement(System::SharedPtr<Element> parentElement);
     virtual bool CanBeAppended(System::SharedPtr<Element> element);
@@ -161,6 +169,7 @@ private:
 
     System::SharedPtr<StructureTypeStandard> _structureType;
     System::SharedPtr<StructureAttributeCollection> _attributes;
+    System::SharedPtr<AttributeOwnerStandard> _defaultAttributeOwner;
     
 };
 

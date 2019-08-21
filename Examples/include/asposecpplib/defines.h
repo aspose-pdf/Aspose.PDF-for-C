@@ -92,6 +92,7 @@
 namespace Detail {
     /// Dummy type to deduce default enum underlying type which is different in VS and GCC.
     typedef enum {} empty_enum;
+    typedef enum class empty_enum_class {} empty_enum_class;
 
     template <int PtrSize, int A, int B, int C, int D>
     struct __InternalTypeStub {};
@@ -119,6 +120,9 @@ namespace Detail {
     /// @param type_name Struct name.
     #define ASPOSECPP_3RD_PARTY_STRUCT(type_name) struct type_name;
 
+    /// Generate empty braces.
+    /// @param type_name Enum type name.
+    #define ASPOSECPP_3RD_PARTY_ENUM_CLASS_WITHOUT_UNDERLYING(type_name) {}
     /// Checks that specific enum has given underlying type and can be safely replaced with it.
     /// Produces compilation errors if checks fail.
     /// @param type_name Enum type name.
@@ -128,10 +132,12 @@ namespace Detail {
         static_assert(sizeof(type_name) == sizeof(underlying), "Declaring " #type_name " enum with wrong size of underlying type " #underlying  "!"); \
         static_assert(std::is_signed<std::underlying_type<type_name>::type>::value == std::is_signed<underlying>::value, "Declaring " #type_name " enum with wrong signedness of underlying type " #underlying  "!"); \
         static_assert(std::is_same<std::underlying_type<type_name>::type, underlying>::value, "Declaring " #type_name " enum with wrong underlying type " #underlying  "!");
+    #define ASPOSECPP_3RD_PARTY_ENUM_CLASS_WITH_UNDERLYING(type_name, underlying) ASPOSECPP_3RD_PARTY_ENUM_WITH_UNDERLYING(type_name, underlying) 
     /// Checks that specific enum has default underlying type and can be safely replaced with it.
     /// Produces compilation errors if checks fail.
     /// @param type_name Enum type name.
     #define ASPOSECPP_3RD_PARTY_ENUM(type_name) ASPOSECPP_3RD_PARTY_ENUM_WITH_UNDERLYING(type_name, std::underlying_type<::Detail::empty_enum>::type);
+    #define ASPOSECPP_3RD_PARTY_ENUM_CLASS(type_name) ASPOSECPP_3RD_PARTY_ENUM_CLASS_WITH_UNDERLYING(type_name, std::underlying_type<::Detail::empty_enum_class>::type);
 
     /// Checks that specific typedef exists and is bound to a specific type.
     /// Produces compilation errors if checks fail.
@@ -231,6 +237,7 @@ namespace Detail {
             std::aligned_storage<type_size, alignof(alignment)>::type m_data; \
         public: \
             template <typename ...Args> alias(Args&& ...args) { new (&m_data) value_type(std::forward<Args>(args)...); } \
+            alias() { new (&m_data) value_type(); } \
             alias(alias&& other) noexcept { new(&m_data) value_type(std::move(*reinterpret_cast<value_type*>(&other.m_data))); }\
             alias& operator = (alias&& other) noexcept { if (this == std::addressof(other)) { return *this; } ; *reinterpret_cast<value_type*>(&m_data) = std::move(*reinterpret_cast<value_type*>(&other.m_data)); return *this; } \
             ~alias() { reinterpret_cast<value_type*>(&m_data)->~destructor_name(); } \
@@ -255,13 +262,18 @@ namespace Detail {
     /// @param type_name Struct name.
     #define ASPOSECPP_3RD_PARTY_STRUCT(type_name) struct type_name;
 
+    /// Forward declares enum class without explicit underlying type.
+    /// @param type_name Enum name.
+    #define ASPOSECPP_3RD_PARTY_ENUM_CLASS_WITHOUT_UNDERLYING(type_name) enum class type_name;
     /// Forward declares enum with specific underlying type.
     /// @param type_name Enum name.
     /// @param underlying Enum underlying type.
     #define ASPOSECPP_3RD_PARTY_ENUM_WITH_UNDERLYING(type_name, underlying) enum type_name : underlying;
+    #define ASPOSECPP_3RD_PARTY_ENUM_CLASS_WITH_UNDERLYING(type_name, underlying) enum class type_name : underlying;
     /// Forward declares enum with default underlying type.
     /// @param type_name Enum name.
     #define ASPOSECPP_3RD_PARTY_ENUM(type_name) ASPOSECPP_3RD_PARTY_ENUM_WITH_UNDERLYING(type_name, std::underlying_type<::Detail::empty_enum>::type);
+    #define ASPOSECPP_3RD_PARTY_ENUM_CLASS(type_name) ASPOSECPP_3RD_PARTY_ENUM_CLASS_WITH_UNDERLYING(type_name, std::underlying_type<::Detail::empty_enum_class>::type);
 
     /// Introduces typedef.
     /// @param name Typedef name.
@@ -384,43 +396,47 @@ namespace Detail
     >
     struct AssertedFitter
     {
-        static constexpr To convert(From value)
+        static constexpr typename std::remove_cv<typename std::remove_reference<To>::type>::type convert(From value)
         {
-            return static_cast<To>(value);
+            return static_cast<typename std::remove_cv<typename std::remove_reference<To>::type>::type>(value);
         }
     };
     template <typename From, typename To>
     struct AssertedFitter<From, To, true, true>
     {
-        static constexpr To convert(From value)
+        static constexpr typename std::remove_cv<typename std::remove_reference<To>::type>::type convert(From value)
         {
-            assert(value >= static_cast<From>(std::numeric_limits<From>::min()));
-            assert(value <= static_cast<From>(std::numeric_limits<From>::max()));
-            return static_cast<To>(value);
+            assert(value >= static_cast<typename std::remove_cv<typename std::remove_reference<From>::type>::type>((std::numeric_limits<typename std::remove_cv<typename std::remove_reference<From>::type>::type>::min)()));
+            assert(value <= static_cast<typename std::remove_cv<typename std::remove_reference<From>::type>::type>((std::numeric_limits<typename std::remove_cv<typename std::remove_reference<From>::type>::type>::max)()));
+            return static_cast<typename std::remove_cv<typename std::remove_reference<To>::type>::type>(value);
         }
     };
     template <typename From, typename To>
     struct AssertedFitter<From, To, true, false>
     {
-        static constexpr To convert(From value)
+        static constexpr typename std::remove_cv<typename std::remove_reference<To>::type>::type convert(From value)
         {
-            assert(value >= static_cast<From>(std::numeric_limits<From>::min()));
-            return static_cast<To>(value);
+            assert(value >= static_cast<typename std::remove_cv<typename std::remove_reference<From>::type>::type>((std::numeric_limits<typename std::remove_cv<typename std::remove_reference<From>::type>::type>::min)()));
+            return static_cast<typename std::remove_cv<typename std::remove_reference<To>::type>::type>(value);
         }
     };
     template <typename From, typename To>
     struct AssertedFitter<From, To, false, true>
     {
-        static constexpr To convert(From value)
+        static constexpr typename std::remove_cv<typename std::remove_reference<To>::type>::type convert(From value)
         {
-            assert(value <= static_cast<From>(std::numeric_limits<From>::max()));
-            return static_cast<To>(value);
+            assert(value <= static_cast<typename std::remove_cv<typename std::remove_reference<From>::type>::type>((std::numeric_limits<typename std::remove_cv<typename std::remove_reference<From>::type>::type>::max)()));
+            return static_cast<typename std::remove_cv<typename std::remove_reference<To>::type>::type>(value);
         }
     };
 }
 
+#if defined(OPTIMIZE_ALL)
+    #define ASPOSECPP_NO_CHECKED_CASTS
+#endif
+
 #if (defined(DEBUG) || defined(_DEBUG)) && !defined(ASPOSECPP_NO_CHECKED_CASTS)
-    #define ASPOSECPP_CHECKED_CAST(to, value) ::Detail::AssertedFitter<decltype(value), to>::convert(value)
+    #define ASPOSECPP_CHECKED_CAST(to, value) (::Detail::AssertedFitter<decltype(value), to>::convert(value))
 #else
     #define ASPOSECPP_CHECKED_CAST(to, value) static_cast<to>(value)
 #endif

@@ -20,16 +20,16 @@ namespace Aspose { namespace Pdf { class TextStamp; } }
 namespace Aspose { namespace Pdf { namespace Text { class TextParagraph; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Text { class TextParagraphAbsorberTests; } } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v17_12; } } }
-namespace Aspose { namespace Pdf { namespace Text { class TextFormattingOptions; } } }
-namespace Aspose { namespace Pdf { namespace Text { class TabStops; } } }
-namespace Aspose { namespace Pdf { class Matrix; } }
 namespace Aspose { namespace Pdf { namespace Text { enum class TextRenderingMode; } } }
-namespace Aspose { namespace Pdf { class Color; } }
 namespace Aspose { namespace Pdf { namespace Text { enum class FontStyles; } } }
-namespace Aspose { namespace Pdf { namespace Text { class Font; } } }
 namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
 namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { enum class CoordinateOrigin; } } } } } }
+namespace Aspose { namespace Pdf { namespace Text { class TextFormattingOptions; } } }
+namespace Aspose { namespace Pdf { namespace Text { class TabStops; } } }
+namespace Aspose { namespace Pdf { class Matrix; } }
+namespace Aspose { namespace Pdf { class Color; } }
+namespace Aspose { namespace Pdf { namespace Text { class Font; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class TextSegmenter; } } } } } }
 
 namespace Aspose {
@@ -97,59 +97,59 @@ class ASPOSE_PDF_SHARED_API TextFragmentState FINAL : public Aspose::Pdf::Text::
 public:
 
     /// <summary>
-    /// Gets or sets character spacing of the text, represented by the <see cref="TextFragment"/> object.
+    /// Gets character spacing of the text, represented by the <see cref="TextFragment"/> object.
     /// </summary>
     virtual float get_CharacterSpacing();
     /// <summary>
-    /// Gets or sets character spacing of the text, represented by the <see cref="TextFragment"/> object.
+    /// Sets character spacing of the text, represented by the <see cref="TextFragment"/> object.
     /// </summary>
     virtual void set_CharacterSpacing(float value);
     /// <summary>
-    /// Gets or sets horizontal scaling of the text, represented by the <see cref="TextFragment"/> object.
+    /// Gets horizontal scaling of the text, represented by the <see cref="TextFragment"/> object.
     /// </summary>
     virtual float get_HorizontalScaling();
     /// <summary>
-    /// Gets or sets horizontal scaling of the text, represented by the <see cref="TextFragment"/> object.
+    /// Sets horizontal scaling of the text, represented by the <see cref="TextFragment"/> object.
     /// </summary>
     virtual void set_HorizontalScaling(float value);
     /// <summary>
-    /// Gets or sets word spacing of the text.
+    /// Gets word spacing of the text.
     /// </summary>
     virtual float get_WordSpacing();
     /// <summary>
-    /// Gets or sets word spacing of the text.
+    /// Sets word spacing of the text.
     /// </summary>
     virtual void set_WordSpacing(float value);
     /// <summary>
-    /// Gets or sets invisibility of the text.
+    /// Gets invisibility of the text.
     /// </summary>
     virtual bool get_Invisible();
     /// <summary>
-    /// Gets or sets invisibility of the text.
+    /// Sets invisibility of the text.
     /// </summary>
     virtual void set_Invisible(bool value);
     /// <summary>
-    /// Gets or sets rendering mode of the text.
+    /// Gets rendering mode of the text.
     /// </summary>
     virtual TextRenderingMode get_RenderingMode();
     /// <summary>
-    /// Gets or sets rendering mode of the text.
+    /// Sets rendering mode of the text.
     /// </summary>
     virtual void set_RenderingMode(TextRenderingMode value);
     /// <summary>
-    /// Gets or sets subscript of the text, represented by the <see cref="TextFragment"/> object.
+    /// Gets subscript of the text, represented by the <see cref="TextFragment"/> object.
     /// </summary>
     virtual bool get_Subscript();
     /// <summary>
-    /// Gets or sets subscript of the text, represented by the <see cref="TextFragment"/> object.
+    /// Sets subscript of the text, represented by the <see cref="TextFragment"/> object.
     /// </summary>
     virtual void set_Subscript(bool value);
     /// <summary>
-    /// Gets or sets superscript of the text, represented by the <see cref="TextFragment"/> object.
+    /// Gets superscript of the text, represented by the <see cref="TextFragment"/> object.
     /// </summary>
     virtual bool get_Superscript();
     /// <summary>
-    /// Gets or sets superscript of the text, represented by the <see cref="TextFragment"/> object.
+    /// Sets superscript of the text, represented by the <see cref="TextFragment"/> object.
     /// </summary>
     virtual void set_Superscript(bool value);
     /// <summary>
@@ -161,7 +161,7 @@ public:
     /// </remarks>
     System::SharedPtr<Aspose::Pdf::Text::TabStops> get_TabStops();
     /// <summary>
-    /// Gets or sets line spacing of the text.
+    /// Gets line spacing of the text.
     /// </summary>
     /// <remarks>
     /// Note that the value is not preserved as a text characteristic within the document.
@@ -171,7 +171,7 @@ public:
     /// </remarks>
     virtual float get_LineSpacing();
     /// <summary>
-    /// Gets or sets line spacing of the text.
+    /// Sets line spacing of the text.
     /// </summary>
     /// <remarks>
     /// Note that the value is not preserved as a text characteristic within the document.
@@ -181,19 +181,19 @@ public:
     /// </remarks>
     virtual void set_LineSpacing(float value);
     /// <summary>
-    /// Gets or sets foreground color of the text, represented by the <see cref="TextFragment"/> object
+    /// Gets foreground color of the text, represented by the <see cref="TextFragment"/> object
     /// </summary>
     virtual System::SharedPtr<Color> get_ForegroundColor();
     /// <summary>
-    /// Gets or sets foreground color of the text, represented by the <see cref="TextFragment"/> object
+    /// Sets foreground color of the text, represented by the <see cref="TextFragment"/> object
     /// </summary>
     virtual void set_ForegroundColor(System::SharedPtr<Color> value);
     /// <summary>
-    /// Gets or sets color stroking operations of <see cref="TextFragment"/> rendering (stroke text, rectangle border)
+    /// Gets color stroking operations of <see cref="TextFragment"/> rendering (stroke text, rectangle border)
     /// </summary>
     virtual System::SharedPtr<Color> get_StrokingColor();
     /// <summary>
-    /// Gets or sets color stroking operations of <see cref="TextFragment"/> rendering (stroke text, rectangle border)
+    /// Sets color stroking operations of <see cref="TextFragment"/> rendering (stroke text, rectangle border)
     /// </summary>
     virtual void set_StrokingColor(System::SharedPtr<Color> value);
     /// <summary>
@@ -205,11 +205,11 @@ public:
     /// </summary>
     virtual void set_BackgroundColor(System::SharedPtr<Color> value);
     /// <summary>
-    /// Gets or sets underline for the text, represented by the <see cref="TextFragment"/> object
+    /// Gets underline for the text, represented by the <see cref="TextFragment"/> object
     /// </summary>
     virtual bool get_Underline();
     /// <summary>
-    /// Gets or sets underline for the text, represented by the <see cref="TextFragment"/> object
+    /// Sets underline for the text, represented by the <see cref="TextFragment"/> object
     /// </summary>
     virtual void set_Underline(bool value);
     /// <summary>
@@ -221,23 +221,23 @@ public:
     /// </summary>
     virtual void set_FontStyle(FontStyles value);
     /// <summary>
-    /// Gets or sets font of the text, represented by the <see cref="TextFragment"/> object
+    /// Gets font of the text, represented by the <see cref="TextFragment"/> object
     /// </summary>
     virtual System::SharedPtr<Aspose::Pdf::Text::Font> get_Font();
     /// <summary>
-    /// Gets or sets font of the text, represented by the <see cref="TextFragment"/> object
+    /// Sets font of the text, represented by the <see cref="TextFragment"/> object
     /// </summary>
     virtual void set_Font(System::SharedPtr<Aspose::Pdf::Text::Font> value);
     /// <summary>
-    /// Gets or sets font size of the text, represented by the <see cref="TextFragment"/> object
+    /// Gets font size of the text, represented by the <see cref="TextFragment"/> object
     /// </summary>
     virtual float get_FontSize();
     /// <summary>
-    /// Gets or sets font size of the text, represented by the <see cref="TextFragment"/> object
+    /// Sets font size of the text, represented by the <see cref="TextFragment"/> object
     /// </summary>
     virtual void set_FontSize(float value);
     /// <summary>
-    /// Gets or sets horizontal alignment for the text. 
+    /// Gets horizontal alignment for the text. 
     /// </summary>
     /// <remarks>
     /// HorizontalAlignment.None is equal to HorizontalAlignment.Left.
@@ -246,7 +246,7 @@ public:
     /// </remarks>
     virtual Aspose::Pdf::HorizontalAlignment get_HorizontalAlignment();
     /// <summary>
-    /// Gets or sets horizontal alignment for the text. 
+    /// Sets horizontal alignment for the text. 
     /// </summary>
     /// <remarks>
     /// HorizontalAlignment.None is equal to HorizontalAlignment.Left.
@@ -255,21 +255,21 @@ public:
     /// </remarks>
     virtual void set_HorizontalAlignment(Aspose::Pdf::HorizontalAlignment value);
     /// <summary>
-    /// Gets or sets formatting options.
+    /// Gets formatting options.
     /// Setting of the options will be effective in generator scenarios only.
     /// </summary>
     System::SharedPtr<TextFormattingOptions> get_FormattingOptions();
     /// <summary>
-    /// Gets or sets formatting options.
+    /// Sets formatting options.
     /// Setting of the options will be effective in generator scenarios only.
     /// </summary>
     void set_FormattingOptions(System::SharedPtr<TextFormattingOptions> value);
     /// <summary>
-    /// Gets or sets rotation angle in degrees.
+    /// Gets rotation angle in degrees.
     /// </summary>
     double get_Rotation();
     /// <summary>
-    /// Gets or sets rotation angle in degrees.
+    /// Sets rotation angle in degrees.
     /// </summary>
     void set_Rotation(double value);
     bool get_DrawTextRectangleBorder();
@@ -345,7 +345,7 @@ protected:
     /// </remarks>
     void set_TabStops(System::SharedPtr<Aspose::Pdf::Text::TabStops> value);
     /// <summary>
-    /// Gets or sets vertical alignment for the text inside paragrph's <see cref="Rectangle"/>. 
+    /// Gets vertical alignment for the text inside paragrph's <see cref="Rectangle"/>. 
     /// </summary>
     /// <remarks>
     /// VerticalAlignment.None is equal to VerticalAlignment.Bottom.
@@ -354,7 +354,7 @@ protected:
     /// </remarks>
     virtual Aspose::Pdf::VerticalAlignment get_VerticalAlignment();
     /// <summary>
-    /// Gets or sets vertical alignment for the text inside paragrph's <see cref="Rectangle"/>. 
+    /// Sets vertical alignment for the text inside paragrph's <see cref="Rectangle"/>. 
     /// </summary>
     /// <remarks>
     /// VerticalAlignment.None is equal to VerticalAlignment.Bottom.

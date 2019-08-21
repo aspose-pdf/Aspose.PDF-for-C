@@ -1,10 +1,10 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-// C# preprocessor directive: #if !(NET40CP || NET35CP || NETCORE) 
+// C# preprocessor directive: #if !(NET40CP || NET35CP || NETCORE)
 
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
 #include <system/string.h>
@@ -18,9 +18,9 @@
 #include "aspose_pdf_api_defs.h"
 
 namespace Aspose { namespace Pdf { enum class PdfFormat; } }
+namespace Aspose { namespace Pdf { enum class NumberingStyle; } }
 namespace Aspose { namespace Pdf { enum class ContentDisposition; } }
 namespace Aspose { namespace Pdf { class SaveOptions; } }
-namespace Aspose { namespace Pdf { enum class NumberingStyle; } }
 namespace Aspose { namespace Pdf { namespace Facades { class Stamp; } } }
 namespace Aspose { namespace Pdf { namespace Facades { class FormattedText; } } }
 namespace Aspose { namespace Pdf { class Document; } }
@@ -57,13 +57,13 @@ public:
     static const int32_t PosUpperLeft;
     
     /// <summary>
-    /// Gets or sets optimization flag. Equal resource streams in resultant file are merged into one PDF object if this flag set. 
+    /// Gets optimization flag. Equal resource streams in resultant file are merged into one PDF object if this flag set. 
     /// This allows to decrease resultant file size but may cause slower execution and larger memory requirements.
     /// Default value: false.
     /// </summary>
     bool get_OptimizeSize();
     /// <summary>
-    /// Gets or sets optimization flag. Equal resource streams in resultant file are merged into one PDF object if this flag set. 
+    /// Sets optimization flag. Equal resource streams in resultant file are merged into one PDF object if this flag set. 
     /// This allows to decrease resultant file size but may cause slower execution and larger memory requirements.
     /// Default value: false.
     /// </summary>
@@ -77,43 +77,43 @@ public:
     /// </summary>
     void set_KeepSecurity(bool value);
     /// <summary>
-    /// Gets or sets name and path of input file.
+    /// Gets name and path of input file.
     /// </summary>
     System::String get_InputFile();
     /// <summary>
-    /// Gets or sets name and path of input file.
+    /// Sets name and path of input file.
     /// </summary>
     void set_InputFile(System::String value);
     /// <summary>
-    /// Gets or sets input stream.
+    /// Gets input stream.
     /// </summary>
     System::SharedPtr<System::IO::Stream> get_InputStream();
     /// <summary>
-    /// Gets or sets input stream.
+    /// Sets input stream.
     /// </summary>
     void set_InputStream(System::SharedPtr<System::IO::Stream> value);
     /// <summary>
-    /// Gets or sets name and path of output file.
+    /// Gets name and path of output file.
     /// </summary>
     System::String get_OutputFile();
     /// <summary>
-    /// Gets or sets name and path of output file.
+    /// Sets name and path of output file.
     /// </summary>
     void set_OutputFile(System::String value);
     /// <summary>
-    /// Gets or sets output stream.
+    /// Gets output stream.
     /// </summary>
     System::SharedPtr<System::IO::Stream> get_OutputStream();
     /// <summary>
-    /// Gets or sets output stream.
+    /// Sets output stream.
     /// </summary>
     void set_OutputStream(System::SharedPtr<System::IO::Stream> value);
     /// <summary>
-    /// Gets or sets rotation of page number. Rotation  is in degrees. Default is 0.
+    /// Gets rotation of page number. Rotation  is in degrees. Default is 0.
     /// </summary>
     float get_PageNumberRotation();
     /// <summary>
-    /// Gets or sets rotation of page number. Rotation  is in degrees. Default is 0.
+    /// Sets rotation of page number. Rotation  is in degrees. Default is 0.
     /// </summary>
     void set_PageNumberRotation(float value);
     /// <summary>
@@ -144,7 +144,7 @@ public:
     /// </example>
     float get_PageWidth();
     /// <summary>
-    /// Gets or sets starting number for first page in input file. Next pages will be numbered starting from this value. 
+    /// Gets starting number for first page in input file. Next pages will be numbered starting from this value. 
     /// For example if  StartingNumber is set to 100, document pages will have numbers 100, 101, 102... 
     /// </summary>
     /// <example>
@@ -157,7 +157,7 @@ public:
     /// </example>
     int32_t get_StartingNumber();
     /// <summary>
-    /// Gets or sets starting number for first page in input file. Next pages will be numbered starting from this value. 
+    /// Sets starting number for first page in input file. Next pages will be numbered starting from this value. 
     /// For example if  StartingNumber is set to 100, document pages will have numbers 100, 101, 102... 
     /// </summary>
     /// <example>
@@ -170,11 +170,11 @@ public:
     /// </example>
     void set_StartingNumber(int32_t value);
     /// <summary>
-    /// Gets or sets pabge numbering style. Possible values: NumeralsArabic, NumeralsRomanUppercase, NumeralsRomanLowercase, LettersAppercase, LettersLowercase
+    /// Gets pabge numbering style. Possible values: NumeralsArabic, NumeralsRomanUppercase, NumeralsRomanLowercase, LettersAppercase, LettersLowercase
     /// </summary>
     Aspose::Pdf::NumberingStyle get_NumberingStyle();
     /// <summary>
-    /// Gets or sets pabge numbering style. Possible values: NumeralsArabic, NumeralsRomanUppercase, NumeralsRomanLowercase, LettersAppercase, LettersLowercase
+    /// Sets pabge numbering style. Possible values: NumeralsArabic, NumeralsRomanUppercase, NumeralsRomanLowercase, LettersAppercase, LettersLowercase
     /// </summary>
     void set_NumberingStyle(Aspose::Pdf::NumberingStyle value);
     /// <summary>
@@ -186,39 +186,39 @@ public:
     /// </summary>
     void set_StampId(int32_t value);
     /// <summary>
-    /// Gets or sets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
+    /// Gets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
     /// Default: inline.
     /// </summary>
     Aspose::Pdf::ContentDisposition get_ContentDisposition();
     /// <summary>
-    /// Gets or sets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
+    /// Sets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
     /// Default: inline.
     /// </summary>
     void set_ContentDisposition(Aspose::Pdf::ContentDisposition value);
     /// <summary>
-    /// Gets or sets Response object where result of operation will be stored.
+    /// Gets Response object where result of operation will be stored.
     /// </summary>
     System::SharedPtr<System::Web::HttpResponse> get_Response();
     /// <summary>
-    /// Gets or sets Response object where result of operation will be stored.
+    /// Sets Response object where result of operation will be stored.
     /// </summary>
     void set_Response(System::SharedPtr<System::Web::HttpResponse> value);
     /// <summary>
-    /// Gets or sets save options when result is stored as HttpResponse.
+    /// Gets save options when result is stored as HttpResponse.
     /// Default value: PdfSaveOptions. 
     /// </summary>
     System::SharedPtr<Aspose::Pdf::SaveOptions> get_SaveOptions();
     /// <summary>
-    /// Gets or sets save options when result is stored as HttpResponse.
+    /// Sets save options when result is stored as HttpResponse.
     /// Default value: PdfSaveOptions. 
     /// </summary>
     void set_SaveOptions(System::SharedPtr<Aspose::Pdf::SaveOptions> value);
     /// <summary>
-    /// Gets or sets name of attachment when result of operation is stored into HttpResponse objects as attachment.
+    /// Gets name of attachment when result of operation is stored into HttpResponse objects as attachment.
     /// </summary>
     System::String get_AttachmentName();
     /// <summary>
-    /// Gets or sets name of attachment when result of operation is stored into HttpResponse objects as attachment.
+    /// Sets name of attachment when result of operation is stored into HttpResponse objects as attachment.
     /// </summary>
     void set_AttachmentName(System::String value);
     

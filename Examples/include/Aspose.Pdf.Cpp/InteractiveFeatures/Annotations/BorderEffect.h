@@ -28,13 +28,13 @@ enum class BorderEffect
 };
 
 
-// C# preprocessor directive: #if __cplusplus 
+// C# preprocessor directive: #if __cplusplus
 
 
-// C# preprocessor directive: #else 
+// C# preprocessor directive: #else
 
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 class ASPOSE_PDF_SHARED_API BorderEffectConverter : public System::Object
 {

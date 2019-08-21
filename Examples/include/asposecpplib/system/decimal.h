@@ -6,8 +6,10 @@
 #include <system/object.h>
 #include <system/string.h>
 #include <system/midpoint_rounding.h>
-#include <system/globalization/number_style.h>
+#include <system/globalization/number_styles.h>
+#include <system/globalization/culture_info.h>
 #include <system/boxable_traits.h>
+#include <system/type_code.h>
 
 #include <string>
 #include <limits>
@@ -40,6 +42,8 @@ namespace System {
     /// The number of digits in the largest decimal number that can be reprsented by Decimal class. 
     #define ASPOSE_CPP_DECIMAL_DIGITS 29
 #endif
+
+class IFormatProvider;
 
 namespace Detail {
     /// An alias for a type used to represent a decimal number.
@@ -119,13 +123,8 @@ public:
     /// @param d The double-precision floating-point value to be represented by the Decimal object being constructed
     ASPOSECPP_SHARED_API Decimal(double d);
 
-    /// Constructs an instance that represents 0.
-    ASPOSECPP_SHARED_API Decimal(std::nullptr_t);
-
     /// Constructs an instance that represents a value whose string representation is specified as an instance of std::string class.
-    ASPOSECPP_SHARED_API Decimal(const std::string& str);
-    /// Constructs an instance that represents a value whose string representation is specified as an instance of String class.
-    ASPOSECPP_SHARED_API Decimal(const String& str);
+    ASPOSECPP_SHARED_API explicit Decimal(const std::string& str);
     /// Constructs a Decimal object from the specified from the specified components.
     /// @param lo The low 32 bits of the value
     /// @param mid The middel 32 bits of the value
@@ -139,6 +138,8 @@ public:
     /// Constructs an instance of Decimal class from integer array containing a binary representation.
     /// @param bits A integer array containing a binary representation.
     ASPOSECPP_SHARED_API Decimal(ArrayPtr<int32_t> bits);
+    /// Always throws ArgumentNullException.
+    ASPOSECPP_SHARED_API Decimal(std::nullptr_t bits);
     /// Destructor
     ASPOSECPP_SHARED_API ~Decimal();
 
@@ -264,6 +265,10 @@ public:
     /// @param d The Decimal object to compare the current object with
     /// @returns True if the value represented by the current and the specified objects are equal, otherwise - false
     ASPOSECPP_SHARED_API bool Equals(const Decimal& d) const;
+    /// Determines if the values represented by the current object and the specified object are equal.
+    /// @param obj The object to compare the current object with
+    /// @returns True if the value represented by the current and the specified objects are equal, otherwise - false
+    ASPOSECPP_SHARED_API bool Equals(const SharedPtr<Object>& obj) const;
     /// Determines if the value represented by the current object is less than, equal to or greater than the value represented by the specified object.
     /// @param d The comparand
     /// @returns -1 if the value represented by the current object is less than the value represented by @p d; 0 if the values are equal; 1 if the value represented by the current object is greater than the value represented by @p d
@@ -272,6 +277,26 @@ public:
     ASPOSECPP_SHARED_API int GetHashCode() const;
     /// Returns the string representation of the value represented by the object.
     ASPOSECPP_SHARED_API String ToString() const;
+
+    /// Converts current object to string using the culture-specific format information.
+    /// @param provider The IFormatProvider object providing the culture-specific format information.
+    /// @returns The string representation of the current object.
+    ASPOSECPP_SHARED_API String ToString(const SharedPtr<IFormatProvider>& provider) const;
+    // Optimized function overloads
+    ASPOSECPP_SHARED_API String ToString(const SharedPtr<Globalization::CultureInfo>& culture) const;
+    ASPOSECPP_SHARED_API String ToString(const SharedPtr<Globalization::NumberFormatInfo>& nfi) const;
+    String ToString(const Decimal& value, std::nullptr_t) const { return ToString(); }
+
+    /// Converts current object to its string representation using the specified string format 
+    /// and culture-specific format information provided by the specified IFormatProvider object.
+    /// @param format The string format.
+    /// @param provider The IFormatProvider object providing the culture-specific format information.
+    /// @returns The string representation of the current object.
+    ASPOSECPP_SHARED_API String ToString(const String& format, const SharedPtr<IFormatProvider>& provider) const;
+    // Optimized function overloads
+    ASPOSECPP_SHARED_API String ToString(const String& format, const SharedPtr<Globalization::CultureInfo>& culture) const;
+    ASPOSECPP_SHARED_API String ToString(const String& format, const SharedPtr<Globalization::NumberFormatInfo>& nfi) const;
+    ASPOSECPP_SHARED_API String ToString(const String& format, std::nullptr_t = nullptr) const;
 
     // static methods
     /// Rounds the specified value to the nearest integral number.
@@ -313,14 +338,37 @@ public:
     /// @returns -1 if the value represented by @p d1 is less than the value represented by @p d2; 0 if the values are equal; 1 if the value represented by @p d1 is greater than the value represented by @p d2
     static int Compare(Decimal d1, Decimal d2) { return d1.CompareTo(d2); }
     /// Converts the string representation of a decimal number into an equivalent instance of Decimal class.
-    /// @param str The string representation of a number
+    /// @param s The string representation of a number
     /// @returns A new instance of Decimal class repsenting a value equivalent to that represented by the specified string.
-    static Decimal Parse(const String& str) { return Decimal(str); }
+    static ASPOSECPP_SHARED_API Decimal Parse(const String& s);
     /// Converts the string representation of a decimal number into an equivalent instance of Decimal class using the specified style.
     /// @param s The string representation of a decimal value to convert
-    /// @param style A bitwise combination of the enumeration values that provides additional information about @p s, about style elements that may be present in @p s, or about the conversion from @p s to a Decimal object
+    /// @param styles A bitwise combination of the enumeration values that provides additional information about @p s, about style elements that may be present in @p s, or about the conversion from @p s to a Decimal object
     /// @returns A new instance of Decimal class repsenting a value equivalent to that represented by the specified string
-    static ASPOSECPP_SHARED_API Decimal Parse(const String& s, System::Globalization::NumberStyles style);
+    static ASPOSECPP_SHARED_API Decimal Parse(const String& s, Globalization::NumberStyles styles);
+    /// Converts the string representation of a decimal number into an equivalent instance of Decimal class using the specified format provider.
+    /// @param s The string representation of a decimal value to convert
+    /// @param provider Format provider
+    /// @returns A new instance of Decimal class repsenting a value equivalent to that represented by the specified string
+    static ASPOSECPP_SHARED_API Decimal Parse(const String& s, const SharedPtr<IFormatProvider>& provider);
+    /// Converts the string representation of a decimal number into an equivalent instance of Decimal class using the specified style and format provider.
+    /// @param s The string representation of a decimal value to convert
+    /// @param styles A bitwise combination of the enumeration values that provides additional information about @p s, about style elements that may be present in @p s, or about the conversion from @p s to a Decimal object
+    /// @param provider Format provider
+    /// @returns A new instance of Decimal class repsenting a value equivalent to that represented by the specified string
+    static ASPOSECPP_SHARED_API Decimal Parse(const String& s, Globalization::NumberStyles styles, const SharedPtr<IFormatProvider>& provider);
+    /// Converts the specified string containing the string representation of a number to the equivalent Decimal value.
+    /// @param value The string to convert
+    /// @param result The reference to a Decimal variable where the result of the conversion is put
+    /// @returns True if the conversion succeeded, otherwise - false
+    static ASPOSECPP_SHARED_API bool TryParse(const String& value, Decimal& result);
+    /// Converts the specified string containing the string representation of a number to the equivalent Decimal value using the provided formatting information and number style.
+    /// @param value The string to convert
+    /// @param styles A bitwise combination of values of NumberStyles enum that specifies the permitted style of the string representation of a number
+    /// @param provider A pointer to an object that contains the string format information
+    /// @param result An output argument; contains the result of conversion
+    /// @returns True if the conversion succeeded, otherwise - false
+    static ASPOSECPP_SHARED_API bool TryParse(const String& value, Globalization::NumberStyles styles, const SharedPtr<IFormatProvider>& provider, Decimal& result);
 
     /// Returns a reference to the TypeInfo object representing the Decimal class' type information.
     static const TypeInfo& Type()
@@ -342,6 +390,66 @@ public:
     /// Constructs an instance of Decimal class representing the specified value.
     /// @param value A constant reference to the value to be represented by the object being constructed
     ASPOSECPP_SHARED_API Decimal(const number_type& value);
+    /// Convert the specified Decimal value to the equivalent OLE currency value.
+    /// NOT IMPLEMENTED.
+    static ASPOSECPP_SHARED_API int64_t ToOACurrency(Decimal value);
+    /// Convert the specified OLE currency value to the equivalent Decimal value.
+    /// NOT IMPLEMENTED.
+    static ASPOSECPP_SHARED_API Decimal FromOACurrency(int64_t currency);
+    /// Gets object type code.
+    TypeCode GetTypeCode() const { return TypeCode::Decimal; }
+    
+    /// Adds two specified Decimal values.
+    /// @param d1 First value.
+    /// @param d2 Decond value.
+    /// @return The sum of @p d1 and @p d2.
+    static Decimal Add(Decimal d1, Decimal d2) { return d1 + d2; }
+    /// Subtracts one specified Decimal value from another.
+    /// @param d1 The minuend.
+    /// @param d2 The subtrahend.
+    /// @return The result of subtracting @p d2 from @p d1.
+    static Decimal Subtract(Decimal d1, Decimal d2) { return d1 - d2; }
+    /// Divides two specified Decimal values.
+    /// @param d1 The dividend.
+    /// @param d2 The divisor.
+    /// @return The result of dividing @p d1 by @p d2.
+    static Decimal Divide(Decimal d1, Decimal d2) { return d1 / d2; }
+    /// Computes the remainder after dividing two Decimal values.
+    /// @param d1 The dividend.
+    /// @param d2 The divisor.
+    /// @return The remainder after dividing @p d1 by @p d2.
+    static Decimal Remainder(Decimal d1, Decimal d2) { return d1 % d2; }
+    /// Multiplies two specified Decimal values.
+    /// @param d1 The multiplicand.
+    /// @param d2 The multiplier.
+    /// @return The result of multiplying @p d1 and @p d2.
+    static Decimal Multiply(Decimal d1, Decimal d2) { return d1 * d2; }
+    /// Returns a new instance of Decimal class that represents a value that results from negation of the value represented by the specified object.
+    static Decimal Negate(Decimal d) { return -d; }
+
+    /// Converts the Decimal value to unsigned 8-bit integer value.
+    static uint8_t ToByte(Decimal value) { return static_cast<uint8_t>(value); }
+    /// Converts the Decimal value to signed 8-bit integer value.
+    static int8_t ToSByte(Decimal value) { return static_cast<int8_t>(value); }
+    /// Converts the Decimal value to unsigned 16-bit integer value.
+    static uint16_t ToUInt16(Decimal value) { return static_cast<uint16_t>(value); }
+    /// Converts the Decimal value to signed 16-bit integer value.
+    static int16_t ToInt16(Decimal value) { return static_cast<int16_t>(value); }
+    /// Converts the Decimal value to unsigned 32-bit integer value.
+    static uint32_t ToUInt32(Decimal value) { return static_cast<uint32_t>(value); }
+    /// Converts the Decimal value to signed 32-bit integer value.
+    static int32_t ToInt32(Decimal value) { return static_cast<int32_t>(value); }
+    /// Converts the Decimal value to unsigned 64-bit integer value.
+    static uint64_t ToUInt64(Decimal value) { return static_cast<uint64_t>(value); }
+    /// Converts the Decimal value to signed 64-bit integer value.
+    static int64_t ToInt64(Decimal value) { return static_cast<int64_t>(value); }
+    /// Converts the Decimal value to single precision floating-point number.
+    static float ToSingle(Decimal value) { return static_cast<float>(value); }
+    /// Converts the Decimal value to double precision floating-point number.
+    static double ToDouble(Decimal value) { return static_cast<double>(value); }
+
+    /// Returns the string representation of the value represented by the object. For internal use.
+    String ToStringInternal() const;
 
 protected:
     /// Converts Decimal value to equivalent C#-styled representation.
@@ -431,7 +539,7 @@ namespace std
         /// @param val Decimal object to hash
         std::size_t operator()(const System::Decimal& val) const
         {
-            return val.GetHashCode();
+            return static_cast<std::size_t>(val.GetHashCode());
         }
     };
 }

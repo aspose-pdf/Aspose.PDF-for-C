@@ -7,11 +7,7 @@
 #include <system/eventargs.h>
 #include <functional>
 
-#ifdef ASPOSE_FOUNDATION_NS
-namespace Aspose { namespace Foundation { namespace Zip {
-#else
 namespace Aspose { namespace Zip {
-#endif
 
 class ZipEntry;
 class ZipFile;
@@ -245,11 +241,7 @@ private:
     ASPOSECPP_SHARED_API ZipErrorEventArgs();
 };
 
-#ifdef ASPOSE_FOUNDATION_NS
-}}} // namespace Aspose::Foundation::Zip
-#else
 }} // namespace Aspose::Zip
-#endif
 
 #endif // _aspose_zip_events_h_
 

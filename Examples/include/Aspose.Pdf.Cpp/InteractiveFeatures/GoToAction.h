@@ -42,11 +42,11 @@ class ASPOSE_PDF_SHARED_API GoToAction : public Aspose::Pdf::Annotations::PdfAct
 public:
 
     /// <summary>
-    /// Gets or sets the destination to jump to.
+    /// Gets the destination to jump to.
     /// </summary>
     virtual System::SharedPtr<IAppointment> get_Destination();
     /// <summary>
-    /// Gets or sets the destination to jump to.
+    /// Sets the destination to jump to.
     /// </summary>
     virtual void set_Destination(System::SharedPtr<IAppointment> value);
     

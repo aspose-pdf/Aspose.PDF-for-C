@@ -24,6 +24,8 @@
 
 /// Forward declaration of SkPath class.
 ASPOSECPP_3RD_PARTY_CLASS(SkPath);
+/// Forward declaration of SkPath class.
+ASPOSECPP_3RD_PARTY_CLASS(SkMatrix);
 /// Forward declaration of SkRect struct.
 ASPOSECPP_3RD_PARTY_STRUCT(SkRect);
 /// Ensures that SkScalar is an alias for float.
@@ -73,20 +75,25 @@ class PathGradientBrush;
 class ASPOSECPP_SHARED_CLASS GraphicsPath : public Object
 {
 public:
-    /// Constructs a new instance of GraphicsPath class.
-    ASPOSECPP_SHARED_API GraphicsPath();
     /// Constructs a new instance of GraphicsPath class with the specified fill mode.
     /// @param fillMode Specifies how the interior of the closed path represented by the object being created
     /// should be filled
-    ASPOSECPP_SHARED_API GraphicsPath(FillMode fillMode);
+    ASPOSECPP_SHARED_API GraphicsPath(FillMode fillMode = FillMode::Alternate);
     /// Constructs a new instance of GraphicsPath object that represents the specified path.
     /// @param pts An array containing the points that specify the path to be represented by the object being created
-    /// @param types An arry containing the values tha specify the types of the corresponding points in @p pts array
-    ASPOSECPP_SHARED_API GraphicsPath(const ArrayPtr<Point>& pts, const ArrayPtr<uint8_t>& types);
+    /// @param types An array containing the values tha specify the types of the corresponding points in @p pts array
+    /// @param fillMode Specifies how the interior of the closed path represented by the object being created
+    /// should be filled
+    ASPOSECPP_SHARED_API GraphicsPath(const ArrayPtr<Point>& pts, const ArrayPtr<uint8_t>& types, FillMode fillMode = FillMode::Alternate);
     /// Constructs a new instance of GraphicsPath object that represents the specified path.
     /// @param pts An array containing the points that specify the path to be represented by the object being created
-    /// @param types An arry containing the values tha specify the types of the corresponding points in @p pts array
-    ASPOSECPP_SHARED_API GraphicsPath(const ArrayPtr<PointF>& pts, const ArrayPtr<uint8_t>& types);
+    /// @param types An array containing the values tha specify the types of the corresponding points in @p pts array
+    /// @param fillMode Specifies how the interior of the closed path represented by the object being created
+    /// should be filled
+    ASPOSECPP_SHARED_API GraphicsPath(const ArrayPtr<PointF>& pts, const ArrayPtr<uint8_t>& types, FillMode fillMode = FillMode::Alternate);
+
+    ASPOSECPP_SHARED_API GraphicsPath(const SkPath& path);
+
     /// Destructor.
     ASPOSECPP_SHARED_API ~GraphicsPath();
 
@@ -345,13 +352,12 @@ public:
     /// Closes all open figures and starts a new one.
     ASPOSECPP_SHARED_API void CloseAllFigures();
 
-    /// Returns a RectangleF object that represents a rectangle that bounds the path represented by the current object.
-    RectangleF GetBounds() const { return GetBounds(nullptr); }
     /// Returns a RectangleF object that represents a rectangle that bounds the path represented by the current object
     /// when it is transformed with the specified matrix.
     /// @param matrix The transform matrix
-    ASPOSECPP_SHARED_API RectangleF GetBounds(const MatrixPtr& matrix) const;
-
+    /// @param pen A Pen to calculate the bounding rectangle.
+    ASPOSECPP_SHARED_API RectangleF GetBounds(const MatrixPtr& matrix = nullptr, const SharedPtr<Pen>& pen = nullptr) const;
+         
     /// Returns a PointF object representing the last point in the path.
     ASPOSECPP_SHARED_API PointF GetLastPoint() const;
 
@@ -361,6 +367,7 @@ public:
     /// Transforms the path represented by the current object by applying the specified transform matrix to it.
     /// @param matrix The transform matrix specifying the transformation
     ASPOSECPP_SHARED_API void Transform(const MatrixPtr& matrix);
+    ASPOSECPP_SHARED_API void Transform(const SkMatrix& matrix);
 
     /// Flattens each curve in the path by converting them into a series of connected lines.
     /// The flatness value of 0.25 is used.
@@ -415,7 +422,6 @@ protected:
     /// within the path represented by the current object.
     Detail::FigureType m_figure_flags = Detail::FigureType::Unknown;
 
-    GraphicsPath(const SkPath& path);
     /// Adds the specified cubic Bezier curve to the path represented by the current object.
     /// @param x1 The X coordinate of the starting point of the curve to add
     /// @param y1 The Y coordinate of the starting point of the curve to add

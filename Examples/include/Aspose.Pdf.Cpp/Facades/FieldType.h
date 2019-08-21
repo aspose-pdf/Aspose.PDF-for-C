@@ -59,7 +59,15 @@ enum class FieldType
     /// <summary>
     /// Image field.
     /// </summary>
-    Image
+    Image,
+    /// <summary>
+    /// Numeric field
+    /// </summary>
+    Numeric,
+    /// <summary>
+    /// Date/time field
+    /// </summary>
+    DateTime
 };
 
 } // namespace Facades
@@ -69,7 +77,7 @@ enum class FieldType
 template<>
 struct EnumMetaInfo<Aspose::Pdf::Facades::FieldType>
 {
-    static const ASPOSE_PDF_SHARED_API std::array<std::pair<Aspose::Pdf::Facades::FieldType, const char_t*>, 11>& values();
+    static const ASPOSE_PDF_SHARED_API std::array<std::pair<Aspose::Pdf::Facades::FieldType, const char_t*>, 13>& values();
 };
 
 

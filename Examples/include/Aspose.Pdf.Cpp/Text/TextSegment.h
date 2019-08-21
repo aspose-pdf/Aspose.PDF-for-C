@@ -22,6 +22,7 @@ namespace Aspose { namespace Pdf { namespace Text { class TextFragment; } } }
 namespace Aspose { namespace Pdf { class PageGenerator; } }
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { namespace Text { class CharInfoCollection; } } }
+namespace Aspose { namespace Pdf { namespace Text { class TextParagraphAbsorber; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextParagraph; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextBuilder; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragmentAbsorber; } } }
@@ -34,11 +35,11 @@ namespace Aspose { namespace Pdf { namespace Tests { namespace Text { class Text
 namespace Aspose { namespace Pdf { namespace Tests { namespace Text { class TextFragmentAbsorberTests; } } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Text { class TextBuilderTests; } } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Text { class TextSegmentTests; } } } }
+namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { namespace Settings { enum class NoCharacterAction; } } } } } } }
 namespace Aspose { namespace Pdf { namespace Text { class Position; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class PhysicalTextSegment; } } } } } }
 namespace Aspose { namespace Pdf { class Hyperlink; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class ITrailerable; } } } }
-namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { namespace Settings { enum class NoCharacterAction; } } } } } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextEditOptions; } } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
 namespace Aspose { namespace Pdf { namespace Text { class Font; } } }
@@ -125,6 +126,7 @@ class ASPOSE_PDF_SHARED_API TextSegment FINAL : public System::Object
     friend class Aspose::Pdf::Document;
     friend class Aspose::Pdf::Text::CharInfoCollection;
     friend class Aspose::Pdf::Text::CharInfoCollection;
+    friend class Aspose::Pdf::Text::TextParagraphAbsorber;
     friend class Aspose::Pdf::Text::TextParagraph;
     friend class Aspose::Pdf::Text::TextBuilder;
     friend class Aspose::Pdf::Text::TextFragmentAbsorber;
@@ -151,15 +153,15 @@ public:
     /// </summary>
     int32_t get_EndCharIndex();
     /// <summary>
-    /// Gets or sets <see cref="string"/> text object that the <see cref="TextSegment"/> object represents.
+    /// Gets <see cref="System::String"/> text object that the <see cref="TextSegment"/> object represents.
     /// </summary>
     System::String get_Text();
     /// <summary>
-    /// Gets or sets <see cref="string"/> text object that the <see cref="TextSegment"/> object represents.
+    /// Sets <see cref="System::String"/> text object that the <see cref="TextSegment"/> object represents.
     /// </summary>
     void set_Text(System::String value);
     /// <summary>
-    /// Gets or sets text state for the text that <see cref="TextSegment"/> object represents.
+    /// Gets text state for the text that <see cref="TextSegment"/> object represents.
     /// </summary>
     /// <remarks>
     /// Provides a way to change following properties of the text:
@@ -171,7 +173,7 @@ public:
     /// </remarks>
     System::SharedPtr<Aspose::Pdf::Text::TextState> get_TextState();
     /// <summary>
-    /// Gets or sets text state for the text that <see cref="TextSegment"/> object represents.
+    /// Sets text state for the text that <see cref="TextSegment"/> object represents.
     /// </summary>
     /// <remarks>
     /// Provides a way to change following properties of the text:
@@ -205,11 +207,11 @@ public:
     /// </summary>
     void set_BaselinePosition(System::SharedPtr<Aspose::Pdf::Text::Position> value);
     /// <summary>
-    /// Gets or sets text edit options. The options define special behavior when requested symbol cannot be written with font.
+    /// Gets text edit options. The options define special behavior when requested symbol cannot be written with font.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Text::TextEditOptions> get_TextEditOptions();
     /// <summary>
-    /// Gets or sets text edit options. The options define special behavior when requested symbol cannot be written with font.
+    /// Sets text edit options. The options define special behavior when requested symbol cannot be written with font.
     /// </summary>
     void set_TextEditOptions(System::SharedPtr<Aspose::Pdf::Text::TextEditOptions> value);
     /// <summary>
@@ -217,11 +219,11 @@ public:
     /// </summary>
     System::SharedPtr<CharInfoCollection> get_Characters();
     /// <summary>
-    /// Gets or sets the segment hyperlink(for pdf generator).
+    /// Gets the segment hyperlink(for pdf generator).
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Hyperlink> get_Hyperlink();
     /// <summary>
-    /// Gets or sets the segment hyperlink(for pdf generator).
+    /// Sets the segment hyperlink(for pdf generator).
     /// </summary>
     void set_Hyperlink(System::SharedPtr<Aspose::Pdf::Hyperlink> value);
     
@@ -312,11 +314,11 @@ protected:
     void set_McId(int32_t value);
     System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Segmenting::PhysicalTextSegment> get_PhysicalSegment();
     /// <summary>
-    /// Gets or sets a segment id.
+    /// Gets a segment id.
     /// </summary>
     System::String get_Id();
     /// <summary>
-    /// Gets or sets a segment id.
+    /// Sets a segment id.
     /// </summary>
     void set_Id(System::String value);
     Aspose::Pdf::Engine::CommonData::Text::Segmenting::Settings::NoCharacterAction get_PhysicalNoCharacterAction();

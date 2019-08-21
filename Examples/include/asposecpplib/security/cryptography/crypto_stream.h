@@ -44,6 +44,8 @@ public:
     ASPOSECPP_SHARED_API void SetLength(int64_t value) override;
     /// Empties buffer into wrapped stream. Does nothing as transform algorithm can be still waiting for more data.
     ASPOSECPP_SHARED_API void Flush() override;
+    /// Writes the data which is still in the buffer to stream. 
+    ASPOSECPP_SHARED_API void FlushFinalBlock();
     /// Seeks position in stream. Not supported.
     /// @throw NotSupportedException Unconditionally as operation is not supported.
     ASPOSECPP_SHARED_API void set_Position(int64_t value) override;

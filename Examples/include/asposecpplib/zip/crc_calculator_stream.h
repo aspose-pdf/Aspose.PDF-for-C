@@ -3,11 +3,7 @@
 
 #include "zip/crc32.h"
 
-#ifdef ASPOSE_FOUNDATION_NS
-namespace Aspose { namespace Foundation { namespace Zip {
-#else
 namespace Aspose { namespace Zip {
-#endif
 
 /// A Stream that calculates a CRC32 (a checksum) on all bytes read,
 /// or on all bytes written.
@@ -61,11 +57,7 @@ private:
     bool m_leaveOpen;
 };
 
-#ifdef ASPOSE_FOUNDATION_NS
-}}} // namespace Aspose::Foundation::Zip
-#else
 }} // namespace Aspose::Zip
-#endif
 
 #endif // _aspose_zip_crc_calculator_stream_h_
 

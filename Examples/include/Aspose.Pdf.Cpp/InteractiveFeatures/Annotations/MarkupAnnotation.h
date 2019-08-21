@@ -3,6 +3,7 @@
 
 #include <xml/xml_writer.h>
 #include <system/date_time.h>
+#include <system/collections/list.h>
 #include <system/collections/dictionary.h>
 
 #include "InteractiveFeatures/Annotations/Annotation.h"
@@ -18,12 +19,15 @@ namespace Aspose { namespace Pdf { namespace Annotations { class PolyAnnotation;
 namespace Aspose { namespace Pdf { namespace Annotations { class SoundAnnotation; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class StampAnnotation; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class TextAnnotation; } } }
-namespace Aspose { namespace Pdf { namespace Annotations { class PopupAnnotation; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class ReplyType; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { class PopupAnnotation; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { class Page; } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
+namespace Aspose { namespace Pdf { class Operator; } }
+namespace Aspose { namespace Pdf { class Point; } }
+namespace Aspose { namespace Pdf { namespace Annotations { enum class LineEnding; } } }
 
 namespace Aspose {
 
@@ -59,19 +63,19 @@ class ASPOSE_PDF_SHARED_API MarkupAnnotation : public Aspose::Pdf::Annotations::
 public:
 
     /// <summary>
-    /// Gets or sets a text that shall be displayed in title bar of annotation.
+    /// Gets a text that shall be displayed in title bar of annotation.
     /// </summary>
     System::String get_Title();
     /// <summary>
-    /// Gets or sets a text that shall be displayed in title bar of annotation.
+    /// Sets a text that shall be displayed in title bar of annotation.
     /// </summary>
     void set_Title(System::String value);
     /// <summary>
-    /// Gets or sets a rich text string to be displayed in the pop-up window when the annotation is opened.
+    /// Gets a rich text string to be displayed in the pop-up window when the annotation is opened.
     /// </summary>
     System::String get_RichText();
     /// <summary>
-    /// Gets or sets a rich text string to be displayed in the pop-up window when the annotation is opened.
+    /// Sets a rich text string to be displayed in the pop-up window when the annotation is opened.
     /// </summary>
     void set_RichText(System::String value);
     /// <summary>
@@ -95,11 +99,11 @@ public:
     /// </summary>
     void set_Popup(System::SharedPtr<PopupAnnotation> value);
     /// <summary>
-    /// Gets or sets the constant opacity value to be used in painting the annotation.
+    /// Gets the constant opacity value to be used in painting the annotation.
     /// </summary>
     double get_Opacity();
     /// <summary>
-    /// Gets or sets the constant opacity value to be used in painting the annotation.
+    /// Sets the constant opacity value to be used in painting the annotation.
     /// </summary>
     void set_Opacity(double value);
     /// <summary>
@@ -160,6 +164,25 @@ protected:
     /// </summary>
     /// <param name="table">Hashtable with information parsed from the XFDF file.</param>
     virtual void ReadXfdfElements(System::SharedPtr<System::Collections::Generic::Dictionary<System::String, System::String>> table);
+    /// <summary>
+    /// Drawes triangle ("arrow") whcih consists of two strokes by angles "angle1" and "angle2" to p1, p2 vector. 
+    /// </summary>
+    /// <param name="p1">First point.</param>
+    /// <param name="p2">Second point.</param>
+    /// <param name="angle1">Angle of first stroke. </param>
+    /// <param name="angle2">Angle of second stroke.</param>
+    /// <param name="closed">Is triangle closed.</param>
+    /// <returns></returns>
+    System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> DrawLines(System::SharedPtr<Point> p1, System::SharedPtr<Point> p2, double angle1, double angle2, bool closed);
+    System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> DrawSlash(System::SharedPtr<Point> p1, System::SharedPtr<Point> p2);
+    System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> DrawButt(System::SharedPtr<Point> p1, System::SharedPtr<Point> p2);
+    double GetEndingRadius();
+    System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> DrawRArrow(System::SharedPtr<Point> p1, System::SharedPtr<Point> p2, bool closed);
+    System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> DrawArrow(System::SharedPtr<Point> p1, System::SharedPtr<Point> p2, bool closed);
+    System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> DrawSquare(System::SharedPtr<Point> p1);
+    System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> DrawDiamond(System::SharedPtr<Point> p1);
+    System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> DrawCircle(System::SharedPtr<Point> p1);
+    System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> DrawLineEnding(System::SharedPtr<Point> ending, System::SharedPtr<Point> starting, LineEnding endingStyle);
     System::Object::shared_members_type GetSharedMembers() override;
     
 private:

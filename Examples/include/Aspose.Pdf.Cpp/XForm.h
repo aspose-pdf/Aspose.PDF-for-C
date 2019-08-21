@@ -159,19 +159,19 @@ class ASPOSE_PDF_SHARED_API XForm FINAL : public Aspose::Pdf::ISupportsMemoryCle
 public:
 
     /// <summary>
-    /// Gets or sets form bounding box.
+    /// Gets form bounding box.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_BBox();
     /// <summary>
-    /// Gets or sets form bounding box.
+    /// Sets form bounding box.
     /// </summary>
     void set_BBox(System::SharedPtr<Aspose::Pdf::Rectangle> value);
     /// <summary>
-    /// Gets or sets form name. Form name is name which used to reference form in XObejct ductionary in page resources.
+    /// Gets form name. Form name is name which used to reference form in XObejct ductionary in page resources.
     /// </summary>
     System::String get_Name();
     /// <summary>
-    /// Gets or sets form name. Form name is name which used to reference form in XObejct ductionary in page resources.
+    /// Sets form name. Form name is name which used to reference form in XObejct ductionary in page resources.
     /// </summary>
     void set_Name(System::String value);
     /// <summary>
@@ -183,11 +183,11 @@ public:
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Opi> get_Opi();
     /// <summary>
-    /// Gets or sets matrix of the form.
+    /// Gets matrix of the form.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Matrix> get_Matrix();
     /// <summary>
-    /// Gets or sets matrix of the form.
+    /// Sets matrix of the form.
     /// </summary>
     void set_Matrix(System::SharedPtr<Aspose::Pdf::Matrix> value);
     /// <summary>
@@ -195,7 +195,7 @@ public:
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Resources> get_Resources();
     /// <summary>
-    /// Gets or sets rectangel of the form.
+    /// Gets rectangel of the form.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_Rectangle();
     

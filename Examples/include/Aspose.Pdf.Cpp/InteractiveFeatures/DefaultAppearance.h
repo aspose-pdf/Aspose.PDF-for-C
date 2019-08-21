@@ -56,11 +56,11 @@ public:
     /// </summary>
     void set_FontSize(double value);
     /// <summary>
-    /// Gets or sets the color of text in the default appearance.
+    /// Gets the color of text in the default appearance.
     /// </summary>
     System::Drawing::Color get_TextColor();
     /// <summary>
-    /// Gets or sets the color of text in the default appearance.
+    /// Sets the color of text in the default appearance.
     /// </summary>
     void set_TextColor(System::Drawing::Color value);
     /// <summary>
@@ -102,11 +102,11 @@ public:
 protected:
 
     /// <summary>
-    /// Gets or sets the color of border in the default appearance.
+    /// Gets the color of border in the default appearance.
     /// </summary>
     System::Drawing::Color get_BorderColor();
     /// <summary>
-    /// Gets or sets the color of border in the default appearance.
+    /// Sets the color of border in the default appearance.
     /// </summary>
     void set_BorderColor(System::Drawing::Color value);
     

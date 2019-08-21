@@ -12,10 +12,10 @@
 
 namespace Aspose { namespace Pdf { class Heading; } }
 namespace Aspose { namespace Pdf { class Document; } }
+namespace Aspose { namespace Pdf { namespace Text { enum class TabLeaderType; } } }
 namespace Aspose { namespace Pdf { class ColumnInfo; } }
 namespace Aspose { namespace Pdf { class LevelFormat; } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragment; } } }
-namespace Aspose { namespace Pdf { namespace Text { enum class TabLeaderType; } } }
 namespace Aspose { namespace Pdf { enum class NumberingStyle; } }
 namespace Aspose { namespace Pdf { namespace Text { class TextSegment; } } }
 
@@ -40,57 +40,57 @@ class ASPOSE_PDF_SHARED_API TocInfo FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets column info.
+    /// Gets column info.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::ColumnInfo> get_ColumnInfo();
     /// <summary>
-    /// Gets or sets column info.
+    /// Sets column info.
     /// </summary>
     void set_ColumnInfo(System::SharedPtr<Aspose::Pdf::ColumnInfo> value);
     /// <summary>
-    /// Gets or sets format array for table of contents.
+    /// Gets format array for table of contents.
     /// </summary>
     System::ArrayPtr<System::SharedPtr<LevelFormat>> get_FormatArray();
     /// <summary>
-    /// Gets or sets format array for table of contents.
+    /// Sets format array for table of contents.
     /// </summary>
     void set_FormatArray(System::ArrayPtr<System::SharedPtr<LevelFormat>> value);
     /// <summary>
-    /// Gets or sets format array length
+    /// Gets format array length
     /// </summary>
     int32_t get_FormatArrayLength();
     /// <summary>
-    /// Gets or sets format array length
+    /// Sets format array length
     /// </summary>
     void set_FormatArrayLength(int32_t value);
     /// <summary>
-    /// Gets or sets table of contents title.
+    /// Gets table of contents title.
     /// </summary>
     System::SharedPtr<Text::TextFragment> get_Title();
     /// <summary>
-    /// Gets or sets table of contents title.
+    /// Sets table of contents title.
     /// </summary>
     void set_Title(System::SharedPtr<Text::TextFragment> value);
     /// <summary>
-    /// Gets or sets is count or passed toc pages.
+    /// Gets is count or passed toc pages.
     /// </summary>
     bool get_IsCountTocPages();
     /// <summary>
-    /// Gets or sets is count or passed toc pages.
+    /// Sets is count or passed toc pages.
     /// </summary>
     void set_IsCountTocPages(bool value);
-    /// Gets or sets is show page numbers at Toc.
+    /// Gets is show page numbers at Toc.
     /// </summary>
     bool get_IsShowPageNumbers();
-    /// Gets or sets is show page numbers at Toc.
+    /// Sets is show page numbers at Toc.
     /// </summary>
     void set_IsShowPageNumbers(bool value);
     /// <summary>
-    /// Gets or sets TOC line dash.
+    /// Gets TOC line dash.
     /// </summary>
     Text::TabLeaderType get_LineDash();
     /// <summary>
-    /// Gets or sets TOC line dash.
+    /// Sets TOC line dash.
     /// </summary>
     void set_LineDash(Text::TabLeaderType value);
     
@@ -106,19 +106,19 @@ protected:
     /// </summary>
     System::SharedPtr<System::Collections::Generic::Dictionary<int32_t, int32_t>> get_AutoNumbers();
     /// <summary>
-    /// Gets or sets TOC pages count(for internal use).
+    /// Gets TOC pages count(for internal use).
     /// </summary>
     int32_t get_PagesCount();
     /// <summary>
-    /// Gets or sets TOC pages count(for internal use).
+    /// Sets TOC pages count(for internal use).
     /// </summary>
     void set_PagesCount(int32_t value);
     /// <summary>
-    /// Gets or sets inserted toc number(for internal use).
+    /// Gets inserted toc number(for internal use).
     /// </summary>
     int32_t get_InsertedTocNumber();
     /// <summary>
-    /// Gets or sets inserted toc number(for internal use).
+    /// Sets inserted toc number(for internal use).
     /// </summary>
     void set_InsertedTocNumber(int32_t value);
     

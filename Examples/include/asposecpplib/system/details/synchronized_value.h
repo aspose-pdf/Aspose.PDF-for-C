@@ -84,8 +84,14 @@ public:
     using synchronized_value_lock_ptr = SynchronizedValueLockPtr<value_data_type, Lockable>;
     using const_synchronized_value_lock_ptr = SynchronizedValueLockPtr<const value_data_type, Lockable>;
 
+    /// Default consturctor.
     SynchronizedValue()
         : m_value()
+    {}
+
+    /// Copy constructor.
+    SynchronizedValue(const SynchronizedValue& other)
+        : m_value(*other.locked_ptr())
     {}
 
     struct DefaultValueTag {};
@@ -109,7 +115,6 @@ public:
         , m_lockable(std::forward<LockableArgs>(args)...)
     {}
 
-    SynchronizedValue(const SynchronizedValue&) = delete;
     SynchronizedValue& operator=(const SynchronizedValue&) = delete;
     
     /// Returns a copy of the protected value.
@@ -133,6 +138,18 @@ public:
     {
         const std::lock_guard<Lockable> lock(m_lockable);
         m_value = std::move(value);
+    }
+
+    SynchronizedValueLockPtr<T, Lockable> locked_ptr()
+    {
+        std::unique_lock<Lockable> lock(m_lockable);
+        return SynchronizedValueLockPtr<T, Lockable>{ &m_value, std::move(lock) };
+    }
+
+    SynchronizedValueLockPtr<const T, Lockable> locked_ptr() const
+    {
+        std::unique_lock<Lockable> lock(m_lockable);
+        return SynchronizedValueLockPtr<const T, Lockable>{ &m_value, std::move(lock) };
     }
 
     /// Gets a locked pointer to the value data.

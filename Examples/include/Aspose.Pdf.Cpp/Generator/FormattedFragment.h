@@ -12,7 +12,9 @@
 #include "Generator/BaseParagraph.h"
 #include "aspose_pdf_api_defs.h"
 
+namespace Aspose { namespace Pdf { class HtmlFragment; } }
 namespace Aspose { namespace Pdf { class PageGenerator; } }
+namespace Aspose { namespace Pdf { class Row; } }
 namespace Aspose { namespace Pdf { class Table; } }
 namespace Aspose { namespace Pdf { class PdfPageInfo; } }
 namespace Aspose { namespace Pdf { class Page; } }
@@ -38,7 +40,9 @@ class ASPOSE_PDF_SHARED_API FormattedFragment : public Aspose::Pdf::BaseParagrap
     RTTI_INFO_DECL();
     
     FRIEND_FUNCTION_System_MakeObject;
+    friend class Aspose::Pdf::HtmlFragment;
     friend class Aspose::Pdf::PageGenerator;
+    friend class Aspose::Pdf::Row;
     friend class Aspose::Pdf::Table;
     
 protected:
@@ -50,6 +54,7 @@ protected:
     void set_PageInfos(System::SharedPtr<System::Collections::Generic::IList<System::SharedPtr<PdfPageInfo>>> value);
     bool get_IsConverted();
     void set_IsConverted(bool value);
+    double get_Height();
     
     FormattedFragment(System::String text);
     

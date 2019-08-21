@@ -4,19 +4,21 @@
 #include <xml/xml_writer.h>
 #include <system/collections/list.h>
 #include <system/array.h>
+#include <drawing/color.h>
 
 #include "InteractiveFeatures/Annotations/MarkupAnnotation.h"
 
 namespace Aspose { namespace Pdf { namespace Annotations { class Annotation; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Annotations { class FreeTextAnnotationTests; } } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class LineEnding; } } }
-namespace Aspose { namespace Pdf { namespace Annotations { class DefaultAppearance; } } }
-namespace Aspose { namespace Pdf { namespace Annotations { class TextStyle; } } }
-namespace Aspose { namespace Pdf { enum class Rotation; } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class Justification; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class FreeTextIntent; } } }
-namespace Aspose { namespace Pdf { class Rectangle; } }
+namespace Aspose { namespace Pdf { enum class Rotation; } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { class DefaultAppearance; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { class TextStyle; } } }
+namespace Aspose { namespace Pdf { class Rectangle; } }
+namespace Aspose { namespace Pdf { class Point; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfArray; } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class ITrailerable; } } } }
 namespace Aspose { namespace Pdf { class Document; } }
@@ -24,6 +26,7 @@ namespace Aspose { namespace Pdf { namespace Annotations { class AnnotationSelec
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { class Page; } }
 namespace Aspose { namespace Pdf { class Operator; } }
+namespace Aspose { namespace Pdf { class XForm; } }
 
 namespace Aspose {
 
@@ -31,6 +34,8 @@ namespace Pdf {
 
 namespace Annotations {
 
+//TODO: 1. RichText value should have priority over simple text (i.e. if RichText is set create appearance should use Rich Text). Should be checked how RichText works with rotations. 
+// 2. fontSize should be used instead of TExtStyle.FontSize, this is more precisely
 /// <summary>
 /// Represents a free text annotation that displays text directly on the page. Unlike an ordinary text annotation, a free text annotation has no open or closed state; instead of being displayed in a pop-up window, the text is always visible.
 /// </summary>
@@ -74,19 +79,21 @@ private:
 public:
 
     /// <summary>
-    /// Gets or sets line ending style for line starting point.
+    /// Gets line ending style for line ending point.
+    /// OThis property is obsolete, please use EndingStyle. 
     /// </summary>
     LineEnding get_StartingStyle();
     /// <summary>
-    /// Gets or sets line ending style for line starting point.
+    /// Sets line ending style for line ending point.
+    /// OThis property is obsolete, please use EndingStyle. 
     /// </summary>
     void set_StartingStyle(LineEnding value);
     /// <summary>
-    /// Gets or sets line ending style for line ending point.
+    /// Gets line ending style for line ending point.
     /// </summary>
     LineEnding get_EndingStyle();
     /// <summary>
-    /// Gets or sets line ending style for line ending point.
+    /// Sets line ending style for line ending point.
     /// </summary>
     void set_EndingStyle(LineEnding value);
     /// <summary>
@@ -98,11 +105,11 @@ public:
     /// </summary>
     void set_Justification(Aspose::Pdf::Annotations::Justification value);
     /// <summary>
-    /// Gets or sets the default appearance string to be used in formatting the text.
+    /// Gets the default appearance string to be used in formatting the text.
     /// </summary>
     System::String get_DefaultAppearance();
     /// <summary>
-    /// Gets or sets the default appearance string to be used in formatting the text.
+    /// Sets the default appearance string to be used in formatting the text.
     /// </summary>
     void set_DefaultAppearance(System::String value);
     /// <summary>
@@ -110,27 +117,27 @@ public:
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Annotations::DefaultAppearance> get_DefaultAppearanceObject();
     /// <summary>
-    /// Gets or sets the intent of the free text annotation.
+    /// Gets the intent of the free text annotation.
     /// </summary>
     FreeTextIntent get_Intent();
     /// <summary>
-    /// Gets or sets the intent of the free text annotation.
+    /// Sets the intent of the free text annotation.
     /// </summary>
     void set_Intent(FreeTextIntent value);
     /// <summary>
-    /// Gets or sets a default style string.
+    /// Gets a default style string.
     /// </summary>
     System::String get_DefaultStyle();
     /// <summary>
-    /// Gets or sets a default style string.
+    /// Sets a default style string.
     /// </summary>
     void set_DefaultStyle(System::String value);
     /// <summary>
-    /// Gets or sets style of the text in appearance. when text style is changed, text appearance is updated.
+    /// Gets style of the text in appearance. when text style is changed, text appearance is updated.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Annotations::TextStyle> get_TextStyle();
     /// <summary>
-    /// Gets or sets style of the text in appearance. when text style is changed, text appearance is updated.
+    /// Sets style of the text in appearance. when text style is changed, text appearance is updated.
     /// </summary>
     void set_TextStyle(System::SharedPtr<Aspose::Pdf::Annotations::TextStyle> value);
     /// <summary>
@@ -145,6 +152,14 @@ public:
     /// Gets type of annotation.
     /// </summary>
     virtual Aspose::Pdf::Annotations::AnnotationType get_AnnotationType();
+    /// <summary>
+    /// Array of point specifying callout line.
+    /// </summary>
+    System::ArrayPtr<System::SharedPtr<Point>> get_Callout();
+    /// <summary>
+    /// Array of point specifying callout line.
+    /// </summary>
+    void set_Callout(System::ArrayPtr<System::SharedPtr<Point>> value);
     
     /// <summary>
     /// Constructor to use with Generator.
@@ -199,7 +214,7 @@ protected:
     /// </summary>
     /// <returns></returns>
     virtual bool AppearanceSupported();
-    virtual void UpdateAppearance(System::SharedPtr<Annotation> annotation);
+    virtual System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> CreateAppearanceProgram(System::SharedPtr<Annotation::AppearanceParameters> parameters, System::SharedPtr<Annotation> annotation);
     virtual void GeneratorUpdateRectangle(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<Rectangle> rect);
     /// <summary>
     /// Create frame.
@@ -230,17 +245,14 @@ private:
     /// Obsolete - to be removed. 
     void SetText(System::String contents);
     /// <summary>
-    /// Draws arrow on the edge of line. Stroke is array with start and end points of the line. 
-    /// </summary>
-    /// <param name="stroke"></param>
-    /// <returns></returns>
-    System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> DrawArrow(System::ArrayPtr<System::ArrayPtr<double>> stroke);
-    /// <summary>
     /// Draws callout line according to CL parameters.
     /// </summary>
     /// <returns></returns>
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> DrawCalloutLine();
     bool IsValidXml(System::String s);
+    System::Drawing::Color GetDefaultStrokeColor();
+    System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> DrawRichText();
+    System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> DrawSimpleText(System::String value, System::SharedPtr<XForm> appearance);
     
 };
 

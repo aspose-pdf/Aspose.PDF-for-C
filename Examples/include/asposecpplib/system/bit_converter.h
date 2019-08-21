@@ -203,6 +203,11 @@ namespace System {
         /// @param value The double-precision floating point value
         /// @returns 64-bit integer value whose binary representation is equal to that of the specified value
         static ASPOSECPP_SHARED_API int64_t DoubleToInt64Bits(double value);
+
+        /// Returns a double-precision floating point value whose value is equivalent to value
+        /// @param value 64-bit integer value whose binary representation is equal to that of the specified value
+        /// @returns The double-precision floating point value
+        static ASPOSECPP_SHARED_API double Int64BitsToDouble(int64_t value);
     };
 
 }

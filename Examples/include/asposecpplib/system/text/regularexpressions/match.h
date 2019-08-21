@@ -9,7 +9,7 @@
 
 // Wrappers for types from 3rd party libraries
 #ifdef ASPOSECPP_SHARED_EXPORTS
-#include "../src/system/text/regularexpressions/details/regex_holders.h"
+#include <regex_holders.h>
 #endif
 
 namespace System { namespace Text { namespace RegularExpressions {
@@ -29,6 +29,9 @@ namespace Detail
         std::unique_ptr<void, void(*)()> p2;
         bool b1;
         std::shared_ptr<int> s1;
+
+        // Explicitly deleting constructor to avoid warnings.
+        DummyMatchHolder() = delete;
     };
 }
 

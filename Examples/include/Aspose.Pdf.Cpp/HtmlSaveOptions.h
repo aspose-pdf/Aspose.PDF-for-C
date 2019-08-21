@@ -1,7 +1,7 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-// C# preprocessor directive: #if !NET11 
+// C# preprocessor directive: #if !NET11
 
 
 #include <system/string.h>
@@ -18,8 +18,8 @@
 
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v11_7; } } }
 namespace Aspose { namespace Pdf { enum class HtmlDocumentType; } }
-namespace Aspose { namespace Pdf { namespace Text { class FontSourceCollection; } } }
 namespace Aspose { namespace Pdf { enum class Direction; } }
+namespace Aspose { namespace Pdf { namespace Text { class FontSourceCollection; } } }
 
 namespace Aspose {
 
@@ -58,7 +58,11 @@ public:
         /// All referenced fonts will be saved (and referenced in CSS) as 3 independent files : EOT, TTH,WOFF.
         ///  It increases size of output data but makes output sutable for overhelming majority of web brawsers 
         /// </summary> 
-        SaveInAllFormats = 3
+        SaveInAllFormats = 3,
+        /// <summary>
+        /// All referenced fonts will not be saved.
+        /// </summary>
+        DontSave = 4
     };
     
     enum class AntialiasingProcessingType
@@ -346,27 +350,28 @@ public:
     System::SharedPtr<SaveOptions::BorderInfo> PageBorderIfAny;
     HtmlSaveOptions::LettersPositioningMethods LettersPositioningMethod;
     System::ArrayPtr<int32_t> ExplicitListOfSavedPages;
+    System::ArrayPtr<System::String> ExcludeFontNameList;
     HtmlSaveOptions::ResourceSavingStrategy CustomResourceSavingStrategy;
     HtmlSaveOptions::CssSavingStrategy CustomCssSavingStrategy;
     HtmlSaveOptions::HtmlPageMarkupSavingStrategy CustomHtmlSavingStrategy;
     HtmlSaveOptions::CssUrlMakingStrategy CustomStrategyOfCssUrlCreation;
     
     /// <summary>
-    /// Gets or sets the <see cref="HtmlDocumentType"/>.
+    /// Gets the <see cref="HtmlDocumentType"/>.
     /// </summary>
     /// <value>
     /// The <see cref="HtmlDocumentType"/>.
     /// </value>
     HtmlDocumentType get_DocumentType();
     /// <summary>
-    /// Gets or sets the <see cref="HtmlDocumentType"/>.
+    /// Sets the <see cref="HtmlDocumentType"/>.
     /// </summary>
     /// <value>
     /// The <see cref="HtmlDocumentType"/>.
     /// </value>
     void set_DocumentType(HtmlDocumentType value);
     /// <summary>
-    /// Gets or sets the flag that indicates whether
+    /// Gets the flag that indicates whether
     /// found SVG graphics(if any) will be compressed(zipped) 
     /// into SVGZ format during saving
     /// </summary>
@@ -375,7 +380,7 @@ public:
     /// </value>
     bool get_CompressSvgGraphicsIfAny();
     /// <summary>
-    /// Gets or sets the flag that indicates whether
+    /// Sets the flag that indicates whether
     /// found SVG graphics(if any) will be compressed(zipped) 
     /// into SVGZ format during saving
     /// </summary>
@@ -419,13 +424,13 @@ public:
     System::String CssClassNamesPrefix;
     
     /// <summary>
-    /// Gets or sets the flag that indicates whether each page of source 
+    /// Gets the flag that indicates whether each page of source 
     /// document will be converted into it's own target HTML document, 
     /// i.e whether result HTML will be splitted into several HTML-pages.
     /// </summary>
     bool get_SplitIntoPages();
     /// <summary>
-    /// Gets or sets the flag that indicates whether each page of source 
+    /// Sets the flag that indicates whether each page of source 
     /// document will be converted into it's own target HTML document, 
     /// i.e whether result HTML will be splitted into several HTML-pages.
     /// </summary>
@@ -437,28 +442,28 @@ public:
     bool RemoveEmptyAreasOnTopAndBottom;
     
     /// <summary>
-    /// Gets or sets a value indicating whether that HTML is created as fixed layout.
+    /// Gets a value indicating whether that HTML is created as fixed layout.
     /// </summary>
     /// <value>
     ///   <c>true</c> if [fixed layout]; otherwise, <c>false</c>.
     /// </value>
     bool get_FixedLayout();
     /// <summary>
-    /// Gets or sets a value indicating whether that HTML is created as fixed layout.
+    /// Sets a value indicating whether that HTML is created as fixed layout.
     /// </summary>
     /// <value>
     ///   <c>true</c> if [fixed layout]; otherwise, <c>false</c>.
     /// </value>
     void set_FixedLayout(bool value);
     /// <summary>
-    /// Gets or sets resolution for image rendering.
+    /// Gets resolution for image rendering.
     /// </summary>
     /// <value>
     ///   Resolution
     /// </value>
     int32_t get_ImageResolution();
     /// <summary>
-    /// Gets or sets resolution for image rendering.
+    /// Sets resolution for image rendering.
     /// </summary>
     /// <value>
     ///   Resolution
@@ -561,6 +566,38 @@ public:
     /// This parameter will be applied to document only when the value of FixedLayout attribute is true.
     /// </summary>
     void set_PreventGlyphsGrouping(bool value);
+    /// <summary>
+    /// For a PDF document with many pages the conversion may take a long time or hang.
+    /// This attribute specifies the number of pages for the batch conversion mode.
+    /// Example: 'ProcessingBatchSize = 20 pages, Pdf.Size = 100 pages'. Aspose.PDF converts 5 times by 20 pages to one HTLM file.
+    /// </summary>
+    int32_t get_ProcessingBatchSize();
+    /// <summary>
+    /// For a PDF document with many pages the conversion may take a long time or hang.
+    /// This attribute specifies the number of pages for the batch conversion mode.
+    /// Example: 'ProcessingBatchSize = 20 pages, Pdf.Size = 100 pages'. Aspose.PDF converts 5 times by 20 pages to one HTLM file.
+    /// </summary>
+    void set_ProcessingBatchSize(int32_t value);
+    /// <summary>
+    /// This attribute specifies a sequential grouping of glyphs and words into strings
+    /// For example tags and words has different order in converted HTML and you want them to match.
+    /// This parameter will be applied to document only when the value of FixedLayout attribute is true.
+    /// </summary>
+    bool get_SimpleTextboxModeGrouping();
+    /// <summary>
+    /// This attribute specifies a sequential grouping of glyphs and words into strings
+    /// For example tags and words has different order in converted HTML and you want them to match.
+    /// This parameter will be applied to document only when the value of FixedLayout attribute is true.
+    /// </summary>
+    void set_SimpleTextboxModeGrouping(bool value);
+    /// <summary>
+    /// This attribute specifies full width paragraph text for Flow mode, FixedLayout = false
+    /// </summary>
+    bool get_FlowLayoutParagraphFullWidth();
+    /// <summary>
+    /// This attribute specifies full width paragraph text for Flow mode, FixedLayout = false
+    /// </summary>
+    void set_FlowLayoutParagraphFullWidth(bool value);
     
     /// <summary>
     /// Initializes a new instance of the <see cref="HtmlSaveOptions"/> class.
@@ -613,6 +650,9 @@ private:
     bool pr_ConvertMarkedContentToLayers;
     float pr_MinimalLineWidth;
     bool pr_PreventGlyphsGrouping;
+    int32_t pr_ProcessingBatchSize;
+    bool _simpleTextboxModeGrouping;
+    bool pr_FlowLayoutParagraphFullWidth;
     Aspose::Pdf::Direction pr_Direction;
     
     void CheckStreamSavingParamsConsistency();
@@ -623,7 +663,7 @@ private:
 } // namespace Pdf
 } // namespace Aspose
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
 

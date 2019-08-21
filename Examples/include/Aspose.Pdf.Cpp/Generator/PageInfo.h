@@ -1,10 +1,10 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-// C# preprocessor directive: #if !NETCORE 
+// C# preprocessor directive: #if !NETCORE
 
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
 #include <xml/xml_text_writer.h>
@@ -41,47 +41,47 @@ class ASPOSE_PDF_SHARED_API PageInfo FINAL : public System::ICloneable
 public:
 
     /// <summary>
-    /// Gets or sets default font.
+    /// Gets default font.
     /// </summary>
     System::SharedPtr<Text::TextState> get_DefaultTextState();
     /// <summary>
-    /// Gets or sets default font.
+    /// Sets default font.
     /// </summary>
     void set_DefaultTextState(System::SharedPtr<Text::TextState> value);
     /// <summary>
-    /// Gets or sets page height.
+    /// Gets page height.
     /// </summary>
     double get_Height();
     /// <summary>
-    /// Gets or sets page height.
+    /// Sets page height.
     /// </summary>
     void set_Height(double value);
     /// <summary>
-    /// Gets or sets page pure height without margins.
+    /// Gets page pure height without margins.
     /// </summary>
     double get_PureHeight();
     /// <summary>
-    /// Gets or sets is page landscaped.
+    /// Gets is page landscaped.
     /// </summary>
     bool get_IsLandscape();
     /// <summary>
-    /// Gets or sets is page landscaped.
+    /// Sets is page landscaped.
     /// </summary>
     void set_IsLandscape(bool value);
     /// <summary>
-    /// Gets or sets page margin.
+    /// Gets page margin.
     /// </summary>
     System::SharedPtr<MarginInfo> get_Margin();
     /// <summary>
-    /// Gets or sets page margin.
+    /// Sets page margin.
     /// </summary>
     void set_Margin(System::SharedPtr<MarginInfo> value);
     /// <summary>
-    /// Gets or sets page width.
+    /// Gets page width.
     /// </summary>
     double get_Width();
     /// <summary>
-    /// Gets or sets page width.
+    /// Sets page width.
     /// </summary>
     void set_Width(double value);
     

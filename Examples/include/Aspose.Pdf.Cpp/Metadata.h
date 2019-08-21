@@ -140,16 +140,16 @@ public:
     bool Remove(System::String const &key);
     
     /// <summary>
-    /// Gets or sets data from metadata.
+    /// Gets data from metadata.
     /// </summary>
     /// <param name="key">The key name.</param>
     /// <returns>Metadata object.</returns>
     System::SharedPtr<XmpValue> idx_get(System::String const &key) const;
     /// <summary>
-    /// Gets or sets data from metadata.
+    /// Sets data from metadata.
     /// </summary>
     /// <param name="key">The key name.</param>
-    /// <returns>Metadata object.</returns>
+    /// <param name="value">Metadata object.</param>
     void idx_set(System::String const &key, System::SharedPtr<XmpValue> value);
     
     /// <summary>

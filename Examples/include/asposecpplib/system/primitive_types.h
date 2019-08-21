@@ -3,6 +3,18 @@
 #ifndef _aspose_system_primitive_types_h_
 #define _aspose_system_primitive_types_h_
 
+#include <system/boolean.h>
+#include <system/byte.h>
+#include <system/double.h>
+#include <system/int16.h>
+#include <system/int32.h>
+#include <system/int64.h>
+#include <system/sbyte.h>
+#include <system/single.h>
+#include <system/uint16.h>
+#include <system/uint32.h>
+#include <system/uint64.h>
+
 #include <system/exceptions.h>
 #include <system/get_hash_code.h>//do not remove. porter includes primitive_types.h on using System::GetHashCode(...)
 #include <limits>
@@ -69,8 +81,14 @@ template <typename TA, typename TB>
 std::enable_if_t<std::is_floating_point<TA>::value && std::is_floating_point<TB>::value, int>
 Compare(const TA& a, const TB& b)
 {
-    if (std::isnan(a) && !std::isnan(b))
+    if (std::isnan(a))
+    {
+        if (std::isnan(b))
+            return 0;
         return -1;
+    }
+    if (std::isnan(b))
+        return 1;
     return (a < b) ? -1 : ((b < a) ? 1 : 0);
 }
 
@@ -123,7 +141,7 @@ inline bool IsNegativeInfinity(const T& value)
 template<typename TTo, typename TFrom>
 TTo CheckedCast(TFrom value)
 {
-    if (value < std::numeric_limits<TTo>::min() || value > std::numeric_limits<TTo>::max())
+    if (value < (std::numeric_limits<TTo>::min)() || value > (std::numeric_limits<TTo>::max)())
         throw System::OverflowException();
     return (TTo)value;
 }

@@ -73,7 +73,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Aspose.Pdf_vc141x64d.lib;aspose_cpp_vc141x64d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Aspose.PDF.Cpp_vc141x64d.lib;aspose_cpp_vc141x64d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OptimizeReferences>
       </OptimizeReferences>
@@ -81,8 +81,9 @@
       </IgnoreSpecificDefaultLibraries>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(ProjectDir)lib\Debug\aspose_cpp_vc141x64d.dll" "$(OutDir)"
-copy "$(ProjectDir)lib\Debug\aspose.pdf_vc141x64d.dll" "$(OutDir)"</Command>
+      <Command>
+        copy "$(ProjectDir)lib\Debug\aspose_cpp_vc141x64d.dll" "$(OutDir)"
+        copy "$(ProjectDir)lib\Debug\aspose_cpp_vc141x64d.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

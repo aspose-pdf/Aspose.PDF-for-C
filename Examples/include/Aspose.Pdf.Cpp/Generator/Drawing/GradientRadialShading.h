@@ -29,51 +29,51 @@ class ASPOSE_PDF_SHARED_API GradientRadialShading : public Aspose::Pdf::Drawing:
 public:
 
     /// <summary>
-    /// Gets or sets starting circle center point.
+    /// Gets starting circle center point.
     /// </summary>
     System::SharedPtr<Point> get_Start();
     /// <summary>
-    /// Gets or sets starting circle center point.
+    /// Sets starting circle center point.
     /// </summary>
     void set_Start(System::SharedPtr<Point> value);
     /// <summary>
-    /// Gets or sets ending circle center point.
+    /// Gets ending circle center point.
     /// </summary>
     System::SharedPtr<Point> get_End();
     /// <summary>
-    /// Gets or sets ending circle center point.
+    /// Sets ending circle center point.
     /// </summary>
     void set_End(System::SharedPtr<Point> value);
     /// <summary>
-    /// Gets or sets starting circle radius.
+    /// Gets starting circle radius.
     /// </summary>
     double get_StartingRadius();
     /// <summary>
-    /// Gets or sets starting circle radius.
+    /// Sets starting circle radius.
     /// </summary>
     void set_StartingRadius(double value);
     /// <summary>
-    /// Gets or sets ending circle radius.
+    /// Gets ending circle radius.
     /// </summary>
     double get_EndingRadius();
     /// <summary>
-    /// Gets or sets ending circle radius.
+    /// Sets ending circle radius.
     /// </summary>
     void set_EndingRadius(double value);
     /// <summary>
-    /// Gets or sets start color.
+    /// Gets start color.
     /// </summary>
     System::SharedPtr<Color> get_StartColor();
     /// <summary>
-    /// Gets or sets start color.
+    /// Sets start color.
     /// </summary>
     void set_StartColor(System::SharedPtr<Color> value);
     /// <summary>
-    /// Gets or sets end color.
+    /// Gets end color.
     /// </summary>
     System::SharedPtr<Color> get_EndColor();
     /// <summary>
-    /// Gets or sets end color.
+    /// Sets end color.
     /// </summary>
     void set_EndColor(System::SharedPtr<Color> value);
     

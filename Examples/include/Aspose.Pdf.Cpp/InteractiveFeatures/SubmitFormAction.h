@@ -31,11 +31,11 @@ class ASPOSE_PDF_SHARED_API SubmitFormAction FINAL : public Aspose::Pdf::Annotat
 public:
 
     /// <summary>
-    /// Gets or sets flagas of submit action
+    /// Gets flagas of submit action
     /// </summary>
     int32_t get_Flags();
     /// <summary>
-    /// Gets or sets flagas of submit action
+    /// Sets flagas of submit action
     /// </summary>
     void set_Flags(int32_t value);
     /// <summary>

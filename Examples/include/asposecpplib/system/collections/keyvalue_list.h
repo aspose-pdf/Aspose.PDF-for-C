@@ -26,7 +26,7 @@ public:
     /// Gets key at specified position.
     /// @param index Index to get key from.
     /// @return Copy of key at specified position.
-    virtual TKey idx_get(int index) const { return (this->m_dict->data().begin() + index)->first; }
+    virtual TKey idx_get(int index) const override { return (this->m_dict->data().begin() + index)->first; }
 
     /// Checks if specified key is present in collection.
     /// @param item Key to look for.

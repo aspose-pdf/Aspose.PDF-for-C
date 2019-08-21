@@ -1,13 +1,13 @@
 /// @file system/globalization/date_time_styles.h
-#ifndef _date_time_styles_h_
-#define _date_time_styles_h_
+#pragma once
 
+#include <system/details/enum_meta_info.h>
 #include <system/enum_helpers.h>
 
 namespace System { namespace Globalization {
 
 /// Defines date and time formatting options. Bit flags.
-enum class DateTimeStyles
+enum class DateTimeStyles : int32_t
 {
     /// Default.
     None = 0x00000000,
@@ -18,7 +18,7 @@ enum class DateTimeStyles
     /// Ignore inner white spaces.
     AllowInnerWhite = 0x00000004,
     /// Ignore all white spaces.
-    AllowWhiteSpaces = AllowLeadingWhite | AllowInnerWhite | AllowTrailingWhite,
+    AllowWhiteSpaces = AllowLeadingWhite | AllowInnerWhite | AllowTrailingWhite, // = 7
     /// When parsing a date/time string, if all year/month/day are missing, set the default date to 0001/1/1, instead of the current year/month/day.
     NoCurrentDateDefault = 0x00000008,
     /// When parsing a date/time string, if a timezone specifier ("GMT","Z","+xxxx", "-xxxx" exists), we will ajdust the parsed time based to GMT.
@@ -31,8 +31,14 @@ enum class DateTimeStyles
     RoundtripKind = 0x00000080
 };
 
-}}
+}} // namespace System::Globalization
+
 /// Declaration of template arithmetic operators for values of DateTimeStyles enum type.
 DECLARE_ENUM_OPERATORS(System::Globalization::DateTimeStyles);
 
-#endif
+template<>
+struct EnumMetaInfo<System::Globalization::DateTimeStyles>
+{
+    typedef void Flags;
+    static ASPOSECPP_SHARED_API const std::array<std::pair<System::Globalization::DateTimeStyles, const char16_t*>, 10>& values();
+};

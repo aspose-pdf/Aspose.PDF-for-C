@@ -1,18 +1,17 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-#include <system/collections/list.h>
 #include <system/array.h>
 
 #include "InteractiveFeatures/Annotations/MarkupAnnotation.h"
 
 namespace Aspose { namespace Pdf { namespace Annotations { class PolygonAnnotation; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class PolylineAnnotation; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { enum class LineEnding; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { enum class PolyIntent; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class Measure; } } }
 namespace Aspose { namespace Pdf { class Point; } }
 namespace Aspose { namespace Pdf { class Color; } }
-namespace Aspose { namespace Pdf { namespace Annotations { enum class LineEnding; } } }
-namespace Aspose { namespace Pdf { namespace Annotations { enum class PolyIntent; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { class Page; } }
@@ -53,43 +52,43 @@ public:
     /// </summary>
     void set_Measure(System::SharedPtr<Aspose::Pdf::Annotations::Measure> value);
     /// <summary>
-    /// Gets or sets an array of points representing the horizontal and vertical coordinates of each vertex.
+    /// Gets an array of points representing the horizontal and vertical coordinates of each vertex.
     /// </summary>
     System::ArrayPtr<System::SharedPtr<Point>> get_Vertices();
     /// <summary>
-    /// Gets or sets an array of points representing the horizontal and vertical coordinates of each vertex.
+    /// Sets an array of points representing the horizontal and vertical coordinates of each vertex.
     /// </summary>
     void set_Vertices(System::ArrayPtr<System::SharedPtr<Point>> value);
     /// <summary>
-    /// Gets or sets the interior color with which to fill the annotation�s line endings.
+    /// Gets the interior color with which to fill the annotation�s line endings.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Color> get_InteriorColor();
     /// <summary>
-    /// Gets or sets the interior color with which to fill the annotation�s line endings.
+    /// Sets the interior color with which to fill the annotation�s line endings.
     /// </summary>
     void set_InteriorColor(System::SharedPtr<Aspose::Pdf::Color> value);
     /// <summary>
-    /// Gets or sets the style of first line ending.
+    /// Gets the style of first line ending.
     /// </summary>
     LineEnding get_StartingStyle();
     /// <summary>
-    /// Gets or sets the style of first line ending.
+    /// Sets the style of first line ending.
     /// </summary>
     void set_StartingStyle(LineEnding value);
     /// <summary>
-    /// Gets or sets the style of second line ending.
+    /// Gets the style of second line ending.
     /// </summary>
     LineEnding get_EndingStyle();
     /// <summary>
-    /// Gets or sets the style of second line ending.
+    /// Sets the style of second line ending.
     /// </summary>
     void set_EndingStyle(LineEnding value);
     /// <summary>
-    /// Gets or sets the intent of the polygon or polyline annotation.
+    /// Gets the intent of the polygon or polyline annotation.
     /// </summary>
     PolyIntent get_Intent();
     /// <summary>
-    /// Gets or sets the intent of the polygon or polyline annotation.
+    /// Sets the intent of the polygon or polyline annotation.
     /// </summary>
     void set_Intent(PolyIntent value);
     

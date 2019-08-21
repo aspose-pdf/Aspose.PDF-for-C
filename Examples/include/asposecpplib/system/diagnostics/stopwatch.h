@@ -57,7 +57,7 @@ public:
     int64_t get_ElapsedMilliseconds() const { return static_cast<int64_t>(m_elapsed.get_TotalMilliseconds()); }
     /// Gets the total elapsed time measured by the current instance, in timer ticks.
     /// @return Total number of timer ticks measured by the current instance.
-    int64_t get_ElapsedTicks() const { return get_ElapsedMilliseconds() * TimeSpan::s_ticks_per_millisecond; }
+    int64_t get_ElapsedTicks() const { return get_ElapsedMilliseconds() * TimeSpan::TicksPerMillisecond; }
 
     /// Creates new Stopwatch object and starts measurement.
     /// @return Pointer to newly created Stopwatch object.

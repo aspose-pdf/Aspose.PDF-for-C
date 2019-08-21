@@ -42,19 +42,19 @@ class ASPOSE_PDF_SHARED_API HeaderFooter FINAL : public System::ICloneable
 public:
 
     /// <summary>
-    /// Gets or sets the end note paragraphs.
+    /// Gets the end note paragraphs.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Paragraphs> get_Paragraphs();
     /// <summary>
-    /// Gets or sets the end note paragraphs.
+    /// Sets the end note paragraphs.
     /// </summary>
     void set_Paragraphs(System::SharedPtr<Aspose::Pdf::Paragraphs> value);
     /// <summary>
-    /// Gets or sets the margin info.
+    /// Gets the margin info.
     /// </summary>
     System::SharedPtr<MarginInfo> get_Margin();
     /// <summary>
-    /// Gets or sets the margin info.
+    /// Sets the margin info.
     /// </summary>
     void set_Margin(System::SharedPtr<MarginInfo> value);
     
@@ -69,76 +69,76 @@ public:
 protected:
 
     /// <summary>
-    /// Gets or sets is note more than page.
+    /// Gets is note more than page.
     /// </summary>
     bool get_IsNoteMoreThanPage();
     /// <summary>
-    /// Gets or sets is note more than page.
+    /// Sets is note more than page.
     /// </summary>
     void set_IsNoteMoreThanPage(bool value);
     /// <summary>
-    /// Gets or sets footer with footnotes size.
+    /// Gets footer with footnotes size.
     /// </summary>
     double get_FootNoteHeight();
     /// <summary>
-    /// Gets or sets footer with footnotes size.
+    /// Sets footer with footnotes size.
     /// </summary>
     void set_FootNoteHeight(double value);
     /// <summary>
-    /// Gets or sets end note footer top line rightX.
+    /// Gets end note footer top line rightX.
     /// </summary>
     double get_EndNoteRightX();
     /// <summary>
-    /// Gets or sets end note footer top line rightX.
+    /// Sets end note footer top line rightX.
     /// </summary>
     void set_EndNoteRightX(double value);
     /// <summary>
-    /// Gets or sets footer top line rightX.
+    /// Gets footer top line rightX.
     /// </summary>
     double get_RightX();
     /// <summary>
-    /// Gets or sets footer top line rightX.
+    /// Sets footer top line rightX.
     /// </summary>
     void set_RightX(double value);
     /// <summary>
-    /// Gets or sets the paragraphs.
+    /// Gets the paragraphs.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Paragraphs> get_EndNoteParagraphs();
     /// <summary>
-    /// Gets or sets the paragraphs.
+    /// Sets the paragraphs.
     /// </summary>
     void set_EndNoteParagraphs(System::SharedPtr<Aspose::Pdf::Paragraphs> value);
     /// <summary>
-    /// Gets or sets the paragraphs.
+    /// Gets the paragraphs.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Paragraphs> get_FootNoteParagraphs();
     /// <summary>
-    /// Gets or sets the paragraphs.
+    /// Sets the paragraphs.
     /// </summary>
     void set_FootNoteParagraphs(System::SharedPtr<Aspose::Pdf::Paragraphs> value);
     /// <summary>
-    /// Gets or sets paragraphs without footnotes height.
+    /// Gets paragraphs without footnotes height.
     /// </summary>
     double get_ParagraphsHeight();
     /// <summary>
-    /// Gets or sets paragraphs without footnotes height.
+    /// Sets paragraphs without footnotes height.
     /// </summary>
     void set_ParagraphsHeight(double value);
     /// <summary>
-    /// Gets or sets the rectangles for links for notes.
+    /// Gets the rectangles for links for notes.
     /// </summary>
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Rectangle>>> get_Rectangles();
     /// <summary>
-    /// Gets or sets the rectangles for links for notes.
+    /// Sets the rectangles for links for notes.
     /// </summary>
     void set_Rectangles(System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Rectangle>>> value);
     static System::SharedPtr<MarginInfo> get_DefaultMargin();
     /// <summary>
-    /// Gets or sets page generator.
+    /// Gets page generator.
     /// </summary>
     System::SharedPtr<PageGenerator> get_Generator();
     /// <summary>
-    /// Gets or sets page generator.
+    /// Sets page generator.
     /// </summary>
     void set_Generator(System::SharedPtr<PageGenerator> value);
     

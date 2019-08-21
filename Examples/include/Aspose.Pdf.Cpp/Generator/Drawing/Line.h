@@ -38,13 +38,13 @@ class ASPOSE_PDF_SHARED_API Line FINAL : public Aspose::Pdf::Drawing::Shape
 public:
 
     /// <summary>
-    /// Gets or sets a <see cref="PositionArray"/> object that indicates the position array.The array is 
+    /// Gets a <see cref="PositionArray"/> object that indicates the position array.The array is 
     /// composed by coordinates of each control point of the line. 
     /// directly.
     /// </summary>
     System::ArrayPtr<float> get_PositionArray();
     /// <summary>
-    /// Gets or sets a <see cref="PositionArray"/> object that indicates the position array.The array is 
+    /// Sets a <see cref="PositionArray"/> object that indicates the position array.The array is 
     /// composed by coordinates of each control point of the line. 
     /// directly.
     /// </summary>

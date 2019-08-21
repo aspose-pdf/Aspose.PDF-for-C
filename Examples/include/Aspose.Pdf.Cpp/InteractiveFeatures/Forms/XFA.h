@@ -168,7 +168,7 @@ public:
     /// Be sure to include indices even if data contains only single occurences of each nodes, 
     /// i.e. write node1[0].node2[0]... instead of node1.node2...
     /// </param>
-    /// <returns>Data node value.</returns>
+    /// <param name="value">Data node value.</param>
     void idx_set(System::String path, System::String value);
     
     /// <summary>
@@ -251,6 +251,7 @@ protected:
     /// <param name="value">Value</param>
     void SetValueByDataRef(System::String dataRef, System::String value);
     bool HasNode(System::String path);
+    System::SharedPtr<XfaField> GetXfaField(System::String path);
     System::Object::shared_members_type GetSharedMembers() override;
     
 private:

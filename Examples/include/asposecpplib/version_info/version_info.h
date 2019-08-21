@@ -76,14 +76,12 @@ struct VersionInfo
     bool defined___DBG_TOOLS;
     /// Whether ASPOSE_COMPARE_BY_REF define was set.
     bool defined_ASPOSE_COMPARE_BY_REF;
-    /// Whether ASPOSE_FOUNDATION_NS define was set.
-    bool defined_ASPOSE_FOUNDATION_NS;
     /// Whether ASPOSE_THREADSAFE_DELEGATES define was set.
     bool defined_ASPOSE_THREADSAFE_DELEGATES;
     /// Whether ASPOSE_NO_ATOMIC_REFCOUNT define was set.
     bool defined_ASPOSE_NO_ATOMIC_REFCOUNT;
-    /// Whether DISABLE_EXTERNAL_REFCOUNT define was set.
-    bool defined_DISABLE_EXTERNAL_REFCOUNT;
+    /// Whether ENABLE_EXTERNAL_REFCOUNT define was set.
+    bool defined_ENABLE_EXTERNAL_REFCOUNT;
     /// Whether DISABLE_ASTRAL define was set.
     bool defined_DISABLE_ASTRAL;
     /// Whether CALL_DISPOSE define was set.
@@ -92,8 +90,6 @@ struct VersionInfo
     bool defined_ENABLE_CYCLES_DETECTION_EXT;
     /// Whether ENABLE_CYCLES_DETECTION define was set.
     bool defined_ENABLE_CYCLES_DETECTION;
-    /// Whether USE_NANOSECONDS define was set.
-    bool defined_USE_NANOSECONDS;
     /// Whether ASPOSE_NO_CONST_METHODS define was set.
     bool defined_ASPOSE_NO_CONST_METHODS;
     /// Whether SHOW_DISPOSE_GUARD_MESSAGE define was set.

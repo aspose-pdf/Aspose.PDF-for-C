@@ -90,7 +90,7 @@ public:
     /// </summary>
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<TextExtractionError>>> get_Errors();
     /// <summary>
-    /// Gets or sets text extraction options.
+    /// Gets text extraction options.
     /// </summary>
     /// <remarks>
     /// Allows to define text formatting mode <see cref="TextExtractionOptions"/> during extraction.
@@ -117,7 +117,7 @@ public:
     /// </example>
     virtual System::SharedPtr<TextExtractionOptions> get_ExtractionOptions();
     /// <summary>
-    /// Gets or sets text extraction options.
+    /// Sets text extraction options.
     /// </summary>
     /// <remarks>
     /// Allows to define text formatting mode <see cref="TextExtractionOptions"/> during extraction.
@@ -144,7 +144,7 @@ public:
     /// </example>
     virtual void set_ExtractionOptions(System::SharedPtr<TextExtractionOptions> value);
     /// <summary>
-    /// Gets or sets text search options.
+    /// Gets text search options.
     /// </summary>
     /// <remarks>
     /// Allows to define rectangle which delimits the extracted text.
@@ -152,7 +152,7 @@ public:
     /// </remarks>
     virtual System::SharedPtr<Aspose::Pdf::Text::TextSearchOptions> get_TextSearchOptions();
     /// <summary>
-    /// Gets or sets text search options.
+    /// Sets text search options.
     /// </summary>
     /// <remarks>
     /// Allows to define rectangle which delimits the extracted text.

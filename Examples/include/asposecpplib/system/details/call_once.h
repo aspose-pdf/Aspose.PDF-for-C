@@ -154,4 +154,8 @@ private:
     const bool m_thread_safe;
 };
 
+using ThreadSafeCallOnce = CallOnce<CallOnceThreadSafetyMode::ThreadSafe>;
+using NotThreadSafeCallOnce = CallOnce<CallOnceThreadSafetyMode::NotThreadSafe>;
+using CustomizableCallOnce = CallOnce<CallOnceThreadSafetyMode::Customizable>;
+
 }} // namespace System::Details

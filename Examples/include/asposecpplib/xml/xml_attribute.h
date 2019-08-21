@@ -119,9 +119,10 @@ protected:
     /// Constructs an instance of XmlAttribute class that represents an xmlns attribute and belongs to the specified document.
     /// @param ns The namespace that the attribute represented by the current object should declare
     /// @param owner The XmlDocument object to which the created XmlAttribute object should belong
+    /// @param element The XmlElementDocument object to which the created XmlAttribute object should belong
     /// @returns A shared pointer to a newly created XmlAttribute object that represents an xmlns attribute that
     /// declares a namespace @p ns and belongs to @p owner document
-    ASPOSECPP_SHARED_API XmlAttribute(xmlNs* ns, const SharedPtr<XmlDocument>& owner);
+    ASPOSECPP_SHARED_API XmlAttribute(xmlNs* ns, const SharedPtr<XmlDocument>& owner, const SharedPtr<XmlElement>& element);
 
     /// Constructs an XmlAttribute object that represents a detached XML attribute belonging to the specified owner.
     /// @param prefix The namespace prefix of the attribute

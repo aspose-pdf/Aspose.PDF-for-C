@@ -1,9 +1,7 @@
 /// @file system/text/utf32_encoding.h
-#ifndef __UTF32Encoding_h__
-#define __UTF32Encoding_h__
+#pragma once
 
-#include "system/text/icu_encoding.h"
-#include "system/string.h"
+#include <system/text/icu_encoding.h>
 
 namespace System { namespace Text {
 
@@ -14,25 +12,22 @@ namespace System { namespace Text {
 class ASPOSECPP_SHARED_CLASS UTF32Encoding : public ICUEncoding
 {
 public:
-    enum : int
-    {
-        /// Magic number used by Windows for little endian UTF-32 codepage id.
-        UTF32_CODE_PAGE = 12000,
-        /// Magic number used by Windows for big endian UTF-32 codepage id.
-        BIG_UTF32_CODE_PAGE = 12001
-    };
+    /// Magic number used by Windows for little endian UTF-32 codepage id.
+    static constexpr int UTF32_CODE_PAGE = 12000;
+    /// Magic number used by Windows for big endian UTF-32 codepage id.
+    static constexpr int BIG_UTF32_CODE_PAGE = 12001;
 
     /// Constructor.
     ASPOSECPP_SHARED_API UTF32Encoding();
     /// Constructor.
-    /// @param bigEndian Whether codepage is big endian as opposite to little endian.
-    /// @param byteOrderMark Whether to insert BOM.
-    ASPOSECPP_SHARED_API UTF32Encoding(bool bigEndian, bool byteOrderMark);
+    /// @param big_endian Whether codepage is big endian as opposite to little endian.
+    /// @param byte_order_mark Whether to insert BOM.
+    ASPOSECPP_SHARED_API UTF32Encoding(bool big_endian, bool byte_order_mark);
     /// Constructor.
-    /// @param bigEndian Whether codepage is big endian as opposite to little endian.
-    /// @param byteOrderMark Whether to insert BOM.
-    /// @param throwOnInvalidCharacters Whether to throw on invalid bytes as an opposite to replacing them.
-    ASPOSECPP_SHARED_API UTF32Encoding(bool bigEndian, bool byteOrderMark, bool throwOnInvalidCharacters);
+    /// @param big_endian Whether codepage is big endian as opposite to little endian.
+    /// @param byte_order_mark Whether to insert BOM.
+    /// @param throw_on_invalid_characters Whether to throw on invalid bytes as an opposite to replacing them.
+    ASPOSECPP_SHARED_API UTF32Encoding(bool big_endian, bool byte_order_mark, bool throw_on_invalid_characters);
 
     /// Compares encodings' parameters.
     /// @param other Encoding to compare with.
@@ -40,35 +35,27 @@ public:
     ASPOSECPP_SHARED_API bool operator==(const UTF32Encoding& other) const;
     /// Gets encoding hash code.
     /// @return Hash code value.
-    virtual ASPOSECPP_SHARED_API int GetHashCode() const override;
+    ASPOSECPP_SHARED_API int GetHashCode() const override;
     /// Compares with object.
     /// @param obj Object to compare with.
     /// @return True if @p obj is UTF32Encoding with same parameters, false otherwise.
-    virtual ASPOSECPP_SHARED_API bool Equals(ptr obj) override;
+    ASPOSECPP_SHARED_API bool Equals(SharedPtr<Object> obj) override;
 
     /// Get codepage preamble.
     /// @return If BOM emitting is enabled, returns array with BOM characters, otherwise returns empty array.
-    virtual ASPOSECPP_SHARED_API ArrayPtr<uint8_t> GetPreamble() override;
-    /// Gets encoding codepage.
-    /// @return Windows encoding codepage id.
-    virtual int get_CodePage() override { return m_bigEndian ? BIG_UTF32_CODE_PAGE : UTF32_CODE_PAGE; };
-    /// Gets encoding name.
-    /// @return Hardcoded encoding name.
-    virtual ASPOSECPP_SHARED_API String get_EncodingName() override;
+    ASPOSECPP_SHARED_API ArrayPtr<uint8_t> GetPreamble() override;
 
     /// Clones encoding object.
     /// @return Encoding object clone.
-    ASPOSECPP_SHARED_API System::SharedPtr<System::Object> Clone() override;
+    ASPOSECPP_SHARED_API SharedPtr<Object> Clone() override;
 
 private:
     /// Whether to insert BOM.
-    bool m_emitUTF32ByteOrderMark = false;
+    const bool m_emit_utf32_byte_order_mark = false;
     /// Whether to throw on invalid bytes as an opposite to replacing them.
-    bool m_isThrowException = false;
+    const bool m_is_throw_exception = false;
     /// Whether codepage is big endian as opposite to little endian.
-    bool m_bigEndian = false;
+    const bool m_big_endian = false;
 };
 
-}}
-
-#endif
+}} // namespace System::Text

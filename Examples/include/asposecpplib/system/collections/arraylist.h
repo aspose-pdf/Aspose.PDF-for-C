@@ -188,7 +188,7 @@ public:
         if (index < 0 || (size_t)index >= m_data.size())
             throw ArgumentOutOfRangeException(u"index");
 
-        return m_data[index];
+        return m_data[static_cast<typename storage_type::size_type>(index)];
     }
     /// Element setter.
     /// @param index Index of element to access in range of [0, size).
@@ -198,7 +198,7 @@ public:
         if (index < 0 || (size_t)index >= m_data.size())
             throw ArgumentOutOfRangeException(u"index");
 
-        m_data[index] = value;
+        m_data[static_cast<typename storage_type::size_type>(index)] = value;
     }
 
     // ICollection interface

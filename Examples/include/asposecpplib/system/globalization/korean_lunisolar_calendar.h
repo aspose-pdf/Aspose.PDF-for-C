@@ -29,8 +29,8 @@ public:
     using Calendar::IsLeapDay;
     using Calendar::IsLeapYear;
 
-    /// Gets current gregorian era.
-    static ASPOSECPP_SHARED_API int get_GregorianEra();
+    /// Current gregorian era.
+    static constexpr int GregorianEra = 1;
 
     ASPOSECPP_SHARED_API DateTime get_MinSupportedDateTime() const override;
     ASPOSECPP_SHARED_API DateTime get_MaxSupportedDateTime() const override;
@@ -50,7 +50,7 @@ private:
     void VerifyDate(int year, int month, int day, int era) const override;
 
     int EraToIcuEra(int era) const override;
-    int IcuEraToEra(int icuEra) const override;
+    int IcuEraToEra(int icu_era) const override;
 };
 
 }} // namespace System::Globalization

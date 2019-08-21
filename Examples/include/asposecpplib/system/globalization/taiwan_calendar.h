@@ -65,7 +65,7 @@ private:
     void VerifyDate(int year, int month, int day, int era) const override;
 
     int EraToIcuEra(int era) const override;
-    int IcuEraToEra(int icuEra) const override;
+    int IcuEraToEra(int icu_era) const override;
 };
 
 }} // namespace System::Globalization

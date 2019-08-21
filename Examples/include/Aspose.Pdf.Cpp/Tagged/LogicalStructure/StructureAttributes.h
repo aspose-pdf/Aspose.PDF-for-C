@@ -7,6 +7,7 @@
 #include "aspose_pdf_api_defs.h"
 
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class StructureAttributeCollection; } } }
+namespace Aspose { namespace Pdf { namespace LogicalStructure { class TableCellElement; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace TaggedPdf { class TaggedPdfStructure; } } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class StructureElement; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
@@ -33,6 +34,7 @@ class ASPOSE_PDF_SHARED_API StructureAttributes : public System::Object
     
     FRIEND_FUNCTION_System_MakeObject;
     friend class Aspose::Pdf::LogicalStructure::StructureAttributeCollection;
+    friend class Aspose::Pdf::LogicalStructure::TableCellElement;
     friend class Aspose::Pdf::Tests::TaggedPdf::TaggedPdfStructure;
     
 public:
@@ -47,7 +49,7 @@ public:
     ///     Gets StructureAttribute by AttributeKey.
     /// </summary>
     /// <param name="key">AttributeKey.</param>
-    /// <returns></returns>
+    /// <returns>StructureAttribute</returns>
     System::SharedPtr<StructureAttribute> GetAttribute(System::SharedPtr<AttributeKey> key);
     /// <summary>
     ///     Sets StructureAttribute into StructureAttributes.
@@ -63,6 +65,7 @@ protected:
     StructureAttributes(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> dictA, System::SharedPtr<StructureElement> structureElement);
     StructureAttributes(System::SharedPtr<StructureElement> structureElement);
     
+    bool HasAttribute(System::SharedPtr<AttributeKey> key);
     System::Object::shared_members_type GetSharedMembers() override;
     
 private:

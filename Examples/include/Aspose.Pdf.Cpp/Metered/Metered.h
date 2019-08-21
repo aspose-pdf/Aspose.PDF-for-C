@@ -3,43 +3,37 @@
 // To compile metered for your product, make sure your product is mentioned here and add a conditional 
 // compilation constant to your project properties (both to Debug and Release configurations).
 
-// C# preprocessor directive: #if ASPOSE_WORDS 
+// C# preprocessor directive: #if ASPOSE_WORDS
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Words
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Words
 
-// C# preprocessor directive: #elif ASPOSE_WORDS_REPORTING_SERVICES 
+// C# preprocessor directive: #elif ASPOSE_WORDS_REPORTING_SERVICES
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Words.ReportingServices
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Words.ReportingServices
 
-// C# preprocessor directive: #elif ASPOSE_WORDS_SHAREPOINT 
+// C# preprocessor directive: #elif ASPOSE_WORDS_SHAREPOINT
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Words.SharePoint
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Words.SharePoint
 
-// C# preprocessor directive: #elif ASPOSE_CELLS 
+// C# preprocessor directive: #elif ASPOSE_CELLS
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Cells
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Cells
 
-// C# preprocessor directive: #elif ASPOSE_SLIDES 
+// C# preprocessor directive: #elif ASPOSE_SLIDES
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Slides
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Slides
 
-// C# preprocessor directive: #elif ASPOSE_TASKS 
+// C# preprocessor directive: #elif ASPOSE_TASKS
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Tasks
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Tasks
 
-// C# preprocessor directive: #elif ASPOSE_PDF 
+// C# preprocessor directive: #elif ASPOSE_PDF
 
 
 #include <system/string.h>
@@ -74,133 +68,112 @@ enum class MeteredState
 };
 
 
-// C# preprocessor directive: #elif ASPOSE_PDF_FORM 
+// C# preprocessor directive: #elif ASPOSE_PDF_FORM
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Pdf.Form
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Pdf.Form
 
-// C# preprocessor directive: #elif ASPOSE_PDF_KIT 
+// C# preprocessor directive: #elif ASPOSE_PDF_KIT
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Pdf.Kit
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Pdf.Kit
 
-// C# preprocessor directive: #elif ASPOSE_PDF_FO 
+// C# preprocessor directive: #elif ASPOSE_PDF_FO
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Pdf.Fo
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Pdf.Fo
 
-// C# preprocessor directive: #elif ASPOSE_CHART 
+// C# preprocessor directive: #elif ASPOSE_CHART
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Chart
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Chart
 
-// C# preprocessor directive: #elif ASPOSE_SPELL 
+// C# preprocessor directive: #elif ASPOSE_SPELL
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Spell
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Spell
 
-// C# preprocessor directive: #elif ASPOSE_EMAIL 
+// C# preprocessor directive: #elif ASPOSE_EMAIL
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Email
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Email
 
-// C# preprocessor directive: #elif ASPOSE_MIME 
+// C# preprocessor directive: #elif ASPOSE_MIME
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Mime
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Mime
 
-// C# preprocessor directive: #elif ASPOSE_ADHOC 
+// C# preprocessor directive: #elif ASPOSE_ADHOC
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.AdHoc
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.AdHoc
 
-// C# preprocessor directive: #elif ASPOSE_ASPXPAND 
+// C# preprocessor directive: #elif ASPOSE_ASPXPAND
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.ASPXPand
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.ASPXPand
 
-// C# preprocessor directive: #elif ASPOSE_GRID 
+// C# preprocessor directive: #elif ASPOSE_GRID
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Grid
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Grid
 
-// C# preprocessor directive: #elif ASPOSE_RECURRENCE 
+// C# preprocessor directive: #elif ASPOSE_RECURRENCE
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Recurrence
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Recurrence
 
-// C# preprocessor directive: #elif ASPOSE_ICALENDAR 
+// C# preprocessor directive: #elif ASPOSE_ICALENDAR
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.iCalendar
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.iCalendar
 
-// C# preprocessor directive: #elif ASPOSE_RECOGNITION 
+// C# preprocessor directive: #elif ASPOSE_RECOGNITION
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Recognition
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Recognition
 
-// C# preprocessor directive: #elif ASPOSE_OCR 
+// C# preprocessor directive: #elif ASPOSE_OCR
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.OCR
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.OCR
 
-// C# preprocessor directive: #elif ASPOSE_IMAGING 
+// C# preprocessor directive: #elif ASPOSE_IMAGING
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Imaging
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Imaging
 
-// C# preprocessor directive: #elif ASPOSE_BARCODE && REPORT 
+// C# preprocessor directive: #elif ASPOSE_BARCODE && REPORT
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.BarCode.ReportingServices
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.BarCode.ReportingServices
 
-// C# preprocessor directive: #elif ASPOSE_BARCODE && WPF 
+// C# preprocessor directive: #elif ASPOSE_BARCODE && WPF
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.BarCode.WPF
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.BarCode.WPF
 
-// C# preprocessor directive: #elif ASPOSE_BARCODE && RECOGNITION 
+// C# preprocessor directive: #elif ASPOSE_BARCODE && RECOGNITION
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.BarCodeRecognition
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.BarCodeRecognition
 
-// C# preprocessor directive: #elif ASPOSE_BARCODE 
+// C# preprocessor directive: #elif ASPOSE_BARCODE
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.BarCode
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.BarCode
 
-// C# preprocessor directive: #elif ASPOSE_3D 
+// C# preprocessor directive: #elif ASPOSE_3D
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.ThreeD
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.ThreeD
 
-// C# preprocessor directive: #else 
+// C# preprocessor directive: #else
 
-#if 0 // C# INACTIVE CODE:
-namespace Dynabic.Metered
-#endif
+// C# INACTIVE CODE:
+// namespace Dynabic.Metered
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 /// <summary>
 /// Provides methods to set metered key.
@@ -264,6 +237,10 @@ public:
     /// <returns>consumption quantity</returns>
     static System::Decimal GetConsumptionCredit();
     
+private:
+
+    void _SetMeteredKey(System::String publicKey, System::String privateKey);
+    
 };
 
 /// <summary>
@@ -320,6 +297,7 @@ public:
     /// <param name="credit">increased credit</param>
     /// <param name="isSend">whether upload data</param>
     void IncreaseCredit(int64_t credit, bool isSend);
+    void _IncreaseCredit(int64_t credit, bool isSend);
     void Flush();
     /// <summary>
     /// Increase customer consumption file size
@@ -327,6 +305,7 @@ public:
     /// <param name="count">increased file quantities, in unit of MB</param>
     /// <param name="isSend">whether upload data</param>
     void IncreaseCount(System::Decimal count, bool isSend);
+    void _IncreaseCount(System::Decimal count, bool isSend);
     /// <summary>
     /// Gets and Resets customer consumption file size
     /// </summary>
@@ -413,6 +392,7 @@ public:
     /// Uploads customer consumption data
     /// </summary>
     void UploadCustomerData();
+    void _UploadCustomerData(System::Decimal count, int64_t credit);
     static void Clear();
     
 protected:
@@ -429,6 +409,7 @@ private:
     System::String PRIVATE_KEY;
     static const System::String SiteSubdomain;
     
+    void Init();
     bool VerifyKey(System::SharedPtr<Dynabic::Metered::SubscriptionsList> subscriptions);
     
 };

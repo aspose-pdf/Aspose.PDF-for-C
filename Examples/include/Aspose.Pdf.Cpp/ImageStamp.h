@@ -36,27 +36,27 @@ public:
     /// </summary>
     System::SharedPtr<System::IO::Stream> get_Image();
     /// <summary>
-    /// Gets or sets image width. Setting this property allos to scal image horizontally.
+    /// Gets image width. Setting this property allos to scal image horizontally.
     /// </summary>
     double get_Width();
     /// <summary>
-    /// Gets or sets image width. Setting this property allos to scal image horizontally.
+    /// Sets image width. Setting this property allos to scal image horizontally.
     /// </summary>
     void set_Width(double value);
     /// <summary>
-    /// Gets or sets image height. Setting this image allows to scale image vertically.
+    /// Gets image height. Setting this image allows to scale image vertically.
     /// </summary>
     double get_Height();
     /// <summary>
-    /// Gets or sets image height. Setting this image allows to scale image vertically.
+    /// Sets image height. Setting this image allows to scale image vertically.
     /// </summary>
     void set_Height(double value);
     /// <summary>
-    /// Gets or sets quality of image stamp in percent. Valid values are 0..100%. 
+    /// Gets quality of image stamp in percent. Valid values are 0..100%. 
     /// </summary>
     int32_t get_Quality();
     /// <summary>
-    /// Gets or sets quality of image stamp in percent. Valid values are 0..100%. 
+    /// Sets quality of image stamp in percent. Valid values are 0..100%. 
     /// </summary>
     void set_Quality(int32_t value);
     

@@ -10,11 +10,11 @@
 namespace Aspose { namespace Pdf { namespace Devices { class GraphicsDevice; } } }
 namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
 namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
+namespace Aspose { namespace Pdf { enum class PageCoordinateType; } }
+namespace Aspose { namespace Pdf { namespace Devices { enum class FormPresentationMode; } } }
 namespace Aspose { namespace Pdf { namespace Devices { class Resolution; } } }
 namespace Aspose { namespace Pdf { class Point; } }
-namespace Aspose { namespace Pdf { namespace Devices { enum class FormPresentationMode; } } }
 namespace Aspose { namespace Pdf { class RenderingOptions; } }
-namespace Aspose { namespace Pdf { enum class PageCoordinateType; } }
 namespace Aspose { namespace Pdf { class PageSize; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Presentation { class IPresenter; } } } }
 namespace Aspose { namespace Pdf { class Page; } }
@@ -42,27 +42,27 @@ class ASPOSE_PDF_SHARED_API ImageDevice : public Aspose::Pdf::Devices::PageDevic
 public:
 
     /// <summary>
-    /// Gets or sets the page coordinate type (Media/Crop boxes). CropBox value is used by default.
+    /// Gets the page coordinate type (Media/Crop boxes). CropBox value is used by default.
     /// </summary>
     PageCoordinateType get_CoordinateType();
     /// <summary>
-    /// Gets or sets the page coordinate type (Media/Crop boxes). CropBox value is used by default.
+    /// Sets the page coordinate type (Media/Crop boxes). CropBox value is used by default.
     /// </summary>
     void set_CoordinateType(PageCoordinateType value);
     /// <summary>
-    /// Gets or sets rendering options.
+    /// Gets rendering options.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::RenderingOptions> get_RenderingOptions();
     /// <summary>
-    /// Gets or sets rendering options.
+    /// Sets rendering options.
     /// </summary>
     void set_RenderingOptions(System::SharedPtr<Aspose::Pdf::RenderingOptions> value);
     /// <summary>
-    /// Gets or sets form presentation mode.
+    /// Gets form presentation mode.
     /// </summary>
     Aspose::Pdf::Devices::FormPresentationMode get_FormPresentationMode();
     /// <summary>
-    /// Gets or sets form presentation mode.
+    /// Sets form presentation mode.
     /// </summary>
     void set_FormPresentationMode(Aspose::Pdf::Devices::FormPresentationMode value);
     /// <summary>

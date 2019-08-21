@@ -7,9 +7,9 @@
 #include "InteractiveFeatures/Forms/TextBoxField.h"
 
 namespace Aspose { namespace Pdf { namespace Forms { class Field; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { enum class Justification; } } }
 namespace Aspose { namespace Pdf { class Operator; } }
 namespace Aspose { namespace Pdf { namespace Forms { class TextModel; } } }
-namespace Aspose { namespace Pdf { namespace Annotations { enum class Justification; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class Annotation; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class ITrailerable; } } } }
@@ -41,27 +41,27 @@ class ASPOSE_PDF_SHARED_API RichTextBoxField FINAL : public Aspose::Pdf::Forms::
 public:
 
     /// <summary>
-    /// Gets or sets default style string of the rich text field.
+    /// Gets default style string of the rich text field.
     /// </summary>
     System::String get_Style();
     /// <summary>
-    /// Gets or sets default style string of the rich text field.
+    /// Sets default style string of the rich text field.
     /// </summary>
     void set_Style(System::String value);
     /// <summary>
-    /// Gets or sets rich text value.
+    /// Gets rich text value.
     /// </summary>
     System::String get_RichTextValue();
     /// <summary>
-    /// Gets or sets rich text value.
+    /// Sets rich text value.
     /// </summary>
     void set_RichTextValue(System::String value);
     /// <summary>
-    /// Gets or sets formatted rich text value with markup.
+    /// Gets formatted rich text value with markup.
     /// </summary>
     System::String get_FormattedValue();
     /// <summary>
-    /// Gets or sets formatted rich text value with markup.
+    /// Sets formatted rich text value with markup.
     /// </summary>
     void set_FormattedValue(System::String value);
     /// <summary>
@@ -73,11 +73,11 @@ public:
     /// </summary>
     virtual void set_Value(System::String value);
     /// <summary>
-    /// Gets or sets justification of the rich text box.
+    /// Gets justification of the rich text box.
     /// </summary>
     Aspose::Pdf::Annotations::Justification get_Justify();
     /// <summary>
-    /// Gets or sets justification of the rich text box.
+    /// Sets justification of the rich text box.
     /// </summary>
     void set_Justify(Aspose::Pdf::Annotations::Justification value);
     

@@ -45,20 +45,20 @@ class ASPOSE_PDF_SHARED_API SystemFontsSubstitution FINAL : public Aspose::Pdf::
 public:
 
     /// <summary>
-    /// Gets or sets substitution font categories that should be substituted with system fonts.
+    /// Gets substitution font categories that should be substituted with system fonts.
     /// </summary>
     SubstitutionFontCategories get_FontCategories();
     /// <summary>
-    /// Gets or sets substitution font categories that should be substituted with system fonts.
+    /// Sets substitution font categories that should be substituted with system fonts.
     /// </summary>
     void set_FontCategories(SubstitutionFontCategories value);
     /// <summary>
-    /// Gets or sets default substitution font.
+    /// Gets default substitution font.
     /// The font is used when no other valid substitution were found but initial font belongs to target substitution category (<see cref="FontCategories"/>).
     /// </summary>
     System::SharedPtr<Font> get_DefaultFont();
     /// <summary>
-    /// Gets or sets default substitution font.
+    /// Sets default substitution font.
     /// The font is used when no other valid substitution were found but initial font belongs to target substitution category (<see cref="FontCategories"/>).
     /// </summary>
     void set_DefaultFont(System::SharedPtr<Font> value);

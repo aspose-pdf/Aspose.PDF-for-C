@@ -53,51 +53,51 @@ class ASPOSE_PDF_SHARED_API TextBoxField : public Aspose::Pdf::Forms::Field
 public:
 
     /// <summary>
-    /// Gets or sets multiline flag of the field. If Multiline is true field can contain multiple lines of text.
+    /// Gets multiline flag of the field. If Multiline is true field can contain multiple lines of text.
     /// </summary>
     bool get_Multiline();
     /// <summary>
-    /// Gets or sets multiline flag of the field. If Multiline is true field can contain multiple lines of text.
+    /// Sets multiline flag of the field. If Multiline is true field can contain multiple lines of text.
     /// </summary>
     void set_Multiline(bool value);
     /// <summary>
-    /// Gets or sets spellcheck flag for field. If true field shall be spell checked.
+    /// Gets spellcheck flag for field. If true field shall be spell checked.
     /// </summary>
     bool get_SpellCheck();
     /// <summary>
-    /// Gets or sets spellcheck flag for field. If true field shall be spell checked.
+    /// Sets spellcheck flag for field. If true field shall be spell checked.
     /// </summary>
     void set_SpellCheck(bool value);
     /// <summary>
-    /// Gets or sets scrollable flag of field. If true field can be scrolled. 
+    /// Gets scrollable flag of field. If true field can be scrolled. 
     /// </summary>
     bool get_Scrollable();
     /// <summary>
-    /// Gets or sets scrollable flag of field. If true field can be scrolled. 
+    /// Sets scrollable flag of field. If true field can be scrolled. 
     /// </summary>
     void set_Scrollable(bool value);
     /// <summary>
-    /// Gets or sets flag which indicates is field divided into spaced positions.
+    /// Gets flag which indicates is field divided into spaced positions.
     /// </summary>
     bool get_ForceCombs();
     /// <summary>
-    /// Gets or sets flag which indicates is field divided into spaced positions.
+    /// Sets flag which indicates is field divided into spaced positions.
     /// </summary>
     void set_ForceCombs(bool value);
     /// <summary>
-    /// Gets or sets maximum length of text in the field. 
+    /// Gets maximum length of text in the field. 
     /// </summary>
     int32_t get_MaxLen();
     /// <summary>
-    /// Gets or sets maximum length of text in the field. 
+    /// Sets maximum length of text in the field. 
     /// </summary>
     void set_MaxLen(int32_t value);
     /// <summary>
-    /// Gets or sets value of the field.
+    /// Gets value of the field.
     /// </summary>
     virtual System::String get_Value();
     /// <summary>
-    /// Gets or sets value of the field.
+    /// Sets value of the field.
     /// </summary>
     virtual void set_Value(System::String value);
     

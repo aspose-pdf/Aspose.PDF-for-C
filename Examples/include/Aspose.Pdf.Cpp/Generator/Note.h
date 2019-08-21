@@ -33,27 +33,27 @@ class ASPOSE_PDF_SHARED_API Note FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets a collection that indicates all paragraphs in the FootNote.
+    /// Gets a collection that indicates all paragraphs in the FootNote.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Paragraphs> get_Paragraphs();
     /// <summary>
-    /// Gets or sets a collection that indicates all paragraphs in the FootNote.
+    /// Sets a collection that indicates all paragraphs in the FootNote.
     /// </summary>
     void set_Paragraphs(System::SharedPtr<Aspose::Pdf::Paragraphs> value);
     /// <summary>
-    /// Gets or sets a note text.
+    /// Gets a note text.
     /// </summary>
     System::String get_Text();
     /// <summary>
-    /// Gets or sets a note text.
+    /// Sets a note text.
     /// </summary>
     void set_Text(System::String value);
     /// <summary>
-    /// Gets or sets a note text state.
+    /// Gets a note text state.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Text::TextState> get_TextState();
     /// <summary>
-    /// Gets or sets a note text state.
+    /// Sets a note text state.
     /// </summary>
     void set_TextState(System::SharedPtr<Aspose::Pdf::Text::TextState> value);
     

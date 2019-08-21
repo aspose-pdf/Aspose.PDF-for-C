@@ -42,7 +42,9 @@ namespace Detail{
         /// A dummy reference to uint32_t field.
         uint32_t &m_ref; 
         /// A dummy uint32_t field.
-        uint32_t m_mask; 
+        uint32_t m_mask;
+        /// Dummy declaration for warning-safety.
+        BitsetReferenceSizeEquivalent() = delete;
     };
 
     /// Wrapper to hold bitset data without actually including boost headers.

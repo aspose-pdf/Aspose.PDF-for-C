@@ -1,7 +1,7 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-// C# preprocessor directive: #if !COMPACT 
+// C# preprocessor directive: #if !COMPACT
 
 
 #include <system/enum.h>
@@ -255,7 +255,7 @@ enum class HatchStyle
 } // namespace Pdf
 } // namespace Aspose
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
 template<>

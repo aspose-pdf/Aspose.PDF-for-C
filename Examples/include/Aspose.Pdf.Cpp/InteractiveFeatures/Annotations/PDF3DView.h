@@ -51,22 +51,22 @@ class ASPOSE_PDF_SHARED_API PDF3DView : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets the lighting scheme of view.
+    /// Gets the lighting scheme of view.
     /// </summary>
     /// <value>The lighting scheme of view.</value>
     System::SharedPtr<PDF3DLightingScheme> get_LightingScheme();
     /// <summary>
-    /// Gets or sets the lighting scheme of view.
+    /// Sets the lighting scheme of view.
     /// </summary>
     /// <value>The lighting scheme of view.</value>
     void set_LightingScheme(System::SharedPtr<PDF3DLightingScheme> value);
     /// <summary>
-    /// Gets or sets the render mode of view.
+    /// Gets the render mode of view.
     /// </summary>
     /// <value>The render mode of view.</value>
     System::SharedPtr<PDF3DRenderMode> get_RenderMode();
     /// <summary>
-    /// Gets or sets the render mode of view.
+    /// Sets the render mode of view.
     /// </summary>
     /// <value>The render mode of view.</value>
     void set_RenderMode(System::SharedPtr<PDF3DRenderMode> value);
@@ -76,42 +76,42 @@ public:
     /// <value>The cross sections array of view.</value>
     System::SharedPtr<PDF3DCrossSectionArray> get_CrossSectionsArray();
     /// <summary>
-    /// Gets or sets the name of the view.
+    /// Gets the name of the view.
     /// </summary>
     /// <value>The name of the view.</value>
     System::String get_ViewName();
     /// <summary>
-    /// Gets or sets the name of the view.
+    /// Sets the name of the view.
     /// </summary>
     /// <value>The name of the view.</value>
     void set_ViewName(System::String value);
     /// <summary>
-    /// Gets or sets the camera position of view.
+    /// Gets the camera position of view.
     /// </summary>
     /// <value>The camera position of view.</value>
     System::SharedPtr<Matrix3D> get_CameraPosition();
     /// <summary>
-    /// Gets or sets the camera position of view.
+    /// Sets the camera position of view.
     /// </summary>
     /// <value>The camera position of view.</value>
     void set_CameraPosition(System::SharedPtr<Matrix3D> value);
     /// <summary>
-    /// Gets or sets the camera orbit of view.
+    /// Gets the camera orbit of view.
     /// </summary>
     /// <value>The camera orbit of view.</value>
     double get_CameraOrbit();
     /// <summary>
-    /// Gets or sets the camera orbit of view.
+    /// Sets the camera orbit of view.
     /// </summary>
     /// <value>The camera orbit of view.</value>
     void set_CameraOrbit(double value);
     /// <summary>
-    /// Gets or sets the color of the back ground of view.
+    /// Gets the color of the back ground of view.
     /// </summary>
     /// <value>The color of the back ground of view.</value>
     System::SharedPtr<Color> get_BackGroundColor();
     /// <summary>
-    /// Gets or sets the color of the back ground of view.
+    /// Sets the color of the back ground of view.
     /// </summary>
     /// <value>The color of the back ground of view.</value>
     void set_BackGroundColor(System::SharedPtr<Color> value);

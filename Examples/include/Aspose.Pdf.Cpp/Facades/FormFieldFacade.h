@@ -71,11 +71,11 @@ public:
     /// </summary>
     void set_Font(FontStyle value);
     /// <summary>
-    /// Gets or sets name of the font when this is non-standart (other then 14 standard fonts).
+    /// Gets name of the font when this is non-standart (other then 14 standard fonts).
     /// </summary>
     System::String get_CustomFont();
     /// <summary>
-    /// Gets or sets name of the font when this is non-standart (other then 14 standard fonts).
+    /// Sets name of the font when this is non-standart (other then 14 standard fonts).
     /// </summary>
     void set_CustomFont(System::String value);
     /// <summary>

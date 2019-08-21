@@ -17,8 +17,8 @@ namespace Aspose { namespace Pdf { namespace Annotations { class InkAnnotation; 
 namespace Aspose { namespace Pdf { namespace Annotations { class LineAnnotation; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class PolyAnnotation; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class BorderStyle; } } }
-namespace Aspose { namespace Pdf { namespace Annotations { class Dash; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class BorderEffect; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { class Dash; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfPrimitive; } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
@@ -52,11 +52,11 @@ class ASPOSE_PDF_SHARED_API Border FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets horizontal corner radius.
+    /// Gets horizontal corner radius.
     /// </summary>
     int32_t get_HCornerRadius();
     /// <summary>
-    /// Gets or sets horizontal corner radius.
+    /// Sets horizontal corner radius.
     /// </summary>
     void set_HCornerRadius(int32_t value);
     /// <summary>
@@ -68,55 +68,55 @@ public:
     /// </summary>
     void set_VCornerRaduis(int32_t value);
     /// <summary>
-    /// Gets or sets vertical corner radius.
+    /// Gets vertical corner radius.
     /// </summary>
     int32_t get_VCornerRadius();
     /// <summary>
-    /// Gets or sets vertical corner radius.
+    /// Sets vertical corner radius.
     /// </summary>
     void set_VCornerRadius(int32_t value);
     /// <summary>
-    /// Gets or sets border width.
+    /// Gets border width.
     /// </summary>
     int32_t get_Width();
     /// <summary>
-    /// Gets or sets border width.
+    /// Sets border width.
     /// </summary>
     void set_Width(int32_t value);
     /// <summary>
-    /// Gets or sets effect intencity. Valid range of value is [0..2].
+    /// Gets effect intencity. Valid range of value is [0..2].
     /// </summary>
     int32_t get_EffectIntensity();
     /// <summary>
-    /// Gets or sets effect intencity. Valid range of value is [0..2].
+    /// Sets effect intencity. Valid range of value is [0..2].
     /// </summary>
     void set_EffectIntensity(int32_t value);
     /// <summary>
-    /// Gets or sets border style.
+    /// Gets border style.
     /// </summary>
     /// <see cref="BorderStyle"/>
     BorderStyle get_Style();
     /// <summary>
-    /// Gets or sets border style.
+    /// Sets border style.
     /// </summary>
     /// <see cref="BorderStyle"/>
     void set_Style(BorderStyle value);
     /// <summary>
-    /// Gets or sets border effect.
+    /// Gets border effect.
     /// </summary>
     /// <see cref="BorderEffect"/>
     BorderEffect get_Effect();
     /// <summary>
-    /// Gets or sets border effect.
+    /// Sets border effect.
     /// </summary>
     /// <see cref="BorderEffect"/>
     void set_Effect(BorderEffect value);
     /// <summary>
-    /// Gets or sets dash pattern.
+    /// Gets dash pattern.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Annotations::Dash> get_Dash();
     /// <summary>
-    /// Gets or sets dash pattern.
+    /// Sets dash pattern.
     /// </summary>
     void set_Dash(System::SharedPtr<Aspose::Pdf::Annotations::Dash> value);
     

@@ -29,35 +29,35 @@ class ASPOSE_PDF_SHARED_API GradientAxialShading : public Aspose::Pdf::Drawing::
 public:
 
     /// <summary>
-    /// Gets or sets start point.
+    /// Gets start point.
     /// </summary>
     System::SharedPtr<Point> get_Start();
     /// <summary>
-    /// Gets or sets start point.
+    /// Sets start point.
     /// </summary>
     void set_Start(System::SharedPtr<Point> value);
     /// <summary>
-    /// Gets or sets end point.
+    /// Gets end point.
     /// </summary>
     System::SharedPtr<Point> get_End();
     /// <summary>
-    /// Gets or sets end point.
+    /// Sets end point.
     /// </summary>
     void set_End(System::SharedPtr<Point> value);
     /// <summary>
-    /// Gets or sets start color.
+    /// Gets start color.
     /// </summary>
     System::SharedPtr<Color> get_StartColor();
     /// <summary>
-    /// Gets or sets start color.
+    /// Sets start color.
     /// </summary>
     void set_StartColor(System::SharedPtr<Color> value);
     /// <summary>
-    /// Gets or sets end color.
+    /// Gets end color.
     /// </summary>
     System::SharedPtr<Color> get_EndColor();
     /// <summary>
-    /// Gets or sets end color.
+    /// Sets end color.
     /// </summary>
     void set_EndColor(System::SharedPtr<Color> value);
     
@@ -83,10 +83,10 @@ protected:
     
 private:
 
-    System::SharedPtr<Point> start;
-    System::SharedPtr<Point> end;
-    System::SharedPtr<Color> startColor;
-    System::SharedPtr<Color> endColor;
+    System::SharedPtr<Point> pr_Start;
+    System::SharedPtr<Point> pr_End;
+    System::SharedPtr<Color> pr_StartColor;
+    System::SharedPtr<Color> pr_EndColor;
     bool extendBeyondStart;
     bool extendBeyondEnd;
     

@@ -31,8 +31,8 @@ public:
     ASPOSECPP_SHARED_API void Add(String host, int32_t port, String authenticationType, System::SharedPtr<NetworkCredential> credential);
     ASPOSECPP_SHARED_API void Remove(System::SharedPtr<Uri> uriPrefix, String authenticationType);
     ASPOSECPP_SHARED_API void Remove(String host, int32_t port, String authenticationType);
-    ASPOSECPP_SHARED_API System::SharedPtr<NetworkCredential> GetCredential(System::SharedPtr<Uri> uriPrefix, String authenticationType);
-    ASPOSECPP_SHARED_API System::SharedPtr<NetworkCredential> GetCredential(String host, int32_t port, String authenticationType);
+    ASPOSECPP_SHARED_API System::SharedPtr<NetworkCredential> GetCredential(System::SharedPtr<Uri> uriPrefix, String authenticationType) override;
+    ASPOSECPP_SHARED_API System::SharedPtr<NetworkCredential> GetCredential(String host, int32_t port, String authenticationType) override;
 };
 } // namespace Net
 } // namespace System

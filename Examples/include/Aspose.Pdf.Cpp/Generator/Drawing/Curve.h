@@ -38,11 +38,11 @@ class ASPOSE_PDF_SHARED_API Curve FINAL : public Aspose::Pdf::Drawing::Shape
 public:
 
     /// <summary>
-    /// Gets or sets a float position array.
+    /// Gets a float position array.
     /// </summary>
     System::ArrayPtr<float> get_PositionArray();
     /// <summary>
-    /// Gets or sets a float position array.
+    /// Sets a float position array.
     /// </summary>
     void set_PositionArray(System::ArrayPtr<float> value);
     

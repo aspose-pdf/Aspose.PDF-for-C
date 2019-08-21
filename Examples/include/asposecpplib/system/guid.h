@@ -113,6 +113,11 @@ public:
     /// @param input The string containing the string representation of GUID
     /// @returns A Guid object representig a GUID equivalent to that represented by @p input
     static ASPOSECPP_SHARED_API Guid Parse(const String& input);
+    /// Tries to convert the specified string into Guid object.
+    /// @param input The string to convert
+    /// @param g Output Guid object, if successfull.
+    /// @returns True, if input string represents valid Guid, otherwise false.
+    static ASPOSECPP_SHARED_API bool TryParse(const String& input, Guid& g);
     /// Returns a hash code for the current object.
     ASPOSECPP_SHARED_API int GetHashCode() const;
 
@@ -155,7 +160,7 @@ namespace std
         /// @param g Guid object to hash
         std::size_t operator()(const System::Guid& g) const
         {
-            return g.GetHashCode();
+            return static_cast<std::size_t>(g.GetHashCode());
         }
     };
 }

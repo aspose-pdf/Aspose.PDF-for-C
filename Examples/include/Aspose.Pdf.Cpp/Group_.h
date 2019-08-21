@@ -7,9 +7,9 @@
 #include "aspose_pdf_api_defs.h"
 
 namespace Aspose { namespace Pdf { namespace Facades { class PdfFileMend; } } }
-namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
 namespace Aspose { namespace Pdf { enum class ColorSpace; } }
 namespace Aspose { namespace Pdf { enum class ExtendedBoolean; } }
+namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
 namespace Aspose { namespace Pdf { class Page; } }
 
 namespace Aspose {

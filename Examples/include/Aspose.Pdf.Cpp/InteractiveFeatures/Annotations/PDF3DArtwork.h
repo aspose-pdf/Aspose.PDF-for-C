@@ -45,22 +45,22 @@ class ASPOSE_PDF_SHARED_API PDF3DArtwork : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets the lighting scheme.
+    /// Gets the lighting scheme.
     /// </summary>
     /// <value>The lighting scheme.</value>
     System::SharedPtr<PDF3DLightingScheme> get_LightingScheme();
     /// <summary>
-    /// Gets or sets the lighting scheme.
+    /// Sets the lighting scheme.
     /// </summary>
     /// <value>The lighting scheme.</value>
     void set_LightingScheme(System::SharedPtr<PDF3DLightingScheme> value);
     /// <summary>
-    /// Gets or sets the render mode.
+    /// Gets the render mode.
     /// </summary>
     /// <value>The render mode.</value>
     System::SharedPtr<PDF3DRenderMode> get_RenderMode();
     /// <summary>
-    /// Gets or sets the render mode.
+    /// Sets the render mode.
     /// </summary>
     /// <value>The render mode.</value>
     void set_RenderMode(System::SharedPtr<PDF3DRenderMode> value);

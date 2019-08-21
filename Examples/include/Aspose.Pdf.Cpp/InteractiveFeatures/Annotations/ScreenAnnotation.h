@@ -3,8 +3,8 @@
 
 #include "InteractiveFeatures/Annotations/Annotation.h"
 
-namespace Aspose { namespace Pdf { namespace Annotations { class PdfAction; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { class PdfAction; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { class Page; } }
@@ -35,15 +35,15 @@ class ASPOSE_PDF_SHARED_API ScreenAnnotation FINAL : public Aspose::Pdf::Annotat
 public:
 
     /// <summary>
-    /// Gets or sets the title of the screen annotation.
+    /// Gets the title of the screen annotation.
     /// </summary>
     System::String get_Title();
     /// <summary>
-    /// Gets or sets the title of the screen annotation.
+    /// Sets the title of the screen annotation.
     /// </summary>
     void set_Title(System::String value);
     /// <summary>
-    /// Gets or sets an action to be performed when the annotation is activated.
+    /// Gets an action to be performed when the annotation is activated.
     /// </summary>
     System::SharedPtr<PdfAction> get_Action();
     /// <summary>
@@ -72,7 +72,7 @@ protected:
 private:
 
     /// <summary>
-    /// Gets or sets an action to be performed when the annotation is activated.
+    /// Sets an action to be performed when the annotation is activated.
     /// </summary>
     void set_Action(System::SharedPtr<PdfAction> value);
     

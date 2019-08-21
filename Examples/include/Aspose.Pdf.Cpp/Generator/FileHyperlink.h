@@ -24,11 +24,11 @@ class ASPOSE_PDF_SHARED_API FileHyperlink FINAL : public Aspose::Pdf::Hyperlink
 public:
 
     /// <summary>
-    /// Gets or sets the path to file.
+    /// Gets the path to file.
     /// </summary>
     System::String get_Path();
     /// <summary>
-    /// Gets or sets the path to file.
+    /// Sets the path to file.
     /// </summary>
     void set_Path(System::String value);
     

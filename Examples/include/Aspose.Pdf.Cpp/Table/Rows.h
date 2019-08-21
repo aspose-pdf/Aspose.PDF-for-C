@@ -79,12 +79,12 @@ public:
     void Dispose();
     
     /// <summary>
-    /// Gets or sets row.
+    /// Gets row.
     /// </summary>
     /// <param name="index">The row index.</param>
     System::SharedPtr<Row> idx_get(int32_t index);
     /// <summary>
-    /// Gets or sets row.
+    /// Sets row.
     /// </summary>
     /// <param name="index">The row index.</param>
     void idx_set(int32_t index, System::SharedPtr<Row> value);

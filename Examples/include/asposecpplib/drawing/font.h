@@ -2,12 +2,15 @@
 #ifndef _aspose_drawing_font_h_
 #define _aspose_drawing_font_h_
 
+#include <vector>
+
 #include <system/object.h>
 #include <system/string.h>
 
 #include "drawing/font_family.h"
 #include "drawing/font_style.h"
 #include "drawing/graphics_unit.h"
+#include "text/text_rendering_hint.h"
 
 /// Default resolution for font operations.
 #define DEFAULT_FONT_OPERATIONS_DPI  96.f
@@ -16,7 +19,8 @@
 ASPOSECPP_3RD_PARTY_TYPEDEF(SkScalar, float);
 /// Forward declaration of SkPaint class.
 ASPOSECPP_3RD_PARTY_CLASS(SkPaint);
-
+/// Forward declaration of SkTypeface class.
+ASPOSECPP_3RD_PARTY_CLASS(SkTypeface);
 
 namespace System { namespace Drawing {
 
@@ -134,8 +138,8 @@ private:
     /// Applies font parameters to paint object.
     /// @param paint Paint object to apply font parameters to.
     /// @param dpi Resolution.
-    /// @param cleartype Specifies whether to use ClearType mode.
-    void Apply(SkPaint &paint, float dpi, bool cleartype);
+    /// @param rendering_hint Specifies whether to use Different rendering modes.
+    void Apply(SkPaint &paint, float dpi, Text::TextRenderingHint rendering_hint);
     /// Strips the first character from the specified string if it is equal to '@'.
     /// @param family_name The string to process
     /// @returns Original @p family_name string if it does not begin with '@' character, otherwise - @p family_name without the first character
@@ -144,6 +148,10 @@ private:
     /// @param dpi Resolution rendering is being done for.
     /// @return Offset value in pixels.
     SkScalar GetDotNetPositionOffset(float dpi);
+    /// Initializes data for font smoothing.
+    void InitGaspData(const SkTypeface* typeface);
+    /// Sets additional rendering parameters to SkPaint.
+    void UpdatePaintForPpem(uint16_t ppem, SkPaint& paint);
     /// The font family of the font represented by the current object.
     SharedPtr<FontFamily> m_font_family;
     /// The em size of the font represented by the current object measured in the units 
@@ -159,6 +167,8 @@ private:
     bool m_gdi_vertical_font;
     /// The originally specified name of the font.
     String m_original_font_name;
+    /// Contains data for font smoothing.
+    std::vector<std::pair<uint16_t, uint16_t>> m_gasp_data;
 };
 
 }} // System::Drawing

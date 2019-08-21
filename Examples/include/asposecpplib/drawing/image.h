@@ -3,10 +3,12 @@
 #define _aspose_system_drawing_image_h_
 
 #include "system/object.h"
+#include "system/nullable.h"
 #include "drawing/imaging/image_attributes.h"
 #include "drawing/imaging/image_format.h"
 #include "drawing/imaging/image_codec_info.h"
 #include "drawing/imaging/encoder_parameters.h"
+#include "drawing/imaging/encoder_value.h"
 #include "drawing/imaging/pixel_format.h"
 #include "drawing/imaging/color_palette.h"
 #include "drawing/imaging/frame_dimension.h"
@@ -19,7 +21,7 @@
 #include "imaging/image_flags.h"
 
 // skia headers and forwards
-#ifdef ASPOSECPP_SHARED_EXPORTS
+#if defined(ASPOSECPP_SHARED_EXPORTS) || defined(ASPOSECPP_SKIA_EXTERNAL_USAGE)
 #include <core/SkImage.h>
 #include <core/SkData.h>
 #include <codec/SkEncodedFormat.h>
@@ -27,25 +29,31 @@
 
 #define ASPOSE_DUMMY_META_FILE
 
-/// Forward declaration of SkCanvas class.
+/// Forward declaration of SkBitmap class.
 ASPOSECPP_3RD_PARTY_CLASS(SkBitmap);
 /// Forward declaration of SkCanvas class.
 ASPOSECPP_3RD_PARTY_CLASS(SkCanvas);
-/// Forward declaration of SkCanvas class.
+/// Forward declaration of SkData class.
 ASPOSECPP_3RD_PARTY_CLASS(SkData);
-/// Forward declaration of SkCanvas class.
+/// Forward declaration of SkMatrix class.
 ASPOSECPP_3RD_PARTY_CLASS(SkMatrix);
+/// Forward declaration of SkImageEncoder class.
+ASPOSECPP_3RD_PARTY_CLASS(SkImageEncoder);
+/// Forward declaration of SkRWStream class.
+ASPOSECPP_3RD_PARTY_CLASS(SkRWStream);
 /// Static checks of SkEncodedFormat enum.
-ASPOSECPP_3RD_PARTY_ENUM(SkEncodedFormat);
-/// Forward declaration of SkImageInfo struct.
 ASPOSECPP_3RD_PARTY_STRUCT(SkImageInfo);
 /// Forward declaration of SkRect struct.
 ASPOSECPP_3RD_PARTY_STRUCT(SkRect);
 /// Forward declaration of SkFilterQuality enum.
+
+#if defined(ASPOSECPP_SHARED_EXPORTS) || !defined(ASPOSECPP_SKIA_EXTERNAL_USAGE)
+ASPOSECPP_3RD_PARTY_ENUM(SkEncodedFormat);
+/// Forward declaration of SkImageInfo struct.
 ASPOSECPP_3RD_PARTY_ENUM(SkFilterQuality);
 /// Forward declaration of SkBlendMode enum.
-ASPOSECPP_3RD_PARTY_ENUM_WITH_UNDERLYING(SkBlendMode, int);
-
+ASPOSECPP_3RD_PARTY_ENUM_CLASS(SkBlendMode);
+#endif
 
 template <typename T> class sk_sp;
 
@@ -179,6 +187,9 @@ namespace System { namespace Drawing {
         /// Releases all resources aquired by the current object.
         void Dispose() { };
 
+        /// Returns an underlying SkBitmap object.
+        virtual ASPOSECPP_SHARED_API const SkBitmap* GetSkBitmap() const = 0;
+
     protected:
         /// Default quality level used when encoding an image.
         static const int s_default_save_quality = 80;
@@ -186,6 +197,19 @@ namespace System { namespace Drawing {
         friend class Graphics;
         friend class TextureBrush;
         friend class Bitmap;
+
+        /// Structure that represents save options
+        struct SaveOptions
+        {
+            /// The quality level used when encoding an image.
+            Nullable<int> Quality;
+            /// Specifies the parameter value passed to a JPEG or TIFF image encoder.
+            Nullable<Imaging::EncoderValue> Flag;
+        };
+
+        /// Converts a set of encoder parameters into a SaveOptions structure
+        /// @param encoder_params The parameters of the encoder
+        static SaveOptions ParseEncoderParameters(const Imaging::EncoderParametersPtr& encoder_params);
 
         /// Returns the drawing canvas object.
         virtual ASPOSECPP_SHARED_API SkCanvas * GetDrawingCanvas() const = 0;
@@ -201,6 +225,17 @@ namespace System { namespace Drawing {
         /// @param encoder_type A format to save the image in
         /// @param quality The quality to save the image in; is used only if @p encoder_type format supports this setting
         ASPOSECPP_SHARED_API void InternalSave(const SharedPtr<System::IO::Stream>& stream, SkEncodedFormat encoder_type, int quality = s_default_save_quality);
+
+        /// Saves the image represented by the current object to the specified stream in the specified format.
+        /// @param stream A stream to save the image to
+        /// @param encoder_type A format to save the image in
+        /// @param options The options used to save the image in; is used only if @p encoder_type format supports this options
+        void InternalSave(const SharedPtr<IO::Stream>& stream, SkEncodedFormat encoder_type, const SaveOptions& options);
+
+        /// Saves the bitmap as a part of a multipage image
+        /// @param bitmap The bitmap to save
+        /// @param options The options used to save the bitmap
+        void InternalSavePage(const SkBitmap* bitmap, const SaveOptions& options);
 
         /// Checks if the specified image format is supported and returns a SkEncodedFormat value that represents the specified image format.
         /// @param image_format The format to check
@@ -218,8 +253,6 @@ namespace System { namespace Drawing {
         /// @throws System::Runtime::InteropServices::ExternalException If the specified format is not supported
         static ASPOSECPP_SHARED_API SkEncodedFormat CheckOutputFormat(SkEncodedFormat encoded_format);
 
-        /// Returns an underlying SkBitmap object.
-        virtual ASPOSECPP_SHARED_API const SkBitmap* GetSkBitmap() const = 0;
         /// Returns an underlying SkEncodedFormat object.
         virtual ASPOSECPP_SHARED_API const SkEncodedFormat GetSkEncodedFormat() const = 0;
         /// Returns the original image format.
@@ -239,8 +272,9 @@ namespace System { namespace Drawing {
         /// @param sk_canvas The canvas to draw on
         /// @param dest_rect The rectangle in the canvas to draw to
         /// @param matrix The matrix that specifies how to traslate and scale the source image region
+        /// @param quality The quality of image interpolation
         /// @param blend_mode Specifies how the source colors are combined with the background colors
-        virtual void Draw(SkCanvas * sk_canvas, const SkRect& dest_rect, SkMatrix* matrix, SkBlendMode blend_mode) const = 0;
+        virtual void Draw(SkCanvas* sk_canvas, const SkRect& dest_rect, SkMatrix* matrix, SkFilterQuality quality, SkBlendMode blend_mode) const = 0;
         /// Draws the specified region of the image to the specified region on the specified canvas.
         /// The source bitmap region is scaled and translated to fill the destination region.
         /// @param sk_canvas The canvas to draw on
@@ -268,6 +302,9 @@ namespace System { namespace Drawing {
         /// The vertical resolution of the image represented by the current object in pixels per inch.
         float m_vertical_resolution = 96.f; //only default 96dpi is supported
 
+    private:
+        std::unique_ptr<SkRWStream> m_stream;
+        std::unique_ptr<SkImageEncoder> m_encoder;
     };
 }}
 

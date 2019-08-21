@@ -9,11 +9,6 @@
 #include <cassert>
 
 
-#if defined(_DEBUG) && (!defined(DISABLE_EXTERNAL_REFCOUNT) || (DISABLE_EXTERNAL_REFCOUNT == 0))
-#define ENABLE_EXTERNAL_REFCOUNT
-#endif
-
-
 namespace System { namespace Detail {
 
 /// Represents a reference counter that keeps the count of shared references to an object.
@@ -99,6 +94,10 @@ private:
     /// The count.
     std::atomic<int> m_count;
 #endif
+
+    // Explicitly deleting 
+    RefCount(const RefCount&) = delete;
+    RefCount& operator = (const RefCount&) = delete;
 };
 
 

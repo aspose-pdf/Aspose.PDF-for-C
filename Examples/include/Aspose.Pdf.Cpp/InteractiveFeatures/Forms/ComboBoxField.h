@@ -37,19 +37,19 @@ class ASPOSE_PDF_SHARED_API ComboBoxField : public Aspose::Pdf::Forms::ChoiceFie
 public:
 
     /// <summary>
-    /// Gets or sets editable status of the field.
+    /// Gets editable status of the field.
     /// </summary>
     bool get_Editable();
     /// <summary>
-    /// Gets or sets editable status of the field.
+    /// Sets editable status of the field.
     /// </summary>
     void set_Editable(bool value);
     /// <summary>
-    /// Gets or sets spellchaeck activiity status.
+    /// Gets spellchaeck activiity status.
     /// </summary>
     bool get_SpellCheck();
     /// <summary>
-    /// Gets or sets spellchaeck activiity status.
+    /// Sets spellchaeck activiity status.
     /// </summary>
     void set_SpellCheck(bool value);
     

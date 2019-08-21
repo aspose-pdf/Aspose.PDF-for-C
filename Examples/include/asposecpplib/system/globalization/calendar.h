@@ -172,9 +172,9 @@ public:
     /// Gets week of the year for the specified time point.
     /// @param time Time and date to extract data from.
     /// @param rule Determines how to determine the first week of the year.
-    /// @param firstDayOfWeek Determines first day of week.
+    /// @param first_day_of_week Determines first day of week.
     /// @return Year week number in the time point passed.
-    virtual ASPOSECPP_SHARED_API int GetWeekOfYear(const DateTime &time, CalendarWeekRule rule, DayOfWeek firstDayOfWeek) const;
+    virtual ASPOSECPP_SHARED_API int GetWeekOfYear(const DateTime &time, CalendarWeekRule rule, DayOfWeek first_day_of_week) const;
     /// Gets year for the specified time point.
     /// @param time Time and date to extract data from.
     /// @return Year in the time point passed.
@@ -247,7 +247,14 @@ public:
     ASPOSECPP_SHARED_API int get_CurrentEra() const;
     /// Gets value of current era.
     /// @return Current era value.
-    ASPOSECPP_SHARED_API int get_CurrentEraValue() const; // aspose extension 
+    ASPOSECPP_SHARED_API int get_CurrentEraValue() const; // aspose extension
+    /// Checks year, month, day and era values.
+    /// @param year Year.
+    /// @param month Month.
+    /// @param day Day.
+    /// @param era Era.
+    /// @return True if values are valid.
+    bool IsValidDay(int year, int month, int day, int era) const; // aspose extension
 
     /// Gets the last year that can be represented by a 2-digit.
     virtual ASPOSECPP_SHARED_API int get_TwoDigitYearMax() const;
@@ -300,20 +307,20 @@ protected:
     /// @return ICU era value.
     virtual int EraToIcuEra(int era) const;
     /// Convert ICU era value to Framework era format.
-    /// @param icuEra ICU era value.
+    /// @param icu_era ICU era value.
     /// @return Framework era value.
-    virtual int IcuEraToEra(int icuEra) const;
+    virtual int IcuEraToEra(int icu_era) const;
 
     /// Use the UCAL_EXTENDED_YEAR field instead of the UCAL_YEAR field.
     /// Must be set for the ChineseLunisolar-based calendars.
     void UseExtendedYearField();
     /// Set year offset.
-    /// resultYear = icuYear + yearOffset
-    /// @param yearOffset Year offset.
-    void SetYearOffset(int yearOffset);
+    /// result_year = icu_year + year_offset
+    /// @param year_offset Year offset.
+    void SetYearOffset(int year_offset);
     /// Sets the number of days to add or subtract from the calendar.
-    /// @param dateAdjustment Date adjustment.
-    void SetDateAdjustment(int dateAdjustment);
+    /// @param date_adjustment Date adjustment.
+    void SetDateAdjustment(int date_adjustment);
 
     /// Gets year (UCAL_YEAR) for the specified time point. 
     int GetYearInternal(const DateTime& time) const;
@@ -321,21 +328,23 @@ protected:
     int GetDaysInMonthInternal(int year, int month, int era) const;
     /// Constructs DateTime object from components.
     DateTime ToDateTimeInternal(int year, int month, int day, int hour, int minute, int second, int millisecond, int era) const;
+    /// Sets the last year that can be represented by a 2-digit. 
+    void SetTwoDigitYearMaxInternal(int year);
 
 private:
     /// Calendar implementation.
     const std::unique_ptr<icu::Calendar> m_calendar;
 
     /// Indicates whether calendar is read only.
-    bool m_isReadOnly = false;
+    bool m_is_read_only = false;
     /// Use UCAL_EXTENDED_YEAR field instead of UCAL_YEAR field.
-    bool m_useExtendedYear = false;
+    bool m_use_extended_year = false;
     /// Year offset.
-    int m_yearOffset = 0;
+    int m_year_offset = 0;
     /// Last year that can be represented by a 2-digit.
-    int m_twoDigitYearMax = 0;
+    int m_two_digit_year_max = 0;
     /// Date adjustment.
-    int m_dateAdjustment = 0;
+    int m_date_adjustment = 0;
 
     /// Unpacked DateTime.
     struct DateTimeFields;
@@ -359,29 +368,32 @@ private:
     void SetDateTime(const DateTimeFields& time, const LockContext&) const;
 
     /// Verify DateTime field (UCalendarDateFields).
-    void VerifyField(int field, int value, const char16_t* fieldName, const LockContext&) const;
+    void VerifyField(int field, int value, const char16_t* field_name, const LockContext&) const;
 
     /// Gets value of the specified time-point field.
     /// @param time Original time-point value.
     /// @param field Time-point filed.
-    /// @param fieldName Name of the field.
+    /// @param field_name Name of the field.
     /// @return Value of the time-point field.
-    int GetDateTimeField(const DateTime& time, int field, const char16_t* fieldName) const;
+    int GetDateTimeField(const DateTime& time, int field, const char16_t* field_name) const;
 
     /// Gets maximum value of the specified time-point field.
     /// @param time Original time-point value.
     /// @param field Time-point filed.
-    /// @param fieldName Name of the field.
+    /// @param field_name Name of the field.
     /// @return Maximum value of the time-point field.
-    int GetMaximumForDateTimeField(const DateTimeFields& time, int field, const char16_t* fieldName) const;
+    int GetMaximumForDateTimeField(const DateTimeFields& time, int field, const char16_t* field_name) const;
 
     /// Adds value to the specified time-point field.
     /// @param time Original time-point value.
     /// @param field Time-point filed.
     /// @param days Value to add.
-    /// @param fieldName Name of the field.
+    /// @param field_name Name of the field.
     /// @return Time-point after calculation is done.
-    DateTime AddValueToDateTimeField(const DateTime& time, int field, int value, const char16_t* fieldName) const;
+    DateTime AddValueToDateTimeField(const DateTime& time, int field, int value, const char16_t* field_name) const;
+
+    /// Throws ArgumentOutOfRangeException.
+    [[noreturn]] void ResultOutOfRange() const;
 };
 
 }} //namespace System::Globalization

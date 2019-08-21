@@ -27,6 +27,9 @@ class ASPOSE_PDF_SHARED_API MediaClipData : public Aspose::Pdf::Annotations::Med
     
 public:
 
+    /// <summary>
+    /// Return file specification which contains actual media data .
+    /// </summary>
     System::SharedPtr<FileSpecification> get_Data();
     
 protected:

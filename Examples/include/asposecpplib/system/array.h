@@ -269,6 +269,14 @@ namespace System
 
         /// Filling constructor.
         /// @param count Initial size of the array
+        /// @param init  The initial value used to fill the array with
+        /// @tparam ValueType Type of initial value
+        template <typename ValueType>
+        Array(typename std::enable_if<std::is_arithmetic<T>::value && std::is_arithmetic<ValueType>::value && std::is_convertible<ValueType, T>::value, int>::type count, ValueType init)
+            : Array(count, ASPOSECPP_CHECKED_CAST(T, init)) {}
+
+        /// Filling constructor.
+        /// @param count Initial size of the array
         /// @param inits Values to fill the array with
         Array(int count, const T inits[]) : m_data(count, static_cast<UnderlyingType>(T()), m_pointer_mode.GetAllocator())
         {
@@ -501,7 +509,7 @@ public:
             if (IsOutOfBounds(index, m_data)) {
                 throw ArgumentOutOfRangeException(u"index");
             }
-            return m_data[index];
+            return m_data[static_cast<typename vector_t::size_type>(index)];
         }
 
         /// Returns an item at the specified index.
@@ -513,7 +521,7 @@ public:
             if (IsOutOfBounds(index, m_data)) {
                 throw ArgumentOutOfRangeException(u"index");
             }
-            return m_data[index];
+            return m_data[static_cast<typename vector_t::size_type>(index)];
         }
 
         /// Clones the array.
@@ -750,17 +758,17 @@ public:
             if (dstArray.GetObjectOrNull() == (Object*)(this) && dstIndex > srcIndex && dstIndex < srcIndex + count)
             {
                 std::copy_backward(
-                    m_data.begin() + (size_t)srcIndex
-                    , m_data.begin() + (size_t)srcIndex + (size_t)count
-                    , dstArray->data().begin() + (size_t)dstIndex + (size_t)count
+                    m_data.begin() + ASPOSECPP_CHECKED_CAST(std::ptrdiff_t, srcIndex)
+                    , m_data.begin() + ASPOSECPP_CHECKED_CAST(std::ptrdiff_t, srcIndex) + ASPOSECPP_CHECKED_CAST(std::ptrdiff_t, count)
+                    , dstArray->data().begin() + ASPOSECPP_CHECKED_CAST(std::ptrdiff_t, dstIndex) + ASPOSECPP_CHECKED_CAST(std::ptrdiff_t, count)
                 );
             }
             else
             {
                 std::copy(
-                    m_data.begin() + (size_t)srcIndex
-                    , m_data.begin() + (size_t)srcIndex + (size_t)count
-                    , dstArray->data().begin() + (size_t)dstIndex
+                    m_data.begin() + ASPOSECPP_CHECKED_CAST(std::ptrdiff_t, srcIndex)
+                    , m_data.begin() + ASPOSECPP_CHECKED_CAST(std::ptrdiff_t, srcIndex) + ASPOSECPP_CHECKED_CAST(std::ptrdiff_t, count)
+                    , dstArray->data().begin() + ASPOSECPP_CHECKED_CAST(std::ptrdiff_t, dstIndex)
                 );
             }
         }

@@ -248,6 +248,8 @@ public:
     /// Link is used to perform fix next segment position after modifying this segment.
     /// </summary>
     void set_RightSegmentToFixPosition(System::SharedPtr<TextSegmentBuilder::OperatorLink> value);
+    bool get_IsHyphenated();
+    void set_IsHyphenated(bool value);
     
     /// <summary>
     /// Factory method to create appropriate physical segment implementation
@@ -524,6 +526,7 @@ public:
     virtual bool IsNormalizationNecessary(double leftAdjustmentNormalisationThreshold);
     virtual bool IsAllCapsWord(System::String text);
     System::String GetNoCharacterExceptionText(System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Fonts::IPdfFont> origFont, System::SharedPtr<Aspose::Pdf::Engine::CommonData::Text::Fonts::IPdfFont> changedFont, System::String unicodeString);
+    static System::String GetNoCharacterExceptionText(System::SharedPtr<Pdf::Text::Font> origFont, System::SharedPtr<Pdf::Text::Font> changedFont, System::String unicodeString);
     void SetUnderlineDelayedUpdate();
     
 protected:
@@ -644,6 +647,7 @@ private:
     bool isSuperscriptPositionChanged;
     bool isSubscriptPositionChanged;
     bool _transformXIgnoreRotation;
+    bool isHyphenated;
     System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfString> pr_ContainerText;
     double positionBreak_prevYIndent;
     

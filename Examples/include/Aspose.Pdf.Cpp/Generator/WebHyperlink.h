@@ -23,11 +23,11 @@ class ASPOSE_PDF_SHARED_API WebHyperlink FINAL : public Aspose::Pdf::Hyperlink
 public:
 
     /// <summary>
-    /// Gets or sets the web url.
+    /// Gets the web url.
     /// </summary>
     System::String get_Url();
     /// <summary>
-    /// Gets or sets the web url.
+    /// Sets the web url.
     /// </summary>
     void set_Url(System::String value);
     

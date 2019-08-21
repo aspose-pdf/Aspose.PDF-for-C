@@ -13,7 +13,7 @@
 
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { namespace XMP { class XmpArray; } } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { namespace XMP { class XmpDataCollection; } } } } }
-namespace Aspose { namespace Pdf { namespace Engine { namespace Data { namespace XMP { class XmpField; } } } } }
+namespace Aspose { namespace Pdf { class XmpField; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { namespace XMP { class XmpPacket; } } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { namespace XMP { class XmpStructure; } } } } }
 namespace Aspose { namespace Pdf { namespace Facades { class PdfXmpMetadata; } } }
@@ -41,7 +41,7 @@ class ASPOSE_PDF_SHARED_API XmpValue : public System::Object
     FRIEND_FUNCTION_System_MakeObject;
     friend class Aspose::Pdf::Engine::Data::XMP::XmpArray;
     friend class Aspose::Pdf::Engine::Data::XMP::XmpDataCollection;
-    friend class Aspose::Pdf::Engine::Data::XMP::XmpField;
+    friend class Aspose::Pdf::XmpField;
     friend class Aspose::Pdf::Engine::Data::XMP::XmpPacket;
     friend class Aspose::Pdf::Engine::Data::XMP::XmpStructure;
     friend class Aspose::Pdf::Facades::PdfXmpMetadata;
@@ -142,7 +142,27 @@ public:
     /// <returns></returns>
     System::ArrayPtr<System::SharedPtr<XmpValue>> ToArray();
     /// <summary>
-    /// REturs string representation of XmpValue.
+    /// Returns XMP value as structure (set of fields).
+    /// </summary>
+    /// <returns></returns>
+    System::ArrayPtr<System::SharedPtr<XmpField>> ToStructure();
+    /// <summary>
+    /// Returns XMP value as XMP field.
+    /// </summary>
+    /// <returns></returns>
+    System::SharedPtr<XmpField> ToField();
+    /// <summary>
+    /// Returns XMP value as named value.
+    /// </summary>
+    /// <returns></returns>
+    System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<XmpValue>> ToNamedValue();
+    /// <summary>
+    /// Returns XMP value as named value collection.
+    /// </summary>
+    /// <returns></returns>
+    System::ArrayPtr<System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<XmpValue>>> ToNamedValues();
+    /// <summary>
+    /// Returs string representation of XmpValue.
     /// </summary>
     /// <returns></returns>
     virtual System::String ToString();
@@ -165,16 +185,12 @@ public:
     
 protected:
 
-    XmpValue(System::SharedPtr<Engine::Data::XMP::XmpField> field);
-    XmpValue(System::ArrayPtr<System::SharedPtr<Engine::Data::XMP::XmpField>> structure);
+    XmpValue(System::SharedPtr<XmpField> field);
+    XmpValue(System::ArrayPtr<System::SharedPtr<XmpField>> structure);
     XmpValue(System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<XmpValue>> dictionaryEntry);
     XmpValue(System::ArrayPtr<System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<XmpValue>>> dictionaryEntries);
     XmpValue(System::SharedPtr<System::Object> value);
     
-    System::ArrayPtr<System::SharedPtr<Engine::Data::XMP::XmpField>> ToStructure();
-    System::SharedPtr<Engine::Data::XMP::XmpField> ToField();
-    System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<XmpValue>> ToNamedValue();
-    System::ArrayPtr<System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<XmpValue>>> ToNamedValues();
     System::Object::shared_members_type GetSharedMembers() override;
     
 private:
@@ -183,9 +199,9 @@ private:
     int32_t _intValue;
     double _doubleValue;
     System::DateTime _dateTime;
-    System::SharedPtr<Engine::Data::XMP::XmpField> _field;
+    System::SharedPtr<XmpField> _field;
     System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<XmpValue>> _dictionaryEntry;
-    System::ArrayPtr<System::SharedPtr<Engine::Data::XMP::XmpField>> _structureValue;
+    System::ArrayPtr<System::SharedPtr<XmpField>> _structureValue;
     System::ArrayPtr<System::SharedPtr<XmpValue>> _arrayValue;
     System::ArrayPtr<System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<XmpValue>>> _dictionaryEntries;
     bool _isInteger;

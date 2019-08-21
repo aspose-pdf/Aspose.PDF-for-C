@@ -3,10 +3,12 @@
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
+#include <net/icredentials.h>
 
 #include "LoadOptions.h"
 #include "aspose_pdf_api_defs.h"
 
+namespace Aspose { namespace Pdf { class HtmlFragment; } }
 namespace Aspose { namespace Pdf { enum class HtmlMediaType; } }
 namespace Aspose { namespace Pdf { class PageInfo; } }
 namespace Aspose { namespace Html { namespace Drawing { class Size; } } }
@@ -26,22 +28,40 @@ class ASPOSE_PDF_SHARED_API HtmlLoadOptions FINAL : public Aspose::Pdf::LoadOpti
     typedef ::System::BaseTypesInfo<BaseType> ThisTypeBaseTypesInfo;
     RTTI_INFO_DECL();
     
+    friend class Aspose::Pdf::HtmlFragment;
+    
 public:
 
     /// <summary>
-    /// Gets or sets possible media types used during rendering.
+    /// Gets rendering all document to single page
+    /// </summary>
+    bool get_IsRenderToSinglePage();
+    /// <summary>
+    /// Sets rendering all document to single page
+    /// </summary>
+    void set_IsRenderToSinglePage(bool value);
+    /// <summary>
+    /// Gets fonts embedding to result document
+    /// </summary>
+    bool get_IsEmbedFonts();
+    /// <summary>
+    /// Sets fonts embedding to result document
+    /// </summary>
+    void set_IsEmbedFonts(bool value);
+    /// <summary>
+    /// Gets possible media types used during rendering.
     /// </summary>
     Aspose::Pdf::HtmlMediaType get_HtmlMediaType();
     /// <summary>
-    /// Gets or sets possible media types used during rendering.
+    /// Sets possible media types used during rendering.
     /// </summary>
     void set_HtmlMediaType(Aspose::Pdf::HtmlMediaType value);
     /// <summary>
-    /// Gets or sets the attribute specifying the encoding used for this document at the time of the parsing. If this attribute is null the encoding will determine from document character set atribute.
+    /// Gets the attribute specifying the encoding used for this document at the time of the parsing. If this attribute is null the encoding will determine from document character set atribute.
     /// </summary>
     System::String get_InputEncoding();
     /// <summary>
-    /// Gets or sets the attribute specifying the encoding used for this document at the time of the parsing. If this attribute is null the encoding will determine from document character set atribute.
+    /// Sets the attribute specifying the encoding used for this document at the time of the parsing. If this attribute is null the encoding will determine from document character set atribute.
     /// </summary>
     void set_InputEncoding(System::String value);
     /// <summary>
@@ -53,11 +73,11 @@ public:
     LoadOptions::ResourceLoadingStrategy CustomLoaderOfExternalResources;
     
     /// <summary>
-    /// Gets or sets document page info
+    /// Gets document page info
     /// </summary>
     System::SharedPtr<Aspose::Pdf::PageInfo> get_PageInfo();
     /// <summary>
-    /// Gets or sets document page info
+    /// Sets document page info
     /// </summary>
     void set_PageInfo(System::SharedPtr<Aspose::Pdf::PageInfo> value);
     /// <summary>
@@ -84,11 +104,11 @@ public:
 protected:
 
     /// <summary>
-    /// Gets or sets the flag that controls visibility of fields borders (button, text, combobox).
+    /// Gets the flag that controls visibility of fields borders (button, text, combobox).
     /// </summary>
     bool get_ShowFieldsBorders();
     /// <summary>
-    /// Gets or sets the flag that controls visibility of fields borders (button, text, combobox).
+    /// Sets the flag that controls visibility of fields borders (button, text, combobox).
     /// </summary>
     void set_ShowFieldsBorders(bool value);
     System::SharedPtr<Aspose::Html::Drawing::Size> get_FirstSize();
@@ -102,10 +122,12 @@ protected:
     
 private:
 
-    System::String _basePath;
-    Aspose::Pdf::HtmlMediaType _htmlMediaType;
-    System::String _inputEncoding;
+    bool pr_IsRenderToSinglePage;
+    bool pr_IsEmbedFonts;
+    Aspose::Pdf::HtmlMediaType pr_HtmlMediaType;
+    System::String pr_InputEncoding;
     bool _showFieldsBorders;
+    System::String pr_BasePath;
     System::SharedPtr<Aspose::Pdf::PageInfo> _pageInfo;
     bool pr_isPdfUaConverting;
     System::SharedPtr<Aspose::Html::Drawing::Size> pr_FirstSize;

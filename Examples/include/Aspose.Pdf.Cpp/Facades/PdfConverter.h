@@ -16,10 +16,10 @@
 
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Fonts { class FontConversionTests; } } } }
-namespace Aspose { namespace Pdf { namespace Devices { class Resolution; } } }
-namespace Aspose { namespace Pdf { namespace Devices { enum class FormPresentationMode; } } }
-namespace Aspose { namespace Pdf { class RenderingOptions; } }
 namespace Aspose { namespace Pdf { enum class PageCoordinateType; } }
+namespace Aspose { namespace Pdf { namespace Devices { enum class FormPresentationMode; } } }
+namespace Aspose { namespace Pdf { namespace Devices { class Resolution; } } }
+namespace Aspose { namespace Pdf { class RenderingOptions; } }
 namespace Aspose { namespace Pdf { namespace Devices { class ImageDevice; } } }
 namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
 namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
@@ -53,75 +53,75 @@ class ASPOSE_PDF_SHARED_API PdfConverter FINAL : public Aspose::Pdf::Facades::Fa
 public:
 
     /// <summary>
-    /// Gets or sets the page coordinate type (Media/Crop boxes). CropBox value is used by default.
+    /// Gets the page coordinate type (Media/Crop boxes). CropBox value is used by default.
     /// </summary>
     PageCoordinateType get_CoordinateType();
     /// <summary>
-    /// Gets or sets the page coordinate type (Media/Crop boxes). CropBox value is used by default.
+    /// Sets the page coordinate type (Media/Crop boxes). CropBox value is used by default.
     /// </summary>
     void set_CoordinateType(PageCoordinateType value);
     /// <summary>
-    /// Gets or sets flag that controls visibility of hidden areas on the page.
+    /// Gets flag that controls visibility of hidden areas on the page.
     /// </summary>
     bool get_ShowHiddenAreas();
     /// <summary>
-    /// Gets or sets flag that controls visibility of hidden areas on the page.
+    /// Sets flag that controls visibility of hidden areas on the page.
     /// </summary>
     void set_ShowHiddenAreas(bool value);
     /// <summary>
-    /// Gets or sets rendering options.
+    /// Gets rendering options.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::RenderingOptions> get_RenderingOptions();
     /// <summary>
-    /// Gets or sets rendering options.
+    /// Sets rendering options.
     /// </summary>
     void set_RenderingOptions(System::SharedPtr<Aspose::Pdf::RenderingOptions> value);
     /// <summary>
-    /// Gets or sets form presentation mode.
+    /// Gets form presentation mode.
     /// </summary>
     Aspose::Pdf::Devices::FormPresentationMode get_FormPresentationMode();
     /// <summary>
-    /// Gets or sets form presentation mode.
+    /// Sets form presentation mode.
     /// </summary>
     void set_FormPresentationMode(Aspose::Pdf::Devices::FormPresentationMode value);
     /// <summary>
-    /// Gets or sets resolution during convertting. The higher resolution, the slower convertting speed. The default value is 150.
+    /// Gets resolution during convertting. The higher resolution, the slower convertting speed. The default value is 150.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Devices::Resolution> get_Resolution();
     /// <summary>
-    /// Gets or sets resolution during convertting. The higher resolution, the slower convertting speed. The default value is 150.
+    /// Sets resolution during convertting. The higher resolution, the slower convertting speed. The default value is 150.
     /// </summary>
     void set_Resolution(System::SharedPtr<Aspose::Pdf::Devices::Resolution> value);
     /// <summary>
-    /// Gets or sets start position which you want to convert. The minimal value is 1.
+    /// Gets start position which you want to convert. The minimal value is 1.
     /// </summary>
     int32_t get_StartPage();
     /// <summary>
-    /// Gets or sets start position which you want to convert. The minimal value is 1.
+    /// Sets start position which you want to convert. The minimal value is 1.
     /// </summary>
     void set_StartPage(int32_t value);
     /// <summary>
-    /// Gets or sets end position which you want to convert.
+    /// Gets end position which you want to convert.
     /// </summary>
     int32_t get_EndPage();
     /// <summary>
-    /// Gets or sets end position which you want to convert.
+    /// Sets end position which you want to convert.
     /// </summary>
     void set_EndPage(int32_t value);
     /// <summary>
-    /// Gets or sets document OwnerPassword.
+    /// Gets document OwnerPassword.
     /// </summary>
     System::String get_Password();
     /// <summary>
-    /// Gets or sets document OwnerPassword.
+    /// Sets document OwnerPassword.
     /// </summary>
     void set_Password(System::String value);
     /// <summary>
-    /// Gets or sets document UserPassword.
+    /// Gets document UserPassword.
     /// </summary>
     System::String get_UserPassword();
     /// <summary>
-    /// Gets or sets document UserPassword.
+    /// Sets document UserPassword.
     /// </summary>
     void set_UserPassword(System::String value);
     /// <summary>

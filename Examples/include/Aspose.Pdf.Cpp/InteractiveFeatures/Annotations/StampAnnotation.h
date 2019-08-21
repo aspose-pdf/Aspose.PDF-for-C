@@ -56,11 +56,11 @@ class ASPOSE_PDF_SHARED_API StampAnnotation FINAL : public Aspose::Pdf::Annotati
 public:
 
     /// <summary>
-    /// Gets or sets icon for rubber stamp.
+    /// Gets icon for rubber stamp.
     /// </summary>
     StampIcon get_Icon();
     /// <summary>
-    /// Gets or sets icon for rubber stamp.
+    /// Sets icon for rubber stamp.
     /// </summary>
     void set_Icon(StampIcon value);
     /// <summary>
@@ -68,11 +68,11 @@ public:
     /// </summary>
     virtual Aspose::Pdf::Annotations::AnnotationType get_AnnotationType();
     /// <summary>
-    /// Gets or sets image of the annotation.
+    /// Gets image of the annotation.
     /// </summary>
     System::SharedPtr<System::IO::Stream> get_Image();
     /// <summary>
-    /// Gets or sets image of the annotation.
+    /// Sets image of the annotation.
     /// </summary>
     void set_Image(System::SharedPtr<System::IO::Stream> value);
     

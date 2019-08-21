@@ -1,7 +1,6 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-#include <system/collections/list.h>
 #include <system/array.h>
 
 #include "InteractiveFeatures/Annotations/MarkupAnnotation.h"
@@ -44,11 +43,11 @@ class ASPOSE_PDF_SHARED_API TextMarkupAnnotation : public Aspose::Pdf::Annotatio
 public:
 
     /// <summary>
-    /// Gets or sets an array of points specifying the coordinates of n quadrilaterals. Each quadrilateral encompasses a word or group of contiguous words in the text underlying the annotation.
+    /// Gets an array of points specifying the coordinates of n quadrilaterals. Each quadrilateral encompasses a word or group of contiguous words in the text underlying the annotation.
     /// </summary>
     System::ArrayPtr<System::SharedPtr<Point>> get_QuadPoints();
     /// <summary>
-    /// Gets or sets an array of points specifying the coordinates of n quadrilaterals. Each quadrilateral encompasses a word or group of contiguous words in the text underlying the annotation.
+    /// Sets an array of points specifying the coordinates of n quadrilaterals. Each quadrilateral encompasses a word or group of contiguous words in the text underlying the annotation.
     /// </summary>
     void set_QuadPoints(System::ArrayPtr<System::SharedPtr<Point>> value);
     

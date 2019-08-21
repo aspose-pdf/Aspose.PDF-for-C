@@ -68,11 +68,11 @@ public:
     /// </summary>
     void set_Version(ImageCompressionVersion value);
     /// <summary>
-    /// Gets or sets encoding used to store images. 
+    /// Gets encoding used to store images. 
     /// </summary>
     ImageEncoding get_Encoding();
     /// <summary>
-    /// Gets or sets encoding used to store images. 
+    /// Sets encoding used to store images. 
     /// </summary>
     void set_Encoding(ImageEncoding value);
     

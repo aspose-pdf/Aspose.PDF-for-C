@@ -37,27 +37,27 @@ class ASPOSE_PDF_SHARED_API Circle FINAL : public Aspose::Pdf::Drawing::Shape
 public:
 
     /// <summary>
-    /// Gets or sets a float value that indicates the x-coordinate of the center of the circle.
+    /// Gets a float value that indicates the x-coordinate of the center of the circle.
     /// </summary>
     double get_PosX();
     /// <summary>
-    /// Gets or sets a float value that indicates the x-coordinate of the center of the circle.
+    /// Sets a float value that indicates the x-coordinate of the center of the circle.
     /// </summary>
     void set_PosX(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the y-coordinate of the center of the circle.
+    /// Gets a float value that indicates the y-coordinate of the center of the circle.
     /// </summary>
     double get_PosY();
     /// <summary>
-    /// Gets or sets a float value that indicates the y-coordinate of the center of the circle.
+    /// Sets a float value that indicates the y-coordinate of the center of the circle.
     /// </summary>
     void set_PosY(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the radius of the circle.
+    /// Gets a float value that indicates the radius of the circle.
     /// </summary>
     double get_Radius();
     /// <summary>
-    /// Gets or sets a float value that indicates the radius of the circle.
+    /// Sets a float value that indicates the radius of the circle.
     /// </summary>
     void set_Radius(double value);
     

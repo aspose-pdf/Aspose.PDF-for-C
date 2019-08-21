@@ -51,14 +51,14 @@ public:
     /// </summary>
     void set_FormattingMode(TextExtractionOptions::TextFormattingMode value);
     /// <summary>
-    /// Gets or sets factor that will be applied to scale font size during extraction in pure mode.
+    /// Gets factor that will be applied to scale font size during extraction in pure mode.
     /// Setting of less value leads to more spaces in the extracted text.
     /// Default value is 1 - no scaling;
     /// Setting value to zero allows algorithm choose scaling automatically.
     /// </summary>
     double get_ScaleFactor();
     /// <summary>
-    /// Gets or sets factor that will be applied to scale font size during extraction in pure mode.
+    /// Sets factor that will be applied to scale font size during extraction in pure mode.
     /// Setting of less value leads to more spaces in the extracted text.
     /// Default value is 1 - no scaling;
     /// Setting value to zero allows algorithm choose scaling automatically.

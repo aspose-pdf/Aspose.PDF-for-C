@@ -32,56 +32,86 @@ class ASPOSE_PDF_SHARED_API FloatingBox : public Aspose::Pdf::BaseParagraph
     
 public:
 
-    /// Gets or sets a column info
+    /// <summary>
+    /// Gets a column info
+    /// </summary>   
     System::SharedPtr<Aspose::Pdf::ColumnInfo> get_ColumnInfo();
-    /// Gets or sets a column info
+    /// <summary>
+    /// Sets a column info
+    /// </summary>   
     void set_ColumnInfo(System::SharedPtr<Aspose::Pdf::ColumnInfo> value);
-    /// Gets or sets a float value that indicates the width of the floating box.
+    /// <summary>
+    /// Gets a float value that indicates the width of the floating box.
+    /// </summary>
     double get_Width();
-    /// Gets or sets a float value that indicates the width of the floating box.
+    /// <summary>
+    /// Sets a float value that indicates the width of the floating box.
+    /// </summary>
     void set_Width(double value);
-    /// Gets or sets a float value that indicates the height of the floating box.
+    /// <summary>
+    /// Gets a float value that indicates the height of the floating box.
+    /// </summary>
     double get_Height();
-    /// Gets or sets a float value that indicates the height of the floating box.
+    /// <summary>
+    /// Sets a float value that indicates the height of the floating box.
+    /// </summary>
     void set_Height(double value);
-    /// Gets or sets a bool value that indicates whether the paragraph need to be repeated on next page.
+    /// <summary>
+    /// Gets a bool value that indicates whether the paragraph need to be repeated on next page.
     /// Default value is false.The attribute is only valid when the paragraph itself and the object its ReferenceParagraphID referred to both are included in RepeatingRows.
+    /// </summary>
     bool get_IsNeedRepeating();
-    /// Gets or sets a bool value that indicates whether the paragraph need to be repeated on next page.
+    /// <summary>
+    /// Sets a bool value that indicates whether the paragraph need to be repeated on next page.
     /// Default value is false.The attribute is only valid when the paragraph itself and the object its ReferenceParagraphID referred to both are included in RepeatingRows.
+    /// </summary>
     void set_IsNeedRepeating(bool value);
-    /// Gets or sets a <see cref="Paragraphs"/> collection that indicates all paragraphs in the cell.
+    /// <summary>
+    /// Gets a <see cref="Paragraphs"/> collection that indicates all paragraphs in the cell.
+    /// </summary>
     System::SharedPtr<Aspose::Pdf::Paragraphs> get_Paragraphs();
-    /// Gets or sets a <see cref="Paragraphs"/> collection that indicates all paragraphs in the cell.
+    /// <summary>
+    /// Sets a <see cref="Paragraphs"/> collection that indicates all paragraphs in the cell.
+    /// </summary>
     void set_Paragraphs(System::SharedPtr<Aspose::Pdf::Paragraphs> value);
-    /// Gets or sets a <see cref="BorderInfo"/> object that indicates the border info of the floating box.
+    /// <summary>
+    /// Gets a <see cref="BorderInfo"/> object that indicates the border info of the floating box.
+    /// </summary> 
     System::SharedPtr<BorderInfo> get_Border();
-    /// Gets or sets a <see cref="BorderInfo"/> object that indicates the border info of the floating box.
+    /// <summary>
+    /// Sets a <see cref="BorderInfo"/> object that indicates the border info of the floating box.
+    /// </summary> 
     void set_Border(System::SharedPtr<BorderInfo> value);
-    /// Gets or sets a <see cref="Aspose::Pdf::Color"/> object that indicates the background color of the 
-    /// floating box.
+    /// <summary>
+    /// Gets a <see cref="Aspose::Pdf::Color"/> object that indicates the background color of the floating box.
+    /// </summary>
     System::SharedPtr<Color> get_BackgroundColor();
-    /// Gets or sets a <see cref="Aspose::Pdf::Color"/> object that indicates the background color of the 
-    /// floating box.
+    /// <summary>
+    /// Sets a <see cref="Aspose::Pdf::Color"/> object that indicates the background color of the floating box.
+    /// </summary>
     void set_BackgroundColor(System::SharedPtr<Color> value);
-    /// Gets or sets a <see cref="MarginInfo"/> object that indicates the padding of the floating box.
+    /// <summary>
+    /// Gets a <see cref="MarginInfo"/> object that indicates the padding of the floating box.
+    /// </summary>
     System::SharedPtr<MarginInfo> get_Padding();
-    /// Gets or sets a <see cref="MarginInfo"/> object that indicates the padding of the floating box.
+    /// <summary>
+    /// Sets a <see cref="MarginInfo"/> object that indicates the padding of the floating box.
+    /// </summary>
     void set_Padding(System::SharedPtr<MarginInfo> value);
     /// <summary>
-    /// Gets or sets the table left coordinate.
+    /// Gets the table left coordinate.
     /// </summary>
     double get_Left();
     /// <summary>
-    /// Gets or sets the table left coordinate.
+    /// Sets the table left coordinate.
     /// </summary>
     void set_Left(double value);
     /// <summary>
-    /// Gets or sets the table top coordinate.
+    /// Gets the table top coordinate.
     /// </summary>
     double get_Top();
     /// <summary>
-    /// Gets or sets the table top coordinate.
+    /// Sets the table top coordinate.
     /// </summary>
     void set_Top(double value);
     
@@ -104,7 +134,7 @@ public:
     
 protected:
 
-    bool Process(double& curX, double& curY, double pageHeight, double pageWidth, System::SharedPtr<MarginInfo> pageMargin, System::SharedPtr<Page> page, double bottomY, System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> operators, bool isFooter);
+    bool Process(double& curX, double& curY, double pageHeight, double pageWidth, System::SharedPtr<MarginInfo> pageMargin, System::SharedPtr<Page> page, double bottomY, System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Operator>>> operators, bool isHeaderFooter);
     virtual void Serialize(System::SharedPtr<System::Xml::XmlTextWriter> writer);
     virtual void Deserialize(System::SharedPtr<System::Xml::XmlReader> reader);
     System::Object::shared_members_type GetSharedMembers() override;

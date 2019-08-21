@@ -1,11 +1,8 @@
 /// @file system/text/latin1_encoding.h
-#ifndef __latin1_encoding_h__
-#define __latin1_encoding_h__
+#pragma once
 
-#include "system/text/icu_encoding.h"
-
-#include "fwd.h"
-
+#include <system/text/icu_encoding.h>
+#include <fwd.h>
 
 namespace System { namespace Text {
 
@@ -17,16 +14,10 @@ class ASPOSECPP_SHARED_CLASS Latin1Encoding : public ICUEncoding
 {
 public:
     /// Codepage.
-    enum : int { LATIN1_CODE_PAGE = 28591 };
+    static constexpr int LATIN1_CODE_PAGE = 28591;
 
     /// Constructor.
     ASPOSECPP_SHARED_API Latin1Encoding();
-
-    /// Gets codepage.
-    /// @return Windows codepage.
-    virtual int get_CodePage() override { return LATIN1_CODE_PAGE; };
 };
 
-}}
-
-#endif // __latin1_encoding_h__
+}} // namespace System::Text

@@ -193,6 +193,7 @@ private:
     int32_t CalculateVisibleCount();
     System::SharedPtr<System::Collections::Generic::IEnumerator<System::SharedPtr<OutlineItemCollection>>> GetEnumeratorInternal() const;
     int32_t FindItem(System::SharedPtr<OutlineItemCollection> item) const;
+    int32_t FindItem(System::String name);
     
 };
 

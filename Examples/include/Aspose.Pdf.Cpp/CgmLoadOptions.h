@@ -28,7 +28,7 @@ class ASPOSE_PDF_SHARED_API CgmLoadOptions FINAL : public Aspose::Pdf::LoadOptio
 public:
 
     /// <summary>
-    /// Gets or sets output page size for import.
+    /// Gets output page size for import.
     /// </summary>
     System::Drawing::SizeF get_PageSize();
     

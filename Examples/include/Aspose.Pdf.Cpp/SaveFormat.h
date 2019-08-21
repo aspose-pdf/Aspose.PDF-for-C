@@ -67,6 +67,10 @@ enum class SaveFormat
     /// </summary>
     Epub = 10,
     /// <summary>
+    ///  means saving with the aid of a plugin
+    /// </summary>
+    Plugin = 11,
+    /// <summary>
     ///  means saving in MHT(WebArchieve)
     /// <summary>
     /// Convet document to Mht format. This code was experimental one used 
@@ -88,7 +92,7 @@ enum class SaveFormat
 template<>
 struct EnumMetaInfo<Aspose::Pdf::SaveFormat>
 {
-    static const ASPOSE_PDF_SHARED_API std::array<std::pair<Aspose::Pdf::SaveFormat, const char_t*>, 13>& values();
+    static const ASPOSE_PDF_SHARED_API std::array<std::pair<Aspose::Pdf::SaveFormat, const char_t*>, 14>& values();
 };
 
 

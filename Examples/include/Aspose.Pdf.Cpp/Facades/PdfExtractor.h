@@ -19,8 +19,8 @@
 namespace Aspose { namespace Pdf { namespace LicenseManagement { class VentureLicenseDecoder; } } }
 namespace Aspose { namespace Pdf { namespace LicenseManagement { class VentureLicenser; } } }
 namespace Aspose { namespace Pdf { namespace Facades { class PdfContentEditor; } } }
-namespace Aspose { namespace Pdf { class XImage; } }
 namespace Aspose { namespace Pdf { enum class ExtractImageMode; } }
+namespace Aspose { namespace Pdf { class XImage; } }
 namespace Aspose { namespace Pdf { namespace Text { class TextSearchOptions; } } }
 namespace Aspose { namespace Pdf { namespace LicenseManagement { class VentureLicense; } } }
 namespace Aspose { namespace Pdf { class FileSpecification; } }
@@ -51,7 +51,7 @@ class ASPOSE_PDF_SHARED_API PdfExtractor FINAL : public Aspose::Pdf::Facades::Fa
 public:
 
     /// <summary>
-    /// Gets or sets start page in the page range where extracting operation will be performed.
+    /// Gets start page in the page range where extracting operation will be performed.
     /// <example>
     /// <code lang="C#">
     /// PdfExtractor ext = new PdfExtractor();
@@ -64,7 +64,7 @@ public:
     /// </summary>
     int32_t get_StartPage();
     /// <summary>
-    /// Gets or sets start page in the page range where extracting operation will be performed.
+    /// Sets start page in the page range where extracting operation will be performed.
     /// <example>
     /// <code lang="C#">
     /// PdfExtractor ext = new PdfExtractor();
@@ -77,7 +77,7 @@ public:
     /// </summary>
     void set_StartPage(int32_t value);
     /// <summary>
-    /// Gets or sets end page in the page range where extracting operation will be performed.
+    /// Gets end page in the page range where extracting operation will be performed.
     /// <example>
     /// <code lang="C#">
     /// PdfExtractor ext = new PdfExtractor();
@@ -90,7 +90,7 @@ public:
     /// </summary>
     int32_t get_EndPage();
     /// <summary>
-    /// Gets or sets end page in the page range where extracting operation will be performed.
+    /// Sets end page in the page range where extracting operation will be performed.
     /// <example>
     /// <code lang="C#">
     /// PdfExtractor ext = new PdfExtractor();
@@ -133,11 +133,11 @@ public:
     /// </example>
     void set_ExtractTextMode(int32_t value);
     /// <summary>
-    /// Gets or sets text search options.
+    /// Gets text search options.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Text::TextSearchOptions> get_TextSearchOptions();
     /// <summary>
-    /// Gets or sets text search options.
+    /// Sets text search options.
     /// </summary>
     void set_TextSearchOptions(System::SharedPtr<Aspose::Pdf::Text::TextSearchOptions> value);
     /// <summary>
@@ -181,11 +181,11 @@ public:
     /// </summary>
     void set_Resolution(int32_t value);
     /// <summary>
-    /// Gets or sets input file's password.
+    /// Gets input file's password.
     /// </summary>
     System::String get_Password();
     /// <summary>
-    /// Gets or sets input file's password.
+    /// Sets input file's password.
     /// </summary>
     void set_Password(System::String value);
     

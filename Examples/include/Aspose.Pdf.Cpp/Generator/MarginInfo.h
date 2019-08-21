@@ -1,10 +1,10 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-// C# preprocessor directive: #if !NETCORE 
+// C# preprocessor directive: #if !NETCORE
 
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
 #include <xml/xml_text_writer.h>
@@ -47,35 +47,35 @@ class ASPOSE_PDF_SHARED_API MarginInfo FINAL : public System::ICloneable
 public:
 
     /// <summary>
-    /// Gets or sets a float value that indicates the left margin.
+    /// Gets a float value that indicates the left margin.
     /// </summary>
     double get_Left();
     /// <summary>
-    /// Gets or sets a float value that indicates the left margin.
+    /// Sets a float value that indicates the left margin.
     /// </summary>
     void set_Left(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the right margin.
+    /// Gets a float value that indicates the right margin.
     /// </summary>
     double get_Right();
     /// <summary>
-    /// Gets or sets a float value that indicates the right margin.
+    /// Sets a float value that indicates the right margin.
     /// </summary>
     void set_Right(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the top margin.
+    /// Gets a float value that indicates the top margin.
     /// </summary>
     double get_Top();
     /// <summary>
-    /// Gets or sets a float value that indicates the top margin.
+    /// Sets a float value that indicates the top margin.
     /// </summary>
     void set_Top(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the bottom margin.
+    /// Gets a float value that indicates the bottom margin.
     /// </summary>
     double get_Bottom();
     /// <summary>
-    /// Gets or sets a float value that indicates the bottom margin.
+    /// Sets a float value that indicates the bottom margin.
     /// </summary>
     void set_Bottom(double value);
     

@@ -93,7 +93,8 @@ private:
     void Apply(const SkPaint& base_paint, std::vector<SkPaint>& result, SkScalar width,
                SkScalar scale_x, SkScalar scale_y, bool is_start_cap) const;
     /// Appends cap to source path by adding cap path to destination path which is a copy of source path.
-    void AppendPath(const SkPath* src_path, SkPath* dest_path, SkScalar width, bool is_start_cap) const;
+    void AppendPath(const SkPath* src_path, SkPath* dest_path, SkScalar width, bool is_start_cap,
+                    bool fix_scale = true) const;
     /// Indicates in this cap is filled.
     bool m_is_filled;
 

@@ -25,9 +25,9 @@ namespace Aspose { namespace Pdf { namespace Annotations { class SubmitFormActio
 namespace Aspose { namespace Pdf { namespace Annotations { class RenditionAction; } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v10_3; } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v10_2; } } }
+namespace Aspose { namespace Pdf { enum class FileEncoding; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
-namespace Aspose { namespace Pdf { enum class FileEncoding; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfPrimitive; } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Filters { enum class FilterType; } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class ITrailerable; } } } }
@@ -69,13 +69,13 @@ class ASPOSE_PDF_SHARED_API FileSpecification FINAL : public System::IDisposable
 public:
 
     /// <summary>
-    /// Gets or sets encoding format.
+    /// Gets encoding format.
     /// Possible values: Zip - file is compressed with ZIP, 
     /// None - file is not compressed.
     /// </summary>
     FileEncoding get_Encoding();
     /// <summary>
-    /// Gets or sets encoding format.
+    /// Sets encoding format.
     /// Possible values: Zip - file is compressed with ZIP, 
     /// None - file is not compressed.
     /// </summary>
@@ -89,11 +89,11 @@ public:
     /// </summary>
     void set_IncludeContents(bool value);
     /// <summary>
-    /// Gets or sets text associated with the file specification. 
+    /// Gets text associated with the file specification. 
     /// </summary>
     System::String get_Description();
     /// <summary>
-    /// Gets or sets text associated with the file specification. 
+    /// Sets text associated with the file specification. 
     /// </summary>
     void set_Description(System::String value);
     /// <summary>
@@ -103,13 +103,13 @@ public:
     /// </summary>
     System::SharedPtr<System::IO::Stream> get_StreamContents();
     /// <summary>
-    /// Gets or sets contents file. 
+    /// Gets contents file. 
     /// This property returns data loaded in memory which may cause Out of memory exception for large data.
     /// To decrease memory usage please use StreamContents.
     /// </summary>
     System::SharedPtr<System::IO::Stream> get_Contents();
     /// <summary>
-    /// Gets or sets contents file. 
+    /// Sets contents file. 
     /// This property returns data loaded in memory which may cause Out of memory exception for large data.
     /// To decrease memory usage please use StreamContents.
     /// </summary>
@@ -131,27 +131,27 @@ public:
     /// </summary>
     void set_MIMEType(System::String value);
     /// <summary>
-    /// Gets or sets file specification name. 
+    /// Gets file specification name. 
     /// </summary>
     System::String get_Name();
     /// <summary>
-    /// Gets or sets file specification name. 
+    /// Sets file specification name. 
     /// </summary>
     void set_Name(System::String value);
     /// <summary>
-    /// Gets or sets file specification unicode name. 
+    /// Gets file specification unicode name. 
     /// </summary>
     System::String get_UnicodeName();
     /// <summary>
-    /// Gets or sets file specification unicode name. 
+    /// Sets file specification unicode name. 
     /// </summary>
     void set_UnicodeName(System::String value);
     /// <summary>
-    /// Gets or sets name of the file system.
+    /// Gets name of the file system.
     /// </summary>
     System::String get_FileSystem();
     /// <summary>
-    /// Gets or sets name of the file system.
+    /// Sets name of the file system.
     /// </summary>
     void set_FileSystem(System::String value);
     

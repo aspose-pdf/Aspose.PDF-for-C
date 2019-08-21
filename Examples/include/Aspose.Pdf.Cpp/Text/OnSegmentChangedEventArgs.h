@@ -15,13 +15,13 @@ namespace Pdf {
 namespace Text {
 
 
-// C# preprocessor directive: #if __cplusplus 
+// C# preprocessor directive: #if __cplusplus
 
 
-// C# preprocessor directive: #else 
+// C# preprocessor directive: #else
 
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 /// <summary>
 /// Contains additional information about OnSegmentChangedEvent that is delivered to listeners.

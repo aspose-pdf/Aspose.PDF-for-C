@@ -31,11 +31,11 @@ public:
 protected:
 
     /// <summary>
-    /// Gets or sets the flag that controls visibility of fields borders (button, text, combobox).
+    /// Gets the flag that controls visibility of fields borders (button, text, combobox).
     /// </summary>
     bool get_ShowFieldsBorders();
     /// <summary>
-    /// Gets or sets the flag that controls visibility of fields borders (button, text, combobox).
+    /// Sets the flag that controls visibility of fields borders (button, text, combobox).
     /// </summary>
     void set_ShowFieldsBorders(bool value);
     

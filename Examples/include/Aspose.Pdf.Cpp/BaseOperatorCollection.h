@@ -64,7 +64,7 @@ public:
     /// Gets operator by its index.
     /// </summary>
     /// <param name="index">Index of operator. Numbering is starts from 1.</param>
-    /// <returns>Operator from requested index</returns>
+    /// <param name="value">Operator from requested index</param>
     virtual void idx_set(int32_t index, System::SharedPtr<Operator> value) = 0;
     
     /// <summary>

@@ -65,28 +65,28 @@ public:
 public:
 
     /// <summary>
-    /// Gets or sets a scope where replace text operation is applied 
+    /// Gets a scope where replace text operation is applied 
     /// </summary>
     TextReplaceOptions::Scope get_ReplaceScope();
     /// <summary>
-    /// Gets or sets a scope where replace text operation is applied 
+    /// Sets a scope where replace text operation is applied 
     /// </summary>
     void set_ReplaceScope(TextReplaceOptions::Scope value);
     /// <summary>
-    /// Gets or sets an action that will be done after replace of text fragment to more short.
+    /// Gets an action that will be done after replace of text fragment to more short.
     /// </summary>
     TextReplaceOptions::ReplaceAdjustment get_ReplaceAdjustmentAction();
     /// <summary>
-    /// Gets or sets an action that will be done after replace of text fragment to more short.
+    /// Sets an action that will be done after replace of text fragment to more short.
     /// </summary>
     void set_ReplaceAdjustmentAction(TextReplaceOptions::ReplaceAdjustment value);
     /// <summary>
-    /// Gets or sets value of line spacing that used if replace adjustment is forced to create new line of text.
+    /// Gets value of line spacing that used if replace adjustment is forced to create new line of text.
     /// The value expected is multiplier of font size of the replaced text. Default is 1.2.
     /// </summary>
     double get_AdjustmentNewLineSpacing();
     /// <summary>
-    /// Gets or sets value of line spacing that used if replace adjustment is forced to create new line of text.
+    /// Sets value of line spacing that used if replace adjustment is forced to create new line of text.
     /// The value expected is multiplier of font size of the replaced text. Default is 1.2.
     /// </summary>
     void set_AdjustmentNewLineSpacing(double value);

@@ -161,7 +161,7 @@ public:
     ASPOSECPP_SHARED_API void SetBlendTriangularShape(float focus, float scale = 1.0f);
     /// Creates a copy of the current object.
     /// @returns A shared pointer to the copy of the current object.
-    virtual ASPOSECPP_SHARED_API SharedPtr<Brush> Clone();
+    virtual ASPOSECPP_SHARED_API SharedPtr<Brush> Clone() override;
 
 protected:
     /// Sets the properties of the current brush on the specified SkPaint object.

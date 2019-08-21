@@ -9,10 +9,10 @@
 #include "InteractiveFeatures/Annotations/Annotation.h"
 #include "aspose_pdf_api_defs.h"
 
-namespace Aspose { namespace Pdf { class Point; } }
-namespace Aspose { namespace Pdf { class Color; } }
 namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
+namespace Aspose { namespace Pdf { class Point; } }
+namespace Aspose { namespace Pdf { class Color; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { namespace Annotations { class AnnotationSelector; } } }
@@ -51,19 +51,19 @@ public:
     /// </summary>
     void set_QuadPoint(System::ArrayPtr<System::SharedPtr<Point>> value);
     /// <summary>
-    /// Gets or sets color to fill annotation.
+    /// Gets color to fill annotation.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Color> get_FillColor();
     /// <summary>
-    /// Gets or sets color to fill annotation.
+    /// Sets color to fill annotation.
     /// </summary>
     void set_FillColor(System::SharedPtr<Aspose::Pdf::Color> value);
     /// <summary>
-    /// Gets or sets color of border which is drawn when redaction is not active.
+    /// Gets color of border which is drawn when redaction is not active.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Color> get_BorderColor();
     /// <summary>
-    /// Gets or sets color of border which is drawn when redaction is not active.
+    /// Sets color of border which is drawn when redaction is not active.
     /// </summary>
     void set_BorderColor(System::SharedPtr<Aspose::Pdf::Color> value);
     /// <summary>
@@ -83,11 +83,11 @@ public:
     /// </summary>
     void set_Repeat(bool value);
     /// <summary>
-    /// Gets or sets. Alignment of Overlay Text.
+    /// Gets. Alignment of Overlay Text.
     /// </summary>
     Aspose::Pdf::HorizontalAlignment get_TextAlignment();
     /// <summary>
-    /// Gets or sets. Alignment of Overlay Text.
+    /// Sets. Alignment of Overlay Text.
     /// </summary>
     void set_TextAlignment(Aspose::Pdf::HorizontalAlignment value);
     /// <summary>

@@ -14,6 +14,7 @@
 
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class MCRElement; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragment; } } }
+namespace Aspose { namespace Pdf { namespace Text { class TextParagraphAbsorber; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextParagraph; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragmentAbsorber; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Text { class TextParagraphAbsorberTests; } } } }
@@ -40,6 +41,7 @@ class ASPOSE_PDF_SHARED_API TextSegmentCollection FINAL : public System::Collect
     FRIEND_FUNCTION_System_MakeObject;
     friend class Aspose::Pdf::LogicalStructure::MCRElement;
     friend class Aspose::Pdf::Text::TextFragment;
+    friend class Aspose::Pdf::Text::TextParagraphAbsorber;
     friend class Aspose::Pdf::Text::TextParagraph;
     friend class Aspose::Pdf::Text::TextFragmentAbsorber;
     friend class Aspose::Pdf::Tests::Text::TextParagraphAbsorberTests;

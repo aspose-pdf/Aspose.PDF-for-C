@@ -49,10 +49,10 @@ namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v7_9;
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v8_2; } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v10_8; } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v17_12; } } }
+namespace Aspose { namespace Pdf { namespace Forms { enum class FormType; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class DefaultAppearance; } } }
 namespace Aspose { namespace Pdf { namespace Collections { template<typename,typename> class AsposeHashDictionary; } } }
 namespace Aspose { namespace Pdf { enum class ApsToXpsSavingType; } }
-namespace Aspose { namespace Pdf { namespace Forms { enum class FormType; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
 namespace Aspose { namespace Pdf { namespace XfaConverter { class XfaParserOptions; } } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
@@ -221,11 +221,11 @@ public:
     /// </summary>
     System::SharedPtr<Resources> get_DefaultResources();
     /// <summary>
-    /// Gets or sets default appearance of the form (object which describes default font, text size and color for fields on the form).
+    /// Gets default appearance of the form (object which describes default font, text size and color for fields on the form).
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Annotations::DefaultAppearance> get_DefaultAppearance();
     /// <summary>
-    /// Gets or sets default appearance of the form (object which describes default font, text size and color for fields on the form).
+    /// Sets default appearance of the form (object which describes default font, text size and color for fields on the form).
     /// </summary>
     void set_DefaultAppearance(System::SharedPtr<Aspose::Pdf::Annotations::DefaultAppearance> value);
     /// <summary>
@@ -293,6 +293,24 @@ public:
     /// Allows to set order of field calculation. 
     /// </summary>
     void set_CalculatedFields(System::SharedPtr<System::Collections::Generic::IEnumerable<System::SharedPtr<Field>>> value);
+    /// <summary>
+    /// If set, the document contains at least one signature field. 
+    /// </summary>
+    bool get_SignaturesExist();
+    /// <summary>
+    /// If set, the document contains at least one signature field. 
+    /// </summary>
+    void set_SignaturesExist(bool value);
+    /// <summary>
+    /// If set, the document contains signatures that may be invalidated if the file is saved (written) in a way that alters its previous contents, 
+    /// as opposed to an incremental update.
+    /// </summary>
+    bool get_SignaturesAppendOnly();
+    /// <summary>
+    /// If set, the document contains signatures that may be invalidated if the file is saved (written) in a way that alters its previous contents, 
+    /// as opposed to an incremental update.
+    /// </summary>
+    void set_SignaturesAppendOnly(bool value);
     
     /// <summary>
     /// Copies fields placed on the form into array.
@@ -456,6 +474,13 @@ private:
     bool pr_RemovePermission;
     bool pr_EmulateRequierdGroups;
     
+    System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> get_AcroForm();
+    int32_t get_SignatureFlags();
+    void set_SignatureFlags(int32_t value);
+    
+    static int32_t _signaturesExist;
+    static int32_t _signaturesAppendOnly;
+    
     static System::String TruncateTrailingBackslash(System::String s);
     static void AddToHash(System::SharedPtr<Aspose::Pdf::Collections::AsposeHashDictionary<System::String, System::SharedPtr<System::Object>>> hash, System::String name, System::SharedPtr<Field> field);
     void form_assert();
@@ -475,6 +500,10 @@ private:
     System::SharedPtr<Rectangle> Intersect(System::SharedPtr<Rectangle> rect1, System::SharedPtr<Rectangle> rect2) const;
     bool Contains(System::SharedPtr<Rectangle> rect, System::SharedPtr<Rectangle> subRect) const;
     System::String GetFullPath(System::SharedPtr<Aspose::Pdf::Engine::Data::IPdfDictionary> field);
+    void SetSignatureFlag(int32_t flag);
+    void ClearSignatureFlag(int32_t flag);
+    void UpdateSignatureFlag(bool value, int32_t flag);
+    bool GetSignatureFlag(int32_t flag);
     
 };
 

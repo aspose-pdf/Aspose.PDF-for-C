@@ -11,6 +11,7 @@
 #include <functional>
 #include <type_traits>
 #include <cwchar>
+#include <iosfwd>
 
 #include <fwd.h>
 
@@ -59,6 +60,11 @@ struct TypeInfoPtr
     std::unique_ptr<TypeInfo> ptr;
     /// Returns a raw pointer to the represented TypeInfo object.
     operator TypeInfo*() { return ptr.get(); }
+
+    // Explicitly deleting some members to avoid warnings.
+    TypeInfoPtr() = default;
+    TypeInfoPtr(const TypeInfoPtr&) = delete;
+    TypeInfoPtr& operator = (const TypeInfoPtr&) = delete;
 };
 
 /// Represents a particular type and provides information about it.
@@ -110,7 +116,7 @@ public:
 
     /// Constructs an instance of TypeInfo class that represents a type with the specified name and associates the specified hash value with it.
     /// @param name The name of the type to be represented by the instance being constructed
-    TypeInfo(const char_t * name) : m_name(name), m_name_size(ASPOSECPP_CHECKED_CAST(int, std::char_traits<char_t>::length(name))), m_hash(0)
+    TypeInfo(const char_t * name) : m_name(name), m_name_size(ASPOSECPP_CHECKED_CAST(uint32_t, std::char_traits<char_t>::length(name))), m_hash(0)
     {
         m_hash = StringHash(m_name);
     }
@@ -223,6 +229,11 @@ public:
         }
     };
 };
+
+/// Prints string to ostream. Mostly used for debug.
+/// @param value to print.
+/// @param os target ostream.
+ASPOSECPP_SHARED_API void PrintTo(const System::TypeInfo& value, std::ostream* os);
 
 } // namespace System
 

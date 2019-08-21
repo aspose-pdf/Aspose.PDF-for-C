@@ -20,7 +20,7 @@ namespace System { namespace IO {
         TextReader(){};
         /// Releases all resources used by the current object and closes the undelying stream.
         /// @param disposing Specifies whether the undelying stream should be closed.
-        virtual void Dispose(bool disposing) {}
+        virtual ASPOSECPP_SHARED_API void Dispose(bool disposing);
 
     public:
         /// Releases all resources used by the current object and closes the undelying stream.

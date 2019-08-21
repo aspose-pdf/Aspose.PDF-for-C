@@ -148,6 +148,12 @@ private:
     /// Defines whether pointers own object and whether object owns counter.
     ObjectOwnershipState m_ownership;
 #endif
+
+    // Explicitly deleting some members to avoid warnings.
+    SmartPtrCounter(const SmartPtrCounter&) = delete;
+    SmartPtrCounter(SmartPtrCounter&&) = delete;
+    SmartPtrCounter& operator = (const SmartPtrCounter&) = delete;
+    SmartPtrCounter& operator = (SmartPtrCounter&&) = delete;
 };
 
 

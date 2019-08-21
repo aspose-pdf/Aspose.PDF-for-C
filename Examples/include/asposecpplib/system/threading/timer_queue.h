@@ -55,8 +55,15 @@ public:
     static ASPOSECPP_SHARED_API void JoinWorkerThread();
 
 private:
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable: 4355)
+#endif
     /// Constructor.
     TimerQueue() : is_worker_terminates(false), m_worker_thread(std::bind(&TimerQueue::Worker, this)) {}
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
     /// Destructor.
     ~TimerQueue();
     /// Checks if queue is initialized.

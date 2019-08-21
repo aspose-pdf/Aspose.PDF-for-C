@@ -10,8 +10,8 @@
 #include "aspose_pdf_api_defs.h"
 
 namespace Aspose { namespace Pdf { namespace Annotations { class SoundAnnotation; } } }
-namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDataStream; } } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class SoundEncoding; } } }
+namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDataStream; } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class SoundSampleData; } } }
 
@@ -38,27 +38,27 @@ class ASPOSE_PDF_SHARED_API SoundData FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets the sampling rate, in samples per second.
+    /// Gets the sampling rate, in samples per second.
     /// </summary>
     int32_t get_Rate();
     /// <summary>
-    /// Gets or sets the sampling rate, in samples per second.
+    /// Sets the sampling rate, in samples per second.
     /// </summary>
     void set_Rate(int32_t value);
     /// <summary>
-    /// Gets or sets the number of sound channels.
+    /// Gets the number of sound channels.
     /// </summary>
     int32_t get_Channels();
     /// <summary>
-    /// Gets or sets the number of sound channels.
+    /// Sets the number of sound channels.
     /// </summary>
     void set_Channels(int32_t value);
     /// <summary>
-    /// Gets or sets the number of bits per sample value per channel.
+    /// Gets the number of bits per sample value per channel.
     /// </summary>
     int32_t get_Bits();
     /// <summary>
-    /// Gets or sets the number of bits per sample value per channel.
+    /// Sets the number of bits per sample value per channel.
     /// </summary>
     void set_Bits(int32_t value);
     /// <summary>
@@ -66,11 +66,11 @@ public:
     /// </summary>
     System::SharedPtr<System::IO::Stream> get_Contents();
     /// <summary>
-    /// Gets or sets the encoding format for the sample data.
+    /// Gets the encoding format for the sample data.
     /// </summary>
     SoundEncoding get_Encoding();
     /// <summary>
-    /// Gets or sets the encoding format for the sample data.
+    /// Sets the encoding format for the sample data.
     /// </summary>
     void set_Encoding(SoundEncoding value);
     

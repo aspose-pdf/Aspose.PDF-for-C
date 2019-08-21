@@ -22,12 +22,12 @@ namespace Aspose { namespace Pdf { namespace Text { class TextEditOptions; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextReplaceOptions; } } }
 namespace Aspose { namespace Pdf { namespace Collections { template<typename,typename> class AsposeHashDictionary; } } }
 namespace Aspose { namespace Pdf { namespace Facades { class ReplaceTextStrategy; } } }
+namespace Aspose { namespace Pdf { namespace Facades { enum class StampType; } } }
 namespace Aspose { namespace Pdf { class Page; } }
 namespace Aspose { namespace Pdf { class XForm; } }
 namespace Aspose { namespace Pdf { class Matrix; } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
-namespace Aspose { namespace Pdf { namespace Facades { enum class StampType; } } }
 namespace Aspose { namespace Pdf { class XImage; } }
 namespace Aspose { namespace Pdf { class OperatorCollection; } }
 namespace Aspose { namespace Pdf { class Resources; } }
@@ -134,27 +134,27 @@ private:
 public:
 
     /// <summary>
-    /// Gets or sets text search options.
+    /// Gets text search options.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Text::TextSearchOptions> get_TextSearchOptions();
     /// <summary>
-    /// Gets or sets text search options.
+    /// Sets text search options.
     /// </summary>
     void set_TextSearchOptions(System::SharedPtr<Aspose::Pdf::Text::TextSearchOptions> value);
     /// <summary>
-    /// Gets or sets text edit options. 
+    /// Gets text edit options. 
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Text::TextEditOptions> get_TextEditOptions();
     /// <summary>
-    /// Gets or sets text edit options. 
+    /// Sets text edit options. 
     /// </summary>
     void set_TextEditOptions(System::SharedPtr<Aspose::Pdf::Text::TextEditOptions> value);
     /// <summary>
-    /// Gets or sets text replace options. 
+    /// Gets text replace options. 
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Text::TextReplaceOptions> get_TextReplaceOptions();
     /// <summary>
-    /// Gets or sets text replace options. 
+    /// Sets text replace options. 
     /// </summary>
     void set_TextReplaceOptions(System::SharedPtr<Aspose::Pdf::Text::TextReplaceOptions> value);
     /// <summary>

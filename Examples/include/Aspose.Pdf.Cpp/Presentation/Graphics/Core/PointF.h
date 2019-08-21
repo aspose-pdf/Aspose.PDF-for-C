@@ -51,19 +51,19 @@ public:
     /// <value>True if both <see cref="Aspose::Pdf::Engine::Presentation::Graphics::PointF::X"/> and <see cref="Aspose::Pdf::Engine::Presentation::Graphics::PointF::Y"/> are 0; otherwise, false.</value>
     bool get_IsEmpty();
     /// <summary>
-    /// Gets or sets the x-coordinate of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::PointF"/>.
+    /// Gets the x-coordinate of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::PointF"/>.
     /// </summary>
     float get_X();
     /// <summary>
-    /// Gets or sets the x-coordinate of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::PointF"/>.
+    /// Sets the x-coordinate of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::PointF"/>.
     /// </summary>
     void set_X(float value);
     /// <summary>
-    /// Gets or sets the y-coordinate of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::PointF"/>.
+    /// Gets the y-coordinate of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::PointF"/>.
     /// </summary>
     float get_Y();
     /// <summary>
-    /// Gets or sets the y-coordinate of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::PointF"/>.
+    /// Sets the y-coordinate of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::PointF"/>.
     /// </summary>
     void set_Y(float value);
     

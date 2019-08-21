@@ -133,10 +133,12 @@ public:
     /// <returns>The index of destination in collection.</returns>
     int32_t IndexOf(System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>> value);
     /// <summary>
-    /// Determines whether a destination is in collection or not.
+    /// Determines whether this instance contains the object.
     /// </summary>
-    /// <param name="value">The value to find.</param>
-    /// <returns>True if a destination is in collection; otherwise, false.</returns>
+    /// <param name="value">The value.</param>
+    /// <returns>
+    ///   <c>true</c> if [contains] [the specified value]; otherwise, <c>false</c>.
+    /// </returns>
     bool Contains(System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>> const &value) const;
     /// <summary>
     /// Copies the elements of the collection to an Array, starting at a particular Array index.
@@ -145,19 +147,23 @@ public:
     /// <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
     void CopyTo(System::ArrayPtr<System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>>> array, int32_t arrayIndex);
     /// <summary>
+    /// Adds the specified item.
     /// Collection is read-only. Always throws NotSupportedException exception.
     /// </summary>
-    /// <param name="item"></param>
+    /// <param name="item">The item.</param>
+    /// <exception cref="NotSupportedException"></exception>
     void Add(System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>> const &item);
     /// <summary>
     /// Collection is read-only. Always throws NotSupportedException exception.
     /// </summary>
     void Clear();
     /// <summary>
+    /// Removes the specified item.
     /// Collection is read-only. Always throws NotSupportedException exception.
     /// </summary>
-    /// <param name="item"></param>
+    /// <param name="item">The item.</param>
     /// <returns></returns>
+    /// <exception cref="NotSupportedException"></exception>
     bool Remove(System::Collections::Generic::KeyValuePair<System::String, System::SharedPtr<System::Object>> const &item);
     
 protected:

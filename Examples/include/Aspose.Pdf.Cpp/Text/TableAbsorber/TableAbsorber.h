@@ -70,14 +70,14 @@ class ASPOSE_PDF_SHARED_API TableAbsorber : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets text search options.
+    /// Gets text search options.
     /// </summary>
     /// <remarks>
     /// Allows to define several options that will be used during search text containing in tables.
     /// </remarks>
     virtual System::SharedPtr<Aspose::Pdf::Text::TextSearchOptions> get_TextSearchOptions();
     /// <summary>
-    /// Gets or sets text search options.
+    /// Sets text search options.
     /// </summary>
     /// <remarks>
     /// Allows to define several options that will be used during search text containing in tables.

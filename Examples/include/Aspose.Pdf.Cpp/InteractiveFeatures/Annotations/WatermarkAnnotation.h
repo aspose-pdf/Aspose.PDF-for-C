@@ -9,9 +9,9 @@
 #include "InteractiveFeatures/Annotations/Annotation.h"
 #include "aspose_pdf_api_defs.h"
 
+namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class FixedPrint; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextState; } } }
-namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
 namespace Aspose { namespace Pdf { class Page; } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
@@ -46,11 +46,11 @@ public:
     System::SharedPtr<Aspose::Pdf::Annotations::FixedPrint> get_FixedPrint();
     virtual Aspose::Pdf::Annotations::AnnotationType get_AnnotationType();
     /// <summary>
-    /// Gets or sets opacity of the annotation.
+    /// Gets opacity of the annotation.
     /// </summary>
     double get_Opacity();
     /// <summary>
-    /// Gets or sets opacity of the annotation.
+    /// Sets opacity of the annotation.
     /// </summary>
     void set_Opacity(double value);
     

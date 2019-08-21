@@ -36,11 +36,11 @@ class ASPOSE_PDF_SHARED_API PdfFileInfo FINAL : public Aspose::Pdf::Facades::Sav
 public:
 
     /// <summary>
-    /// Gets or sets the Author information of PDF document.
+    /// Gets the Author information of PDF document.
     /// </summary>
     System::String get_Author();
     /// <summary>
-    /// Gets or sets the Author information of PDF document.
+    /// Sets the Author information of PDF document.
     /// </summary>
     void set_Author(System::String value);
     /// <summary>
@@ -52,19 +52,19 @@ public:
     /// </summary>
     bool get_IsPdfFile();
     /// <summary>
-    /// Gets or sets the CreationDate information of PDF document.
+    /// Gets the CreationDate information of PDF document.
     /// </summary>
     System::String get_CreationDate();
     /// <summary>
-    /// Gets or sets the CreationDate information of PDF document.
+    /// Sets the CreationDate information of PDF document.
     /// </summary>
     void set_CreationDate(System::String value);
     /// <summary>
-    /// Gets or sets the Creator information of PDF document.
+    /// Gets the Creator information of PDF document.
     /// </summary>
     System::String get_Creator();
     /// <summary>
-    /// Gets or sets the Creator information of PDF document.
+    /// Sets the Creator information of PDF document.
     /// </summary>
     void set_Creator(System::String value);
     /// <summary>
@@ -72,43 +72,43 @@ public:
     /// </summary>
     bool get_HasCollection();
     /// <summary>
-    /// Gets or sets the customized information of PDF document.
+    /// Gets the customized information of PDF document.
     /// </summary>
     System::SharedPtr<System::Collections::Generic::Dictionary<System::String, System::String>> get_Header();
     /// <summary>
-    /// Gets or sets the customized information of PDF document.
+    /// Sets the customized information of PDF document.
     /// </summary>
     void set_Header(System::SharedPtr<System::Collections::Generic::Dictionary<System::String, System::String>> value);
     /// <summary>
-    /// Gets or sets the input file.
+    /// Gets the input file.
     /// </summary>
     System::String get_InputFile();
     /// <summary>
-    /// Gets or sets the input file.
+    /// Sets the input file.
     /// </summary>
     void set_InputFile(System::String value);
     /// <summary>
-    /// Gets or sets the input stream.
+    /// Gets the input stream.
     /// </summary>
     System::SharedPtr<System::IO::Stream> get_InputStream();
     /// <summary>
-    /// Gets or sets the input stream.
+    /// Sets the input stream.
     /// </summary>
     void set_InputStream(System::SharedPtr<System::IO::Stream> value);
     /// <summary>
-    /// Gets or sets the Keywords information of PDF document.
+    /// Gets the Keywords information of PDF document.
     /// </summary>
     System::String get_Keywords();
     /// <summary>
-    /// Gets or sets the Keywords information of PDF document.
+    /// Sets the Keywords information of PDF document.
     /// </summary>
     void set_Keywords(System::String value);
     /// <summary>
-    /// Gets or sets the ModDate date information of PDF document.
+    /// Gets the ModDate date information of PDF document.
     /// </summary>
     System::String get_ModDate();
     /// <summary>
-    /// Gets or sets the ModDate date information of PDF document.
+    /// Sets the ModDate date information of PDF document.
     /// </summary>
     void set_ModDate(System::String value);
     /// <summary>
@@ -120,19 +120,19 @@ public:
     /// </summary>
     System::String get_Producer();
     /// <summary>
-    /// Gets or sets the Subject information of PDF document.
+    /// Gets the Subject information of PDF document.
     /// </summary>
     System::String get_Subject();
     /// <summary>
-    /// Gets or sets the Subject information of PDF document.
+    /// Sets the Subject information of PDF document.
     /// </summary>
     void set_Subject(System::String value);
     /// <summary>
-    /// Gets or sets the Title information of PDF document.
+    /// Gets the Title information of PDF document.
     /// </summary>
     System::String get_Title();
     /// <summary>
-    /// Gets or sets the Title information of PDF document.
+    /// Sets the Title information of PDF document.
     /// </summary>
     void set_Title(System::String value);
     /// <summary>

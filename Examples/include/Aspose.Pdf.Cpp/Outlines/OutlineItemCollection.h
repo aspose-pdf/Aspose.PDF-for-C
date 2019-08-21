@@ -46,51 +46,51 @@ class ASPOSE_PDF_SHARED_API OutlineItemCollection FINAL : public Aspose::Pdf::Ou
 public:
 
     /// <summary>
-    /// Gets or sets the title for this outline item.
+    /// Gets the title for this outline item.
     /// </summary>
     System::String get_Title();
     /// <summary>
-    /// Gets or sets the title for this outline item.
+    /// Sets the title for this outline item.
     /// </summary>
     void set_Title(System::String value);
     /// <summary>
-    /// Gets or sets the destination for this outline item.
+    /// Gets the destination for this outline item.
     /// </summary>
     System::SharedPtr<Annotations::IAppointment> get_Destination();
     /// <summary>
-    /// Gets or sets the destination for this outline item.
+    /// Sets the destination for this outline item.
     /// </summary>
     void set_Destination(System::SharedPtr<Annotations::IAppointment> value);
     /// <summary>
-    /// Gets or sets the action for this outline item.
+    /// Gets the action for this outline item.
     /// </summary>
     System::SharedPtr<Annotations::PdfAction> get_Action();
     /// <summary>
-    /// Gets or sets the action for this outline item.
+    /// Sets the action for this outline item.
     /// </summary>
     void set_Action(System::SharedPtr<Annotations::PdfAction> value);
     /// <summary>
-    /// Gets or sets the color for the title text of this outline item.
+    /// Gets the color for the title text of this outline item.
     /// </summary>
     System::Drawing::Color get_Color();
     /// <summary>
-    /// Gets or sets the color for the title text of this outline item.
+    /// Sets the color for the title text of this outline item.
     /// </summary>
     void set_Color(System::Drawing::Color value);
     /// <summary>
-    /// Gets or sets italic flag for the title text of this outline item
+    /// Gets italic flag for the title text of this outline item
     /// </summary>
     bool get_Italic();
     /// <summary>
-    /// Gets or sets italic flag for the title text of this outline item
+    /// Sets italic flag for the title text of this outline item
     /// </summary>
     void set_Italic(bool value);
     /// <summary>
-    /// Gets or sets bold flag for the title text of this outline item
+    /// Gets bold flag for the title text of this outline item
     /// </summary>
     bool get_Bold();
     /// <summary>
-    /// Gets or sets bold flag for the title text of this outline item
+    /// Sets bold flag for the title text of this outline item
     /// </summary>
     void set_Bold(bool value);
     /// <summary>

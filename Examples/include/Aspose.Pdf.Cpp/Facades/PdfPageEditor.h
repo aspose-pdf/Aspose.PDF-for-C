@@ -13,9 +13,9 @@
 #include "Facades/Facade.h"
 #include "aspose_pdf_api_defs.h"
 
-namespace Aspose { namespace Pdf { class PageSize; } }
 namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
 namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
+namespace Aspose { namespace Pdf { class PageSize; } }
 namespace Aspose { namespace Pdf { class Point; } }
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
@@ -73,44 +73,44 @@ private:
 public:
 
     /// <summary>
-    /// Gets or sets duration of the transition effect.
+    /// Gets duration of the transition effect.
     /// </summary>
     int32_t get_TransitionDuration();
     /// <summary>
-    /// Gets or sets duration of the transition effect.
+    /// Sets duration of the transition effect.
     /// </summary>
     void set_TransitionDuration(int32_t value);
     /// <summary>
-    /// Gets or sets transition style to use when moving to this page from another during a presentation.
+    /// Gets transition style to use when moving to this page from another during a presentation.
     /// </summary>
     int32_t get_TransitionType();
     /// <summary>
-    /// Gets or sets transition style to use when moving to this page from another during a presentation.
+    /// Sets transition style to use when moving to this page from another during a presentation.
     /// </summary>
     void set_TransitionType(int32_t value);
     /// <summary>
-    /// Gets or sets display duration for pages.
+    /// Gets display duration for pages.
     /// </summary>
     int32_t get_DisplayDuration();
     /// <summary>
-    /// Gets or sets display duration for pages.
+    /// Sets display duration for pages.
     /// </summary>
     void set_DisplayDuration(int32_t value);
     /// <summary>
-    /// Gets or sets the page numbers to be edited. By default, each page would be edited.
+    /// Gets the page numbers to be edited. By default, each page would be edited.
     /// </summary>
     System::ArrayPtr<int32_t> get_ProcessPages();
     /// <summary>
-    /// Gets or sets the page numbers to be edited. By default, each page would be edited.
+    /// Sets the page numbers to be edited. By default, each page would be edited.
     /// </summary>
     void set_ProcessPages(System::ArrayPtr<int32_t> value);
     /// <summary>
-    /// Gets or sets the rotation of the pages, the rotation must be 0, 90, 180 or 270.
+    /// Gets the rotation of the pages, the rotation must be 0, 90, 180 or 270.
     /// Default value is 0.
     /// </summary>
     int32_t get_Rotation();
     /// <summary>
-    /// Gets or sets the rotation of the pages, the rotation must be 0, 90, 180 or 270.
+    /// Sets the rotation of the pages, the rotation must be 0, 90, 180 or 270.
     /// Default value is 0.
     /// </summary>
     void set_Rotation(int32_t value);
@@ -151,19 +151,19 @@ public:
     /// </summary>
     void set_Zoom(float value);
     /// <summary>
-    /// Gets or sets the output file's page size.
+    /// Gets the output file's page size.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::PageSize> get_PageSize();
     /// <summary>
-    /// Gets or sets the output file's page size.
+    /// Sets the output file's page size.
     /// </summary>
     void set_PageSize(System::SharedPtr<Aspose::Pdf::PageSize> value);
     /// <summary>
-    /// Gets or sets the horizontal alignment of the original PDF content on the result page, default is AlignmentType.Left.
+    /// Gets the horizontal alignment of the original PDF content on the result page, default is AlignmentType.Left.
     /// </summary>
     Aspose::Pdf::HorizontalAlignment get_HorizontalAlignment();
     /// <summary>
-    /// Gets or sets the horizontal alignment of the original PDF content on the result page, default is AlignmentType.Left.
+    /// Sets the horizontal alignment of the original PDF content on the result page, default is AlignmentType.Left.
     /// </summary>
     void set_HorizontalAlignment(Aspose::Pdf::HorizontalAlignment value);
     /// <summary>

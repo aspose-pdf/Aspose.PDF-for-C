@@ -3,10 +3,10 @@
 #define _aspose_system_string_h_
 
 #include <system/text/normalization_form.h>
-#include <system/details/format_builder.h>
 #include <system/string_comparison.h>
 #include <system/shared_ptr.h>
 #include <system/details/icu_namespace.h>
+#include <system/object.h>
 
 #include <string>
 #include <sstream>
@@ -908,38 +908,35 @@ public:
     /// @param format Format string.
     /// @param args Arguments to format string.
     template<class... Args>
-    static String Format(const SharedPtr<IFormatProvider>& fp, const String& format, const Args&... args)
-    {
-        System::Details::FormatBuilder builder(format.ToU16Str(), fp);
-        System::Details::FormatBuilder::add_arguments(builder, args...);
+    static String Format(const SharedPtr<IFormatProvider>& fp, const String& format, const Args&... args);
 
-        return FromUtf16(builder.str());
-    }
     /// Formats string in C# style.
     /// @tparam Args Arguments to format string.
     /// @param format Format string.
     /// @param args Arguments to format string.
     template<class... Args>
-    static String Format(const String& format, const Args&... args)
-    {
-        System::Details::FormatBuilder builder(format.ToU16Str());
-        System::Details::FormatBuilder::add_arguments(builder, args...);
+    static String Format(std::nullptr_t, const String& format, const Args&... args);
 
-        return FromUtf16(builder.str());
-    }
+    /// Formats string in C# style.
+    /// @tparam Args Arguments to format string.
+    /// @param format Format string.
+    /// @param args Arguments to format string.
+    template<std::size_t N, class... Args>
+    static String Format(std::nullptr_t, const char16_t(&format)[N], const Args&... args);
+
+    /// Formats string in C# style.
+    /// @tparam Args Arguments to format string.
+    /// @param format Format string.
+    /// @param args Arguments to format string.
+    template<class... Args>
+    static String Format(const String& format, const Args&... args);
 
     /// Formats string in C# style.
     /// @tparam T Arguments to format string.
     /// @param format Format string.
     /// @param args Arguments to format string.
     template<class T>
-    static String Format(const String& format, const System::ArrayPtr<T>& args)
-    {
-        System::Details::FormatBuilder builder(format.ToU16Str());
-        System::Details::FormatBuilder::add_arguments(builder, args);
-
-        return FromUtf16(builder.str());
-    }
+    static String Format(const String& format, const System::ArrayPtr<T>& args);
 
     /// Creates String from utf8 string.
     /// @param utf8 Pointer to null-terminated string encoded using utf8 codepage.
@@ -971,6 +968,19 @@ public:
     /// @param u16str Utf16 string.
     /// @return String object representing passed string.
     static ASPOSECPP_SHARED_API String FromUtf16(const std::u16string& u16str);
+    /// Creates String from ASCII string.
+    /// @param asciiStr Pointer to null-terminated string encoded using ASCII codepage.
+    /// @return String object representing passed string.
+    static ASPOSECPP_SHARED_API String FromAscii(const char* asciiStr);
+    /// Creates String from ASCII string.
+    /// @param asciiStr Pointer to string encoded using ASCII codepage.
+    /// @param len Number of characters to handle.
+    /// @return String object representing passed string.
+    static ASPOSECPP_SHARED_API String FromAscii(const char* asciiStr, int len);
+    /// Creates String from ASCII string.
+    /// @param asciiStr ASCII-encoded string.
+    /// @return String object representing passed string.
+    static ASPOSECPP_SHARED_API String FromAscii(const std::string& asciiStr);
 
     /// Wraps UnicodeString into String.
     /// @param str UnicodeString to wrap into String.
@@ -1174,7 +1184,7 @@ namespace std
         /// @returns A hash for @p str
         std::size_t operator()(const System::String& str) const
         {
-            return str.GetHashCode();
+            return static_cast<std::size_t>(str.GetHashCode());
         }
     };
 }
@@ -1183,5 +1193,78 @@ namespace std
 typedef char16_t* system_char_array;
 /// Typedef used by CppPortConstStringAsWChar attribute
 typedef char16_t const* const_system_char_array;
+
+#include <system/details/format_builder.h>
+
+namespace System {
+
+/// Formats string in C# style.
+/// @tparam Args Arguments to format string.
+/// @param fp Format provider to use to convert arguments to strings.
+/// @param format Format string.
+/// @param args Arguments to format string.
+template<class... Args>
+String String::Format(const SharedPtr<IFormatProvider>& fp, const String& format, const Args&... args)
+{
+    System::Details::FormatBuilder builder(format, fp);
+    System::Details::FormatBuilder::AddArguments(builder, args...);
+
+    return builder.BuildResult();
+}
+
+/// Formats string in C# style.
+/// @tparam Args Arguments to format string.
+/// @param format Format string.
+/// @param args Arguments to format string.
+template<class... Args>
+String String::Format(std::nullptr_t, const String& format, const Args&... args)
+{
+    System::Details::FormatBuilder builder(format);
+    System::Details::FormatBuilder::AddArguments(builder, args...);
+
+    return builder.BuildResult();
+}
+
+/// Formats string in C# style.
+/// @tparam Args Arguments to format string.
+/// @param format Format string.
+/// @param args Arguments to format string.
+template<std::size_t N, class... Args>
+String String::Format(std::nullptr_t, const char16_t (&format)[N], const Args&... args)
+{
+    System::Details::FormatBuilder builder(format);
+    System::Details::FormatBuilder::AddArguments(builder, args...);
+
+    return builder.BuildResult();
+}
+
+
+/// Formats string in C# style.
+/// @tparam Args Arguments to format string.
+/// @param format Format string.
+/// @param args Arguments to format string.
+template<class... Args>
+String String::Format(const String& format, const Args&... args)
+{
+    System::Details::FormatBuilder builder(format);
+    System::Details::FormatBuilder::AddArguments(builder, args...);
+
+    return builder.BuildResult();
+}
+
+/// Formats string in C# style.
+/// @tparam T Arguments to format string.
+/// @param format Format string.
+/// @param args Arguments to format string.
+template<class T>
+String String::Format(const String& format, const System::ArrayPtr<T>& args)
+{
+    System::Details::FormatBuilder builder(format);
+    System::Details::FormatBuilder::AddArguments(builder, args);
+
+    return builder.BuildResult();
+}
+
+} // namespace System
 
 #endif // _aspose_system_string_h_

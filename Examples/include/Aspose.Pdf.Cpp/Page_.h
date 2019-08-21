@@ -47,6 +47,7 @@ namespace Aspose { namespace Pdf { namespace PageModel { class GraphicElement; }
 namespace Aspose { namespace Pdf { namespace PageModel { class ImageElement; } } }
 namespace Aspose { namespace Pdf { namespace PageModel { class TextElement; } } }
 namespace Aspose { namespace Pdf { namespace Drawing { class Shape; } } }
+namespace Aspose { namespace Pdf { class HtmlFragment; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class TextSegmenter; } } } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace IO { namespace ConvertStrategies { class PdfAConvertStrategy; } } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace IO { namespace ConvertStrategies { class SearchablePdfConvertStrategy; } } } } }
@@ -91,6 +92,8 @@ namespace Aspose { namespace Pdf { class PdfPageStamp; } }
 namespace Aspose { namespace Pdf { class Resources; } }
 namespace Aspose { namespace Pdf { class ImagePlacementAbsorber; } }
 namespace Aspose { namespace Pdf { class Cell; } }
+namespace Aspose { namespace Pdf { class Row; } }
+namespace Aspose { namespace Pdf { namespace Text { class TextParagraphAbsorber; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextAbsorber; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextBuilder; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragmentAbsorber; } } }
@@ -101,6 +104,7 @@ namespace Aspose { namespace Pdf { class ApsToPdfGraphicStateBuilder; } }
 namespace Aspose { namespace Pdf { class ContentsAppender; } }
 namespace Aspose { namespace Pdf { class Group; } }
 namespace Aspose { namespace Pdf { namespace Annotations { class ScreenAnnotation; } } }
+namespace Aspose { namespace Pdf { class Table; } }
 namespace Aspose { namespace Pdf { class Artifact; } }
 namespace Aspose { namespace Pdf { class ArtifactCollection; } }
 namespace Aspose { namespace Pdf { class BackgroundArtifact; } }
@@ -139,6 +143,9 @@ namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v10_8
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v11_8; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Facades { class PdfFileStampTests; } } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace PDFUA { class PDFUA_CreatingTests; } } } }
+namespace Aspose { namespace Pdf { enum class ColorType; } }
+namespace Aspose { namespace Pdf { enum class TabOrder; } }
+namespace Aspose { namespace Pdf { enum class Rotation; } }
 namespace Aspose { namespace Pdf { class OperatorCollection; } }
 namespace Aspose { namespace Pdf { class Matrix; } }
 namespace Aspose { namespace Pdf { class GraphInfo; } }
@@ -148,11 +155,8 @@ namespace Aspose { namespace Pdf { class PageInfo; } }
 namespace Aspose { namespace Pdf { class PageActionCollection; } }
 namespace Aspose { namespace Pdf { class TocInfo; } }
 namespace Aspose { namespace Pdf { class HeaderFooter; } }
-namespace Aspose { namespace Pdf { enum class ColorType; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { class IPage; } } } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
-namespace Aspose { namespace Pdf { enum class TabOrder; } }
-namespace Aspose { namespace Pdf { enum class Rotation; } }
 namespace Aspose { namespace Pdf { class Color; } }
 namespace Aspose { namespace Pdf { class Watermark; } }
 namespace Aspose { namespace Pdf { class Operator; } }
@@ -213,6 +217,7 @@ class ASPOSE_PDF_SHARED_API Page FINAL : public System::IDisposable, public Aspo
     friend class Aspose::Pdf::PageModel::ImageElement;
     friend class Aspose::Pdf::PageModel::TextElement;
     friend class Aspose::Pdf::Drawing::Shape;
+    friend class Aspose::Pdf::HtmlFragment;
     friend class Aspose::Pdf::Engine::CommonData::Text::Segmenting::TextSegmenter;
     friend class Aspose::Pdf::Engine::IO::ConvertStrategies::PdfAConvertStrategy;
     friend class Aspose::Pdf::Engine::IO::ConvertStrategies::SearchablePdfConvertStrategy;
@@ -261,6 +266,8 @@ class ASPOSE_PDF_SHARED_API Page FINAL : public System::IDisposable, public Aspo
     friend class Aspose::Pdf::Resources;
     friend class Aspose::Pdf::ImagePlacementAbsorber;
     friend class Aspose::Pdf::Cell;
+    friend class Aspose::Pdf::Row;
+    friend class Aspose::Pdf::Text::TextParagraphAbsorber;
     friend class Aspose::Pdf::Text::TextAbsorber;
     friend class Aspose::Pdf::Text::TextBuilder;
     friend class Aspose::Pdf::Text::TextFragmentAbsorber;
@@ -272,6 +279,7 @@ class ASPOSE_PDF_SHARED_API Page FINAL : public System::IDisposable, public Aspo
     friend class Aspose::Pdf::ApsToPdfConverter;
     friend class Aspose::Pdf::Group;
     friend class Aspose::Pdf::Annotations::ScreenAnnotation;
+    friend class Aspose::Pdf::Table;
     friend class Aspose::Pdf::Artifact;
     friend class Aspose::Pdf::ArtifactCollection;
     friend class Aspose::Pdf::BackgroundArtifact;
@@ -319,50 +327,50 @@ public:
 public:
 
     /// <summary>
-    /// Gets or sets background image for page (for generator only).
+    /// Gets background image for page (for generator only).
     /// </summary>
     System::SharedPtr<Image> get_BackgroundImage();
     /// <summary>
-    /// Gets or sets background image for page (for generator only).
+    /// Sets background image for page (for generator only).
     /// </summary>
     void set_BackgroundImage(System::SharedPtr<Image> value);
     /// <summary>
-    /// Gets or sets table of contents info.
+    /// Gets table of contents info.
     /// </summary>
     /// <value>The table of contents info - default null. If it set this page will contain table of contents.</value>
     System::SharedPtr<Aspose::Pdf::TocInfo> get_TocInfo();
     /// <summary>
-    /// Gets or sets table of contents info.
+    /// Sets table of contents info.
     /// </summary>
     /// <value>The table of contents info - default null. If it set this page will contain table of contents.</value>
     void set_TocInfo(System::SharedPtr<Aspose::Pdf::TocInfo> value);
     /// <summary>
-    /// Gets or sets page header.
+    /// Gets page header.
     /// </summary>
     /// <value>The page header.</value>
     System::SharedPtr<HeaderFooter> get_Header();
     /// <summary>
-    /// Gets or sets page header.
+    /// Sets page header.
     /// </summary>
     /// <value>The page header.</value>
     void set_Header(System::SharedPtr<HeaderFooter> value);
     /// <summary>
-    /// Gets or sets layers collection.
+    /// Gets layers collection.
     /// </summary>
     /// <value>The layers collection.</value>
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Layer>>> get_Layers();
     /// <summary>
-    /// Gets or sets layers collection.
+    /// Sets layers collection.
     /// </summary>
     /// <value>The layers collection.</value>
     void set_Layers(System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<Layer>>> value);
     /// <summary>
-    /// Gets or sets page footer.
+    /// Gets page footer.
     /// </summary>
     /// <value>The page footer.</value>
     System::SharedPtr<HeaderFooter> get_Footer();
     /// <summary>
-    /// Gets or sets page footer.
+    /// Sets page footer.
     /// </summary>
     /// <value>The page footer.</value>
     void set_Footer(System::SharedPtr<HeaderFooter> value);
@@ -377,17 +385,17 @@ public:
     /// <value>The paragraphs.</value>
     void set_Paragraphs(System::SharedPtr<Aspose::Pdf::Paragraphs> value);
     /// <summary>
-    /// Gets or sets the page info.(for generator only)
+    /// Gets the page info.(for generator only)
     /// </summary>
     /// <value>The page info.</value>
     System::SharedPtr<Aspose::Pdf::PageInfo> get_PageInfo();
     /// <summary>
-    /// Gets or sets the page info.(for generator only)
+    /// Sets the page info.(for generator only)
     /// </summary>
     /// <value>The page info.</value>
     void set_PageInfo(System::SharedPtr<Aspose::Pdf::PageInfo> value);
     /// <summary>
-    /// Gets or sets rectangle of the page. Page crop box is returned if specified, otherwise page media box is returned.
+    /// Gets rectangle of the page. Page crop box is returned if specified, otherwise page media box is returned.
     /// Please note that this property don't consider page rotation. To get page rectangle considering rotation please use ActualRect.
     /// </summary>
     /// <example>
@@ -400,7 +408,7 @@ public:
     /// </example>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_Rect();
     /// <summary>
-    /// Gets or sets rectangle of the page. Page crop box is returned if specified, otherwise page media box is returned.
+    /// Sets rectangle of the page. Page crop box is returned if specified, otherwise page media box is returned.
     /// Please note that this property don't consider page rotation. To get page rectangle considering rotation please use ActualRect.
     /// </summary>
     /// <example>
@@ -418,22 +426,22 @@ public:
     /// </summary>
     Aspose::Pdf::ColorType get_ColorType();
     /// <summary>
-    /// Gets or sets the line style for notes.(for generator only)
+    /// Gets the line style for notes.(for generator only)
     /// </summary>
     /// <value>The note style.</value>
     System::SharedPtr<GraphInfo> get_NoteLineStyle();
     /// <summary>
-    /// Gets or sets the line style for notes.(for generator only)
+    /// Sets the line style for notes.(for generator only)
     /// </summary>
     /// <value>The note style.</value>
     void set_NoteLineStyle(System::SharedPtr<GraphInfo> value);
     /// <summary>
-    /// Gets or sets tab order of the page. 
+    /// Gets tab order of the page. 
     /// Possible values: Row, Column. Default, Manual
     /// </summary>
     Aspose::Pdf::TabOrder get_TabOrder();
     /// <summary>
-    /// Gets or sets tab order of the page. 
+    /// Sets tab order of the page. 
     /// Possible values: Row, Column. Default, Manual
     /// </summary>
     void set_TabOrder(Aspose::Pdf::TabOrder value);
@@ -480,11 +488,11 @@ public:
     /// </example>
     System::SharedPtr<OperatorCollection> get_Contents();
     /// <summary>
-    /// Gets or sets a group attributes class specifying the attributes of the page�s page group for use in the transparent imaging model.
+    /// Gets a group attributes class specifying the attributes of the page�s page group for use in the transparent imaging model.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Group> get_Group();
     /// <summary>
-    /// Gets or sets a group attributes class specifying the attributes of the page�s page group for use in the transparent imaging model.
+    /// Sets a group attributes class specifying the attributes of the page�s page group for use in the transparent imaging model.
     /// </summary>
     void set_Group(System::SharedPtr<Aspose::Pdf::Group> value);
     /// <summary>
@@ -510,7 +518,7 @@ public:
     /// </example>
     System::SharedPtr<Aspose::Pdf::Resources> get_Resources();
     /// <summary>
-    /// Gets or sets rotation of the page.
+    /// Gets rotation of the page.
     /// </summary>
     /// <example>
     /// Example demonstrates how to determine page rotation.
@@ -521,7 +529,7 @@ public:
     /// </example>
     Rotation get_Rotate();
     /// <summary>
-    /// Gets or sets rotation of the page.
+    /// Sets rotation of the page.
     /// </summary>
     /// <example>
     /// Example demonstrates how to determine page rotation.
@@ -532,7 +540,7 @@ public:
     /// </example>
     void set_Rotate(Rotation value);
     /// <summary>
-    /// Gets or sets trim box of the page. 
+    /// Gets trim box of the page. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get trim box of the page:
@@ -543,7 +551,7 @@ public:
     /// </example>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_TrimBox();
     /// <summary>
-    /// Gets or sets trim box of the page. 
+    /// Sets trim box of the page. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get trim box of the page:
@@ -554,7 +562,7 @@ public:
     /// </example>
     void set_TrimBox(System::SharedPtr<Aspose::Pdf::Rectangle> value);
     /// <summary>
-    /// Gets or sets art box of the page. 
+    /// Gets art box of the page. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get art box of the page:
@@ -565,7 +573,7 @@ public:
     /// </example>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_ArtBox();
     /// <summary>
-    /// Gets or sets art box of the page. 
+    /// Sets art box of the page. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get art box of the page:
@@ -576,7 +584,7 @@ public:
     /// </example>
     void set_ArtBox(System::SharedPtr<Aspose::Pdf::Rectangle> value);
     /// <summary>
-    /// Gets or sets bleed box of the page. 
+    /// Gets bleed box of the page. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get bleed box of the page:
@@ -587,7 +595,7 @@ public:
     /// </example>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_BleedBox();
     /// <summary>
-    /// Gets or sets bleed box of the page. 
+    /// Sets bleed box of the page. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get bleed box of the page:
@@ -598,7 +606,7 @@ public:
     /// </example>
     void set_BleedBox(System::SharedPtr<Aspose::Pdf::Rectangle> value);
     /// <summary>
-    /// Gets or sets crop box of the page. 
+    /// Gets crop box of the page. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get crop box of the page:
@@ -609,7 +617,7 @@ public:
     /// </example>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_CropBox();
     /// <summary>
-    /// Gets or sets crop box of the page. 
+    /// Sets crop box of the page. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get crop box of the page:
@@ -620,7 +628,7 @@ public:
     /// </example>
     void set_CropBox(System::SharedPtr<Aspose::Pdf::Rectangle> value);
     /// <summary>
-    /// Gets or sets media box of the page. 
+    /// Gets media box of the page. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get media box of the page:
@@ -631,7 +639,7 @@ public:
     /// </example>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_MediaBox();
     /// <summary>
-    /// Gets or sets media box of the page. 
+    /// Sets media box of the page. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get media box of the page:
@@ -650,19 +658,19 @@ public:
     /// </summary>
     System::SharedPtr<Matrix> get_RotationMatrix();
     /// <summary>
-    /// Gets or sets the background color of the page.
+    /// Gets the background color of the page.
     /// </summary>
     System::SharedPtr<Color> get_Background();
     /// <summary>
-    /// Gets or sets the background color of the page.
+    /// Sets the background color of the page.
     /// </summary>
     void set_Background(System::SharedPtr<Color> value);
     /// <summary>
-    /// Gets or sets the watermark of the page.
+    /// Gets the watermark of the page.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Watermark> get_Watermark();
     /// <summary>
-    /// Gets or sets the watermark of the page.
+    /// Sets the watermark of the page.
     /// </summary>
     void set_Watermark(System::SharedPtr<Aspose::Pdf::Watermark> value);
     /// <summary>
@@ -832,12 +840,16 @@ public:
     
 protected:
 
+    bool get_IsRowExceedPageMode();
+    void set_IsRowExceedPageMode(bool value);
+    double get_IsRowExceedPageHeigth();
+    void set_IsRowExceedPageHeigth(double value);
     /// <summary>
-    /// Gets or sets page current Y coordinate.
+    /// Gets page current Y coordinate.
     /// </summary>
     double get_CurY();
     /// <summary>
-    /// Gets or sets page current Y coordinate.
+    /// Sets page current Y coordinate.
     /// </summary>
     void set_CurY(double value);
     /// <summary>
@@ -849,12 +861,12 @@ protected:
     /// </summary>
     void set_IgnoreAnnotationExceptions(bool value);
     /// <summary>
-    /// Gets or sets page header.
+    /// Gets page header.
     /// </summary>
     /// <value>The page header.</value>
     bool get_IsPageInfoSet();
     /// <summary>
-    /// Gets or sets page header.
+    /// Sets page header.
     /// </summary>
     /// <value>The page header.</value>
     void set_IsPageInfoSet(bool value);
@@ -869,12 +881,12 @@ protected:
     /// <value>The pages collection.</value>
     void set_Pages(System::SharedPtr<PageCollection> value);
     /// <summary>
-    /// Gets or sets the page id
+    /// Gets the page id
     /// </summary>
     /// <value>The page id.</value>
     System::String get_Id();
     /// <summary>
-    /// Gets or sets the page id
+    /// Sets the page id
     /// </summary>
     /// <value>The page id.</value>
     void set_Id(System::String value);
@@ -1049,6 +1061,8 @@ private:
     double _curY;
     System::SharedPtr<System::Text::StringBuilder> _observationLog;
     int32_t _number;
+    bool pr_IsRowExceedPageMode;
+    double pr_IsRowExceedPageHeigth;
     bool pr_IgnoreAnnotationExceptions;
     System::SharedPtr<Aspose::Pdf::Rectangle> rectangle;
     

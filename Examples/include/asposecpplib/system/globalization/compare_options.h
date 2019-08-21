@@ -1,11 +1,13 @@
 /// @file system/globalization/compare_options.h
-#ifndef _compare_options_h_
-#define _compare_options_h_
+#pragma once
+
+#include <system/details/enum_meta_info.h>
+#include <system/enum_helpers.h>
 
 namespace System { namespace Globalization {
 
 /// String comparison options.
-enum class CompareOptions
+enum class CompareOptions : int32_t
 {
     /// No special options.
     None = 0x00000000,
@@ -28,4 +30,13 @@ enum class CompareOptions
 };
 
 }} // namespace System::Globalization
-#endif
+
+/// Declaration of template arithmetic operators for values of CompareOptions enum type.
+DECLARE_ENUM_OPERATORS(System::Globalization::CompareOptions)
+
+template<>
+struct EnumMetaInfo<System::Globalization::CompareOptions>
+{
+    typedef void Flags;
+    static ASPOSECPP_SHARED_API const std::array<std::pair<System::Globalization::CompareOptions, const char16_t*>, 9>& values();
+};

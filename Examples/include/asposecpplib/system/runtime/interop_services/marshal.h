@@ -7,6 +7,8 @@
 #include <fwd.h>
 #include <cstdint>
 
+namespace System { namespace Security { class SecureString; }}
+
 namespace System { namespace Runtime { namespace InteropServices {
 
 /// Provides marshalling implementation.
@@ -133,8 +135,99 @@ public:
     {
         return exc.get_HResult();
     }
+
+    /// Copies contents of specified secure string into unmanaged memory, converting into ANSI format.
+    /// @param s Secure string.
+    /// @return The address in unmanaged memory.
+    static ASPOSECPP_SHARED_API IntPtr SecureStringToGlobalAllocAnsi(const SharedPtr<Security::SecureString>& s);
+
+    /// Copies contents of specified secure string into unmanaged memory.
+    /// @param s Secure string.
+    /// @return The address in unmanaged memory.
+    static ASPOSECPP_SHARED_API IntPtr SecureStringToGlobalAllocUnicode(const SharedPtr<Security::SecureString>& s);
+
+    /// Allocates unmanaged memory.
+    /// @param bytes_count Required number of bytes.
+    /// @return Pointer to the allocated memory.
+    static ASPOSECPP_SHARED_API IntPtr AllocHGlobal(int32_t bytes_count);
+
+    /// Allocates unmanaged memory.
+    /// @param bytes_count Required number of bytes.
+    /// @return Pointer to the allocated memory.
+    static ASPOSECPP_SHARED_API IntPtr AllocHGlobal(IntPtr bytes_count);
+
+    /// Frees unmanaged memory.
+    /// @param address Pointer to the allocated memory.
+    static ASPOSECPP_SHARED_API void FreeHGlobal(IntPtr address);
+
+    /// Frees unmanaged string pointer that was allocated using the SecureStringToGlobalAllocAnsi method.
+    /// @param s Pointer to the unmanaged string.
+    static ASPOSECPP_SHARED_API void ZeroFreeGlobalAllocAnsi(IntPtr s);
+
+    /// Frees unmanaged string pointer that was allocated using the SecureStringToGlobalAllocUnicode method.
+    /// @param s Pointer to the unmanaged string.
+    static ASPOSECPP_SHARED_API void ZeroFreeGlobalAllocUnicode(IntPtr s);
+
+    /// Copies the contents of a specified string into unmanaged memory.
+    /// @param s A string to be copied.
+    /// @return The address, in unmanaged memory.
+    static ASPOSECPP_SHARED_API IntPtr StringToHGlobalAnsi(const String& s);
+
+    /// Copies the contents of a specified string into unmanaged memory.
+    /// @param s A string to be copied.
+    /// @return The address, in unmanaged memory.
+    static ASPOSECPP_SHARED_API IntPtr StringToHGlobalUni(const String& s);
+
+    /// Copies the contents of a specified string into unmanaged memory, converting to ANSI format if required.
+    /// @param s A string to be copied.
+    /// @return The address, in unmanaged memory.
+    static ASPOSECPP_SHARED_API IntPtr StringToHGlobalAuto(const String& s);
+
+    /// Creates a managed String from an unmanaged zero-terminated UTF8-string.
+    /// @param ptr Pointer to the unmanaged string.
+    /// @return A managed string.
+    static ASPOSECPP_SHARED_API String PtrToStringAnsi(IntPtr ptr);
+
+    /// Creates a managed String from an unmanaged UTF8-string.
+    /// @param ptr Pointer to the unmanaged string.
+    /// @param length Length of the unmanaged string.
+    /// @return A managed string.
+    static ASPOSECPP_SHARED_API String PtrToStringAnsi(IntPtr ptr, int length);
+
+    /// Creates a managed String from an unmanaged zero-terminated string.
+    /// @param ptr Pointer to the unmanaged string.
+    /// @return A managed string.
+    static ASPOSECPP_SHARED_API String PtrToStringAuto(IntPtr ptr);
+
+    /// Creates a managed String from an unmanaged string.
+    /// @param ptr Pointer to the unmanaged string.
+    /// @param length Length of the unmanaged string.
+    /// @return A managed string.
+    static ASPOSECPP_SHARED_API String PtrToStringAuto(IntPtr ptr, int length);
+
+    /// Creates a managed String from an unmanaged zero-terminated unicode string.
+    /// @param ptr Pointer to the unmanaged string.
+    /// @return A managed string.
+    static ASPOSECPP_SHARED_API String PtrToStringUni(IntPtr ptr);
+
+    /// Creates a managed String from an unmanaged unicode string.
+    /// @param ptr Pointer to the unmanaged string.
+    /// @param length Length of the unmanaged string.
+    /// @return A managed string.
+    static ASPOSECPP_SHARED_API String PtrToStringUni(IntPtr ptr, int length);
+
+    /// Creates a managed String from an unmanaged zero-terminated UTF8-string.
+    /// @param ptr Pointer to the unmanaged string.
+    /// @return A managed string.
+    static ASPOSECPP_SHARED_API String PtrToStringUTF8(IntPtr ptr);
+
+    /// Creates a managed String from an unmanaged UTF8-string.
+    /// @param ptr Pointer to the unmanaged string.
+    /// @param length Length of the unmanaged string.
+    /// @return A managed string.
+    static ASPOSECPP_SHARED_API String PtrToStringUTF8(IntPtr ptr, int length);
 };
 
-}}}
+}}} // namespace System::Runtime::InteropServices
 
 #endif

@@ -2,16 +2,16 @@
 #define _ASPOSE_VERSION_DEFINES_H
 
 /// Revision from which aspose_cpp library was taken and/or built.
-#define ASPOSECPPLIB_REVISION         "cd12d1f79d01ba6f9db3757df2a8563474268288" 
+#define ASPOSECPPLIB_REVISION         "3d0e1fe30c4c1d1c4d6ecbe12d7a1634a6745c9f" 
 
 /// aspose_cpp library major version.
 #define ASPOSECPPLIB_VERSION_MAJOR    2019
 /// aspose_cpp library minor version.
-#define ASPOSECPPLIB_VERSION_MINOR    4
+#define ASPOSECPPLIB_VERSION_MINOR    8
 /// aspose_cpp library revision.
-#define ASPOSECPPLIB_VERSION_REVISION 1
+#define ASPOSECPPLIB_VERSION_REVISION 9
 /// aspose_cpp library build number.
-#define ASPOSECPPLIB_VERSION_BUILD    79
+#define ASPOSECPPLIB_VERSION_BUILD    0
 
 /// Ported product major version.
 #define PRODUCT_VERSION_MAJOR         0

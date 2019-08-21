@@ -48,6 +48,22 @@ public:
     /// @param array Destination array.
     /// @param arrayIndex Destination array start index.
     virtual void CopyTo(System::ArrayPtr<T> array, int arrayIndex) = 0;
+
+    // Explicit definitions to avoid GCC warnings.
+    /// Move assignment operator.
+    /// @return Reference to this.
+    ICollection& operator = (ICollection&&) { return *this; }
+    /// Move assignment operator.
+    /// @return Reference to this.
+    ICollection& operator = (const ICollection&) { return *this; }
+    /// Default constructor.
+    ICollection() {}
+    /// Copy constructor.
+    ICollection(const ICollection&) {}
+    /// Move constructor.
+    ICollection(ICollection&&) {}
+    /// Destructor.
+    virtual ~ICollection() {}
 };
 
 } // namespace Generic

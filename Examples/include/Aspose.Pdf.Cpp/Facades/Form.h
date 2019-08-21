@@ -1,10 +1,10 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-// C# preprocessor directive: #if !(NET40CP || NET35CP || NETCORE) 
+// C# preprocessor directive: #if !(NET40CP || NET35CP || NETCORE)
 
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
 #include <xml/xml_text_writer.h>
@@ -132,7 +132,7 @@ public:
     /// </summary>
     System::ArrayPtr<System::SharedPtr<Form::FormImportResult>> get_ImportResult();
     /// <summary>
-    /// Gets or sets source file name.
+    /// Gets source file name.
     /// <example>
     /// <code lang="C#">
     ///   Form form = new Aspose.Pdf.Facades.Form();
@@ -142,7 +142,7 @@ public:
     /// </summary>
     System::String get_SrcFileName();
     /// <summary>
-    /// Gets or sets source file name.
+    /// Sets source file name.
     /// <example>
     /// <code lang="C#">
     ///   Form form = new Aspose.Pdf.Facades.Form();
@@ -157,7 +157,7 @@ public:
     /// </summary>
     void set_ConvertTo(PdfFormat value);
     /// <summary>
-    /// Gets or sets destiination file name.
+    /// Gets destiination file name.
     /// </summary>
     /// <example>
     /// <code lang="C#">
@@ -167,7 +167,7 @@ public:
     /// </example>
     System::String get_DestFileName();
     /// <summary>
-    /// Gets or sets destiination file name.
+    /// Sets destiination file name.
     /// </summary>
     /// <example>
     /// <code lang="C#">
@@ -177,7 +177,7 @@ public:
     /// </example>
     void set_DestFileName(System::String value);
     /// <summary>
-    /// Gets or sets source stream.
+    /// Gets source stream.
     /// <example>
     /// <code lang="C#">
     ///  Form form = new Aspose.Pdf.Facades.Form();
@@ -187,7 +187,7 @@ public:
     /// </summary>
     System::SharedPtr<System::IO::Stream> get_SrcStream();
     /// <summary>
-    /// Gets or sets source stream.
+    /// Sets source stream.
     /// <example>
     /// <code lang="C#">
     ///  Form form = new Aspose.Pdf.Facades.Form();
@@ -197,7 +197,7 @@ public:
     /// </summary>
     void set_SrcStream(System::SharedPtr<System::IO::Stream> value);
     /// <summary>
-    /// Gets or sets destination stream.
+    /// Gets destination stream.
     /// </summary>
     /// <example>
     /// <code lang="C#">
@@ -207,7 +207,7 @@ public:
     /// </example>
     System::SharedPtr<System::IO::Stream> get_DestStream();
     /// <summary>
-    /// Gets or sets destination stream.
+    /// Sets destination stream.
     /// </summary>
     /// <example>
     /// <code lang="C#">
@@ -245,39 +245,39 @@ public:
     /// </example>
     System::ArrayPtr<System::String> get_FormSubmitButtonNames();
     /// <summary>
-    /// Gets or sets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
+    /// Gets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
     /// Default: inline.
     /// </summary>
     Aspose::Pdf::ContentDisposition get_ContentDisposition();
     /// <summary>
-    /// Gets or sets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
+    /// Sets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
     /// Default: inline.
     /// </summary>
     void set_ContentDisposition(Aspose::Pdf::ContentDisposition value);
     /// <summary>
-    /// Gets or sets Response object where result of operation will be stored.
+    /// Gets Response object where result of operation will be stored.
     /// </summary>
     System::SharedPtr<System::Web::HttpResponse> get_Response();
     /// <summary>
-    /// Gets or sets Response object where result of operation will be stored.
+    /// Sets Response object where result of operation will be stored.
     /// </summary>
     void set_Response(System::SharedPtr<System::Web::HttpResponse> value);
     /// <summary>
-    /// Gets or sets save options when result is stored as HttpResponse.
+    /// Gets save options when result is stored as HttpResponse.
     /// Default value: PdfSaveOptions. 
     /// </summary>
     System::SharedPtr<Aspose::Pdf::SaveOptions> get_SaveOptions();
     /// <summary>
-    /// Gets or sets save options when result is stored as HttpResponse.
+    /// Sets save options when result is stored as HttpResponse.
     /// Default value: PdfSaveOptions. 
     /// </summary>
     void set_SaveOptions(System::SharedPtr<Aspose::Pdf::SaveOptions> value);
     /// <summary>
-    /// Gets or sets name of attachment when result of operation is stored into HttpResponse objects as attachment.
+    /// Gets name of attachment when result of operation is stored into HttpResponse objects as attachment.
     /// </summary>
     System::String get_AttachmentName();
     /// <summary>
-    /// Gets or sets name of attachment when result of operation is stored into HttpResponse objects as attachment.
+    /// Sets name of attachment when result of operation is stored into HttpResponse objects as attachment.
     /// </summary>
     void set_AttachmentName(System::String value);
     

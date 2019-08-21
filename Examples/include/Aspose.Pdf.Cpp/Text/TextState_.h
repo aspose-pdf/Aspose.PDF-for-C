@@ -18,6 +18,7 @@
 
 namespace Aspose { namespace Pdf { namespace Annotations { class WatermarkAnnotation; } } }
 namespace Aspose { namespace Pdf { namespace PageModel { class TextElement; } } }
+namespace Aspose { namespace Pdf { class HtmlFragment; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class PhysicalTextSegment; } } } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace IO { namespace ConvertStrategies { class SearchablePdfConvertStrategy; } } } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragment; } } }
@@ -35,17 +36,17 @@ namespace Aspose { namespace Pdf { class Artifact; } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Text { class TextStateFlowTests; } } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Text { class TextBuilderTests; } } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Facades { class FormattedTextTests; } } } }
+namespace Aspose { namespace Pdf { namespace Text { enum class TextRenderingMode; } } }
+namespace Aspose { namespace Pdf { namespace Text { enum class FontStyles; } } }
+namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
+namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
+namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { enum class CoordinateOrigin; } } } } } }
+namespace Aspose { namespace Pdf { namespace Text { enum class TabLeaderType; } } }
 namespace Aspose { namespace Pdf { class Color; } }
 namespace Aspose { namespace Pdf { namespace Text { class Font; } } }
 namespace Aspose { namespace Pdf { class Matrix; } }
-namespace Aspose { namespace Pdf { namespace Text { enum class TextRenderingMode; } } }
-namespace Aspose { namespace Pdf { namespace Text { enum class FontStyles; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class PhysicalTextState; } } } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class TextSegmentBuilder; } } } } } }
-namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
-namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
-namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { enum class CoordinateOrigin; } } } } } }
-namespace Aspose { namespace Pdf { namespace Text { enum class TabLeaderType; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class PhysicalTextSegmentStateData; } } } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Graphics { namespace Colors { class IColor; } } } } } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
@@ -73,6 +74,7 @@ class ASPOSE_PDF_SHARED_API TextState : public System::Object
     FRIEND_FUNCTION_System_MakeObject;
     friend class Aspose::Pdf::Annotations::WatermarkAnnotation;
     friend class Aspose::Pdf::PageModel::TextElement;
+    friend class Aspose::Pdf::HtmlFragment;
     friend class Aspose::Pdf::Engine::CommonData::Text::Segmenting::PhysicalTextSegment;
     friend class Aspose::Pdf::Engine::IO::ConvertStrategies::SearchablePdfConvertStrategy;
     friend class Aspose::Pdf::Text::TextFragment;
@@ -133,15 +135,15 @@ public:
     float TabstopDefaultValue;
     
     /// <summary>
-    /// Gets or sets character spacing of the text.
+    /// Gets character spacing of the text.
     /// </summary>
     virtual float get_CharacterSpacing();
     /// <summary>
-    /// Gets or sets character spacing of the text.
+    /// Sets character spacing of the text.
     /// </summary>
     virtual void set_CharacterSpacing(float value);
     /// <summary>
-    /// Gets or sets line spacing of the text.
+    /// Gets line spacing of the text.
     /// </summary>
     /// <remarks>
     /// Note that the value is not preserved as a text characteristic within the document.
@@ -151,7 +153,7 @@ public:
     /// </remarks>
     virtual float get_LineSpacing();
     /// <summary>
-    /// Gets or sets line spacing of the text.
+    /// Sets line spacing of the text.
     /// </summary>
     /// <remarks>
     /// Note that the value is not preserved as a text characteristic within the document.
@@ -161,91 +163,91 @@ public:
     /// </remarks>
     virtual void set_LineSpacing(float value);
     /// <summary>
-    /// Gets or sets horizontal scaling of the text.
+    /// Gets horizontal scaling of the text.
     /// </summary>
     virtual float get_HorizontalScaling();
     /// <summary>
-    /// Gets or sets horizontal scaling of the text.
+    /// Sets horizontal scaling of the text.
     /// </summary>
     virtual void set_HorizontalScaling(float value);
     /// <summary>
-    /// Gets or sets subscript of the text.
+    /// Gets subscript of the text.
     /// </summary>
     virtual bool get_Subscript();
     /// <summary>
-    /// Gets or sets subscript of the text.
+    /// Sets subscript of the text.
     /// </summary>
     virtual void set_Subscript(bool value);
     /// <summary>
-    /// Gets or sets superscript of the text.
+    /// Gets superscript of the text.
     /// </summary>
     virtual bool get_Superscript();
     /// <summary>
-    /// Gets or sets superscript of the text.
+    /// Sets superscript of the text.
     /// </summary>
     virtual void set_Superscript(bool value);
     /// <summary>
-    /// Gets or sets word spacing of the text.
+    /// Gets word spacing of the text.
     /// </summary>
     virtual float get_WordSpacing();
     /// <summary>
-    /// Gets or sets word spacing of the text.
+    /// Sets word spacing of the text.
     /// </summary>
     virtual void set_WordSpacing(float value);
     /// <summary>
-    /// Gets or sets invisibility of the text. Obsolete. Please use RenderingMode instead.
+    /// Gets invisibility of the text. Obsolete. Please use RenderingMode instead.
     /// </summary>
     virtual bool get_Invisible();
     /// <summary>
-    /// Gets or sets invisibility of the text. Obsolete. Please use RenderingMode instead.
+    /// Sets invisibility of the text. Obsolete. Please use RenderingMode instead.
     /// </summary>
     virtual void set_Invisible(bool value);
     /// <summary>
-    /// Gets or sets rendering mode of text.
+    /// Gets rendering mode of text.
     /// </summary>
     virtual TextRenderingMode get_RenderingMode();
     /// <summary>
-    /// Gets or sets rendering mode of text.
+    /// Sets rendering mode of text.
     /// </summary>
     virtual void set_RenderingMode(TextRenderingMode value);
     /// <summary>
-    /// Gets or sets font size of the text.
+    /// Gets font size of the text.
     /// </summary>
     virtual float get_FontSize();
     /// <summary>
-    /// Gets or sets font size of the text.
+    /// Sets font size of the text.
     /// </summary>
     virtual void set_FontSize(float value);
     /// <summary>
-    /// Gets or sets font of the text.
+    /// Gets font of the text.
     /// </summary>
     virtual System::SharedPtr<Aspose::Pdf::Text::Font> get_Font();
     /// <summary>
-    /// Gets or sets font of the text.
+    /// Sets font of the text.
     /// </summary>
     virtual void set_Font(System::SharedPtr<Aspose::Pdf::Text::Font> value);
     /// <summary>
-    /// Gets or sets foreground color of the text.
+    /// Gets foreground color of the text.
     /// </summary>
     virtual System::SharedPtr<Color> get_ForegroundColor();
     /// <summary>
-    /// Gets or sets foreground color of the text.
+    /// Sets foreground color of the text.
     /// </summary>
     virtual void set_ForegroundColor(System::SharedPtr<Color> value);
     /// <summary>
-    /// Gets or sets foreground color of the text.
+    /// Gets foreground color of the text.
     /// </summary>
     virtual System::SharedPtr<Color> get_StrokingColor();
     /// <summary>
-    /// Gets or sets foreground color of the text.
+    /// Sets foreground color of the text.
     /// </summary>
     virtual void set_StrokingColor(System::SharedPtr<Color> value);
     /// <summary>
-    /// Gets or sets underline for the text, represented by the <see cref="TextFragment"/> object
+    /// Gets underline for the text, represented by the <see cref="TextFragment"/> object
     /// </summary>
     virtual bool get_Underline();
     /// <summary>
-    /// Gets or sets underline for the text, represented by the <see cref="TextFragment"/> object
+    /// Sets underline for the text, represented by the <see cref="TextFragment"/> object
     /// </summary>
     virtual void set_Underline(bool value);
     /// <summary>
@@ -281,7 +283,7 @@ public:
     /// </summary>
     virtual void set_FontStyle(FontStyles value);
     /// <summary>
-    /// Gets or sets horizontal alignment for the text. 
+    /// Gets horizontal alignment for the text. 
     /// </summary>
     /// <remarks>
     /// HorizontalAlignment.None is equal to HorizontalAlignment.Left.
@@ -290,7 +292,7 @@ public:
     /// </remarks>
     virtual Aspose::Pdf::HorizontalAlignment get_HorizontalAlignment();
     /// <summary>
-    /// Gets or sets horizontal alignment for the text. 
+    /// Sets horizontal alignment for the text. 
     /// </summary>
     /// <remarks>
     /// HorizontalAlignment.None is equal to HorizontalAlignment.Left.
@@ -552,7 +554,7 @@ protected:
     /// </summary>
     virtual float get_TextHeight();
     /// <summary>
-    /// Gets or sets vertical alignment for the text inside paragrph's <see cref="Rectangle"/>. 
+    /// Gets vertical alignment for the text inside paragrph's <see cref="Rectangle"/>. 
     /// </summary>
     /// <remarks>
     /// VerticalAlignment.None is equal to VerticalAlignment.Bottom.
@@ -561,7 +563,7 @@ protected:
     /// </remarks>
     virtual Aspose::Pdf::VerticalAlignment get_VerticalAlignment();
     /// <summary>
-    /// Gets or sets vertical alignment for the text inside paragrph's <see cref="Rectangle"/>. 
+    /// Sets vertical alignment for the text inside paragrph's <see cref="Rectangle"/>. 
     /// </summary>
     /// <remarks>
     /// VerticalAlignment.None is equal to VerticalAlignment.Bottom.
@@ -741,19 +743,6 @@ private:
 
 DECLARE_ENUM_OPERATORS(Aspose::Pdf::Text::TextState::SetFlagsEnum);
 DECLARE_USING_GLOBAL_OPERATORS
-/*
-    public class TaggedPDFTextState : TextState
-    {
-        public  Font Font
-        {
-            get
-            {
-                Font font = 
-                base.Font;
-                return
-            }
-        }
-    }*/
 } // namespace Text
 } // namespace Pdf
 } // namespace Aspose

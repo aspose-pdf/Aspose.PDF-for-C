@@ -1,25 +1,32 @@
 /// @file system/globalization/gregorian_calendar_types.h
 #pragma once
 
+#include <system/details/enum_meta_info.h>
 #include <system/globalization/details/calendar_id.h>
 
 namespace System { namespace Globalization {
 
 /// Types of gregorian calendars.
-enum class GregorianCalendarTypes
+enum class GregorianCalendarTypes : int32_t
 {
     /// Locale-specific gregorian calendar.
-    Localized = Details::CalendarId::GREGORIAN,
+    Localized = static_cast<int>(Details::CalendarId::GREGORIAN),
     /// US English gregorian calendar.
-    USEnglish = Details::CalendarId::GREGORIAN_US,
+    USEnglish = static_cast<int>(Details::CalendarId::GREGORIAN_US),
     /// Middle East French gregorian calendar.
-    MiddleEastFrench = Details::CalendarId::GREGORIAN_ME_FRENCH,
+    MiddleEastFrench = static_cast<int>(Details::CalendarId::GREGORIAN_ME_FRENCH),
     /// Arabic gregorian calendar.
-    Arabic = Details::CalendarId::GREGORIAN_ARABIC,
+    Arabic = static_cast<int>(Details::CalendarId::GREGORIAN_ARABIC),
     /// Transliterated English gregorian calendar.
-    TransliteratedEnglish = Details::CalendarId::GREGORIAN_XLIT_ENGLISH,
+    TransliteratedEnglish = static_cast<int>(Details::CalendarId::GREGORIAN_XLIT_ENGLISH),
     /// Transliterated French gregorian calendar.
-    TransliteratedFrench = Details::CalendarId::GREGORIAN_XLIT_FRENCH
+    TransliteratedFrench = static_cast<int>(Details::CalendarId::GREGORIAN_XLIT_FRENCH)
 };
 
 }} // namespace System::Globalization
+
+template<>
+struct EnumMetaInfo<System::Globalization::GregorianCalendarTypes>
+{
+    static ASPOSECPP_SHARED_API const std::array<std::pair<System::Globalization::GregorianCalendarTypes, const char16_t*>, 6>& values();
+};

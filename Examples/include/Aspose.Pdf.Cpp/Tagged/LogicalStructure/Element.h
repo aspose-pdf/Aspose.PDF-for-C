@@ -25,6 +25,9 @@ namespace Aspose { namespace Pdf { namespace LogicalStructure { class StructTree
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class StructureAttributeCollection; } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class StructureAttributes; } } }
 namespace Aspose { namespace Pdf { namespace Tagged { class TaggedContext; } } }
+namespace Aspose { namespace Pdf { namespace LogicalStructure { class TableElement; } } }
+namespace Aspose { namespace Pdf { namespace LogicalStructure { class TableTRElement; } } }
+namespace Aspose { namespace Pdf { namespace LogicalStructure { class TableCellElement; } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v19_4; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace TaggedPdf { class TaggedPdfStructure; } } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class ElementPdfEngine; } } }
@@ -76,6 +79,9 @@ class ASPOSE_PDF_SHARED_API Element : public virtual System::Object
     friend class Aspose::Pdf::LogicalStructure::StructureAttributeCollection;
     friend class Aspose::Pdf::LogicalStructure::StructureAttributes;
     friend class Aspose::Pdf::Tagged::TaggedContext;
+    friend class Aspose::Pdf::LogicalStructure::TableElement;
+    friend class Aspose::Pdf::LogicalStructure::TableTRElement;
+    friend class Aspose::Pdf::LogicalStructure::TableCellElement;
     friend class Aspose::Pdf::Tests::RegressionTests_v19_4;
     friend class Aspose::Pdf::Tests::TaggedPdf::TaggedPdfStructure;
     

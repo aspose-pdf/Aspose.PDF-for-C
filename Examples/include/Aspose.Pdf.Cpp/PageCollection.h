@@ -291,10 +291,20 @@ public:
     /// <returns>Added page.</returns>
     void Add(System::SharedPtr<Page> const &entity);
     /// <summary>
+    /// Determines whether this instance contains the object.
     /// </summary>
+    /// <param name="item">The item.</param>
+    /// <returns>
+    ///   <c>true</c> if [contains] [the specified item]; otherwise, <c>false</c>.
+    /// </returns>
+    /// <exception cref="NotSupportedException"></exception>
     bool Contains(System::SharedPtr<Page> const &item) const;
     /// <summary>
+    /// Removes the specified item.
     /// </summary>
+    /// <param name="item">The item.</param>
+    /// <returns></returns>
+    /// <exception cref="NotSupportedException"></exception>
     bool Remove(System::SharedPtr<Page> const &item);
     
 protected:

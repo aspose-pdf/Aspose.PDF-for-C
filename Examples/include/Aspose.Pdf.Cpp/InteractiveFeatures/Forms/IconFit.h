@@ -10,9 +10,9 @@
 #include "aspose_pdf_api_defs.h"
 
 namespace Aspose { namespace Pdf { namespace Forms { class ButtonField; } } }
-namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { namespace Forms { enum class ScalingReason; } } }
 namespace Aspose { namespace Pdf { namespace Forms { enum class ScalingMode; } } }
+namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfPrimitive; } } } }
 
 namespace Aspose {
@@ -38,11 +38,11 @@ class ASPOSE_PDF_SHARED_API IconFit FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets scaling reason. 
+    /// Gets scaling reason. 
     /// </summary>
     Aspose::Pdf::Forms::ScalingReason get_ScalingReason();
     /// <summary>
-    /// Gets or sets scaling reason. 
+    /// Sets scaling reason. 
     /// </summary>
     void set_ScalingReason(Aspose::Pdf::Forms::ScalingReason value);
     /// <summary>
@@ -52,19 +52,19 @@ public:
     /// The type of scaling that shall be used.        /// </summary>
     void set_ScalingMode(Aspose::Pdf::Forms::ScalingMode value);
     /// <summary>
-    /// Gets or sets space to allocate at the left of the icon.
+    /// Gets space to allocate at the left of the icon.
     /// </summary>
     double get_LeftoverLeft();
     /// <summary>
-    /// Gets or sets space to allocate at the left of the icon.
+    /// Sets space to allocate at the left of the icon.
     /// </summary>
     void set_LeftoverLeft(double value);
     /// <summary>
-    /// Gets or sets space to allocate at the bottom of the icon.
+    /// Gets space to allocate at the bottom of the icon.
     /// </summary>
     double get_LeftoverBottom();
     /// <summary>
-    /// Gets or sets space to allocate at the bottom of the icon.
+    /// Sets space to allocate at the bottom of the icon.
     /// </summary>
     void set_LeftoverBottom(double value);
     /// <summary>

@@ -13,12 +13,12 @@ namespace Aspose { namespace Pdf { namespace Annotations { class PDF3DArtwork; }
 namespace Aspose { namespace Pdf { namespace Annotations { class PDF3DView; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class PDF3DViewArray; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace PDF3D { class PDF3DAnnotation_OpenningTests; } } } }
+namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
 namespace Aspose { namespace Pdf { class XForm; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class ITrailerable; } } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class PDF3DLightingScheme; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class PDF3DContent; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class PDF3DRenderMode; } } }
-namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
 namespace Aspose { namespace Pdf { class Page; } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
@@ -82,12 +82,12 @@ public:
     /// <value>The lighting scheme.</value>
     System::SharedPtr<PDF3DLightingScheme> get_LightingScheme();
     /// <summary>
-    /// Gets or sets the content.
+    /// Gets the content.
     /// </summary>
     /// <value>The content.</value>
     System::SharedPtr<PDF3DContent> get_Content();
     /// <summary>
-    /// Gets or sets the content.
+    /// Sets the content.
     /// </summary>
     /// <value>The content.</value>
     void set_Content(System::SharedPtr<PDF3DContent> value);

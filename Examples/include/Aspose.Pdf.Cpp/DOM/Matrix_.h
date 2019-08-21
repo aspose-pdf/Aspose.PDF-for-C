@@ -12,8 +12,10 @@
 
 namespace Aspose { namespace Pdf { namespace Annotations { class FixedPrint; } } }
 namespace Aspose { namespace Pdf { namespace Drawing { class Graph; } } }
+namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class TextSegmenter; } } } } } }
+namespace Aspose { namespace Pdf { namespace Text { class TextPostReplaceFixer; } } }
+namespace Aspose { namespace Pdf { namespace Text { class TextFragment; } } }
 namespace Aspose { namespace Pdf { namespace Facades { class PdfFileEditor; } } }
-namespace Aspose { namespace Pdf { class Page; } }
 namespace Aspose { namespace Pdf { class ImagePlacementAbsorber; } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragmentState; } } }
 namespace Aspose { namespace Pdf { class XForm; } }
@@ -22,6 +24,7 @@ namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class ITr
 namespace Aspose { namespace Pdf { enum class Rotation; } }
 namespace Aspose { namespace Pdf { class Point; } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
+namespace Aspose { namespace Fonts { class Matrix; } }
 
 namespace Aspose {
 
@@ -49,8 +52,10 @@ class ASPOSE_PDF_SHARED_API Matrix FINAL : public System::Object
     FRIEND_FUNCTION_System_MakeObject;
     friend class Aspose::Pdf::Annotations::FixedPrint;
     friend class Aspose::Pdf::Drawing::Graph;
+    friend class Aspose::Pdf::Engine::CommonData::Text::Segmenting::TextSegmenter;
+    friend class Aspose::Pdf::Text::TextPostReplaceFixer;
+    friend class Aspose::Pdf::Text::TextFragment;
     friend class Aspose::Pdf::Facades::PdfFileEditor;
-    friend class Aspose::Pdf::Page;
     friend class Aspose::Pdf::ImagePlacementAbsorber;
     friend class Aspose::Pdf::Text::TextFragmentState;
     friend class Aspose::Pdf::XForm;
@@ -310,6 +315,12 @@ protected:
     
     Matrix(System::SharedPtr<Engine::Data::IPdfArray> data);
     
+    /// <summary>
+    /// Creates matrix for given Aspose.Fonts.Matrix
+    /// </summary>
+    /// <param name="fontsMatrix">Aspose.Fonts.Matrix</param>
+    /// <returns>Transformation matrix.</returns>
+    static System::SharedPtr<Matrix> FromFontsMatrix(System::SharedPtr<Fonts::Matrix> fontsMatrix);
     static bool IsInt16(double value);
     bool IsInt16Values();
     System::Object::shared_members_type GetSharedMembers() override;

@@ -36,13 +36,13 @@ enum class SoundEncoding
 };
 
 
-// C# preprocessor directive: #if __cplusplus 
+// C# preprocessor directive: #if __cplusplus
 
 
-// C# preprocessor directive: #else 
+// C# preprocessor directive: #else
 
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 class ASPOSE_PDF_SHARED_API SoundEncodingConverter : public System::Object
 {

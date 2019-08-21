@@ -8,7 +8,6 @@
 
 #include "aspose_pdf_api_defs.h"
 
-namespace Aspose { namespace Pdf { namespace LogicalStructure { class StructureAttributes; } } }
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class Element; } } }
 
 namespace Aspose {
@@ -29,7 +28,6 @@ class ASPOSE_PDF_SHARED_API AttributeOwnerStandard FINAL : public System::Object
     RTTI_INFO_DECL();
     
     FRIEND_FUNCTION_System_MakeObject;
-    friend class Aspose::Pdf::LogicalStructure::StructureAttributes;
     
 public:
 

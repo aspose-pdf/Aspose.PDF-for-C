@@ -1,10 +1,10 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-// C# preprocessor directive: #if !(NET40CP || NET35CP || NETCORE) 
+// C# preprocessor directive: #if !(NET40CP || NET35CP || NETCORE)
 
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
 #include <system/enum_helpers.h>
@@ -13,6 +13,7 @@
 
 #include "Generator/BaseParagraph.h"
 
+namespace Aspose { namespace Pdf { namespace Tagged { class TaggedContext; } } }
 namespace Aspose { namespace Pdf { class FormattedFragment; } }
 namespace Aspose { namespace Pdf { namespace Drawing { class Graph; } } }
 namespace Aspose { namespace Pdf { namespace Drawing { class Rectangle; } } }
@@ -23,6 +24,7 @@ namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { class Page; } }
 namespace Aspose { namespace Pdf { class Cell; } }
 namespace Aspose { namespace Pdf { class Row; } }
+namespace Aspose { namespace Pdf { namespace LogicalStructure { class TableElement; } } }
 namespace Aspose { namespace Pdf { enum class BorderCornerStyle; } }
 namespace Aspose { namespace Pdf { enum class TableBroken; } }
 namespace Aspose { namespace Pdf { enum class ColumnAdjustment; } }
@@ -53,6 +55,7 @@ class ASPOSE_PDF_SHARED_API Table FINAL : public Aspose::Pdf::BaseParagraph
     typedef ::System::BaseTypesInfo<BaseType> ThisTypeBaseTypesInfo;
     RTTI_INFO_DECL();
     
+    friend class Aspose::Pdf::Tagged::TaggedContext;
     friend class Aspose::Pdf::FormattedFragment;
     friend class Aspose::Pdf::Drawing::Graph;
     friend class Aspose::Pdf::Drawing::Rectangle;
@@ -63,31 +66,32 @@ class ASPOSE_PDF_SHARED_API Table FINAL : public Aspose::Pdf::BaseParagraph
     friend class Aspose::Pdf::Page;
     friend class Aspose::Pdf::Cell;
     friend class Aspose::Pdf::Row;
+    friend class Aspose::Pdf::LogicalStructure::TableElement;
     
 public:
 
     /// <summary>
-    /// Gets or sets table background color
+    /// Gets table background color
     /// </summary>
     System::SharedPtr<Color> get_BackgroundColor();
     /// <summary>
-    /// Gets or sets table background color
+    /// Sets table background color
     /// </summary>
     void set_BackgroundColor(System::SharedPtr<Color> value);
     /// <summary>
-    /// Gets or sets break text for table
+    /// Gets break text for table
     /// </summary>
     System::SharedPtr<Text::TextFragment> get_BreakText();
     /// <summary>
-    /// Gets or sets break text for table
+    /// Sets break text for table
     /// </summary>
     void set_BreakText(System::SharedPtr<Text::TextFragment> value);
     /// <summary>
-    /// Gets or sets the styles of the border corners
+    /// Gets the styles of the border corners
     /// </summary>
     BorderCornerStyle get_CornerStyle();
     /// <summary>
-    /// Gets or sets the styles of the border corners
+    /// Sets the styles of the border corners
     /// </summary>
     void set_CornerStyle(BorderCornerStyle value);
     /// <summary>
@@ -99,11 +103,11 @@ public:
     /// </summary>
     void set_RepeatingRowsStyle(System::SharedPtr<Text::TextState> value);
     /// <summary>
-    /// Gets or sets the maximum columns count for table
+    /// Gets the maximum columns count for table
     /// </summary>
     int32_t get_RepeatingColumnsCount();
     /// <summary>
-    /// Gets or sets the maximum columns count for table
+    /// Sets the maximum columns count for table
     /// </summary>
     void set_RepeatingColumnsCount(int32_t value);
     /// <summary>
@@ -123,11 +127,11 @@ public:
     /// </summary>
     void set_ColumnWidths(System::String value);
     /// <summary>
-    /// Gets or sets table vertial broken;
+    /// Gets table vertial broken;
     /// </summary>
     TableBroken get_Broken();
     /// <summary>
-    /// Gets or sets table vertial broken;
+    /// Sets table vertial broken;
     /// </summary>
     void set_Broken(TableBroken value);
     /// <summary>
@@ -151,75 +155,75 @@ public:
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Rows> get_Rows();
     /// <summary>
-    /// Gets or sets the border.
+    /// Gets the border.
     /// </summary>
     System::SharedPtr<BorderInfo> get_Border();
     /// <summary>
-    /// Gets or sets the border.
+    /// Sets the border.
     /// </summary>
     void set_Border(System::SharedPtr<BorderInfo> value);
     /// <summary>
-    /// Gets or sets the default cell padding.
+    /// Gets the default cell padding.
     /// </summary>
     System::SharedPtr<MarginInfo> get_DefaultCellPadding();
     /// <summary>
-    /// Gets or sets the default cell padding.
+    /// Sets the default cell padding.
     /// </summary>
     void set_DefaultCellPadding(System::SharedPtr<MarginInfo> value);
     /// <summary>
-    /// Gets or sets the default cell text state.
+    /// Gets the default cell text state.
     /// </summary>
     System::SharedPtr<Text::TextState> get_DefaultCellTextState();
     /// <summary>
-    /// Gets or sets the default cell text state.
+    /// Sets the default cell text state.
     /// </summary>
     void set_DefaultCellTextState(System::SharedPtr<Text::TextState> value);
     /// <summary>
-    /// Gets or sets the table alignment.
+    /// Gets the table alignment.
     /// </summary>
     Aspose::Pdf::HorizontalAlignment get_Alignment();
     /// <summary>
-    /// Gets or sets the table alignment.
+    /// Sets the table alignment.
     /// </summary>
     void set_Alignment(Aspose::Pdf::HorizontalAlignment value);
     /// <summary>
-    /// Gets or sets the table left coordinate.
+    /// Gets the table left coordinate.
     /// </summary>
     float get_Left();
     /// <summary>
-    /// Gets or sets the table left coordinate.
+    /// Sets the table left coordinate.
     /// </summary>
     void set_Left(float value);
     /// <summary>
-    /// Gets or sets the table top coordinate.
+    /// Gets the table top coordinate.
     /// </summary>
     float get_Top();
     /// <summary>
-    /// Gets or sets the table top coordinate.
+    /// Sets the table top coordinate.
     /// </summary>
     void set_Top(float value);
     /// <summary>
-    /// Gets or sets the table is broken - will be truncated for next page.
+    /// Gets the table is broken - will be truncated for next page.
     /// </summary>
     bool get_IsBroken();
     /// <summary>
-    /// Gets or sets the table is broken - will be truncated for next page.
+    /// Sets the table is broken - will be truncated for next page.
     /// </summary>
     void set_IsBroken(bool value);
     /// <summary>
-    /// Gets or sets border included in column widhts.
+    /// Gets border included in column widhts.
     /// </summary>
     bool get_IsBordersIncluded();
     /// <summary>
-    /// Gets or sets border included in column widhts.
+    /// Sets border included in column widhts.
     /// </summary>
     void set_IsBordersIncluded(bool value);
     /// <summary>
-    /// Gets or sets the table column adjustment.
+    /// Gets the table column adjustment.
     /// </summary>
     Aspose::Pdf::ColumnAdjustment get_ColumnAdjustment();
     /// <summary>
-    /// Gets or sets the table column adjustment.
+    /// Sets the table column adjustment.
     /// </summary>
     void set_ColumnAdjustment(Aspose::Pdf::ColumnAdjustment value);
     
@@ -270,7 +274,7 @@ protected:
     /// </summary>
     int32_t get_ColsCount();
     /// <summary>
-    /// Gets or sets special symbols processing like $P $p etc..
+    /// Gets special symbols processing like $P $p etc..
     /// </summary>
     bool get_IsProcessSpecialSymbols();
     /// <summary>
@@ -282,13 +286,29 @@ protected:
     /// </summary>
     double get_TablesTopMargin();
     /// <summary>
-    /// Gets or sets the parent table(for internal use only).
+    /// Gets the parent table(for internal use only).
     /// </summary>
     System::SharedPtr<Table> get_ParentTable();
     /// <summary>
-    /// Gets or sets the parent table(for internal use only).
+    /// Sets the parent table(for internal use only).
     /// </summary>
     void set_ParentTable(System::SharedPtr<Table> value);
+    /// <summary>
+    /// Gets McName property for marked content (TaggedPdf)
+    /// </summary>
+    System::String get_McName();
+    /// <summary>
+    /// Sets McName property for marked content (TaggedPdf)
+    /// </summary>
+    void set_McName(System::String value);
+    /// <summary>
+    /// Gets McId property for marked content (TaggedPdf)
+    /// </summary>
+    int32_t get_McId();
+    /// <summary>
+    /// Sets McId property for marked content (TaggedPdf)
+    /// </summary>
+    void set_McId(int32_t value);
     double get_RepeatingRowsHeight();
     
     /// <summary>
@@ -412,6 +432,8 @@ private:
     System::SharedPtr<Aspose::Pdf::Rows> rows;
     int32_t maxCellsCount;
     float top;
+    int32_t mcId;
+    System::String mcName;
     
     double get_Width();
     

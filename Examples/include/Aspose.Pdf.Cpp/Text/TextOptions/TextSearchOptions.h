@@ -34,79 +34,79 @@ class ASPOSE_PDF_SHARED_API TextSearchOptions FINAL : public Aspose::Pdf::Text::
 public:
 
     /// <summary>
-    /// Gets or sets indication that regular expression is used.
+    /// Gets indication that regular expression is used.
     /// </summary>
     bool get_IsRegularExpressionUsed();
     /// <summary>
-    /// Gets or sets indication that regular expression is used.
+    /// Sets indication that regular expression is used.
     /// </summary>
     void set_IsRegularExpressionUsed(bool value);
     /// <summary>
-    /// Gets or sets indication that text is searched within the page bounds.
+    /// Gets indication that text is searched within the page bounds.
     /// </summary>
     bool get_LimitToPageBounds();
     /// <summary>
-    /// Gets or sets indication that text is searched within the page bounds.
+    /// Sets indication that text is searched within the page bounds.
     /// </summary>
     void set_LimitToPageBounds(bool value);
     /// <summary>
-    /// Gets or sets rectangle that bounds the searched text.
+    /// Gets rectangle that bounds the searched text.
     /// </summary>
     /// <remarks>
     /// The property may be used in case it is required to delimit text extraction or text replace region.
     /// </remarks>
     System::SharedPtr<Aspose::Pdf::Rectangle> get_Rectangle();
     /// <summary>
-    /// Gets or sets rectangle that bounds the searched text.
+    /// Sets rectangle that bounds the searched text.
     /// </summary>
     /// <remarks>
     /// The property may be used in case it is required to delimit text extraction or text replace region.
     /// </remarks>
     void set_Rectangle(System::SharedPtr<Aspose::Pdf::Rectangle> value);
     /// <summary>
-    /// Gets or sets indication that text will be searched using font engine encoding.
+    /// Gets indication that text will be searched using font engine encoding.
     /// true - means that font engine encoding will be used (try this if text search fails because of imperfect encoding in the document)
     /// false - means that document font encoding will be used (default value)
     /// </summary>
     bool get_UseFontEngineEncoding();
     /// <summary>
-    /// Gets or sets indication that text will be searched using font engine encoding.
+    /// Sets indication that text will be searched using font engine encoding.
     /// true - means that font engine encoding will be used (try this if text search fails because of imperfect encoding in the document)
     /// false - means that document font encoding will be used (default value)
     /// </summary>
     void set_UseFontEngineEncoding(bool value);
     /// <summary>
-    /// Gets or sets indication that text fragments representing shadow of normal text will be ignored during search.
+    /// Gets indication that text fragments representing shadow of normal text will be ignored during search.
     /// true - means that shadow text will not be found (try this if text search returns duplicated fragments on the close positions)
     /// false - means that shadow text will be found as well as normal text (default value)
     /// </summary>
     bool get_IgnoreShadowText();
     /// <summary>
-    /// Gets or sets indication that text fragments representing shadow of normal text will be ignored during search.
+    /// Sets indication that text fragments representing shadow of normal text will be ignored during search.
     /// true - means that shadow text will not be found (try this if text search returns duplicated fragments on the close positions)
     /// false - means that shadow text will be found as well as normal text (default value)
     /// </summary>
     void set_IgnoreShadowText(bool value);
     /// <summary>
-    /// Gets or sets indication that text extraction (decoding) errors will be logged in the text (fragment) absorber.
+    /// Gets indication that text extraction (decoding) errors will be logged in the text (fragment) absorber.
     /// true - means that text extraction (decoding) errors will be loged. It may decrease performance.
     /// false (default) - no error loging.
     /// </summary>
     bool get_LogTextExtractionErrors();
     /// <summary>
-    /// Gets or sets indication that text extraction (decoding) errors will be logged in the text (fragment) absorber.
+    /// Sets indication that text extraction (decoding) errors will be logged in the text (fragment) absorber.
     /// true - means that text extraction (decoding) errors will be loged. It may decrease performance.
     /// false (default) - no error loging.
     /// </summary>
     void set_LogTextExtractionErrors(bool value);
     /// <summary>
-    /// Gets or sets value that permits searching for text related graphics (underlining, background etc.) during text search.
+    /// Gets value that permits searching for text related graphics (underlining, background etc.) during text search.
     /// false - graphic elements that may present in source document will be ignored (default value).
     /// true - searching for text related graphics will be performed. It may decrease performance of text search and edit. It also may change graphical elements that look like text related.
     /// </summary>
     bool get_SearchForTextRelatedGraphics();
     /// <summary>
-    /// Gets or sets value that permits searching for text related graphics (underlining, background etc.) during text search.
+    /// Sets value that permits searching for text related graphics (underlining, background etc.) during text search.
     /// false - graphic elements that may present in source document will be ignored (default value).
     /// true - searching for text related graphics will be performed. It may decrease performance of text search and edit. It also may change graphical elements that look like text related.
     /// </summary>
@@ -135,11 +135,11 @@ public:
 protected:
 
     /// <summary>
-    /// Gets or sets indication that fast mode will be used during search.
+    /// Gets indication that fast mode will be used during search.
     /// </summary>
     bool get_IsPerformance();
     /// <summary>
-    /// Gets or sets indication that fast mode will be used during search.
+    /// Sets indication that fast mode will be used during search.
     /// </summary>
     void set_IsPerformance(bool value);
     

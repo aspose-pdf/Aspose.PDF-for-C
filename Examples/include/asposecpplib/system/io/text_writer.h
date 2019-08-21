@@ -167,7 +167,7 @@ public:
 protected:
     /// Releases all resources used by the current object and closes the undelying stream.
     /// @param disposing Specifies whether the undelying stream should be closed.
-    virtual void Dispose(bool disposing) {}
+    virtual ASPOSECPP_SHARED_API void Dispose(bool disposing);
 
     /// Constructs a new intstance of TextWriter class that uses IFormatProvider object from
     /// the invariant culture.

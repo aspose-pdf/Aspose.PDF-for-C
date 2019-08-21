@@ -50,24 +50,24 @@ public:
     /// <returns>This property returns true when this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/> has both a width and height of zero; otherwise, false.</returns>
     bool get_IsEmpty();
     /// <summary>
-    /// Gets or sets the horizontal component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/>.
+    /// Gets the horizontal component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/>.
     /// </summary>
     /// <returns>The horizontal component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/>, typically measured in pixels.</returns>
     float get_Width() const;
     /// <summary>
-    /// Gets or sets the horizontal component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/>.
+    /// Sets the horizontal component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/>.
     /// </summary>
-    /// <returns>The horizontal component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/>, typically measured in pixels.</returns>
+    /// <param name="value">The horizontal component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/>, typically measured in pixels.</param>
     void set_Width(float value);
     /// <summary>
-    /// Gets or sets the vertical component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/>.
+    /// Gets the vertical component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/>.
     /// </summary>
     /// <returns>The vertical component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/>, typically measured in pixels.</returns>
     float get_Height() const;
     /// <summary>
-    /// Gets or sets the vertical component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/>.
+    /// Sets the vertical component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/>.
     /// </summary>
-    /// <returns>The vertical component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/>, typically measured in pixels.</returns>
+    /// <param name="value">The vertical component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::SizeF"/>, typically measured in pixels.</param>
     void set_Height(float value);
     
     /// <summary>

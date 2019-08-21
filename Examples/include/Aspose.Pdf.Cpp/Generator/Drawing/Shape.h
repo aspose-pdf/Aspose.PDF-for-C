@@ -58,21 +58,21 @@ class ASPOSE_PDF_SHARED_API Shape : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets a <see cref="GraphInfo"/> object that indicates the graph info,such as color,
+    /// Gets a <see cref="GraphInfo"/> object that indicates the graph info,such as color,
     /// line width,etc.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::GraphInfo> get_GraphInfo();
     /// <summary>
-    /// Gets or sets a <see cref="GraphInfo"/> object that indicates the graph info,such as color,
+    /// Sets a <see cref="GraphInfo"/> object that indicates the graph info,such as color,
     /// line width,etc.
     /// </summary>
     void set_GraphInfo(System::SharedPtr<Aspose::Pdf::GraphInfo> value);
     /// <summary>
-    /// Gets or sets a text for shape
+    /// Gets a text for shape
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Text::TextFragment> get_Text();
     /// <summary>
-    /// Gets or sets a text for shape
+    /// Sets a text for shape
     /// </summary>
     void set_Text(System::SharedPtr<Aspose::Pdf::Text::TextFragment> value);
     

@@ -13,8 +13,8 @@ namespace Aspose { namespace Pdf { namespace Annotations { class Annotation; } }
 namespace Aspose { namespace Pdf { namespace Forms { class TextBoxField; } } }
 namespace Aspose { namespace Pdf { namespace Forms { class ButtonField; } } }
 namespace Aspose { namespace Pdf { namespace Forms { class IconFit; } } }
-namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfPrimitive; } } } }
 namespace Aspose { namespace Pdf { enum class Rotation; } }
+namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfPrimitive; } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 
 namespace Aspose {
@@ -43,27 +43,27 @@ class ASPOSE_PDF_SHARED_API Characteristics FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets color of the background
+    /// Gets color of the background
     /// </summary>
     System::Drawing::Color get_Background();
     /// <summary>
-    /// Gets or sets color of the background
+    /// Sets color of the background
     /// </summary>
     void set_Background(System::Drawing::Color value);
     /// <summary>
-    /// Gets or sets color of the border.
+    /// Gets color of the border.
     /// </summary>
     System::Drawing::Color get_Border();
     /// <summary>
-    /// Gets or sets color of the border.
+    /// Sets color of the border.
     /// </summary>
     void set_Border(System::Drawing::Color value);
     /// <summary>
-    /// Gets or sets rotation of the annotation.
+    /// Gets rotation of the annotation.
     /// </summary>
     Rotation get_Rotate();
     /// <summary>
-    /// Gets or sets rotation of the annotation.
+    /// Sets rotation of the annotation.
     /// </summary>
     void set_Rotate(Rotation value);
     

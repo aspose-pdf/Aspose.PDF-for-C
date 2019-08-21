@@ -39,35 +39,35 @@ class ASPOSE_PDF_SHARED_API ChoiceField : public Aspose::Pdf::Forms::Field
 public:
 
     /// <summary>
-    /// Gets or sets commit on selection change flag.
+    /// Gets commit on selection change flag.
     /// </summary>
     bool get_CommitImmediately();
     /// <summary>
-    /// Gets or sets commit on selection change flag.
+    /// Sets commit on selection change flag.
     /// </summary>
     void set_CommitImmediately(bool value);
     /// <summary>
-    /// Gets or sets multiselection flag.
+    /// Gets multiselection flag.
     /// </summary>
     bool get_MultiSelect();
     /// <summary>
-    /// Gets or sets multiselection flag.
+    /// Sets multiselection flag.
     /// </summary>
     void set_MultiSelect(bool value);
     /// <summary>
-    /// Gets or sets index of selected option. This property allows to change selection. 
+    /// Gets index of selected option. This property allows to change selection. 
     /// </summary>
     virtual int32_t get_Selected();
     /// <summary>
-    /// Gets or sets index of selected option. This property allows to change selection. 
+    /// Sets index of selected option. This property allows to change selection. 
     /// </summary>
     virtual void set_Selected(int32_t value);
     /// <summary>
-    /// Gets or sets array of selected items. For multiselect list array contains more then one item. For single selection list it contains single item.
+    /// Gets array of selected items. For multiselect list array contains more then one item. For single selection list it contains single item.
     /// </summary>
     virtual System::ArrayPtr<int32_t> get_SelectedItems();
     /// <summary>
-    /// Gets or sets array of selected items. For multiselect list array contains more then one item. For single selection list it contains single item.
+    /// Sets array of selected items. For multiselect list array contains more then one item. For single selection list it contains single item.
     /// </summary>
     virtual void set_SelectedItems(System::ArrayPtr<int32_t> value);
     /// <summary>
@@ -75,11 +75,11 @@ public:
     /// </summary>
     virtual System::SharedPtr<OptionCollection> get_Options();
     /// <summary>
-    /// Gets or sets value of the field.
+    /// Gets value of the field.
     /// </summary>
     virtual System::String get_Value();
     /// <summary>
-    /// Gets or sets value of the field.
+    /// Sets value of the field.
     /// </summary>
     virtual void set_Value(System::String value);
     

@@ -41,151 +41,151 @@ class ASPOSE_PDF_SHARED_API Bookmark FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets the action bound with the bookmark.
+    /// Gets the action bound with the bookmark.
     /// If PageNumber is presented the action can not be specified.
     /// The action type includes: "GoTo", "GoToR", "Launch", "Named".
     /// </summary>
     System::String get_Action();
     /// <summary>
-    /// Gets or sets the action bound with the bookmark.
+    /// Sets the action bound with the bookmark.
     /// If PageNumber is presented the action can not be specified.
     /// The action type includes: "GoTo", "GoToR", "Launch", "Named".
     /// </summary>
     void set_Action(System::String value);
     /// <summary>
-    /// Gets or sets the bold flag of bookmark's title.
+    /// Gets the bold flag of bookmark's title.
     /// </summary>
     bool get_BoldFlag();
     /// <summary>
-    /// Gets or sets the bold flag of bookmark's title.
+    /// Sets the bold flag of bookmark's title.
     /// </summary>
     void set_BoldFlag(bool value);
     /// <summary>
-    /// Gets or sets bookmark's children.
+    /// Gets bookmark's children.
     /// </summary>
     System::SharedPtr<Bookmarks> get_ChildItem();
     /// <summary>
-    /// Gets or sets bookmark's children.
+    /// Sets bookmark's children.
     /// </summary>
     void set_ChildItem(System::SharedPtr<Bookmarks> value);
     /// <summary>
-    /// Gets or sets bookmark's children.
+    /// Gets bookmark's children.
     /// </summary>
     System::SharedPtr<Bookmarks> get_ChildItems();
     /// <summary>
-    /// Gets or sets bookmark's children.
+    /// Sets bookmark's children.
     /// </summary>
     void set_ChildItems(System::SharedPtr<Bookmarks> value);
     /// <summary>
-    /// Gets or sets bookmark's destination page. Required if action is set as string.Empty.
+    /// Gets bookmark's destination page. Required if action is set as string.Empty.
     /// </summary>
     System::String get_Destination();
     /// <summary>
-    /// Gets or sets bookmark's destination page. Required if action is set as string.Empty.
+    /// Sets bookmark's destination page. Required if action is set as string.Empty.
     /// </summary>
     void set_Destination(System::String value);
     /// <summary>
-    /// Gets or sets the italic flag of bookmark's title.
+    /// Gets the italic flag of bookmark's title.
     /// </summary>
     bool get_ItalicFlag();
     /// <summary>
-    /// Gets or sets the italic flag of bookmark's title.
+    /// Sets the italic flag of bookmark's title.
     /// </summary>
     void set_ItalicFlag(bool value);
     /// <summary>
-    /// Gets or sets bookmark's hierarchy level.
+    /// Gets bookmark's hierarchy level.
     /// </summary>
     int32_t get_Level();
     /// <summary>
-    /// Gets or sets bookmark's hierarchy level.
+    /// Sets bookmark's hierarchy level.
     /// </summary>
     void set_Level(int32_t value);
     /// <summary>
-    /// Gets or sets the type of display bookmark's destination page.
+    /// Gets the type of display bookmark's destination page.
     /// </summary>
     System::String get_PageDisplay();
     /// <summary>
-    /// Gets or sets the type of display bookmark's destination page.
+    /// Sets the type of display bookmark's destination page.
     /// </summary>
     void set_PageDisplay(System::String value);
     /// <summary>
-    /// Gets or sets the bottom coordinate of page display.
+    /// Gets the bottom coordinate of page display.
     /// </summary>
     int32_t get_PageDisplay_Bottom();
     /// <summary>
-    /// Gets or sets the bottom coordinate of page display.
+    /// Sets the bottom coordinate of page display.
     /// </summary>
     void set_PageDisplay_Bottom(int32_t value);
     /// <summary>
-    /// Gets or sets the left coordinate of page display.
+    /// Gets the left coordinate of page display.
     /// </summary>
     int32_t get_PageDisplay_Left();
     /// <summary>
-    /// Gets or sets the left coordinate of page display.
+    /// Sets the left coordinate of page display.
     /// </summary>
     void set_PageDisplay_Left(int32_t value);
     /// <summary>
-    /// Gets or sets the right coordinate of page display.
+    /// Gets the right coordinate of page display.
     /// </summary>
     int32_t get_PageDisplay_Right();
     /// <summary>
-    /// Gets or sets the right coordinate of page display.
+    /// Sets the right coordinate of page display.
     /// </summary>
     void set_PageDisplay_Right(int32_t value);
     /// <summary>
-    /// Gets or sets the top coordinate of page display.
+    /// Gets the top coordinate of page display.
     /// </summary>
     int32_t get_PageDisplay_Top();
     /// <summary>
-    /// Gets or sets the top coordinate of page display.
+    /// Sets the top coordinate of page display.
     /// </summary>
     void set_PageDisplay_Top(int32_t value);
     /// <summary>
-    /// Gets or sets the zoom factor of page display.
+    /// Gets the zoom factor of page display.
     /// </summary>
     int32_t get_PageDisplay_Zoom();
     /// <summary>
-    /// Gets or sets the zoom factor of page display.
+    /// Sets the zoom factor of page display.
     /// </summary>
     void set_PageDisplay_Zoom(int32_t value);
     /// <summary>
-    /// Gets or sets the number of bookmark's destination page. 
+    /// Gets the number of bookmark's destination page. 
     /// </summary>
     int32_t get_PageNumber();
     /// <summary>
-    /// Gets or sets the number of bookmark's destination page. 
+    /// Sets the number of bookmark's destination page. 
     /// </summary>
     void set_PageNumber(int32_t value);
     /// <summary>
-    /// Gets or sets the file (path) which is required for "GoToR" action of bookmark.
+    /// Gets the file (path) which is required for "GoToR" action of bookmark.
     /// </summary>
     System::String get_RemoteFile();
     /// <summary>
-    /// Gets or sets the file (path) which is required for "GoToR" action of bookmark.
+    /// Sets the file (path) which is required for "GoToR" action of bookmark.
     /// </summary>
     void set_RemoteFile(System::String value);
     /// <summary>
-    /// Gets or sets bookmark's title.
+    /// Gets bookmark's title.
     /// </summary>
     System::String get_Title();
     /// <summary>
-    /// Gets or sets bookmark's title.
+    /// Sets bookmark's title.
     /// </summary>
     void set_Title(System::String value);
     /// <summary>
-    /// Gets or sets the color of bookmark's title.
+    /// Gets the color of bookmark's title.
     /// </summary>
     System::Drawing::Color get_TitleColor();
     /// <summary>
-    /// Gets or sets the color of bookmark's title.
+    /// Sets the color of bookmark's title.
     /// </summary>
     void set_TitleColor(System::Drawing::Color value);
     /// <summary>
-    /// Gets or sets bookmark state (open, close).
+    /// Gets bookmark state (open, close).
     /// </summary>
     bool get_Open();
     /// <summary>
-    /// Gets or sets bookmark state (open, close).
+    /// Sets bookmark state (open, close).
     /// </summary>
     void set_Open(bool value);
     

@@ -223,7 +223,7 @@ public:
     /// </summary>
     void set_PuaTextProcessingStrategy(PdfFormatConversionOptions::PuaProcessingStrategy value);
     /// <summary>
-    /// Gets or sets a flag which enables/disables special conversion mode to get PDF/A document with reduced file size.
+    /// Gets a flag which enables/disables special conversion mode to get PDF/A document with reduced file size.
     /// Now this flag impacts on optimization of fonts used in PDF document, possibly, in future, this flag 
     /// also will be used to switch on optimization for another data structures, such as graphic.  
     /// Set of this flag and mode could significantly reduce file size but at the same time it could
@@ -231,7 +231,7 @@ public:
     /// </summary>
     bool get_OptimizeFileSize();
     /// <summary>
-    /// Gets or sets a flag which enables/disables special conversion mode to get PDF/A document with reduced file size.
+    /// Sets a flag which enables/disables special conversion mode to get PDF/A document with reduced file size.
     /// Now this flag impacts on optimization of fonts used in PDF document, possibly, in future, this flag 
     /// also will be used to switch on optimization for another data structures, such as graphic.  
     /// Set of this flag and mode could significantly reduce file size but at the same time it could
@@ -265,11 +265,11 @@ public:
     /// </summary>
     void set_UnicodeProcessingRules(System::SharedPtr<PdfAOptionClasses::ToUnicodeProcessingRules> value);
     /// <summary>
-    /// Gets or sets the filename of icc profile name. In case of null the default icc profile used.
+    /// Gets the filename of icc profile name. In case of null the default icc profile used.
     /// </summary>
     System::String get_IccProfileFileName();
     /// <summary>
-    /// Gets or sets the filename of icc profile name. In case of null the default icc profile used.
+    /// Sets the filename of icc profile name. In case of null the default icc profile used.
     /// </summary>
     void set_IccProfileFileName(System::String value);
     /// <summary>

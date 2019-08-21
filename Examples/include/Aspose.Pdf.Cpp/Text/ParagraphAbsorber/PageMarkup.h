@@ -63,11 +63,11 @@ public:
     /// </remarks>
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<TextFragment>>> get_TextFragments();
     /// <summary>
-    /// Gets or sets value that indicates whether starting text lines of a next section may be treated as continuation of the last paragraph of a previous section.
+    /// Gets value that indicates whether starting text lines of a next section may be treated as continuation of the last paragraph of a previous section.
     /// </summary>
     bool get_IsMulticolumnParagraphsAllowed();
     /// <summary>
-    /// Gets or sets value that indicates whether starting text lines of a next section may be treated as continuation of the last paragraph of a previous section.
+    /// Sets value that indicates whether starting text lines of a next section may be treated as continuation of the last paragraph of a previous section.
     /// </summary>
     void set_IsMulticolumnParagraphsAllowed(bool value);
     

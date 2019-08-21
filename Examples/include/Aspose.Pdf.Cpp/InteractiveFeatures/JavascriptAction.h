@@ -110,11 +110,11 @@ private:
 public:
 
     /// <summary>
-    /// Gets or sets javascript code.
+    /// Gets javascript code.
     /// </summary>
     System::String get_Script();
     /// <summary>
-    /// Gets or sets javascript code.
+    /// Sets javascript code.
     /// </summary>
     void set_Script(System::String value);
     

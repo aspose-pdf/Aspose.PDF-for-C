@@ -43,43 +43,43 @@ class ASPOSE_PDF_SHARED_API BorderInfo FINAL : public System::ICloneable
 public:
 
     /// <summary>
-    /// Gets or sets a object that indicates left of the border.
+    /// Gets a object that indicates left of the border.
     /// </summary>
     System::SharedPtr<GraphInfo> get_Left();
     /// <summary>
-    /// Gets or sets a object that indicates left of the border.
+    /// Sets a object that indicates left of the border.
     /// </summary>
     void set_Left(System::SharedPtr<GraphInfo> value);
     /// <summary>
-    /// Gets or sets a object that indicates right of the border.
+    /// Gets a object that indicates right of the border.
     /// </summary>
     System::SharedPtr<GraphInfo> get_Right();
     /// <summary>
-    /// Gets or sets a object that indicates right of the border.
+    /// Sets a object that indicates right of the border.
     /// </summary>
     void set_Right(System::SharedPtr<GraphInfo> value);
     /// <summary>
-    /// Gets or sets a object that indicates the top border.
+    /// Gets a object that indicates the top border.
     /// </summary>
     System::SharedPtr<GraphInfo> get_Top();
     /// <summary>
-    /// Gets or sets a object that indicates the top border.
+    /// Sets a object that indicates the top border.
     /// </summary>
     void set_Top(System::SharedPtr<GraphInfo> value);
     /// <summary>
-    /// Gets or sets a object that indicates bottom of the border.
+    /// Gets a object that indicates bottom of the border.
     /// </summary>
     System::SharedPtr<GraphInfo> get_Bottom();
     /// <summary>
-    /// Gets or sets a object that indicates bottom of the border.
+    /// Sets a object that indicates bottom of the border.
     /// </summary>
     void set_Bottom(System::SharedPtr<GraphInfo> value);
     /// <summary>
-    /// Gets or sets a rouded border radius
+    /// Gets a rouded border radius
     /// </summary>
     double get_RoundedBorderRadius();
     /// <summary>
-    /// Gets or sets a rouded border radius
+    /// Sets a rouded border radius
     /// </summary>
     void set_RoundedBorderRadius(double value);
     
@@ -138,11 +138,11 @@ protected:
     
 private:
 
-    System::SharedPtr<GraphInfo> bottom;
-    System::SharedPtr<GraphInfo> left;
-    System::SharedPtr<GraphInfo> right;
-    double roundedBorderRadius;
-    System::SharedPtr<GraphInfo> top;
+    System::SharedPtr<GraphInfo> pr_Left;
+    System::SharedPtr<GraphInfo> pr_Right;
+    System::SharedPtr<GraphInfo> pr_Top;
+    System::SharedPtr<GraphInfo> pr_Bottom;
+    double pr_RoundedBorderRadius;
     
     void AssignBorderSide(BorderSide borderSide);
     

@@ -391,11 +391,11 @@ public:
     using _HelperType::get_Values;
     using _HelperType::get_Keys;
 protected:
-    SharedPtr<IList<TKey>> get_KeysImpl() const
+    SharedPtr<IList<TKey>> get_KeysImpl() const override
     {
         return MakeObject<_KeyList<SortedList<TKey, TValue>>>(MakeSharedPtr(this));
     }
-    SharedPtr<IList<TValue>> get_ValuesImpl() const
+    SharedPtr<IList<TValue>> get_ValuesImpl() const override
     {
         return MakeObject<_ValueList<SortedList<TKey, TValue>>>(MakeSharedPtr(this));
     }

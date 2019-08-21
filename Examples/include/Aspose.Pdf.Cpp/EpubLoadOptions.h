@@ -25,7 +25,7 @@ class ASPOSE_PDF_SHARED_API EpubLoadOptions FINAL : public Aspose::Pdf::LoadOpti
 public:
 
     /// <summary>
-    /// Gets or sets output page size for import.
+    /// Gets output page size for import.
     /// </summary>
     System::Drawing::SizeF get_PageSize();
     
@@ -36,6 +36,10 @@ public:
     /// Gets reference on object that represent marging info.
     /// </summary>
     System::SharedPtr<MarginInfo> get_Margin();
+    /// <summary>
+    /// Gets reference on object that represent marging info.
+    /// </summary>
+    void set_Margin(System::SharedPtr<MarginInfo> value);
     
     /// <summary>
     /// Creates default load options for converting EPUB file into pdf document. 

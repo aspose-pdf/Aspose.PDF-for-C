@@ -94,19 +94,19 @@ public:
     /// </summary>
     void set_Level(int32_t value);
     /// <summary>
-    /// Gets or sets style.
+    /// Gets style.
     /// </summary>
     NumberingStyle get_Style();
     /// <summary>
-    /// Gets or sets style.
+    /// Sets style.
     /// </summary>
     void set_Style(NumberingStyle value);
     /// <summary>
-    /// Gets or sets user label.
+    /// Gets user label.
     /// </summary>
     System::SharedPtr<Text::TextSegment> get_UserLabel();
     /// <summary>
-    /// Gets or sets user label.
+    /// Sets user label.
     /// </summary>
     void set_UserLabel(System::SharedPtr<Text::TextSegment> value);
     
@@ -159,17 +159,17 @@ protected:
 private:
 
     static System::SharedPtr<TocInfo> defaultTOC;
-    bool isInList;
-    bool isAutoSequence;
-    int32_t level;
     System::SharedPtr<Text::TextSegment> number;
-    int32_t startNumber;
-    NumberingStyle style;
-    System::SharedPtr<Aspose::Pdf::Page> tocPage;
-    System::SharedPtr<Aspose::Pdf::Page> destinationPage;
-    double left;
-    double top;
-    System::SharedPtr<Text::TextSegment> userLabel;
+    System::SharedPtr<Aspose::Pdf::Page> pr_TocPage;
+    double pr_Left;
+    double pr_Top;
+    int32_t pr_StartNumber;
+    bool pr_IsAutoSequence;
+    bool pr_IsInList;
+    System::SharedPtr<Aspose::Pdf::Page> pr_DestinationPage;
+    int32_t pr_Level;
+    NumberingStyle pr_Style;
+    System::SharedPtr<Text::TextSegment> pr_UserLabel;
     
     bool IsFormatArrayCorrect(System::SharedPtr<TocInfo> tocInfo);
     void ProcessLink(System::SharedPtr<Aspose::Pdf::Page> page, System::SharedPtr<MarginInfo> marginInfo, double width, double height, double curX, double curY);

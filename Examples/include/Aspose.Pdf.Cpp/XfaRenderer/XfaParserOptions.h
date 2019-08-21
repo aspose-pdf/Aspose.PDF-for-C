@@ -30,28 +30,28 @@ class ASPOSE_PDF_SHARED_API XfaParserOptions : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets the URI resolver.
+    /// Gets the URI resolver.
     /// </summary>
     /// <value>
     /// The URI resolver.
     /// </value>
     System::SharedPtr<Aspose::Foundation::UriResolver::UriResolver> get_UriResolver();
     /// <summary>
-    /// Gets or sets the URI resolver.
+    /// Sets the URI resolver.
     /// </summary>
     /// <value>
     /// The URI resolver.
     /// </value>
     void set_UriResolver(System::SharedPtr<Aspose::Foundation::UriResolver::UriResolver> value);
     /// <summary>
-    /// Gets or sets the size of the page.
+    /// Gets the size of the page.
     /// </summary>
     /// <value>
     /// The size of the page.
     /// </value>
     System::Drawing::SizeF get_PageSize();
     /// <summary>
-    /// Gets or sets the size of the page.
+    /// Sets the size of the page.
     /// </summary>
     /// <value>
     /// The size of the page.
@@ -84,14 +84,14 @@ public:
     /// </summary>
     void set_EmulateRequierdGroups(bool value);
     /// <summary>
-    /// Gets or sets the base path.
+    /// Gets the base path.
     /// </summary>
     /// <value>
     /// The base path.
     /// </value>
     System::SharedPtr<System::Uri> get_BasePath();
     /// <summary>
-    /// Gets or sets the base path.
+    /// Sets the base path.
     /// </summary>
     /// <value>
     /// The base path.

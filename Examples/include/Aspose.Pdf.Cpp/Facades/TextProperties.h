@@ -26,27 +26,27 @@ class ASPOSE_PDF_SHARED_API TextProperties FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets text color.
+    /// Gets text color.
     /// </summary>
     System::Drawing::Color get_Color();
     /// <summary>
-    /// Gets or sets text color.
+    /// Sets text color.
     /// </summary>
     void set_Color(System::Drawing::Color value);
     /// <summary>
-    /// Gets or sets a value that indicates whether the <see cref="Color"/> property is specified.
+    /// Gets a value that indicates whether the <see cref="Color"/> property is specified.
     /// </summary>
     bool get_IsColorSpecified();
     /// <summary>
-    /// Gets or sets text size.
+    /// Gets text size.
     /// </summary>
     double get_TextSize();
     /// <summary>
-    /// Gets or sets text size.
+    /// Sets text size.
     /// </summary>
     void set_TextSize(double value);
     /// <summary>
-    /// Gets or sets a value that indicates whether the <see cref="TextSize"/> property is specified.
+    /// Gets a value that indicates whether the <see cref="TextSize"/> property is specified.
     /// </summary>
     bool get_IsTextSizeSpecified();
     

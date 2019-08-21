@@ -73,27 +73,27 @@ class ASPOSE_PDF_SHARED_API TabStop : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets a float value that indicates the tab stop position.
+    /// Gets a float value that indicates the tab stop position.
     /// </summary>
     float get_Position();
     /// <summary>
-    /// Gets or sets a float value that indicates the tab stop position.
+    /// Sets a float value that indicates the tab stop position.
     /// </summary>
     void set_Position(float value);
     /// <summary>
-    /// Gets or sets a <see cref="TabLeaderType"/> enum that indicates the tab leader type.
+    /// Gets a <see cref="TabLeaderType"/> enum that indicates the tab leader type.
     /// </summary>
     TabLeaderType get_LeaderType();
     /// <summary>
-    /// Gets or sets a <see cref="TabLeaderType"/> enum that indicates the tab leader type.
+    /// Sets a <see cref="TabLeaderType"/> enum that indicates the tab leader type.
     /// </summary>
     void set_LeaderType(TabLeaderType value);
     /// <summary>
-    /// Gets or sets a <see cref="AlignmentType"/> enum that indicates the tab tab alignment type.
+    /// Gets a <see cref="AlignmentType"/> enum that indicates the tab tab alignment type.
     /// </summary>
     TabAlignmentType get_AlignmentType();
     /// <summary>
-    /// Gets or sets a <see cref="AlignmentType"/> enum that indicates the tab tab alignment type.
+    /// Sets a <see cref="AlignmentType"/> enum that indicates the tab tab alignment type.
     /// </summary>
     void set_AlignmentType(TabAlignmentType value);
     /// <summary>

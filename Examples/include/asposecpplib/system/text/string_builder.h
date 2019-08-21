@@ -152,7 +152,7 @@ public:
     template<class... TArgs>
     StringBuilder* AppendFormat(const SharedPtr<IFormatProvider> &fp, const String& format, const TArgs&... args)
     {
-        return Append(String::Format(format, args...));
+        return Append(String::Format(fp, format, args...));
     }
 
     /// Appends new line character to builder.

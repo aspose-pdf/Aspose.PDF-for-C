@@ -30,17 +30,19 @@ public:
     using Calendar::IsLeapMonth;
     using Calendar::IsLeapYear;
 
-    /// Gets current Um Al Qura era.
-    static ASPOSECPP_SHARED_API int get_UmAlQuraEra();
+    /// Current UmAlQura era.
+    static constexpr int UmAlQuraEra = 1;
 
     ASPOSECPP_SHARED_API CalendarAlgorithmType get_AlgorithmType() const override;
     ASPOSECPP_SHARED_API DateTime get_MinSupportedDateTime() const override;
     ASPOSECPP_SHARED_API DateTime get_MaxSupportedDateTime() const override;
     ASPOSECPP_SHARED_API ArrayPtr<int> get_Eras() const override;
+    ASPOSECPP_SHARED_API DayOfWeek GetDayOfWeek(const DateTime &time) const override;
     ASPOSECPP_SHARED_API int GetLeapMonth(int year, int era) const override;
     ASPOSECPP_SHARED_API bool IsLeapYear(int year, int era) const override;
     ASPOSECPP_SHARED_API bool IsLeapMonth(int year, int month, int era) const override;
     ASPOSECPP_SHARED_API bool IsLeapDay(int year, int month, int day, int era) const override;
+    ASPOSECPP_SHARED_API void set_TwoDigitYearMax(int value) override;
     
     ASPOSECPP_SHARED_API SharedPtr<Object> Clone() override;
 
@@ -53,7 +55,7 @@ private:
     void VerifyDate(int year, int month, int day, int era) const override;
 
     int EraToIcuEra(int era) const override;
-    int IcuEraToEra(int icuEra) const override;
+    int IcuEraToEra(int icu_era) const override;
 };
 
 }} // namespace System::Globalization

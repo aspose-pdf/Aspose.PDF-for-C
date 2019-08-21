@@ -188,64 +188,64 @@ public:
     /// </summary>
     void set_UnFlattenFields(System::ArrayPtr<System::String> value);
     /// <summary>
-    /// Gets or sets the OutputStream. One of four output modes. Its classical use case is Response.OutputStream.
+    /// Gets the OutputStream. One of four output modes. Its classical use case is Response.OutputStream.
     /// Please refer to the online demo.
     /// </summary>
     System::SharedPtr<System::IO::Stream> get_OutputStream();
     /// <summary>
-    /// Gets or sets the OutputStream. One of four output modes. Its classical use case is Response.OutputStream.
+    /// Sets the OutputStream. One of four output modes. Its classical use case is Response.OutputStream.
     /// Please refer to the online demo.
     /// </summary>
     void set_OutputStream(System::SharedPtr<System::IO::Stream> value);
     /// <summary>
-    /// Gets or sets the many Output Streams. One of four output modes.
+    /// Gets the many Output Streams. One of four output modes.
     /// </summary>
     System::ArrayPtr<System::SharedPtr<System::IO::Stream>> get_OutputStreams();
     /// <summary>
-    /// Gets or sets the many Output Streams. One of four output modes.
+    /// Sets the many Output Streams. One of four output modes.
     /// </summary>
     void set_OutputStreams(System::ArrayPtr<System::SharedPtr<System::IO::Stream>> value);
     /// <summary>
-    /// Gets or sets the input template stream. One of two input modes.
+    /// Gets the input template stream. One of two input modes.
     /// </summary>
     System::SharedPtr<System::IO::Stream> get_InputStream();
     /// <summary>
-    /// Gets or sets the input template stream. One of two input modes.
+    /// Sets the input template stream. One of two input modes.
     /// </summary>
     void set_InputStream(System::SharedPtr<System::IO::Stream> value);
     /// <summary>
-    /// Gets or sets the input template file. One of two input modes.
+    /// Gets the input template file. One of two input modes.
     /// </summary>
     System::String get_InputFileName();
     /// <summary>
-    /// Gets or sets the input template file. One of two input modes.
+    /// Sets the input template file. One of two input modes.
     /// </summary>
     void set_InputFileName(System::String value);
     /// <summary>
-    /// Gets or sets the one big merged output file. One of the four output modes.
+    /// Gets the one big merged output file. One of the four output modes.
     /// </summary>
     System::String get_OutputFileName();
     /// <summary>
-    /// Gets or sets the one big merged output file. One of the four output modes.
+    /// Sets the one big merged output file. One of the four output modes.
     /// </summary>
     void set_OutputFileName(System::String value);
     /// <summary>
-    /// Gets or sets the Generating Path of the small pdf files if many small pdf files to be generated. It works with another property <see cref="BasicFileName"/>BasicFileName.
+    /// Gets the Generating Path of the small pdf files if many small pdf files to be generated. It works with another property <see cref="BasicFileName"/>BasicFileName.
     /// One of the four output modes.
     /// </summary>
     System::String get_GeneratingPath();
     /// <summary>
-    /// Gets or sets the Generating Path of the small pdf files if many small pdf files to be generated. It works with another property <see cref="BasicFileName"/>BasicFileName.
+    /// Sets the Generating Path of the small pdf files if many small pdf files to be generated. It works with another property <see cref="BasicFileName"/>BasicFileName.
     /// One of the four output modes.
     /// </summary>
     void set_GeneratingPath(System::String value);
     /// <summary>
-    /// Gets or sets the basic file name if many small files will be generated. The generated file will be like "BasicFileName0","BasicFileName1",...
+    /// Gets the basic file name if many small files will be generated. The generated file will be like "BasicFileName0","BasicFileName1",...
     /// It works with another property <see cref="GeneratingPath"/>GeneratingPath.
     /// </summary>
     System::String get_BasicFileName();
     /// <summary>
-    /// Gets or sets the basic file name if many small files will be generated. The generated file will be like "BasicFileName0","BasicFileName1",...
+    /// Sets the basic file name if many small files will be generated. The generated file will be like "BasicFileName0","BasicFileName1",...
     /// It works with another property <see cref="GeneratingPath"/>GeneratingPath.
     /// </summary>
     void set_BasicFileName(System::String value);

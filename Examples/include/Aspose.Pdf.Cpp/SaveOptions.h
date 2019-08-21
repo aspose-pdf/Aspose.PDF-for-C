@@ -231,11 +231,11 @@ public:
     /// </summary>
     Aspose::Pdf::SaveFormat get_SaveFormat();
     /// <summary>
-    /// Gets or sets boolean value which indicates will Response object be closed after document saved into response.
+    /// Gets boolean value which indicates will Response object be closed after document saved into response.
     /// </summary>
     bool get_CloseResponse();
     /// <summary>
-    /// Gets or sets boolean value which indicates will Response object be closed after document saved into response.
+    /// Sets boolean value which indicates will Response object be closed after document saved into response.
     /// </summary>
     void set_CloseResponse(bool value);
     

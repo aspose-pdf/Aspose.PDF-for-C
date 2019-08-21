@@ -1,6 +1,7 @@
 /// @file drawing/imaging/pixel_format.h
 #ifndef _pixel_format_h_
 #define _pixel_format_h_
+#include "system/enum.h"
 #include "system/enum_helpers.h"
 
 namespace System {  namespace Drawing { namespace Imaging {
@@ -70,5 +71,44 @@ namespace System {  namespace Drawing { namespace Imaging {
     DECLARE_ENUM_OPERATORS(PixelFormat);
 
 }}}
+
+/// Specialization for System::Drawing::Imaging::PixelFormat; contains mapping of enum constants
+/// to their string representations.
+template<>
+struct EnumMetaInfo<System::Drawing::Imaging::PixelFormat>
+{
+	/// Returns a array of pairs that associate System::Drawing::Imaging::PixelFormat enum's constants with their
+    /// string representations.
+    static ASPOSECPP_SHARED_API const std::array<std::pair<System::Drawing::Imaging::PixelFormat, const char_t*>, 24>& values()
+    {
+        static std::array<std::pair<System::Drawing::Imaging::PixelFormat, const char_t*>, 24> enum_values = {{
+            {System::Drawing::Imaging::PixelFormat::Indexed, u"Indexed"},
+            {System::Drawing::Imaging::PixelFormat::Gdi, u"Gdi"},
+            {System::Drawing::Imaging::PixelFormat::Alpha, u"Alpha"},
+            {System::Drawing::Imaging::PixelFormat::PAlpha, u"PAlpha"},
+            {System::Drawing::Imaging::PixelFormat::Extended, u"Extended"},
+            {System::Drawing::Imaging::PixelFormat::Canonical, u"Canonical"},
+            {System::Drawing::Imaging::PixelFormat::Undefined, u"Undefined"},
+            {System::Drawing::Imaging::PixelFormat::DontCare, u"DontCare"},
+            {System::Drawing::Imaging::PixelFormat::Format1bppIndexed, u"Format1bppIndexed"},
+            {System::Drawing::Imaging::PixelFormat::Format4bppIndexed, u"Format4bppIndexed"},
+            {System::Drawing::Imaging::PixelFormat::Format8bppIndexed, u"Format8bppIndexed"},
+            {System::Drawing::Imaging::PixelFormat::Format16bppGrayScale, u"Format16bppGrayScale"},
+            {System::Drawing::Imaging::PixelFormat::Format16bppRgb555, u"Format16bppRgb555"},
+            {System::Drawing::Imaging::PixelFormat::Format16bppRgb565, u"Format16bppRgb565"},
+            {System::Drawing::Imaging::PixelFormat::Format16bppArgb1555, u"Format16bppArgb1555"},
+            {System::Drawing::Imaging::PixelFormat::Format24bppRgb, u"Format24bppRgb"},
+            {System::Drawing::Imaging::PixelFormat::Format32bppRgb, u"Format32bppRgb"},
+            {System::Drawing::Imaging::PixelFormat::Format32bppArgb, u"Format32bppArgb"},
+            {System::Drawing::Imaging::PixelFormat::Format32bppPArgb, u"Format32bppPArgb"},
+            {System::Drawing::Imaging::PixelFormat::Format48bppRgb, u"Format48bppRgb"},
+            {System::Drawing::Imaging::PixelFormat::Format64bppArgb, u"Format64bppArgb"},
+            {System::Drawing::Imaging::PixelFormat::Format64bppPArgb, u"Format64bppPArgb"},
+            {System::Drawing::Imaging::PixelFormat::Format32bppCMYK, u"Format32bppCMYK"},
+            {System::Drawing::Imaging::PixelFormat::Max, u"Max"},
+        }};
+        return enum_values;
+    }
+};
 
 #endif

@@ -41,20 +41,20 @@ class ASPOSE_PDF_SHARED_API PopupAnnotation FINAL : public Aspose::Pdf::Annotati
 public:
 
     /// <summary>
-    /// Gets or sets a flag specifying whether the pop-up annotation should initially be displayed open.
+    /// Gets a flag specifying whether the pop-up annotation should initially be displayed open.
     /// </summary>
     bool get_Open();
     /// <summary>
-    /// Gets or sets a flag specifying whether the pop-up annotation should initially be displayed open.
+    /// Sets a flag specifying whether the pop-up annotation should initially be displayed open.
     /// </summary>
     void set_Open(bool value);
     /// <summary>
-    /// Gets or sets the parent annotation with which this pop-up annotation shall be associated.
+    /// Gets the parent annotation with which this pop-up annotation shall be associated.
     /// If this entry is present, the parent annotation�s Contents, M, C, and T entries shall override those of the pop-up annotation itself.
     /// </summary>
     System::SharedPtr<Annotation> get_Parent();
     /// <summary>
-    /// Gets or sets the parent annotation with which this pop-up annotation shall be associated.
+    /// Sets the parent annotation with which this pop-up annotation shall be associated.
     /// If this entry is present, the parent annotation�s Contents, M, C, and T entries shall override those of the pop-up annotation itself.
     /// </summary>
     void set_Parent(System::SharedPtr<Annotation> value);

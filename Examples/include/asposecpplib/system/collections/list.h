@@ -2,8 +2,8 @@
 #ifndef _aspose_system_collection_list_h_
 #define _aspose_system_collection_list_h_
 
-#include "../details/collections_helper.h"
-#include "../details/comparer_type.h"
+#include <system/details/collections_helper.h>
+#include <system/details/comparer_type.h>
 #include <system/object.h>
 #include <system/collections/ilist.h>
 #include <system/array.h>
@@ -745,7 +745,7 @@ public:
         if (Details::IsOutOfBounds(index, m_data)) {
             throw ArgumentOutOfRangeException(u"index");
         }
-        return m_data[index];
+        return m_data[static_cast<typename vector_t::size_type>(index)];
     }
     /// Accessor function.
     /// @param index Index to get element from.
@@ -755,7 +755,7 @@ public:
         if (Details::IsOutOfBounds(index, m_data)) {
             throw ArgumentOutOfRangeException(u"index");
         }
-        return m_data[index];
+        return m_data[static_cast<typename vector_t::size_type>(index)];
     }
 
     /// Underlying data structure access function.

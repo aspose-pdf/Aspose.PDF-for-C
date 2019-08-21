@@ -41,12 +41,12 @@ public:
     /// <value>The ending shape point.</value>
     virtual PointF get_EndPoint() = 0;
     /// <summary>
-    /// Gets or sets a value indicating whether ordered shape is closed. When processing closed ordered shape the starting and ending points have no meaning.
+    /// Gets a value indicating whether ordered shape is closed. When processing closed ordered shape the starting and ending points have no meaning.
     /// </summary>
     /// <value><c>True</c> if this ordered shape is closed; otherwise, <c>false</c>.</value>
     virtual bool get_IsClosed() = 0;
     /// <summary>
-    /// Gets or sets a value indicating whether ordered shape is closed. When processing closed ordered shape the starting and ending points have no meaning.
+    /// Sets a value indicating whether ordered shape is closed. When processing closed ordered shape the starting and ending points have no meaning.
     /// </summary>
     /// <value><c>True</c> if this ordered shape is closed; otherwise, <c>false</c>.</value>
     virtual void set_IsClosed(bool value) = 0;

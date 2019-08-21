@@ -52,6 +52,15 @@ namespace System { namespace IO {
         /// be overwritten (false)
         /// @param encoding The encoding to use
         ASPOSECPP_SHARED_API StreamWriter(const String& path, bool append, const EncodingPtr& encoding = System::Text::Encoding::get_UTF8Unmarked());
+        /// Constructs an instance of StreamWriter object that writes characters to the specified file
+        /// using the specified encoding and buffer size. A parameter specifies 
+        /// whether the data should be appened to the file or the file should be overwritten.
+        /// @param path The path of the file to write characters to
+        /// @param append Specifies whether the data should be appended to the specified file (true) or the file should 
+        /// be overwritten (false)
+        /// @param encoding The encoding to use
+        /// @param buffer_size The size of buffer to use
+        ASPOSECPP_SHARED_API StreamWriter(const String& path, bool append, const EncodingPtr& encoding, int buffer_size);
 
         /// Destructor.
         ASPOSECPP_SHARED_API ~StreamWriter();
@@ -87,7 +96,7 @@ namespace System { namespace IO {
         ASPOSECPP_SHARED_API void Write(SharedPtr<Array<char_t>> buffer, int index, int count) override;
         /// Writes the specified c-string to the stream.
         /// @param buffer The c-string to write
-        virtual void Write(char_t* buffer);
+        ASPOSECPP_SHARED_API virtual void Write(char_t* buffer);
 
         /// Writes line terminator characters to the stream.
         ASPOSECPP_SHARED_API void WriteLine() override;
@@ -107,7 +116,7 @@ namespace System { namespace IO {
         ASPOSECPP_SHARED_API void WriteLine(SharedPtr<Array<char_t>> buffer, int index, int count) override;
         /// Writes the specified c-string followed by the line-terminating characters to the stream.
         /// @param buffer The c-string to write
-        virtual void WriteLine(char_t* buffer) { Write(buffer); WriteLine(); }
+        ASPOSECPP_SHARED_API virtual void WriteLine(char_t* buffer) { Write(buffer); WriteLine(); }
 
         /// Writes the string representation of the specified object to the stream.
         /// @param obj The object to write

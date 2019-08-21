@@ -54,43 +54,43 @@ class ASPOSE_PDF_SHARED_API Arc FINAL : public Aspose::Pdf::Drawing::Shape
 public:
 
     /// <summary>
-    /// Gets or sets a float value that indicates the x-coordinate of the center of the arc.
+    /// Gets a float value that indicates the x-coordinate of the center of the arc.
     /// </summary>
     double get_PosX();
     /// <summary>
-    /// Gets or sets a float value that indicates the x-coordinate of the center of the arc.
+    /// Sets a float value that indicates the x-coordinate of the center of the arc.
     /// </summary>
     void set_PosX(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the y-coordinate of the center of the arc.
+    /// Gets a float value that indicates the y-coordinate of the center of the arc.
     /// </summary>
     double get_PosY();
     /// <summary>
-    /// Gets or sets a float value that indicates the y-coordinate of the center of the arc.
+    /// Sets a float value that indicates the y-coordinate of the center of the arc.
     /// </summary>
     void set_PosY(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the radius of the arc.
+    /// Gets a float value that indicates the radius of the arc.
     /// </summary>
     double get_Radius();
     /// <summary>
-    /// Gets or sets a float value that indicates the radius of the arc.
+    /// Sets a float value that indicates the radius of the arc.
     /// </summary>
     void set_Radius(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the beginning angle degree of the arc.
+    /// Gets a float value that indicates the beginning angle degree of the arc.
     /// </summary>
     double get_Alpha();
     /// <summary>
-    /// Gets or sets a float value that indicates the beginning angle degree of the arc.
+    /// Sets a float value that indicates the beginning angle degree of the arc.
     /// </summary>
     void set_Alpha(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the ending angle degree of the arc.
+    /// Gets a float value that indicates the ending angle degree of the arc.
     /// </summary>
     double get_Beta();
     /// <summary>
-    /// Gets or sets a float value that indicates the ending angle degree of the arc.
+    /// Sets a float value that indicates the ending angle degree of the arc.
     /// </summary>
     void set_Beta(double value);
     

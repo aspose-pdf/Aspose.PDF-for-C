@@ -94,21 +94,11 @@ public:
     /// @param completed Reference to variable to be set to true if input buffer was exhausted and to false otherwise.
     virtual ASPOSECPP_SHARED_API void Convert(const char_t *chars, int charCount, uint8_t *bytes, int byteCount, bool flush, int &charsUsed, int &bytesUsed, bool &completed);
 
-    /// Sets encoding context to recover promtly if encoding breaks in the middle of string.
-    /// @param context Context to recover from.
-    void SetFromUnicodeContext(const UChar *context) const { m_fromUnicodeContext = context; };
-    /// Gets encoding context to recover promtly if encoding breaks in the middle of string.
-    /// @return Context to recover from.
-    const UChar *GetFromUnicodeContext() const { return m_fromUnicodeContext; }
-
 private:
     /// Initializes ICU callbacks for internal algorithms consistency.
     void SetICUCallbacks();
     /// ICU converter to wrap.
     UConverter *m_icu_converter;
-    /// Context to recover from if encoding breaks between in the middle of string.
-    mutable const UChar *m_fromUnicodeContext = 0;
-
 };
 
 }};

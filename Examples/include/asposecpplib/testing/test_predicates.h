@@ -1779,6 +1779,31 @@ typename std::enable_if<IsSmartPtr<T1>::value && IsSmartPtr<T2>::value
     auto lhs_addr = reinterpret_cast<std::ptrdiff_t>(lhs.GetObjectOrNull());
     return Details::SameFailure(lhs_expr, rhs_expr, lhs_addr, rhs_addr);
 }
+/// Are-same-compares exceptions.
+/// @tparam T1 LHS object type.
+/// @tparam T2 RHS object type.
+/// @param lhs_expr LHS expression.
+/// @param rhs_expr RHS expression.
+/// @param lhs LHS value.
+/// @param rhs RHS value.
+/// @param s A service parameter that serves as a selector of the implementation of the function; the value 
+/// of the parameter is ignored
+/// @return gtest-styled assertion result.
+template<typename T1, typename T2>
+typename std::enable_if<IsException<T1>::value && IsException<T2>::value
+    , testing::AssertionResult>::type
+    AreSameImpl(const char* lhs_expr, const char* rhs_expr
+        , const T1& lhs
+        , const T2& rhs
+        , long long s)
+{
+    if (lhs == rhs)
+        return testing::AssertionSuccess();
+    
+    auto rhs_addr = reinterpret_cast<std::ptrdiff_t>(&rhs);
+    auto lhs_addr = reinterpret_cast<std::ptrdiff_t>(&lhs);
+    return Details::SameFailure(lhs_expr, rhs_expr, lhs_addr, rhs_addr);
+}
 /// Are-same-compares non-pointer values.
 /// @tparam T1 LHS object type.
 /// @tparam T2 RHS object type.
@@ -1995,7 +2020,7 @@ testing::AssertionResult IsInstanceOf(const char* lhs_expr, const char* rhs_expr
     } \
     catch (expected_exception const& e) { \
       gtest_caught_expected = true; \
-      static_assert(std::is_same<std::remove_pointer<decltype(&ex)>::type, System::Exception>::value, "Should be System::Exception"); \
+      static_assert(std::is_base_of<std::remove_pointer<decltype(exception_ref)>::type, expected_exception>::value, "Should be base class of expected exception"); \
       *exception_ref = e; \
     } \
     catch (...) { \
@@ -2020,3 +2045,15 @@ testing::AssertionResult IsInstanceOf(const char* lhs_expr, const char* rhs_expr
 /// @param exception_ref pointer to copy exception object.
 #define ASPOSE_ASSERT_THROW(statement, expected_exception, exception_ref) \
     ASPOSE_GTEST_TEST_THROW_(statement, expected_exception, exception_ref, GTEST_FATAL_FAILURE_);
+
+/// Checks if callable throws exception of specified type.
+///
+/// Wrapper for Assert.Throws(exceptionType, () => { code that can raise exception });
+/// where exceptionType is variable.
+///
+/// @param statement Code to check for throwing.
+/// @param exceptionType Expected exception type (e.g. System::OverflowException::Type()).
+#define ASPOSE_ASSERT_THROW_EXCEPTION_TYPE(statement, exceptionType) \
+    try { statement; } \
+    catch (const System::Exception& e) { ASSERT_EQ(e.GetType(), exceptionType); } \
+    catch (...) { FAIL() << "Thrown unexpected exception type"; }

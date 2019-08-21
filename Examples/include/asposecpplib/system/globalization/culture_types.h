@@ -1,17 +1,13 @@
 /// @file system/globalization/culture_types.h
 #pragma once
 
+#include <system/details/enum_meta_info.h>
+#include <system/enum_helpers.h>
 
-#include "system/enum_helpers.h"
-
-
-namespace System
-{
-namespace Globalization
-{
+namespace System { namespace Globalization {
 
 /// Culture categories bitmask entries.
-enum CultureTypes : uint32_t
+enum class CultureTypes : int32_t
 {
     /// Culture that is specific for language but not for contry or region.
     NeutralCultures = 1,
@@ -20,7 +16,7 @@ enum CultureTypes : uint32_t
     /// Cultures installed in OS.
     InstalledWin32Cultures = 4,
     /// All avaliable cultures.
-    AllCultures = 7,
+    AllCultures = NeutralCultures | SpecificCultures | InstalledWin32Cultures, // = 7
     /// User-defined cultures.
     UserCustomCulture = 8,
     /// User-defined replacements for existing cultures.
@@ -31,8 +27,14 @@ enum CultureTypes : uint32_t
     FrameworkCultures = 64
 };
 
-} // namespace Globalization
-} // namespace System
+}} // namespace Globalization::System
 
-  /// Declaration of template arithmetic operators for values of CultureTypes enum type.
+/// Declaration of template arithmetic operators for values of CultureTypes enum type.
 DECLARE_ENUM_OPERATORS(System::Globalization::CultureTypes)
+
+template<>
+struct EnumMetaInfo<System::Globalization::CultureTypes>
+{
+    typedef void Flags;
+    static ASPOSECPP_SHARED_API const std::array<std::pair<System::Globalization::CultureTypes, const char16_t*>, 8>& values();
+};

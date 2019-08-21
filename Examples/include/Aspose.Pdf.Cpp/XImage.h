@@ -130,11 +130,11 @@ public:
     /// </summary>
     int32_t get_Height();
     /// <summary>
-    /// Gets or sets image name.
+    /// Gets image name.
     /// </summary>
     System::String get_Name();
     /// <summary>
-    /// Gets or sets image name.
+    /// Sets image name.
     /// </summary>
     void set_Name(System::String value);
     

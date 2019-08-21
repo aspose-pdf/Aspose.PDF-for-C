@@ -71,7 +71,7 @@ public:
     void RemoveAll();
     
     /// <summary>
-    /// Gets or sets the <see cref="PDF3DView"/> to view array at the specified index.
+    /// Gets the <see cref="PDF3DView"/> to view array at the specified index.
     /// </summary>
     /// <param name="index">The index.</param>
     /// <returns>PDF3DView.</returns>
@@ -80,10 +80,10 @@ public:
     /// </exception>
     System::SharedPtr<PDF3DView> idx_get(int32_t index);
     /// <summary>
-    /// Gets or sets the <see cref="PDF3DView"/> to view array at the specified index.
+    /// Sets the <see cref="PDF3DView"/> to view array at the specified index.
     /// </summary>
     /// <param name="index">The index.</param>
-    /// <returns>PDF3DView.</returns>
+    /// <param name="value">PDF3DView.</param>
     /// <exception cref="IndexOutOfRangeException">
     /// Invalid index: index should be in the range [1..n] where n equals to the views count.
     /// </exception>

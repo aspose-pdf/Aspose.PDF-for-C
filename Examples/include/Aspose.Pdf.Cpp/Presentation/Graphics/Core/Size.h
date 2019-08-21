@@ -49,19 +49,19 @@ public:
     /// </summary>
     bool get_IsEmpty();
     /// <summary>
-    /// Gets or sets the horizontal component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Size"/>.
+    /// Gets the horizontal component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Size"/>.
     /// </summary>
     int32_t get_Width();
     /// <summary>
-    /// Gets or sets the horizontal component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Size"/>.
+    /// Sets the horizontal component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Size"/>.
     /// </summary>
     void set_Width(int32_t value);
     /// <summary>
-    /// Gets or sets the vertical component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Size"/>.
+    /// Gets the vertical component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Size"/>.
     /// </summary>
     int32_t get_Height();
     /// <summary>
-    /// Gets or sets the vertical component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Size"/>.
+    /// Sets the vertical component of this <see cref="Aspose::Pdf::Engine::Presentation::Graphics::Size"/>.
     /// </summary>
     void set_Height(int32_t value);
     

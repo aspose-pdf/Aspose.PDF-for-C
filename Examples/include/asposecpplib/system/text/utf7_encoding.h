@@ -1,10 +1,7 @@
 /// @file system/text/utf7_encoding.h
-#ifndef __UTF7Encoding_h__
-#define __UTF7Encoding_h__
+#pragma once
 
-#include "system/text/encoding.h"
-
-//#include "Decoder.h"
+#include <system/text/encoding.h>
 
 namespace System { namespace Text {
 
@@ -20,9 +17,12 @@ private:
     {
     private:
         /// Number of bits remaining from previous operation.
-        int leftOver;
+        int m_left_over;
 
     public:
+        using Decoder::GetCharCount;
+        using Decoder::Convert;
+
         /// Constructor.
         ASPOSECPP_SHARED_API UTF7Decoder();
 
@@ -31,17 +31,17 @@ private:
         /// @param count Number of bytes to decode.
         /// @param flush If true, cleans internal decoder state after calculation.
         /// @return Number of characters required to decode the buffer.
-        virtual ASPOSECPP_SHARED_API int GetCharCount(const uint8_t *bytes, int count, bool flush) override;
+        ASPOSECPP_SHARED_API int GetCharCount(const uint8_t* bytes, int count, bool flush) override;
         /// Converts bytes to characters. Not implemented.
         /// @param bytes Bytes to decode.
-        /// @param byteCount Input buffer size.
+        /// @param byte_count Input buffer size.
         /// @param chars Destination character buffer.
-        /// @param charCount Destination array size.
+        /// @param char_count Destination array size.
         /// @param flush If true, cleans internal decoder state after calculation.
-        /// @param bytesUsed Reference to variable to store count of bytes read.
-        /// @param charsUsed Reference to variable to store count of characters written.
+        /// @param bytes_used Reference to variable to store count of bytes read.
+        /// @param chars_used Reference to variable to store count of characters written.
         /// @param completed Reference to variable to be set to true if input buffer was exhausted and to false otherwise.
-        virtual ASPOSECPP_SHARED_API void Convert(const uint8_t* bytes, int byteCount, char_t *chars, int charCount, bool flush, int &bytesUsed, int &charsUsed, bool &completed)  override;
+        ASPOSECPP_SHARED_API void Convert(const uint8_t* bytes, int byte_count, char_t* chars, int char_count, bool flush, int& bytes_used, int& chars_used, bool& completed) override;
     }; // class UTF7Decoder
 
 private:
@@ -50,59 +50,66 @@ private:
     {
     private:
         /// Whether to encode characters that are allowed to go unencoded.
-        bool allowOptionals;
+        bool m_allow_optionals;
         /// Number of bits remaining from previous operation.
-        int leftOver;
+        int m_left_over;
         /// Are we in shifted (encoded) state currently.
-        bool isInShifted;
+        bool m_is_in_shifted;
 
     public:
+        using Encoder::GetByteCount;
+        using Encoder::Convert;
+
         /// Constructor.
-        /// @param allowOptionals Whether to encode (false) characters that are allowed to go unencoded or leave them as-is (true).
-        ASPOSECPP_SHARED_API UTF7Encoder(bool allowOptionals);
+        /// @param allow_optionals Whether to encode (false) characters that are allowed to go unencoded or leave them as-is (true).
+        ASPOSECPP_SHARED_API UTF7Encoder(bool allow_optionals);
 
         /// Gets the number of bytes needed to encode a buffer.
         /// @param chars Characters to encode.
         /// @param count Number of characters to encode.
         /// @param flush If true, cleans internal encoder state after calculation.
         /// @return Number of bytes required to encode the buffer.
-        virtual ASPOSECPP_SHARED_API int GetByteCount(const char_t *chars, int count, bool flush) override;
+        ASPOSECPP_SHARED_API int GetByteCount(const char_t* chars, int count, bool flush) override;
         /// Converts characters to bytes.
         /// @param chars Characters to encode.
-        /// @param charCount Input buffer size.
+        /// @param char_count Input buffer size.
         /// @param bytes Destination byte buffer.
-        /// @param byteCount Destination array size.
+        /// @param byte_count Destination array size.
         /// @param flush If true, cleans internal encoder state after calculation.
-        /// @param charsUsed Reference to variable to store count of characters read.
-        /// @param bytesUsed Reference to variable to store count of bytes written.
+        /// @param chars_used Reference to variable to store count of characters read.
+        /// @param bytes_used Reference to variable to store count of bytes written.
         /// @param completed Reference to variable to be set to true if input buffer was exhausted and to false otherwise.
-        virtual ASPOSECPP_SHARED_API void Convert(const char_t *chars, int charCount, uint8_t *bytes, int byteCount, bool flush, int &charsUsed, int &bytesUsed, bool &completed) override;
+        ASPOSECPP_SHARED_API void Convert(const char_t* chars, int char_count, uint8_t* bytes, int byte_count, bool flush, int& chars_used, int& bytes_used, bool& completed) override;
     }; // class UTF7Encoder
 
 public:
-    enum : int
-    { 
-        /// Magic number used by Windows for UTF-7 codepage id.
-        UTF7_CODE_PAGE = 65000 
-    };
+    /// Magic number used by Windows for UTF-7 codepage id.
+    static constexpr int UTF7_CODE_PAGE = 65000;
 
 private:
     /// Whether to encode characters that are allowed to go unencoded.
-    bool allowOptionals;
+    bool m_allow_optionals;
+
     /// Encoding rule table for 0x00-0x7F.
     /// 0 - full encode, 1 - direct, 2 - optional, 3 - encode plus.
-    static const ArrayPtr<uint8_t> encodingRules;
+    static const ArrayPtr<uint8_t> encoding_rules;
     /// Characters to use to encode 6-bit values in base64.
-    static const String base64Chars;
+    static const String base64_chars;
     /// Map bytes in base64 to 6-bit values.
-    static const ArrayPtr<char> base64Values;
+    static const ArrayPtr<char> base64_values;
 
 public:
+    using Encoding::GetByteCount;
+    using Encoding::GetBytes;
+    using Encoding::GetCharCount;
+    using Encoding::GetChars;
+    using Encoding::GetString;
+
     /// Constructor.
     ASPOSECPP_SHARED_API UTF7Encoding();
     /// Constructor.
-    /// @param allowOptionals Whether to encode (false) characters that are allowed to go unencoded or leave them as-is (true).
-    ASPOSECPP_SHARED_API UTF7Encoding(bool allowOptionals);
+    /// @param allow_optionals Whether to encode (false) characters that are allowed to go unencoded or leave them as-is (true).
+    ASPOSECPP_SHARED_API UTF7Encoding(bool allow_optionals);
 
     /// Compares encodings parameters.
     /// @param other Encoding to compare parameters with.
@@ -111,119 +118,95 @@ public:
     /// Compares with object.
     /// @param obj Object to compare with.
     /// @return True if @p obj is UTF7Encoding with same parameters, false otherwise.
-    virtual ASPOSECPP_SHARED_API bool Equals(ptr obj) override;
+    ASPOSECPP_SHARED_API bool Equals(SharedPtr<Object> obj) override;
     /// Gets encoding hash code.
     /// @return Hash code value.
-    virtual ASPOSECPP_SHARED_API int GetHashCode() const override;
+    ASPOSECPP_SHARED_API int GetHashCode() const override;
 
     /// Clones encoding object.
     /// @return Encoding object clone.
-    ASPOSECPP_SHARED_API System::SharedPtr<System::Object> Clone() override;
+    ASPOSECPP_SHARED_API SharedPtr<Object> Clone() override;
 
-    /// Gets encoding name.
-    /// @return Hardcoded encoding name not including parameters.
-    virtual String get_EncodingName() override { return u"utf-7"; }
-    /// Gets encoding codepage.
-    /// @return Windows encoding codepage id.
-    virtual int get_CodePage() override { return UTF7_CODE_PAGE; };
-    /// Checks if encoding stores character in single byte.
-    /// @return Always returns true.
-    virtual bool get_IsSingleByte() override { return true;  };
-
-    /// Get the number of characters needed to encode a character buffer.
-    /// @param chars Characters buffer.
-    /// @param index Slice begin.
-    /// @param count Slice size.
-    /// @return Required buffer size.
-    virtual int GetByteCount(ArrayPtr<char_t> chars, int index, int count)  override { return Encoding::GetByteCount(chars, index, count); };
     /// Get the bytes that result from encoding a character buffer.
     /// @param chars Characters to encode.
-    /// @param charIndex Character slice beginning.
-    /// @param charCount Number of characters to convert.
+    /// @param char_index Character slice beginning.
+    /// @param char_count Number of characters to convert.
     /// @param bytes Buffer to put characters to.
-    /// @param byteIndex Output buffer offset.
+    /// @param byte_index Output buffer offset.
     /// @return Number of written bytes.
-    virtual ASPOSECPP_SHARED_API int GetBytes(ArrayPtr<char_t> chars, int charIndex, int charCount, ArrayPtr<uint8_t> bytes, int byteIndex) override;
+    ASPOSECPP_SHARED_API int GetBytes(ArrayPtr<char_t> chars, int char_index, int char_count, ArrayPtr<uint8_t> bytes, int byte_index) override;
     /// Get the number of characters needed to decode a byte buffer.
     /// @param bytes Bytes to decode.
     /// @param index Slice beginning.
     /// @param count Slice size.
     /// @return Number of characters.
-    virtual ASPOSECPP_SHARED_API int GetCharCount(ArrayPtr<uint8_t> bytes, int index, int count) override;
+    ASPOSECPP_SHARED_API int GetCharCount(ArrayPtr<uint8_t> bytes, int index, int count) override;
 
 public:
     /// Get the characters that result from decoding a byte buffer.
     /// @param bytes Buffer to read bytes from.
-    /// @param byteIndex Input buffer offset.
-    /// @param byteCount Input buffer size.
+    /// @param byte_index Input buffer offset.
+    /// @param byte_count Input buffer size.
     /// @param chars Buffer to put characters to.
-    /// @param charIndex Output buffer offset.
+    /// @param char_index Output buffer offset.
     /// @return Number of written characters.
-    virtual ASPOSECPP_SHARED_API int GetChars(ArrayPtr<uint8_t> bytes, int byteIndex, int byteCount, ArrayPtr<char_t> chars, int charIndex)  override;
+    ASPOSECPP_SHARED_API int GetChars(ArrayPtr<uint8_t> bytes, int byte_index, int byte_count, ArrayPtr<char_t> chars, int char_index) override;
     /// Get the maximum number of bytes needed to encode a specified number of characters.
-    /// @param charCount Number of characters to encode.
+    /// @param char_count Number of characters to encode.
     /// @return Number of bytes sufficient to encode any string of given character length.
-    virtual ASPOSECPP_SHARED_API int GetMaxByteCount(int charCount)  override;
+    ASPOSECPP_SHARED_API int GetMaxByteCount(int char_count) override;
     /// Get the maximum number of characters needed to decode a specified number of bytes.
-    /// @param byteCount Number of bytes to decode.
+    /// @param byte_count Number of bytes to decode.
     /// @return Number of bytes sufficient to decode any string of given character length.
-    virtual ASPOSECPP_SHARED_API int GetMaxCharCount(int byteCount)  override;
+    ASPOSECPP_SHARED_API int GetMaxCharCount(int byte_count) override;
     /// Get a decoder that forwards requests to this object.
     /// @return Newly created decoder.
-    virtual ASPOSECPP_SHARED_API DecoderPtr GetDecoder()  override;
+    ASPOSECPP_SHARED_API DecoderPtr GetDecoder() override;
     /// Get an encoder that forwards requests to this object.
     /// @return Newly created encoder.
-    virtual ASPOSECPP_SHARED_API EncoderPtr GetEncoder()  override;
+    ASPOSECPP_SHARED_API EncoderPtr GetEncoder() override;
 
     /// Get the number of characters needed to encode a character buffer.
     /// @param chars Characters buffer.
     /// @param count Buffer size.
     /// @return Required buffer size.
-    virtual ASPOSECPP_SHARED_API int GetByteCount(const char_t *chars, int count)  override;
-    /// Get the number of characters needed to encode a string.
-    /// @param s String to encode.
-    /// @return Required buffer size.
-    virtual int GetByteCount(const String &s)  override { return Encoding::GetByteCount(s);  };
+    ASPOSECPP_SHARED_API int GetByteCount(const char_t* chars, int count) override;
 
     /// Get the bytes that result from encoding a character buffer.
     /// @param chars Characters to encode.
-    /// @param charCount Number of characters to convert.
+    /// @param char_count Number of characters to convert.
     /// @param bytes Buffer to put characters to.
-    /// @param byteCount Output buffer size.
+    /// @param byte_count Output buffer size.
     /// @return Number of written bytes.
-    virtual ASPOSECPP_SHARED_API int GetBytes(const char_t *chars, int charCount, uint8_t *bytes, int byteCount)  override;
+    ASPOSECPP_SHARED_API int GetBytes(const char_t* chars, int char_count, uint8_t* bytes, int byte_count) override;
     /// Get the bytes that result from encoding a character buffer.
     /// @param s String to encode.
-    /// @param charIndex Character slice beginning.
-    /// @param charCount Number of characters to convert.
+    /// @param char_index Character slice beginning.
+    /// @param char_count Number of characters to convert.
     /// @param bytes Buffer to put characters to.
-    /// @param byteIndex Output buffer offset.
+    /// @param byte_index Output buffer offset.
     /// @return Number of written bytes.
-    virtual ASPOSECPP_SHARED_API int GetBytes(const String &s, int charIndex, int charCount, ArrayPtr<uint8_t> bytes, int byteIndex)  override;
-    /// Get the bytes that result from encoding a character buffer.
-    /// @param s String to encode.
-    /// @return Buffer that holds representation of characters being encoded.
-    virtual ArrayPtr<uint8_t> GetBytes(const String &s)  override { return Encoding::GetBytes(s);  };
+    ASPOSECPP_SHARED_API int GetBytes(const String& s, int char_index, int char_count, ArrayPtr<uint8_t> bytes, int byte_index) override;
 
     /// Get the number of characters needed to decode a byte buffer.
     /// @param bytes Bytes to decode.
     /// @param count Bytes count.
     /// @return Number of characters.
-    virtual ASPOSECPP_SHARED_API int GetCharCount(const uint8_t *bytes, int count)  override;
+    ASPOSECPP_SHARED_API int GetCharCount(const uint8_t* bytes, int count) override;
     /// Get the characters that result from decoding a byte buffer.
     /// @param bytes Buffer to read bytes from.
-    /// @param byteCount Input buffer size.
+    /// @param byte_count Input buffer size.
     /// @param chars Buffer to put characters to.
-    /// @param charCount Output buffer size.
+    /// @param char_count Output buffer size.
     /// @return Number of written characters.
-    virtual ASPOSECPP_SHARED_API int GetChars(const uint8_t *bytes, int byteCount, char_t *chars, int charCount)  override;
+    ASPOSECPP_SHARED_API int GetChars(const uint8_t* bytes, int byte_count, char_t* chars, int char_count) override;
 
     /// Decodes a buffer of bytes into a string.
     /// @param bytes Buffer to read bytes from.
     /// @param index Input buffer offset.
     /// @param count Input buffer size.
     /// @return String of decoded characters.
-    virtual ASPOSECPP_SHARED_API String GetString(ArrayPtr<uint8_t> bytes, int index, int count)  override;
+    ASPOSECPP_SHARED_API String GetString(ArrayPtr<uint8_t> bytes, int index, int count) override;
 
 private:
     /// Initializes encoding fields to default state.
@@ -231,67 +214,64 @@ private:
 
     /// Internal version of "GetByteCount" that can handle a rolling state between calls.
     /// @param chars Characters to encode.
-    /// @param charsCount Number of characters in array.
+    /// @param chars_count Number of characters in array.
     /// @param index Index of first character to encode.
     /// @param count Number of characters to encode.
     /// @param flush If true, cleans internal encoder state after calculation.
-    /// @param leftOver Number of bits currently in buffer.
-    /// @param isInShifted Whether we're in shifted (encoding) state.
+    /// @param left_over Number of bits currently in buffer.
+    /// @param is_in_shifted Whether we're in shifted (encoding) state.
     /// @param allowOptional Whether to allow optionally encoded symbols to go unencoded.
     /// @return Number of bytes required to encode the buffer.
-    static int InternalGetByteCount(const char_t* chars, int charsCount, int index, int count, bool flush, int leftOver, bool isInShifted, bool allowOptionals);
+    static int InternalGetByteCount(const char_t* chars, int chars_count, int index, int count, bool flush, int left_over, bool is_in_shifted, bool allow_optionals);
     /// Internal version of "GetBytes" that can handle a rolling state between calls.
     /// @param chars Characters to encode.
-    /// @param charIndex Character slice beginning.
-    /// @param charCount Number of characters to convert.
+    /// @param char_index Character slice beginning.
+    /// @param char_count Number of characters to convert.
     /// @param bytes Buffer to put characters to.
-    /// @param byteIndex Output buffer offset.
+    /// @param byte_index Output buffer offset.
     /// @param flush If true, cleans internal encoder state after calculation.
-    /// @param leftOver Number of bits currently in buffer.
-    /// @param isInShifted Whether we're in shifted (encoding) state.
+    /// @param left_over Number of bits currently in buffer.
+    /// @param is_in_shifted Whether we're in shifted (encoding) state.
     /// @param allowOptional Whether to allow optionally encoded symbols to go unencoded.
     /// @return Number of written bytes.
-    static int InternalGetBytes(const ArrayPtr<char_t>& chars, int charIndex, int charCount, const ArrayPtr<uint8_t>& bytes, int byteIndex, bool flush, int &leftOver, bool &isInShifted, bool allowOptionals);
+    static int InternalGetBytes(const ArrayPtr<char_t>& chars, int char_index, int char_count, const ArrayPtr<uint8_t>& bytes, int byte_index, bool flush, int& left_over, bool& is_in_shifted, bool allow_optionals);
     /// Internal version of "GetBytes" that can handle a rolling state between calls.
     /// @param chars Characters to encode.
-    /// @param charCount Number of characters to convert.
+    /// @param char_count Number of characters to convert.
     /// @param bytes Buffer to put characters to.
-    /// @param byteCount Output buffer size.
+    /// @param byte_count Output buffer size.
     /// @param flush If true, cleans internal encoder state after calculation.
-    /// @param leftOver Number of bits currently in buffer.
-    /// @param isInShifted Whether we're in shifted (encoding) state.
+    /// @param left_over Number of bits currently in buffer.
+    /// @param is_in_shifted Whether we're in shifted (encoding) state.
     /// @param allowOptional Whether to allow optionally encoded symbols to go unencoded.
     /// @return Number of written bytes.
-    static int InternalGetBytes(const char_t *chars, int charCount, uint8_t *bytes, int byteCount, bool flush, int &leftOver, bool &isInShifted, bool allowOptionals);
+    static int InternalGetBytes(const char_t* chars, int char_count, uint8_t* bytes, int byte_count, bool flush, int& left_over, bool& is_in_shifted, bool allow_optionals);
 
-    /// Internal version of "GetCharCount" that can handle a rolling state between call.s
+    /// Internal version of "GetCharCount" that can handle a rolling state between calls.
     /// @param bytes Bytes to decode.
-    /// @param bytesCount Number of bytes in array.
+    /// @param bytes_count Number of bytes in array.
     /// @param index Slice beginning.
     /// @param count Slice size.
-    /// @param leftOver Number of bits currently in buffer.
+    /// @param left_over Number of bits currently in buffer.
     /// @return Number of characters.
-    static int InternalGetCharCount(const uint8_t *bytes, int bytesCount, int index, int count, int leftOver);
+    static int InternalGetCharCount(const uint8_t* bytes, int bytes_count, int index, int count, int left_over);
     /// Internal version of "GetChars" that can handle a rolling state between calls.
     /// @param bytes Buffer to read bytes from.
-    /// @param byteIndex Input buffer offset.
-    /// @param byteCount Input buffer size.
+    /// @param byte_index Input buffer offset.
+    /// @param byte_count Input buffer size.
     /// @param chars Buffer to put characters to.
-    /// @param charIndex Output buffer offset.
-    /// @param leftOver Number of bits currently in buffer.
+    /// @param char_index Output buffer offset.
+    /// @param left_over Number of bits currently in buffer.
     /// @return Number of written characters.
-    static int InternalGetChars(const ArrayPtr<uint8_t>& bytes, int byteIndex, int byteCount, const ArrayPtr<char_t>& chars, int charIndex, int &leftOver);
+    static int InternalGetChars(const ArrayPtr<uint8_t>& bytes, int byte_index, int byte_count, const ArrayPtr<char_t>& chars, int char_index, int& left_over);
     /// Internal version of "GetChars" that can handle a rolling state between calls.
     /// @param bytes Buffer to read bytes from.
-    /// @param byteCount Input buffer size.
+    /// @param byte_count Input buffer size.
     /// @param chars Buffer to put characters to.
-    /// @param charCount Output buffer size.
-    /// @param leftOver Number of bits currently in buffer.
+    /// @param char_count Output buffer size.
+    /// @param left_over Number of bits currently in buffer.
     /// @return Number of written characters.
-    int InternalGetChars(const uint8_t* bytes, int byteCount, char_t* chars, int charCount, int &leftOver);
+    static int InternalGetChars(const uint8_t* bytes, int byte_count, char_t* chars, int char_count, int& left_over);
 }; // class UTF7Encoding
 
-}}
-
-
-#endif
+}} // namespace System::Text

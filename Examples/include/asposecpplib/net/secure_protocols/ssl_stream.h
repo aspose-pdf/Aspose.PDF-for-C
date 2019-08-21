@@ -53,11 +53,11 @@ class ASPOSECPP_SHARED_CLASS SslStream : public System::Net::Security::Authentic
     ASPOSECPP_SHARED_RTTI_INFO_DECL();
 
 public:
-    virtual ASPOSECPP_SHARED_API bool get_IsAuthenticated() const;
-    virtual ASPOSECPP_SHARED_API bool get_IsMutuallyAuthenticated() const;
-    virtual ASPOSECPP_SHARED_API bool get_IsEncrypted() const;
-    virtual ASPOSECPP_SHARED_API bool get_IsSigned() const;
-    virtual ASPOSECPP_SHARED_API bool get_IsServer() const;
+    virtual ASPOSECPP_SHARED_API bool get_IsAuthenticated() const override;
+    virtual ASPOSECPP_SHARED_API bool get_IsMutuallyAuthenticated() const override;
+    virtual ASPOSECPP_SHARED_API bool get_IsEncrypted() const override;
+    virtual ASPOSECPP_SHARED_API bool get_IsSigned() const override;
+    virtual ASPOSECPP_SHARED_API bool get_IsServer() const override;
     virtual ASPOSECPP_SHARED_API System::Security::Authentication::SslProtocols get_SslProtocol();
     virtual ASPOSECPP_SHARED_API bool get_CheckCertRevocationStatus();
     virtual ASPOSECPP_SHARED_API System::SharedPtr<System::Security::Cryptography::X509Certificates::X509Certificate> get_LocalCertificate();
@@ -88,16 +88,16 @@ public:
     virtual ASPOSECPP_SHARED_API void AuthenticateAsClient(String targetHost);
     virtual ASPOSECPP_SHARED_API void AuthenticateAsClient(String targetHost, System::SharedPtr<System::Security::Cryptography::X509Certificates::X509CertificateCollection> clientCertificates, System::Security::Authentication::SslProtocols enabledSslProtocols, bool checkCertificateRevocation);
 
-    virtual ASPOSECPP_SHARED_API void SetLength(int64_t value);
-    virtual ASPOSECPP_SHARED_API int64_t Seek(int64_t offset, IO::SeekOrigin origin);
-    virtual ASPOSECPP_SHARED_API void Flush();
-    virtual ASPOSECPP_SHARED_API int32_t Read(System::ArrayPtr<uint8_t> buffer, int32_t offset, int32_t count);
+    virtual ASPOSECPP_SHARED_API void SetLength(int64_t value) override;
+    virtual ASPOSECPP_SHARED_API int64_t Seek(int64_t offset, IO::SeekOrigin origin) override;
+    virtual ASPOSECPP_SHARED_API void Flush() override;
+    virtual ASPOSECPP_SHARED_API int32_t Read(System::ArrayPtr<uint8_t> buffer, int32_t offset, int32_t count) override;
     ASPOSECPP_SHARED_API void Write(System::ArrayPtr<uint8_t> buffer);
-    virtual ASPOSECPP_SHARED_API void Write(System::ArrayPtr<uint8_t> buffer, int32_t offset, int32_t count);
-    virtual ASPOSECPP_SHARED_API System::SharedPtr<IAsyncResult> BeginRead(System::ArrayPtr<uint8_t> buffer, int32_t offset, int32_t count, AsyncCallback asyncCallback, System::SharedPtr<Object> asyncState);
-    virtual ASPOSECPP_SHARED_API int32_t EndRead(System::SharedPtr<IAsyncResult> asyncResult);
-    virtual ASPOSECPP_SHARED_API System::SharedPtr<IAsyncResult> BeginWrite(System::ArrayPtr<uint8_t> buffer, int32_t offset, int32_t count, AsyncCallback asyncCallback, System::SharedPtr<Object> asyncState);
-    virtual ASPOSECPP_SHARED_API void EndWrite(System::SharedPtr<IAsyncResult> asyncResult);
+    virtual ASPOSECPP_SHARED_API void Write(System::ArrayPtr<uint8_t> buffer, int32_t offset, int32_t count) override;
+    virtual ASPOSECPP_SHARED_API System::SharedPtr<IAsyncResult> BeginRead(System::ArrayPtr<uint8_t> buffer, int32_t offset, int32_t count, AsyncCallback asyncCallback, System::SharedPtr<Object> asyncState) override;
+    virtual ASPOSECPP_SHARED_API int32_t EndRead(System::SharedPtr<IAsyncResult> asyncResult) override;
+    virtual ASPOSECPP_SHARED_API System::SharedPtr<IAsyncResult> BeginWrite(System::ArrayPtr<uint8_t> buffer, int32_t offset, int32_t count, AsyncCallback asyncCallback, System::SharedPtr<Object> asyncState) override;
+    virtual ASPOSECPP_SHARED_API void EndWrite(System::SharedPtr<IAsyncResult> asyncResult) override;
 
 private:
     size_t read(uint8_t buffer[], size_t size);

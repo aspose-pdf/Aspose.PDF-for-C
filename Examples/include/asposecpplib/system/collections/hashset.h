@@ -88,6 +88,14 @@ public:
     /// Creates empty set.
     HashSet() : m_data(m_pointer_mode.GetAllocator()) {}
 
+    /// Creates hashset based on enumerable values
+    HashSet(const SharedPtr<IEnumerable<T>>& items) : m_data(m_pointer_mode.GetAllocator()) 
+    {
+        auto e = items->GetEnumerator();
+        while (e->MoveNext())
+            m_data.insert(e->get_Current());
+    }
+
     /// Creates enumerator.
     /// @return Newly created enumerator.
     IEnumeratorPtr GetEnumerator() override

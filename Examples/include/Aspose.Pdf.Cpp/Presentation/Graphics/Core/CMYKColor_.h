@@ -98,7 +98,7 @@ public:
     ///     The get hash code.
     /// </summary>
     /// <returns>
-    ///     The <see cref="int" />.
+    ///     The <see cref="int32_t" />.
     /// </returns>
     virtual int32_t GetHashCode();
     /// <summary>
@@ -216,7 +216,7 @@ public:
     /// The to value.
     /// </summary>
     /// <returns>
-    /// The <see cref="long"/>.
+    /// The <see cref="int64_t"/>.
     /// </returns>
     int64_t ToValue();
     
@@ -267,7 +267,7 @@ private:
     /// The black value.
     /// </param>
     /// <returns>
-    /// The <see cref="long"/>.
+    /// The <see cref="int64_t"/>.
     /// </returns>
     static int64_t MakeCmyk(int32_t c, int32_t m, int32_t y, int32_t k);
     

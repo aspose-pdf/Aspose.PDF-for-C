@@ -47,8 +47,8 @@ public:
     using Calendar::IsLeapYear;
     using Calendar::ToDateTime;
 
-    /// Gets current era.
-    static ASPOSECPP_SHARED_API int get_ADEra();
+    /// Current era.
+    static constexpr int ADEra = 1;
 
     /// Gets Gregorian calendar type.
     /// @return Calendar type.
@@ -95,7 +95,7 @@ private:
     void VerifyDate(int year, int month, int day, int era) const override;
 
     int EraToIcuEra(int era) const override;
-    int IcuEraToEra(int icuEra) const override;
+    int IcuEraToEra(int icu_era) const override;
 };
 
 }} // namespace System::Globalization

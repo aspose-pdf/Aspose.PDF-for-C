@@ -53,11 +53,11 @@ public:
     /// </summary>
     void set_Style(BoxStyle value);
     /// <summary>
-    /// Gets or sets index of selected item. Numbering of items is started from 1.
+    /// Gets index of selected item. Numbering of items is started from 1.
     /// </summary>
     virtual int32_t get_Selected();
     /// <summary>
-    /// Gets or sets index of selected item. Numbering of items is started from 1.
+    /// Sets index of selected item. Numbering of items is started from 1.
     /// </summary>
     virtual void set_Selected(int32_t value);
     /// <summary>
@@ -69,11 +69,11 @@ public:
     /// </summary>
     virtual int32_t get_PageIndex();
     /// <summary>
-    /// Gets or sets value of field.
+    /// Gets value of field.
     /// </summary>
     virtual System::String get_Value();
     /// <summary>
-    /// Gets or sets value of field.
+    /// Sets value of field.
     /// </summary>
     virtual void set_Value(System::String value);
     

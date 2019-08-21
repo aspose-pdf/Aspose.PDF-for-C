@@ -1,8 +1,6 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-#include <system/collections/list.h>
-
 #include "InteractiveFeatures/Annotations/TextMarkupAnnotation.h"
 
 namespace Aspose { namespace Pdf { namespace Annotations { class Annotation; } } }

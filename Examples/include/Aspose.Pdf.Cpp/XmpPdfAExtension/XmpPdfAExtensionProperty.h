@@ -52,11 +52,11 @@ public:
 protected:
 
     /// <summary>
-    /// Gets or sets the extension value type instance that contains Value of the property in case of user defined type used.
+    /// Gets the extension value type instance that contains Value of the property in case of user defined type used.
     /// </summary>
     System::SharedPtr<XmpPdfAExtensionValueType> get_ExtValueType();
     /// <summary>
-    /// Gets or sets the extension value type instance that contains Value of the property in case of user defined type used.
+    /// Sets the extension value type instance that contains Value of the property in case of user defined type used.
     /// </summary>
     void set_ExtValueType(System::SharedPtr<XmpPdfAExtensionValueType> value);
     

@@ -11,8 +11,8 @@
 namespace Aspose { namespace Pdf { namespace LogicalStructure { class MCRElement; } } }
 namespace Aspose { namespace Pdf { class PageGenerator; } }
 namespace Aspose { namespace Pdf { class Cell; } }
-namespace Aspose { namespace Pdf { class Rectangle; } }
 namespace Aspose { namespace Pdf { enum class ImageFileType; } }
+namespace Aspose { namespace Pdf { class Rectangle; } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragment; } } }
 namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
 namespace Aspose { namespace Pdf { class MarginInfo; } }
@@ -42,77 +42,77 @@ class ASPOSE_PDF_SHARED_API Image FINAL : public Aspose::Pdf::BaseParagraph
 public:
 
     /// <summary>
-    /// Gets or sets the image file.
+    /// Gets the image file.
     /// </summary>
     System::String get_File();
     /// <summary>
-    /// Gets or sets the image file.
+    /// Sets the image file.
     /// </summary>
     void set_File(System::String value);
     /// <summary>
-    /// Gets or sets the image width.
+    /// Gets the image width.
     /// </summary>
     double get_FixWidth();
     /// <summary>
-    /// Gets or sets the image width.
+    /// Sets the image width.
     /// </summary>
     void set_FixWidth(double value);
     /// <summary>
-    /// Gets or sets the image height.
+    /// Gets the image height.
     /// </summary>
     double get_FixHeight();
     /// <summary>
-    /// Gets or sets the image height.
+    /// Sets the image height.
     /// </summary>
     void set_FixHeight(double value);
     /// <summary>
-    /// Gets or sets the image file type.
+    /// Gets the image file type.
     /// </summary>
     ImageFileType get_FileType();
     /// <summary>
-    /// Gets or sets the image file type.
+    /// Sets the image file type.
     /// </summary>
     void set_FileType(ImageFileType value);
     /// <summary>
-    /// Gets or sets the image scale.
+    /// Gets the image scale.
     /// </summary>
     double get_ImageScale();
     /// <summary>
-    /// Gets or sets the image scale.
+    /// Sets the image scale.
     /// </summary>
     void set_ImageScale(double value);
     /// <summary>
-    /// Gets or sets the image stream.
+    /// Gets the image stream.
     /// </summary>
     System::SharedPtr<System::IO::Stream> get_ImageStream();
     /// <summary>
-    /// Gets or sets the image stream.
+    /// Sets the image stream.
     /// </summary>
     void set_ImageStream(System::SharedPtr<System::IO::Stream> value);
     /// <summary>
-    /// Gets or sets a bool value that indicates whether the image use resolution during generation
+    /// Gets a bool value that indicates whether the image use resolution during generation
     /// </summary>
     bool get_IsApplyResolution();
     /// <summary>
-    /// Gets or sets a bool value that indicates whether the image use resolution during generation
+    /// Sets a bool value that indicates whether the image use resolution during generation
     /// </summary>
     void set_IsApplyResolution(bool value);
     /// <summary>
-    /// Gets or sets a bool value that indicates whether the image is forced to be black-and-white. If TIFF 
+    /// Gets a bool value that indicates whether the image is forced to be black-and-white. If TIFF 
     /// image of CCITT subformat is used, this property must be set to true.
     /// </summary>
     bool get_IsBlackWhite();
     /// <summary>
-    /// Gets or sets a bool value that indicates whether the image is forced to be black-and-white. If TIFF 
+    /// Sets a bool value that indicates whether the image is forced to be black-and-white. If TIFF 
     /// image of CCITT subformat is used, this property must be set to true.
     /// </summary>
     void set_IsBlackWhite(bool value);
     /// <summary>
-    /// Gets or sets a string value that indicates the title of the image.
+    /// Gets a string value that indicates the title of the image.
     /// </summary>
     System::SharedPtr<Text::TextFragment> get_Title();
     /// <summary>
-    /// Gets or sets a string value that indicates the title of the image.
+    /// Sets a string value that indicates the title of the image.
     /// </summary>
     void set_Title(System::SharedPtr<Text::TextFragment> value);
     

@@ -32,7 +32,7 @@ class ASPOSE_PDF_SHARED_API MediaRendition FINAL : public Aspose::Pdf::Annotatio
 public:
 
     /// <summary>
-    /// Gets or sets media clip obkects associated with rendition.
+    /// Gets media clip obkects associated with rendition.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Annotations::MediaClip> get_MediaClip();
     

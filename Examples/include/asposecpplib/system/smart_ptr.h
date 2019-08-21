@@ -230,7 +230,7 @@ public:
     /// @return Reference to this object.
     SmartPtr_& operator = (SmartPtr_&& x) noexcept
     {
-        if (m_data.GetPointee() != x.m_data.GetPointee())
+        if (m_data.GetComparable() != x.m_data.GetComparable())
         {
             if (m_data.GetMode() == x.m_data.GetMode())
             {
@@ -759,7 +759,7 @@ protected:
     template <typename Q>
     void Assign(const SmartPtr<Q> &x)
     {
-        if (m_data.GetPointee() == x.m_data.GetPointee()) return;
+        if (m_data.GetComparable() == x.m_data.GetComparable()) return;
 
         if (m_data.GetMode() == SmartPtrMode::Shared)
         {
@@ -1068,11 +1068,6 @@ namespace Detail {
         OwnNextObject()
         {
             SmartPtrCounter::NextOwnership() = SmartPtrCounter::BeingConstructed; // Not until constructors succeed
-        }
-        /// Destructor.
-        ~OwnNextObject()
-        {
-            SmartPtrCounter::NextOwnership() = SmartPtrCounter::OwnedByPointers; //So that if we have a bad_alloc and next object gets created via operator new pointers own it.
         }
         /// Marks object to be owned by pointers from now on.
         /// @tparam T Object type.

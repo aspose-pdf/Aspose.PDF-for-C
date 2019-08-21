@@ -23,12 +23,12 @@ class ASPOSE_PDF_SHARED_API CgmImportOptions : public Aspose::Pdf::ImportOptions
 public:
 
     /// <summary>
-    /// Gets or sets output page size for import.
+    /// Gets output page size for import.
     /// Default page size - A4 300dpi 2480 X 3508.
     /// </summary>
     System::Drawing::SizeF get_PageSize();
     /// <summary>
-    /// Gets or sets output page size for import.
+    /// Sets output page size for import.
     /// Default page size - A4 300dpi 2480 X 3508.
     /// </summary>
     void set_PageSize(System::Drawing::SizeF value);

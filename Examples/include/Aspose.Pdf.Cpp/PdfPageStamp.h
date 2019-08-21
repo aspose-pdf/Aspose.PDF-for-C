@@ -31,11 +31,11 @@ class ASPOSE_PDF_SHARED_API PdfPageStamp FINAL : public Aspose::Pdf::Stamp
 public:
 
     /// <summary>
-    /// Gets or sets page which will be used as stamp.
+    /// Gets page which will be used as stamp.
     /// </summary>
     System::SharedPtr<Page> get_PdfPage();
     /// <summary>
-    /// Gets or sets page which will be used as stamp.
+    /// Sets page which will be used as stamp.
     /// </summary>
     void set_PdfPage(System::SharedPtr<Page> value);
     

@@ -28,8 +28,8 @@ public:
     ASPOSECPP_SHARED_API NetworkCredential(String userName, String password);
     ASPOSECPP_SHARED_API NetworkCredential(String userName, String password, String domain);
 
-    ASPOSECPP_SHARED_API System::SharedPtr<NetworkCredential> GetCredential(System::SharedPtr<Uri> uri, String authenticationType);
-    ASPOSECPP_SHARED_API System::SharedPtr<NetworkCredential> GetCredential(String host, int32_t port, String authenticationType);
+    ASPOSECPP_SHARED_API System::SharedPtr<NetworkCredential> GetCredential(System::SharedPtr<Uri> uri, String authenticationType) override;
+    ASPOSECPP_SHARED_API System::SharedPtr<NetworkCredential> GetCredential(String host, int32_t port, String authenticationType) override;
 
 private:
     System::String m_domain;

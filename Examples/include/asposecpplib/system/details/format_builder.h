@@ -1,87 +1,52 @@
 /// @file system/details/format_builder.h
-#ifndef _fmt_details_format_builder_h_
-#define _fmt_details_format_builder_h_
+#pragma once
+
+#ifndef _aspose_system_string_h_
+#error "Don't include this file directly, use <system/string.h> instead"
+#endif
 
 #include <system/icustomformatter.h>
+#include <system/iformatprovider.h>
+#include <system/iformattable.h>
 #include <system/details/format_parser.h>
 #include <system/details/is_defined.h>
+#include <system/details/has_tostring.h>
 #include <system/shared_ptr.h>
-#include <iostream>
-#include <iomanip>
-#include <stdexcept>
-#include <sstream>
-#include "fwd.h"
 
 namespace System {
 
-class ICustomFormatter;
-class String;
 class DateTime;
+class DateTimeOffset;
 class TimeSpan;
 class Decimal;
 class Guid;
 
+template<class E, class G>
+struct Enum;
+
+namespace Globalization { class CultureInfo; }
+
 namespace Details {
 
-/// Allows sending char16_t string literals into unmatching ostream specializations.
-/// @param stream Stream to send string literal to.
-/// @param string String to send into stream.
-/// @return Stream reference.
-inline std::wostream& operator << (std::wostream& stream, const char16_t* string)
-{
-    std::wstring str(string, string + std::char_traits<char_t>::length(string));
-    stream << str;
-    return stream;
-};
-
-/// Allows sending char16_t symbols into unmatching ostream specializations.
-/// @param stream Stream to send symbol to.
-/// @param chr Symbol to send into stream.
-/// @return Stream reference.
-inline std::wostream& operator << (std::wostream& stream, char16_t chr)
-{
-    stream << static_cast<wchar_t>(chr);
-    return stream;
-};
-
-/// Converts double and float to string using specific culture.
-/// @param value Value to convert.
-/// @param format Format string.
-/// @param culture Culture to use.
-/// @return std::u16string representation of value passed.
-template <typename T>
-ASPOSECPP_SHARED_API std::u16string FormatValue(T value, const std::u16string& format,
-                                                const System::SharedPtr<System::IFormatProvider>& culture);
-
-/// Converts double to string using specific culture.
-/// @param value Value to convert.
-/// @param format Format string.
-/// @param culture Culture to use.
-/// @return std::u16string representation of value passed.
-extern template ASPOSECPP_SHARED_API std::u16string
-FormatValue<>(double value, const std::u16string& format, const System::SharedPtr<System::IFormatProvider>& culture);
-
-/// Converts float to string using specific culture.
-/// @param value Value to convert.
-/// @param format Format string.
-/// @param culture Culture to use.
-/// @return std::u16string representation of value passed.
-extern template ASPOSECPP_SHARED_API std::u16string
-FormatValue<>(float value, const std::u16string& format, const System::SharedPtr<System::IFormatProvider>& culture);
-
 /// Implements String::Format() invocation.
-/// Uses wchar_t internal representation instead of char16_t as ostringstream<char16_t> is unsupported by our language version.
-class ASPOSECPP_SHARED_CLASS FormatBuilder
+class ASPOSECPP_SHARED_CLASS FormatBuilder final
 {
 public:
     /// Creates formatter to format single string.
     /// @param format C#-styled format string.
+    ASPOSECPP_SHARED_API FormatBuilder(const String& format, std::nullptr_t = nullptr);
+    /// Creates formatter to format single string.
+    /// @param format C#-styled format string.
     /// @param fp FormatProvider to use.
-    ASPOSECPP_SHARED_API FormatBuilder(const std::u16string& format, const SharedPtr<IFormatProvider>& fp = nullptr);
+    ASPOSECPP_SHARED_API FormatBuilder(const String& format, SharedPtr<IFormatProvider> fp);
+    /// Creates formatter to format single string.
+    /// @param format C#-styled format string.
+    /// @param culture Culture to use.
+    ASPOSECPP_SHARED_API FormatBuilder(const String& format, SharedPtr<Globalization::CultureInfo> culture);
 
-    /// Gets result string.
+    /// Joins all values and separators to result string.
     /// @return String formatting result.
-    const std::u16string& str() const { return m_result; }
+    ASPOSECPP_SHARED_API String BuildResult() const;
 
     /// Accepts free arguments of String::Format to paste them into result string.
     /// Uses variadic templates to treat arguments one by one.
@@ -91,16 +56,18 @@ public:
     /// @param value Value to paste.
     /// @param args Remaining arguments.
     template<typename T, typename... Args>
-    static void add_arguments(FormatBuilder& formatter, const T& value, const Args&... args)
+    static void AddArguments(FormatBuilder& formatter, const T& value, const Args&... args)
     {
-        formatter.add_argument(value);
-        add_arguments(formatter, args...);
+        formatter.AddArgument(value);
+        AddArguments(formatter, args...);
     }
     /// Finishes argument substitution.
-    /// @param formatter Formatter we were working with.
-    static void add_arguments(FormatBuilder& formatter)
+    static void AddArguments(FormatBuilder&)
+    {}
+    /// Null args.
+    static void AddArguments(FormatBuilder&, std::nullptr_t)
     {
-        formatter.build_result();
+        ThrowArgumentNullException(u"args");
     }
 
     /// Accepts free arguments of String::Format to paste them into result string.
@@ -109,332 +76,446 @@ public:
     /// @param formatter Formatter to use.
     /// @param args Array of arguments to treat.
     template<typename T>
-    static void add_arguments(FormatBuilder& formatter, const System::ArrayPtr<T>& args)
+    static void AddArguments(FormatBuilder& formatter, const ArrayPtr<T>& args)
     {
-        for (int i = 0; i < args->get_Length(); i++)
-        {
-            formatter.add_argument(args[i]);
-        }
-
-        formatter.build_result();
+        const int length = args->get_Length();
+        for (int i = 0; i < length; i++)
+            formatter.AddArgument(args[i]);
     }
 
 private:
     /// Parser to parse format string.
     FormatParser m_parser;
     /// Index of next element to handle.
-    int          m_index;
-    /// Result string.
-    std::u16string m_result;
+    int m_index = 0;
     /// Format provider.
-    SharedPtr<IFormatProvider> m_formatprovider;
+    SharedPtr<IFormatProvider> m_format_provider;
     /// Custom formatter.
-    SharedPtr<ICustomFormatter> m_customformatter;
+    SharedPtr<ICustomFormatter> m_custom_formatter;
+    /// Culture info.
+    SharedPtr<Globalization::CultureInfo> m_culture_info;
 
     /// Applies argument value to current argument.
     /// @tparam T Argument type.
     /// @param obj Argument value.
     template<typename T>
-    void add_argument(T const& obj)
+    void AddArgument(const T& obj)
     {
-        for(auto& fi : m_parser.items() )
+        for (auto& fi : m_parser.items())
         {
-            if( fi.arg_index == m_index )
+            if (fi.arg_index == m_index)
             {
-                fi.text_or_format = m_customformatter == nullptr ?
-                    ConvertToString(obj, fi.padding, fi.text_or_format) :
-                    CustomFormat(fi.text_or_format, obj);
+                fi.text_or_format = m_custom_formatter == nullptr
+                    ? ConvertToString(obj, fi.text_or_format)
+                    : CustomFormat(obj, fi.text_or_format);
             }
         }
-
         ++m_index;
     }
 
-    /// Joins all values and separators to result string.
-    ASPOSECPP_SHARED_API void build_result();
-
-    /// Converts value type (e. g. structure, string, etc.) to string. Used for everything of a kind but Decimals.
-    /// @tparam T Value type.
+    /// Converts value to string using the specified format string.
     /// @param value Value to convert.
-    /// @param padding Padding size, ignored.
-    /// @param format Format string, ignored.
+    /// @param format Format string.
+    /// @return String representation of the value. 
     template<class T>
-    static typename std::enable_if<Details::HasToString<T>::value && !std::is_same<T, Decimal>::value, std::u16string>::type
-    ConvertToString(const T& value, int padding, const std::u16string& format)
+    String ConvertToString(const T& value, const String& format) const
     {
-        return value.ToString().ToU16Str();
+        return ConvertToStringGeneric(value, format);
     }
 
-    /// Converts Decimal to string.
-    /// @tparam T Decimal type.
-    /// @param value Value to convert.
-    /// @param padding Padding size, ignored.
-    /// @param format Format string.
-    template<class T>
-    static typename std::enable_if<Details::HasToString<T>::value && std::is_same<T, Decimal>::value, std::u16string>::type
-        ConvertToString(const T& value, int padding, const std::u16string& format)
+    /// Converts null pointer to string.
+    /// @return Empty string.
+    String ConvertToString(std::nullptr_t, const String& /*format*/) const
     {
-        if (format.length() > 0)
-        {
-            std::stringstream stringStream;
+        return String::Empty;
+    }
 
-            auto cend = std::cend(format);
-            const auto result = format.find(u'.');
+    /// Converts single character to string.
+    /// @param value Value to convert.
+    /// @return One-character string. 
+    String ConvertToString(char16_t value, const String& /*format*/) const
+    {
+        return String(value);
+    }
 
-            if (result != std::string::npos)
-            {
-                auto it = std::begin(format) + result;
-                int precision = 0;
+    /// Returns same string. Conversion not performed.
+    /// @param value Input string.
+    /// @return Same string. 
+    String ConvertToString(const String& value, const String& /*format*/) const
+    {
+        return value;
+    }
 
-                while (++it != cend && *it == '0')
-                    precision++;
+    /// Converts boolean to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(bool value, const String& format) const;
+    /// Converts 8-bit signed integer to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(int8_t value, const String& format) const;
+    /// Converts 8-bit unsigned integer to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(uint8_t value, const String& format) const;
+    /// Converts 16-bit signed integer to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(int16_t value, const String& format) const;
+    /// Converts 16-bit unsigned integer to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(uint16_t value, const String& format) const;
+    /// Converts 32-bit signed integer to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(int32_t value, const String& format) const;
+    /// Converts 32-bit unsigned integer to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(uint32_t value, const String& format) const;
+    /// Converts 64-bit signed integer to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(int64_t value, const String& format) const;
+    /// Converts 64-bit unsigned integer to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(uint64_t value, const String& format) const;
+    /// Converts single precision floating-point value to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(float value, const String& format) const;
+    /// Converts double precision floating-point value to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(double value, const String& format) const;
+    /// Converts Decimal value to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(const Decimal& value, const String& format) const;
+    /// Converts Guid value to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(const Guid& value, const String& format) const;
+    /// Converts DateTime value to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(const DateTime& value, const String& format) const;
+    /// Converts DateTimeOffset value to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(const DateTimeOffset& value, const String& format) const;
+    /// Converts TimeSpan value to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    ASPOSECPP_SHARED_API String ConvertToString(const TimeSpan& value, const String& format) const;
+    
+    /// Converts value that implements IFormattable to string using the specified format string.
+    /// @param value Value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    String ConvertToString(const SharedPtr<IFormattable>& value, const String& format) const
+    {
+        return value->ToString(format, m_format_provider);
+    }
 
-                stringStream << std::fixed << std::setprecision(precision);
-            }
-            stringStream << value;
+    enum class EnumFormat { G, F, D, X };
 
-            return ReplaceByCurrentSeparator(stringStream);
-        }
-        else
-        {
-            return value.ToString().ToU16Str();
-        }
+    /// Parse enum format.
+    /// @param String format.
+    /// @return EnumFormat value.
+    static ASPOSECPP_SHARED_API EnumFormat ParseEnumFormat(const String& format);
+
+    /// Converts enum underlying value to string using specified format string.
+    /// @param value Enum underlying value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    static ASPOSECPP_SHARED_API String ConvertEnumValueToString(int32_t value, const String& format);
+    /// Converts enum underlying value to string using specified format string.
+    /// @param value Enum underlying value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    static ASPOSECPP_SHARED_API String ConvertEnumValueToString(uint32_t value, const String& format);
+    /// Converts enum underlying value to string using specified format string.
+    /// @param value Enum underlying value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    static ASPOSECPP_SHARED_API String ConvertEnumValueToString(int64_t value, const String& format);
+    /// Converts enum underlying value to string using specified format string.
+    /// @param value Enum underlying value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    static ASPOSECPP_SHARED_API String ConvertEnumValueToString(uint64_t value, const String& format);
+    /// Converts enum underlying value to string using specified format string.
+    /// @param value Enum underlying value to convert.
+    /// @param format Format string.
+    /// @return String representation of the value. 
+    template<class T>
+    static String ConvertEnumValueToString(const T& value, const String& format)
+    {
+        static_assert(std::is_integral<T>::value, "");
+        static_assert(sizeof(T) <= sizeof(std::int32_t), "");
+
+        constexpr auto is_signed_type = std::is_signed<T>::value;
+        using result_type = std::conditional_t<is_signed_type, int32_t, uint32_t>;
+
+        return ConvertEnumValueToString(static_cast<result_type>(value), format);
+    }
+
+    /// Converts value type (e. g. structure, string, etc.) to string.
+    /// @tparam T Value type.
+    /// @param value Value to convert.
+    /// @return String representation of the value. 
+    template<class T>
+    static typename std::enable_if<Details::HasToString<T>::value, String>::type
+    ConvertToStringGeneric(const T& value, const String& /*format*/)
+    {
+        return value.ToString();
     }
 
     /// Converts smart pointer type to string.
     /// @tparam T Smart pointer type.
     /// @param value Value to convert.
-    /// @param padding Padding size, ignored.
-    /// @param format Format string, ignored.
+    /// @return String representation of the value. 
     template<class T>
-    static typename std::enable_if<System::IsSmartPtr<T>::value, std::u16string>::type
-    ConvertToString(const T& value, int padding, const std::u16string& format)
+    static typename std::enable_if<System::IsSmartPtr<T>::value, String>::type
+    ConvertToStringGeneric(const T& value, const String& /*format*/)
     {
-        return ((nullptr != value) ? value->ToString().ToU16Str() : u"");
-    }
-
-    /// Converts double and float to string using current culture.
-    /// @tparam T double or float type.
-    /// @param value Value to convert.
-    /// @param padding Padding size, ignored.
-    /// @param format Format string.
-    template <class T>
-    static typename std::enable_if<std::is_same<T, float>::value || std::is_same<T, double>::value, std::u16string>::type
-    ConvertToString(const T& value, int padding, const std::u16string& format)
-    {
-        return System::Details::FormatValue(value, format, nullptr);
-    }
-
-    /// Converts primitive types to string.
-    /// @tparam T Primitive type.
-    /// @param value Value to convert.
-    /// @param padding Padding size, ignored.
-    /// @param format Format string.
-    template<class T>
-    static typename std::enable_if<!System::IsSmartPtr<T>::value &&
-        !Details::HasToString<T>::value && !std::is_enum<T>::value &&
-        !std::is_same<T, float>::value && !std::is_same<T, double>::value, std::u16string>::type
-    ConvertToString(const T& value, int padding, const std::u16string& format)
-    {
-        std::wstringstream wss;
-        auto it = format.cbegin();
-        auto cend = format.cend();
-
-        if (it != cend)
-        {
-            char16_t wc = *it;
-            if (wc == u'D' || wc == u'd' || wc == u'X' || wc == u'x') // formats like "D4, x2"
-            {
-                if (wc == u'X')
-                    wss << std::uppercase;
-                if (wc == u'X' || wc == u'x')
-                    wss << std::hex;
-                int len = 0;
-                while (++it != cend && *it >= u'0' && *it <= u'9')
-                    len = len * 10 + (*it - u'0');
-                if (len > 0)
-                {
-                    wss << std::setfill(L'0');
-                    wss << std::setw(len);
-                }
-            } 
-            else if (wc == u'0') // formats like "000"
-            {
-                int len = 1;
-                while (++it != cend && *it == u'0')
-                    len++;
-                if (len > 0)
-                {
-                    wss << std::setfill(L'0');
-                    wss << std::setw(len);
-                }
-            }
-        }
-            
-        SetPrecision(wss, &value);
-
-        if (std::is_same<T, bool>::value) 
-        {
-            if (value)
-            {
-                wss << L"True";
-            }
-            else 
-            {
-                wss << L"False";
-            }
-        }
-        else 
-        {
-            wss << value;
-        }
-
-        std::wstring res = wss.str();
-        return std::u16string(res.begin(), res.end());
-    }
-
-    /// Sets precision to print numbers.
-    /// This implementation is a dummy as defaults for non-double types are same in C# and C++.
-    /// @tparam T Numeric type different from double.
-    template <class T>
-    static void SetPrecision(std::wstringstream&, T*)
-    {}
-    /// Sets precision to print numbers.
-    /// This implementation sets value for double as defaults differ in C# and C++.
-    /// @param stream Stream to set precision for.
-    static void SetPrecision(std::wstringstream &stream, const double*)
-    {
-        stream << std::setprecision(15);
+        return value != nullptr ? value->ToString() : String::Empty;
     }
 
     /// Converts enum types to string.
     /// Specialization used if no value strings are provided.
     /// @tparam T Enum type.
     /// @param value Value to convert.
+    /// @return String representation of the value. 
     template<class T>
-    static typename std::enable_if<!Details::HasPtrToString<T>::value &&
-                                    !Details::HasToString<T>::value &&
-                                    std::is_enum<T>::value &&
-                                    !Details::IsDefined<EnumMetaInfo<T>>::value, std::u16string>::type
-    ConvertToString(const T& value, int /*padding*/, const std::u16string& /*format*/)
+    static typename std::enable_if<std::is_enum<T>::value && !Details::IsDefined<EnumMetaInfo<T>>::value, String>::type
+    ConvertToStringGeneric(const T& value, const String& format)
     {
-        std::wostringstream stream;
-        stream << static_cast<typename std::underlying_type<T>::type>(value);
-
-        std::wstring res = stream.str();
-        return std::u16string(res.begin(), res.end());
+        return ConvertEnumValueToString(static_cast<std::underlying_type_t<T>>(value), format);
     }
 
     /// Converts enum types to string.
     /// Specialization used if value strings are provided.
     /// @tparam T Enum type.
     /// @param value Value to convert.
+    /// @return String representation of the value. 
     template<class T>
-    static typename std::enable_if<!Details::HasPtrToString<T>::value &&
-                                    !Details::HasToString<T>::value &&
-                                    std::is_enum<T>::value &&
-                                    Details::IsDefined<EnumMetaInfo<T>>::value, std::u16string>::type
-    ConvertToString(const T& value, int /*padding*/, const std::u16string& /*format*/)
+    static typename std::enable_if<std::is_enum<T>::value && Details::IsDefined<EnumMetaInfo<T>>::value, String>::type
+    ConvertToStringGeneric(const T& value, const String& format)
     {
-        const auto& values = EnumMetaInfo<T>::values();
-        for (auto val : values)
+        const EnumFormat fmt = ParseEnumFormat(format);
+        if (fmt == EnumFormat::G || fmt == EnumFormat::F)
         {
-            if (value == val.first)
-                return val.second;
+            // TODO: Implement full support for 'F' format specifier
+
+            String result = Enum<T, void>::GetName(value);
+            if (!result.IsNullOrEmpty())
+                return result;
         }
-        return u"";
+        return ConvertEnumValueToString(static_cast<std::underlying_type_t<T>>(value), format);
     }
 
+    /// Converts string literal to string.
+    /// @param value Value to convert.
+    /// @return String representation of the value. 
+    template <class T>
+    static typename std::enable_if<IsStringLiteral<T, char16_t>::value, String>::type
+    ConvertToStringGeneric(T& value, const String& /*format*/)
+    {
+        return String(value, std::extent<T>::value - 1);
+    }
+
+    /// Converts string literal to string.
+    /// @param value Value to convert.
+    /// @return String representation of the value. 
+    template <class T>
+    static typename std::enable_if<IsStringLiteral<T, char>::value, String>::type
+        ConvertToStringGeneric(T& value, const String& /*format*/)
+    {
+        return String::FromUtf8(value, std::extent<T>::value - 1);
+    }
+
+    /// Converts characters array to string.
+    /// @param value Value to convert.
+    /// @return String representation of the value. 
+    template <class T>
+    static typename std::enable_if<IsNonConstStringArray<T, char16_t>::value, String>::type
+        ConvertToStringGeneric(T& value, const String& /*format*/)
+    {
+        return String(value, std::extent<T>::value - 1);
+    }
+
+    /// Converts characters array to string.
+    /// @param value Value to convert.
+    /// @return String representation of the value. 
+    template <class T>
+    static typename std::enable_if<IsNonConstStringArray<T, char>::value, String>::type
+        ConvertToStringGeneric(T& value, const String& /*format*/)
+    {
+        return String::FromUtf8(value, std::extent<T>::value - 1);
+    }
+
+    /// Converts c-style string to System::String.
+    /// @param value Value to convert.
+    /// @return String representation of the value. 
+    template <class T>
+    static typename std::enable_if<IsStringPointer<T, char16_t>::value, String>::type
+        ConvertToStringGeneric(T& value, const String& /*format*/)
+    {
+        return String(value);
+    }
+
+    /// Converts c-style string to System::String.
+    /// @param value Value to convert.
+    /// @return String representation of the value. 
+    template <class T>
+    static typename std::enable_if<IsStringPointer<T, char>::value, String>::type
+        ConvertToStringGeneric(T& value, const String& /*format*/)
+    {
+        return String::FromUtf8(value);
+    }
+
+    /// Converts integer to string.
+    /// @param value Integer value.
+    /// @return The string representation of the specified value.
+    static ASPOSECPP_SHARED_API String ConvertIntegerToString(int64_t value);
+
     /// Formats object using custom formatter.
-    /// @param format Format string.
     /// @param arg Object to format.
+    /// @param format Format string.
     /// @return Formatting result.
-    ASPOSECPP_SHARED_API std::u16string CustomFormat(const std::u16string &format, const SharedPtr<Object> &arg);
+    ASPOSECPP_SHARED_API String CustomFormat(const SharedPtr<Object>& arg, const String& format);
     /// Formats string using custom formatter.
-    /// @param format Format string.
     /// @param arg Value to format.
+    /// @param format Format string.
     /// @return Formatting result.
-    ASPOSECPP_SHARED_API std::u16string CustomFormat(const std::u16string &format, const String &arg);
+    ASPOSECPP_SHARED_API String CustomFormat(const String& arg, const String& format);
+    /// Formats string using custom formatter.
+    /// @param arg Value to format.
+    /// @param format Format string.
+    /// @return Formatting result.
+    ASPOSECPP_SHARED_API String CustomFormat(const char16_t* arg, const String& format);
     /// Formats DateTime object using custom formatter.
-    /// @param format Format string.
     /// @param arg Value to format.
+    /// @param format Format string.
     /// @return Formatting result.
-    ASPOSECPP_SHARED_API std::u16string CustomFormat(const std::u16string &format, const DateTime &arg);
+    ASPOSECPP_SHARED_API String CustomFormat(const DateTime& arg, const String& format);
     /// Formats TimeSpan object using custom formatter.
-    /// @param format Format string.
     /// @param arg Value to format.
+    /// @param format Format string.
     /// @return Formatting result.
-    ASPOSECPP_SHARED_API std::u16string CustomFormat(const std::u16string &format, const TimeSpan &arg);
+    ASPOSECPP_SHARED_API String CustomFormat(const TimeSpan& arg, const String& format);
     /// Formats Decimal value using custom formatter.
-    /// @param format Format string.
     /// @param arg Value to format.
+    /// @param format Format string.
     /// @return Formatting result.
-    ASPOSECPP_SHARED_API std::u16string CustomFormat(const std::u16string &format, const Decimal &arg);
+    ASPOSECPP_SHARED_API String CustomFormat(const Decimal& arg, const String& format);
     /// Formats Guid using custom formatter.
-    /// @param format Format string.
     /// @param arg Value to format.
+    /// @param format Format string.
     /// @return Formatting result.
-    ASPOSECPP_SHARED_API std::u16string CustomFormat(const std::u16string &format, const Guid &arg);
+    ASPOSECPP_SHARED_API String CustomFormat(const Guid& arg, const String& format);
     /// Formats integer using custom formatter.
-    /// @param format Format string.
     /// @param arg Value to format.
+    /// @param format Format string.
     /// @return Formatting result.
-    ASPOSECPP_SHARED_API std::u16string CustomFormat(const std::u16string &format, const int32_t arg);
+    ASPOSECPP_SHARED_API String CustomFormat(int8_t arg, const String& format);
     /// Formats integer using custom formatter.
-    /// @param format Format string.
     /// @param arg Value to format.
+    /// @param format Format string.
     /// @return Formatting result.
-    ASPOSECPP_SHARED_API std::u16string CustomFormat(const std::u16string &format, const uint32_t arg);
+    ASPOSECPP_SHARED_API String CustomFormat(uint8_t arg, const String& format);
     /// Formats integer using custom formatter.
-    /// @param format Format string.
     /// @param arg Value to format.
+    /// @param format Format string.
     /// @return Formatting result.
-    ASPOSECPP_SHARED_API std::u16string CustomFormat(const std::u16string &format, const int64_t arg);
+    ASPOSECPP_SHARED_API String CustomFormat(int16_t arg, const String& format);
     /// Formats integer using custom formatter.
-    /// @param format Format string.
     /// @param arg Value to format.
+    /// @param format Format string.
     /// @return Formatting result.
-    ASPOSECPP_SHARED_API std::u16string CustomFormat(const std::u16string &format, const uint64_t arg);
+    ASPOSECPP_SHARED_API String CustomFormat(uint16_t arg, const String& format);
+    /// Formats integer using custom formatter.
+    /// @param arg Value to format.
+    /// @param format Format string.
+    /// @return Formatting result.
+    ASPOSECPP_SHARED_API String CustomFormat(int32_t arg, const String& format);
+    /// Formats integer using custom formatter.
+    /// @param arg Value to format.
+    /// @param format Format string.
+    /// @return Formatting result.
+    ASPOSECPP_SHARED_API String CustomFormat(uint32_t arg, const String& format);
+    /// Formats integer using custom formatter.
+    /// @param arg Value to format.
+    /// @param format Format string.
+    /// @return Formatting result.
+    ASPOSECPP_SHARED_API String CustomFormat(int64_t arg, const String& format);
+    /// Formats integer using custom formatter.
+    /// @param arg Value to format.
+    /// @param format Format string.
+    /// @return Formatting result.
+    ASPOSECPP_SHARED_API String CustomFormat(uint64_t arg, const String& format);
     /// Formats floating point value using custom formatter.
-    /// @param format Format string.
     /// @param arg Value to format.
+    /// @param format Format string.
     /// @return Formatting result.
-    ASPOSECPP_SHARED_API std::u16string CustomFormat(const std::u16string &format, const double arg);
+    ASPOSECPP_SHARED_API String CustomFormat(float arg, const String& format);
+    /// Formats floating point value using custom formatter.
+    /// @param arg Value to format.
+    /// @param format Format string.
+    /// @return Formatting result.
+    ASPOSECPP_SHARED_API String CustomFormat(double arg, const String& format);
 
     /// Formats enum value using custom formatter.
-    /// @param format Format string.
     /// @param arg Value to format.
+    /// @param format Format string.
     /// @return Formatting result.
     template<class T>
-    typename std::enable_if<std::is_enum<T>::value, std::u16string>::type
-    CustomFormat(const std::u16string &format, const T &arg)
+    typename std::enable_if<std::is_enum<T>::value, String>::type
+    CustomFormat(const T& arg, const String& format)
     {
-        return CustomFormat(format, (int)arg);
+        return CustomFormat(static_cast<int64_t>(arg), format);
     }
 
     /// Stub function that throws exception if custom formatting is required for unexpected type.
     /// @tparam T Unexpected type.
-    /// @param format Format string.
     /// @param arg Value to format.
+    /// @param format Format string.
     /// @return Never actually returns, throws instead.
     /// @throw ArgumentException Unconditionally.
     template<class T>
-    typename std::enable_if<!std::is_enum<T>::value, std::u16string>::type
-    CustomFormat(const std::u16string &format, const T &arg)
+    typename std::enable_if<!std::is_enum<T>::value, String>::type
+    CustomFormat(const T& arg, const String& format)
     {
-        return ThrowInvalidArgument();
+        ThrowInvalidArgument();
     }
 
-    /// Throws ArgumentException,
-    ASPOSECPP_SHARED_API std::u16string ThrowInvalidArgument();
-
-    /// Replaces dot with current decimal separator.
-    /// @param ss String to do replacement for.
-    /// @return @p ss With replacements done.
-    static ASPOSECPP_SHARED_API std::u16string ReplaceByCurrentSeparator(const std::stringstream &ss);
+    /// Throws ArgumentException.
+    [[noreturn]]
+    static ASPOSECPP_SHARED_API void ThrowInvalidArgument();
+    /// Throws ArgumentNullException.
+    /// @param arg_name First argument of the ArgumentNullException.
+    [[noreturn]]
+    static ASPOSECPP_SHARED_API void ThrowArgumentNullException(const String& arg_name);
 };
 
-} // namespace Details
-} // namespace System
-
-#endif // _fmt_details_format_parser_h_
+}} // namespace System::Details

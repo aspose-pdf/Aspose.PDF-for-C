@@ -34,11 +34,11 @@ class ASPOSE_PDF_SHARED_API HideAction : public Aspose::Pdf::Annotations::PdfAct
 public:
 
     /// <summary>
-    /// Gets or sets status of the annotation(s) to hide/display.
+    /// Gets status of the annotation(s) to hide/display.
     /// </summary>
     bool get_IsHidden();
     /// <summary>
-    /// Gets or sets status of the annotation(s) to hide/display.
+    /// Sets status of the annotation(s) to hide/display.
     /// </summary>
     void set_IsHidden(bool value);
     

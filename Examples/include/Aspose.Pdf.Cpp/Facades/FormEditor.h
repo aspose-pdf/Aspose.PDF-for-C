@@ -1,10 +1,10 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-// C# preprocessor directive: #if !(NET40CP || NET35CP || NETCORE) 
+// C# preprocessor directive: #if !(NET40CP || NET35CP || NETCORE)
 
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
 #include <xml/xml_node.h>
@@ -20,10 +20,10 @@
 #include "Facades/Facade.h"
 #include "aspose_pdf_api_defs.h"
 
-namespace Aspose { namespace Pdf { namespace Facades { class FormFieldFacade; } } }
-namespace Aspose { namespace Pdf { namespace Facades { enum class SubmitFormFlag; } } }
 namespace Aspose { namespace Pdf { enum class PdfFormat; } }
+namespace Aspose { namespace Pdf { namespace Facades { enum class SubmitFormFlag; } } }
 namespace Aspose { namespace Pdf { enum class ContentDisposition; } }
+namespace Aspose { namespace Pdf { namespace Facades { class FormFieldFacade; } } }
 namespace Aspose { namespace Pdf { class SaveOptions; } }
 namespace Aspose { namespace Pdf { namespace Facades { enum class PropertyFlag; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationFlags; } } }
@@ -56,7 +56,7 @@ class ASPOSE_PDF_SHARED_API FormEditor FINAL : public Aspose::Pdf::Facades::Save
 public:
 
     /// <summary>
-    /// Gets or sets name of source file.
+    /// Gets name of source file.
     /// </summary>
     /// <example>
     /// <code lang="C#">
@@ -66,7 +66,7 @@ public:
     /// </example>
     System::String get_SrcFileName();
     /// <summary>
-    /// Gets or sets name of source file.
+    /// Sets name of source file.
     /// </summary>
     /// <example>
     /// <code lang="C#">
@@ -76,7 +76,7 @@ public:
     /// </example>
     void set_SrcFileName(System::String value);
     /// <summary>
-    /// Gets or sets destination file name.
+    /// Gets destination file name.
     /// </summary>
     /// <example>
     /// <code lang="C#">
@@ -86,7 +86,7 @@ public:
     /// </example>
     System::String get_DestFileName();
     /// <summary>
-    /// Gets or sets destination file name.
+    /// Sets destination file name.
     /// </summary>
     /// <example>
     /// <code lang="C#">
@@ -96,7 +96,7 @@ public:
     /// </example>
     void set_DestFileName(System::String value);
     /// <summary>
-    /// Gets or sets source stream.
+    /// Gets source stream.
     /// </summary>
     /// <example>
     /// <code lang="C#">
@@ -106,7 +106,7 @@ public:
     /// </example>
     System::SharedPtr<System::IO::Stream> get_SrcStream();
     /// <summary>
-    /// Gets or sets source stream.
+    /// Sets source stream.
     /// </summary>
     /// <example>
     /// <code lang="C#">
@@ -121,7 +121,7 @@ public:
     /// </summary>
     void set_ConvertTo(PdfFormat value);
     /// <summary>
-    /// Gets or sets destination stream.
+    /// Gets destination stream.
     /// </summary>
     /// <example>
     /// <code lang="C#">
@@ -131,7 +131,7 @@ public:
     /// </example>
     System::SharedPtr<System::IO::Stream> get_DestStream();
     /// <summary>
-    /// Gets or sets destination stream.
+    /// Sets destination stream.
     /// </summary>
     /// <example>
     /// <code lang="C#">
@@ -283,7 +283,7 @@ public:
     /// </example>
     void set_RadioHoriz(bool value);
     /// <summary>
-    /// Gets or sets size of radio button item size (when new radio button field is added). 
+    /// Gets size of radio button item size (when new radio button field is added). 
     /// <code lang="C#">
     /// formEditor = new Aspose.Pdf.Facades.FormEditor("PdfForm.pdf", "FormEditor_AddField_RadioButton.pdf");
     /// formEditor.RadioGap = 4;
@@ -296,7 +296,7 @@ public:
     /// </summary>
     double get_RadioButtonItemSize();
     /// <summary>
-    /// Gets or sets size of radio button item size (when new radio button field is added). 
+    /// Sets size of radio button item size (when new radio button field is added). 
     /// <code lang="C#">
     /// formEditor = new Aspose.Pdf.Facades.FormEditor("PdfForm.pdf", "FormEditor_AddField_RadioButton.pdf");
     /// formEditor.RadioGap = 4;
@@ -317,39 +317,39 @@ public:
     /// </summary>
     void set_SubmitFlag(SubmitFormFlag value);
     /// <summary>
-    /// Gets or sets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
+    /// Gets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
     /// Default: inline.
     /// </summary>
     Aspose::Pdf::ContentDisposition get_ContentDisposition();
     /// <summary>
-    /// Gets or sets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
+    /// Sets how content will be stored when result of operation is stored into HttpResponse object. Possible value: inline / attachment.
     /// Default: inline.
     /// </summary>
     void set_ContentDisposition(Aspose::Pdf::ContentDisposition value);
     /// <summary>
-    /// Gets or sets Response object where result of operation will be stored.
+    /// Gets Response object where result of operation will be stored.
     /// </summary>
     System::SharedPtr<System::Web::HttpResponse> get_Response();
     /// <summary>
-    /// Gets or sets Response object where result of operation will be stored.
+    /// Sets Response object where result of operation will be stored.
     /// </summary>
     void set_Response(System::SharedPtr<System::Web::HttpResponse> value);
     /// <summary>
-    /// Gets or sets save options when result is stored as HttpResponse.
+    /// Gets save options when result is stored as HttpResponse.
     /// Default value: PdfSaveOptions. 
     /// </summary>
     System::SharedPtr<Aspose::Pdf::SaveOptions> get_SaveOptions();
     /// <summary>
-    /// Gets or sets save options when result is stored as HttpResponse.
+    /// Sets save options when result is stored as HttpResponse.
     /// Default value: PdfSaveOptions. 
     /// </summary>
     void set_SaveOptions(System::SharedPtr<Aspose::Pdf::SaveOptions> value);
     /// <summary>
-    /// Gets or sets name of attachment when result of operation is stored into HttpResponse objects as attachment.
+    /// Gets name of attachment when result of operation is stored into HttpResponse objects as attachment.
     /// </summary>
     System::String get_AttachmentName();
     /// <summary>
-    /// Gets or sets name of attachment when result of operation is stored into HttpResponse objects as attachment.
+    /// Sets name of attachment when result of operation is stored into HttpResponse objects as attachment.
     /// </summary>
     void set_AttachmentName(System::String value);
     

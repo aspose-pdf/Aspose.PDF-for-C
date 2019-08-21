@@ -33,19 +33,19 @@ class ASPOSE_PDF_SHARED_API Dash FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets length of dash.
+    /// Gets length of dash.
     /// </summary>
     int32_t get_On();
     /// <summary>
-    /// Gets or sets length of dash.
+    /// Sets length of dash.
     /// </summary>
     void set_On(int32_t value);
     /// <summary>
-    /// Gets or sets length of gap between dashes.
+    /// Gets length of gap between dashes.
     /// </summary>
     int32_t get_Off();
     /// <summary>
-    /// Gets or sets length of gap between dashes.
+    /// Sets length of gap between dashes.
     /// </summary>
     void set_Off(int32_t value);
     

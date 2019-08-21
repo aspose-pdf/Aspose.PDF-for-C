@@ -71,39 +71,39 @@ public:
 public:
 
     /// <summary>
-    /// Gets or sets word wrap mode.
+    /// Gets word wrap mode.
     /// Default value is WordWrapMode.NoWrap
     /// </summary>
     TextFormattingOptions::WordWrapMode get_WrapMode();
     /// <summary>
-    /// Gets or sets word wrap mode.
+    /// Sets word wrap mode.
     /// Default value is WordWrapMode.NoWrap
     /// </summary>
     void set_WrapMode(TextFormattingOptions::WordWrapMode value);
     /// <summary>
-    /// Gets or sets line spacing mode.
+    /// Gets line spacing mode.
     /// Default value is LineSpacingMode.FontSize
     /// </summary>
     TextFormattingOptions::LineSpacingMode get_LineSpacing();
     /// <summary>
-    /// Gets or sets line spacing mode.
+    /// Sets line spacing mode.
     /// Default value is LineSpacingMode.FontSize
     /// </summary>
     void set_LineSpacing(TextFormattingOptions::LineSpacingMode value);
     /// <summary>
-    /// Gets or sets subsequent lines indent value.
+    /// Gets subsequent lines indent value.
     /// </summary>
     float get_SubsequentLinesIndent();
     /// <summary>
-    /// Gets or sets subsequent lines indent value.
+    /// Sets subsequent lines indent value.
     /// </summary>
     void set_SubsequentLinesIndent(float value);
     /// <summary>
-    /// Gets or sets first line indent value.
+    /// Gets first line indent value.
     /// </summary>
     float get_FirstLineIndent();
     /// <summary>
-    /// Gets or sets first line indent value.
+    /// Sets first line indent value.
     /// </summary>
     void set_FirstLineIndent(float value);
     

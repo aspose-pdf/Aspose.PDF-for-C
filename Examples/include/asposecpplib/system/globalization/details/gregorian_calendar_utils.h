@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <defines.h>
+#include <system/date_time.h>
 #include <system/details/icu_namespace.h>
 
 /// Begins an ICU namspace scope.
@@ -48,6 +49,16 @@ public:
     /// Create gregorian ICU calendar.
     /// @return ICU calendar.
     static std::unique_ptr<icu::Calendar> CreateCalendar();
+
+    /// Gets thread-local gregorian ICU calendar.
+    /// @return ICU calendar.
+    static icu::Calendar& GetCalendar();
+
+    /// Convert DateTime to ICU UDate.
+    static double ConvertDateTimeToUDate(const DateTime& time);
+
+    /// Convert ICU UDate to DateTime.
+    static DateTime ConvertUDateToDateTime(const double time);
 };
 
 }}} // namespace System::Globalization::Details

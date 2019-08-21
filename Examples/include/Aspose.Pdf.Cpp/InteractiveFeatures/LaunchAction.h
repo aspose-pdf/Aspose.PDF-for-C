@@ -36,19 +36,19 @@ class ASPOSE_PDF_SHARED_API LaunchAction FINAL : public Aspose::Pdf::Annotations
 public:
 
     /// <summary>
-    /// Gets or sets the application to be launched or the document to be opened or printed.
+    /// Gets the application to be launched or the document to be opened or printed.
     /// </summary>
     System::String get_File();
     /// <summary>
-    /// Gets or sets the application to be launched or the document to be opened or printed.
+    /// Sets the application to be launched or the document to be opened or printed.
     /// </summary>
     void set_File(System::String value);
     /// <summary>
-    /// Gets or sets a flag specifying whether to open the destination document in a new window (affect PDF documents only).
+    /// Gets a flag specifying whether to open the destination document in a new window (affect PDF documents only).
     /// </summary>
     ExtendedBoolean get_NewWindow();
     /// <summary>
-    /// Gets or sets a flag specifying whether to open the destination document in a new window (affect PDF documents only).
+    /// Sets a flag specifying whether to open the destination document in a new window (affect PDF documents only).
     /// </summary>
     void set_NewWindow(ExtendedBoolean value);
     

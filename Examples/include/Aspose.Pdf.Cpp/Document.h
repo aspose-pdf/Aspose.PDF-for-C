@@ -1,28 +1,27 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-// C# preprocessor directive: #if !(NET40CP || NET35CP || NETCORE) 
+// C# preprocessor directive: #if !(NET40CP || NET35CP || NETCORE)
 
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
-// C# preprocessor directive: #if !NETCORE 
+// C# preprocessor directive: #if !NETCORE
 
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
-// C# preprocessor directive: #if __cplusplus 
+// C# preprocessor directive: #if __cplusplus
 
 
-// C# preprocessor directive: #else 
+// C# preprocessor directive: #else
 
-#if 0 // C# INACTIVE CODE:
-using Aspose.Pdf.Engine.Security.Impl.Digests;
-#endif
+// C# INACTIVE CODE:
+// using Aspose.Pdf.Engine.Security.Impl.Digests;
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
 #include <xml/xml_text_writer.h>
@@ -106,6 +105,7 @@ namespace Aspose { namespace Pdf { namespace Optimization { class ImageCompresso
 namespace Aspose { namespace Pdf { namespace Optimization { class ResourceOptimizer; } } }
 namespace Aspose { namespace Pdf { namespace Optimization { class UnusedObjectsScanner; } } }
 namespace Aspose { namespace Pdf { namespace Text { class EvaluationTextExportInspector; } } }
+namespace Aspose { namespace Pdf { namespace Text { template<typename> class TableElementCollection; } } }
 namespace Aspose { namespace Pdf { class HeaderFooter; } }
 namespace Aspose { namespace Pdf { class ApsUsingConverter; } }
 namespace Aspose { namespace Pdf { class DestinationCollection; } }
@@ -160,8 +160,9 @@ namespace Aspose { namespace Pdf { class Resources; } }
 namespace Aspose { namespace Pdf { class ImagePlacementCollection; } }
 namespace Aspose { namespace Pdf { class ImagePlacementAbsorber; } }
 namespace Aspose { namespace Pdf { namespace Text { class CharInfoCollection; } } }
-namespace Aspose { namespace Pdf { namespace Text { class FontCollection; } } }
+namespace Aspose { namespace Pdf { namespace Text { class TextParagraphCollection; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextAbsorber; } } }
+namespace Aspose { namespace Pdf { namespace Text { class FontCollection; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragmentAbsorber; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextSegmentCollection; } } }
 namespace Aspose { namespace Pdf { class XForm; } }
@@ -226,6 +227,9 @@ namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v18_5
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v18_7; } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v18_9; } } }
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v19_2; } } }
+namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v19_6; } } }
+namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v19_7; } } }
+namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v19_8; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Engine { namespace CommonData { namespace Text { namespace Fonts { class FontSubstitutionRegistratorTests; } } } } } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Engine { namespace IO { class PdfUaConvertTests; } } } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Engine { namespace IO { class PdfUaGenerateTests; } } } } }
@@ -262,6 +266,11 @@ namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v19_4
 namespace Aspose { namespace Pdf { namespace Tests { class RegressionTests_v19_5; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Facades { class PdfFileSecurityTests; } } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextEditOptions; } } }
+namespace Aspose { namespace Pdf { enum class PdfFormat; } }
+namespace Aspose { namespace Pdf { enum class Direction; } }
+namespace Aspose { namespace Pdf { enum class PageMode; } }
+namespace Aspose { namespace Pdf { enum class PageLayout; } }
+namespace Aspose { namespace Pdf { enum class PrintDuplex; } }
 namespace Aspose { namespace Pdf { class Collection; } }
 namespace Aspose { namespace Pdf { class Metadata; } }
 namespace Aspose { namespace Pdf { class Copier; } }
@@ -270,15 +279,10 @@ namespace Aspose { namespace Pdf { class PageLabelCollection; } }
 namespace Aspose { namespace Pdf { class PageInfo; } }
 namespace Aspose { namespace Pdf { class JavaScriptCollection; } }
 namespace Aspose { namespace Rendering { class ApsPage; } }
-namespace Aspose { namespace Pdf { enum class PdfFormat; } }
 namespace Aspose { namespace Pdf { namespace Text { class IFontSubstitutionRegistrator; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Fonts { namespace Utilities { class IDocumentFontSaveOptions; } } } } } } }
 namespace Aspose { namespace Pdf { namespace Engine { class IPdfDocument; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class IAppointment; } } }
-namespace Aspose { namespace Pdf { enum class Direction; } }
-namespace Aspose { namespace Pdf { enum class PageMode; } }
-namespace Aspose { namespace Pdf { enum class PageLayout; } }
-namespace Aspose { namespace Pdf { enum class PrintDuplex; } }
 namespace Aspose { namespace Pdf { namespace Structure { class RootElement; } } }
 namespace Aspose { namespace Pdf { class Id; } }
 namespace Aspose { namespace Pdf { class Color; } }
@@ -288,9 +292,9 @@ namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class ITr
 namespace Aspose { namespace Pdf { namespace Text { class Font; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Addressing { class IRegistrar; } } } }
 namespace Aspose { namespace Pdf { enum class FontSubsetStrategy : uint8_t; } }
+namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Encoding { namespace PdfFontEncoding { enum class SimpleFontEncodingRules : uint8_t; } } } } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { class IDocumentSecondaryStrategiesDefaults; } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Encoding { namespace PdfFontEncoding { class SimpleFontEncodingStrategy; } } } } } } }
-namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Encoding { namespace PdfFontEncoding { enum class SimpleFontEncodingRules : uint8_t; } } } } } } }
 namespace Aspose { namespace Pdf { class HtmlSaveOptions; } }
 namespace Aspose { namespace Pdf { class SaveOptions; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
@@ -394,6 +398,8 @@ class ASPOSE_PDF_SHARED_API Document FINAL : public System::IDisposable, public 
     friend class Aspose::Pdf::Optimization::ResourceOptimizer;
     friend class Aspose::Pdf::Optimization::UnusedObjectsScanner;
     friend class Aspose::Pdf::Text::EvaluationTextExportInspector;
+    template<typename FT0> friend class Aspose::Pdf::Text::TableElementCollection;
+    template<typename FT0> friend class Aspose::Pdf::Text::TableElementCollection;
     friend class Aspose::Pdf::HeaderFooter;
     friend class Aspose::Pdf::ApsUsingConverter;
     friend class Aspose::Pdf::DestinationCollection;
@@ -458,9 +464,11 @@ class ASPOSE_PDF_SHARED_API Document FINAL : public System::IDisposable, public 
     friend class Aspose::Pdf::ImagePlacementAbsorber;
     friend class Aspose::Pdf::Text::CharInfoCollection;
     friend class Aspose::Pdf::Text::CharInfoCollection;
-    friend class Aspose::Pdf::Text::FontCollection;
-    friend class Aspose::Pdf::Text::FontCollection;
+    friend class Aspose::Pdf::Text::TextParagraphCollection;
+    friend class Aspose::Pdf::Text::TextParagraphCollection;
     friend class Aspose::Pdf::Text::TextAbsorber;
+    friend class Aspose::Pdf::Text::FontCollection;
+    friend class Aspose::Pdf::Text::FontCollection;
     friend class Aspose::Pdf::Text::TextFragmentAbsorber;
     friend class Aspose::Pdf::Text::TextSegmentCollection;
     friend class Aspose::Pdf::XForm;
@@ -528,6 +536,9 @@ class ASPOSE_PDF_SHARED_API Document FINAL : public System::IDisposable, public 
     friend class Aspose::Pdf::Tests::RegressionTests_v18_7;
     friend class Aspose::Pdf::Tests::RegressionTests_v18_9;
     friend class Aspose::Pdf::Tests::RegressionTests_v19_2;
+    friend class Aspose::Pdf::Tests::RegressionTests_v19_6;
+    friend class Aspose::Pdf::Tests::RegressionTests_v19_7;
+    friend class Aspose::Pdf::Tests::RegressionTests_v19_8;
     friend class Aspose::Pdf::Tests::Engine::CommonData::Text::Fonts::FontSubstitutionRegistratorTests;
     friend class Aspose::Pdf::Tests::Engine::IO::PdfUaConvertTests;
     friend class Aspose::Pdf::Tests::Engine::IO::PdfUaGenerateTests;
@@ -771,12 +782,12 @@ public:
     /// </summary>
     static bool get_IsLicensed();
     /// <summary>
-    /// Gets or sets the page info.(for generator only)
+    /// Gets the page info.(for generator only)
     /// </summary>
     /// <value>The page info.</value>
     System::SharedPtr<Aspose::Pdf::PageInfo> get_PageInfo();
     /// <summary>
-    /// Gets or sets the page info.(for generator only)
+    /// Sets the page info.(for generator only)
     /// </summary>
     /// <value>The page info.</value>
     void set_PageInfo(System::SharedPtr<Aspose::Pdf::PageInfo> value);
@@ -789,11 +800,11 @@ public:
     /// </summary>
     bool get_IsPdfUaCompliant();
     /// <summary>
-    /// Gets or sets  the is document pdfa compliant.
+    /// Gets  the is document pdfa compliant.
     /// </summary>
     bool get_IsXrefGapsAllowed();
     /// <summary>
-    /// Gets or sets  the is document pdfa compliant.
+    /// Sets  the is document pdfa compliant.
     /// </summary>
     void set_IsXrefGapsAllowed(bool value);
     /// <summary>
@@ -848,7 +859,7 @@ public:
     /// </summary>
     System::String get_Version();
     /// <summary>
-    /// Gets or sets action performed at document opening. 
+    /// Gets action performed at document opening. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get CenterWindow flag:
@@ -859,7 +870,7 @@ public:
     /// </example>
     System::SharedPtr<Annotations::IAppointment> get_OpenAction();
     /// <summary>
-    /// Gets or sets action performed at document opening. 
+    /// Sets action performed at document opening. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get CenterWindow flag:
@@ -870,7 +881,7 @@ public:
     /// </example>
     void set_OpenAction(System::SharedPtr<Annotations::IAppointment> value);
     /// <summary>
-    /// Gets or sets flag specifying whether toolbar should be hidden when document is active. 
+    /// Gets flag specifying whether toolbar should be hidden when document is active. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get HideToolBar flag:
@@ -881,7 +892,7 @@ public:
     /// </example>
     bool get_HideToolBar();
     /// <summary>
-    /// Gets or sets flag specifying whether toolbar should be hidden when document is active. 
+    /// Sets flag specifying whether toolbar should be hidden when document is active. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get HideToolBar flag:
@@ -892,7 +903,7 @@ public:
     /// </example>
     void set_HideToolBar(bool value);
     /// <summary>
-    /// Gets or sets flag specifying whether menu bar should be hidden when document is active. 
+    /// Gets flag specifying whether menu bar should be hidden when document is active. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get HideMenubar flag:
@@ -903,7 +914,7 @@ public:
     /// </example>
     bool get_HideMenubar();
     /// <summary>
-    /// Gets or sets flag specifying whether menu bar should be hidden when document is active. 
+    /// Sets flag specifying whether menu bar should be hidden when document is active. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get HideMenubar flag:
@@ -914,7 +925,7 @@ public:
     /// </example>
     void set_HideMenubar(bool value);
     /// <summary>
-    /// Gets or sets flag specifying whether user interface elements should be hidden when document is active. 
+    /// Gets flag specifying whether user interface elements should be hidden when document is active. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get HideWindowUI flag:
@@ -925,7 +936,7 @@ public:
     /// </example>
     bool get_HideWindowUI();
     /// <summary>
-    /// Gets or sets flag specifying whether user interface elements should be hidden when document is active. 
+    /// Sets flag specifying whether user interface elements should be hidden when document is active. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get HideWindowUI flag:
@@ -936,7 +947,7 @@ public:
     /// </example>
     void set_HideWindowUI(bool value);
     /// <summary>
-    /// Gets or sets flag specifying whether document window must be resized to fit the first displayed page. 
+    /// Gets flag specifying whether document window must be resized to fit the first displayed page. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get FitWindow flag:
@@ -947,7 +958,7 @@ public:
     /// </example>
     bool get_FitWindow();
     /// <summary>
-    /// Gets or sets flag specifying whether document window must be resized to fit the first displayed page. 
+    /// Sets flag specifying whether document window must be resized to fit the first displayed page. 
     /// </summary>
     /// <example>
     /// Example demonstrates how to get FitWindow flag:
@@ -958,7 +969,7 @@ public:
     /// </example>
     void set_FitWindow(bool value);
     /// <summary>
-    /// Gets or sets flag specifying whether position of the document's window will be centerd on the screen.
+    /// Gets flag specifying whether position of the document's window will be centerd on the screen.
     /// </summary>
     /// <example>
     /// Example demonstrates how to get CenterWindow flag:
@@ -969,7 +980,7 @@ public:
     /// </example>
     bool get_CenterWindow();
     /// <summary>
-    /// Gets or sets flag specifying whether position of the document's window will be centerd on the screen.
+    /// Sets flag specifying whether position of the document's window will be centerd on the screen.
     /// </summary>
     /// <example>
     /// Example demonstrates how to get CenterWindow flag:
@@ -980,7 +991,7 @@ public:
     /// </example>
     void set_CenterWindow(bool value);
     /// <summary>
-    /// Gets or sets flag specifying whether document's window title bar should display document title.
+    /// Gets flag specifying whether document's window title bar should display document title.
     /// </summary>
     /// <example>
     /// Example demonstrates how to get DisplayDocTitle flag:
@@ -991,7 +1002,7 @@ public:
     /// </example>
     bool get_DisplayDocTitle();
     /// <summary>
-    /// Gets or sets flag specifying whether document's window title bar should display document title.
+    /// Sets flag specifying whether document's window title bar should display document title.
     /// </summary>
     /// <example>
     /// Example demonstrates how to get DisplayDocTitle flag:
@@ -1002,7 +1013,7 @@ public:
     /// </example>
     void set_DisplayDocTitle(bool value);
     /// <summary>
-    /// Gets or sets collection of document pages.
+    /// Gets collection of document pages.
     /// Note that pages are numbered from 1 in collection.
     /// </summary>
     /// <example>
@@ -1042,43 +1053,43 @@ public:
     /// </summary>
     System::SharedPtr<EmbeddedFileCollection> get_EmbeddedFiles();
     /// <summary>
-    /// Gets or sets reading order of text: L2R (left to right) or R2L (right to left).
+    /// Gets reading order of text: L2R (left to right) or R2L (right to left).
     /// </summary>
     Aspose::Pdf::Direction get_Direction();
     /// <summary>
-    /// Gets or sets reading order of text: L2R (left to right) or R2L (right to left).
+    /// Sets reading order of text: L2R (left to right) or R2L (right to left).
     /// </summary>
     void set_Direction(Aspose::Pdf::Direction value);
     /// <summary>
-    /// Gets or sets page mode, specifying how document should be displayed when opened. 
+    /// Gets page mode, specifying how document should be displayed when opened. 
     /// </summary>
     Aspose::Pdf::PageMode get_PageMode();
     /// <summary>
-    /// Gets or sets page mode, specifying how document should be displayed when opened. 
+    /// Sets page mode, specifying how document should be displayed when opened. 
     /// </summary>
     void set_PageMode(Aspose::Pdf::PageMode value);
     /// <summary>
-    /// Gets or sets page mode, specifying how to display the document on exiting full-screen mode.
+    /// Gets page mode, specifying how to display the document on exiting full-screen mode.
     /// </summary>
     Aspose::Pdf::PageMode get_NonFullScreenPageMode();
     /// <summary>
-    /// Gets or sets page mode, specifying how to display the document on exiting full-screen mode.
+    /// Sets page mode, specifying how to display the document on exiting full-screen mode.
     /// </summary>
     void set_NonFullScreenPageMode(Aspose::Pdf::PageMode value);
     /// <summary>
-    /// Gets or sets page layout which shall be used when the document is opened.
+    /// Gets page layout which shall be used when the document is opened.
     /// </summary>
     Aspose::Pdf::PageLayout get_PageLayout();
     /// <summary>
-    /// Gets or sets page layout which shall be used when the document is opened.
+    /// Sets page layout which shall be used when the document is opened.
     /// </summary>
     void set_PageLayout(Aspose::Pdf::PageLayout value);
     /// <summary>
-    /// Gets or sets print duplex mode handling option to use when printing the file from the print dialog.
+    /// Gets print duplex mode handling option to use when printing the file from the print dialog.
     /// </summary>
     PrintDuplex get_Duplex();
     /// <summary>
-    /// Gets or sets print duplex mode handling option to use when printing the file from the print dialog.
+    /// Sets print duplex mode handling option to use when printing the file from the print dialog.
     /// </summary>
     void set_Duplex(PrintDuplex value);
     /// <summary>
@@ -1108,11 +1119,11 @@ public:
     /// </summary>
     System::Nullable<Aspose::Pdf::CryptoAlgorithm> get_CryptoAlgorithm();
     /// <summary>
-    /// Gets or sets a value indicating whether document is linearized.
+    /// Gets a value indicating whether document is linearized.
     /// </summary>
     bool get_IsLinearized();
     /// <summary>
-    /// Gets or sets a value indicating whether document is linearized.
+    /// Sets a value indicating whether document is linearized.
     /// </summary>
     void set_IsLinearized(bool value);
     /// <summary>
@@ -1128,22 +1139,22 @@ public:
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Id> get_Id();
     /// <summary>
-    /// Gets or sets the background color of the document.
+    /// Gets the background color of the document.
     /// </summary>
     System::SharedPtr<Color> get_Background();
     /// <summary>
-    /// Gets or sets the background color of the document.
+    /// Sets the background color of the document.
     /// </summary>
     void set_Background(System::SharedPtr<Color> value);
     /// <summary>
-    /// Gets or sets optimization flag. When pages are added to document, equal resource streams in resultant file are
+    /// Gets optimization flag. When pages are added to document, equal resource streams in resultant file are
     /// merged into one PDF object if this flag set. 
     /// This allows to decrease resultant file size but may cause slower execution and larger memory requirements.
     /// Default value: false.
     /// </summary>
     bool get_OptimizeSize();
     /// <summary>
-    /// Gets or sets optimization flag. When pages are added to document, equal resource streams in resultant file are
+    /// Sets optimization flag. When pages are added to document, equal resource streams in resultant file are
     /// merged into one PDF object if this flag set. 
     /// This allows to decrease resultant file size but may cause slower execution and larger memory requirements.
     /// Default value: false.
@@ -1160,7 +1171,7 @@ public:
     /// </summary>
     void set_AllowReusePageContent(bool value);
     /// <summary>
-    /// Gets or sets flag of ignoring errors in source files. 
+    /// Gets flag of ignoring errors in source files. 
     /// When pages from source document copied into destination document, copying process is stopped with exception 
     /// if some objects in source files are corrupted when this flag is false. 
     /// example: dest.Pages.Add(src.Pages);
@@ -1169,7 +1180,7 @@ public:
     /// </summary>
     bool get_IgnoreCorruptedObjects();
     /// <summary>
-    /// Gets or sets flag of ignoring errors in source files. 
+    /// Sets flag of ignoring errors in source files. 
     /// When pages from source document copied into destination document, copying process is stopped with exception 
     /// if some objects in source files are corrupted when this flag is false. 
     /// example: dest.Pages.Add(src.Pages);
@@ -1311,6 +1322,11 @@ public:
     /// <param name="fileName">XFDF file name</param>
     void ExportAnnotationsToXfdf(System::String fileName);
     /// <summary>
+    /// Export all document annotations into stream.
+    /// </summary>
+    /// <param name="stream">Stream where store XFDF.</param>
+    void ExportAnnotationsToXfdf(System::SharedPtr<System::IO::Stream> stream);
+    /// <summary>
     /// Sends the whole document to the document device for processing.
     /// </summary>
     /// <param name="device">
@@ -1372,6 +1388,11 @@ public:
     /// <param name="fileName">XFDF file name</param>
     void ImportAnnotationsFromXfdf(System::String fileName);
     /// <summary>
+    /// Imports annotations from stream to document.
+    /// </summary>
+    /// <param name="stream">Stream contains XFDF data.</param>
+    void ImportAnnotationsFromXfdf(System::SharedPtr<System::IO::Stream> stream);
+    /// <summary>
     /// Validate document into the specified file.
     /// </summary>
     /// <param name="outputLogFileName">Path to file where the comments will be stored.</param>
@@ -1387,6 +1408,15 @@ public:
     /// <param name="transparencyAction">Action for image masked objects</param>
     /// <returns>The operation result</returns>
     bool Convert(System::String outputLogFileName, Aspose::Pdf::PdfFormat format, ConvertErrorAction action, ConvertTransparencyAction transparencyAction);
+    /// <summary>
+    /// Convert document and save errors into the specified file.
+    /// </summary>
+    /// <param name="outputLogStream">Stream where the comments will be stored.</param>
+    /// <param name="format">The pdf format.</param>
+    /// <param name="action">Action for objects that can not be converted</param>
+    /// <param name="transparencyAction">Action for image masked objects</param>
+    /// <returns>The operation result</returns>
+    bool Convert(System::SharedPtr<System::IO::Stream> outputLogStream, Aspose::Pdf::PdfFormat format, ConvertErrorAction action, ConvertTransparencyAction transparencyAction);
     /// <summary>
     /// Convert document and save errors into the specified file.
     /// </summary>
@@ -1933,6 +1963,13 @@ private:
     /// </summary>
     void FinishPdfAConversion();
     void assertObject();
+    /// <summary>
+    ///  This method is full functional analogue of ParsePdf method of Pdf class of old Generator
+    ///  and put here during works related to it's merging 
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    System::SharedPtr<LoadOptions> GetRelevantLoadingOptions(System::SharedPtr<System::IO::Stream> input);
     void InitDocument();
     void FixAnnotations(System::SharedPtr<Page> page);
     void CallFormatEvent(System::String fieldName);

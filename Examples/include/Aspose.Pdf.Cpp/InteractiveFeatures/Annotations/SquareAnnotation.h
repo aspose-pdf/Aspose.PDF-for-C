@@ -1,7 +1,6 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-#include <system/collections/list.h>
 #include <system/array.h>
 
 #include "InteractiveFeatures/Annotations/CommonFigureAnnotation.h"

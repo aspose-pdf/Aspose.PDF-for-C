@@ -79,7 +79,7 @@ public:
     /// </summary>
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<PageMarkup>>> get_PageMarkups();
     /// <summary>
-    /// Gets or sets value that instructs how many times sequential searches for more fine elements of structure will be performed.
+    /// Gets value that instructs how many times sequential searches for more fine elements of structure will be performed.
     /// Default search depth is 3.
     /// It means three searches for horizontally divided sections (headers, paragraphs etc) and three searches for vertically divided ones (columns).
     /// </summary>
@@ -90,7 +90,7 @@ public:
     /// </remarks>
     int32_t get_SectionsSearchDepth();
     /// <summary>
-    /// Gets or sets value that instructs how many times sequential searches for more fine elements of structure will be performed.
+    /// Sets value that instructs how many times sequential searches for more fine elements of structure will be performed.
     /// Default search depth is 3.
     /// It means three searches for horizontally divided sections (headers, paragraphs etc) and three searches for vertically divided ones (columns).
     /// </summary>

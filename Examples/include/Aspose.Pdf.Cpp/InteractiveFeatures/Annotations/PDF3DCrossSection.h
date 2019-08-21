@@ -44,29 +44,29 @@ class ASPOSE_PDF_SHARED_API PDF3DCrossSection : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets the cross section rotation center.
+    /// Gets the cross section rotation center.
     /// </summary>
     /// <value>The center.</value>
     System::SharedPtr<Point3D> get_Center();
     /// <summary>
-    /// Gets or sets the cross section rotation center.
+    /// Sets the cross section rotation center.
     /// </summary>
     /// <value>The center.</value>
     void set_Center(System::SharedPtr<Point3D> value);
     /// <summary>
-    /// Gets or sets the cutting plane opacity.
+    /// Gets the cutting plane opacity.
     /// </summary>
     /// <value>The cutting plane opacity.</value>
     /// <exception cref="Exception">The number must be in the range [0 , 1]</exception>
     double get_CuttingPlaneOpacity();
     /// <summary>
-    /// Gets or sets the cutting plane opacity.
+    /// Sets the cutting plane opacity.
     /// </summary>
     /// <value>The cutting plane opacity.</value>
     /// <exception cref="Exception">The number must be in the range [0 , 1]</exception>
     void set_CuttingPlaneOpacity(double value);
     /// <summary>
-    /// Gets or sets the cutting plane orientation.
+    /// Gets the cutting plane orientation.
     /// </summary>
     /// <value>The cutting plane orientation.</value>
     /// <exception cref="Exception">
@@ -74,7 +74,7 @@ public:
     /// </exception>
     System::SharedPtr<PDF3DCuttingPlaneOrientation> get_CuttingPlaneOrientation();
     /// <summary>
-    /// Gets or sets the cutting plane orientation.
+    /// Sets the cutting plane orientation.
     /// </summary>
     /// <value>The cutting plane orientation.</value>
     /// <exception cref="Exception">
@@ -82,32 +82,32 @@ public:
     /// </exception>
     void set_CuttingPlaneOrientation(System::SharedPtr<PDF3DCuttingPlaneOrientation> value);
     /// <summary>
-    /// Gets or sets the color of the cutting plane.
+    /// Gets the color of the cutting plane.
     /// </summary>
     /// <value>The color of the cutting plane.</value>
     System::SharedPtr<Color> get_CuttingPlaneColor();
     /// <summary>
-    /// Gets or sets the color of the cutting plane.
+    /// Sets the color of the cutting plane.
     /// </summary>
     /// <value>The color of the cutting plane.</value>
     void set_CuttingPlaneColor(System::SharedPtr<Color> value);
     /// <summary>
-    /// Gets or sets the color of the cutting planes intersection.
+    /// Gets the color of the cutting planes intersection.
     /// </summary>
     /// <value>The color of the cutting planes intersection.</value>
     System::SharedPtr<Color> get_CuttingPlanesIntersectionColor();
     /// <summary>
-    /// Gets or sets the color of the cutting planes intersection.
+    /// Sets the color of the cutting planes intersection.
     /// </summary>
     /// <value>The color of the cutting planes intersection.</value>
     void set_CuttingPlanesIntersectionColor(System::SharedPtr<Color> value);
     /// <summary>
-    /// Gets or sets a value indicating visibility of the cutting planes intersection.
+    /// Gets a value indicating visibility of the cutting planes intersection.
     /// </summary>
     /// <value><c>true</c> if visible; otherwise, <c>false</c>.</value>
     bool get_Visibility();
     /// <summary>
-    /// Gets or sets a value indicating visibility of the cutting planes intersection.
+    /// Sets a value indicating visibility of the cutting planes intersection.
     /// </summary>
     /// <value><c>true</c> if visible; otherwise, <c>false</c>.</value>
     void set_Visibility(bool value);

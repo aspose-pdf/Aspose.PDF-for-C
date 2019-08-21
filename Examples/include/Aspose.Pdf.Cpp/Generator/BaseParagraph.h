@@ -23,12 +23,11 @@ namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { class Page; } }
 namespace Aspose { namespace Pdf { class Cell; } }
 namespace Aspose { namespace Pdf { class Table; } }
-namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
+namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
 namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
 namespace Aspose { namespace Pdf { class MarginInfo; } }
 namespace Aspose { namespace Pdf { class Hyperlink; } }
 namespace Aspose { namespace Pdf { namespace Annotations { class LinkAnnotation; } } }
-namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
 namespace Aspose { namespace Pdf { class Rectangle; } }
 
 namespace Aspose {
@@ -62,120 +61,123 @@ class ASPOSE_PDF_SHARED_API BaseParagraph : public System::ICloneable
 public:
 
     /// <summary>
-    /// Gets or sets a vertical alignment of paragraph 
+    /// Gets a vertical alignment of paragraph 
     /// </summary>
     virtual Aspose::Pdf::VerticalAlignment get_VerticalAlignment();
     /// <summary>
-    /// Gets or sets a vertical alignment of paragraph 
+    /// Sets a vertical alignment of paragraph 
     /// </summary>
     virtual void set_VerticalAlignment(Aspose::Pdf::VerticalAlignment value);
     /// <summary>
-    /// Gets or sets a horizontal alignment of paragraph 
+    /// Gets a horizontal alignment of paragraph 
     /// </summary>
     virtual Aspose::Pdf::HorizontalAlignment get_HorizontalAlignment();
     /// <summary>
-    /// Gets or sets a horizontal alignment of paragraph 
+    /// Sets a horizontal alignment of paragraph 
     /// </summary>
     virtual void set_HorizontalAlignment(Aspose::Pdf::HorizontalAlignment value);
     /// <summary>
-    /// Gets or sets a outer margin for paragraph (for pdf generation)
+    /// Gets a outer margin for paragraph (for pdf generation)
     /// </summary>
     System::SharedPtr<MarginInfo> get_Margin();
     /// <summary>
-    /// Gets or sets a outer margin for paragraph (for pdf generation)
+    /// Sets a outer margin for paragraph (for pdf generation)
     /// </summary>
     void set_Margin(System::SharedPtr<MarginInfo> value);
     /// <summary>
-    /// Gets or sets a bool value that indicates whether this paragraph will be at next column.
+    /// Gets a bool value that indicates whether this paragraph will be at next column.
     /// Default is false.(for pdf generation)
     /// </summary>
     bool get_IsFirstParagraphInColumn();
     /// <summary>
-    /// Gets or sets a bool value that indicates whether this paragraph will be at next column.
+    /// Sets a bool value that indicates whether this paragraph will be at next column.
     /// Default is false.(for pdf generation)
     /// </summary>
     void set_IsFirstParagraphInColumn(bool value);
     /// <summary>
-    /// Gets or sets a bool value that indicates whether current paragraph remains in the same page along with next paragraph.
+    /// Gets a bool value that indicates whether current paragraph remains in the same page along with next paragraph.
     /// Default is false.(for pdf generation)
     /// </summary>
     bool get_IsKeptWithNext();
     /// <summary>
-    /// Gets or sets a bool value that indicates whether current paragraph remains in the same page along with next paragraph.
+    /// Sets a bool value that indicates whether current paragraph remains in the same page along with next paragraph.
     /// Default is false.(for pdf generation)
     /// </summary>
     void set_IsKeptWithNext(bool value);
     /// <summary>
-    /// Gets or sets a bool value that force this paragraph generates at new page.
+    /// Gets a bool value that force this paragraph generates at new page.
     /// Default is false.(for pdf generation)
     /// </summary>
     bool get_IsInNewPage();
     /// <summary>
-    /// Gets or sets a bool value that force this paragraph generates at new page.
+    /// Sets a bool value that force this paragraph generates at new page.
     /// Default is false.(for pdf generation)
     /// </summary>
     void set_IsInNewPage(bool value);
     /// <summary>
-    /// Gets or sets a paragraph is inline.
+    /// Gets a paragraph is inline.
     /// Default is false.(for pdf generation)
     /// </summary>
     bool get_IsInLineParagraph();
     /// <summary>
-    /// Gets or sets a paragraph is inline.
+    /// Sets a paragraph is inline.
     /// Default is false.(for pdf generation)
     /// </summary>
     void set_IsInLineParagraph(bool value);
     /// <summary>
-    /// Gets or sets the fragment hyperlink(for pdf generator).
+    /// Gets the fragment hyperlink(for pdf generator).
     /// </summary>
     virtual System::SharedPtr<Aspose::Pdf::Hyperlink> get_Hyperlink();
     /// <summary>
-    /// Gets or sets the fragment hyperlink(for pdf generator).
+    /// Sets the fragment hyperlink(for pdf generator).
     /// </summary>
     virtual void set_Hyperlink(System::SharedPtr<Aspose::Pdf::Hyperlink> value);
     /// <summary>
-    /// Gets or sets a int value that indicates the Z-order of the graph. A graph with larger ZIndex 
+    /// Gets a int value that indicates the Z-order of the graph. A graph with larger ZIndex 
     /// will be placed over the graph with smaller ZIndex. ZIndex can be negative. Graph with negative 
     /// ZIndex will be placed behind the text in the page.
     /// </summary>
     int32_t get_ZIndex();
     /// <summary>
-    /// Gets or sets a int value that indicates the Z-order of the graph. A graph with larger ZIndex 
+    /// Sets a int value that indicates the Z-order of the graph. A graph with larger ZIndex 
     /// will be placed over the graph with smaller ZIndex. ZIndex can be negative. Graph with negative 
     /// ZIndex will be placed behind the text in the page.
     /// </summary>
     void set_ZIndex(int32_t value);
     
+    /// <summary>
+    /// Clones this instance.
+    /// Virtual method. Always return null.
+    /// </summary>
+    /// <returns></returns>
     virtual System::SharedPtr<System::Object> Clone();
     
     BaseParagraph();
     
 protected:
 
-    System::SharedPtr<Engine::Data::IPdfObject> linkobject;
-    
     /// <summary>
-    /// Gets or sets a paragraph id.
+    /// Gets a paragraph id.
     /// </summary>
     System::String get_Id();
     /// <summary>
-    /// Gets or sets a paragraph id.
+    /// Sets a paragraph id.
     /// </summary>
     void set_Id(System::String value);
     /// <summary>
-    /// Gets or sets the fragment hyperlink(for pdf generator performance internal use).
+    /// Gets the fragment hyperlink(for pdf generator performance internal use).
     /// </summary>
     static bool get_IsZIndexSet();
     /// <summary>
-    /// Gets or sets the fragment hyperlink(for pdf generator performance internal use).
+    /// Sets the fragment hyperlink(for pdf generator performance internal use).
     /// </summary>
     static void set_IsZIndexSet(bool value);
     /// <summary>
-    /// Gets or sets the fragment hyperlink(for pdf generator internal use).
+    /// Gets the fragment hyperlink(for pdf generator internal use).
     /// </summary>
     System::SharedPtr<Annotations::LinkAnnotation> get_ReferencedFrom();
     /// <summary>
-    /// Gets or sets the fragment hyperlink(for pdf generator internal use).
+    /// Sets the fragment hyperlink(for pdf generator internal use).
     /// </summary>
     void set_ReferencedFrom(System::SharedPtr<Annotations::LinkAnnotation> value);
     
@@ -189,17 +191,17 @@ private:
 
     Aspose::Pdf::HorizontalAlignment horizontalAlignment;
     System::SharedPtr<MarginInfo> margin;
-    System::String id;
-    bool isFirstParagraphInColumn;
     bool isFootNoteParagraph;
-    bool isKeptWithNext;
-    bool isInNewPage;
-    bool isInLineParagraph;
     System::SharedPtr<Aspose::Pdf::Hyperlink> hyperlink;
-    System::SharedPtr<Annotations::LinkAnnotation> referencedFrom;
     Aspose::Pdf::VerticalAlignment verticalAlignment;
     int32_t zindex;
-    static bool isZindexSet;
+    System::String pr_Id;
+    bool pr_IsFirstParagraphInColumn;
+    bool pr_IsKeptWithNext;
+    bool pr_IsInNewPage;
+    bool pr_IsInLineParagraph;
+    static bool pr_IsZIndexSet;
+    System::SharedPtr<Annotations::LinkAnnotation> pr_ReferencedFrom;
     
 };
 

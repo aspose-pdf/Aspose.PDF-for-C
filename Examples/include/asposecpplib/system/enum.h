@@ -67,6 +67,9 @@ namespace System
             {
                 if (static_cast<UnderlyingType>(val.first))
                 {
+                    if (static_cast<E>(value) == val.first)
+                        return val.second;
+
                     if (Enum<E,G>::HasFlag(static_cast<E>(value), val.first))
                     {
                         if (!first)

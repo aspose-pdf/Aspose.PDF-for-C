@@ -9,6 +9,7 @@
 
 namespace Aspose { namespace Pdf { namespace Engine { namespace CommonData { namespace Text { namespace Segmenting { class PhysicalTextSegment; } } } } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextFragmentAbsorber; } } }
+namespace Aspose { namespace Pdf { namespace Text { class Font; } } }
 
 namespace Aspose {
 
@@ -46,7 +47,11 @@ public:
         /// <summary>
         /// Replace text anyway without font substitution
         /// </summary>
-        ReplaceAnyway
+        ReplaceAnyway,
+        /// <summary>
+        /// Repalce font to defined replacement font
+        /// </summary>
+        UseCustomReplacementFont
     };
     
     enum class FontReplace
@@ -96,11 +101,19 @@ protected:
 public:
 
     /// <summary>
-    /// Gets or sets mode that defines behavior in case fonts don't contain requested characters.
+    /// Gets font used for replacing if user font does not contain required character
+    /// </summary>
+    System::SharedPtr<Font> get_ReplacementFont();
+    /// <summary>
+    /// Sets font used for replacing if user font does not contain required character
+    /// </summary>
+    void set_ReplacementFont(System::SharedPtr<Font> value);
+    /// <summary>
+    /// Gets mode that defines behavior in case fonts don't contain requested characters.
     /// </summary>
     TextEditOptions::NoCharacterAction get_NoCharacterBehavior();
     /// <summary>
-    /// Gets or sets mode that defines behavior in case fonts don't contain requested characters.
+    /// Sets mode that defines behavior in case fonts don't contain requested characters.
     /// </summary>
     void set_NoCharacterBehavior(TextEditOptions::NoCharacterAction value);
     /// <summary>
@@ -112,13 +125,13 @@ public:
     /// </summary>
     void set_FontReplaceBehavior(TextEditOptions::FontReplace value);
     /// <summary>
-    /// Gets or sets value that permits usage of language transformation during adding or editing of text.
+    /// Gets value that permits usage of language transformation during adding or editing of text.
     /// true - language transformation will be applied if necessary (default value).
     /// false - language transformation will NOT be applied.
     /// </summary>
     bool get_AllowLanguageTransformation();
     /// <summary>
-    /// Gets or sets value that permits usage of language transformation during adding or editing of text.
+    /// Sets value that permits usage of language transformation during adding or editing of text.
     /// true - language transformation will be applied if necessary (default value).
     /// false - language transformation will NOT be applied.
     /// </summary>
@@ -132,12 +145,12 @@ public:
     /// </summary>
     void set_LanguageTransformationBehavior(TextEditOptions::LanguageTransformation value);
     /// <summary>
-    /// Gets or sets value that permits searching for text underlining on the page of source document.
+    /// Gets value that permits searching for text underlining on the page of source document.
     /// (Obsolete) Please use TextSearchOptions.SearchForTextRelatedGraphics instead this.
     /// </summary>
     bool get_ToAttemptGetUnderlineFromSource();
     /// <summary>
-    /// Gets or sets value that permits searching for text underlining on the page of source document.
+    /// Sets value that permits searching for text underlining on the page of source document.
     /// (Obsolete) Please use TextSearchOptions.SearchForTextRelatedGraphics instead this.
     /// </summary>
     void set_ToAttemptGetUnderlineFromSource(bool value);
@@ -195,6 +208,7 @@ protected:
 private:
 
     TextEditOptions::NoCharacterAction noCharacterBehavior;
+    System::SharedPtr<Font> replacementFont;
     TextEditOptions::TextRearrangement rearrangementMode;
     TextEditOptions::FontReplace fontReplace;
     TextEditOptions::LanguageTransformation languageTransformation;

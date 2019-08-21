@@ -227,7 +227,7 @@ public:
     /// Determines whether the specified character is classified as a ASCII white space character.
     /// @param c The characetr to test
     /// @returns True if the specified character is a ASCII white space character, otherwise - false
-    static bool IsAsciiWhiteSpace(char_t c)
+    static constexpr bool IsAsciiWhiteSpace(char_t c)
     {
         return c == 0x20 || (c >= 0x09 && c <= 0x0d);
     }
@@ -380,11 +380,15 @@ public:
         return true;
     }
 
-    /// NOT IMPLEMENTED
     /// Convernts the specified UTF-16 character into double-precision floating-point numerical value.
     /// @param c UTF-16 character to convert
     /// @returns Numerical representation of the specified character.
     static ASPOSECPP_SHARED_API double GetNumericValue(char_t c);
+
+    /// Converts the first and the only character of the specified string to a char_t value.
+    /// @param value The string to convert.
+    /// @returns The first and the only character of the specified string if it is exactly 1 characetr long.
+    static ASPOSECPP_SHARED_API char_t Parse(const String& value);
 
 protected:
 

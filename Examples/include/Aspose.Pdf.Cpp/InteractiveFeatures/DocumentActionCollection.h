@@ -31,27 +31,27 @@ class ASPOSE_PDF_SHARED_API DocumentActionCollection FINAL : public System::Obje
 public:
 
     /// <summary>
-    /// Gets or sets action performed before document saving.
+    /// Gets action performed before document saving.
     /// </summary>
     System::SharedPtr<PdfAction> get_BeforeSaving();
     /// <summary>
-    /// Gets or sets action performed before document saving.
+    /// Sets action performed before document saving.
     /// </summary>
     void set_BeforeSaving(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets action that will be performed before documetn closing.
+    /// Gets action that will be performed before documetn closing.
     /// </summary>
     System::SharedPtr<PdfAction> get_BeforeClosing();
     /// <summary>
-    /// Gets or sets action that will be performed before documetn closing.
+    /// Sets action that will be performed before documetn closing.
     /// </summary>
     void set_BeforeClosing(System::SharedPtr<PdfAction> value);
     /// <summary>
-    /// Gets or sets action that will be performed after document saving.
+    /// Gets action that will be performed after document saving.
     /// </summary>
     System::SharedPtr<PdfAction> get_AfterSaving();
     /// <summary>
-    /// Gets or sets action that will be performed after document saving.
+    /// Sets action that will be performed after document saving.
     /// </summary>
     void set_AfterSaving(System::SharedPtr<PdfAction> value);
     /// <summary>

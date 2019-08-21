@@ -131,6 +131,7 @@ namespace Aspose { namespace Pdf { namespace Tagged { class TaggedContext; } } }
 namespace Aspose { namespace Pdf { namespace Interchange { class ContentSequenceMarkedGroup; } } }
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { namespace Facades { class PdfContentEditor; } } }
+namespace Aspose { namespace Pdf { class Table; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfName; } } } }
 namespace Aspose { namespace Pdf { namespace Operators { class BlockTextOperator; } } }
@@ -384,6 +385,10 @@ protected:
     Operator(int32_t index, System::SharedPtr<Engine::CommonData::PageContent::Operators::Commands::ICommand> command);
     
     /// <summary>
+    /// C++ specific. This function will be called from children's constructors
+    /// </summary>
+    void InitializeFromCommand();
+    /// <summary>
     /// Returns text representation of Pdf primitive (string, array, dictionary etc.) according to PDF specification.
     /// </summary>
     /// <param name="primitive">Primitive</param>
@@ -395,6 +400,7 @@ protected:
     /// <param name="s">Source string</param>
     /// <returns>Escaped string</returns>
     static System::String escape(System::String s);
+    /// <summary>
     /// This function is created to avoid .NET-specific IFormatProvider usage
     /// </summary>
     /// <param name="v">Value to be converted</param>
@@ -630,17 +636,18 @@ class ASPOSE_PDF_SHARED_API BDC : public Aspose::Pdf::Operator
     friend class Aspose::Pdf::Facades::PdfContentEditor;
     friend class Aspose::Pdf::Operator;
     friend class Aspose::Pdf::Page;
+    friend class Aspose::Pdf::Table;
     friend class Aspose::Pdf::Artifact;
     friend class Aspose::Pdf::Tests::Collections::OperatorCollectionTests;
     
 public:
 
     /// <summary>
-    /// Gets or sets marked content tag
+    /// Gets marked content tag
     /// </summary>
     System::String get_Tag();
     /// <summary>
-    /// Gets or sets marked content tag
+    /// Sets marked content tag
     /// </summary>
     void set_Tag(System::String value);
     
@@ -747,11 +754,11 @@ class ASPOSE_PDF_SHARED_API BMC : public Aspose::Pdf::Operator
 public:
 
     /// <summary>
-    /// Gets or sets marked content tag
+    /// Gets marked content tag
     /// </summary>
     System::String get_Tag();
     /// <summary>
-    /// Gets or sets marked content tag
+    /// Sets marked content tag
     /// </summary>
     void set_Tag(System::String value);
     
@@ -1259,11 +1266,11 @@ class ASPOSE_PDF_SHARED_API SetColorSpaceStroke : public Aspose::Pdf::Operator
 public:
 
     /// <summary>
-    /// Gets or sets color space name.
+    /// Gets color space name.
     /// </summary>
     System::String get_Name();
     /// <summary>
-    /// Gets or sets color space name.
+    /// Sets color space name.
     /// </summary>
     void set_Name(System::String value);
     
@@ -1315,11 +1322,11 @@ class ASPOSE_PDF_SHARED_API SetColorSpace : public Aspose::Pdf::Operator
 public:
 
     /// <summary>
-    /// Gets or sets color space name.
+    /// Gets color space name.
     /// </summary>
     System::String get_Name();
     /// <summary>
-    /// Gets or sets color space name.
+    /// Sets color space name.
     /// </summary>
     void set_Name(System::String value);
     
@@ -1657,11 +1664,11 @@ class ASPOSE_PDF_SHARED_API DP : public Aspose::Pdf::Operator
 public:
 
     /// <summary>
-    /// Gets or sets marked content tag
+    /// Gets marked content tag
     /// </summary>
     System::String get_Tag();
     /// <summary>
-    /// Gets or sets marked content tag
+    /// Sets marked content tag
     /// </summary>
     void set_Tag(System::String value);
     
@@ -2030,11 +2037,11 @@ class ASPOSE_PDF_SHARED_API GS : public Aspose::Pdf::Operator
 public:
 
     /// <summary>
-    /// Gets or sets name of graphic state resource.
+    /// Gets name of graphic state resource.
     /// </summary>
     System::String get_Name();
     /// <summary>
-    /// Gets or sets name of graphic state resource.
+    /// Sets name of graphic state resource.
     /// </summary>
     void set_Name(System::String value);
     
@@ -2133,11 +2140,11 @@ class ASPOSE_PDF_SHARED_API SetFlat : public Aspose::Pdf::Operator
 public:
 
     /// <summary>
-    /// Gets or sets the flatness.
+    /// Gets the flatness.
     /// </summary>
     double get_Flatness();
     /// <summary>
-    /// Gets or sets the flatness.
+    /// Sets the flatness.
     /// </summary>
     void set_Flatness(double value);
     
@@ -2292,11 +2299,11 @@ public:
 protected:
 
     /// <summary>
-    /// Gets or sets line caps style. 
+    /// Gets line caps style. 
     /// </summary>
     Aspose::Pdf::Engine::Presentation::Primitives::LineCap get_Cap();
     /// <summary>
-    /// Gets or sets line caps style. 
+    /// Sets line caps style. 
     /// </summary>
     void set_Cap(Aspose::Pdf::Engine::Presentation::Primitives::LineCap value);
     
@@ -2471,11 +2478,11 @@ class ASPOSE_PDF_SHARED_API SetMiterLimit : public Aspose::Pdf::Operator
 public:
 
     /// <summary>
-    /// Gets or sets the miter limit.
+    /// Gets the miter limit.
     /// </summary>
     double get_MiterLimit();
     /// <summary>
-    /// Gets or sets the miter limit.
+    /// Sets the miter limit.
     /// </summary>
     void set_MiterLimit(double value);
     
@@ -2526,11 +2533,11 @@ class ASPOSE_PDF_SHARED_API MP : public Aspose::Pdf::Operator
 public:
 
     /// <summary>
-    /// Gets or sets marked content tag
+    /// Gets marked content tag
     /// </summary>
     System::String get_Tag();
     /// <summary>
-    /// Gets or sets marked content tag
+    /// Sets marked content tag
     /// </summary>
     void set_Tag(System::String value);
     
@@ -3214,11 +3221,11 @@ class ASPOSE_PDF_SHARED_API SetColorRenderingIntent : public Aspose::Pdf::Operat
 public:
 
     /// <summary>
-    /// Gets or sets color rendering intent name.
+    /// Gets color rendering intent name.
     /// </summary>
     System::String get_IntentName();
     /// <summary>
-    /// Gets or sets color rendering intent name.
+    /// Sets color rendering intent name.
     /// </summary>
     void set_IntentName(System::String value);
     
@@ -3761,11 +3768,11 @@ class ASPOSE_PDF_SHARED_API ShFill : public Aspose::Pdf::Operator
 public:
 
     /// <summary>
-    /// Gets or sets the shading name.
+    /// Gets the shading name.
     /// </summary>
     System::String get_Name();
     /// <summary>
-    /// Gets or sets the shading name.
+    /// Sets the shading name.
     /// </summary>
     void set_Name(System::String value);
     
@@ -3866,11 +3873,11 @@ class ASPOSE_PDF_SHARED_API SetCharacterSpacing : public Aspose::Pdf::Operators:
 public:
 
     /// <summary>
-    /// Gets or sets the character spacing.
+    /// Gets the character spacing.
     /// </summary>
     double get_CharSpacing();
     /// <summary>
-    /// Gets or sets the character spacing.
+    /// Sets the character spacing.
     /// </summary>
     void set_CharSpacing(double value);
     
@@ -4330,11 +4337,11 @@ class ASPOSE_PDF_SHARED_API SetTextLeading : public Aspose::Pdf::Operators::Text
 public:
 
     /// <summary>
-    /// Gets or sets the text leading.
+    /// Gets the text leading.
     /// </summary>
     double get_Leading();
     /// <summary>
-    /// Gets or sets the text leading.
+    /// Sets the text leading.
     /// </summary>
     void set_Leading(double value);
     
@@ -4496,11 +4503,11 @@ class ASPOSE_PDF_SHARED_API SetTextRise : public Aspose::Pdf::Operators::TextSta
 public:
 
     /// <summary>
-    /// Gets or sets the text rise.
+    /// Gets the text rise.
     /// </summary>
     double get_TextRise();
     /// <summary>
-    /// Gets or sets the text rise.
+    /// Sets the text rise.
     /// </summary>
     void set_TextRise(double value);
     
@@ -4551,11 +4558,11 @@ class ASPOSE_PDF_SHARED_API SetWordSpacing : public Aspose::Pdf::Operators::Text
 public:
 
     /// <summary>
-    /// Gets or sets the word spacing.
+    /// Gets the word spacing.
     /// </summary>
     double get_WordSpacing();
     /// <summary>
-    /// Gets or sets the word spacing.
+    /// Sets the word spacing.
     /// </summary>
     void set_WordSpacing(double value);
     
@@ -4601,11 +4608,11 @@ class ASPOSE_PDF_SHARED_API SetHorizontalTextScaling : public Aspose::Pdf::Opera
 public:
 
     /// <summary>
-    /// Gets or sets the horizontal scaling.
+    /// Gets the horizontal scaling.
     /// </summary>
     double get_HorizontalScaling();
     /// <summary>
-    /// Gets or sets the horizontal scaling.
+    /// Sets the horizontal scaling.
     /// </summary>
     void set_HorizontalScaling(double value);
     
@@ -4713,11 +4720,11 @@ class ASPOSE_PDF_SHARED_API SetLineWidth : public Aspose::Pdf::Operator
 public:
 
     /// <summary>
-    /// Gets or sets width of the line. 
+    /// Gets width of the line. 
     /// </summary>
     double get_Width();
     /// <summary>
-    /// Gets or sets width of the line. 
+    /// Sets width of the line. 
     /// </summary>
     void set_Width(double value);
     

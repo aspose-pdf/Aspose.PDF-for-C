@@ -37,43 +37,43 @@ class ASPOSE_PDF_SHARED_API Rectangle FINAL : public Aspose::Pdf::Drawing::Shape
 public:
 
     /// <summary>
-    /// Gets or sets a float value that indicates the radius of rectangle corners.
+    /// Gets a float value that indicates the radius of rectangle corners.
     /// </summary>
     double get_RoundedCornerRadius();
     /// <summary>
-    /// Gets or sets a float value that indicates the radius of rectangle corners.
+    /// Sets a float value that indicates the radius of rectangle corners.
     /// </summary>
     void set_RoundedCornerRadius(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the left position of the rectangle.
+    /// Gets a float value that indicates the left position of the rectangle.
     /// </summary>
     double get_Left();
     /// <summary>
-    /// Gets or sets a float value that indicates the left position of the rectangle.
+    /// Sets a float value that indicates the left position of the rectangle.
     /// </summary>
     void set_Left(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the bottom position of the rectangle.
+    /// Gets a float value that indicates the bottom position of the rectangle.
     /// </summary>
     double get_Bottom();
     /// <summary>
-    /// Gets or sets a float value that indicates the bottom position of the rectangle.
+    /// Sets a float value that indicates the bottom position of the rectangle.
     /// </summary>
     void set_Bottom(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the width of the rectangle.
+    /// Gets a float value that indicates the width of the rectangle.
     /// </summary>
     double get_Width();
     /// <summary>
-    /// Gets or sets a float value that indicates the width of the rectangle.
+    /// Sets a float value that indicates the width of the rectangle.
     /// </summary>
     void set_Width(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the height of the rectangle.
+    /// Gets a float value that indicates the height of the rectangle.
     /// </summary>
     double get_Height();
     /// <summary>
-    /// Gets or sets a float value that indicates the height of the rectangle.
+    /// Sets a float value that indicates the height of the rectangle.
     /// </summary>
     void set_Height(double value);
     

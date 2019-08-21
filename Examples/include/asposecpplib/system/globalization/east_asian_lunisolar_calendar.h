@@ -22,13 +22,13 @@ public:
     ASPOSECPP_SHARED_API CalendarAlgorithmType get_AlgorithmType() const override;
 
     /// Gets celestial stem.
-    /// @param sexagenaryYear Number from 1 through 60.
+    /// @param sexagenary_year Number from 1 through 60.
     /// @return Number from 1 through 10.
-    ASPOSECPP_SHARED_API int GetCelestialStem(int sexagenaryYear) const;
+    ASPOSECPP_SHARED_API int GetCelestialStem(int sexagenary_year) const;
     /// Gets terrestrial branch.
-    /// @param sexagenaryYear Number from 1 through 60.
+    /// @param sexagenary_year Number from 1 through 60.
     /// @return Number from 1 through 12.
-    ASPOSECPP_SHARED_API int GetTerrestrialBranch(int sexagenaryYear) const;
+    ASPOSECPP_SHARED_API int GetTerrestrialBranch(int sexagenary_year) const;
 
     /// Gets the year in the sexagenary cycle.
     /// @param time DateTime object.

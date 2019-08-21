@@ -3,8 +3,6 @@
 #ifndef _aspose_system_nullable_h_
 #define _aspose_system_nullable_h_
 
-#include <system/exceptions.h>
-#include <system/convert.h>
 #include <system/get_hash_code.h>
 #include <system/boxable_traits.h>
 #include <type_traits>
@@ -21,6 +19,12 @@ namespace System
     /// A template predicate that determines if its template argument T in Nullable or its subclass.
     template <class T>
     struct IsNullable : System::detail::is_a<T, System::Nullable> {};
+
+    namespace Details {
+        /// Throws exception.
+        [[noreturn]]
+        ASPOSECPP_SHARED_API void ThrowNullableObjectMustHaveAValue();
+    }
     
     /// Represents a value of the specified type that can be assigned null. 
     /// This type should be allocated on stack and passed to functions by value or by reference.
@@ -72,7 +76,7 @@ namespace System
         typename std::enable_if<!IsNullable<T1>::value && !std::is_null_pointer<T1>::value, Nullable<T>&>::type operator=(const T1& x)
         {
             this->m_has_value = true;
-            this->m_value = x;
+            this->m_value = static_cast<T>(x);
 
             return *this;
         }
@@ -99,9 +103,8 @@ namespace System
         T get_Value() const
         {
             if (!m_has_value)
-            {
-                throw InvalidOperationException(u"Nullable object must have a value");
-            }
+                Details::ThrowNullableObjectMustHaveAValue();
+
             return m_value;
         }
 
@@ -115,9 +118,7 @@ namespace System
         operator const T&() const
         {
             if (!m_has_value)
-            {
-                throw InvalidOperationException(u"Nullable object must have a value");
-            }
+                Details::ThrowNullableObjectMustHaveAValue();
 
             return m_value;
         }
@@ -487,7 +488,7 @@ namespace System
         /// @returns A string representation of the value represented by the current object or an empty string if the value represented by the current object is null
         String ToString() ASPOSE_CONST
         {
-            return m_has_value ? System::Convert::ToString(m_value) : u"";
+            return m_has_value ? System::String::Format(u"{0}", m_value) : u"";
         }
 
         /// Returns the value represented by the current object or the specified value if the value represented by the current object is null.

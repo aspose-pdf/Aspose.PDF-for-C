@@ -15,7 +15,6 @@
 #include <core/SkFontStyle.h>
 #endif
 
-#include <map>
 #include <vector>
 
 /// Forward declaration of SkFontStyle class.
@@ -133,8 +132,8 @@ private:
     /// otherwise - false
     /// @param init_font_style A font style for the new FontFamily object 
     bool Initialization(bool create_default_on_fail, FontStyle init_font_style);
-    /// Updates typeface map.
-    void UpdateTypefaceMap(const String& font_family_name);
+    /// Makes typeface entry.
+    void MakeTypeface(FontStyle font_style);
     /// Adds the specified typeface.
     /// @param sk_typeface A typeface to add
     void AddSkTypeface(sk_sp<SkTypeface> sk_typeface);
@@ -142,11 +141,8 @@ private:
     /// @param font_style A font style
     /// @returns A shared pointer to an SkTypeface object that corresponds to the specified FontStyle.
     sk_sp<SkTypeface> GetSkTypeface(FontStyle font_style);
-    /// Sets the properties of the font represented by the current object on the specified SkPaint object.
-    /// @param paint An object set the properties on
-    void Apply(SkPaint &paint);
     /// Converts the specified FontStyle value to the corresponding SkFontStyle value.
-    /// @param sk_font_style The value to convert
+    /// @param font_style The value to convert
     /// @returns A SkFontStyle value that corresponds to @p font_style value
     SkFontStyle ConvertToSkFontStyle(FontStyle font_style);
     /// Converts the specified SkFontStyle value to the corresponding FontStyle value.
@@ -171,10 +167,13 @@ private:
     /// @param suffix An output argumnet; If the suffix is found, it contains the suffix cut, otherwise it contains an empty string
     /// @returns True if a suffix was cut, otherwise - false
     static bool CutFontSuffix(String &font_family_name, String &suffix);
+    static ArrayPtr<SharedPtr<FontFamily>> get_FamiliesImpl();
+
     /// The font family name.
     String m_font_family_name;
-    /// Typeface map.
-    std::map<FontStyle, sk_sp<SkTypeface>> m_sk_typeface_map;
+    String m_typeface_name;
+    /// Typeface array.
+    std::vector<sk_sp<SkTypeface>> m_sk_typefaces;
     /// Normal width.
     int m_sk_font_normal_width;  // SkFontStyle::Width
     /// Normal weight.

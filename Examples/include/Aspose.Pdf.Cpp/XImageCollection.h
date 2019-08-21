@@ -22,6 +22,7 @@ namespace Aspose { namespace Pdf { class ImageStamp; } }
 namespace Aspose { namespace Pdf { namespace Annotations { class StampAnnotation; } } }
 namespace Aspose { namespace Pdf { class Page; } }
 namespace Aspose { namespace Pdf { class Resources; } }
+namespace Aspose { namespace Pdf { class XForm; } }
 namespace Aspose { namespace Pdf { class DataUtils; } }
 namespace Aspose { namespace Pdf { class ApsToPdfGraphicStateBuilder; } }
 namespace Aspose { namespace Pdf { class ArtifactCollection; } }
@@ -63,6 +64,7 @@ class ASPOSE_PDF_SHARED_API XImageCollection FINAL : public System::Collections:
     friend class Aspose::Pdf::Annotations::StampAnnotation;
     friend class Aspose::Pdf::Page;
     friend class Aspose::Pdf::Resources;
+    friend class Aspose::Pdf::XForm;
     friend class Aspose::Pdf::XImage;
     friend class Aspose::Pdf::DataUtils;
     friend class Aspose::Pdf::ApsToPdfGraphicStateBuilder;

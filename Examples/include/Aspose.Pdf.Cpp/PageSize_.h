@@ -28,19 +28,19 @@ class ASPOSE_PDF_SHARED_API PageSize FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets page width.
+    /// Gets page width.
     /// </summary>
     float get_Width();
     /// <summary>
-    /// Gets or sets page width.
+    /// Sets page width.
     /// </summary>
     void set_Width(float value);
     /// <summary>
-    /// Gets or sets page height.
+    /// Gets page height.
     /// </summary>
     float get_Height();
     /// <summary>
-    /// Gets or sets page height.
+    /// Sets page height.
     /// </summary>
     void set_Height(float value);
     /// <summary>

@@ -37,35 +37,35 @@ class ASPOSE_PDF_SHARED_API Ellipse FINAL : public Aspose::Pdf::Drawing::Shape
 public:
 
     /// <summary>
-    /// Gets or sets a float value that indicates the left position of the ellipse.
+    /// Gets a float value that indicates the left position of the ellipse.
     /// </summary>
     double get_Left();
     /// <summary>
-    /// Gets or sets a float value that indicates the left position of the ellipse.
+    /// Sets a float value that indicates the left position of the ellipse.
     /// </summary>
     void set_Left(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the bottom position of the ellipse.
+    /// Gets a float value that indicates the bottom position of the ellipse.
     /// </summary>
     double get_Bottom();
     /// <summary>
-    /// Gets or sets a float value that indicates the bottom position of the ellipse.
+    /// Sets a float value that indicates the bottom position of the ellipse.
     /// </summary>
     void set_Bottom(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the width of the ellipse.
+    /// Gets a float value that indicates the width of the ellipse.
     /// </summary>
     double get_Width();
     /// <summary>
-    /// Gets or sets a float value that indicates the width of the ellipse.
+    /// Sets a float value that indicates the width of the ellipse.
     /// </summary>
     void set_Width(double value);
     /// <summary>
-    /// Gets or sets a float value that indicates the height of the ellipse.
+    /// Gets a float value that indicates the height of the ellipse.
     /// </summary>
     double get_Height();
     /// <summary>
-    /// Gets or sets a float value that indicates the height of the ellipse.
+    /// Sets a float value that indicates the height of the ellipse.
     /// </summary>
     void set_Height(double value);
     

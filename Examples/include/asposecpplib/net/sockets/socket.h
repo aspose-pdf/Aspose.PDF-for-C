@@ -147,7 +147,7 @@ public:
     ASPOSECPP_SHARED_API System::ArrayPtr<uint8_t> GetSocketOption(SocketOptionLevel optionLevel, SocketOptionName optionName, int32_t optionLength);
     ASPOSECPP_SHARED_API bool Poll(int32_t microSeconds, SelectMode mode);
     ASPOSECPP_SHARED_API void Shutdown(SocketShutdown how);
-    ASPOSECPP_SHARED_API void Dispose();
+    ASPOSECPP_SHARED_API void Dispose() override;
 
     virtual ASPOSECPP_SHARED_API ~Socket();
 

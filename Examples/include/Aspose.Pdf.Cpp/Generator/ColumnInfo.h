@@ -25,21 +25,21 @@ class ASPOSE_PDF_SHARED_API ColumnInfo FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets a string that contains the width of columns. 
+    /// Gets a string that contains the width of columns. 
     /// The value of each column should be separated by blank.The default unit is point,
     /// but cm, inch and percentage of available width are also supported.
     /// For example,"120 2.5cm 1.5inch"
     /// </summary>
     System::String get_ColumnWidths();
     /// <summary>
-    /// Gets or sets a string that contains the width of columns. 
+    /// Sets a string that contains the width of columns. 
     /// The value of each column should be separated by blank.The default unit is point,
     /// but cm, inch and percentage of available width are also supported.
     /// For example,"120 2.5cm 1.5inch"
     /// </summary>
     void set_ColumnWidths(System::String value);
     /// <summary>
-    /// Gets or sets a string that contains the spacing between columns. 
+    /// Gets a string that contains the spacing between columns. 
     /// The value of each spacing should be separated by blank. The default unit is point,
     /// but cm and inch are also supported.For example,"120 2.5cm 1.5inch".
     /// </summary>
@@ -48,7 +48,7 @@ public:
     /// </remarks>
     System::String get_ColumnSpacing();
     /// <summary>
-    /// Gets or sets a string that contains the spacing between columns. 
+    /// Sets a string that contains the spacing between columns. 
     /// The value of each spacing should be separated by blank. The default unit is point,
     /// but cm and inch are also supported.For example,"120 2.5cm 1.5inch".
     /// </summary>
@@ -57,11 +57,11 @@ public:
     /// </remarks>
     void set_ColumnSpacing(System::String value);
     /// <summary>
-    /// Gets or sets a int value that indicates the number of columns.
+    /// Gets a int value that indicates the number of columns.
     /// </summary>
     int32_t get_ColumnCount();
     /// <summary>
-    /// Gets or sets a int value that indicates the number of columns.
+    /// Sets a int value that indicates the number of columns.
     /// </summary>
     void set_ColumnCount(int32_t value);
     

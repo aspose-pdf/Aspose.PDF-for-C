@@ -9,8 +9,8 @@
 namespace Aspose { namespace Pdf { namespace Annotations { class MediaRendition; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class SelectorRendition; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class RenditionAction; } } }
-namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class RenditionType; } } }
+namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
 
 namespace Aspose {
 

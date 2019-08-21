@@ -230,16 +230,16 @@ public:
         void RemoveAt(int32_t index);
         
         /// <summary>
-        /// Gets or sets number format in list by its index.
+        /// Gets number format in list by its index.
         /// </summary>
         /// <param name="index">Index of the item to be retreived.</param>
         /// <returns>Retreived measure item.</returns>
         System::SharedPtr<Measure::NumberFormat> idx_get(int32_t index);
         /// <summary>
-        /// Gets or sets number format in list by its index.
+        /// Sets number format in list by its index.
         /// </summary>
         /// <param name="index">Index of the item to be retreived.</param>
-        /// <returns>Retreived measure item.</returns>
+        /// <param name="value">Retreived measure item.</param>
         void idx_set(int32_t index, System::SharedPtr<Measure::NumberFormat> value);
         
     protected:

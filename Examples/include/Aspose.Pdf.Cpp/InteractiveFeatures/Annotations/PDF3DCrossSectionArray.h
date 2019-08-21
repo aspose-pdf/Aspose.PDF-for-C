@@ -68,7 +68,7 @@ public:
     void RemoveAll();
     
     /// <summary>
-    /// Gets or sets the <see cref="PDF3DCrossSection"/> at the specified index.
+    /// Gets the <see cref="PDF3DCrossSection"/> at the specified index.
     /// </summary>
     /// <param name="index">The index.</param>
     /// <returns>Cross section.</returns>
@@ -77,10 +77,10 @@ public:
     /// </exception>
     System::SharedPtr<PDF3DCrossSection> idx_get(int32_t index);
     /// <summary>
-    /// Gets or sets the <see cref="PDF3DCrossSection"/> at the specified index.
+    /// Sets the <see cref="PDF3DCrossSection"/> at the specified index.
     /// </summary>
     /// <param name="index">The index.</param>
-    /// <returns>Cross section.</returns>
+    /// <param name="value">Cross section.</param>
     /// <exception cref="IndexOutOfRangeException">
     /// Invalid index: index should be in the range [1..n] where n equals to the cross sections count.
     /// </exception>

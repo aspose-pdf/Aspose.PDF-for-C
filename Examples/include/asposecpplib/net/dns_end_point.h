@@ -21,7 +21,7 @@ class ASPOSECPP_SHARED_CLASS DnsEndPoint : public System::Net::EndPoint
 
 public:
     ASPOSECPP_SHARED_API String get_Host();
-    virtual ASPOSECPP_SHARED_API System::Net::Sockets::AddressFamily get_AddressFamily();
+    virtual ASPOSECPP_SHARED_API System::Net::Sockets::AddressFamily get_AddressFamily() override;
     ASPOSECPP_SHARED_API int32_t get_Port();
 
     ASPOSECPP_SHARED_API DnsEndPoint(String host, int32_t port);

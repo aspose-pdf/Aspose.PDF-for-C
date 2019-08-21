@@ -8,8 +8,8 @@
 namespace Aspose { namespace Pdf { namespace Annotations { class Annotation; } } }
 namespace Aspose { namespace Pdf { namespace Tests { namespace Annotations { class CaretAnnotationTests; } } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
-namespace Aspose { namespace Pdf { class Rectangle; } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class CaretSymbol; } } }
+namespace Aspose { namespace Pdf { class Rectangle; } }
 namespace Aspose { namespace Pdf { namespace Annotations { class AnnotationSelector; } } }
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { class Page; } }
@@ -43,20 +43,20 @@ public:
     /// </summary>
     virtual Aspose::Pdf::Annotations::AnnotationType get_AnnotationType();
     /// <summary>
-    /// Gets or sets caret rectangle.
+    /// Gets caret rectangle.
     /// </summary>
     System::SharedPtr<Rectangle> get_Frame();
     /// <summary>
-    /// Gets or sets caret rectangle.
+    /// Sets caret rectangle.
     /// </summary>
     void set_Frame(System::SharedPtr<Rectangle> value);
     /// <summary>
-    /// Gets or sets symbol associated with caret.
+    /// Gets symbol associated with caret.
     /// </summary>
     /// <see cref="CaretSymbol"/>
     CaretSymbol get_Symbol();
     /// <summary>
-    /// Gets or sets symbol associated with caret.
+    /// Sets symbol associated with caret.
     /// </summary>
     /// <see cref="CaretSymbol"/>
     void set_Symbol(CaretSymbol value);

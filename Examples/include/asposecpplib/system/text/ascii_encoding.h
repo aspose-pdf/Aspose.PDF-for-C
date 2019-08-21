@@ -1,12 +1,10 @@
 /// @file system/text/ascii_encoding.h
-#ifndef __ASCIIEncoding_h__
-#define __ASCIIEncoding_h__
+#pragma once
 
-#include "system/text/encoding.h"
-#include "system/text/icu_encoding.h"
+#include <system/text/encoding.h>
+#include <system/text/icu_encoding.h>
 
-#include "fwd.h"
-
+#include <fwd.h>
 
 namespace System { namespace Text {
 
@@ -20,27 +18,21 @@ class ASPOSECPP_SHARED_CLASS ASCIIEncoding : public ICUEncoding
     RTTI_INFO(System::Text::ASCIIEncoding, ::System::BaseTypesInfo<System::Text::ICUEncoding>)
 
 public:
-    //. Magic number used by Windows for "ASCII".
-    enum : int { ASCII_CODE_PAGE = 20127 };
+    /// Magic number used by Windows for "ASCII".
+    static constexpr int ASCII_CODE_PAGE = 20127;
+
     /// Constructor.
     ASPOSECPP_SHARED_API ASCIIEncoding();
 
     /// Gets max byte count possible to hold a string of known character count.
-    /// @param charCount Character count.
+    /// @param char_count Character count.
     /// @return Number of characters sufficient to hold any string of @p charCount characters.
-    virtual int GetMaxByteCount(int charCount) override { return charCount + 1;  };
+    ASPOSECPP_SHARED_API int GetMaxByteCount(int char_count) override;
 
     /// Get the maximum number of characters needed to decode a specified number of bytes.
     /// @param byteCount Byte count.
     /// @return Number of characters sufficient to hold any sequence of @p byteCount characters.
-    virtual int GetMaxCharCount(int byteCount) override { return byteCount; };
-
-    /// Gets Windows codepage ID.
-    /// @return Always returns 20127.
-    virtual int get_CodePage() override { return ASCII_CODE_PAGE; };
-
+    int GetMaxCharCount(int byteCount) override { return byteCount; }
 };
 
-}}
-
-#endif
+}} // namespace System::Text

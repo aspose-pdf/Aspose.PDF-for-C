@@ -5,7 +5,7 @@
 // When a component is embedded in another Aspose component, they must be 
 // obfuscated into a single assembly so the embedded component is not publicly accessible.
 
-// C# preprocessor directive: #if !EMBEDDED 
+// C# preprocessor directive: #if !EMBEDDED
 
 //27/10/2004 by Roman Korchagin
 //This file contains all client side licensing for the new Aspose licensing system released in 2004.
@@ -15,37 +15,32 @@
 // To compile licensing for your product, make sure your product is mentioned here and add a conditional 
 // compilation constant to your project properties (both to Debug and Release configurations).
 
-// C# preprocessor directive: #if ASPOSE_WORDS 
+// C# preprocessor directive: #if ASPOSE_WORDS
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Words
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Words
 
-// C# preprocessor directive: #elif ASPOSE_WORDS_REPORTING_SERVICES 
+// C# preprocessor directive: #elif ASPOSE_WORDS_REPORTING_SERVICES
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Words.ReportingServices
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Words.ReportingServices
 
-// C# preprocessor directive: #elif ASPOSE_CELLS 
+// C# preprocessor directive: #elif ASPOSE_CELLS
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Cells
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Cells
 
-// C# preprocessor directive: #elif ASPOSE_SLIDES 
+// C# preprocessor directive: #elif ASPOSE_SLIDES
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Slides
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Slides
 
-// C# preprocessor directive: #elif ASPOSE_TASKS 
+// C# preprocessor directive: #elif ASPOSE_TASKS
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Tasks
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Tasks
 
-// C# preprocessor directive: #elif ASPOSE_PDF || ASPOSE_PDF_DOM 
+// C# preprocessor directive: #elif ASPOSE_PDF || ASPOSE_PDF_DOM
 
 
 #include <xml/xml_node.h>
@@ -94,82 +89,71 @@ enum class LicenseState
 };
 
 
-// C# preprocessor directive: #elif ASPOSE_CHART 
+// C# preprocessor directive: #elif ASPOSE_CHART
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Chart
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Chart
 
-// C# preprocessor directive: #elif ASPOSE_SPELL 
+// C# preprocessor directive: #elif ASPOSE_SPELL
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Spell
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Spell
 
-// C# preprocessor directive: #elif ASPOSE_EMAIL 
+// C# preprocessor directive: #elif ASPOSE_EMAIL
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Email
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Email
 
-// C# preprocessor directive: #elif ASPOSE_MIME 
+// C# preprocessor directive: #elif ASPOSE_MIME
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Mime
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Mime
 
-// C# preprocessor directive: #elif ASPOSE_ADHOC 
+// C# preprocessor directive: #elif ASPOSE_ADHOC
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.AdHoc
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.AdHoc
 
-// C# preprocessor directive: #elif ASPOSE_ASPXPAND 
+// C# preprocessor directive: #elif ASPOSE_ASPXPAND
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.ASPXPand
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.ASPXPand
 
-// C# preprocessor directive: #elif ASPOSE_GRID 
+// C# preprocessor directive: #elif ASPOSE_GRID
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Grid
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Grid
 
-// C# preprocessor directive: #elif ASPOSE_BARCODE 
+// C# preprocessor directive: #elif ASPOSE_BARCODE
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.BarCode
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.BarCode
 
-// C# preprocessor directive: #elif ASPOSE_RECURRENCE 
+// C# preprocessor directive: #elif ASPOSE_RECURRENCE
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Recurrence
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Recurrence
 
-// C# preprocessor directive: #elif ASPOSE_ICALENDAR 
+// C# preprocessor directive: #elif ASPOSE_ICALENDAR
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.iCalendar
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.iCalendar
 
-// C# preprocessor directive: #elif ASPOSE_RECOGNITION 
+// C# preprocessor directive: #elif ASPOSE_RECOGNITION
 
-#if 0 // C# INACTIVE CODE:
-namespace Aspose.Recognition
-#endif
+// C# INACTIVE CODE:
+// namespace Aspose.Recognition
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
-// C# preprocessor directive: #if EMBED_PDF 
+// C# preprocessor directive: #if EMBED_PDF
 
 
-// C# preprocessor directive: #else 
+// C# preprocessor directive: #else
 
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 /// <summary>
 /// Provides methods to license the component.
@@ -349,6 +333,9 @@ private:
 
     bool mEmbedded;
     
+    void _SetLicense(System::String licenseName);
+    void _SetLicense(System::SharedPtr<System::IO::Stream> stream);
+    
 };
 
 /// <summary>
@@ -421,6 +408,7 @@ public:
     
     static const System::String BLACKLIST;
     static const System::String BLACKLIST_CONHOLDATE;
+    static bool UseInUnitTestsOneGlobalLicenseLikeOnProduction;
     
     void SetLicenseCore(System::String licenseName, System::SharedPtr<System::Reflection::Assembly> clientAssembly, bool isEmbedded);
     void SetLicenseCore(System::String licenseName, System::SharedPtr<System::Reflection::Assembly> clientAssembly);
@@ -569,7 +557,7 @@ private:
 } // namespace Pdf
 } // namespace Aspose
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
 

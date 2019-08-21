@@ -43,12 +43,12 @@ public:
     SvgLoadOptions::ConversionEngines ConversionEngine;
     
     /// <summary>
-    /// Gets or sets page info that should be applied during loading of document.
+    /// Gets page info that should be applied during loading of document.
     /// NOTE that this parameter only works when ConversionEngine == ConversionEngines.NewEngine
     /// </summary>
     System::SharedPtr<Aspose::Pdf::PageInfo> get_PageInfo();
     /// <summary>
-    /// Gets or sets page info that should be applied during loading of document.
+    /// Sets page info that should be applied during loading of document.
     /// NOTE that this parameter only works when ConversionEngine == ConversionEngines.NewEngine
     /// </summary>
     void set_PageInfo(System::SharedPtr<Aspose::Pdf::PageInfo> value);

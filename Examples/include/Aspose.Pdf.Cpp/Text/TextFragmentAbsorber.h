@@ -128,7 +128,7 @@ public:
     /// </example>
     void set_TextFragments(System::SharedPtr<TextFragmentCollection> value);
     /// <summary>
-    /// Gets or sets phrase that the <see cref="TextFragmentAbsorber"/> searches on the PDF document or page.
+    /// Gets phrase that the <see cref="TextFragmentAbsorber"/> searches on the PDF document or page.
     /// </summary>
     /// <example>
     /// The example demonstrates how to perform search text several times and perform text replacements.
@@ -154,7 +154,7 @@ public:
     /// </example>
     System::String get_Phrase();
     /// <summary>
-    /// Gets or sets phrase that the <see cref="TextFragmentAbsorber"/> searches on the PDF document or page.
+    /// Sets phrase that the <see cref="TextFragmentAbsorber"/> searches on the PDF document or page.
     /// </summary>
     /// <example>
     /// The example demonstrates how to perform search text several times and perform text replacements.
@@ -180,7 +180,7 @@ public:
     /// </example>
     void set_Phrase(System::String value);
     /// <summary>
-    /// Gets or sets search options. The options enable search using regular expressions.
+    /// Gets search options. The options enable search using regular expressions.
     /// </summary>
     /// <example>
     /// The example demonstrates how to perform search text using regular expression.
@@ -205,7 +205,7 @@ public:
     /// </example>
     System::SharedPtr<Aspose::Pdf::Text::TextSearchOptions> get_TextSearchOptions();
     /// <summary>
-    /// Gets or sets search options. The options enable search using regular expressions.
+    /// Sets search options. The options enable search using regular expressions.
     /// </summary>
     /// <example>
     /// The example demonstrates how to perform search text using regular expression.
@@ -230,19 +230,19 @@ public:
     /// </example>
     void set_TextSearchOptions(System::SharedPtr<Aspose::Pdf::Text::TextSearchOptions> value);
     /// <summary>
-    /// Gets or sets text edit options. The options define special behavior when requested symbol cannot be written with font.
+    /// Gets text edit options. The options define special behavior when requested symbol cannot be written with font.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Text::TextEditOptions> get_TextEditOptions();
     /// <summary>
-    /// Gets or sets text edit options. The options define special behavior when requested symbol cannot be written with font.
+    /// Sets text edit options. The options define special behavior when requested symbol cannot be written with font.
     /// </summary>
     void set_TextEditOptions(System::SharedPtr<Aspose::Pdf::Text::TextEditOptions> value);
     /// <summary>
-    /// Gets or sets text replace options. The options define behavior when text fragment is replaced to more short.
+    /// Gets text replace options. The options define behavior when text fragment is replaced to more short.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Text::TextReplaceOptions> get_TextReplaceOptions();
     /// <summary>
-    /// Gets or sets text replace options. The options define behavior when text fragment is replaced to more short.
+    /// Sets text replace options. The options define behavior when text fragment is replaced to more short.
     /// </summary>
     void set_TextReplaceOptions(System::SharedPtr<Aspose::Pdf::Text::TextReplaceOptions> value);
     /// <summary>
@@ -260,11 +260,11 @@ public:
     /// </summary>
     virtual System::String get_Text();
     /// <summary>
-    /// Gets or sets text extraction options.
+    /// Gets text extraction options.
     /// </summary>
     virtual System::SharedPtr<TextExtractionOptions> get_ExtractionOptions();
     /// <summary>
-    /// Gets or sets text extraction options.
+    /// Sets text extraction options.
     /// </summary>
     virtual void set_ExtractionOptions(System::SharedPtr<TextExtractionOptions> value);
     

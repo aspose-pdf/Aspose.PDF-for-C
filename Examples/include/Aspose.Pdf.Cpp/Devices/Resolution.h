@@ -26,19 +26,19 @@ class ASPOSE_PDF_SHARED_API Resolution FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets horizontal image resolution.
+    /// Gets horizontal image resolution.
     /// </summary>
     int32_t get_X();
     /// <summary>
-    /// Gets or sets horizontal image resolution.
+    /// Sets horizontal image resolution.
     /// </summary>
     void set_X(int32_t value);
     /// <summary>
-    /// Gets or sets vertical image resolution.
+    /// Gets vertical image resolution.
     /// </summary>
     int32_t get_Y();
     /// <summary>
-    /// Gets or sets vertical image resolution.
+    /// Sets vertical image resolution.
     /// </summary>
     void set_Y(int32_t value);
     

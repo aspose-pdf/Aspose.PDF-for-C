@@ -208,7 +208,7 @@ private:
     /// Clears Skia caps.
     SkPaint ClearSkiaCaps(const SkPaint& base_paint, float start_cap_inset, float end_cap_inset) const;
     /// Makes main effects.
-    SkPaint MakeMainEffects(const SkPaint& base_paint, float phase, float start_cap_inset, float end_cap_inset) const;
+    SkPaint MakeMainEffects(const SkPaint& base_paint, const SharedPtr<Drawing2D::Matrix>& matrix, float phase, float start_cap_inset, float end_cap_inset) const;
     /// Makes compound effect.
     SkPaints MakeCompoundEffect(const SkPaint& base_paint, float phase) const;
     /// Appends start/end line caps to the destination path.

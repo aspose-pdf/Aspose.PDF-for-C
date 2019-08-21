@@ -104,11 +104,11 @@ public:
     /// </summary>
     System::SharedPtr<System::IO::Stream> get_Content();
     /// <summary>
-    /// Gets or sets type of content. Possible values: Audio, Video. 
+    /// Gets type of content. Possible values: Audio, Video. 
     /// </summary>
     RichMediaAnnotation::ContentType get_Type();
     /// <summary>
-    /// Gets or sets type of content. Possible values: Audio, Video. 
+    /// Sets type of content. Possible values: Audio, Video. 
     /// </summary>
     void set_Type(RichMediaAnnotation::ContentType value);
     /// <summary>

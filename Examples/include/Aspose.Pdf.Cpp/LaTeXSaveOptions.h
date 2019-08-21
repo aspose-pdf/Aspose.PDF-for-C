@@ -39,7 +39,14 @@ public:
     /// </summary>
     LaTeXSaveOptions();
     
+    /// <summary>
+    /// Adds a font ancoding to the font encoding list
+    /// </summary>
+    /// <param name="fontEncs">The font encs.</param>
     void AddFontEncs(const System::ArrayPtr<System::String>& fontEncs);
+    /// <summary>
+    /// Clears the font encoding list
+    /// </summary>
     void ClearFontEncs();
     
 protected:

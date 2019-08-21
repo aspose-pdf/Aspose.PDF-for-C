@@ -4,10 +4,10 @@
 #include "InteractiveFeatures/Annotations/Annotation.h"
 
 namespace Aspose { namespace Pdf { namespace Tests { namespace OriginalKit { namespace Old { namespace TestWei { class Wei_PdfContentEditor; } } } } } }
-namespace Aspose { namespace Pdf { namespace Annotations { class PdfAction; } } }
-namespace Aspose { namespace Pdf { namespace Annotations { class IAppointment; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class HighlightingMode; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { enum class AnnotationType; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { class PdfAction; } } }
+namespace Aspose { namespace Pdf { namespace Annotations { class IAppointment; } } }
 namespace Aspose { namespace Pdf { namespace Annotations { class AnnotationSelector; } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { class Document; } }

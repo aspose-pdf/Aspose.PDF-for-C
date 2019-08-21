@@ -27,7 +27,11 @@ protected:
         /// <summary>
         ///   Legacy engine. Internally uses old engine for rendering
         /// </summary>
-        LegacyEngine
+        LegacyEngine,
+        /// <summary>
+        ///   New engine. Internally uses DOM  approach for rendering
+        /// </summary>
+        NewEngine
     };
     
     

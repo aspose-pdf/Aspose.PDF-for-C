@@ -34,27 +34,27 @@ class ASPOSE_PDF_SHARED_API PageLabel : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets starting value of the page numbering range.
+    /// Gets starting value of the page numbering range.
     /// </summary>
     int32_t get_StartingValue();
     /// <summary>
-    /// Gets or sets starting value of the page numbering range.
+    /// Sets starting value of the page numbering range.
     /// </summary>
     void set_StartingValue(int32_t value);
     /// <summary>
-    /// Gets or sets numbering style. 
+    /// Gets numbering style. 
     /// </summary>
     Aspose::Pdf::NumberingStyle get_NumberingStyle();
     /// <summary>
-    /// Gets or sets numbering style. 
+    /// Sets numbering style. 
     /// </summary>
     void set_NumberingStyle(Aspose::Pdf::NumberingStyle value);
     /// <summary>
-    /// Gets or sets page number prefix.
+    /// Gets page number prefix.
     /// </summary>
     System::String get_Prefix();
     /// <summary>
-    /// Gets or sets page number prefix.
+    /// Sets page number prefix.
     /// </summary>
     void set_Prefix(System::String value);
     

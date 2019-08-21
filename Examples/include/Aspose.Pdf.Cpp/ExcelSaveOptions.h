@@ -67,14 +67,14 @@ public:
     /// </summary>
     void set_UniformWorksheets(bool value);
     /// <summary>
-    /// Gets or sets factor that will be applied to (virtual) scaling font size during conversion to Excel table.
+    /// Gets factor that will be applied to (virtual) scaling font size during conversion to Excel table.
     /// Setting of less value facilitates the search for columns and prevents merging of them for some documents.
     /// Default value is 0.9;
     /// Setting value to zero allows algorithm choose scaling automatically.
     /// </summary>
     double get_ScaleFactor();
     /// <summary>
-    /// Gets or sets factor that will be applied to (virtual) scaling font size during conversion to Excel table.
+    /// Sets factor that will be applied to (virtual) scaling font size during conversion to Excel table.
     /// Setting of less value facilitates the search for columns and prevents merging of them for some documents.
     /// Default value is 0.9;
     /// Setting value to zero allows algorithm choose scaling automatically.

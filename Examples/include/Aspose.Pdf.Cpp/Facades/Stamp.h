@@ -11,9 +11,9 @@
 #include "aspose_pdf_api_defs.h"
 
 namespace Aspose { namespace Pdf { namespace Facades { class PdfFileStamp; } } }
+namespace Aspose { namespace Pdf { namespace Facades { enum class BlendingColorSpace; } } }
 namespace Aspose { namespace Pdf { namespace Facades { class FormattedText; } } }
 namespace Aspose { namespace Pdf { class Page; } }
-namespace Aspose { namespace Pdf { namespace Facades { enum class BlendingColorSpace; } } }
 namespace Aspose { namespace Pdf { namespace Text { class TextState; } } }
 namespace Aspose { namespace Pdf { class Stamp; } }
 namespace Aspose { namespace Pdf { class Document; } }
@@ -41,39 +41,39 @@ class ASPOSE_PDF_SHARED_API Stamp FINAL : public System::Object
 public:
 
     /// <summary>
-    /// Gets or sets identifier of stamp.
+    /// Gets identifier of stamp.
     /// </summary>
     int32_t get_StampId();
     /// <summary>
-    /// Gets or sets identifier of stamp.
+    /// Sets identifier of stamp.
     /// </summary>
     void set_StampId(int32_t value);
     /// <summary>
-    /// Gets or sets quality of image stamp in percent. Valiued values 0..100%. 
+    /// Gets quality of image stamp in percent. Valiued values 0..100%. 
     /// </summary>
     int32_t get_Quality();
     /// <summary>
-    /// Gets or sets quality of image stamp in percent. Valiued values 0..100%. 
+    /// Sets quality of image stamp in percent. Valiued values 0..100%. 
     /// </summary>
     void set_Quality(int32_t value);
     /// <summary>
-    /// Gets or sets opacity of the stamp.
+    /// Gets opacity of the stamp.
     /// </summary>
     float get_Opacity();
     /// <summary>
-    /// Gets or sets opacity of the stamp.
+    /// Sets opacity of the stamp.
     /// </summary>
     void set_Opacity(float value);
     /// <summary>
-    /// Gets or sets page number. 
+    /// Gets page number. 
     /// </summary>
     int32_t get_PageNumber();
     /// <summary>
-    /// Gets or sets page number. 
+    /// Sets page number. 
     /// </summary>
     void set_PageNumber(int32_t value);
     /// <summary>
-    /// Gets or sets array with numbers of pages which will be affected by stamp. 
+    /// Gets array with numbers of pages which will be affected by stamp. 
     /// If Pages = null all pages of the document are affected.
     /// </summary>
     /// <example>
@@ -89,7 +89,7 @@ public:
     /// </example>
     System::ArrayPtr<int32_t> get_Pages();
     /// <summary>
-    /// Gets or sets array with numbers of pages which will be affected by stamp. 
+    /// Sets array with numbers of pages which will be affected by stamp. 
     /// If Pages = null all pages of the document are affected.
     /// </summary>
     /// <example>
@@ -105,7 +105,7 @@ public:
     /// </example>
     void set_Pages(System::ArrayPtr<int32_t> value);
     /// <summary>
-    /// Gets or sets rotation of the stamp in degrees.
+    /// Gets rotation of the stamp in degrees.
     /// </summary>
     /// <example>
     /// <code lang="C#">
@@ -119,7 +119,7 @@ public:
     /// </example>
     float get_Rotation();
     /// <summary>
-    /// Gets or sets rotation of the stamp in degrees.
+    /// Sets rotation of the stamp in degrees.
     /// </summary>
     /// <example>
     /// <code lang="C#">
@@ -133,7 +133,7 @@ public:
     /// </example>
     void set_Rotation(float value);
     /// <summary>
-    /// Gets or sets background status. If true stamp will be placed as background of the spamped page.
+    /// Gets background status. If true stamp will be placed as background of the spamped page.
     /// By default is set to false.
     /// </summary>
     /// /// <example>
@@ -148,7 +148,7 @@ public:
     /// </example>
     bool get_IsBackground();
     /// <summary>
-    /// Gets or sets background status. If true stamp will be placed as background of the spamped page.
+    /// Sets background status. If true stamp will be placed as background of the spamped page.
     /// By default is set to false.
     /// </summary>
     /// /// <example>
@@ -163,12 +163,12 @@ public:
     /// </example>
     void set_IsBackground(bool value);
     /// <summary>
-    /// Gets or sets a BlendingColorSpace value that defines a color space 
+    /// Gets a BlendingColorSpace value that defines a color space 
     /// that is used to perform transparency and blending operations on the page.
     /// </summary>
     BlendingColorSpace get_BlendingSpace();
     /// <summary>
-    /// Gets or sets a BlendingColorSpace value that defines a color space 
+    /// Sets a BlendingColorSpace value that defines a color space 
     /// that is used to perform transparency and blending operations on the page.
     /// </summary>
     void set_BlendingSpace(BlendingColorSpace value);

@@ -6,11 +6,11 @@
 
 #include "aspose_pdf_api_defs.h"
 
-namespace Aspose { namespace Pdf { namespace Devices { class Margins; } } }
 namespace Aspose { namespace Pdf { namespace Devices { enum class CompressionType; } } }
 namespace Aspose { namespace Pdf { namespace Devices { enum class ColorDepth; } } }
 namespace Aspose { namespace Pdf { namespace Devices { enum class ShapeType; } } }
 namespace Aspose { namespace Pdf { enum class PageCoordinateType; } }
+namespace Aspose { namespace Pdf { namespace Devices { class Margins; } } }
 
 namespace Aspose {
 
@@ -36,7 +36,7 @@ public:
     /// </summary>
     System::SharedPtr<Aspose::Pdf::Devices::Margins> get_Margins();
     /// <summary>
-    /// Gets or sets a value indicating whether to skip blank pages.
+    /// Gets a value indicating whether to skip blank pages.
     /// </summary>
     /// <remarks>
     /// Default value is false
@@ -44,7 +44,7 @@ public:
     /// <value><c>true</c> if need to skip blank pages; otherwise, <c>false</c>.</value>
     bool get_SkipBlankPages();
     /// <summary>
-    /// Gets or sets a value indicating whether to skip blank pages.
+    /// Sets a value indicating whether to skip blank pages.
     /// </summary>
     /// <remarks>
     /// Default value is false
@@ -52,7 +52,7 @@ public:
     /// <value><c>true</c> if need to skip blank pages; otherwise, <c>false</c>.</value>
     void set_SkipBlankPages(bool value);
     /// <summary>
-    /// Gets or sets the type of the compression.
+    /// Gets the type of the compression.
     /// </summary>
     /// <remarks>
     /// Default value is CompressionType.LZW
@@ -60,7 +60,7 @@ public:
     /// <value>The type of the compression.</value>
     CompressionType get_Compression();
     /// <summary>
-    /// Gets or sets the type of the compression.
+    /// Sets the type of the compression.
     /// </summary>
     /// <remarks>
     /// Default value is CompressionType.LZW
@@ -68,7 +68,7 @@ public:
     /// <value>The type of the compression.</value>
     void set_Compression(CompressionType value);
     /// <summary>
-    /// Gets or sets the color depth.
+    /// Gets the color depth.
     /// </summary>
     /// <remarks>
     /// Default value is ColorDepth.Default
@@ -76,7 +76,7 @@ public:
     /// <value>The color depth.</value>
     ColorDepth get_Depth();
     /// <summary>
-    /// Gets or sets the color depth.
+    /// Sets the color depth.
     /// </summary>
     /// <remarks>
     /// Default value is ColorDepth.Default
@@ -84,7 +84,7 @@ public:
     /// <value>The color depth.</value>
     void set_Depth(ColorDepth value);
     /// <summary>
-    /// Gets or sets the type of the shape.
+    /// Gets the type of the shape.
     /// </summary>
     /// <remarks>
     /// Default value is ShapeType.None
@@ -92,7 +92,7 @@ public:
     /// <value>The type of the shape.</value>
     ShapeType get_Shape();
     /// <summary>
-    /// Gets or sets the type of the shape.
+    /// Sets the type of the shape.
     /// </summary>
     /// <remarks>
     /// Default value is ShapeType.None

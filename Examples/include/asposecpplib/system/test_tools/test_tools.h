@@ -430,4 +430,16 @@ struct CollectionAssertHelper
         static constexpr bool value = std::is_same<bool, decltype(detect(std::declval<T>()))>::value; \
     };\
 
+/// Generates structure that checks types if they have specific static members.
+/// @param name Member to look for.
+#define TEST_IF_STATIC_METHOD_NAMED(name) \
+    template<typename T> struct is_static_method_##name \
+    { \
+    private: \
+        static int detect(...); \
+        template<typename U> static typename std::enable_if<std::is_function<decltype(U::name)>::value, bool>::type detect(const U&); \
+    public: \
+        static constexpr bool value = std::is_same<bool, decltype(detect(std::declval<T>()))>::value; \
+    };\
+
 #endif // _TestTools_h_

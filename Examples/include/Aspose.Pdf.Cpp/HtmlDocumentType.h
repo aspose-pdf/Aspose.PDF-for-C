@@ -1,7 +1,7 @@
 ﻿#pragma once
 // Copyright (c) 2001-2019 Aspose Pty Ltd. All Rights Reserved.
 
-// C# preprocessor directive: #if !NET11 
+// C# preprocessor directive: #if !NET11
 
 
 namespace Aspose {
@@ -26,7 +26,7 @@ enum class HtmlDocumentType
 } // namespace Pdf
 } // namespace Aspose
 
-// C# preprocessor directive: #endif 
+// C# preprocessor directive: #endif
 
 
 

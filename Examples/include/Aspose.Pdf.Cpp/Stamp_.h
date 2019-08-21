@@ -12,13 +12,13 @@ namespace Aspose { namespace Pdf { class ImageStamp; } }
 namespace Aspose { namespace Pdf { class Page; } }
 namespace Aspose { namespace Pdf { class TextStamp; } }
 namespace Aspose { namespace Pdf { class PdfPageStamp; } }
-namespace Aspose { namespace Pdf { class Matrix; } }
-namespace Aspose { namespace Pdf { class Rectangle; } }
+namespace Aspose { namespace Pdf { enum class Rotation; } }
 namespace Aspose { namespace Pdf { enum class HorizontalAlignment; } }
 namespace Aspose { namespace Pdf { enum class VerticalAlignment; } }
+namespace Aspose { namespace Pdf { class Matrix; } }
+namespace Aspose { namespace Pdf { class Rectangle; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfObject; } } } }
 namespace Aspose { namespace Pdf { class Document; } }
-namespace Aspose { namespace Pdf { enum class Rotation; } }
 namespace Aspose { namespace Pdf { class Point; } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfDictionary; } } } }
 namespace Aspose { namespace Pdf { namespace Engine { namespace Data { class IPdfPrimitive; } } } }
@@ -58,32 +58,32 @@ public:
     /// </summary>
     void set_Background(bool value);
     /// <summary>
-    /// Gets or sets a value to indicate the stamp opacity. The value is from 0.0 to 1.0.
+    /// Gets a value to indicate the stamp opacity. The value is from 0.0 to 1.0.
     /// By default the value is 1.0.
     /// </summary>
     double get_Opacity();
     /// <summary>
-    /// Gets or sets a value to indicate the stamp opacity. The value is from 0.0 to 1.0.
+    /// Sets a value to indicate the stamp opacity. The value is from 0.0 to 1.0.
     /// By default the value is 1.0.
     /// </summary>
     void set_Opacity(double value);
     /// <summary>
-    /// Gets or sets a value to indicate the stamp outline opacity. The value is from 0.0 to 1.0.
+    /// Gets a value to indicate the stamp outline opacity. The value is from 0.0 to 1.0.
     /// By default the value is 1.0.
     /// </summary>
     double get_OutlineOpacity();
     /// <summary>
-    /// Gets or sets a value to indicate the stamp outline opacity. The value is from 0.0 to 1.0.
+    /// Sets a value to indicate the stamp outline opacity. The value is from 0.0 to 1.0.
     /// By default the value is 1.0.
     /// </summary>
     void set_OutlineOpacity(double value);
     /// <summary>
-    /// Gets or sets a value of the stamp outline width.
+    /// Gets a value of the stamp outline width.
     /// By default the value is 1.0.
     /// </summary>
     double get_OutlineWidth();
     /// <summary>
-    /// Gets or sets a value of the stamp outline width.
+    /// Sets a value of the stamp outline width.
     /// By default the value is 1.0.
     /// </summary>
     void set_OutlineWidth(double value);
@@ -118,51 +118,51 @@ public:
     /// </summary>
     void set_YIndent(double value);
     /// <summary>
-    /// Gets or sets Horizontal alignment of stamp on the page. 
+    /// Gets Horizontal alignment of stamp on the page. 
     /// </summary>
     Aspose::Pdf::HorizontalAlignment get_HorizontalAlignment();
     /// <summary>
-    /// Gets or sets Horizontal alignment of stamp on the page. 
+    /// Sets Horizontal alignment of stamp on the page. 
     /// </summary>
     void set_HorizontalAlignment(Aspose::Pdf::HorizontalAlignment value);
     /// <summary>
-    /// Gets or sets vertical alignment of stamp on page.
+    /// Gets vertical alignment of stamp on page.
     /// </summary>
     Aspose::Pdf::VerticalAlignment get_VerticalAlignment();
     /// <summary>
-    /// Gets or sets vertical alignment of stamp on page.
+    /// Sets vertical alignment of stamp on page.
     /// </summary>
     void set_VerticalAlignment(Aspose::Pdf::VerticalAlignment value);
     /// <summary>
-    /// Gets or sets left margin of stamp.
+    /// Gets left margin of stamp.
     /// </summary>
     double get_LeftMargin();
     /// <summary>
-    /// Gets or sets left margin of stamp.
+    /// Sets left margin of stamp.
     /// </summary>
     void set_LeftMargin(double value);
     /// <summary>
-    /// Gets or sets right margin of stamp.
+    /// Gets right margin of stamp.
     /// </summary>
     double get_RightMargin();
     /// <summary>
-    /// Gets or sets right margin of stamp.
+    /// Sets right margin of stamp.
     /// </summary>
     void set_RightMargin(double value);
     /// <summary>
-    /// Gets or sets bottom margin of stamp.
+    /// Gets bottom margin of stamp.
     /// </summary>
     double get_BottomMargin();
     /// <summary>
-    /// Gets or sets bottom margin of stamp.
+    /// Sets bottom margin of stamp.
     /// </summary>
     void set_BottomMargin(double value);
     /// <summary>
-    /// Gets or sets top margin of stamp.
+    /// Gets top margin of stamp.
     /// </summary>
     double get_TopMargin();
     /// <summary>
-    /// Gets or sets top margin of stamp.
+    /// Sets top margin of stamp.
     /// </summary>
     void set_TopMargin(double value);
     /// <summary>
@@ -212,12 +212,12 @@ public:
     /// </summary>
     void set_Zoom(double value);
     /// <summary>
-    /// Gets or sets rotate angle of stamp in degrees.
+    /// Gets rotate angle of stamp in degrees.
     /// This property allows to set arbitrary rotate angle. 
     /// </summary>
     double get_RotateAngle();
     /// <summary>
-    /// Gets or sets rotate angle of stamp in degrees.
+    /// Sets rotate angle of stamp in degrees.
     /// This property allows to set arbitrary rotate angle. 
     /// </summary>
     void set_RotateAngle(double value);

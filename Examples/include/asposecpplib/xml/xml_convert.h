@@ -37,6 +37,11 @@ public:
     /// @returns "true" if @p value = true, otherwise - "false"
     static ASPOSECPP_SHARED_API String ToString(bool value);
 
+    /// Converts the specified char value to its string representation.
+    /// @param value The char16_t value to convert
+    /// @returns The string representation of @p value
+    static ASPOSECPP_SHARED_API String ToString(char16_t value);
+
     /// Converts the specified 8-bit integer value to its string representation.
     /// @param value An 8-bit integer value to convert
     /// @returns The string representation of @p value

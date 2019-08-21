@@ -53,7 +53,22 @@ enum class LoadFormat
     /// <summary>
     ///  means loading of document in PS format(format of PostScript document) 
     /// </summary>       
-    PS
+    PS,
+    /// <summary>
+    /// means loading document is in MD format (markdown).
+    /// </summary>
+    MD,
+    /// <summary>
+    ///  means loading of document with the aid of a plugin
+    /// </summary>
+    Plugin,
+    /// <summary>
+    ///  This option allows to loading engine try detection of format itself
+    ///  Currently only SVG,XML,XSLFO formats can be autodetected. If engine cannot
+    ///  detect type of file, HTML will be used. This logic came from old GEnerator
+    ///  cause method itself came from old Genedrator
+    /// </summary>
+    AutoDetect
 };
 
 } // namespace Pdf

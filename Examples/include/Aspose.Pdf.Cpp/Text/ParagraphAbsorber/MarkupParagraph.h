@@ -60,14 +60,14 @@ public:
     /// </remarks>
     System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<System::Collections::Generic::List<System::SharedPtr<TextFragment>>>>> get_Lines();
     /// <summary>
-    /// Gets <see cref="string"/> text object that the <see cref="MarkupParagraph"/> object represents.
+    /// Gets <see cref="System::String"/> text object that the <see cref="MarkupParagraph"/> object represents.
     /// </summary>
     System::String get_Text();
     
 protected:
 
     /// <summary>
-    /// Gets <see cref="string"/> text object that the <see cref="MarkupParagraph"/> object represents.
+    /// Gets <see cref="System::String"/> text object that the <see cref="MarkupParagraph"/> object represents.
     /// </summary>
     void set_Text(System::String value);
     System::SharedPtr<Matrix> get_NormalizationMatrix();

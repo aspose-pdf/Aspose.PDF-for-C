@@ -6,6 +6,7 @@
 #include <string>
 #include <memory>
 #include "system/exception.h"
+#include "system/nullable.h"
 
 #ifndef E_FAIL__
 /// An alias for HRESULT code for unspecified error.
@@ -150,6 +151,10 @@ EXCEPTION_NAMESPACE(, System) {
     DECLARE_INHERITED_EXCEPTION(InvalidOperationException, Exception);
     /// InvalidProgramException is present for compatibility reasons only.
     DECLARE_INHERITED_EXCEPTION(InvalidProgramException, Exception);
+    /// InvalidTimeZoneException is thrown when time zone information is invalid.
+    DECLARE_INHERITED_EXCEPTION(InvalidTimeZoneException, Exception);
+    /// TimeZoneNotFoundException is thrown when time zone information is not found.
+    DECLARE_INHERITED_EXCEPTION(TimeZoneNotFoundException, Exception);
     /// ObjectDisposedException is thrown when a method is invoked on a disposed object.
     DECLARE_INHERITED_EXCEPTION_WITH_EXTRA_MEMBER2(ObjectDisposedException, InvalidOperationException, ObjectName);
     /// NotImplementedException is thrown when a method that is not implemented and serves as a stub.
@@ -164,8 +169,6 @@ EXCEPTION_NAMESPACE(, System) {
     DECLARE_INHERITED_EXCEPTION_WITH_EXTRA_MEMBER2(ArgumentNullException, ArgumentException, ParamName);
     /// ArgumentOutOfRangeException is thrown when a method being invoked is passed an argument that falls out of the expected range of values for that argument.
     DECLARE_INHERITED_EXCEPTION_WITH_EXTRA_MEMBER2(ArgumentOutOfRangeException, ArgumentException, ParamName);
-    /// IOException is thrown when I/O error occurs.
-    DECLARE_INHERITED_EXCEPTION(IOException, SystemException);
     /// FormatException is thrown when the format of the method's argument is not valid. 
     DECLARE_INHERITED_EXCEPTION(FormatException, SystemException);
     /// UriFormatException is thrown when the format of URI is not valid.
@@ -204,6 +207,8 @@ EXCEPTION_NAMESPACE(, System) {
     DECLARE_INHERITED_EXCEPTION_WITH_HRESULT(ExecutionEngineException, SystemException, (int32_t)2148734214u);
     /// TypeInitializationException is present for compatibility reasons only.
     DECLARE_INHERITED_EXCEPTION_WITH_EXTRA_MEMBER2(TypeInitializationException, SystemException, TypeName);
+    /// DataMisalignedException thrown when a unit of data is read from or written to an address that is not a multiple of the data size.
+    DECLARE_INHERITED_EXCEPTION(DataMisalignedException, SystemException);
 
 
     EXCEPTION_NAMESPACE(System, IO) {
@@ -223,7 +228,26 @@ EXCEPTION_NAMESPACE(, System) {
 
     EXCEPTION_NAMESPACE(System, Globalization) {
         /// CultureNotFoundException is thrown when an attempt is made to construct a culture that is not available.
-        DECLARE_INHERITED_EXCEPTION(CultureNotFoundException, ArgumentException);
+        struct ASPOSECPP_SHARED_CLASS CultureNotFoundException : ArgumentException {
+            RTTI_INFO_NAMESPACE(CultureNotFoundException, System::BaseTypesInfo<ArgumentException>)
+        public:
+            CultureNotFoundException() : ArgumentException() {}
+            CultureNotFoundException(std::nullptr_t): ArgumentException(nullptr) {}
+            CultureNotFoundException(const String& message) : ArgumentException(message) {}
+            CultureNotFoundException(const String& paramName, const String& message) : ArgumentException(message, paramName) {}
+            CultureNotFoundException(const String& message, const Exception& innerException) : ArgumentException(message, innerException) {}
+            CultureNotFoundException(const String& paramName, int invalidCultureId, const String& message) : ArgumentException(message, paramName), m_invalid_culture_id(invalidCultureId) {}
+            CultureNotFoundException(const String& message, int invalidCultureId, Exception innerException) : ArgumentException(message, innerException), m_invalid_culture_id(invalidCultureId) {}
+            CultureNotFoundException(const String& paramName, const String& invalidCultureName, const String& message) : ArgumentException(message, paramName), m_invalid_culture_name(invalidCultureName) {}
+            CultureNotFoundException(const String& message, const String& invalidCultureName, Exception innerException) : ArgumentException(message, innerException), m_invalid_culture_name(invalidCultureName) {}
+            virtual Nullable<int> get_InvalidCultureId() const { return m_invalid_culture_id; }
+            virtual String get_InvalidCultureName() const { return m_invalid_culture_name; }
+        protected:
+            CultureNotFoundException(const System::SharedPtr<System::Runtime::Serialization::SerializationInfo>& info, System::Runtime::Serialization::StreamingContext context) : ArgumentException(info, context) {}
+        private:
+            Nullable<int> m_invalid_culture_id;
+            String m_invalid_culture_name;
+        };
     }
 
     EXCEPTION_NAMESPACE(System, Security) {
@@ -248,6 +272,8 @@ EXCEPTION_NAMESPACE(, System) {
         DECLARE_INHERITED_EXCEPTION(SemaphoreFullException, SystemException);
         /// ThreadAbortException 
         DECLARE_INHERITED_EXCEPTION(ThreadAbortException, SystemException);
+		/// ThreadInterruptedException is thrown when a Thread is interrupted while it is in a waiting state.
+        DECLARE_INHERITED_EXCEPTION(ThreadInterruptedException, SystemException);
     }
 
     EXCEPTION_NAMESPACE(System, ComponentModel)

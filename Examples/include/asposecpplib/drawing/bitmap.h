@@ -17,7 +17,7 @@
 
 #include <memory>
 
-#ifdef ASPOSECPP_SHARED_EXPORTS
+#if defined(ASPOSECPP_SHARED_EXPORTS) || defined(ASPOSECPP_SKIA_EXTERNAL_USAGE)
 #include <codec/SkEncodedFormat.h>
 #include <core/SkBitmap.h>
 #include <core/SkCanvas.h>
@@ -33,14 +33,17 @@ ASPOSECPP_3RD_PARTY_CLASS(SkData);
 ASPOSECPP_3RD_PARTY_CLASS(SkWStream);
 /// Forward declaration of SkMatrix class.
 ASPOSECPP_3RD_PARTY_CLASS(SkMatrix);
-/// Static checks of SkEncodedFormat enum.
-ASPOSECPP_3RD_PARTY_ENUM(SkEncodedFormat);
 /// Forward declaration of SkImageInfo struct.
 ASPOSECPP_3RD_PARTY_STRUCT(SkImageInfo);
 /// Forward declaration of SkRect struct.
 ASPOSECPP_3RD_PARTY_STRUCT(SkRect);
 /// Ensures that SkColor is an alias for uint32_t.
 ASPOSECPP_3RD_PARTY_TYPEDEF(SkColor, uint32_t);
+
+#if defined(ASPOSECPP_SHARED_EXPORTS) || !defined(ASPOSECPP_SKIA_EXTERNAL_USAGE)
+/// Static checks of SkEncodedFormat enum.
+ASPOSECPP_3RD_PARTY_ENUM(SkEncodedFormat);
+#endif
 
 namespace System { namespace Drawing {
 
@@ -203,7 +206,7 @@ private:
     void PutRawBytesBmp(SkWStream *to);
 
     /// The image format of the bitmap image.
-    Imaging::PixelFormat m_original_pixel_format;
+    Imaging::PixelFormat m_original_pixel_format = Imaging::PixelFormat::Undefined;
 
     /// Is the original format a multi-image.
     bool m_is_multi_image = false;
@@ -261,8 +264,9 @@ protected:
     /// @param sk_canvas The canvas to draw on
     /// @param dest_rect The rectangle in the canvas to draw to
     /// @param matrix The matrix that specifies how to traslate and scale the source image region
+    /// @param quality The quality of image interpolation
     /// @param blend_mode Specifies how the source colors are combined with the background colors
-    virtual void Draw(SkCanvas * sk_canvas, const SkRect& dest_rect, SkMatrix* matrix, SkBlendMode blend_mode)  const OVERRIDE;
+    virtual void Draw(SkCanvas* sk_canvas, const SkRect& dest_rect, SkMatrix* matrix, SkFilterQuality quality, SkBlendMode blend_mode) const OVERRIDE;
     /// Draws the specified region of the image represented by the current object to the specified region on the specified canvas.
     /// The source bitmap region is scaled and translated to fill the destination region.
     /// @param sk_canvas The canvas to draw on

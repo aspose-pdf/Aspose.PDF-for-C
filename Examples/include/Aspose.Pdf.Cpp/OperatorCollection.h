@@ -263,7 +263,7 @@ public:
     /// Gets operator by its index.
     /// </summary>
     /// <param name="index">Index of operator. Numbering is starts from 1.</param>
-    /// <returns>Operator from requested index</returns>
+    /// <param name="value">Operator from requested index</param>
     /// <example>
     /// Example demonstrates how to get operator of page contents by index.
     /// <code lang="C#">

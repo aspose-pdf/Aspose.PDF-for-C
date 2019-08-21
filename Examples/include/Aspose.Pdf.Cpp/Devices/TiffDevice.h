@@ -3,10 +3,10 @@
 
 #include "Devices/DocumentDevice.h"
 
+namespace Aspose { namespace Pdf { namespace Devices { enum class FormPresentationMode; } } }
 namespace Aspose { namespace Pdf { namespace Devices { class Resolution; } } }
 namespace Aspose { namespace Pdf { namespace Devices { class TiffSettings; } } }
 namespace Aspose { namespace Pdf { class IIndexBitmapConverter; } }
-namespace Aspose { namespace Pdf { namespace Devices { enum class FormPresentationMode; } } }
 namespace Aspose { namespace Pdf { class RenderingOptions; } }
 namespace Aspose { namespace Pdf { class Document; } }
 namespace Aspose { namespace Pdf { class PageSize; } }
@@ -31,19 +31,19 @@ class ASPOSE_PDF_SHARED_API TiffDevice FINAL : public Aspose::Pdf::Devices::Docu
 public:
 
     /// <summary>
-    /// Gets or sets rendering options.
+    /// Gets rendering options.
     /// </summary>
     System::SharedPtr<Aspose::Pdf::RenderingOptions> get_RenderingOptions();
     /// <summary>
-    /// Gets or sets rendering options.
+    /// Sets rendering options.
     /// </summary>
     void set_RenderingOptions(System::SharedPtr<Aspose::Pdf::RenderingOptions> value);
     /// <summary>
-    /// Gets or sets form presentation mode.
+    /// Gets form presentation mode.
     /// </summary>
     Aspose::Pdf::Devices::FormPresentationMode get_FormPresentationMode();
     /// <summary>
-    /// Gets or sets form presentation mode.
+    /// Sets form presentation mode.
     /// </summary>
     void set_FormPresentationMode(Aspose::Pdf::Devices::FormPresentationMode value);
     /// <summary>

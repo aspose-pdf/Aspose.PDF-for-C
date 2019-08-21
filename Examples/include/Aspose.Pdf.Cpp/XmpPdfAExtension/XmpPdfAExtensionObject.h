@@ -39,11 +39,11 @@ public:
     /// </summary>
     System::String get_Description();
     /// <summary>
-    /// Gets or sets the value.
+    /// Gets the value.
     /// </summary>
     System::String get_Value();
     /// <summary>
-    /// Gets or sets the value.
+    /// Sets the value.
     /// </summary>
     void set_Value(System::String value);
     
