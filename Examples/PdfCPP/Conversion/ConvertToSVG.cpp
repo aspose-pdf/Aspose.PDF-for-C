@@ -1,5 +1,4 @@
-#include "Aspose.Pdf.h"
-#include "SvgSaveOptions.h"
+#include "..\Aspose.Pdf.h"
 using namespace System;
 using namespace Aspose::Pdf;
 

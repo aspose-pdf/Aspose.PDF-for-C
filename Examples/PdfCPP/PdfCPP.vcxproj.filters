@@ -1,27 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Text">
-      <UniqueIdentifier>{513290fd-29d1-4728-b011-67fb2191e6f6}</UniqueIdentifier>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Annotations">
-      <UniqueIdentifier>{46e77a75-fbdb-45d7-998e-f2e1ac83da55}</UniqueIdentifier>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Document">
-      <UniqueIdentifier>{294124af-1381-41b0-84fa-0665ef87560e}</UniqueIdentifier>
+      <UniqueIdentifier>{548eab52-6378-491a-8b45-4883c201652a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Annotations">
+      <UniqueIdentifier>{904e7368-b3d9-485e-8263-2d2cde14642d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Attachments">
-      <UniqueIdentifier>{295f0a7a-2235-4f06-9a42-0ee1c1d826f5}</UniqueIdentifier>
+      <UniqueIdentifier>{260b6303-de1e-4c9d-abd3-86fddef7c460}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pages">
-      <UniqueIdentifier>{5854813d-5ecf-41f7-8ae9-d5df6c72ff9b}</UniqueIdentifier>
+    <Filter Include="Bookmarks">
+      <UniqueIdentifier>{6589ceac-729a-4a00-8f3e-adb48c4ece74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Conversion">
+      <UniqueIdentifier>{db77e031-fb26-4d04-bff0-ed077e1f6174}</UniqueIdentifier>
     </Filter>
     <Filter Include="Images">
-      <UniqueIdentifier>{bc7f4ba2-122a-4828-8c23-55d2470fc43b}</UniqueIdentifier>
+      <UniqueIdentifier>{38094503-a58a-4192-a1db-ebadc3c24379}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages">
+      <UniqueIdentifier>{37d77d57-3f31-45ec-b3c1-1df323a89632}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SecurityAndSignatures">
+      <UniqueIdentifier>{ffa5cc5e-5582-464c-abbc-1d280452e18f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tables">
+      <UniqueIdentifier>{2b9b998e-8041-413b-abeb-c100cf4d68e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text">
+      <UniqueIdentifier>{f4c2fbcf-5355-4926-89ef-4aacbc26bb6d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="RunExamples.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Document\AddImage.cpp">
       <Filter>Document</Filter>
     </ClCompile>
@@ -40,25 +66,40 @@
     <ClCompile Include="Document\GetSetMetadata.cpp">
       <Filter>Document</Filter>
     </ClCompile>
-    <ClCompile Include="Text\AddText.cpp">
-      <Filter>Text</Filter>
+    <ClCompile Include="Document\GetZoomFactor.cpp">
+      <Filter>Document</Filter>
     </ClCompile>
-    <ClCompile Include="Text\AlignParagraph.cpp">
-      <Filter>Text</Filter>
+    <ClCompile Include="Document\OptimizeDoc.cpp">
+      <Filter>Document</Filter>
     </ClCompile>
-    <ClCompile Include="Text\CreatePdf.cpp">
-      <Filter>Text</Filter>
+    <ClCompile Include="Document\SetZoomFactor.cpp">
+      <Filter>Document</Filter>
     </ClCompile>
-    <ClCompile Include="Text\ExtractText.cpp">
-      <Filter>Text</Filter>
+    <ClCompile Include="Document\ValidatePDFABStandard.cpp">
+      <Filter>Document</Filter>
     </ClCompile>
-    <ClCompile Include="Text\FindText.cpp">
-      <Filter>Text</Filter>
-    </ClCompile>
-    <ClCompile Include="Text\ReplaceText.cpp">
-      <Filter>Text</Filter>
+    <ClCompile Include="Document\ValidatePDFAStandard.cpp">
+      <Filter>Document</Filter>
     </ClCompile>
     <ClCompile Include="Annotations\AddAnnotation.cpp">
+      <Filter>Annotations</Filter>
+    </ClCompile>
+    <ClCompile Include="Annotations\DeleteAllAnnotations.cpp">
+      <Filter>Annotations</Filter>
+    </ClCompile>
+    <ClCompile Include="Annotations\DeleteParticularAnnotation.cpp">
+      <Filter>Annotations</Filter>
+    </ClCompile>
+    <ClCompile Include="Annotations\ExportAnnotations.cpp">
+      <Filter>Annotations</Filter>
+    </ClCompile>
+    <ClCompile Include="Annotations\ExtractAnnotations.cpp">
+      <Filter>Annotations</Filter>
+    </ClCompile>
+    <ClCompile Include="Annotations\ImportAnnotations.cpp">
+      <Filter>Annotations</Filter>
+    </ClCompile>
+    <ClCompile Include="Annotations\ModifyAnnotations.cpp">
       <Filter>Annotations</Filter>
     </ClCompile>
     <ClCompile Include="Attachments\AddAttachments.cpp">
@@ -70,7 +111,88 @@
     <ClCompile Include="Attachments\GetAttachmentInformation.cpp">
       <Filter>Attachments</Filter>
     </ClCompile>
+    <ClCompile Include="Bookmarks\CreateBookmark.cpp">
+      <Filter>Bookmarks</Filter>
+    </ClCompile>
+    <ClCompile Include="Bookmarks\CreateChildBookmark.cpp">
+      <Filter>Bookmarks</Filter>
+    </ClCompile>
+    <ClCompile Include="Bookmarks\DeleteAllBookmarks.cpp">
+      <Filter>Bookmarks</Filter>
+    </ClCompile>
+    <ClCompile Include="Bookmarks\DeleteBookmark.cpp">
+      <Filter>Bookmarks</Filter>
+    </ClCompile>
+    <ClCompile Include="Conversion\ConvertToDOC.cpp">
+      <Filter>Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Conversion\ConvertToDOCX.cpp">
+      <Filter>Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Conversion\ConvertToSVG.cpp">
+      <Filter>Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Images\DeleteAllImages.cpp">
+      <Filter>Images</Filter>
+    </ClCompile>
+    <ClCompile Include="Images\DeleteImageFromPage.cpp">
+      <Filter>Images</Filter>
+    </ClCompile>
+    <ClCompile Include="Images\ExtractImage.cpp">
+      <Filter>Images</Filter>
+    </ClCompile>
+    <ClCompile Include="Images\ExtractImageFromParticularPage.cpp">
+      <Filter>Images</Filter>
+    </ClCompile>
+    <ClCompile Include="Images\ReplacePageImage.cpp">
+      <Filter>Images</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\AddText.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\AddTextSegment.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\AddUnderlineText.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\AlignParagraph.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\CreatePdf.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\ExtractText.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\ExtractTextFromRangeOfPages.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\FindText.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\ReplaceText.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\ReplaceTextOnParticularPage.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Tables\AddTable.cpp">
+      <Filter>Tables</Filter>
+    </ClCompile>
+    <ClCompile Include="SecurityAndSignatures\ChangePassword.cpp">
+      <Filter>SecurityAndSignatures</Filter>
+    </ClCompile>
+    <ClCompile Include="SecurityAndSignatures\DecryptPDFFile.cpp">
+      <Filter>SecurityAndSignatures</Filter>
+    </ClCompile>
+    <ClCompile Include="SecurityAndSignatures\SetPrivileges.cpp">
+      <Filter>SecurityAndSignatures</Filter>
+    </ClCompile>
     <ClCompile Include="Pages\ConcatenatePdfFiles.cpp">
+      <Filter>Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="Pages\ConvertPDFPages.cpp">
       <Filter>Pages</Filter>
     </ClCompile>
     <ClCompile Include="Pages\DeleteParticularPage.cpp">
@@ -94,67 +216,16 @@
     <ClCompile Include="Pages\UpdateDimensions.cpp">
       <Filter>Pages</Filter>
     </ClCompile>
-    <ClCompile Include="Document\GetZoomFactor.cpp">
-      <Filter>Document</Filter>
-    </ClCompile>
-    <ClCompile Include="Document\OptimizeDoc.cpp">
-      <Filter>Document</Filter>
-    </ClCompile>
-    <ClCompile Include="Document\ValidatePDFABStandard.cpp">
-      <Filter>Document</Filter>
-    </ClCompile>
-    <ClCompile Include="Document\ValidatePDFAStandard.cpp">
-      <Filter>Document</Filter>
-    </ClCompile>
-    <ClCompile Include="Document\SetZoomFactor.cpp">
-      <Filter>Document</Filter>
-    </ClCompile>
-    <ClCompile Include="Text\AddTextSegment.cpp">
-      <Filter>Text</Filter>
-    </ClCompile>
-    <ClCompile Include="Text\AddUnderlineText.cpp">
-      <Filter>Text</Filter>
-    </ClCompile>
-    <ClCompile Include="Text\ExtractTextFromRangeOfPages.cpp">
-      <Filter>Text</Filter>
-    </ClCompile>
-    <ClCompile Include="Text\ReplaceTextOnParticularPage.cpp">
-      <Filter>Text</Filter>
-    </ClCompile>
-    <ClCompile Include="Images\DeleteAllImages.cpp">
-      <Filter>Images</Filter>
-    </ClCompile>
-    <ClCompile Include="Images\DeleteImageFromPage.cpp">
-      <Filter>Images</Filter>
-    </ClCompile>
-    <ClCompile Include="Images\ExtractImage.cpp">
-      <Filter>Images</Filter>
-    </ClCompile>
-    <ClCompile Include="Images\ExtractImageFromParticularPage.cpp">
-      <Filter>Images</Filter>
-    </ClCompile>
-    <ClCompile Include="Images\ReplacePageImage.cpp">
-      <Filter>Images</Filter>
-    </ClCompile>
-    <ClCompile Include="SecurityAndSignatures\SetPrivileges.cpp" />
-    <ClCompile Include="SecurityAndSignatures\DecryptPDFFile.cpp" />
-    <ClCompile Include="SecurityAndSignatures\ChangePassword.cpp" />
-    <ClCompile Include="Bookmarks\CreateBookmark.cpp" />
-    <ClCompile Include="Bookmarks\CreateChildBookmark.cpp" />
-    <ClCompile Include="Bookmarks\DeleteAllBookmarks.cpp" />
-    <ClCompile Include="Bookmarks\DeleteBookmark.cpp" />
-    <ClCompile Include="Annotations\ModifyAnnotations.cpp" />
-    <ClCompile Include="Annotations\DeleteAllAnnotations.cpp" />
-    <ClCompile Include="Annotations\DeleteParticularAnnotation.cpp" />
-    <ClCompile Include="Annotations\ImportAnnotations.cpp" />
-    <ClCompile Include="Annotations\ExportAnnotations.cpp" />
-    <ClCompile Include="Annotations\ExtractAnnotations.cpp" />
-    <ClCompile Include="Pages\ConvertPDFPages.cpp" />
-    <ClCompile Include="Conversion\ConvertToDOCX.cpp" />
-    <ClCompile Include="Conversion\ConvertToDOC.cpp" />
-    <ClCompile Include="Conversion\ConvertToSVG.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PdfExamples.h" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Aspose.Pdf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PDFExamples.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

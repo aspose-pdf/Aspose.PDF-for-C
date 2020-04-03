@@ -1,6 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
@@ -11,13 +19,26 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B5793A01-D2A5-4561-AC0B-056061E968C5}</ProjectGuid>
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{7AEE64C6-10B4-4AD0-9378-595733691564}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>PdfCPP</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>PdfCPP</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
@@ -36,6 +57,12 @@
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
@@ -43,83 +70,82 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(ProjectDir)..\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(ProjectDir)..\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
-  <ItemDefinitionGroup>
-    <Link>
-      <StackReserveSize>10485760</StackReserveSize>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_CONSOLE;_DEBUG;DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;DISABLE_EXTERNAL_REFCOUNT;GTEST_HAS_PTHREAD=0;BOOST_ALL_NO_LIB;U_STATIC_IMPLEMENTATION;LIBXML_STATIC;LIBXSLT_STATIC;SK_INTERNAL;SK_GAMMA_SRGB;SK_GAMMA_APPLY_TO_A8;SK_SCALAR_TO_FLOAT_EXCLUDED;SK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1;SK_SUPPORT_GPU=0;SK_SUPPORT_OPENCL=0;SK_FORCE_DISTANCE_FIELD_TEXT=0;GR_GL_FUNCTION_TYPE=__stdcall;SK_A32_SHIFT=24;SK_R32_SHIFT=16;SK_G32_SHIFT=8;SK_B32_SHIFT=0;SK_DEVELOPER=1;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\include\;$(ProjectDir)..\include\Aspose.Pdf.Cpp;$(ProjectDir)..\include\asposecpplib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <DisableSpecificWarnings>4003;4018;4244;4250;4251;4267;4275;4290;4584;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <IntrinsicFunctions>false</IntrinsicFunctions>
-      <PrecompiledHeaderFile>Aspose.Pdf.h</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Aspose.PDF.Cpp_vc141x64d.lib;aspose_cpp_vc141x64d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <OptimizeReferences>
-      </OptimizeReferences>
-      <IgnoreSpecificDefaultLibraries>
-      </IgnoreSpecificDefaultLibraries>
     </Link>
-    <PostBuildEvent>
-      <Command>
-        copy "$(ProjectDir)lib\Debug\aspose_cpp_vc141x64d.dll" "$(OutDir)"
-        copy "$(ProjectDir)lib\Debug\aspose_cpp_vc141x64d.dll" "$(OutDir)"</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;BOOST_ALL_NO_LIB;DISABLE_EXTERNAL_REFCOUNT;U_STATIC_IMPLEMENTATION;LIBXML_STATIC;LIBXSLT_STATIC;SK_INTERNAL;SK_GAMMA_SRGB;SK_GAMMA_APPLY_TO_A8;SK_SCALAR_TO_FLOAT_EXCLUDED;SK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1;SK_SUPPORT_GPU=0;SK_SUPPORT_OPENCL=0;SK_FORCE_DISTANCE_FIELD_TEXT=0;GR_GL_FUNCTION_TYPE=__stdcall;SK_A32_SHIFT=24;SK_R32_SHIFT=16;SK_G32_SHIFT=8;SK_B32_SHIFT=0;SK_DEVELOPER=1;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\include\;$(ProjectDir)..\include\Aspose.Pdf.Cpp;$(ProjectDir)..\include\asposecpplib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <DisableSpecificWarnings>4003;4018;4244;4250;4251;4267;4275;4290;4584;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <PrecompiledHeaderFile>Aspose.Pdf.h</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>No</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Aspose.Pdf_vc141x64.lib;aspose_cpp_vc141x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <ProjectReference>
-      <LinkLibraryDependencies>false</LinkLibraryDependencies>
-    </ProjectReference>
-    <PostBuildEvent>
-      <Command>copy "$(ProjectDir)lib\Release\aspose_cpp_vc141x64.dll" "$(OutDir)"
-copy "$(ProjectDir)lib\Release\aspose.pdf_vc141x64.dll" "$(OutDir)"</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="PdfExamples.h" />
-  </ItemGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Annotations\AddAnnotation.cpp" />
     <ClCompile Include="Annotations\DeleteAllAnnotations.cpp" />
@@ -135,8 +161,8 @@ copy "$(ProjectDir)lib\Release\aspose.pdf_vc141x64.dll" "$(OutDir)"</Command>
     <ClCompile Include="Bookmarks\CreateChildBookmark.cpp" />
     <ClCompile Include="Bookmarks\DeleteAllBookmarks.cpp" />
     <ClCompile Include="Bookmarks\DeleteBookmark.cpp" />
-    <ClCompile Include="Conversion\ConvertToDOCX.cpp" />
     <ClCompile Include="Conversion\ConvertToDOC.cpp" />
+    <ClCompile Include="Conversion\ConvertToDOCX.cpp" />
     <ClCompile Include="Conversion\ConvertToSVG.cpp" />
     <ClCompile Include="Document\AddImage.cpp" />
     <ClCompile Include="Document\CreateDoc.cpp" />
@@ -154,11 +180,6 @@ copy "$(ProjectDir)lib\Release\aspose.pdf_vc141x64.dll" "$(OutDir)"</Command>
     <ClCompile Include="Images\ExtractImage.cpp" />
     <ClCompile Include="Images\ExtractImageFromParticularPage.cpp" />
     <ClCompile Include="Images\ReplacePageImage.cpp" />
-    <ClCompile Include="main.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Aspose.Pdf.h</PrecompiledHeaderFile>
-    </ClCompile>
     <ClCompile Include="Pages\ConcatenatePdfFiles.cpp" />
     <ClCompile Include="Pages\ConvertPDFPages.cpp" />
     <ClCompile Include="Pages\DeleteParticularPage.cpp" />
@@ -168,9 +189,11 @@ copy "$(ProjectDir)lib\Release\aspose.pdf_vc141x64.dll" "$(OutDir)"</Command>
     <ClCompile Include="Pages\InsertEmptyPageAtEnd.cpp" />
     <ClCompile Include="Pages\SplitToPages.cpp" />
     <ClCompile Include="Pages\UpdateDimensions.cpp" />
+    <ClCompile Include="RunExamples.cpp" />
     <ClCompile Include="SecurityAndSignatures\ChangePassword.cpp" />
     <ClCompile Include="SecurityAndSignatures\DecryptPDFFile.cpp" />
     <ClCompile Include="SecurityAndSignatures\SetPrivileges.cpp" />
+    <ClCompile Include="Tables\AddTable.cpp" />
     <ClCompile Include="Text\AddText.cpp" />
     <ClCompile Include="Text\AddTextSegment.cpp" />
     <ClCompile Include="Text\AddUnderlineText.cpp" />
@@ -182,7 +205,23 @@ copy "$(ProjectDir)lib\Release\aspose.pdf_vc141x64.dll" "$(OutDir)"</Command>
     <ClCompile Include="Text\ReplaceText.cpp" />
     <ClCompile Include="Text\ReplaceTextOnParticularPage.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Aspose.Pdf.h" />
+    <ClInclude Include="PDFExamples.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\CodePorting.Native.Cs2Cpp.API.20.3.0\build\native\CodePorting.Native.Cs2Cpp.API.targets" Condition="Exists('..\packages\CodePorting.Native.Cs2Cpp.API.20.3.0\build\native\CodePorting.Native.Cs2Cpp.API.targets')" />
+    <Import Project="..\packages\Aspose.PDF.Cpp.20.3.0\build\native\aspose.pdf.cpp.targets" Condition="Exists('..\packages\Aspose.PDF.Cpp.20.3.0\build\native\aspose.pdf.cpp.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\CodePorting.Native.Cs2Cpp.API.20.3.0\build\native\CodePorting.Native.Cs2Cpp.API.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CodePorting.Native.Cs2Cpp.API.20.3.0\build\native\CodePorting.Native.Cs2Cpp.API.targets'))" />
+    <Error Condition="!Exists('..\packages\Aspose.PDF.Cpp.20.3.0\build\native\aspose.pdf.cpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aspose.PDF.Cpp.20.3.0\build\native\aspose.pdf.cpp.targets'))" />
+  </Target>
 </Project>

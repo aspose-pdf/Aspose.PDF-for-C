@@ -1,4 +1,4 @@
-#include "Aspose.Pdf.h"
+#include "..\Aspose.Pdf.h"
 using namespace Aspose::Pdf;
 using namespace System;
 

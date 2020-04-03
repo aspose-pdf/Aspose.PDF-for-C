@@ -1,3 +1,4 @@
+//#pragma once
 #include "Aspose.Pdf.h"
 
 //// Working with Text
@@ -127,3 +128,5 @@ void ConvertToDOC();
 void ConvertToDOCX();
 // Convert to SVG
 void ConvertToSVG();
+
+void AddTable();
