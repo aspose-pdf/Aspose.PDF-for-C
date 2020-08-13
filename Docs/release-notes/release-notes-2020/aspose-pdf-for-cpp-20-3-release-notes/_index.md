@@ -1,15 +1,15 @@
 ---
 title: Aspose.PDF for CPP 20.3 Release Notes
 type: docs
-weight: 20
+weight: 100
 url: /cpp/aspose-pdf-for-cpp-20-3-release-notes/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
 This page contains release notes information for Aspose.PDF for C++ 20.3.
 
-{{% /alert %}} 
+{{% /alert %}}
 
 This new version of Aspose.PDF for C++ has codebase of Aspose.PDF for .Net 20.3 and brings the following improvements to the overall functionality of API.
 

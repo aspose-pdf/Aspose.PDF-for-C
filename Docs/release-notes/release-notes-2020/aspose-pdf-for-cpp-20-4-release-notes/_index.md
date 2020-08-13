@@ -1,15 +1,15 @@
 ---
 title: Aspose.PDF for CPP 20.4 Release Notes
 type: docs
-weight: 10
+weight: 90
 url: /cpp/aspose-pdf-for-cpp-20-4-release-notes/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
 This page contains release notes information for Aspose.PDF for C++ 20.4.
 
-{{% /alert %}} 
+{{% /alert %}}
 
 This new version of Aspose.PDF for C++ has codebase of Aspose.PDF for .NET 20.4 and includes all the improvements in terms of bug fixes. We have also included:
 
