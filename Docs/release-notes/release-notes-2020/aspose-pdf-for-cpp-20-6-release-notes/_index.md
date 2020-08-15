@@ -1,4 +1,4 @@
---
+---
 title: Aspose.PDF for CPP 20.6 Release Notes
 type: docs
 weight: 70
