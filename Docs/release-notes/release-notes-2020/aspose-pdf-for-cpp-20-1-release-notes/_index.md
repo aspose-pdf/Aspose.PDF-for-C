@@ -1,15 +1,15 @@
 ---
 title: Aspose.PDF for CPP 20.1 Release Notes
 type: docs
-weight: 70
+weight: 120
 url: /cpp/aspose-pdf-for-cpp-20-1-release-notes/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
 This page contains release notes information for Aspose.PDF for CPP 20.1.
 
-{{% /alert %}} 
+{{% /alert %}}
 ## **Improvements and Changes**
 
 |**Key**|**Summary**|**Category**|
