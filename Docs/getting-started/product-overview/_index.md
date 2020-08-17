@@ -14,7 +14,7 @@ url: /cpp/product-overview/
 Aspose.PDF for C++ is a native C++ library that enable developers to create and manipulate PDF documents without using Adobe Acrobat. Aspose.PDF for C++ allows developers to create forms, add/edit text, manipulate PDF pages, add annotations, handle custom fonts and much more. Here in documentation section of Aspose.PDF for C++, you can explore all the features of the API along with the basic examples to demonstrate the implementation of those features in your C++ application.
 
 {{% /alert %}} 
-## **Benefits**
+## <ins>**Benefits**
 Using Aspose.PDF for C++ in your applications gives you the following benefits:
 
 - Rich features
@@ -39,7 +39,7 @@ Aspose.PDF for C++ offers a wide arrange of features for creating, converting an
 Aspose.PDF for C++ can be used to build any type of 32-bit and 64-bit C++ application.
 ### **Performance and Scalability**
 Aspose.PDF for C++ is designed to perform equally well, both on server and client-side. Aspose.PDF for C++ is a native assembly that can be deployed by simply copying it. You do not have to worry about other services or modules.
-## **Technical Support**
+## <ins>**Technical Support**
 Aspose provides unlimited free technical support for all its products. Support is available to all users, including evaluation.
 
 If you need any assistance regarding Aspose.PDF for C++, please visit our [Aspose.Forums](https://forum.aspose.com/c/pdf). You can create a new topic over Aspose.PDF for C++ forums and your post will be answered within a few hours. All the inquiries over forums are replied directly by Aspose.PDF for C++ support team.
@@ -54,7 +54,7 @@ If you have an issue with Aspose.PDF for C++, follow these simple steps to make 
 - Please try to report one issue per thread. If you have another issue, report it in a separate thread.
 
 Aspose does not provide technical support over the phone. Phone support is only available for sales and purchase questions.
-## **Resources**
+## <ins>**Resources**
 This table lists important Aspose.PDF for C++ technical resources.
 
 |**Resource**|**Description**|

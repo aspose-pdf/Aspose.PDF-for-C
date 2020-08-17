@@ -10,7 +10,7 @@ url: /cpp/aspose-pdf-for-cpp-19-12-release-notes/
 This page contains release notes information for Aspose.PDF for C++ 19.12.
 
 {{% /alert %}} 
-## **Improvements and Changes**
+## <ins>**Improvements and Changes**
 This new version of Aspose.PDF for C++ has codebase of Aspose.PDF for .NET 19.12. The API is available for Linux platforms (Ubuntu 16.04 and later with gcc6, clang compilers).
 
 
@@ -40,6 +40,7 @@ This new version of Aspose.PDF for C++ has codebase of Aspose.PDF for .NET 19.12
 |PDFCPP-1118|Test and fix XpsConverterTests|Bug|
 |PDFCPP-1127|Aspose.Page (EPS rest cases)|Bug|
 |PDFCPP-1124|Aspose.Page (XPS tests) mem leaks.|Bug|
+
 Public API and Backward Incompatible Changes
 ### **Added APIs**
 - Property Aspose.Pdf.Optimization.OptimizationOptions.SubsetFonts

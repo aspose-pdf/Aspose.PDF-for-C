@@ -5,7 +5,7 @@ weight: 50
 url: /cpp/licensing/
 ---
 
-## **Evaluation Version Limitations**
+## <ins>**Evaluation Version Limitations**
 We want our customers to test our components thoroughly before buying, so the evaluation version allows you to use it as you would normally. However there would be following limitations while using an evaluation version of the API:
 
 **PDF created with an evaluation watermark** 
@@ -13,7 +13,7 @@ The evaluation version of Aspose.PDF for C++ provides full product functionality
 
 **Limit of the Number of Collection Items that can be Processed** 
 In the evaluation version, only four items can be processed from any collection (for example, only four pages, four form fields, etc.).
-## **Apply License using File or Stream Object**
+## <ins>**Apply License using File or Stream Object**
 The license can be loaded from a file or stream object. Aspose.PDF for C++ will try to find the license in the following locations:
 
 1. Explicit path.

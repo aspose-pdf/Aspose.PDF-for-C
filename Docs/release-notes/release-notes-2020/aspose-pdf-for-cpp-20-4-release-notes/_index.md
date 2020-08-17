@@ -1,7 +1,7 @@
 ---
 title: Aspose.PDF for CPP 20.4 Release Notes
 type: docs
-weight: 10
+weight: 40
 url: /cpp/aspose-pdf-for-cpp-20-4-release-notes/
 ---
 

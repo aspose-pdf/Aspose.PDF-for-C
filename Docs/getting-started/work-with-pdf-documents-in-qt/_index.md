@@ -6,7 +6,7 @@ url: /cpp/work-with-pdf-documents-in-qt/
 ---
 
 Qt is a cross-platform application development framework that allows creating a variety of desktop, mobile, web, and embedded system applications. In this article, we will see how you can integrate our C++ PDF library to work with PDF documents in your Qt applications.
-## **Using Aspose.PDF for C++ within Qt**
+## <ins>**Using Aspose.PDF for C++ within Qt**
 In order to use Aspose.PDF for C++ in your Qt application on Windows Operating System, download the latest version of the API from the [downloads](https://downloads.aspose.com/pdf/cpp) section. Once the API is downloaded, you can use either of the following options to use it with Qt.
 
 - Using Qt Creator

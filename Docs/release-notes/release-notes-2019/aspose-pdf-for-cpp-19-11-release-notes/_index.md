@@ -10,7 +10,7 @@ url: /cpp/aspose-pdf-for-cpp-19-11-release-notes/
 This page contains release notes information for Aspose.PDF for C++ 19.11.
 
 {{% /alert %}} 
-# **Improvements and Changes**
+## <ins>**Improvements and Changes**
 1. This new version of Aspose.PDF for C++ has codebase of Aspose.PDF for .NET 19.11.
 1. Headers have been moved into Aspose.PDF.Cpp folder to avoid conflicts while using Aspose.PDF for C++ 19.11 together with other Aspose for C++ products (e.g. Aspose.Words for C++ 19.11).
 1. Conversion from/to .xps format has been added.

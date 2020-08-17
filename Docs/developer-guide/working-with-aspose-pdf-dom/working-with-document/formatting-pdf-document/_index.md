@@ -5,7 +5,7 @@ weight: 10
 url: /cpp/formatting-pdf-document/
 ---
 
-## **Get/Set Document Window and Page Display Properties**
+## <ins>**Get/Set Document Window and Page Display Properties**
 This topic helps you understand how to get/set properties of the document window, viewer application, and how pages pages are displayed. In order to get these properties:
 
 Open the PDF file using the Document class. Now, you can select the Document object's properties, such as
@@ -44,7 +44,7 @@ Each is used and described in the code below. The following code snippet shows y
 
 
 {{< gist "aspose-pdf" "e5fb9ddf5bd6460bb13d47fe5a83d86d" "Examples-PdfCPP-Document-GetSetDocWindowProperties-GetSetDocWindowProperties.cpp" >}}
-## **Embedding Fonts while creating PDF**
+## <ins>**Embedding Fonts while creating PDF**
 If you need to use any font other than the 14 core fonts supported by Adobe Reader, than you must embed the font description while generating PDF file. If font information is not embedded, Adobe Reader will take it from the Operating System if it’s installed over the system, or it will construct a substitute font according to the font descriptor in the PDF.
 
 {{% alert color="primary" %}} 
@@ -59,16 +59,21 @@ We use the method set_IsEmbedded of Font class to embed the font information int
 
 {{< gist "aspose-pdf" "e5fb9ddf5bd6460bb13d47fe5a83d86d" "Examples-PdfCPP-Document-EmbedFont-EmbedFont.cpp" >}}
 
+{{% alert color="primary" %}} 
+
 A font subset embeds only the characters that are used and is useful where fonts are used for short sentences or slogans, for example where a corporate font is used for a logo, but not for the body text. Using a subset reduces the file size of the output PDF.
 
 However if a custom font is used for the body text, embed it in its entirety.
-## **Set Zoom Factor of PDF File**
+
+{{% /alert %}} 
+
+## <ins>**Set Zoom Factor of PDF File**
 Sometimes, you want to set PDF document's zoom factor. With Aspose.PDF for C++, you can set the value of zoom factor by **set_OpenAction(...)** method of Document class.
 
 
 
 {{< gist "aspose-pdf" "e5fb9ddf5bd6460bb13d47fe5a83d86d" "Examples-PdfCPP-Document-SetZoomFactor-SetZoomFactor.cpp" >}}
-## **Set Particular Page to Display when Document is opened**
+## <ins>**Set Particular Page to Display when Document is opened**
 Sometimes, you want to display a particular page of a PDF file when it is opened in any PDF Viewer. Aspose.PDF for C++ allows you to specify page inside PDF document, which will be displayed when PDF is opened. Following code snippet shows you, how to create a document which displays full second page when opened.
 
 

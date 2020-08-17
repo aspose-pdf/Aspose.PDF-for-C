@@ -5,7 +5,7 @@ weight: 40
 url: /cpp/installation/
 ---
 
-## **Installing Aspose.PDF for C++**
+## <ins>**Installing Aspose.PDF for C++**
 ### **Manual Installation**
 You can download [Aspose.PDF for C++](https://www.nuget.org/packages/Aspose.PDF.Cpp/) from NuGet Gallery, by clicking the "Manual download" link in the Info Section. Offline API Documentation can also be found in downloaded ZIP package.
 

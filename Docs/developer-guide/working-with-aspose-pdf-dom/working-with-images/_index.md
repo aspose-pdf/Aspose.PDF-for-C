@@ -5,7 +5,7 @@ weight: 40
 url: /cpp/working-with-images/
 ---
 
-## **Create and Add Image into PDF Document**
+## <ins>**Create and Add Image into PDF Document**
 Sometimes it is needed to add images inside PDF pages to represent the content in a better way. Aspose.PDF for C++ allows you to add images inside PDF page, by using **AddImage(...)** method. The following code snippet demonstrates, how to create an image and add it inside a PDF page while creating a PDF document.
 
 

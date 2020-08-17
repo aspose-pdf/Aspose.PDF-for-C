@@ -5,7 +5,7 @@ weight: 30
 url: /cpp/system-requirements/
 ---
 
-## **Operating Systems**
+## <ins>**Operating Systems**
 Aspose.PDF for C++ is a native library and supports 32-bit operating systems.
 
 Supported Operating Systems include:
@@ -16,7 +16,7 @@ Supported Operating Systems include:
 Operating Systems which are not supported:
 
 - Old versions of OS (XP, Vista and Server 2003)
-## **Development Environments**
+## <ins>**Development Environments**
 You can use Aspose.PDF for C++ to develop applications in any development environment that support C++, but the following environments are explicitly supported:
 
 - Microsoft Visual Studio 2015 or later.

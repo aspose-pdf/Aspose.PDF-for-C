@@ -5,7 +5,7 @@ weight: 10
 url: /cpp/add-text-to-a-pdf-file/
 ---
 
-## **Adding Text while creating PDF File**
+## <ins>**Adding Text while creating PDF File**
 To add text to an existing PDF file:
 
 1. Create a Document object.
@@ -30,7 +30,7 @@ The following code snippet shows you how to add text in PDF document using TextB
 
 
 {{< gist "aspose-pdf" "e5fb9ddf5bd6460bb13d47fe5a83d86d" "Examples-PdfCPP-Text-AddText-AddText.cpp" >}}
-## **Align Paragraphs**
+## <ins>**Align Paragraphs**
 Following code snippet shows you, how to set alignment of text paragraphs inside PDF document.
 
 

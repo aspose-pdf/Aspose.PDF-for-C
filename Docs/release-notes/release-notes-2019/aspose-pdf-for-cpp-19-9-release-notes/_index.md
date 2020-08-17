@@ -10,7 +10,7 @@ url: /cpp/aspose-pdf-for-cpp-19-9-release-notes/
 This page contains release notes for Aspose.PDF for C++ 19.9
 
 {{% /alert %}} 
-### **Improvements and Changes**
+## <ins>**Improvements and Changes**
 1. New version of Aspose.PDF for C++ has codebase of Aspose.PDF for .Net 19.9
 1. System::Drawing subsystem is enhanced
 1. Exception type trimming issue is resolved
@@ -29,22 +29,22 @@ This page contains release notes for Aspose.PDF for C++ 19.9
 ### **API Reference changes in Aspose.PDF for C++ 19.9**
 Full API reference is available on [API Reference](https://apireference.aspose.com/cpp/pdf/) Page of Aspose.PDF for C++.
 #### **Added APIs:**
-Property Aspose.Pdf.Annotations.FreeTextAnnotation.TextRectangle               
+- Property Aspose.Pdf.Annotations.FreeTextAnnotation.TextRectangle               
 
-Class Aspose.Pdf.Annotations.ImportDataAction
+- Class Aspose.Pdf.Annotations.ImportDataAction
 
-Property Aspose.Pdf.Annotations.ImportDataAction.Data
+- Property Aspose.Pdf.Annotations.ImportDataAction.Data
 
-Property Aspose.Pdf.FloatingBox.BackgroundImage
+- Property Aspose.Pdf.FloatingBox.BackgroundImage
 
-Property Aspose.Pdf.Forms.CheckboxField.ExportValue
+- Property Aspose.Pdf.Forms.CheckboxField.ExportValue
 
-Property Aspose.Pdf.Text.TextEditOptions.ClippingPathsProcessing
+- Property Aspose.Pdf.Text.TextEditOptions.ClippingPathsProcessing
 
-Enumeration Aspose.Pdf.Text.TextEditOptions.ClippingPathsProcessingMode
+- Enumeration Aspose.Pdf.Text.TextEditOptions.ClippingPathsProcessingMode
 
-Enumeration member Aspose.Pdf.Text.TextEditOptions.ClippingPathsProcessingMode.KeepIntact
+- Enumeration member Aspose.Pdf.Text.TextEditOptions.ClippingPathsProcessingMode.KeepIntact
 
-Enumeration member Aspose.Pdf.Text.TextEditOptions.ClippingPathsProcessingMode.Expand
+- Enumeration member Aspose.Pdf.Text.TextEditOptions.ClippingPathsProcessingMode.Expand
 
-Enumeration member Aspose.Pdf.Text.TextEditOptions.ClippingPathsProcessingMode.Remove
+- Enumeration member Aspose.Pdf.Text.TextEditOptions.ClippingPathsProcessingMode.Remove

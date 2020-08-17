@@ -5,7 +5,7 @@ weight: 10
 url: /cpp/add-a-table/
 ---
 
-## **Add Table to PDF using C++**
+## <ins>**Add Table to PDF using C++**
 Tables in a PDF document organize data in rows and columns in a systematic manner. Aspose.PDF for C++ API lets you add tables to a PDF document, and add rows and columns to it in your C++ applications. The [Table](https://apireference.aspose.com/cpp/pdf/class/aspose.pdf.table/) class is used to add a table to the document. The following steps can be followed to add a table to a PDF document using C++.
 
 1. Create a Document object

@@ -10,7 +10,7 @@ url: /cpp/aspose-pdf-for-cpp-19-8-release-notes/
 This page contains release notes for [Aspose.PDF for C++ 19.8](https://www.nuget.org/packages/Aspose.PDF.CPP/19.8.0)
 
 {{% /alert %}} 
-### **Improvements and Changes**
+## <ins>**Improvements and Changes**
 New version of Aspose.PDF for C++ has codebase of Aspose.PDF for .Net 19.8.
 ### **Minor Changes**
 
