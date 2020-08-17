@@ -18,7 +18,7 @@ Aspose.PDF for C++ is a native C++ library that enables developers to create, re
 ## **Aspose.PDF for C++ Resources**
 The following links offer some useful resources you may need to accomplish your tasks.
 
-- [Aspose.PDF for C++ Online Documentation](/pdf/))
+- [Aspose.PDF for C++ Online Documentation](/pdf/)
 - [Aspose.PDF for C++ Features](/pdf/cpp/product-overview/)
 - [Aspose.PDF for C++ Release Notes](/pdf/cpp/release-notes/)
 - [Aspose.PDF for C++ Product Page](https://products.aspose.com/pdf/cpp)
