@@ -15,5 +15,5 @@ This hotfix version provides solution for the error while exporting PDF data to 
 
 ## **Improvements and Changes**
 |Key|Summary|Category|
----|---|---
-PDFCPP-1359|Error Converting PDF to Excel | Bug|
+---|---|---|
+|PDFCPP-1359|Error Converting PDF to Excel | Bug|
