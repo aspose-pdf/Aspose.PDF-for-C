@@ -1,0 +1,11 @@
+﻿  AddAnnotation.cpp
+  DeleteAllAnnotations.cpp
+  DeleteParticularAnnotation.cpp
+  ExportAnnotations.cpp
+  ExtractAnnotations.cpp
+  ImportAnnotations.cpp
+  ModifyAnnotations.cpp
+  AddAttachments.cpp
+  DeleteAttachments.cpp
+  GetAttachmentInformation.cpp
+MSBUILD : error MSB4166: Child node "2" exited prematurely. Shutting down. Diagnostic information may be found in files in "C:\Users\hp\AppData\Local\Temp\" and will be named MSBuild_*.failure.txt. This location can be changed by setting the MSBUILDDEBUGPATH environment variable to a different directory.

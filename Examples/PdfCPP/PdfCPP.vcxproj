@@ -206,22 +206,22 @@
     <ClCompile Include="Text\ReplaceTextOnParticularPage.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Aspose.Pdf.h" />
     <ClInclude Include="PDFExamples.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\packages\CodePorting.Native.Cs2Cpp.API.20.3.0\build\native\CodePorting.Native.Cs2Cpp.API.targets" Condition="Exists('..\packages\CodePorting.Native.Cs2Cpp.API.20.3.0\build\native\CodePorting.Native.Cs2Cpp.API.targets')" />
-    <Import Project="..\packages\Aspose.PDF.Cpp.20.3.0\build\native\aspose.pdf.cpp.targets" Condition="Exists('..\packages\Aspose.PDF.Cpp.20.3.0\build\native\aspose.pdf.cpp.targets')" />
+    <Import Project="..\packages\CodePorting.Native.Cs2Cpp.API.20.10.0\build\native\CodePorting.Native.Cs2Cpp.API.targets" Condition="Exists('..\packages\CodePorting.Native.Cs2Cpp.API.20.10.0\build\native\CodePorting.Native.Cs2Cpp.API.targets')" />
+    <Import Project="..\packages\Aspose.PDF.Cpp.20.10.0\build\native\aspose.pdf.cpp.targets" Condition="Exists('..\packages\Aspose.PDF.Cpp.20.10.0\build\native\aspose.pdf.cpp.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\CodePorting.Native.Cs2Cpp.API.20.3.0\build\native\CodePorting.Native.Cs2Cpp.API.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CodePorting.Native.Cs2Cpp.API.20.3.0\build\native\CodePorting.Native.Cs2Cpp.API.targets'))" />
-    <Error Condition="!Exists('..\packages\Aspose.PDF.Cpp.20.3.0\build\native\aspose.pdf.cpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aspose.PDF.Cpp.20.3.0\build\native\aspose.pdf.cpp.targets'))" />
+    <Error Condition="!Exists('..\packages\CodePorting.Native.Cs2Cpp.API.20.10.0\build\native\CodePorting.Native.Cs2Cpp.API.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CodePorting.Native.Cs2Cpp.API.20.10.0\build\native\CodePorting.Native.Cs2Cpp.API.targets'))" />
+    <Error Condition="!Exists('..\packages\Aspose.PDF.Cpp.20.10.0\build\native\aspose.pdf.cpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aspose.PDF.Cpp.20.10.0\build\native\aspose.pdf.cpp.targets'))" />
   </Target>
 </Project>

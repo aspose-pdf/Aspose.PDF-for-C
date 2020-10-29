@@ -5,6 +5,7 @@ using namespace Aspose::Pdf::Text;
 
 void ExtractText()
 {
+	
 	// ExStart:ExtractText	
 	auto extractor = MakeObject<Facades::PdfExtractor>();	
 	extractor->BindPdf(u"..\\Data\\Text\\input.pdf");
