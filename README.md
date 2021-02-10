@@ -1,3 +1,4 @@
+![Nuget](https://img.shields.io/nuget/v/Aspose.pdf.Cpp) ![Nuget](https://img.shields.io/nuget/dt/Aspose.pdf.Cpp) ![GitHub](https://img.shields.io/github/license/aspose-pdf/Aspose.PDF-for-C)
 # C++ API to Process & Manipulate PDF Files
 
 [Aspose.PDF for C++](https://products.aspose.com/pdf/cpp) is a native C++ library that allows to create, process, manipulate and convert PDF documents without installing Adobe Acrobat®.
